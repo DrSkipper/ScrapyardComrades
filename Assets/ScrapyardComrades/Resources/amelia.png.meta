@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9c805a874707c1d43af4612aa16f33c8
-timeCreated: 1452761796
+timeCreated: 1452806861
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,10 @@ TextureImporter:
     21300002: amelia_jump_0
     21300004: amelia_run_0
     21300006: amelia_fall_0
+    21300008: amelia_run_1
+    21300010: amelia_jump_1
+    21300012: amelia_fall_1
+    21300014: amelia_idle_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -93,6 +97,46 @@ TextureImporter:
         height: 40
       alignment: 9
       pivot: {x: .32100001, y: .470999986}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: amelia_run_1
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 165
+        width: 54
+        height: 32
+      alignment: 9
+      pivot: {x: .246773049, y: .491429806}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: amelia_jump_1
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 210
+        width: 60
+        height: 36
+      alignment: 9
+      pivot: {x: .356000006, y: .492000014}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: amelia_fall_1
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 116
+        width: 48
+        height: 40
+      alignment: 9
+      pivot: {x: .32100001, y: .470999986}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: amelia_idle_1
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 249
+        width: 52
+        height: 32
+      alignment: 9
+      pivot: {x: .317999989, y: .481999993}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

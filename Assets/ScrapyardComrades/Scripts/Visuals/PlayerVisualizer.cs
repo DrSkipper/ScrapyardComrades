@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
-using System;
 
+[RequireComponent(typeof(SCSpriteAnimator))]
 public class PlayerVisualizer : VoBehavior
 {
     public GameObject PlayerObject = null;
-    public Sprite IdleSprite;
-    public Sprite RunningSprite;
-    public Sprite JumpingSprite;
-    public Sprite FallingSprite;
+    public SCSpriteAnimation IdleAnimation;
+    public SCSpriteAnimation RunAnimation;
+    public SCSpriteAnimation JumpAnimation;
+    public SCSpriteAnimation FallAnimation;
 
     private const string IDLE_STATE = "idle";
     private const string RUNNING_STATE = "run";
@@ -17,6 +17,7 @@ public class PlayerVisualizer : VoBehavior
     void Awake()
     {
         _playerController = this.PlayerObject != null ? this.PlayerObject.GetComponent<PlayerController>() : this.GetComponent<PlayerController>();
+        _spriteAnimator = this.GetComponent<SCSpriteAnimator>();
         _stateMachine = new FSMStateMachine();
         _stateMachine.AddState(IDLE_STATE, this.updateGeneric, this.enterIdle);
         _stateMachine.AddState(RUNNING_STATE, this.updateGeneric, this.enterRunning);
@@ -38,6 +39,7 @@ public class PlayerVisualizer : VoBehavior
      */
     private PlayerController _playerController;
     private FSMStateMachine _stateMachine;
+    private SCSpriteAnimator _spriteAnimator;
 
     private string updateGeneric()
     {
@@ -55,7 +57,7 @@ public class PlayerVisualizer : VoBehavior
     private void enterIdle()
     {
         //TODO - Handle transitions from Previous State
-        this.spriteRenderer.sprite = this.IdleSprite;
+        _spriteAnimator.PlayAnimation(this.IdleAnimation);
     }
 
     private void exitIdle()
@@ -64,7 +66,7 @@ public class PlayerVisualizer : VoBehavior
 
     private void enterRunning()
     {
-        this.spriteRenderer.sprite = this.RunningSprite;
+        _spriteAnimator.PlayAnimation(this.RunAnimation);
     }
 
     private void exitRunning()
@@ -73,7 +75,7 @@ public class PlayerVisualizer : VoBehavior
 
     private void enterJumping()
     {
-        this.spriteRenderer.sprite = this.JumpingSprite;
+        _spriteAnimator.PlayAnimation(this.JumpAnimation);
     }
 
     private void exitJumping()
@@ -82,7 +84,7 @@ public class PlayerVisualizer : VoBehavior
 
     private void enterFalling()
     {
-        this.spriteRenderer.sprite = this.FallingSprite;
+        _spriteAnimator.PlayAnimation(this.FallAnimation);
     }
 
     private void exitFalling()

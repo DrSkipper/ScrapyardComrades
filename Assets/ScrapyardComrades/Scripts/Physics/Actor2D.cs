@@ -7,6 +7,7 @@ public class Actor2D : VoBehavior
     public Vector2 Velocity;
     public LayerMask HaltMovementMask;
     public LayerMask CollisionMask;
+    public Transform ActualPosition;
 
     public const float MAX_POSITION_INCREMENT = 1.0f;
     public const int BOUNCE_DETECTION_RANGE = 1;
@@ -19,6 +20,9 @@ public class Actor2D : VoBehavior
 
         if (modifiedVelocity.x != 0.0f || modifiedVelocity.y != 0.0f)
             Move(modifiedVelocity * Time.deltaTime);
+
+        if (this.ActualPosition != null)
+            this.ActualPosition.localPosition = new Vector3(_positionModifier.x, _positionModifier.y);
     }
 
     public bool IsGrounded
