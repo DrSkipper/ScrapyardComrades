@@ -93,4 +93,9 @@ public static class GameplayInput
     {
         return Input.GetKey(KeyCode.Space) || Input.GetButton("Jump");
     }
+
+    public static bool AttackStarted()
+    {
+        return Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl) || Input.GetButtonDown("Attack");
+    }
 }

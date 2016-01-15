@@ -30,7 +30,8 @@ public class SCSpriteAnimator : VoBehavior
         if (_playing)
         {
             _elapsed += SCPhysics.DeltaFrames;
-            float nextFrameTime = _frame >= _currentAnimation.Frames.Length - 1 ? _currentAnimation.LengthInFrames : (_frame + 1) * (((float)_currentAnimation.LengthInFrames) / ((float)_currentAnimation.Frames.Length));
+            float frameDuration = ((float)_currentAnimation.LengthInFrames) / ((float)_currentAnimation.Frames.Length);
+            float nextFrameTime = _frame >= _currentAnimation.Frames.Length - 1 ? _currentAnimation.LengthInFrames : (_frame + 1) * frameDuration;
 
             if (_elapsed >= nextFrameTime)
             {
@@ -38,8 +39,8 @@ public class SCSpriteAnimator : VoBehavior
                 {
                     if (_looping)
                     {
-                        _frame = 0;
-                        _elapsed = 0.0f;
+                        _frame = _currentAnimation.LoopFrame;
+                        _elapsed = _currentAnimation.LoopFrame * frameDuration;
                     }
                     else
                     {

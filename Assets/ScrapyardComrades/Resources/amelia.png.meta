@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9c805a874707c1d43af4612aa16f33c8
-timeCreated: 1452806861
+timeCreated: 1452813188
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -12,6 +12,11 @@ TextureImporter:
     21300010: amelia_jump_1
     21300012: amelia_fall_1
     21300014: amelia_idle_1
+    21300016: amelia_attack_neutral_0
+    21300018: amelia_attack_neutral_1
+    21300020: amelia_attack_neutral_2
+    21300022: amelia_attack_neutral_3
+    21300024: amelia_attack_neutral_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -137,6 +142,56 @@ TextureImporter:
         height: 32
       alignment: 9
       pivot: {x: .317999989, y: .481999993}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: amelia_attack_neutral_0
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 117
+        width: 44
+        height: 52
+      alignment: 9
+      pivot: {x: .345999986, y: .342999995}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: amelia_attack_neutral_1
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 57
+        width: 48
+        height: 46
+      alignment: 9
+      pivot: {x: .479000002, y: .400000006}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: amelia_attack_neutral_2
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 56
+        width: 58
+        height: 46
+      alignment: 9
+      pivot: {x: .540000021, y: .400000006}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: amelia_attack_neutral_3
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 55
+        width: 58
+        height: 46
+      alignment: 9
+      pivot: {x: .540000021, y: .400000006}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: amelia_attack_neutral_4
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 56
+        width: 58
+        height: 46
+      alignment: 9
+      pivot: {x: .540000021, y: .400000006}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

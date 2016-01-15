@@ -13,6 +13,7 @@ public class PlayerVisualizer : VoBehavior
     private const string RUNNING_STATE = "run";
     private const string JUMPING_STATE = "jump";
     private const string FALLING_STATE = "fall";
+    private const string ATTACK_STATE = "attack";
 
     void Awake()
     {
@@ -23,6 +24,7 @@ public class PlayerVisualizer : VoBehavior
         _stateMachine.AddState(RUNNING_STATE, this.updateGeneric, this.enterRunning);
         _stateMachine.AddState(JUMPING_STATE, this.updateGeneric, this.enterJumping);
         _stateMachine.AddState(FALLING_STATE, this.updateGeneric, this.enterFalling);
+        _stateMachine.AddState(ATTACK_STATE, this.updateAttack, this.enterAttack);
         _stateMachine.BeginWithInitialState(IDLE_STATE);
 
         this.localNotifier.Listen(PlayerUpdateFinishedEvent.NAME, this, this.UpdateVisual);
@@ -30,6 +32,10 @@ public class PlayerVisualizer : VoBehavior
 
     public void UpdateVisual(LocalEventNotifier.Event localEvent)
     {
+        SCAttack attack = ((PlayerUpdateFinishedEvent)localEvent).CurrentAttack;
+        _attackChanged = _currentAttack != null && _currentAttack != attack;
+        _currentAttack = attack;
+
         _stateMachine.Update();
         this.transform.localScale = new Vector3((_playerController.CurrentFacing == PlayerController.Facing.Left ? -1 : 1) * Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
     }
@@ -40,10 +46,16 @@ public class PlayerVisualizer : VoBehavior
     private PlayerController _playerController;
     private FSMStateMachine _stateMachine;
     private SCSpriteAnimator _spriteAnimator;
+    private SCAttack _currentAttack;
+    private bool _attackChanged;
 
     private string updateGeneric()
     {
-        if (!_playerController.OnGround)
+        if (_currentAttack != null)
+        {
+            return ATTACK_STATE;
+        }
+        else if (!_playerController.OnGround)
         {
             if (GameplayInput.Jump() && _playerController.Velocity.y > 0.0f)
                 return JUMPING_STATE;
@@ -54,14 +66,26 @@ public class PlayerVisualizer : VoBehavior
         return IDLE_STATE;
     }
 
+    private string updateAttack()
+    {
+        if (_currentAttack == null)
+            return updateGeneric();
+
+        if (_attackChanged)
+            _spriteAnimator.PlayAnimation(_currentAttack.SpriteAnimation);
+
+        return ATTACK_STATE;
+    }
+
+    private void enterAttack()
+    {
+        _spriteAnimator.PlayAnimation(_currentAttack.SpriteAnimation);
+    }
+
     private void enterIdle()
     {
         //TODO - Handle transitions from Previous State
         _spriteAnimator.PlayAnimation(this.IdleAnimation);
-    }
-
-    private void exitIdle()
-    {
     }
 
     private void enterRunning()
@@ -69,25 +93,13 @@ public class PlayerVisualizer : VoBehavior
         _spriteAnimator.PlayAnimation(this.RunAnimation);
     }
 
-    private void exitRunning()
-    {
-    }
-
     private void enterJumping()
     {
         _spriteAnimator.PlayAnimation(this.JumpAnimation);
     }
 
-    private void exitJumping()
-    {
-    }
-
     private void enterFalling()
     {
         _spriteAnimator.PlayAnimation(this.FallAnimation);
-    }
-
-    private void exitFalling()
-    {
     }
 }

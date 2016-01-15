@@ -26,6 +26,7 @@ public class PlayerController : Actor2D
     public float RunDecceleration = 3.0f;
     public float AirRunAcceleration = 0.1f;
 
+    public SCMoveSet MoveSet;
     public Facing CurrentFacing { get { return _facing; } }
     public bool OnGround { get { return _onGround; } }
     public DirectionalVector2 MoveAxis { get { return _moveAxis; } }
@@ -37,6 +38,9 @@ public class PlayerController : Actor2D
 
         _jumpGraceTimer = new Timer(this.JumpGraceFrames);
         _jumpGraceTimer.complete();
+
+        _attackTimer = new Timer(1.0f);
+        _attackTimer.complete();
     }
 
     public override void Update()
@@ -107,11 +111,30 @@ public class PlayerController : Actor2D
             _velocity.y = _velocity.y.Approach(-targetFallSpeed, -gravity * SCPhysics.DeltaFrames);
         }
 
-        // Check if it's time to jump
-        if (GameplayInput.JumpStarted() || !_jumpBufferTimer.completed)
+        if (_currentAttack == null)
         {
-            if (!_jumpGraceTimer.completed)
-                jump();
+            // Check if it's time to jump
+            if (GameplayInput.JumpStarted() || !_jumpBufferTimer.completed)
+            {
+                if (!_jumpGraceTimer.completed)
+                    jump();
+            }
+
+            // Or if we're beginning an attack
+            else if (GameplayInput.AttackStarted())
+            {
+                _currentAttack = this.MoveSet.GroundNeutral;
+                _attackTimer.reset(_currentAttack.NormalFrameLength);
+                _attackTimer.start();
+            }
+        }
+        else
+        {
+            // Update the attack
+            _attackTimer.update(SCPhysics.DeltaFrames);
+
+            if (_attackTimer.completed)
+                _currentAttack = null;
         }
 
         if (_moveAxis.X != 0)
@@ -120,7 +143,7 @@ public class PlayerController : Actor2D
         this.Velocity = _velocity;
         base.Update();
 
-        this.localNotifier.SendEvent(new PlayerUpdateFinishedEvent());
+        this.localNotifier.SendEvent(new PlayerUpdateFinishedEvent(_currentAttack));
     }
 
     /**
@@ -133,6 +156,8 @@ public class PlayerController : Actor2D
     private DirectionalVector2 _moveAxis;
     private bool _canJumpHold;
     private bool _onGround;
+    private SCAttack _currentAttack;
+    private Timer _attackTimer;
 
     private void jump()
     {
