@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9c805a874707c1d43af4612aa16f33c8
-timeCreated: 1452813188
+timeCreated: 1452838204
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -17,6 +17,8 @@ TextureImporter:
     21300020: amelia_attack_neutral_2
     21300022: amelia_attack_neutral_3
     21300024: amelia_attack_neutral_4
+    21300026: amelia_run_2
+    21300028: amelia_run_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -71,7 +73,7 @@ TextureImporter:
         width: 50
         height: 33
       alignment: 9
-      pivot: {x: .305000007, y: .51700002}
+      pivot: {x: .305000007, y: .50999999}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: amelia_jump_0
       rect:
@@ -86,12 +88,12 @@ TextureImporter:
     - name: amelia_run_0
       rect:
         serializedVersion: 2
-        x: 255
-        y: 166
-        width: 50
-        height: 33
+        x: 186
+        y: 247
+        width: 36
+        height: 50
       alignment: 9
-      pivot: {x: .263000011, y: .51700002}
+      pivot: {x: .488000005, y: .340000004}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: amelia_fall_0
       rect:
@@ -106,12 +108,12 @@ TextureImporter:
     - name: amelia_run_1
       rect:
         serializedVersion: 2
-        x: 313
-        y: 165
-        width: 54
-        height: 32
+        x: 222
+        y: 248
+        width: 36
+        height: 50
       alignment: 9
-      pivot: {x: .246773049, y: .491429806}
+      pivot: {x: .455000013, y: .340000004}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: amelia_jump_1
       rect:
@@ -141,7 +143,7 @@ TextureImporter:
         width: 52
         height: 32
       alignment: 9
-      pivot: {x: .317999989, y: .481999993}
+      pivot: {x: .317999989, y: .50999999}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: amelia_attack_neutral_0
       rect:
@@ -192,6 +194,26 @@ TextureImporter:
         height: 46
       alignment: 9
       pivot: {x: .540000021, y: .400000006}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: amelia_run_2
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 249
+        width: 36
+        height: 46
+      alignment: 9
+      pivot: {x: .449999988, y: .340000004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: amelia_run_3
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 250
+        width: 36
+        height: 46
+      alignment: 9
+      pivot: {x: .449999988, y: .340000004}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
