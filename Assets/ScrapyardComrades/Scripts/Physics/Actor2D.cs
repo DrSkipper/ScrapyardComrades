@@ -7,6 +7,7 @@ public class Actor2D : VoBehavior
     public Vector2 Velocity;
     public LayerMask HaltMovementMask;
     public LayerMask CollisionMask;
+    public bool CheckCollisionsWhenStill = false;
     public Transform ActualPosition;
 
     public const float MAX_POSITION_INCREMENT = 1.0f;
@@ -19,15 +20,26 @@ public class Actor2D : VoBehavior
             modifiedVelocity += modifier.Modifier;
 
         if (modifiedVelocity.x != 0.0f || modifiedVelocity.y != 0.0f)
+        {
             Move(modifiedVelocity * Time.deltaTime);
+        }
+        else if (this.CheckCollisionsWhenStill)
+        {
+            this.integerCollider.Collide(_collisionsFromMove, 0, 0, this.CollisionMask);
+
+            if (_collisionsFromMove.Count > 0)
+            {
+                GameObject[] collisions = _collisionsFromMove.ToArray();
+                _collisionsFromMove.Clear();
+                this.localNotifier.SendEvent(new CollisionEvent(collisions, Vector2.zero, Vector2.zero));
+
+                foreach (GameObject collision in collisions)
+                    this.localNotifier.SendEvent(new HitEvent(collision));
+            }
+        }
 
         if (this.ActualPosition != null)
             this.ActualPosition.localPosition = new Vector3(_positionModifier.x, _positionModifier.y);
-    }
-
-    public bool IsGrounded
-    {
-        get { return this.integerCollider.CollideFirst(0, -1, this.HaltMovementMask) != null; }
     }
 
     public void Move(Vector2 d)
