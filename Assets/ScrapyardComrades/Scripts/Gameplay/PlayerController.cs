@@ -155,6 +155,11 @@ public class PlayerController : Actor2D
         this.localNotifier.SendEvent(new PlayerUpdateFinishedEvent(_currentAttack));
     }
 
+    public bool IsGrounded
+    {
+        get { return this.integerCollider.CollideFirst(0, -1, this.HaltMovementMask) != null; }
+    }
+
     /**
      * Private
      */
