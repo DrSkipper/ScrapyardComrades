@@ -81,7 +81,7 @@ public class Actor2D : VoBehavior
 
             if (_haltX && _haltY)
                 break;
-            
+
             if (soFar.magnitude >= dMagnitude)
                 break;
         }
@@ -173,7 +173,7 @@ public class Actor2D : VoBehavior
     private Dictionary<string, VelocityModifier> _velocityModifiers = new Dictionary<string, VelocityModifier>();
     private bool _haltX;
     private bool _haltY;
-    
+
     // Returns actual amount applied to movement
     private float moveX(float dx, List<GameObject> collisions, List<GameObject> horizontalCollisions, List<IntegerCollider> potentialCollisions)
     {
@@ -214,7 +214,7 @@ public class Actor2D : VoBehavior
 
         return dx;
     }
-    
+
     private float moveY(float dy, List<GameObject> collisions, List<GameObject> verticalCollisions, List<IntegerCollider> potentialCollisions)
     {
         _positionModifier.y += dy;

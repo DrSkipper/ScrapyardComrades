@@ -48,10 +48,10 @@ public struct IntegerRect
         IntegerVector selfMax = this.Max;
         IntegerVector otherMin = other.Min;
         IntegerVector otherMax = other.Max;
-        
-        return ((otherMin.X >= selfMin.X && otherMin.X < selfMax.X) || (otherMax.X > selfMin.X && otherMax.X <= selfMax.X) || 
-                (selfMin.X >= otherMin.X && selfMin.X < otherMax.X) || (selfMax.X > otherMin.X && selfMax.X <= otherMax.X)) && 
-               ((otherMin.Y >= selfMin.Y && otherMin.Y < selfMax.Y) || (otherMax.Y > selfMin.Y && otherMax.Y <= selfMax.Y) || 
+
+        return ((otherMin.X >= selfMin.X && otherMin.X < selfMax.X) || (otherMax.X > selfMin.X && otherMax.X <= selfMax.X) ||
+                (selfMin.X >= otherMin.X && selfMin.X < otherMax.X) || (selfMax.X > otherMin.X && selfMax.X <= otherMax.X)) &&
+               ((otherMin.Y >= selfMin.Y && otherMin.Y < selfMax.Y) || (otherMax.Y > selfMin.Y && otherMax.Y <= selfMax.Y) ||
                 (selfMin.Y >= otherMin.Y && selfMin.Y < otherMax.Y) || (selfMax.Y > otherMin.Y && selfMax.Y <= otherMax.Y));
     }
 
@@ -78,7 +78,7 @@ public struct IntegerRect
         int db = Math.Abs(selfMin.Y - clampedY);
         int dt = Math.Abs(clampedY - selfMax.Y);
 
-        int min = Mathf.Min(new int[] {dl, dr, db, dt});
+        int min = Mathf.Min(new int[] { dl, dr, db, dt });
         if (min == db) return new IntegerVector(clampedX, selfMin.Y);
         if (min == dt) return new IntegerVector(clampedX, selfMax.Y);
         if (min == dl) return new IntegerVector(selfMin.X, clampedY);
@@ -104,6 +104,8 @@ public struct IntegerVector
         this.Y = Mathf.RoundToInt(v.y);
     }
 
+    public static IntegerVector Zero { get { return new IntegerVector(); } }
+
     public static IntegerVector operator +(IntegerVector v1, IntegerVector v2)
     {
         return new IntegerVector(v1.X + v2.X, v1.Y + v2.Y);
@@ -124,10 +126,35 @@ public struct IntegerVector
         return new IntegerVector(v.X / i, v.Y / i);
     }
 
-    public static implicit operator Vector2 (IntegerVector v)
+    public static implicit operator Vector2(IntegerVector v)
     {
         return new Vector2(v.X, v.Y);
     }
 
-    public static IntegerVector Zero { get { return new IntegerVector(); } }
+    public static implicit operator IntegerVector(Vector2 v)
+    {
+        return new IntegerVector(v);
+    }
+
+    public static bool operator ==(IntegerVector v1, IntegerVector v2)
+    {
+        return v1.X == v2.X && v1.Y == v2.Y;
+    }
+
+    public static bool operator !=(IntegerVector v1, IntegerVector v2)
+    {
+        return !(v1 == v2);
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj is IntegerVector)
+            return this == (IntegerVector)obj;
+        return base.Equals(obj);
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
 }

@@ -10,8 +10,8 @@ public class CollisionManager : VoBehavior
     public int RaycastChunkSize = 32;
 
     public const float RAYCAST_MAX_POSITION_INCREMENT = 1.0f;
-    public const int MAX_SOLIDS_X = 64;
-    public const int MAX_SOLIDS_Y = 64;
+    public const int MAX_SOLIDS_X = 32;
+    public const int MAX_SOLIDS_Y = 32;
     public const int MAX_SOLIDS_X_2 = MAX_SOLIDS_X / 2;
     public const int MAX_SOLIDS_Y_2 = MAX_SOLIDS_Y / 2;
 
@@ -76,7 +76,7 @@ public class CollisionManager : VoBehavior
             {
                 foreach (IntegerCollider collider in _collidersByLayer[key])
                 {
-                    if ((objectTag == null || collider.tag == objectTag) && 
+                    if ((objectTag == null || collider.tag == objectTag) &&
                         collider.Bounds.Overlaps(range))
                         colliders.Add(collider);
                 }
@@ -128,7 +128,7 @@ public class CollisionManager : VoBehavior
             {
                 foreach (IntegerCollider collider in _collidersByLayer[key])
                 {
-                    if ((objectTag == null || collider.tag == objectTag) && 
+                    if ((objectTag == null || collider.tag == objectTag) &&
                         collider.Contains(point))
                         return collider.gameObject;
                 }
@@ -147,7 +147,7 @@ public class CollisionManager : VoBehavior
         }
         return null;
     }
-    
+
     public RaycastResult RaycastFirst(IntegerVector origin, Vector2 direction, float range = 100000.0f, int mask = Physics2D.DefaultRaycastLayers, string objectTag = null)
     {
         Vector2 d = direction * range;
@@ -169,7 +169,7 @@ public class CollisionManager : VoBehavior
             incX = dNormalized.x;
             incY = dNormalized.y;
         }
-        
+
         Vector2 projected = Vector2.zero;
         Vector2 soFar = Vector2.zero;
         float dMagnitude = d.magnitude;
@@ -217,7 +217,7 @@ public class CollisionManager : VoBehavior
                     hit.CollidedX = true;
                     result.Collisions[0] = hit;
                 }
-                
+
                 position = checkPos;
 
                 if (result.Collided)
@@ -225,7 +225,7 @@ public class CollisionManager : VoBehavior
 
                 move -= unitDir;
             }
-            
+
             if (result.Collided)
                 break;
 
@@ -389,6 +389,150 @@ public class CollisionManager : VoBehavior
         }
 
         result.Collisions = collisions.ToArray();
+        result.FarthestPointReached = position;
+        return result;
+    }
+
+    public RaycastResult RaycastUntil(List<RaycastCollision> passThroughCollisions, IntegerVector origin, Vector2 direction, int passThroughMask, int haltMask, float range = 100000.0f)
+    {
+        passThroughMask &= ~haltMask;
+        Vector2 d = direction * range;
+        Vector2 chunkD = range <= this.RaycastChunkSize ? d : direction * this.RaycastChunkSize;
+
+        IntegerVector halfwayPoint = new IntegerVector(chunkD / 2.0f) + origin;
+        IntegerVector rangeVector = new IntegerVector(Mathf.RoundToInt(Mathf.Abs(chunkD.x) + 2.55f), Mathf.RoundToInt(Mathf.Abs(chunkD.y) + 2.55f));
+        List<IntegerCollider> possibleCollisions = this.GetCollidersInRange(new IntegerRect(halfwayPoint, rangeVector), passThroughMask | haltMask);
+
+        Vector2 positionModifier = Vector2.zero;
+        IntegerVector position = origin;
+
+        float incX = d.x;
+        float incY = d.y;
+
+        if (Mathf.Abs(incX) > RAYCAST_MAX_POSITION_INCREMENT || Mathf.Abs(incY) > RAYCAST_MAX_POSITION_INCREMENT)
+        {
+            Vector2 dNormalized = d.normalized * RAYCAST_MAX_POSITION_INCREMENT;
+            incX = dNormalized.x;
+            incY = dNormalized.y;
+        }
+
+        Vector2 projected = Vector2.zero;
+        Vector2 soFar = Vector2.zero;
+        float dMagnitude = d.magnitude;
+        RaycastResult result = new RaycastResult();
+        List<IntegerCollider> collided = new List<IntegerCollider>();
+        bool endReached = false;
+        int chunksSoFar = 1;
+
+        while (true)
+        {
+            if (soFar.magnitude >= this.RaycastChunkSize * chunksSoFar)
+            {
+                // Recalculate chunk
+                halfwayPoint = new IntegerVector(chunkD / 2.0f) + position;
+                rangeVector = new IntegerVector(Mathf.RoundToInt(Mathf.Abs(chunkD.x) + 2.55f), Mathf.RoundToInt(Mathf.Abs(chunkD.y) + 2.55f));
+                possibleCollisions = this.GetCollidersInRange(new IntegerRect(halfwayPoint, rangeVector), passThroughMask | haltMask);
+                foreach (IntegerCollider collider in collided)
+                    possibleCollisions.Remove(collider);
+                ++chunksSoFar;
+            }
+
+            projected.x += incX;
+            projected.y += incY;
+
+            if (projected.magnitude > dMagnitude)
+            {
+                incX = d.x - soFar.x;
+                incY = d.y - soFar.y;
+                endReached = true;
+            }
+
+            positionModifier.x += incX;
+            int move = (int)positionModifier.x;
+
+            positionModifier.x -= move;
+            int unitDir = Math.Sign(move);
+
+            while (move != 0)
+            {
+                IntegerVector checkPos = new IntegerVector(position.X + unitDir, position.Y);
+                GameObject collision = this.CollidePointFirst(checkPos, possibleCollisions);
+                if (collision)
+                {
+                    IntegerCollider collider = collision.GetComponent<IntegerCollider>();
+                    possibleCollisions.Remove(collider);
+                    RaycastCollision hit = new RaycastCollision();
+                    hit.CollidedObject = collision;
+                    hit.CollisionPoint = position;
+                    hit.CollidedX = true;
+                    if (((1 << collision.layer) & passThroughMask) != 0)
+                    {
+                        passThroughCollisions.Add(hit);
+                        collided.Add(collider);
+                    }
+                    else
+                    {
+                        result.Collisions = new RaycastCollision[1];
+                        result.Collisions[0] = hit;
+                    }
+                }
+
+                position = checkPos;
+
+                if (result.Collided)
+                    break;
+
+                move -= unitDir;
+            }
+
+            if (result.Collided)
+                break;
+
+            positionModifier.y += incY;
+            move = (int)positionModifier.y;
+
+            positionModifier.y -= move;
+            unitDir = Math.Sign(move);
+
+            while (move != 0)
+            {
+                IntegerVector checkPos = new IntegerVector(position.X, position.Y + unitDir);
+                GameObject collision = this.CollidePointFirst(checkPos, possibleCollisions);
+                if (collision)
+                {
+                    IntegerCollider collider = collision.GetComponent<IntegerCollider>();
+                    possibleCollisions.Remove(collider);
+                    RaycastCollision hit = new RaycastCollision();
+                    hit.CollidedObject = collision;
+                    hit.CollisionPoint = position;
+                    hit.CollidedY = true;
+                    if (((1 << collision.layer) & passThroughMask) != 0)
+                    {
+                        passThroughCollisions.Add(hit);
+                        collided.Add(collider);
+                    }
+                    else
+                    {
+                        result.Collisions = new RaycastCollision[1];
+                        result.Collisions[0] = hit;
+                    }
+                }
+
+                position = checkPos;
+
+                if (result.Collided)
+                    break;
+
+                move -= unitDir;
+            }
+
+            if (result.Collided || endReached)
+                break;
+
+            soFar.x = projected.x;
+            soFar.y = projected.y;
+        }
+
         result.FarthestPointReached = position;
         return result;
     }
