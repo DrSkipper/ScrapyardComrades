@@ -18,14 +18,14 @@
          "objects":[
                 {
                  "gid":37,
-                 "height":30,
-                 "id":8,
+                 "height":26,
+                 "id":21,
                  "name":"player",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":30,
-                 "x":20,
+                 "width":14,
+                 "x":18,
                  "y":200
                 }],
          "opacity":1,
@@ -35,7 +35,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":15,
+ "nextobjectid":22,
  "orientation":"orthogonal",
  "renderorder":"right-up",
  "tileheight":10,
@@ -105,14 +105,14 @@
          "columns":1,
          "firstgid":37,
          "image":"..\/player_spawn.png",
-         "imageheight":30,
-         "imagewidth":30,
+         "imageheight":26,
+         "imagewidth":14,
          "margin":0,
          "name":"player_spawn",
          "spacing":0,
          "tilecount":1,
-         "tileheight":30,
-         "tilewidth":30
+         "tileheight":26,
+         "tilewidth":14
         }],
  "tilewidth":10,
  "version":1,
