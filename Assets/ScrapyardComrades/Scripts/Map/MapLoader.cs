@@ -5,11 +5,13 @@ public class MapLoader : MonoBehaviour
 {
     public string MapName = "GameplayTest";
     public TileRenderer PlatformsRenderer;
+    public string PlatformsLayer = "platforms";
 
     void Start()
     {
         TextAsset asset = Resources.Load<TextAsset>(PATH + this.MapName);
-        object data = JsonConvert.DeserializeObject(asset.text);
+        MapInfo mapInfo = JsonConvert.DeserializeObject<MapInfo>(asset.text);
+        this.PlatformsRenderer.CreateMapWithGrid(mapInfo.GetLayerWithName(this.PlatformsLayer).Grid);
     }
 
     /**

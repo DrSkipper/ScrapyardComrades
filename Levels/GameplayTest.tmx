@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="40" height="30" tilewidth="10" tileheight="10" nextobjectid="22">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="40" height="30" tilewidth="10" tileheight="10" nextobjectid="23">
  <tileset firstgid="1" name="platforms_tiled" tilewidth="10" tileheight="10" tilecount="36" columns="4">
   <image source="../Assets/ScrapyardComrades/Resources/platforms_tiled.png" width="40" height="40"/>
   <terraintypes>

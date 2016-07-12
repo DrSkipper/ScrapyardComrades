@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: abb33daf665da8746974522f88a8ca27
-timeCreated: 1468274501
+timeCreated: 1468304278
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -20,6 +20,7 @@ TextureImporter:
     21300026: platforms_bottom_mid
     21300028: platforms_bottom_right
     21300030: platforms_lone
+    21300032: platforms_empty
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,7 +36,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   grayScaleToAlpha: 0
   generateCubemap: 0
   cubemapConvolution: 0
@@ -62,7 +63,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 0.5
   alphaIsTransparency: 1
-  textureType: 8
+  textureType: 5
   buildTargetSettings: []
   spriteSheet:
     sprites:
@@ -235,6 +236,17 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
+        y: 52
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: platforms_empty
+      rect:
+        serializedVersion: 2
+        x: 46
         y: 52
         width: 10
         height: 10
