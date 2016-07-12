@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: abb33daf665da8746974522f88a8ca27
-timeCreated: 1468196190
+timeCreated: 1468274501
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,15 +10,15 @@ TextureImporter:
     21300006: platforms_island_right
     21300008: platforms_column_mid
     21300010: platforms_column_bottom
-    21300012: platforms_upper_left
-    21300014: platforms_upper_mid
-    21300016: platforms_upper_right
+    21300012: platforms_top_left
+    21300014: platforms_top_mid
+    21300016: platforms_top_right
     21300018: platforms_mid_left
     21300020: platforms_mid_mid
     21300022: platforms_mid_right
-    21300024: platforms_lower_left
-    21300026: platforms_lower_mid
-    21300028: platforms_lower_right
+    21300024: platforms_bottom_left
+    21300026: platforms_bottom_mid
+    21300028: platforms_bottom_right
     21300030: platforms_lone
   serializedVersion: 2
   mipmaps:
@@ -132,7 +132,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_upper_left
+    - name: platforms_top_left
       rect:
         serializedVersion: 2
         x: 14
@@ -143,7 +143,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_upper_mid
+    - name: platforms_top_mid
       rect:
         serializedVersion: 2
         x: 24
@@ -154,7 +154,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_upper_right
+    - name: platforms_top_right
       rect:
         serializedVersion: 2
         x: 34
@@ -198,7 +198,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_lower_left
+    - name: platforms_bottom_left
       rect:
         serializedVersion: 2
         x: 14
@@ -209,7 +209,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_lower_mid
+    - name: platforms_bottom_mid
       rect:
         serializedVersion: 2
         x: 24
@@ -220,7 +220,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_lower_right
+    - name: platforms_bottom_right
       rect:
         serializedVersion: 2
         x: 34
