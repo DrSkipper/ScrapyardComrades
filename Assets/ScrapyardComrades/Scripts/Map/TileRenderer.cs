@@ -101,6 +101,8 @@ public class TileRenderer : VoBehavior
         List<Vector3> normals = new List<Vector3>();
         List<Vector2> uvs = new List<Vector2>();
         int[] triangles = new int[numTriangles * 3]; // Clockwise order of vertices within triangles (for correct render direction)
+        
+        float finalY = originY + _height * this.TileRenderSize;
 
         for (int y = 0; y < _height; ++y)
         {
@@ -110,9 +112,11 @@ public class TileRenderer : VoBehavior
                 int triangleIndex = tileIndex * 2 * 3;
 
                 // Create 4 verts
-                Vector3 bottomLeft = new Vector3(originX + x * this.TileRenderSize, originY + y * this.TileRenderSize, originZ);
+                float smallY = this.FlipVertical ? finalY - y * this.TileRenderSize : originY + y * this.TileRenderSize;
+                float bigY = this.FlipVertical ? smallY - this.TileRenderSize : smallY + this.TileRenderSize;
+                Vector3 bottomLeft = new Vector3(originX + x * this.TileRenderSize, smallY, originZ);
                 Vector3 bottomRight = new Vector3(bottomLeft.x + this.TileRenderSize, bottomLeft.y, originZ);
-                Vector3 topLeft = new Vector3(bottomLeft.x, bottomLeft.y + this.TileRenderSize, originZ);
+                Vector3 topLeft = new Vector3(bottomLeft.x, bigY, originZ);
                 Vector3 topRight = new Vector3(bottomRight.x, topLeft.y, originZ);
 
                 // Indices of verts
@@ -198,10 +202,14 @@ public class TileRenderer : VoBehavior
         Vector2[] uvs = new Vector2[4];
         int[] triangles = new int[2 * 3];
 
-        vertices[0] = new Vector3(originX, originY, originZ); // bottom left
-        vertices[1] = new Vector3(originX + width * this.TileRenderSize, originY, originZ); // bottom right
-        vertices[2] = new Vector3(originX, originY + height * this.TileRenderSize, originZ); // top left
-        vertices[3] = new Vector3(vertices[1].x, vertices[2].y, originZ); // top right
+        float finalY = originY + height * this.TileRenderSize;
+        float smallY = this.FlipVertical ? finalY : originY;
+        float bigY = this.FlipVertical ? originY : finalY;
+
+        vertices[0] = new Vector3(originX, smallY, originZ); // bottom left
+        vertices[1] = new Vector3(originX + width * this.TileRenderSize, smallY, originZ); // bottom right
+        vertices[2] = new Vector3(originX, bigY, originZ); // top left
+        vertices[3] = new Vector3(vertices[1].x, bigY, originZ); // top right
         normals[0] = Vector3.up;
         normals[1] = Vector3.up;
         normals[2] = Vector3.up;
@@ -237,7 +245,23 @@ public class TileRenderer : VoBehavior
         if (!_tilePixels.ContainsKey(spriteName))
         {
             Sprite sprite = _tileSprites[spriteName];
-            _tilePixels.Add(spriteName, this.Atlas.GetPixels(sprite.rect.IntXMin(), sprite.rect.IntYMin(), this.TileTextureSize, this.TileTextureSize));
+            Color[] pixels = this.Atlas.GetPixels(sprite.rect.IntXMin(), sprite.rect.IntYMin(), this.TileTextureSize, this.TileTextureSize);
+
+            if (this.FlipVertical)
+            {
+                Color[] flippedPixels = new Color[pixels.Length];
+                for (int y = 0; y < this.TileTextureSize; ++y)
+                {
+                    for (int x = 0; x < this.TileTextureSize; ++x)
+                    {
+                        flippedPixels[y * this.TileTextureSize + x] = pixels[(this.TileTextureSize - y - 1) * TileTextureSize + x];
+                    }
+
+                }
+                pixels = flippedPixels;
+            }
+
+            _tilePixels.Add(spriteName, pixels);
         }
         return _tilePixels[spriteName];
     }
