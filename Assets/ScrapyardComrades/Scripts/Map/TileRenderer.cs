@@ -89,9 +89,9 @@ public class TileRenderer : VoBehavior
 
     private void createMapUsingMesh(int[,] grid)
     {
-        float originX = this.transform.position.x;
-        float originY = this.transform.position.y;
-        float originZ = this.transform.position.z;
+        float originX = 0; // this.transform.position.x;
+        float originY = 0; // this.transform.position.y;
+        float originZ = 0; // this.transform.position.z;
 
         int numTiles = _width * _height;
         int numTriangles = numTiles * 2;
