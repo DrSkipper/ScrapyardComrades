@@ -7,6 +7,7 @@ public class Spawner : VoBehavior
     public Transform SpawnLocation;
     public float Delay = 0.5f;
     public bool SpawnOnStart = true;
+    public bool DestroyAfterSpawn = true;
 
     void Start()
     {
@@ -23,5 +24,7 @@ public class Spawner : VoBehavior
     {
         GameObject spawn = Instantiate<GameObject>(this.ObjectToSpawn);
         spawn.transform.position = this.SpawnLocation.position;
+        if (this.DestroyAfterSpawn)
+            Destroy(this.gameObject);
     }
 }
