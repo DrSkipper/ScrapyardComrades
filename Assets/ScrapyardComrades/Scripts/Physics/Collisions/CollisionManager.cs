@@ -9,9 +9,9 @@ public class CollisionManager : VoBehavior
     public int MaxColliderSize = 32;
     public int RaycastChunkSize = 32;
 
-    public const float RAYCAST_MAX_POSITION_INCREMENT = 1.0f;
-    public const int MAX_SOLIDS_X = 32;
-    public const int MAX_SOLIDS_Y = 32;
+    public const float RAYCAST_MAX_POSITION_INCREMENT = 2.0f;
+    public const int MAX_SOLIDS_X = 128;
+    public const int MAX_SOLIDS_Y = 128;
     public const int MAX_SOLIDS_X_2 = MAX_SOLIDS_X / 2;
     public const int MAX_SOLIDS_Y_2 = MAX_SOLIDS_Y / 2;
 

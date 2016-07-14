@@ -6,7 +6,9 @@ public class MapLoader : MonoBehaviour
     public string MapName = "GameplayTest";
     public TileRenderer PlatformsRenderer;
     public MapGeometryCreator GeometryCreator;
+    public ObjectPlacer ObjectPlacer;
     public string PlatformsLayer = "platforms";
+    public string ObjectsLayer = "objects";
 
     void Start()
     {
@@ -15,6 +17,7 @@ public class MapLoader : MonoBehaviour
         int[,] grid = mapInfo.GetLayerWithName(this.PlatformsLayer).Grid;
         this.PlatformsRenderer.CreateMapWithGrid(grid);
         this.GeometryCreator.CreateGeometryForGrid(grid);
+        this.ObjectPlacer.PlaceObjects(mapInfo.GetLayerWithName(this.ObjectsLayer).objects, mapInfo.width, mapInfo.height);
     }
 
     /**
