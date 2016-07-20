@@ -50,7 +50,7 @@ public class PlayerController : Actor2D
         _attackTimer.complete();
     }
 
-    public override void Update()
+    void FixedUpdate()
     {
         _moveAxis = GameplayInput.MovementAxis;
         _velocity = this.Velocity;
@@ -59,8 +59,8 @@ public class PlayerController : Actor2D
         updateControlParametersForCurrentAttack();
         _velocity += _parameters.VelocityBoost;
 
-        // Update jumpBufferCounter, and if input indicates Jump is pressed, set it to JUMP_BUFFER (6)
-        _jumpBufferTimer.update(1/*SCPhysics.DeltaFrames*/);
+        // Update jumpBufferCounter, and if input indicates Jump is pressed, set it to JUMP_BUFFER
+        _jumpBufferTimer.update();
         if (GameplayInput.JumpBegin)
         {
             _jumpBufferTimer.reset();
@@ -79,14 +79,14 @@ public class PlayerController : Actor2D
         // Otherwise, update our jump grace counter (for stored jumps)
         else
         {
-            _jumpGraceTimer.update(1/*SCPhysics.DeltaFrames*/);
+            _jumpGraceTimer.update();
         }
 
         // Friction (No friction if continue to hold in direction of movement in air)
         if (_moveAxis != Math.Sign(_velocity.x) || (_onGround && _moveAxis == 0))
         {
             float maxSlowDown = _onGround ? _parameters.Friction : _parameters.AirFriction;
-            _velocity.x = _velocity.x.Approach(0.0f, maxSlowDown * 1/*SCPhysics.DeltaFrames*/);
+            _velocity.x = _velocity.x.Approach(0.0f, maxSlowDown);
         }
         
         // Normal movement
@@ -95,14 +95,14 @@ public class PlayerController : Actor2D
             // Deccel if past max speed
             if (Mathf.Abs(_velocity.x) > _parameters.MaxRunSpeed && Math.Sign(_velocity.x) == _moveAxis)
             {
-                _velocity.x = _velocity.x.Approach(_parameters.MaxRunSpeed * _moveAxis, _parameters.RunDecceleration * 1/*SCPhysics.DeltaFrames*/);
+                _velocity.x = _velocity.x.Approach(_parameters.MaxRunSpeed * _moveAxis, _parameters.RunDecceleration);
             }
 
             // Accelerate
             else
             {
                 float acceleration = _onGround ? _parameters.RunAcceleration : _parameters.AirRunAcceleration;
-                _velocity.x = _velocity.x.Approach(_parameters.MaxRunSpeed * _moveAxis, acceleration *= 1/*SCPhysics.DeltaFrames*/);
+                _velocity.x = _velocity.x.Approach(_parameters.MaxRunSpeed * _moveAxis, acceleration);
             }
         }
 
@@ -117,7 +117,7 @@ public class PlayerController : Actor2D
             if (GameplayInput.Duck && Math.Sign(_velocity.y) == -1)
                 targetFallSpeed = _parameters.FastFallSpeed;
 
-            _velocity.y = _velocity.y.Approach(-targetFallSpeed, -gravity * 1/*SCPhysics.DeltaFrames*/);
+            _velocity.y = _velocity.y.Approach(-targetFallSpeed, -gravity);
         }
 
         if (_currentAttack == null)
@@ -140,7 +140,7 @@ public class PlayerController : Actor2D
         else
         {
             // Update the attack
-            _attackTimer.update(1/*SCPhysics.DeltaFrames*/);
+            _attackTimer.update();
 
             if (_attackTimer.Completed)
                 _currentAttack = null;
