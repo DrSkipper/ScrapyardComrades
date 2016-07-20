@@ -4,68 +4,68 @@ using System.Collections;
 public class Timer
 {
 	public delegate void TimerCallback();
-	public TimerCallback callback;
-	public bool paused;
-	public bool loops;
-	public bool completed { get; private set; }
-    public float timeRemaining { get { return _timeRemaining; } }
+	public TimerCallback Callback;
+	public bool Paused;
+	public bool Loops;
+	public bool Completed { get; private set; }
+    public int FramesRemaining { get { return _framesRemaining; } }
 
-	public Timer(float duration, bool loops = false, bool startsImmediately = true, TimerCallback callback = null)
+	public Timer(int numFrames, bool loops = false, bool startsImmediately = true, TimerCallback callback = null)
 	{
-		_timeRemaining = _duration = duration;
-		this.loops = loops;
-		this.callback = callback;
-		this.paused = !startsImmediately;
+		_framesRemaining = _numFrames = numFrames;
+		this.Loops = loops;
+		this.Callback = callback;
+		this.Paused = !startsImmediately;
 	}
 
 	public void start()
 	{
-		this.paused = false;
+		this.Paused = false;
 	}
 
     public void reset()
     {
-        _timeRemaining = _duration;
-        this.completed = false;
+        _framesRemaining = _numFrames;
+        this.Completed = false;
     }
 
-    public void reset(float duration)
+    public void reset(int numFrames)
     {
-        _duration = duration;
+        _numFrames = numFrames;
         this.reset();
     }
 
     public void complete()
     {
-        if (this.callback != null)
-            this.callback();
+        if (this.Callback != null)
+            this.Callback();
 
-        if (this.loops)
-            _timeRemaining = _duration;
+        if (this.Loops)
+            _framesRemaining = _numFrames;
         else
-            this.completed = true;
+            this.Completed = true;
     }
 
-	public void update(float dt)
+	public void update(int dFrames = 1)
 	{
-		if (!this.paused && !this.completed)
+		if (!this.Paused && !this.Completed)
 		{
-			_timeRemaining -= dt;
+			_framesRemaining -= dFrames;
 
-			if (_timeRemaining <= 0.0f)
+			if (_framesRemaining <= 0)
                 this.complete();
 		}
 	}
 
 	public void invalidate()
 	{
-		this.callback = null;
-		this.completed = true;
+		this.Callback = null;
+		this.Completed = true;
 	}
 
 	/**
 	 * Private
 	 */
-	private float _duration;
-	private float _timeRemaining;
+	private int _numFrames;
+	private int _framesRemaining;
 }

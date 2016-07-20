@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using Rewired;
 
 public class PlayerController : Actor2D
 {
@@ -35,7 +36,7 @@ public class PlayerController : Actor2D
     public SCMoveSet MoveSet;
     public Facing CurrentFacing { get { return _facing; } }
     public bool OnGround { get { return _onGround; } }
-    public DirectionalVector2 MoveAxis { get { return _moveAxis; } }
+    public float MoveAxis { get { return _moveAxis; } }
 
     void Awake()
     {
@@ -45,14 +46,13 @@ public class PlayerController : Actor2D
         _jumpGraceTimer = new Timer(this.JumpGraceFrames);
         _jumpGraceTimer.complete();
 
-        _attackTimer = new Timer(1.0f);
+        _attackTimer = new Timer(1);
         _attackTimer.complete();
     }
 
     public override void Update()
     {
-        Vector2 moveAxis = GameplayInput.GetMovementAxis();
-        _moveAxis = new DirectionalVector2(moveAxis.x, moveAxis.y);
+        _moveAxis = GameplayInput.MovementAxis;
         _velocity = this.Velocity;
         _onGround = this.IsGrounded;
 
@@ -60,8 +60,8 @@ public class PlayerController : Actor2D
         _velocity += _parameters.VelocityBoost;
 
         // Update jumpBufferCounter, and if input indicates Jump is pressed, set it to JUMP_BUFFER (6)
-        _jumpBufferTimer.update(SCPhysics.DeltaFrames);
-        if (GameplayInput.JumpStarted())
+        _jumpBufferTimer.update(1/*SCPhysics.DeltaFrames*/);
+        if (GameplayInput.JumpBegin)
         {
             _jumpBufferTimer.reset();
             _jumpBufferTimer.start();
@@ -70,39 +70,39 @@ public class PlayerController : Actor2D
         // If we're on ground, do some stuff:
         if (_onGround)
         {
-            if (_jumpGraceTimer.completed || _jumpGraceTimer.timeRemaining < _parameters.JumpGraceFrames)
+            if (_jumpGraceTimer.Completed || _jumpGraceTimer.FramesRemaining < _parameters.JumpGraceFrames)
                 _jumpGraceTimer.reset(_parameters.JumpGraceFrames);
-            if (_jumpGraceTimer.paused)
+            if (_jumpGraceTimer.Paused)
                 _jumpGraceTimer.start();
         }
 
         // Otherwise, update our jump grace counter (for stored jumps)
         else
         {
-            _jumpGraceTimer.update(SCPhysics.DeltaFrames);
+            _jumpGraceTimer.update(1/*SCPhysics.DeltaFrames*/);
         }
 
         // Friction (No friction if continue to hold in direction of movement in air)
-        if (_moveAxis.X != Math.Sign(_velocity.x) || (_onGround && _moveAxis.X == 0))
+        if (_moveAxis != Math.Sign(_velocity.x) || (_onGround && _moveAxis == 0))
         {
             float maxSlowDown = _onGround ? _parameters.Friction : _parameters.AirFriction;
-            _velocity.x = _velocity.x.Approach(0.0f, maxSlowDown * SCPhysics.DeltaFrames);
+            _velocity.x = _velocity.x.Approach(0.0f, maxSlowDown * 1/*SCPhysics.DeltaFrames*/);
         }
         
         // Normal movement
-        if (_moveAxis.X != 0)
+        if (_moveAxis != 0)
         {
             // Deccel if past max speed
-            if (Mathf.Abs(_velocity.x) > _parameters.MaxRunSpeed && Math.Sign(_velocity.x) == _moveAxis.X)
+            if (Mathf.Abs(_velocity.x) > _parameters.MaxRunSpeed && Math.Sign(_velocity.x) == _moveAxis)
             {
-                _velocity.x = _velocity.x.Approach(_parameters.MaxRunSpeed * _moveAxis.floatX, _parameters.RunDecceleration * SCPhysics.DeltaFrames);
+                _velocity.x = _velocity.x.Approach(_parameters.MaxRunSpeed * _moveAxis, _parameters.RunDecceleration * 1/*SCPhysics.DeltaFrames*/);
             }
 
             // Accelerate
             else
             {
                 float acceleration = _onGround ? _parameters.RunAcceleration : _parameters.AirRunAcceleration;
-                _velocity.x = _velocity.x.Approach(_parameters.MaxRunSpeed * _moveAxis.floatX, acceleration *= SCPhysics.DeltaFrames);
+                _velocity.x = _velocity.x.Approach(_parameters.MaxRunSpeed * _moveAxis, acceleration *= 1/*SCPhysics.DeltaFrames*/);
             }
         }
 
@@ -110,27 +110,27 @@ public class PlayerController : Actor2D
         if (!_onGround)
         {
             // If jump button is held down use smaller number for gravity
-            float gravity = (GameplayInput.Jump() && _canJumpHold && (Math.Sign(_velocity.y) == 1 || Mathf.Abs(_velocity.y) < _parameters.JumpHoldAllowance)) ? (_parameters.JumpHeldGravityMultiplier * _parameters.Gravity) : _parameters.Gravity;
+            float gravity = (GameplayInput.JumpHeld && _canJumpHold && (Math.Sign(_velocity.y) == 1 || Mathf.Abs(_velocity.y) < _parameters.JumpHoldAllowance)) ? (_parameters.JumpHeldGravityMultiplier * _parameters.Gravity) : _parameters.Gravity;
             float targetFallSpeed = _parameters.MaxFallSpeed;
             
             // Check if we need to fast fall
-            if (_moveAxis.Y == -1 && Math.Sign(_velocity.y) == -1)
+            if (GameplayInput.Duck && Math.Sign(_velocity.y) == -1)
                 targetFallSpeed = _parameters.FastFallSpeed;
 
-            _velocity.y = _velocity.y.Approach(-targetFallSpeed, -gravity * SCPhysics.DeltaFrames);
+            _velocity.y = _velocity.y.Approach(-targetFallSpeed, -gravity * 1/*SCPhysics.DeltaFrames*/);
         }
 
         if (_currentAttack == null)
         {
             // Check if it's time to jump
-            if (GameplayInput.JumpStarted() || !_jumpBufferTimer.completed)
+            if (GameplayInput.JumpBegin || !_jumpBufferTimer.Completed)
             {
-                if (!_jumpGraceTimer.completed)
+                if (!_jumpGraceTimer.Completed)
                     jump();
             }
 
             // Or if we're beginning an attack
-            else if (GameplayInput.AttackStarted())
+            else if (GameplayInput.AttackLightBegin)
             {
                 _currentAttack = this.MoveSet.GroundNeutral;
                 _attackTimer.reset(_currentAttack.NormalFrameLength);
@@ -140,14 +140,14 @@ public class PlayerController : Actor2D
         else
         {
             // Update the attack
-            _attackTimer.update(SCPhysics.DeltaFrames);
+            _attackTimer.update(1/*SCPhysics.DeltaFrames*/);
 
-            if (_attackTimer.completed)
+            if (_attackTimer.Completed)
                 _currentAttack = null;
         }
 
-        if (_moveAxis.X != 0)
-            _facing = (Facing)_moveAxis.X;
+        if (_moveAxis != 0)
+            _facing = (Facing)_moveAxis;
 
         this.Velocity = _velocity;
         base.Update();
@@ -167,7 +167,7 @@ public class PlayerController : Actor2D
     private Vector2 _velocity;
     private Timer _jumpBufferTimer;
     private Timer _jumpGraceTimer;
-    private DirectionalVector2 _moveAxis;
+    private int _moveAxis;
     private bool _canJumpHold;
     private bool _onGround;
     private SCAttack _currentAttack = null;
@@ -243,8 +243,8 @@ public class PlayerController : Actor2D
         
         _velocity.y = this.JumpPower;
 
-        if (_moveAxis.X != 0)
-            _velocity.x += this.JumpHorizontalBoost * _moveAxis.X;
+        if (_moveAxis != 0)
+            _velocity.x += this.JumpHorizontalBoost * _moveAxis;
 
         _canJumpHold = true;
     }

@@ -57,11 +57,11 @@ public class PlayerVisualizer : VoBehavior
         }
         else if (!_playerController.OnGround)
         {
-            if (GameplayInput.Jump() && _playerController.Velocity.y > 0.0f)
+            if (GameplayInput.JumpHeld && _playerController.Velocity.y > 0.0f)
                 return JUMPING_STATE;
             return FALLING_STATE;
         }
-        if (_playerController.MoveAxis.X != 0 && _playerController.Velocity.x != 0)
+        if (_playerController.MoveAxis != 0 && _playerController.Velocity.x != 0)
             return RUNNING_STATE;
         return IDLE_STATE;
     }

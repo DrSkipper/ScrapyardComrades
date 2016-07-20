@@ -29,7 +29,7 @@ public class SCSpriteAnimator : VoBehavior
     {
         if (_playing)
         {
-            _elapsed += SCPhysics.DeltaFrames;
+            _elapsed += 1/*SCPhysics.DeltaFrames*/;
             float frameDuration = ((float)_currentAnimation.LengthInFrames) / ((float)_currentAnimation.Frames.Length);
             float nextFrameTime = _frame >= _currentAnimation.Frames.Length - 1 ? _currentAnimation.LengthInFrames : (_frame + 1) * frameDuration;
 
