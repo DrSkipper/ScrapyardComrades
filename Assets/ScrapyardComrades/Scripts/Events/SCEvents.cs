@@ -39,3 +39,27 @@ public class PlayerUpdateFinishedEvent : LocalEventNotifier.Event
         this.CurrentAttack = currentAttack;
     }
 }
+
+public class GameplayPausedEvent : LocalEventNotifier.Event
+{
+    public static string NAME = "GAMEPLAY_PAUSE";
+    public bool Paused;
+
+    public GameplayPausedEvent(bool paused)
+    {
+        this.Name = NAME;
+        this.Paused = paused;
+    }
+}
+
+public class SequencePausedEvent : LocalEventNotifier.Event
+{
+    public static string NAME = "SEQUENCE_PAUSE";
+    public bool Paused;
+
+    public SequencePausedEvent(bool paused)
+    {
+        this.Name = NAME;
+        this.Paused = paused;
+    }
+}

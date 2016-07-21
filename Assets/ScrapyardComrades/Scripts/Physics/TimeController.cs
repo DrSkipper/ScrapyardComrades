@@ -14,11 +14,13 @@ public class TimeController : MonoBehaviour
     public void PauseGameplay(bool pause)
     {
         _gameplayPaused = pause;
+        GlobalEvents.Notifier.SendEvent(new GameplayPausedEvent(pause));
     }
 
     public void PauseSequence(bool pause)
     {
         _sequencePaused = pause;
+        GlobalEvents.Notifier.SendEvent(new SequencePausedEvent(pause));
     }
 
     private static bool _gameplayPaused;
