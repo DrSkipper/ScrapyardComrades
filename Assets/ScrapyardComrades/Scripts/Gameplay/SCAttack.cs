@@ -1,13 +1,23 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class SCAttack : ScriptableObject
 {
     // Attack type enum?
     // Also probably need some sort of "sub attack"/"sub animation" set up so there can be multiple animations and/or stages associated with an attack
 
+    public struct HitboxKeyframe
+    {
+        public int Frame;
+        public int HitboxCount;
+        public IntegerVector[] Positions;
+        public IntegerVector[] Sizes;
+    }
+
     public SCSpriteAnimation SpriteAnimation;
     public int NormalFrameLength;
     public IntegerVector[] HitFrameRanges;
+    public List<HitboxKeyframe> HitboxKeyframes;
     public int JumpInterruptFrame;
     public int LedgeGrabInterruptFrame;
     public int DodgeInterruptFrame;
@@ -27,3 +37,4 @@ public class SCAttack : ScriptableObject
 
     public PlayerController.VelocityBoost[] VelocityBoosts;
 }
+
