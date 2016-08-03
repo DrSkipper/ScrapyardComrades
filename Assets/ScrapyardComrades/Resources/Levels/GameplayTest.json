@@ -17,7 +17,7 @@
          "name":"objects",
          "objects":[
                 {
-                 "gid":37,
+                 "gid":23,
                  "height":26,
                  "id":21,
                  "name":"player",
@@ -27,6 +27,30 @@
                  "width":14,
                  "x":18,
                  "y":200
+                }, 
+                {
+                 "gid":24,
+                 "height":26,
+                 "id":23,
+                 "name":"enemy",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":14,
+                 "x":158,
+                 "y":130
+                }, 
+                {
+                 "gid":24,
+                 "height":26,
+                 "id":24,
+                 "name":"enemy",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":14,
+                 "x":238,
+                 "y":130
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -35,7 +59,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":23,
+ "nextobjectid":25,
  "orientation":"orthogonal",
  "renderorder":"right-up",
  "tileheight":10,
@@ -58,7 +82,7 @@
                  "name":"New Terrain",
                  "tile":0
                 }],
-         "tilecount":36,
+         "tilecount":19,
          "tileheight":10,
          "tiles":
             {
@@ -103,12 +127,25 @@
         }, 
         {
          "columns":1,
-         "firstgid":37,
+         "firstgid":23,
          "image":"..\/player_spawn.png",
          "imageheight":26,
          "imagewidth":14,
          "margin":0,
          "name":"player_spawn",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":26,
+         "tilewidth":14
+        }, 
+        {
+         "columns":1,
+         "firstgid":24,
+         "image":"..\/enemy_spawn.png",
+         "imageheight":26,
+         "imagewidth":14,
+         "margin":0,
+         "name":"enemy_spawn",
          "spacing":0,
          "tilecount":1,
          "tileheight":26,
