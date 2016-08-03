@@ -25,12 +25,27 @@ public class SCSpriteAnimator : VoBehavior
         this.spriteRenderer.sprite = _currentAnimation.Frames[0];
     }
 
-    void Update()
+    public void GoToFrame(int frame)
+    {
+        if (_currentAnimation == null)
+            this.PlayAnimation(this.DefaultAnimation);
+        _frame = Mathf.Clamp(frame, 0, _currentAnimation.Frames.Length - 1);
+        _elapsed = _frame * this.GetFrameDuration();
+        this.spriteRenderer.sprite = _currentAnimation.Frames[_frame];
+    }
+
+    void OnValidate()
+    {
+        if (_currentAnimation == null)
+            this.PlayAnimation(this.DefaultAnimation);
+    }
+
+    void FixedUpdate()
     {
         if (_playing)
         {
-            _elapsed += 1/*SCPhysics.DeltaFrames*/;
-            float frameDuration = ((float)_currentAnimation.LengthInFrames) / ((float)_currentAnimation.Frames.Length);
+            _elapsed += 1;
+            float frameDuration = this.GetFrameDuration();
             float nextFrameTime = _frame >= _currentAnimation.Frames.Length - 1 ? _currentAnimation.LengthInFrames : (_frame + 1) * frameDuration;
 
             if (_elapsed >= nextFrameTime)
@@ -55,6 +70,16 @@ public class SCSpriteAnimator : VoBehavior
                 this.spriteRenderer.sprite = _currentAnimation.Frames[_frame];
             }
         }
+    }
+
+    public float GetFrameDuration()
+    {
+        return ((float)_currentAnimation.LengthInFrames) / ((float)_currentAnimation.Frames.Length);
+    }
+
+    public int GetDataFrameForVisualFrame(int visualFrame)
+    {
+        return Mathf.Clamp(Mathf.RoundToInt(this.GetFrameDuration() * (float)Mathf.Clamp(visualFrame, 0, _currentAnimation.Frames.Length - 1)), 0, _currentAnimation.LengthInFrames - 1);
     }
 
     /**

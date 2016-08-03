@@ -5,6 +5,7 @@ public abstract class IntegerCollider : VoBehavior
 {
     public IntegerVector Offset = IntegerVector.Zero;
     public abstract IntegerRect Bounds { get; }
+    public Color DebugColor = Color.red;
 
     void Start()
     {

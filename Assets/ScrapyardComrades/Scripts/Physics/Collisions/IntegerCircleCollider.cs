@@ -8,9 +8,12 @@ public class IntegerCircleCollider : IntegerCollider
 
     void OnDrawGizmos()//Selected()
     {
-        IntegerRect bounds = this.Bounds;
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(new Vector3(bounds.Center.X, bounds.Center.Y), this.Radius);
+        if (this.enabled)
+        {
+            IntegerRect bounds = this.Bounds;
+            Gizmos.color = this.DebugColor;
+            Gizmos.DrawWireSphere(new Vector3(bounds.Center.X, bounds.Center.Y), this.Radius);
+        }
     }
 
     public override bool Overlaps(IntegerCollider other, int offsetX = 0, int offsetY = 0)

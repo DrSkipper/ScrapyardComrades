@@ -10,9 +10,12 @@ public class IntegerRectCollider : IntegerCollider
 
     void OnDrawGizmosSelected()
     {
-        IntegerRect bounds = this.Bounds;
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(new Vector3(bounds.Center.X, bounds.Center.Y), new Vector3(this.Size.X, this.Size.Y));
+        if (this.enabled)
+        {
+            IntegerRect bounds = this.Bounds;
+            Gizmos.color = this.DebugColor;
+            Gizmos.DrawWireCube(new Vector3(bounds.Center.X, bounds.Center.Y), new Vector3(this.Size.X, this.Size.Y));
+        }
     }
 
     //TODO - use dynamic keyword to make use of run-time overloading? and have an extensions method place for inter-collider type collisions?
