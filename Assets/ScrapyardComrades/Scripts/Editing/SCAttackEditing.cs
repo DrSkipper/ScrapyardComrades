@@ -66,6 +66,7 @@ public class SCAttackEditing : MonoBehaviour
                     this.Hitboxes[i].enabled = true;
                     this.Hitboxes[i].Offset = IntegerVector.Zero;
                     this.Hitboxes[i].transform.position = (Vector2)this.AttackObject.HitboxKeyframes[this.CurrentIndex].Positions[i];
+                    this.Hitboxes[i].Size = this.AttackObject.HitboxKeyframes[this.CurrentIndex].Sizes[i];
                 }
                 else
                 {
