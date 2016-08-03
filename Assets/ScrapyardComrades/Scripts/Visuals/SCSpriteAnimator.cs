@@ -27,8 +27,7 @@ public class SCSpriteAnimator : VoBehavior
 
     public void GoToFrame(int frame)
     {
-        if (_currentAnimation == null)
-            this.PlayAnimation(this.DefaultAnimation);
+        guaranteeCurrentAnimation();
         _frame = Mathf.Clamp(frame, 0, _currentAnimation.Frames.Length - 1);
         _elapsed = _frame * this.GetFrameDuration();
         this.spriteRenderer.sprite = _currentAnimation.Frames[_frame];

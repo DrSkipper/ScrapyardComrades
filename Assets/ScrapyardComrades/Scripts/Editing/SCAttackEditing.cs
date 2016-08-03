@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor;
 
 public class SCAttackEditing : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class SCAttackEditing : MonoBehaviour
         if (this.CurrentIndex >= 0 && this.CurrentIndex < this.AttackObject.HitboxKeyframes.Length)
         {
             this.AttackObject.HitboxKeyframes[this.CurrentIndex] = gatherKeyframeData();
+            saveState();
         }
         else
         {
@@ -47,15 +49,16 @@ public class SCAttackEditing : MonoBehaviour
         this.AttackObject.HitboxKeyframes = keyframes.ToArray();
         this.CurrentIndex = keyframes.Count;
         this.Frame += 1;
-        this.Frame = Mathf.Clamp(this.Frame, 0, this.AttackAnimator.CurrentAnimation.Frames.Length);
+        this.Frame = Mathf.Clamp(this.Frame, 0, this.AttackAnimator.CurrentAnimation.Frames.Length - 1);
         this.Animator.GoToFrame(this.Frame);
+        saveState();
     }
 
     public void LoadCurrentIndex()
     {
         if (this.CurrentIndex >= 0 && this.CurrentIndex < this.AttackObject.HitboxKeyframes.Length)
         {
-            this.Frame = Mathf.RoundToInt((float)this.AttackObject.HitboxKeyframes[this.CurrentIndex].Frame / this.Animator.GetFrameDuration());
+            this.Frame = this.AttackObject.HitboxKeyframes[this.CurrentIndex].VisualFrame;
             for (int i = 0; i < this.Hitboxes.Length; ++i)
             {
                 if (i < this.AttackObject.HitboxKeyframes[this.CurrentIndex].Positions.Length)
@@ -81,6 +84,7 @@ public class SCAttackEditing : MonoBehaviour
             keyframes.RemoveAt(this.CurrentIndex);
             this.CurrentIndex = Mathf.Max(0, this.CurrentIndex - 1);
             this.AttackObject.HitboxKeyframes = keyframes.ToArray();
+            saveState();
         }
     }
 
@@ -103,8 +107,15 @@ public class SCAttackEditing : MonoBehaviour
         }
 
         keyframe.Frame = this.Animator.GetDataFrameForVisualFrame(this.Frame);
+        keyframe.VisualFrame = this.Frame;
         keyframe.Positions = hitboxPositions.ToArray();
         keyframe.Sizes = hitboxSizes.ToArray();
         return keyframe;
+    }
+
+    private void saveState()
+    {
+        EditorUtility.SetDirty(this.AttackObject);
+        AssetDatabase.SaveAssets();
     }
 }

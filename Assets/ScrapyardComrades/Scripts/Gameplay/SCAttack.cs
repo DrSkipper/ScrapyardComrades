@@ -9,6 +9,7 @@ public class SCAttack : ScriptableObject
     public struct HitboxKeyframe
     {
         public int Frame;
+        public int VisualFrame;
         public int HitboxCount;
         public IntegerVector[] Positions;
         public IntegerVector[] Sizes;

@@ -34,23 +34,7 @@ public class SCAttackEditingEditor : Editor
         behavior.CurrentIndex = EditorGUILayout.IntPopup("Current Keyframe", behavior.CurrentIndex >= 0 && behavior.CurrentIndex < behavior.AttackObject.HitboxKeyframes.Length ? behavior.CurrentIndex : behavior.AttackObject.HitboxKeyframes.Length, options.ToArray(), values.ToArray());
 
         bool dirty = false;
-        if (behavior.AttackObject.HitboxKeyframes.Length != 0 &&
-            behavior.CurrentIndex == behavior.AttackObject.HitboxKeyframes.Length &&
-            behavior.Frame != behavior.AttackObject.HitboxKeyframes[behavior.AttackObject.HitboxKeyframes.Length - 1].Frame + 1)
-        {
-            behavior.Frame = behavior.AttackObject.HitboxKeyframes[behavior.AttackObject.HitboxKeyframes.Length - 1].Frame + 1;
-            dirty = true;
-        }
-        else
-        {
-            behavior.Frame = Mathf.Clamp(behavior.Frame, 0, behavior.AttackAnimator.CurrentAnimation.Frames.Length);
-        }
-
-        if (prevCurrentIndex != behavior.CurrentIndex)
-        {
-            behavior.LoadCurrentIndex();
-            dirty = true;
-        }
+        int prevFrame = behavior.Frame;
 
         options.Clear();
         values.Clear();
@@ -60,12 +44,34 @@ public class SCAttackEditingEditor : Editor
             values.Add(i);
         }
 
-        int prevFrame = behavior.Frame;
         behavior.Frame = EditorGUILayout.IntPopup("Visual Frame", Mathf.Clamp(behavior.Frame, 0, behavior.AttackAnimator.CurrentAnimation.Frames.Length - 1), options.ToArray(), values.ToArray());
+
+        if (behavior.AttackObject.HitboxKeyframes.Length != 0 &&
+            behavior.CurrentIndex == behavior.AttackObject.HitboxKeyframes.Length &&
+            behavior.Frame < behavior.AttackObject.HitboxKeyframes[behavior.AttackObject.HitboxKeyframes.Length - 1].VisualFrame + 1)
+        {
+            behavior.Frame = behavior.AttackObject.HitboxKeyframes[behavior.AttackObject.HitboxKeyframes.Length - 1].VisualFrame + 1;
+            dirty = true;
+        }
+        else
+        {
+            behavior.Frame = Mathf.Clamp(behavior.Frame, 0, behavior.AttackAnimator.CurrentAnimation.Frames.Length - 1);
+        }
+
         if (prevFrame != behavior.Frame)
         {
-            behavior.Animator.GoToFrame(behavior.Frame);
             dirty = true;
+        }
+
+        if (prevCurrentIndex != behavior.CurrentIndex)
+        {
+            prevCurrentIndex = behavior.CurrentIndex;
+            behavior.LoadCurrentIndex();
+            dirty = true;
+        }
+        else
+        {
+            behavior.Animator.GoToFrame(behavior.Frame);
         }
 
         bool newKeyframe = behavior.CurrentIndex < 0 || behavior.CurrentIndex >= behavior.AttackObject.HitboxKeyframes.Length;
