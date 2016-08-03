@@ -60,7 +60,7 @@ public abstract class IntegerCollider : VoBehavior
         
         foreach (IntegerCollider collider in potentialCollisions)
         {
-            if (collider != this && (objectTag == null || collider.tag == objectTag))
+            if (collider != this && (objectTag == null || collider.tag == objectTag) && collider.enabled)
             {
                 if (this.Overlaps(collider, offsetX, offsetY))
                     return collider.gameObject;
@@ -80,7 +80,7 @@ public abstract class IntegerCollider : VoBehavior
         
         foreach (IntegerCollider collider in potentialCollisions)
         {
-            if (collider != this && (objectTag == null || collider.tag == objectTag))
+            if (collider != this && (objectTag == null || collider.tag == objectTag) && collider.enabled)
             {
                 if (this.Overlaps(collider, offsetX, offsetY))
                     collisions.AddUnique(collider.gameObject);

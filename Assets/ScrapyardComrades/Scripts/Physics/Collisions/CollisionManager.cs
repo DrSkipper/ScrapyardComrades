@@ -76,7 +76,7 @@ public class CollisionManager : VoBehavior
             {
                 foreach (IntegerCollider collider in _collidersByLayer[key])
                 {
-                    if ((objectTag == null || collider.tag == objectTag) &&
+                    if ((objectTag == null || collider.tag == objectTag) && collider.enabled &&
                         collider.Bounds.Overlaps(range))
                         colliders.Add(collider);
                 }
@@ -115,7 +115,7 @@ public class CollisionManager : VoBehavior
                 {
                     foreach (IntegerCollider collider in _solids[x, y])
                     {
-                        if (collider.Contains(point))
+                        if (collider.Contains(point) && collider.enabled)
                             return collider.gameObject;
                     }
                 }
@@ -128,7 +128,7 @@ public class CollisionManager : VoBehavior
             {
                 foreach (IntegerCollider collider in _collidersByLayer[key])
                 {
-                    if ((objectTag == null || collider.tag == objectTag) &&
+                    if ((objectTag == null || collider.tag == objectTag) && collider.enabled &&
                         collider.Contains(point))
                         return collider.gameObject;
                 }
@@ -142,7 +142,7 @@ public class CollisionManager : VoBehavior
     {
         foreach (IntegerCollider collider in potentialCollisions)
         {
-            if (collider.Contains(point))
+            if (collider.enabled && collider.Contains(point))
                 return collider.gameObject;
         }
         return null;
