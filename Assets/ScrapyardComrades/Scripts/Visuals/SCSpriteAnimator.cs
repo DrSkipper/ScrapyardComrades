@@ -3,7 +3,7 @@
 public class SCSpriteAnimator : VoBehavior
 {
     public SCSpriteAnimation DefaultAnimation;
-    public SCSpriteAnimation CurrentAnimation { get { return _currentAnimation; } }
+    public SCSpriteAnimation CurrentAnimation { get { guaranteeCurrentAnimation(); return _currentAnimation; } }
 
     void Awake()
     {
@@ -36,8 +36,7 @@ public class SCSpriteAnimator : VoBehavior
 
     void OnValidate()
     {
-        if (_currentAnimation == null)
-            this.PlayAnimation(this.DefaultAnimation);
+        guaranteeCurrentAnimation();
     }
 
     void FixedUpdate()
@@ -90,4 +89,10 @@ public class SCSpriteAnimator : VoBehavior
     private bool _looping;
     private int _frame;
     private float _elapsed;
+
+    private void guaranteeCurrentAnimation()
+    {
+        if (_currentAnimation == null)
+            this.PlayAnimation(this.DefaultAnimation);
+    }
 }

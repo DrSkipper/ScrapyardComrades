@@ -3,17 +3,14 @@ using System.Collections.Generic;
 
 public class SCAttackEditing : MonoBehaviour
 {
-    public SCAttack AttackObject;
     public SCSpriteAnimator AttackAnimator;
     public SCSpriteAnimator Animator;
     public IntegerRectCollider[] Hitboxes;
+    public SCAttack AttackObject;
+    [HideInInspector]
     public int CurrentIndex = 0;
+    [HideInInspector]
     public int Frame = 0;
-    
-    void Awake()
-    {
-        prevCurrentIndex = this.CurrentIndex;
-    }
 
     public void SaveToCurrentIndex()
     {
@@ -48,8 +45,9 @@ public class SCAttackEditing : MonoBehaviour
         List<SCAttack.HitboxKeyframe> keyframes = this.AttackObject.HitboxKeyframes != null ? new List<SCAttack.HitboxKeyframe>(this.AttackObject.HitboxKeyframes) : new List<SCAttack.HitboxKeyframe>();
         keyframes.Add(gatherKeyframeData());
         this.AttackObject.HitboxKeyframes = keyframes.ToArray();
-        this.CurrentIndex = keyframes.Count - 1;
+        this.CurrentIndex = keyframes.Count;
         this.Frame += 1;
+        this.Frame = Mathf.Clamp(this.Frame, 0, this.AttackAnimator.CurrentAnimation.Frames.Length);
         this.Animator.GoToFrame(this.Frame);
     }
 
@@ -71,36 +69,24 @@ public class SCAttackEditing : MonoBehaviour
                     this.Hitboxes[i].enabled = false;
                 }
             }
-            this.Animator.GoToFrame(this.Frame);
         }
+        this.Animator.GoToFrame(this.Frame);
     }
 
     public void RemoveCurrent()
     {
-        List<SCAttack.HitboxKeyframe> keyframes = this.AttackObject.HitboxKeyframes != null ? new List<SCAttack.HitboxKeyframe>(this.AttackObject.HitboxKeyframes) : new List<SCAttack.HitboxKeyframe>();
-        keyframes.RemoveAt(this.CurrentIndex);
-        this.CurrentIndex = Mathf.Max(0, this.CurrentIndex - 1);
-        this.AttackObject.HitboxKeyframes = keyframes.ToArray();
-    }
-
-    void OnValidate()
-    {
-        if (this.CurrentIndex != prevCurrentIndex)
+        if (this.CurrentIndex >= 0 && this.CurrentIndex < this.AttackObject.HitboxKeyframes.Length)
         {
-            prevCurrentIndex = this.CurrentIndex;
-            this.LoadCurrentIndex();
+            List<SCAttack.HitboxKeyframe> keyframes = this.AttackObject.HitboxKeyframes != null ? new List<SCAttack.HitboxKeyframe>(this.AttackObject.HitboxKeyframes) : new List<SCAttack.HitboxKeyframe>();
+            keyframes.RemoveAt(this.CurrentIndex);
+            this.CurrentIndex = Mathf.Max(0, this.CurrentIndex - 1);
+            this.AttackObject.HitboxKeyframes = keyframes.ToArray();
         }
-
-        if (this.AttackAnimator.CurrentAnimation != null)
-            this.Frame = Mathf.Clamp(this.Frame, 0, this.AttackAnimator.CurrentAnimation.Frames.Length);
-        this.Animator.GoToFrame(this.Frame);
     }
 
     /**
      * Private
      */
-    private int prevCurrentIndex;
-
     private SCAttack.HitboxKeyframe gatherKeyframeData()
     {
         List<IntegerVector> hitboxPositions = new List<IntegerVector>();
