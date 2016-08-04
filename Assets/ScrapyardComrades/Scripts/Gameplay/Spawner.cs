@@ -23,7 +23,10 @@ public class Spawner : VoBehavior
     private void spawn()
     {
         GameObject spawn = Instantiate<GameObject>(this.ObjectToSpawn);
-        spawn.transform.position = this.SpawnLocation.position;
+        IntegerCollider collider = spawn.GetComponent<IntegerCollider>();
+        int yOffset = collider != null ? collider.Bounds.Size.Y / 2 : 0;
+
+        spawn.transform.position = new Vector3(this.SpawnLocation.position.x, this.SpawnLocation.position.y + yOffset, this.SpawnLocation.position.z);
         if (this.DestroyAfterSpawn)
             Destroy(this.gameObject);
     }
