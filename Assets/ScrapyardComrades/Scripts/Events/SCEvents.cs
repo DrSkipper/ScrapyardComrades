@@ -28,12 +28,12 @@ public class HitEvent : LocalEventNotifier.Event
     }
 }
 
-public class PlayerUpdateFinishedEvent : LocalEventNotifier.Event
+public class CharacterUpdateFinishedEvent : LocalEventNotifier.Event
 {
     public static string NAME = "UPDATE_FINISHED";
     public SCAttack CurrentAttack;
 
-    public PlayerUpdateFinishedEvent(SCAttack currentAttack = null)
+    public CharacterUpdateFinishedEvent(SCAttack currentAttack = null)
     {
         this.Name = NAME;
         this.CurrentAttack = currentAttack;

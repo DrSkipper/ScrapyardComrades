@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(SCSpriteAnimator))]
-public class PlayerVisualizer : VoBehavior
+[RequireComponent(typeof(SCCharacterController))]
+public class CharacterVisualizer : VoBehavior
 {
-    public GameObject PlayerObject = null;
     public SCSpriteAnimation IdleAnimation;
     public SCSpriteAnimation RunAnimation;
     public SCSpriteAnimation JumpAnimation;
@@ -17,7 +17,7 @@ public class PlayerVisualizer : VoBehavior
 
     void Awake()
     {
-        _playerController = this.PlayerObject != null ? this.PlayerObject.GetComponent<PlayerController>() : this.GetComponent<PlayerController>();
+        _characterController = this.GetComponent<SCCharacterController>();
         _spriteAnimator = this.GetComponent<SCSpriteAnimator>();
         _stateMachine = new FSMStateMachine();
         _stateMachine.AddState(IDLE_STATE, this.updateGeneric, this.enterIdle);
@@ -27,23 +27,23 @@ public class PlayerVisualizer : VoBehavior
         _stateMachine.AddState(ATTACK_STATE, this.updateAttack, this.enterAttack);
         _stateMachine.BeginWithInitialState(IDLE_STATE);
 
-        this.localNotifier.Listen(PlayerUpdateFinishedEvent.NAME, this, this.UpdateVisual);
+        this.localNotifier.Listen(CharacterUpdateFinishedEvent.NAME, this, this.UpdateVisual);
     }
 
     public void UpdateVisual(LocalEventNotifier.Event localEvent)
     {
-        SCAttack attack = ((PlayerUpdateFinishedEvent)localEvent).CurrentAttack;
+        SCAttack attack = ((CharacterUpdateFinishedEvent)localEvent).CurrentAttack;
         _attackChanged = _currentAttack != null && _currentAttack != attack;
         _currentAttack = attack;
 
         _stateMachine.Update();
-        this.transform.localScale = new Vector3((_playerController.CurrentFacing == PlayerController.Facing.Left ? -1 : 1) * Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
+        this.transform.localScale = new Vector3((_characterController.CurrentFacing == SCCharacterController.Facing.Left ? -1 : 1) * Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
     }
 
     /**
      * Private
      */
-    private PlayerController _playerController;
+    private SCCharacterController _characterController;
     private FSMStateMachine _stateMachine;
     private SCSpriteAnimator _spriteAnimator;
     private SCAttack _currentAttack;
@@ -55,13 +55,13 @@ public class PlayerVisualizer : VoBehavior
         {
             return ATTACK_STATE;
         }
-        else if (!_playerController.OnGround)
+        else if (!_characterController.OnGround)
         {
-            if (GameplayInput.JumpHeld && _playerController.Velocity.y > 0.0f)
+            if (GameplayInput.JumpHeld && _characterController.Velocity.y > 0.0f)
                 return JUMPING_STATE;
             return FALLING_STATE;
         }
-        if (_playerController.MoveAxis != 0 && _playerController.Velocity.x != 0)
+        if (_characterController.MoveAxis != 0 && _characterController.Velocity.x != 0)
             return RUNNING_STATE;
         return IDLE_STATE;
     }
