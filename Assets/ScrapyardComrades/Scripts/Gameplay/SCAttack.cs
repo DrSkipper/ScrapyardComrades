@@ -26,6 +26,11 @@ public class SCAttack : ScriptableObject
     public int AttackInterruptFrame; // Have this be different by attack type?
     public int AttackCooldown; // Should also probably be by attack type
 
+    public float KnockbackPower = 10.0f;
+    public int HitInvincibilityDuration = 4;
+    //public int HitStunDuration = 4;
+    //TODO - 4 types of knockback - Hard-set direction, 1stChar-to-2ndChar origin difference, 1stChar-to-hit, hit-to-2ndChar
+
     public float GravityMultiplier = 1.0f;
     public float JumpPowerMultiplier = 1.0f;
     public float JumpHorizontalBoostMultiplier = 1.0f;

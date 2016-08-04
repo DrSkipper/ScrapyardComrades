@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class SCAttackEditing : MonoBehaviour
 {
@@ -116,7 +118,9 @@ public class SCAttackEditing : MonoBehaviour
 
     private void saveState()
     {
+#if UNITY_EDITOR
         EditorUtility.SetDirty(this.AttackObject);
         AssetDatabase.SaveAssets();
+#endif
     }
 }

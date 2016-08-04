@@ -4,6 +4,7 @@ public class SCSpriteAnimator : VoBehavior
 {
     public SCSpriteAnimation DefaultAnimation;
     public SCSpriteAnimation CurrentAnimation { get { guaranteeCurrentAnimation(); return _currentAnimation; } }
+    public int Elapsed { get { return _elapsed; } }
 
     void Awake()
     {
@@ -20,7 +21,7 @@ public class SCSpriteAnimator : VoBehavior
         _currentAnimation = animation;
         _looping = loop;
         _frame = 0;
-        _elapsed = 0.0f;
+        _elapsed = 0;
         _playing = true;
         this.spriteRenderer.sprite = _currentAnimation.Frames[0];
     }
@@ -29,7 +30,7 @@ public class SCSpriteAnimator : VoBehavior
     {
         guaranteeCurrentAnimation();
         _frame = Mathf.Clamp(frame, 0, _currentAnimation.Frames.Length - 1);
-        _elapsed = _frame * this.GetFrameDuration();
+        _elapsed = Mathf.RoundToInt(_frame * this.GetFrameDuration());
         this.spriteRenderer.sprite = _currentAnimation.Frames[_frame];
     }
 
@@ -44,7 +45,7 @@ public class SCSpriteAnimator : VoBehavior
         {
             _elapsed += 1;
             float frameDuration = this.GetFrameDuration();
-            float nextFrameTime = _frame >= _currentAnimation.Frames.Length - 1 ? _currentAnimation.LengthInFrames : (_frame + 1) * frameDuration;
+            int nextFrameTime = _frame >= _currentAnimation.Frames.Length - 1 ? _currentAnimation.LengthInFrames : Mathf.RoundToInt((_frame + 1) * frameDuration);
 
             if (_elapsed >= nextFrameTime)
             {
@@ -53,7 +54,7 @@ public class SCSpriteAnimator : VoBehavior
                     if (_looping)
                     {
                         _frame = _currentAnimation.LoopFrame;
-                        _elapsed = _currentAnimation.LoopFrame * frameDuration;
+                        _elapsed = Mathf.RoundToInt(_currentAnimation.LoopFrame * frameDuration);
                     }
                     else
                     {
@@ -87,7 +88,7 @@ public class SCSpriteAnimator : VoBehavior
     private bool _playing;
     private bool _looping;
     private int _frame;
-    private float _elapsed;
+    private int _elapsed;
 
     private void guaranteeCurrentAnimation()
     {

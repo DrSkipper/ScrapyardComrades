@@ -13,7 +13,7 @@ public class Actor2D : VoBehavior
     public const float MAX_POSITION_INCREMENT = 1.0f;
     public const int BOUNCE_DETECTION_RANGE = 1;
 
-    public virtual void Update()
+    public virtual void FixedUpdate()
     {
         Vector2 modifiedVelocity = this.Velocity;
         foreach (VelocityModifier modifier in _velocityModifiers.Values)
@@ -21,7 +21,7 @@ public class Actor2D : VoBehavior
 
         if (modifiedVelocity.x != 0.0f || modifiedVelocity.y != 0.0f)
         {
-            Move(modifiedVelocity * Time.deltaTime);
+            Move(modifiedVelocity);
         }
         else if (this.CheckCollisionsWhenStill)
         {
@@ -138,7 +138,7 @@ public class Actor2D : VoBehavior
     public bool Bounce(GameObject hit, Vector2 origVelocity, Vector2 appliedVelocity, LayerMask bounceLayerMask, float minimumBounceAngle)
     {
         this.Velocity = origVelocity;
-        float remainingSpeed = (origVelocity * Time.deltaTime - appliedVelocity).magnitude;
+        float remainingSpeed = (origVelocity - appliedVelocity).magnitude;
 
         int unitDirX = Math.Sign(origVelocity.x) * BOUNCE_DETECTION_RANGE;
         int unitDirY = Math.Sign(origVelocity.y) * BOUNCE_DETECTION_RANGE;

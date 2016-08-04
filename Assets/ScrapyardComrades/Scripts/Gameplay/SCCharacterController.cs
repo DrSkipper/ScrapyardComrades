@@ -66,6 +66,7 @@ public class SCCharacterController : Actor2D
     public float RunDecceleration = 3.0f;
     public float AirRunAcceleration = 0.1f;
 
+    public AttackController AttackController;
     public SCMoveSet MoveSet;
     public Facing CurrentFacing { get { return _facing; } }
     public bool OnGround { get { return _onGround; } }
@@ -88,7 +89,7 @@ public class SCCharacterController : Actor2D
         _attackTimer.complete();
     }
 
-    void FixedUpdate()
+    public override void FixedUpdate()
     {
         InputWrapper input = this.GatherInput();
         _moveAxis = input.MovementAxis;
@@ -189,9 +190,12 @@ public class SCCharacterController : Actor2D
             _facing = (Facing)_moveAxis;
 
         this.Velocity = _velocity;
-        base.Update();
+        base.FixedUpdate();
 
         this.localNotifier.SendEvent(new CharacterUpdateFinishedEvent(_currentAttack));
+
+        if (this.AttackController != null)
+            this.AttackController.UpdateDamageBoxes(_currentAttack);
     }
 
     public bool IsGrounded
