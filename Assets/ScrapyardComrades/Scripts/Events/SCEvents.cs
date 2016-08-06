@@ -75,3 +75,13 @@ public class FreezeFrameEvent : LocalEventNotifier.Event
         this.NumFrames = numFrames;
     }
 }
+
+public class FreezeFrameEndedEvent : LocalEventNotifier.Event
+{
+    public static string NAME = "FREEZE_FRAME_END";
+
+    public FreezeFrameEndedEvent()
+    {
+        this.Name = NAME;
+    }
+}

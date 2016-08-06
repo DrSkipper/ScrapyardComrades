@@ -96,9 +96,14 @@ public class SCCharacterController : Actor2D
 
     public override void FixedUpdate()
     {
-        _freezeFrameTimer.update();
         if (!_freezeFrameTimer.Completed)
-            return;
+        {
+            _freezeFrameTimer.update();
+            if (!_freezeFrameTimer.Completed)
+                return;
+            else
+                this.localNotifier.SendEvent(new FreezeFrameEndedEvent());
+        }
 
         InputWrapper input = this.GatherInput();
         _moveAxis = input.MovementAxis;

@@ -9,6 +9,8 @@ public class SCSpriteAnimator : VoBehavior
     void Awake()
     {
         this.PlayAnimation(this.DefaultAnimation);
+        this.localNotifier.Listen(FreezeFrameEvent.NAME, this, freezeFrame);
+        this.localNotifier.Listen(FreezeFrameEndedEvent.NAME, this, freezeFrameEnded);
     }
 
     public void PlayAnimation(SCSpriteAnimation animation)
@@ -41,7 +43,7 @@ public class SCSpriteAnimator : VoBehavior
 
     void FixedUpdate()
     {
-        if (_playing)
+        if (_playing && !_frozen)
         {
             _elapsed += 1;
             float frameDuration = this.GetFrameDuration();
@@ -89,10 +91,21 @@ public class SCSpriteAnimator : VoBehavior
     private bool _looping;
     private int _frame;
     private int _elapsed;
+    private bool _frozen = false;
 
     private void guaranteeCurrentAnimation()
     {
         if (_currentAnimation == null)
             this.PlayAnimation(this.DefaultAnimation);
+    }
+
+    private void freezeFrame(LocalEventNotifier.Event e)
+    {
+        _frozen = true;
+    }
+
+    private void freezeFrameEnded(LocalEventNotifier.Event e)
+    {
+        _frozen = false;
     }
 }
