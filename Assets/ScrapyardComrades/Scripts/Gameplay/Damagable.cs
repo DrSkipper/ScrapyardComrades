@@ -2,7 +2,7 @@
 
 public class Damagable : VoBehavior
 {
-    //public const int FreezeFrames = 4;
+    public const int FreezeFrames = 4;
     public bool Invincible { get; private set; }
 
     void Awake()
@@ -19,8 +19,9 @@ public class Damagable : VoBehavior
         Vector2 knockbackDirection = ((Vector2)(hitPoint - origin)).normalized;
         this.Actor.Velocity = knockbackDirection * attack.KnockbackPower;
         this.Invincible = true;
-        _invincibilityTimer.reset(attack.HitInvincibilityDuration);
+        _invincibilityTimer.reset(attack.HitInvincibilityDuration + FreezeFrames);
         _invincibilityTimer.start();
+        this.localNotifier.SendEvent(new FreezeFrameEvent(FreezeFrames));
         return true;
     }
 
@@ -35,5 +36,15 @@ public class Damagable : VoBehavior
         }
     }
 
+    public void SetInvincible(int numFrames)
+    {
+        if (numFrames > _invincibilityTimer.FramesRemaining)
+            _invincibilityTimer.reset(numFrames);
+        _invincibilityTimer.start();
+    }
+
+    /**
+     * Private
+     */
     private Timer _invincibilityTimer;
 }

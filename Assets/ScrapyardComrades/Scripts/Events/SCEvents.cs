@@ -63,3 +63,15 @@ public class SequencePausedEvent : LocalEventNotifier.Event
         this.Paused = paused;
     }
 }
+
+public class FreezeFrameEvent : LocalEventNotifier.Event
+{
+    public static string NAME = "FREEZE_FRAME";
+    public int NumFrames;
+
+    public FreezeFrameEvent(int numFrames)
+    {
+        this.Name = NAME;
+        this.NumFrames = numFrames;
+    }
+}

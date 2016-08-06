@@ -87,10 +87,19 @@ public class SCCharacterController : Actor2D
 
         _attackTimer = new Timer(1);
         _attackTimer.complete();
+
+        _freezeFrameTimer = new Timer(1);
+        _freezeFrameTimer.complete();
+
+        this.localNotifier.Listen(FreezeFrameEvent.NAME, this, freezeFrame);
     }
 
     public override void FixedUpdate()
     {
+        _freezeFrameTimer.update();
+        if (!_freezeFrameTimer.Completed)
+            return;
+
         InputWrapper input = this.GatherInput();
         _moveAxis = input.MovementAxis;
         _velocity = this.Velocity;
@@ -216,6 +225,7 @@ public class SCCharacterController : Actor2D
     private SCAttack _currentAttack = null;
     private Timer _attackTimer;
     private ControlParameters _parameters;
+    private Timer _freezeFrameTimer;
 
     private struct ControlParameters
     {
@@ -290,5 +300,10 @@ public class SCCharacterController : Actor2D
             _velocity.x += this.JumpHorizontalBoost * _moveAxis;
 
         _canJumpHold = true;
+    }
+
+    private void freezeFrame(LocalEventNotifier.Event e)
+    {
+        _freezeFrameTimer.reset((e as FreezeFrameEvent).NumFrames);
     }
 }
