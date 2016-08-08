@@ -6,6 +6,7 @@ public class AttackController : VoBehavior
     public SCSpriteAnimator Animator;
     public Damagable Damagable;
     public LayerMask DamagableLayers;
+    public GameObject HitEffect;
 
     public void UpdateDamageBoxes(SCAttack currentAttack)
     {
@@ -51,13 +52,17 @@ public class AttackController : VoBehavior
                     Damagable otherDamagable = collided.GetComponent<Damagable>();
                     if (otherDamagable != null)
                     {
-                        bool landedHit = otherDamagable.Damage(currentAttack, (Vector2)this.Actor.ActualPosition.position, collided.GetComponent<IntegerCollider>().ClosestContainedPoint((Vector2)collider.transform.position));
+                        IntegerVector hitPoint = collided.GetComponent<IntegerCollider>().ClosestContainedPoint((Vector2)collider.transform.position);
+                        bool landedHit = otherDamagable.Damage(currentAttack, (Vector2)this.Actor.ActualPosition.position, hitPoint);
 
                         if (landedHit)
                         {
                             this.localNotifier.SendEvent(new FreezeFrameEvent(Damagable.FreezeFrames));
                             if (this.Damagable != null)
                                 this.Damagable.SetInvincible(Damagable.FreezeFrames);
+                            GameObject hitEffect = Instantiate<GameObject>(this.HitEffect);
+                            hitEffect.transform.position = (Vector2)hitPoint;
+                            hitEffect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(Damagable.FreezeFrames);
                         }
                     }
                 }
