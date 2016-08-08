@@ -53,7 +53,7 @@ public class AttackController : VoBehavior
                     if (otherDamagable != null)
                     {
                         IntegerVector hitPoint = collided.GetComponent<IntegerCollider>().ClosestContainedPoint((Vector2)collider.transform.position);
-                        bool landedHit = otherDamagable.Damage(currentAttack, (Vector2)this.Actor.ActualPosition.position, hitPoint);
+                        bool landedHit = otherDamagable.Damage(currentAttack, (Vector2)this.Actor.transform.position, hitPoint);
 
                         if (landedHit)
                         {
