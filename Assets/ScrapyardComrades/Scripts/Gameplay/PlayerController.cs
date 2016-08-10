@@ -23,4 +23,9 @@ public class PlayerController : SCCharacterController
     {
         return new PlayerInput();
     }
+
+    void Start()
+    {
+        GlobalEvents.Notifier.SendEvent(new PlayerSpawnedEvent(this.gameObject));
+    }
 }

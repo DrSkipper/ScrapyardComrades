@@ -19,6 +19,8 @@ public class MapLoader : MonoBehaviour
         MapInfo mapInfo = gatherMapInfo();
         int[,] grid = mapInfo.GetLayerWithName(this.PlatformsLayer).Grid;
 
+        this.transform.position = this.transform.position + new Vector3(-mapInfo.width * this.PlatformsRenderer.TileRenderSize / 2, -mapInfo.height * this.PlatformsRenderer.TileRenderSize / 2, 0);
+
         this.PlatformsRenderer.CreateMapWithGrid(grid);
         this.GeometryCreator.CreateGeometryForGrid(grid);
         this.ObjectPlacer.PlaceObjects(mapInfo.GetLayerWithName(this.ObjectsLayer).objects, mapInfo.width, mapInfo.height);
@@ -28,6 +30,7 @@ public class MapLoader : MonoBehaviour
     {
         MapInfo mapInfo = gatherMapInfo();
         int[,] grid = mapInfo.GetLayerWithName(this.PlatformsLayer).Grid;
+        this.transform.position = this.transform.position + new Vector3(-mapInfo.width * this.PlatformsRenderer.TileRenderSize / 2, -mapInfo.height * this.PlatformsRenderer.TileRenderSize / 2, 0);
         this.PlatformsRenderer.CreateMapWithGrid(grid);
         this.GeometryCreator.CreateGeometryForGrid(grid);
     }
@@ -55,6 +58,7 @@ public class MapLoader : MonoBehaviour
 
     public void ClearMap(bool editor = false)
     {
+        this.transform.position = new Vector3(0, 0, this.transform.position.z);
         this.PlatformsRenderer.Clear();
         this.GeometryCreator.Clear(editor);
     }

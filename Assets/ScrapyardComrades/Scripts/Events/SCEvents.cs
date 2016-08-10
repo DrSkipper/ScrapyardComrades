@@ -85,3 +85,15 @@ public class FreezeFrameEndedEvent : LocalEventNotifier.Event
         this.Name = NAME;
     }
 }
+
+public class PlayerSpawnedEvent : LocalEventNotifier.Event
+{
+    public static string NAME = "PLAYER_SPAWNED";
+    public GameObject PlayerObject;
+
+    public PlayerSpawnedEvent(GameObject playerObject)
+    {
+        this.Name = NAME;
+        this.PlayerObject = playerObject;
+    }
+}

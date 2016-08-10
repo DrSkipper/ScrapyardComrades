@@ -8,10 +8,11 @@ public class CollisionManager : VoBehavior
     public LayerMask SolidsLayerMask;
     public int MaxColliderSize = 32;
     public int RaycastChunkSize = 32;
+    public IntegerVector SolidsOffset = IntegerVector.Zero;
 
     public const float RAYCAST_MAX_POSITION_INCREMENT = 2.0f;
-    public const int MAX_SOLIDS_X = 1024;
-    public const int MAX_SOLIDS_Y = 1024;
+    public const int MAX_SOLIDS_X = 2048;
+    public const int MAX_SOLIDS_Y = 2048;
     public const int MAX_SOLIDS_X_2 = MAX_SOLIDS_X / 2;
     public const int MAX_SOLIDS_Y_2 = MAX_SOLIDS_Y / 2;
 
