@@ -25,6 +25,24 @@ public class MapGeometryCreator : MonoBehaviour
         }
     }
 
+    public void Clear(bool editor = false)
+    {
+        if (editor)
+        {
+            while (this.transform.childCount > 0)
+            {
+                DestroyImmediate(this.transform.GetChild(0).gameObject);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < this.transform.childCount; ++i)
+            {
+                Destroy(this.transform.GetChild(i).gameObject);
+            }
+        }
+    }
+
     private bool shouldIgnore(int tileType)
     {
         if (this.TileTypesToIgnore != null)
