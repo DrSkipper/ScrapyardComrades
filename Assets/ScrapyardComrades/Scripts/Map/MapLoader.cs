@@ -13,6 +13,8 @@ public class MapLoader : MonoBehaviour
     public string ObjectsLayer = "objects";
     public bool FlipVertical = true;
 
+    public bool Cleared { get { return _cleared; } }
+
     void Start()
     {
         this.ClearMap();
@@ -58,6 +60,7 @@ public class MapLoader : MonoBehaviour
 
     public void ClearMap(bool editor = false)
     {
+        _cleared = true;
         this.transform.position = new Vector3(0, 0, this.transform.position.z);
         this.PlatformsRenderer.Clear();
         this.GeometryCreator.Clear(editor);
@@ -67,6 +70,7 @@ public class MapLoader : MonoBehaviour
      * Private
      */
     private const string PATH = "Levels/";
+    private bool _cleared = false;
 
     private MapInfo gatherMapInfo()
     {

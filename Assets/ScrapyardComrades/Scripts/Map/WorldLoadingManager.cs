@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
 public class WorldLoadingManager : MonoBehaviour
@@ -9,8 +10,10 @@ public class WorldLoadingManager : MonoBehaviour
     public int TileRenderSize = 10;
     public int BoundsToLoadBuffer = 32;
     public GameObject MapLoaderPrefab;
+    public List<GameObject> IgnoreRecenterObjects;
+    public List<MapLoader> MapLoaders;
 
-    public struct MapQuad
+    public class MapQuad
     {
         public string Name;
         public IntegerRect Bounds;
@@ -20,6 +23,9 @@ public class WorldLoadingManager : MonoBehaviour
 
     void Awake()
     {
+        if (this.MapLoaders == null)
+            this.MapLoaders = new List<MapLoader>();
+
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
     }
 
@@ -30,7 +36,39 @@ public class WorldLoadingManager : MonoBehaviour
             IntegerVector playerPosition = (Vector2)(_tracker.transform.position / this.TileRenderSize);
             if (!_currentQuad.CenteredBounds.Contains(playerPosition))
             {
+                // Change current quad
+                for (int i = 0; i < _targetLoadedQuads.Count; ++i)
+                {
+                    //if (_targetLoadedQuads.
+                }
 
+                // Get target quads to have loaded
+                gatherTargetLoadedQuads();
+
+                // Unload out of bounds quads
+                for (int i = 0; i < _currentLoadedQuads.Count; ++i)
+                {
+                    if (!_targetLoadedQuads.Contains(_currentLoadedQuads[i]))
+                    {
+                        // unload
+                    }
+                }
+
+                // Recenter all objects except those specified to be ignored
+                GameObject[] rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
+                {
+                    for (int i = 0; i < rootObjects.Length; ++i)
+                    {
+                        if (!this.IgnoreRecenterObjects.Contains(rootObjects[i]))
+                        {
+                            // recenter
+                        }
+                    }
+                }
+
+                // send recenter event so lerpers/tweens know to change targets
+
+                // load newly within range quads
             }
         }
     }
@@ -48,5 +86,17 @@ public class WorldLoadingManager : MonoBehaviour
     private void playerSpawned(LocalEventNotifier.Event e)
     {
         _tracker = (e as PlayerSpawnedEvent).PlayerObject.transform;
+    }
+
+    private void gatherTargetLoadedQuads()
+    {
+        _targetLoadedQuads.Clear();
+        for (int i = 0; i < _allMapQuads.Count; ++i)
+        {
+            if (_currentQuad.BoundsToLoad.Overlaps(_allMapQuads[i].Bounds))
+            {
+                _targetLoadedQuads.Add(_allMapQuads[i]);
+            }
+        }
     }
 }
