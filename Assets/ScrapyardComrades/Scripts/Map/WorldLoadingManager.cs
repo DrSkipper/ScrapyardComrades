@@ -19,6 +19,14 @@ public class WorldLoadingManager : MonoBehaviour
         public IntegerRect Bounds;
         public IntegerRect CenteredBounds;
         public IntegerRect BoundsToLoad;
+
+        public IntegerRect GetRelativeBounds(MapQuad other)
+        {
+            IntegerRect offsetRect = this.CenteredBounds;
+            offsetRect.Center.X = this.Bounds.Center.X - other.Bounds.Center.X;
+            offsetRect.Center.Y = this.Bounds.Center.Y - other.Bounds.Center.Y;
+            return offsetRect;
+        }
     }
 
     void Awake()
@@ -39,7 +47,11 @@ public class WorldLoadingManager : MonoBehaviour
                 // Change current quad
                 for (int i = 0; i < _targetLoadedQuads.Count; ++i)
                 {
-                    //if (_targetLoadedQuads.
+                    if (_targetLoadedQuads[i].GetRelativeBounds(_currentQuad).Contains(playerPosition))
+                    {
+                        _currentQuad = _targetLoadedQuads[i];
+                        break;
+                    }
                 }
 
                 // Get target quads to have loaded
