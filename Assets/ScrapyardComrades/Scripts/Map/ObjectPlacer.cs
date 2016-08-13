@@ -8,7 +8,7 @@ public class ObjectPlacer : VoBehavior
     public int TileTextureSize = 10;
     public bool FlipVertical = true;
 
-    public void PlaceObjects(MapInfo.MapObject[] mapObjects, int gridWidth, int gridHeight)
+    public void PlaceObjects(MapInfo.MapObject[] mapObjects, int gridWidth, int gridHeight, bool loadPlayer)
     {
         int positionCorrection = this.TileRenderSize / this.TileTextureSize;
 
@@ -19,7 +19,8 @@ public class ObjectPlacer : VoBehavior
 
             if (mapObject.name == PLAYER)
             {
-                spawner = Instantiate<GameObject>(this.PlayerSpawnerPrefab);
+                if (loadPlayer)
+                    spawner = Instantiate<GameObject>(this.PlayerSpawnerPrefab);
             }
             else if (mapObject.name.Contains(ENEMY))
             {

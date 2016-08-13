@@ -97,3 +97,15 @@ public class PlayerSpawnedEvent : LocalEventNotifier.Event
         this.PlayerObject = playerObject;
     }
 }
+
+public class WorldRecenterEvent : LocalEventNotifier.Event
+{
+    public static string NAME = "WORLD_RECENTER";
+    public IntegerVector RecenterOffset;
+
+    public WorldRecenterEvent(IntegerVector recenterOffset)
+    {
+        this.Name = NAME;
+        this.RecenterOffset = recenterOffset;
+    }
+}

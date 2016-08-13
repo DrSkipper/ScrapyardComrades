@@ -11,8 +11,8 @@ public class CollisionManager : VoBehavior
     public IntegerVector SolidsOffset = IntegerVector.Zero;
 
     public const float RAYCAST_MAX_POSITION_INCREMENT = 2.0f;
-    public const int MAX_SOLIDS_X = 2048;
-    public const int MAX_SOLIDS_Y = 2048;
+    public const int MAX_SOLIDS_X = 1024;
+    public const int MAX_SOLIDS_Y = 1024;
     public const int MAX_SOLIDS_X_2 = MAX_SOLIDS_X / 2;
     public const int MAX_SOLIDS_Y_2 = MAX_SOLIDS_Y / 2;
 
@@ -536,6 +536,30 @@ public class CollisionManager : VoBehavior
 
         result.FarthestPointReached = position;
         return result;
+    }
+
+    public void ReorganizeSolids()
+    {
+        List<IntegerCollider>[,] oldSolids = _solids;
+        _solids = new List<IntegerCollider>[MAX_SOLIDS_X, MAX_SOLIDS_Y];
+
+        for (int y = 0; y < oldSolids.GetLength(1); ++y)
+        {
+            for (int x = 0; x < oldSolids.GetLength(0); ++x)
+            {
+                if (oldSolids[x, y] != null)
+                {
+                    for (int i = 0; i < oldSolids[x, y].Count; ++i)
+                    {
+                        IntegerCollider collider = oldSolids[x, y][i];
+                        this.AddCollider(collider.layerMask, collider);
+                    }
+
+                    oldSolids[x, y].Clear();
+                    oldSolids[x, y] = null;
+                }
+            }
+        }
     }
 
     /**

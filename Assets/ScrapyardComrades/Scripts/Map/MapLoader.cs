@@ -12,6 +12,7 @@ public class MapLoader : MonoBehaviour
     public string PlatformsLayer = "platforms";
     public string ObjectsLayer = "objects";
     public bool FlipVertical = true;
+    public bool LoadPlayer = false;
 
     public bool Cleared { get { return _cleared; } }
 
@@ -25,7 +26,7 @@ public class MapLoader : MonoBehaviour
 
         this.PlatformsRenderer.CreateMapWithGrid(grid);
         this.GeometryCreator.CreateGeometryForGrid(grid);
-        this.ObjectPlacer.PlaceObjects(mapInfo.GetLayerWithName(this.ObjectsLayer).objects, mapInfo.width, mapInfo.height);
+        this.ObjectPlacer.PlaceObjects(mapInfo.GetLayerWithName(this.ObjectsLayer).objects, mapInfo.width, mapInfo.height, this.LoadPlayer);
     }
 
     public void LoadMap()
