@@ -21,8 +21,10 @@ public class MapLoader : MonoBehaviour
         this.ClearMap();
         MapInfo mapInfo = gatherMapInfo();
         int[,] grid = mapInfo.GetLayerWithName(this.PlatformsLayer).Grid;
+        _width = mapInfo.width;
+        _height = mapInfo.height;
 
-        this.transform.position = this.transform.position + new Vector3(-mapInfo.width * this.PlatformsRenderer.TileRenderSize / 2, -mapInfo.height * this.PlatformsRenderer.TileRenderSize / 2, 0);
+        this.transform.position = this.transform.position + new Vector3(-_width * this.PlatformsRenderer.TileRenderSize / 2, -_height * this.PlatformsRenderer.TileRenderSize / 2, 0);
 
         this.PlatformsRenderer.CreateMapWithGrid(grid);
         this.GeometryCreator.CreateGeometryForGrid(grid);
@@ -33,7 +35,9 @@ public class MapLoader : MonoBehaviour
     {
         MapInfo mapInfo = gatherMapInfo();
         int[,] grid = mapInfo.GetLayerWithName(this.PlatformsLayer).Grid;
-        this.transform.position = this.transform.position + new Vector3(-mapInfo.width * this.PlatformsRenderer.TileRenderSize / 2, -mapInfo.height * this.PlatformsRenderer.TileRenderSize / 2, 0);
+        _width = mapInfo.width;
+        _height = mapInfo.height;
+        this.transform.position = this.transform.position + new Vector3(-_width * this.PlatformsRenderer.TileRenderSize / 2, -_height * this.PlatformsRenderer.TileRenderSize / 2, 0);
         this.PlatformsRenderer.CreateMapWithGrid(grid);
         this.GeometryCreator.CreateGeometryForGrid(grid);
     }
@@ -62,7 +66,7 @@ public class MapLoader : MonoBehaviour
     public void ClearMap(bool editor = false)
     {
         _cleared = true;
-        this.transform.position = new Vector3(0, 0, this.transform.position.z);
+        this.transform.position = this.transform.position + new Vector3(_width * this.PlatformsRenderer.TileRenderSize / 2, _height * this.PlatformsRenderer.TileRenderSize / 2, this.transform.position.z);
         this.PlatformsRenderer.Clear();
         this.GeometryCreator.Clear(editor);
     }
@@ -72,6 +76,8 @@ public class MapLoader : MonoBehaviour
      */
     private const string PATH = "Levels/";
     private bool _cleared = false;
+    private int _width = 0;
+    private int _height = 0;
 
     private MapInfo gatherMapInfo()
     {

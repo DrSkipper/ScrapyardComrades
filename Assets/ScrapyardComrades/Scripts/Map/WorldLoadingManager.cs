@@ -199,6 +199,7 @@ public class WorldLoadingManager : MonoBehaviour
 
         GameObject newMapLoaderObject = Instantiate(this.MapLoaderPrefab, position, Quaternion.identity) as GameObject;
         MapLoader newMapLoader = newMapLoaderObject.GetComponent<MapLoader>();
+        Debug.Log("New MapLoader position = " + newMapLoader.transform.position);
         this.MapLoaders.Add(newMapLoader);
         return newMapLoader;
     }
