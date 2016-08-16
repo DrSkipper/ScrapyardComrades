@@ -10,6 +10,7 @@ public class WorldLoadingManager : MonoBehaviour
     public int MinTilesToTravelBetweenLoads = 8;
     public int TileRenderSize = 10;
     public int BoundsToLoadBuffer = 32;
+    public int MinDistanceToLoad = 6;
     public bool FlipVertical = true;
     public GameObject MapLoaderPrefab;
     public List<GameObject> IgnoreRecenterObjects;
@@ -65,7 +66,8 @@ public class WorldLoadingManager : MonoBehaviour
         {
             IntegerVector playerPosition = (Vector2)(_tracker.transform.position / this.TileRenderSize);
 
-            if (!_currentQuad.CenteredBounds.Contains(playerPosition))
+            if (!_currentQuad.CenteredBounds.Contains(playerPosition) &&
+                (!_positionOfLastLoading.HasValue || Vector2.Distance(_tracker.transform.position, _positionOfLastLoading.Value) > this.MinDistanceToLoad * this.TileRenderSize))
             {
                 IntegerVector offset = IntegerVector.Zero;
 
@@ -100,11 +102,12 @@ public class WorldLoadingManager : MonoBehaviour
 
                 // Recenter all objects except those specified to be ignored
                 GameObject[] rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
+                Vector2 multipliedOffset = new Vector2(-offset.X * this.TileRenderSize, -offset.Y * this.TileRenderSize);
                 for (int i = 0; i < rootObjects.Length; ++i)
                 {
                     if (!this.IgnoreRecenterObjects.Contains(rootObjects[i]))
                     {
-                        rootObjects[i].transform.position = new Vector3(rootObjects[i].transform.position.x - offset.X * this.TileRenderSize, rootObjects[i].transform.position.y - offset.Y * this.TileRenderSize, rootObjects[i].transform.position.z);
+                        rootObjects[i].transform.position = rootObjects[i].transform.position + new Vector3(multipliedOffset.x, multipliedOffset.y, 0);
                     }
                 }
 
@@ -117,6 +120,7 @@ public class WorldLoadingManager : MonoBehaviour
 
                 _currentLoadedQuads.Clear();
                 _currentLoadedQuads.AddRange(_targetLoadedQuads);
+                _positionOfLastLoading = _tracker.transform.position;
             }
         }
     }
@@ -130,7 +134,7 @@ public class WorldLoadingManager : MonoBehaviour
     private MapQuad _currentQuad;
     private List<MapQuad> _currentLoadedQuads;
     private List<MapQuad> _targetLoadedQuads;
-    private Vector2 _positionOfLastLoading;
+    private Vector2? _positionOfLastLoading = null;
     private List<MapQuad> _allMapQuads;
     private Transform _tracker;
 
@@ -181,18 +185,19 @@ public class WorldLoadingManager : MonoBehaviour
         return null;
     }
 
-    private MapLoader findUnusedMapLoader()
+    private MapLoader findUnusedMapLoader(Vector2 position)
     {
         for (int i = 0; i < this.MapLoaders.Count; ++i)
         {
             if (!this.MapLoaders[i].gameObject.activeInHierarchy)
             {
                 this.MapLoaders[i].gameObject.SetActive(true);
+                this.MapLoaders[i].transform.position = new Vector3(position.x, position.y, this.MapLoaders[i].transform.position.z);
                 return this.MapLoaders[i];
             }
         }
 
-        GameObject newMapLoaderObject = Instantiate<GameObject>(this.MapLoaderPrefab);
+        GameObject newMapLoaderObject = Instantiate(this.MapLoaderPrefab, position, Quaternion.identity) as GameObject;
         MapLoader newMapLoader = newMapLoaderObject.GetComponent<MapLoader>();
         this.MapLoaders.Add(newMapLoader);
         return newMapLoader;
@@ -204,11 +209,10 @@ public class WorldLoadingManager : MonoBehaviour
         {
             if (!_currentLoadedQuads.Contains(_targetLoadedQuads[i]))
             {
-                MapLoader loader = findUnusedMapLoader();
+                IntegerVector relativeCenter = _targetLoadedQuads[i].GetRelativeBounds(_currentQuad).Center;
+                MapLoader loader = findUnusedMapLoader(new Vector2(relativeCenter.X * this.TileRenderSize, relativeCenter.Y * this.TileRenderSize));
                 loader.MapName = _targetLoadedQuads[i].Name;
                 loader.LoadPlayer = loadPlayer && _targetLoadedQuads[i] == _currentQuad;
-                IntegerVector relativeCenter = _targetLoadedQuads[i].GetRelativeBounds(_currentQuad).Center;
-                loader.transform.position = new Vector3(relativeCenter.X * this.TileRenderSize, relativeCenter.Y * this.TileRenderSize, loader.transform.position.z);
             }
         }
     }
