@@ -47,7 +47,7 @@ public class TileRenderer : VoBehavior
         _tileSprites = null;
         _tilePixels = null;
         this.GetComponent<MeshFilter>().mesh = null;
-        this.renderer.sharedMaterial.mainTexture = null;
+        this.renderer.material.mainTexture = null;
     }
 
     public void SetSpriteIndicesForTiles(int[] x, int[] y, int[] spriteIndices)
@@ -167,7 +167,7 @@ public class TileRenderer : VoBehavior
 
         // Assign mesh to behaviors
         this.GetComponent<MeshFilter>().mesh = mesh;
-        this.renderer.sharedMaterial.mainTexture = this.Atlas;
+        this.renderer.material.mainTexture = this.Atlas;
     }
 
     private void createMapUsingTexture(int[,] grid)
@@ -236,7 +236,7 @@ public class TileRenderer : VoBehavior
 
         // Assign mesh to behaviors
         this.GetComponent<MeshFilter>().mesh = mesh;
-        this.renderer.sharedMaterial.mainTexture = texture;
+        this.renderer.material.mainTexture = this.Atlas;
     }
 
     private Color[] getPixelsForSpriteIndex(int spriteIndex)
@@ -284,7 +284,7 @@ public class TileRenderer : VoBehavior
 
     private void setTileSpriteIndexInTexture(int tileX, int tileY, int spriteIndex)
     {
-        Texture2D texture = (Texture2D)this.renderer.sharedMaterial.mainTexture;
+        Texture2D texture = (Texture2D)this.renderer.material.mainTexture;
         texture.SetPixels(tileX * this.TileTextureSize, tileY * this.TileTextureSize, this.TileTextureSize, this.TileTextureSize, getPixelsForSpriteIndex(spriteIndex));
         texture.Apply();
     }
@@ -311,7 +311,7 @@ public class TileRenderer : VoBehavior
 
     private void setTileSpriteIndicesInTexture(int[] x, int[] y, int[] spriteIndices)
     {
-        Texture2D texture = (Texture2D)this.renderer.sharedMaterial.mainTexture;
+        Texture2D texture = (Texture2D)this.renderer.material.mainTexture;
 
         for (int i = 0; i < x.Length; ++i)
         {
