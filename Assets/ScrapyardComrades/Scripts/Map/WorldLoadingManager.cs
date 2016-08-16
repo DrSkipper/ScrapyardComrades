@@ -213,6 +213,7 @@ public class WorldLoadingManager : MonoBehaviour
                 MapLoader loader = findUnusedMapLoader(new Vector2(relativeCenter.X * this.TileRenderSize, relativeCenter.Y * this.TileRenderSize));
                 loader.MapName = _targetLoadedQuads[i].Name;
                 loader.LoadPlayer = loadPlayer && _targetLoadedQuads[i] == _currentQuad;
+                loader.LoadMap(true); // TODO - figure out how to handle when to load objects/remember where they were/discard them
             }
         }
     }

@@ -13,33 +13,29 @@ public class MapLoader : MonoBehaviour
     public string ObjectsLayer = "objects";
     public bool FlipVertical = true;
     public bool LoadPlayer = false;
+    public bool LoadOnStart = false;
 
     public bool Cleared { get { return _cleared; } }
 
     void Start()
+    {
+        if (this.LoadOnStart)
+            this.LoadMap();
+    }
+
+    public void LoadMap(bool loadObjects = false)
     {
         this.ClearMap();
         MapInfo mapInfo = gatherMapInfo();
         int[,] grid = mapInfo.GetLayerWithName(this.PlatformsLayer).Grid;
         _width = mapInfo.width;
         _height = mapInfo.height;
-
-        this.transform.position = this.transform.position + new Vector3(-_width * this.PlatformsRenderer.TileRenderSize / 2, -_height * this.PlatformsRenderer.TileRenderSize / 2, 0);
-
-        this.PlatformsRenderer.CreateMapWithGrid(grid);
-        this.GeometryCreator.CreateGeometryForGrid(grid);
-        this.ObjectPlacer.PlaceObjects(mapInfo.GetLayerWithName(this.ObjectsLayer).objects, mapInfo.width, mapInfo.height, this.LoadPlayer);
-    }
-
-    public void LoadMap()
-    {
-        MapInfo mapInfo = gatherMapInfo();
-        int[,] grid = mapInfo.GetLayerWithName(this.PlatformsLayer).Grid;
-        _width = mapInfo.width;
-        _height = mapInfo.height;
         this.transform.position = this.transform.position + new Vector3(-_width * this.PlatformsRenderer.TileRenderSize / 2, -_height * this.PlatformsRenderer.TileRenderSize / 2, 0);
         this.PlatformsRenderer.CreateMapWithGrid(grid);
         this.GeometryCreator.CreateGeometryForGrid(grid);
+
+        if (loadObjects)
+            this.ObjectPlacer.PlaceObjects(mapInfo.GetLayerWithName(this.ObjectsLayer).objects, mapInfo.width, mapInfo.height, this.LoadPlayer);
     }
 
     public void CorrectTiling(bool editor = false)
@@ -67,6 +63,8 @@ public class MapLoader : MonoBehaviour
     {
         _cleared = true;
         this.transform.position = this.transform.position + new Vector3(_width * this.PlatformsRenderer.TileRenderSize / 2, _height * this.PlatformsRenderer.TileRenderSize / 2, this.transform.position.z);
+        _width = 0;
+        _height = 0;
         this.PlatformsRenderer.Clear();
         this.GeometryCreator.Clear(editor);
     }
