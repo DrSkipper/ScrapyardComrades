@@ -1,14 +1,21 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
-public class MapGeometryCreator : MonoBehaviour
+public class MapGeometryCreator : VoBehavior
 {
     public GameObject PlatformGeometryPrefab;
     public int[] TileTypesToIgnore;
     public int TileRenderSize = 20;
+    public int MaxSolidsToStore = 2048;
     public bool FlipVertical = true;
 
     public void CreateGeometryForGrid(int[,] grid)
     {
+        if (_unusedGeometry == null)
+            _unusedGeometry = new List<IntegerCollider>();
+        if (_usedGeometry == null)
+            _usedGeometry = new List<IntegerCollider>();
+
         int halfSize = this.TileRenderSize / 2;
         for (int x = 0; x < grid.GetLength(0); ++x)
         {
@@ -16,10 +23,9 @@ public class MapGeometryCreator : MonoBehaviour
             {
                 if (!shouldIgnore(grid[x, y]))
                 {
-                    GameObject go = Instantiate<GameObject>(this.PlatformGeometryPrefab);
-                    go.transform.parent = this.transform;
+                    IntegerCollider geom = findAvailableGeometry();
                     int posY = this.FlipVertical ? (grid.GetLength(1) - y - 1) * this.TileRenderSize : y * this.TileRenderSize;
-                    go.transform.localPosition = new Vector3(x * this.TileRenderSize + halfSize, posY + halfSize, 0);
+                    geom.transform.localPosition = new Vector3(x * this.TileRenderSize + halfSize, posY + halfSize, 0);
                 }
             }
         }
@@ -33,15 +39,44 @@ public class MapGeometryCreator : MonoBehaviour
             {
                 DestroyImmediate(this.transform.GetChild(0).gameObject);
             }
+
+            if (_unusedGeometry != null)
+                _unusedGeometry.Clear();
+            if (_usedGeometry != null)
+                _usedGeometry.Clear();
         }
-        else
+        else if (_unusedGeometry != null)
         {
-            for (int i = 0; i < this.transform.childCount; ++i)
+            // If not in editor, only destroy down to max storage count, then simply disable the rest
+            int numToDestroy = this.transform.childCount - this.MaxSolidsToStore;
+            int destroyedCount = 0;
+
+            while (_usedGeometry.Count > 0)
             {
-                Destroy(this.transform.GetChild(i).gameObject);
+                int index = _usedGeometry.Count - 1;
+                IntegerCollider collider = _usedGeometry[index];
+                _usedGeometry.RemoveAt(index);
+
+                if (destroyedCount < numToDestroy)
+                {
+                    Destroy(collider);
+                    ++destroyedCount;
+                }
+                else
+                {
+                    this.CollisionManager.RemoveCollider(collider.layerMask, collider);
+                    collider.gameObject.SetActive(false);
+                    _unusedGeometry.Add(collider);
+                }
             }
         }
     }
+
+    /**
+     * Private
+     */
+    private List<IntegerCollider> _unusedGeometry;
+    private List<IntegerCollider> _usedGeometry;
 
     private bool shouldIgnore(int tileType)
     {
@@ -55,5 +90,27 @@ public class MapGeometryCreator : MonoBehaviour
         }
 
         return false;
+    }
+
+    private IntegerCollider findAvailableGeometry()
+    {
+        IntegerCollider geom;
+
+        if (_unusedGeometry.Count > 0)
+        {
+            geom = _unusedGeometry[_unusedGeometry.Count - 1];
+            _unusedGeometry.RemoveAt(_unusedGeometry.Count - 1);
+            geom.gameObject.SetActive(true);
+            this.CollisionManager.AddCollider(geom.layerMask, geom);
+        }
+        else
+        {
+            GameObject go = Instantiate<GameObject>(this.PlatformGeometryPrefab);
+            geom = go.GetComponent<IntegerCollider>();
+            geom.transform.parent = this.transform;
+        }
+
+        _usedGeometry.Add(geom);
+        return geom;
     }
 }

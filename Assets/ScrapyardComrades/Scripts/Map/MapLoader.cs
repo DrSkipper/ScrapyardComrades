@@ -40,6 +40,7 @@ public class MapLoader : MonoBehaviour
 
     public void CorrectTiling(bool editor = false)
     {
+#if UNITY_EDITOR
         this.ClearMap(editor);
         MapInfo mapInfo = gatherMapInfo();
         MapInfo.MapLayer platformsLayer = mapInfo.GetLayerWithName(this.PlatformsLayer);
@@ -57,6 +58,7 @@ public class MapLoader : MonoBehaviour
         {
             stream.Write(value: json);
         }
+#endif
     }
 
     public void ClearMap(bool editor = false)

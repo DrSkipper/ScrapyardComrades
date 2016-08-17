@@ -50,7 +50,7 @@ public class CollisionManager : VoBehavior
         }
     }
 
-    public void RemoveCollider(LayerMask layer, IntegerCollider collider, bool solid = false)
+    public void RemoveCollider(LayerMask layer, IntegerCollider collider)
     {
         if ((layer & this.SolidsLayerMask) != 0)
         {

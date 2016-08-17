@@ -10,11 +10,13 @@ public class MapInfo
     public int tileheight;
 
     // unused
+#if UNITY_EDITOR
     public int nextobjectid;
     public string orientation;
     public string renderorder;
     public object tilesets;
     public int version;
+#endif
 
     [System.Serializable]
     public class MapObject
@@ -26,11 +28,13 @@ public class MapInfo
         public int height;
 
         // unused
+#if UNITY_EDITOR
         public int gid;
         public int id;
         public float rotation;
         public string type;
         public bool visible;
+#endif
     }
 
     [System.Serializable]
@@ -43,13 +47,15 @@ public class MapInfo
         public MapObject[] objects;
 
         // unused
+#if UNITY_EDITOR
         public int opacity;
         public string type;
         public bool visible;
         public int x;
         public int y;
         public string draworder;
-        
+#endif
+
         public int[,] Grid
         {
             get
