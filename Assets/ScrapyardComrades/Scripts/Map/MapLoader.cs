@@ -26,6 +26,7 @@ public class MapLoader : MonoBehaviour
     public void LoadMap(bool loadObjects = false)
     {
         this.ClearMap();
+        _cleared = false;
         MapInfo mapInfo = gatherMapInfo();
         int[,] grid = mapInfo.GetLayerWithName(this.PlatformsLayer).Grid;
         _width = mapInfo.width;
@@ -49,6 +50,7 @@ public class MapLoader : MonoBehaviour
         grid = correctTiles(grid);
         this.PlatformsRenderer.CreateMapWithGrid(grid);
         this.GeometryCreator.CreateGeometryForGrid(grid);
+        _cleared = false;
 
         platformsLayer.Grid = grid;
         mapInfo.SetLayerWithName(this.PlatformsLayer, platformsLayer);
