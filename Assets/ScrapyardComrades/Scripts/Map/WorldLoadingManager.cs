@@ -56,64 +56,28 @@ public class WorldLoadingManager : MonoBehaviour
         gatherTargetLoadedQuads();
         loadQuads(true);
         _currentLoadedQuads.AddRange(_targetLoadedQuads);
-        _loadPhaseTimer = new Timer(LOAD_SPACING, false, false);
-        _loadPhaseTimer.complete();
 
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
     }
 
     void Update()
     {
-        if (_loading)
-        {
-            _loadPhaseTimer.update();
-            if (_loadPhaseTimer.Completed)
-            {
-                _loadPhaseTimer.reset();
-
-                switch (_loadPhase)
-                {
-                    case LOAD_PHASE_CHANGE_CURRENT:
-                        changeCurrentQuad();
-                        break;
-                    case LOAD_PHASE_GATHER_TARGETS:
-                        gatherTargetLoadedQuads();
-                        break;
-                    case LOAD_PHASE_UNLOAD_QUADS:
-                        unloadQuads();
-                        break;
-                    case LOAD_PHASE_RECENTER:
-                        recenter();
-                        break;
-                    case LOAD_PHASE_LOAD_QUADS:
-                        loadQuads(false);
-                        _currentLoadedQuads.Clear();
-                        _currentLoadedQuads.AddRange(_targetLoadedQuads);
-                        _positionOfLastLoading = _tracker.transform.position;
-                        _loading = false;
-                        _loadPhaseTimer.complete();
-                        break;
-                    default:
-                        Debug.LogWarning("Invalid World Loading Phase " + _loadPhase);
-                        _loading = false;
-                        break;
-                }
-
-                ++_loadPhase;
-            }
-        }
-        else if (_tracker != null)
+        if (_tracker != null)
         {
             _trackerPosition = (Vector2)(_tracker.transform.position / this.TileRenderSize);
 
             if (!_currentQuad.CenteredBounds.Contains(_trackerPosition) &&
                 (!_positionOfLastLoading.HasValue || Vector2.Distance(_tracker.transform.position, _positionOfLastLoading.Value) > this.MinDistanceToLoad * this.TileRenderSize))
             {
-                _loading = true;
                 _recenterOffset = IntegerVector.Zero;
-                _loadPhase = LOAD_PHASE_CHANGE_CURRENT;
-                _loadPhaseTimer.reset();
-                _loadPhaseTimer.start();
+                changeCurrentQuad();
+                gatherTargetLoadedQuads();
+                unloadQuads();
+                recenter();
+                loadQuads(false);
+                _currentLoadedQuads.Clear();
+                _currentLoadedQuads.AddRange(_targetLoadedQuads);
+                _positionOfLastLoading = _tracker.transform.position;
             }
         }
     }
@@ -129,7 +93,7 @@ public class WorldLoadingManager : MonoBehaviour
     private const int LOAD_PHASE_UNLOAD_QUADS = 2;
     private const int LOAD_PHASE_RECENTER = 3;
     private const int LOAD_PHASE_LOAD_QUADS = 4;
-    private const int LOAD_SPACING = 3;
+    private const int LOAD_SPACING = 2;
     private MapQuad _currentQuad;
     private List<MapQuad> _currentLoadedQuads;
     private List<MapQuad> _targetLoadedQuads;
@@ -138,9 +102,6 @@ public class WorldLoadingManager : MonoBehaviour
     private Transform _tracker;
     private IntegerVector _recenterOffset = IntegerVector.Zero;
     private IntegerVector _trackerPosition = IntegerVector.Zero;
-    private bool _loading;
-    private int _loadPhase;
-    private Timer _loadPhaseTimer;
 
     private void gatherWorldMapInfo()
     {
