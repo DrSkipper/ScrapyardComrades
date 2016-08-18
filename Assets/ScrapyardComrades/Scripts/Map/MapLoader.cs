@@ -63,12 +63,15 @@ public class MapLoader : MonoBehaviour
 
     public void ClearMap(bool editor = false)
     {
-        _cleared = true;
-        this.transform.position = this.transform.position + new Vector3(_width * this.PlatformsRenderer.TileRenderSize / 2, _height * this.PlatformsRenderer.TileRenderSize / 2, this.transform.position.z);
-        _width = 0;
-        _height = 0;
-        this.PlatformsRenderer.Clear();
-        this.GeometryCreator.Clear(editor);
+        if (!_cleared)
+        {
+            _cleared = true;
+            this.PlatformsRenderer.Clear();
+            this.GeometryCreator.Clear(editor);
+            this.transform.position = this.transform.position + new Vector3(_width * this.PlatformsRenderer.TileRenderSize / 2, _height * this.PlatformsRenderer.TileRenderSize / 2, this.transform.position.z);
+            _width = 0;
+            _height = 0;
+        }
     }
 
     /**

@@ -50,7 +50,7 @@ public class VoBehavior : MonoBehaviour
     
     public CollisionManager CollisionManager { get {
             if (_collisionManager == null)
-                _collisionManager = FindObjectOfType<CollisionManager>();
+                _collisionManager = CollisionManager.Instance;
             return _collisionManager;
     } }
 

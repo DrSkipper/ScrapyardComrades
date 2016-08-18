@@ -195,6 +195,7 @@ public class Actor2D : VoBehavior
                 {
                     for (int i = oldCount; i < horizontalCollisions.Count; ++i)
                     {
+                        MapLoader loader = horizontalCollisions[i].transform.root.GetComponent<MapLoader>();
                         collisions.AddUnique(horizontalCollisions[i]);
 
                         if (((1 << horizontalCollisions[i].layer) & this.HaltMovementMask) != 0)

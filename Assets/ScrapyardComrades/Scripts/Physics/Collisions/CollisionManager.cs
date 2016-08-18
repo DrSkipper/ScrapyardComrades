@@ -6,15 +6,16 @@ using System.Collections.Generic;
 public class CollisionManager : VoBehavior
 {
     public LayerMask SolidsLayerMask;
-    public int MaxColliderSize = 32;
+    public int MaxSolidSize = 32;
     public int RaycastChunkSize = 32;
-    public IntegerVector SolidsOffset = IntegerVector.Zero;
 
     public const float RAYCAST_MAX_POSITION_INCREMENT = 2.0f;
     public const int MAX_SOLIDS_X = 1024;
     public const int MAX_SOLIDS_Y = 1024;
     public const int MAX_SOLIDS_X_2 = MAX_SOLIDS_X / 2;
     public const int MAX_SOLIDS_Y_2 = MAX_SOLIDS_Y / 2;
+
+    public static CollisionManager Instance { get { return _instance; } }
 
     public struct RaycastCollision
     {
@@ -29,6 +30,11 @@ public class CollisionManager : VoBehavior
         public bool Collided { get { return this.Collisions != null && this.Collisions.Length != 0; } }
         public RaycastCollision[] Collisions;
         public IntegerVector FarthestPointReached;
+    }
+
+    public void Awake()
+    {
+        _instance = this;
     }
 
     public void AddCollider(LayerMask layer, IntegerCollider collider)
@@ -58,7 +64,13 @@ public class CollisionManager : VoBehavior
             int y = yPositionToSolidsIndex(collider.Bounds.Center.Y);
 
             if (_solids[x, y] != null)
+            {
                 _solids[x, y].Remove(collider);
+            }
+            else
+            {
+                Debug.LogWarning("Collider to remove not found!");
+            }
         }
         else
         {
@@ -86,9 +98,9 @@ public class CollisionManager : VoBehavior
 
         if ((mask & this.SolidsLayerMask) != 0)
         {
-            for (int x = xPositionToSolidsIndex(range.Min.X - this.MaxColliderSize); x <= xPositionToSolidsIndex(range.Max.X + this.MaxColliderSize); ++x)
+            for (int x = xPositionToSolidsIndex(range.Min.X - this.MaxSolidSize); x <= xPositionToSolidsIndex(range.Max.X + this.MaxSolidSize); ++x)
             {
-                for (int y = yPositionToSolidsIndex(range.Min.Y - this.MaxColliderSize); y <= yPositionToSolidsIndex(range.Max.Y + this.MaxColliderSize); ++y)
+                for (int y = yPositionToSolidsIndex(range.Min.Y - this.MaxSolidSize); y <= yPositionToSolidsIndex(range.Max.Y + this.MaxSolidSize); ++y)
                 {
                     if (_solids[x, y] != null)
                         colliders.AddRange(_solids[x, y]);
@@ -567,10 +579,11 @@ public class CollisionManager : VoBehavior
      */
     private Dictionary<LayerMask, List<IntegerCollider>> _collidersByLayer = new Dictionary<LayerMask, List<IntegerCollider>>();
     private List<IntegerCollider>[,] _solids = new List<IntegerCollider>[MAX_SOLIDS_X, MAX_SOLIDS_Y];
+    private static CollisionManager _instance;
 
     private int xPositionToSolidsIndex(int posX)
     {
-        int x = posX / this.MaxColliderSize + MAX_SOLIDS_X_2;
+        int x = posX / this.MaxSolidSize + MAX_SOLIDS_X_2;
         if (x < 0)
             x = 0;
         else if (x >= MAX_SOLIDS_X)
@@ -580,7 +593,7 @@ public class CollisionManager : VoBehavior
 
     private int yPositionToSolidsIndex(int posY)
     {
-        int y = posY / this.MaxColliderSize + MAX_SOLIDS_Y_2;
+        int y = posY / this.MaxSolidSize + MAX_SOLIDS_Y_2;
         if (y < 0)
             y = 0;
         else if (y >= MAX_SOLIDS_Y)

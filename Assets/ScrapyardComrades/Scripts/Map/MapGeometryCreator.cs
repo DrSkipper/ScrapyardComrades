@@ -64,8 +64,8 @@ public class MapGeometryCreator : VoBehavior
                 }
                 else
                 {
-                    this.CollisionManager.RemoveCollider(collider.layerMask, collider);
-                    collider.gameObject.SetActive(false);
+                    collider.RemoveFromCollisionPool();
+                    collider.enabled = false;
                     _unusedGeometry.Add(collider);
                 }
             }
@@ -100,8 +100,8 @@ public class MapGeometryCreator : VoBehavior
         {
             geom = _unusedGeometry[_unusedGeometry.Count - 1];
             _unusedGeometry.RemoveAt(_unusedGeometry.Count - 1);
-            geom.gameObject.SetActive(true);
-            this.CollisionManager.AddCollider(geom.layerMask, geom);
+            geom.enabled = true;
+            geom.AddToCollisionPool();
         }
         else
         {

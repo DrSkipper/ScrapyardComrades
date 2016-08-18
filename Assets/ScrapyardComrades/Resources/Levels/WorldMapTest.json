@@ -34,7 +34,7 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":64,
+                 "width":128,
                  "x":800,
                  "y":736
                 }, 
@@ -81,6 +81,17 @@
                  "width":128,
                  "x":736,
                  "y":864
+                }, 
+                {
+                 "height":64,
+                 "id":8,
+                 "name":"Quad_-1_-1",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":608,
+                 "y":800
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -89,7 +100,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":8,
+ "nextobjectid":9,
  "orientation":"orthogonal",
  "renderorder":"right-up",
  "tileheight":32,

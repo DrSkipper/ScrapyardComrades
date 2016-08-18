@@ -56,71 +56,64 @@ public class WorldLoadingManager : MonoBehaviour
         gatherTargetLoadedQuads();
         loadQuads(true);
         _currentLoadedQuads.AddRange(_targetLoadedQuads);
+        _loadPhaseTimer = new Timer(LOAD_SPACING, false, false);
+        _loadPhaseTimer.complete();
 
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
     }
 
     void Update()
     {
-        if (_tracker != null)
+        if (_loading)
         {
-            IntegerVector playerPosition = (Vector2)(_tracker.transform.position / this.TileRenderSize);
+            _loadPhaseTimer.update();
+            if (_loadPhaseTimer.Completed)
+            {
+                _loadPhaseTimer.reset();
 
-            if (!_currentQuad.CenteredBounds.Contains(playerPosition) &&
+                switch (_loadPhase)
+                {
+                    case LOAD_PHASE_CHANGE_CURRENT:
+                        changeCurrentQuad();
+                        break;
+                    case LOAD_PHASE_GATHER_TARGETS:
+                        gatherTargetLoadedQuads();
+                        break;
+                    case LOAD_PHASE_UNLOAD_QUADS:
+                        unloadQuads();
+                        break;
+                    case LOAD_PHASE_RECENTER:
+                        recenter();
+                        break;
+                    case LOAD_PHASE_LOAD_QUADS:
+                        loadQuads(false);
+                        _currentLoadedQuads.Clear();
+                        _currentLoadedQuads.AddRange(_targetLoadedQuads);
+                        _positionOfLastLoading = _tracker.transform.position;
+                        _loading = false;
+                        _loadPhaseTimer.complete();
+                        break;
+                    default:
+                        Debug.LogWarning("Invalid World Loading Phase " + _loadPhase);
+                        _loading = false;
+                        break;
+                }
+
+                ++_loadPhase;
+            }
+        }
+        else if (_tracker != null)
+        {
+            _trackerPosition = (Vector2)(_tracker.transform.position / this.TileRenderSize);
+
+            if (!_currentQuad.CenteredBounds.Contains(_trackerPosition) &&
                 (!_positionOfLastLoading.HasValue || Vector2.Distance(_tracker.transform.position, _positionOfLastLoading.Value) > this.MinDistanceToLoad * this.TileRenderSize))
             {
-                IntegerVector offset = IntegerVector.Zero;
-
-                // Change current quad
-                for (int i = 0; i < _targetLoadedQuads.Count; ++i)
-                {
-                    IntegerRect otherRect = _targetLoadedQuads[i].GetRelativeBounds(_currentQuad);
-                    if (otherRect.Contains(playerPosition))
-                    {
-                        _currentQuad = _targetLoadedQuads[i];
-                        offset = otherRect.Center;
-                        break;
-                    }
-                }
-
-                // Get target quads to have loaded
-                gatherTargetLoadedQuads();
-
-                // Unload out of bounds quads
-                for (int i = 0; i < _currentLoadedQuads.Count; ++i)
-                {
-                    if (!_targetLoadedQuads.Contains(_currentLoadedQuads[i]))
-                    {
-                        MapLoader loader = mapLoaderForQuadName(_currentLoadedQuads[i].Name);
-                        if (loader != null)
-                        {
-                            loader.ClearMap();
-                            loader.gameObject.SetActive(false);
-                        }
-                    }
-                }
-
-                // Recenter all objects except those specified to be ignored
-                GameObject[] rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
-                Vector2 multipliedOffset = new Vector2(-offset.X * this.TileRenderSize, -offset.Y * this.TileRenderSize);
-                for (int i = 0; i < rootObjects.Length; ++i)
-                {
-                    if (!this.IgnoreRecenterObjects.Contains(rootObjects[i]))
-                    {
-                        rootObjects[i].transform.position = rootObjects[i].transform.position + new Vector3(multipliedOffset.x, multipliedOffset.y, 0);
-                    }
-                }
-
-                // Send recenter event so lerpers/tweens know to change targets
-                GlobalEvents.Notifier.SendEvent(new WorldRecenterEvent(offset * -this.TileRenderSize));
-                this.CollisionManager.ReorganizeSolids();
-
-                // Load newly within range quads
-                loadQuads(false);
-
-                _currentLoadedQuads.Clear();
-                _currentLoadedQuads.AddRange(_targetLoadedQuads);
-                _positionOfLastLoading = _tracker.transform.position;
+                _loading = true;
+                _recenterOffset = IntegerVector.Zero;
+                _loadPhase = LOAD_PHASE_CHANGE_CURRENT;
+                _loadPhaseTimer.reset();
+                _loadPhaseTimer.start();
             }
         }
     }
@@ -131,12 +124,23 @@ public class WorldLoadingManager : MonoBehaviour
     private const string PATH = "Levels/";
     private const string LAYER = "map";
     private const int BOUNDS_TO_LOAD = 32;
+    private const int LOAD_PHASE_CHANGE_CURRENT = 0;
+    private const int LOAD_PHASE_GATHER_TARGETS = 1;
+    private const int LOAD_PHASE_UNLOAD_QUADS = 2;
+    private const int LOAD_PHASE_RECENTER = 3;
+    private const int LOAD_PHASE_LOAD_QUADS = 4;
+    private const int LOAD_SPACING = 3;
     private MapQuad _currentQuad;
     private List<MapQuad> _currentLoadedQuads;
     private List<MapQuad> _targetLoadedQuads;
     private Vector2? _positionOfLastLoading = null;
     private List<MapQuad> _allMapQuads;
     private Transform _tracker;
+    private IntegerVector _recenterOffset = IntegerVector.Zero;
+    private IntegerVector _trackerPosition = IntegerVector.Zero;
+    private bool _loading;
+    private int _loadPhase;
+    private Timer _loadPhaseTimer;
 
     private void gatherWorldMapInfo()
     {
@@ -201,6 +205,56 @@ public class WorldLoadingManager : MonoBehaviour
         MapLoader newMapLoader = newMapLoaderObject.GetComponent<MapLoader>();
         this.MapLoaders.Add(newMapLoader);
         return newMapLoader;
+    }
+
+    private void changeCurrentQuad()
+    {
+        // Change current quad
+        for (int i = 0; i < _targetLoadedQuads.Count; ++i)
+        {
+            IntegerRect otherRect = _targetLoadedQuads[i].GetRelativeBounds(_currentQuad);
+            if (otherRect.Contains(_trackerPosition))
+            {
+                _currentQuad = _targetLoadedQuads[i];
+                _recenterOffset = otherRect.Center;
+                break;
+            }
+        }
+    }
+
+    private void unloadQuads()
+    {
+        // Unload out of bounds quads
+        for (int i = 0; i < _currentLoadedQuads.Count; ++i)
+        {
+            if (!_targetLoadedQuads.Contains(_currentLoadedQuads[i]))
+            {
+                MapLoader loader = mapLoaderForQuadName(_currentLoadedQuads[i].Name);
+                if (loader != null)
+                {
+                    loader.ClearMap();
+                    loader.gameObject.SetActive(false);
+                }
+            }
+        }
+    }
+
+    private void recenter()
+    {
+        // Recenter all objects except those specified to be ignored
+        GameObject[] rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
+        Vector2 multipliedOffset = new Vector2(-_recenterOffset.X * this.TileRenderSize, -_recenterOffset.Y * this.TileRenderSize);
+        for (int i = 0; i < rootObjects.Length; ++i)
+        {
+            if (!this.IgnoreRecenterObjects.Contains(rootObjects[i]))
+            {
+                rootObjects[i].transform.position = rootObjects[i].transform.position + new Vector3(multipliedOffset.x, multipliedOffset.y, 0);
+            }
+        }
+
+        // Send recenter event so lerpers/tweens know to change targets
+        GlobalEvents.Notifier.SendEvent(new WorldRecenterEvent(_recenterOffset * -this.TileRenderSize));
+        this.CollisionManager.ReorganizeSolids();
     }
 
     private void loadQuads(bool loadPlayer)
