@@ -69,7 +69,7 @@ public class CollisionManager : VoBehavior
             }
             else
             {
-                Debug.LogWarning("Collider to remove not found!");
+                Debug.LogWarning("Collider to remove not found! " + collider.transform + ", " + collider.transform.root);
             }
         }
         else
