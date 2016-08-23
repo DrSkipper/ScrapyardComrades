@@ -76,6 +76,11 @@ public class MapLoader : MonoBehaviour
         }
     }
 
+    public void AddColliders()
+    {
+        this.GeometryCreator.AddColliders();
+    }
+
     /**
      * Private
      */

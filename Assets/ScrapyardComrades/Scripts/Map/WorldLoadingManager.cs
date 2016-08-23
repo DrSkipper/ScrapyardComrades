@@ -198,6 +198,8 @@ public class WorldLoadingManager : MonoBehaviour
                 }
             }
         }
+
+        this.CollisionManager.RemoveAllSolids();
     }
 
     private void recenter()
@@ -215,7 +217,6 @@ public class WorldLoadingManager : MonoBehaviour
 
         // Send recenter event so lerpers/tweens know to change targets
         GlobalEvents.Notifier.SendEvent(new WorldRecenterEvent(_recenterOffset * -this.TileRenderSize));
-        this.CollisionManager.ReorganizeSolids();
     }
 
     private void loadQuads(bool loadPlayer)
@@ -230,6 +231,12 @@ public class WorldLoadingManager : MonoBehaviour
                 loader.LoadPlayer = loadPlayer && _targetLoadedQuads[i] == _currentQuad;
                 loader.LoadMap(true); //TODO - figure out how to handle when to load objects/remember where they were/discard them
             }
+        }
+
+        for (int i = 0; i < this.MapLoaders.Count; ++i)
+        {
+            if (this.MapLoaders[i].gameObject.activeInHierarchy)
+                this.MapLoaders[i].AddColliders();
         }
     }
 }

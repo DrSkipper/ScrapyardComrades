@@ -64,11 +64,19 @@ public class MapGeometryCreator : VoBehavior
                 }
                 else
                 {
-                    collider.RemoveFromCollisionPool();
+                    //collider.RemoveFromCollisionPool(); // Now using CollisionManager.RemoveAllSolids instead
                     collider.enabled = false;
                     _unusedGeometry.Add(collider);
                 }
             }
+        }
+    }
+
+    public void AddColliders()
+    {
+        for (int i = 0; i < _usedGeometry.Count; ++i)
+        {
+            _usedGeometry[i].AddToCollisionPool();
         }
     }
 
@@ -101,7 +109,6 @@ public class MapGeometryCreator : VoBehavior
             geom = _unusedGeometry[_unusedGeometry.Count - 1];
             _unusedGeometry.RemoveAt(_unusedGeometry.Count - 1);
             geom.enabled = true;
-            geom.AddToCollisionPool();
         }
         else
         {

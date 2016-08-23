@@ -67,10 +67,10 @@ public class CollisionManager : VoBehavior
             {
                 _solids[x, y].Remove(collider);
             }
-            else
+            /*else
             {
                 Debug.LogWarning("Collider to remove not found! " + collider.transform + ", " + collider.transform.root);
-            }
+            }*/
         }
         else
         {
@@ -550,26 +550,14 @@ public class CollisionManager : VoBehavior
         return result;
     }
 
-    public void ReorganizeSolids()
+    public void RemoveAllSolids()
     {
-        List<IntegerCollider>[,] oldSolids = _solids;
-        _solids = new List<IntegerCollider>[MAX_SOLIDS_X, MAX_SOLIDS_Y];
-
-        for (int y = 0; y < oldSolids.GetLength(1); ++y)
+        for (int y = 0; y < _solids.GetLength(1); ++y)
         {
-            for (int x = 0; x < oldSolids.GetLength(0); ++x)
+            for (int x = 0; x < _solids.GetLength(0); ++x)
             {
-                if (oldSolids[x, y] != null)
-                {
-                    for (int i = 0; i < oldSolids[x, y].Count; ++i)
-                    {
-                        IntegerCollider collider = oldSolids[x, y][i];
-                        this.AddCollider(collider.layerMask, collider);
-                    }
-
-                    oldSolids[x, y].Clear();
-                    oldSolids[x, y] = null;
-                }
+                if (_solids[x, y] != null)
+                    _solids[x, y].Clear();
             }
         }
     }
