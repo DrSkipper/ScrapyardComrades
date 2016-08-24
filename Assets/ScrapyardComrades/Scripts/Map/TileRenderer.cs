@@ -17,6 +17,7 @@ public class TileRenderer : VoBehavior
     public string[] SpritesByTileId;
     public TilingMethod Method = TilingMethod.CPU;
     public bool FlipVertical = true;
+    public int SpriteIndexOffset = 0;
 
     public void CreateEmptyMap(int width, int height)
     {
@@ -135,7 +136,18 @@ public class TileRenderer : VoBehavior
                 triangles[triangleIndex + 5] = bottomRightVert;
 
                 // Handle UVs
-                int spriteIndex = grid[x, y];
+                int spriteIndex = grid[x, y] - this.SpriteIndexOffset;
+
+                /*if (spriteIndex >= this.SpritesByTileId.Length)
+                {
+                    Debug.LogWarning("Invalid sprite index: " + spriteIndex);
+                }
+
+                if (!_tileSprites.ContainsKey(this.SpritesByTileId[spriteIndex]))
+                {
+                    Debug.LogWarning("Couldn't find sprite key: " + this.SpritesByTileId[spriteIndex]);
+                }*/
+
                 Vector2[] spriteUVs = _tileSprites[this.SpritesByTileId[spriteIndex]].uv;
                 Vector2 bottomLeftUV = spriteUVs[0];
                 Vector2 bottomRightUV = spriteUVs[1];
@@ -186,7 +198,7 @@ public class TileRenderer : VoBehavior
         {
             for (int y = 0; y < height; ++y)
             {
-                int spriteIndex = grid[x, y];
+                int spriteIndex = grid[x, y] - this.SpriteIndexOffset;
                 texture.SetPixels(x * this.TileTextureSize, y * this.TileTextureSize, this.TileTextureSize, this.TileTextureSize, getPixelsForSpriteIndex(spriteIndex));
             }
         }

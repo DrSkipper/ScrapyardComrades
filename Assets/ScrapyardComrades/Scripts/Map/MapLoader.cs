@@ -7,9 +7,11 @@ public class MapLoader : MonoBehaviour
 {
     public string MapName = "GameplayTest";
     public TileRenderer PlatformsRenderer;
+    public TileRenderer BGRenderer;
     public MapGeometryCreator GeometryCreator;
     public ObjectPlacer ObjectPlacer;
     public string PlatformsLayer = "platforms";
+    public string BGLayer = "background";
     public string ObjectsLayer = "objects";
     public bool FlipVertical = true;
     public bool LoadPlayer = false;
@@ -33,6 +35,9 @@ public class MapLoader : MonoBehaviour
         _height = mapInfo.height;
         this.transform.position = this.transform.position + new Vector3(-_width * this.PlatformsRenderer.TileRenderSize / 2, -_height * this.PlatformsRenderer.TileRenderSize / 2, 0);
         this.PlatformsRenderer.CreateMapWithGrid(grid);
+        MapInfo.MapLayer bgLayer = mapInfo.GetLayerWithName(this.BGLayer);
+        if (bgLayer != null)
+            this.BGRenderer.CreateMapWithGrid(bgLayer.Grid);
         this.GeometryCreator.CreateGeometryForGrid(grid);
 
         if (loadObjects)
@@ -49,6 +54,9 @@ public class MapLoader : MonoBehaviour
 
         grid = correctTiles(grid);
         this.PlatformsRenderer.CreateMapWithGrid(grid);
+        MapInfo.MapLayer bgLayer = mapInfo.GetLayerWithName(this.BGLayer);
+        if (bgLayer != null)
+            this.BGRenderer.CreateMapWithGrid(bgLayer.Grid);
         this.GeometryCreator.CreateGeometryForGrid(grid);
         _cleared = false;
 
@@ -69,6 +77,7 @@ public class MapLoader : MonoBehaviour
         {
             _cleared = true;
             this.PlatformsRenderer.Clear();
+            this.BGRenderer.Clear();
             this.GeometryCreator.Clear(editor);
             this.transform.position = this.transform.position + new Vector3(_width * this.PlatformsRenderer.TileRenderSize / 2, _height * this.PlatformsRenderer.TileRenderSize / 2, this.transform.position.z);
             _width = 0;

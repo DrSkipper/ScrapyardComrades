@@ -74,9 +74,12 @@ public class MapGeometryCreator : VoBehavior
 
     public void AddColliders()
     {
-        for (int i = 0; i < _usedGeometry.Count; ++i)
+        if (_usedGeometry != null)
         {
-            _usedGeometry[i].AddToCollisionPool();
+            for (int i = 0; i < _usedGeometry.Count; ++i)
+            {
+                _usedGeometry[i].AddToCollisionPool();
+            }
         }
     }
 
