@@ -2,7 +2,7 @@
 
 public class ParallaxLayer : VoBehavior
 {
-    public float ParallaxMultiplier = 0.5f;
+    public Vector2 ParallaxMultiplier = new Vector2(0.5f, 0.5f);
 
     void Awake()
     {
@@ -15,7 +15,8 @@ public class ParallaxLayer : VoBehavior
         if (_tracker != null)
         {
             Vector2 trackerPosition = (Vector2)_tracker.transform.position;
-            this.transform.localPosition -= (Vector3)((trackerPosition - _previousPosition) * this.ParallaxMultiplier);
+            Vector2 diff = trackerPosition - _previousPosition;
+            this.transform.localPosition -= new Vector3(diff.x * this.ParallaxMultiplier.x, diff.y * this.ParallaxMultiplier.y, 0);
             _previousPosition = trackerPosition;
         }
     }
