@@ -1,0 +1,82 @@
+Tilemancer 0.2.1
+
+Color 91 31 21
+Color 43 34 94
+PaletteSave1 
+PaletteSave2 
+FileSave1 \code\github\unity\ScrapyardComrades\Concept
+FileSave2 tiles
+Indexed 0
+Size 10
+Camera 0 0
+Node {
+Name bricks.lua
+Position 235.997 33.8702
+Parameter 4 -1 -1 0
+Parameter 2 1 -1 0
+Parameter 1 1 -1 0
+Parameter 1 1 -1 0
+Parameter 50 0 100 0
+Parameter 100 0 -1 0
+}
+Node {
+Name perlin_noise.lua
+Position 188.081 172.218
+Parameter 31 -1 -1 0
+Parameter 5 2 -1 0
+Parameter 3 1 -1 0
+Parameter 200 100 -1 0
+Parameter 80 0 100 0
+Parameter 100 0 -1 0
+}
+Node {
+Name lighting.lua
+Position 367.07 22.5121
+Parameter -22 -1 -1 0
+Parameter 10 0 100 0
+Connection 0 0 0
+}
+Node {
+Name blend.lua
+Position 401.849 296.488
+Parameter 2 0 5 0
+Parameter 100 0 100 0
+Connection 0 1 0
+Connection 1 4 0
+}
+Node {
+Name colorizer.lua
+Position 184.022 272.129
+Ramp {
+Point 0 0 0.670409 0.795534
+}
+Parameter 0 0 0 0
+Parameter 0 0 0 0
+Parameter 0 0.670409 0.795534 0
+}
+Node {
+Name blend.lua
+Position 603.704 106.224
+Parameter 0 0 5 0
+Parameter 82 0 100 0
+Connection 0 7 0
+Connection 1 3 0
+}
+Node {
+Name colorizer.lua
+Position 395.451 116.917
+Ramp {
+Point 0 253.74 0.314183 0.780861
+}
+Parameter 0 0 0 0
+Parameter 0 0 0 0
+Parameter 253.74 0.314183 0.780861 1
+}
+Node {
+Name blend.lua
+Position 486.822 32.6107
+Parameter 2 0 5 0
+Parameter 50 0 100 0
+Connection 0 2 0
+Connection 1 6 0
+}
