@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 067e7b0a0cfb4dc4c9d1cd1a384ddc6d
-timeCreated: 1472008697
+timeCreated: 1472157693
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -41,7 +41,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
-  maxTextureSize: 512
+  maxTextureSize: 2048
   textureSettings:
     filterMode: 0
     aniso: 16
@@ -155,8 +155,8 @@ TextureImporter:
     - name: background_fill_top_left
       rect:
         serializedVersion: 2
-        x: 34
-        y: 116
+        x: 43
+        y: 106
         width: 10
         height: 10
       alignment: 0
@@ -166,8 +166,8 @@ TextureImporter:
     - name: background_fill_top_right
       rect:
         serializedVersion: 2
-        x: 54
-        y: 116
+        x: 63
+        y: 106
         width: 10
         height: 10
       alignment: 0
@@ -188,8 +188,8 @@ TextureImporter:
     - name: background_fill_bottom_left
       rect:
         serializedVersion: 2
-        x: 34
-        y: 96
+        x: 43
+        y: 86
         width: 10
         height: 10
       alignment: 0
@@ -199,8 +199,8 @@ TextureImporter:
     - name: background_fill_bottom_right
       rect:
         serializedVersion: 2
-        x: 54
-        y: 96
+        x: 63
+        y: 86
         width: 10
         height: 10
       alignment: 0
@@ -210,8 +210,8 @@ TextureImporter:
     - name: background_empty
       rect:
         serializedVersion: 2
-        x: 44
-        y: 106
+        x: 53
+        y: 96
         width: 10
         height: 10
       alignment: 0
