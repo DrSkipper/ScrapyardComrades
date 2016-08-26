@@ -17,14 +17,13 @@ public class TileRenderer : VoBehavior
     public string[] SpritesByTileId;
     public TilingMethod Method = TilingMethod.CPU;
     public bool FlipVertical = true;
-    public int SpriteIndexOffset = 0;
 
     public void CreateEmptyMap(int width, int height)
     {
-        this.CreateMapWithGrid(new int[width, width]);
+        this.CreateMapWithGrid(new MapGridSpaceInfo[width, width]);
     }
 
-    public void CreateMapWithGrid(int[,] grid)
+    public void CreateMapWithGrid(MapGridSpaceInfo[,] grid)
     {
         this.Clear();
         _tileSprites = this.Atlas.GetSprites();
@@ -88,7 +87,7 @@ public class TileRenderer : VoBehavior
     private int _width;
     private int _height;
 
-    private void createMapUsingMesh(int[,] grid)
+    private void createMapUsingMesh(MapGridSpaceInfo[,] grid)
     {
         float originX = 0; // this.transform.position.x;
         float originY = 0; // this.transform.position.y;
@@ -136,9 +135,9 @@ public class TileRenderer : VoBehavior
                 triangles[triangleIndex + 5] = bottomRightVert;
 
                 // Handle UVs
-                int spriteIndex = grid[x, y] - this.SpriteIndexOffset;
+                int spriteIndex = grid[x, y].TileId;
 
-                /*if (spriteIndex >= this.SpritesByTileId.Length)
+                /*if (spriteIndex >= this.SpritesByTileId.Length || spriteIndex < 0)
                 {
                     Debug.LogWarning("Invalid sprite index: " + spriteIndex);
                 }
@@ -182,7 +181,7 @@ public class TileRenderer : VoBehavior
         this.renderer.material.mainTexture = this.Atlas;
     }
 
-    private void createMapUsingTexture(int[,] grid)
+    private void createMapUsingTexture(MapGridSpaceInfo[,] grid)
     {
         int width = grid.GetLength(0);
         int height = grid.GetLength(1);
@@ -198,7 +197,7 @@ public class TileRenderer : VoBehavior
         {
             for (int y = 0; y < height; ++y)
             {
-                int spriteIndex = grid[x, y] - this.SpriteIndexOffset;
+                int spriteIndex = grid[x, y].TileId;
                 texture.SetPixels(x * this.TileTextureSize, y * this.TileTextureSize, this.TileTextureSize, this.TileTextureSize, getPixelsForSpriteIndex(spriteIndex));
             }
         }

@@ -30,14 +30,14 @@ public class MapLoader : MonoBehaviour
         this.ClearMap();
         _cleared = false;
         MapInfo mapInfo = gatherMapInfo();
-        int[,] grid = mapInfo.GetLayerWithName(this.PlatformsLayer).Grid;
+        MapGridSpaceInfo[,] grid = mapInfo.GetLayerWithName(this.PlatformsLayer).GetGrid(mapInfo.tilesets);
         _width = mapInfo.width;
         _height = mapInfo.height;
         this.transform.position = this.transform.position + new Vector3(-_width * this.PlatformsRenderer.TileRenderSize / 2, -_height * this.PlatformsRenderer.TileRenderSize / 2, 0);
         this.PlatformsRenderer.CreateMapWithGrid(grid);
         MapInfo.MapLayer bgLayer = mapInfo.GetLayerWithName(this.BGLayer);
         if (bgLayer != null)
-            this.BGRenderer.CreateMapWithGrid(bgLayer.Grid);
+            this.BGRenderer.CreateMapWithGrid(bgLayer.GetGrid(mapInfo.tilesets));
         this.GeometryCreator.CreateGeometryForGrid(grid);
 
         if (loadObjects)
@@ -50,17 +50,17 @@ public class MapLoader : MonoBehaviour
         this.ClearMap(editor);
         MapInfo mapInfo = gatherMapInfo();
         MapInfo.MapLayer platformsLayer = mapInfo.GetLayerWithName(this.PlatformsLayer);
-        int[,] grid = platformsLayer.Grid;
+        MapGridSpaceInfo[,] grid = platformsLayer.GetGrid(mapInfo.tilesets);
 
         grid = correctTiles(grid);
         this.PlatformsRenderer.CreateMapWithGrid(grid);
         MapInfo.MapLayer bgLayer = mapInfo.GetLayerWithName(this.BGLayer);
         if (bgLayer != null)
-            this.BGRenderer.CreateMapWithGrid(bgLayer.Grid);
+            this.BGRenderer.CreateMapWithGrid(bgLayer.GetGrid(mapInfo.tilesets));
         this.GeometryCreator.CreateGeometryForGrid(grid);
         _cleared = false;
 
-        platformsLayer.Grid = grid;
+        platformsLayer.SetGrid(grid);
         mapInfo.SetLayerWithName(this.PlatformsLayer, platformsLayer);
 
         string json = JsonConvert.SerializeObject(mapInfo, Formatting.Indented);
@@ -122,18 +122,19 @@ public class MapLoader : MonoBehaviour
     private const int TILE_BOTTOM_MID = 15;
     private const int TILE_BOTTOM_RIGHT = 16;
 
-    private int[,] correctTiles(int[,] grid)
+    private MapGridSpaceInfo[,] correctTiles(MapGridSpaceInfo[,] grid)
     {
-        int[,] newGrid = new int[grid.GetLength(0), grid.GetLength(1)];
+        MapGridSpaceInfo[,] newGrid = new MapGridSpaceInfo[grid.GetLength(0), grid.GetLength(1)];
 
         for (int x = 0; x < grid.GetLength(0); ++x)
         {
             for (int y = 0; y < grid.GetLength(1); ++y)
             {
-                if (grid[x, y] == 0)
+                newGrid[x, y] = grid[x, y];
+
+                if (grid[x, y].TileId == 0)
                 {
                     // Empty
-                    newGrid[x, y] = 0;
                 }
                 else
                 {
@@ -145,63 +146,63 @@ public class MapLoader : MonoBehaviour
                     if (!left && !right && !down && !up)
                     {
                         // Lone
-                        newGrid[x, y] = TILE_LONE; 
+                        newGrid[x, y].TileId = TILE_LONE; 
                     }
                     else if (!left && !right)
                     {
                         // Column
                         if (up && down)
-                            newGrid[x, y] = TILE_COLUMN_MID;
+                            newGrid[x, y].TileId = TILE_COLUMN_MID;
                         else if (!up)
-                            newGrid[x, y] = this.FlipVertical ? TILE_COLUMN_BOTTOM : TILE_COLUMN_TOP;
+                            newGrid[x, y].TileId = this.FlipVertical ? TILE_COLUMN_BOTTOM : TILE_COLUMN_TOP;
                         else
-                            newGrid[x, y] = this.FlipVertical ? TILE_COLUMN_TOP : TILE_COLUMN_BOTTOM;
+                            newGrid[x, y].TileId = this.FlipVertical ? TILE_COLUMN_TOP : TILE_COLUMN_BOTTOM;
                     }
                     else if (!down && !up)
                     {
                         // Island
                         if (left && right)
-                            newGrid[x, y] = TILE_ISLAND_MID;
+                            newGrid[x, y].TileId = TILE_ISLAND_MID;
                         else if (!left)
-                            newGrid[x, y] = TILE_ISLAND_LEFT;
+                            newGrid[x, y].TileId = TILE_ISLAND_LEFT;
                         else
-                            newGrid[x, y] = TILE_ISLAND_RIGHT;
+                            newGrid[x, y].TileId = TILE_ISLAND_RIGHT;
                     }
                     else
                     {
                         if (up && down && left && right)
                         {
-                            newGrid[x, y] = TILE_MID_MID;
+                            newGrid[x, y].TileId = TILE_MID_MID;
                         }
                         else if (up && down)
                         {
                             if (right)
-                                newGrid[x, y] = TILE_MID_LEFT;
+                                newGrid[x, y].TileId = TILE_MID_LEFT;
                             else
-                                newGrid[x, y] = TILE_MID_RIGHT;
+                                newGrid[x, y].TileId = TILE_MID_RIGHT;
                         }
                         else if (left && right)
                         {
                             if (up)
-                                newGrid[x, y] = this.FlipVertical ? TILE_TOP_MID : TILE_BOTTOM_MID;
+                                newGrid[x, y].TileId = this.FlipVertical ? TILE_TOP_MID : TILE_BOTTOM_MID;
                             else
-                                newGrid[x, y] = this.FlipVertical ? TILE_BOTTOM_MID : TILE_TOP_MID;
+                                newGrid[x, y].TileId = this.FlipVertical ? TILE_BOTTOM_MID : TILE_TOP_MID;
                         }
                         else if (up && right)
                         {
-                            newGrid[x, y] = this.FlipVertical ? TILE_TOP_LEFT : TILE_BOTTOM_LEFT;
+                            newGrid[x, y].TileId = this.FlipVertical ? TILE_TOP_LEFT : TILE_BOTTOM_LEFT;
                         }
                         else if (up && left)
                         {
-                            newGrid[x, y] = this.FlipVertical ? TILE_TOP_RIGHT : TILE_BOTTOM_RIGHT;
+                            newGrid[x, y].TileId = this.FlipVertical ? TILE_TOP_RIGHT : TILE_BOTTOM_RIGHT;
                         }
                         else if (down && right)
                         {
-                            newGrid[x, y] = this.FlipVertical ? TILE_BOTTOM_LEFT : TILE_TOP_LEFT;
+                            newGrid[x, y].TileId = this.FlipVertical ? TILE_BOTTOM_LEFT : TILE_TOP_LEFT;
                         }
                         else if (down && left)
                         {
-                            newGrid[x, y] = this.FlipVertical ? TILE_BOTTOM_RIGHT : TILE_TOP_RIGHT;
+                            newGrid[x, y].TileId = this.FlipVertical ? TILE_BOTTOM_RIGHT : TILE_TOP_RIGHT;
                         }
                     }
                 }
@@ -211,11 +212,11 @@ public class MapLoader : MonoBehaviour
         return newGrid;
     }
 
-    private bool isFilled(int[,] grid, int x, int y, bool countOutOfBounds = true)
+    private bool isFilled(MapGridSpaceInfo[,] grid, int x, int y, bool countOutOfBounds = true)
     {
         if (x < 0 || x >= grid.GetLength(0) || y < 0 || y >= grid.GetLength(1))
             return countOutOfBounds;
 
-        return grid[x, y] != 0;
+        return grid[x, y].TileId != 0;
     }
 }

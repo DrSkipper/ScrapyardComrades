@@ -9,7 +9,7 @@ public class MapGeometryCreator : VoBehavior
     public int MaxSolidsToStore = 2048;
     public bool FlipVertical = true;
 
-    public void CreateGeometryForGrid(int[,] grid)
+    public void CreateGeometryForGrid(MapGridSpaceInfo[,] grid)
     {
         if (_unusedGeometry == null)
             _unusedGeometry = new List<IntegerCollider>();
@@ -89,13 +89,13 @@ public class MapGeometryCreator : VoBehavior
     private List<IntegerCollider> _unusedGeometry;
     private List<IntegerCollider> _usedGeometry;
 
-    private bool shouldIgnore(int tileType)
+    private bool shouldIgnore(MapGridSpaceInfo tile)
     {
         if (this.TileTypesToIgnore != null)
         {
             for (int i = 0; i < this.TileTypesToIgnore.Length; ++i)
             {
-                if (this.TileTypesToIgnore[i] == tileType)
+                if (this.TileTypesToIgnore[i] == tile.TileId)
                     return true;
             }
         }
