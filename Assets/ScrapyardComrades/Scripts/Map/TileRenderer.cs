@@ -13,7 +13,8 @@ public class TileRenderer : VoBehavior
     
     public int TileRenderSize = 20;
     public int TileTextureSize = 10;
-    public Texture2D Atlas = null;
+    public Texture2D Atlas;
+    public Dictionary<string, Sprite> Sprites;
     public string[] SpritesByTileId;
     public TilingMethod Method = TilingMethod.CPU;
     public bool FlipVertical = true;
@@ -26,64 +27,31 @@ public class TileRenderer : VoBehavior
     public void CreateMapWithGrid(MapGridSpaceInfo[,] grid)
     {
         this.Clear();
-        _tileSprites = this.Atlas.GetSprites();
         _width = grid.GetLength(0);
         _height = grid.GetLength(1);
-
-        switch (this.Method)
-        {
-            default:
-            case TilingMethod.CPU:
-                createMapUsingMesh(grid);
-                break;
-            case TilingMethod.GPU:
-                createMapUsingTexture(grid);
-                break;
-        }
+        createMapUsingMesh(grid);
     }
 
     public void Clear()
     {
-        _tileSprites = null;
-        _tilePixels = null;
         this.GetComponent<MeshFilter>().mesh = null;
         this.renderer.material.mainTexture = null;
     }
 
     public void SetSpriteIndicesForTiles(int[] x, int[] y, int[] spriteIndices)
     {
-        switch (this.Method)
-        {
-            default:
-            case TilingMethod.CPU:
-                setTileSpriteIndicesInMesh(x, y, spriteIndices);
-                break;
-            case TilingMethod.GPU:
-                setTileSpriteIndicesInTexture(x, y, spriteIndices);
-                break;
-        }
+        setTileSpriteIndicesInMesh(x, y, spriteIndices);
     }
 
     public void SetSpriteIndexForTile(int tileX, int tileY, int spriteIndex)
     {
-        switch (this.Method)
-        {
-            default:
-            case TilingMethod.CPU:
-                setTileSpriteIndexInMesh(tileX, tileY, spriteIndex);
-                break;
-            case TilingMethod.GPU:
-                setTileSpriteIndexInTexture(tileX, tileY, spriteIndex);
-                break;
-        }
+        setTileSpriteIndexInMesh(tileX, tileY, spriteIndex);
     }
 
 
     /**
      * Private
      */
-    private Dictionary<string, Sprite> _tileSprites;
-    private Dictionary<string, Color[]> _tilePixels;
     private int _width;
     private int _height;
 
@@ -142,12 +110,12 @@ public class TileRenderer : VoBehavior
                     Debug.LogWarning("Invalid sprite index: " + spriteIndex);
                 }
 
-                if (!_tileSprites.ContainsKey(this.SpritesByTileId[spriteIndex]))
+                if (!this.Sprites.ContainsKey(this.SpritesByTileId[spriteIndex]))
                 {
                     Debug.LogWarning("Couldn't find sprite key: " + this.SpritesByTileId[spriteIndex]);
                 }*/
 
-                Vector2[] spriteUVs = _tileSprites[this.SpritesByTileId[spriteIndex]].uv;
+                Vector2[] spriteUVs = this.Sprites[this.SpritesByTileId[spriteIndex]].uv;
                 Vector2 bottomLeftUV = spriteUVs[0];
                 Vector2 bottomRightUV = spriteUVs[1];
                 Vector2 topLeftUV = spriteUVs[2];
@@ -181,109 +149,13 @@ public class TileRenderer : VoBehavior
         this.renderer.material.mainTexture = this.Atlas;
     }
 
-    private void createMapUsingTexture(MapGridSpaceInfo[,] grid)
-    {
-        int width = grid.GetLength(0);
-        int height = grid.GetLength(1);
-
-        // Populate our own texture the size of the whole map
-        Texture2D texture = new Texture2D(width * this.TileTextureSize, height * this.TileTextureSize);
-        texture.filterMode = FilterMode.Point;
-
-        if (_tilePixels == null)
-            _tilePixels = new Dictionary<string, Color[]>();
-
-        for (int x = 0; x < width; ++x)
-        {
-            for (int y = 0; y < height; ++y)
-            {
-                int spriteIndex = grid[x, y].TileId;
-                texture.SetPixels(x * this.TileTextureSize, y * this.TileTextureSize, this.TileTextureSize, this.TileTextureSize, getPixelsForSpriteIndex(spriteIndex));
-            }
-        }
-
-        texture.Apply();
-
-        // Create very simple (2 triangle) mesh to render texture in
-        float originX = this.transform.position.x;
-        float originY = this.transform.position.y;
-        float originZ = this.transform.position.z;
-        Vector3[] vertices = new Vector3[4];
-        Vector3[] normals = new Vector3[4];
-        Vector2[] uvs = new Vector2[4];
-        int[] triangles = new int[2 * 3];
-
-        float finalY = originY + height * this.TileRenderSize;
-        float smallY = this.FlipVertical ? finalY : originY;
-        float bigY = this.FlipVertical ? originY : finalY;
-
-        vertices[0] = new Vector3(originX, smallY, originZ); // bottom left
-        vertices[1] = new Vector3(originX + width * this.TileRenderSize, smallY, originZ); // bottom right
-        vertices[2] = new Vector3(originX, bigY, originZ); // top left
-        vertices[3] = new Vector3(vertices[1].x, bigY, originZ); // top right
-        normals[0] = Vector3.up;
-        normals[1] = Vector3.up;
-        normals[2] = Vector3.up;
-        normals[3] = Vector3.up;
-        uvs[0] = new Vector2(0, 0);
-        uvs[1] = new Vector2(1, 0);
-        uvs[2] = new Vector2(0, 1);
-        uvs[3] = new Vector2(1, 1);
-
-        triangles[0] = 2;
-        triangles[1] = 1;
-        triangles[2] = 0;
-
-        triangles[3] = 2;
-        triangles[4] = 3;
-        triangles[5] = 1;
-
-        // Populate a mesh
-        Mesh mesh = new Mesh();
-        mesh.vertices = vertices;
-        mesh.normals = normals;
-        mesh.uv = uvs;
-        mesh.triangles = triangles;
-
-        // Assign mesh to behaviors
-        this.GetComponent<MeshFilter>().mesh = mesh;
-        this.renderer.material.mainTexture = this.Atlas;
-    }
-
-    private Color[] getPixelsForSpriteIndex(int spriteIndex)
-    {
-        string spriteName = this.SpritesByTileId[spriteIndex];
-        if (!_tilePixels.ContainsKey(spriteName))
-        {
-            Sprite sprite = _tileSprites[spriteName];
-            Color[] pixels = this.Atlas.GetPixels(sprite.rect.IntXMin(), sprite.rect.IntYMin(), this.TileTextureSize, this.TileTextureSize);
-
-            if (this.FlipVertical)
-            {
-                Color[] flippedPixels = new Color[pixels.Length];
-                for (int y = 0; y < this.TileTextureSize; ++y)
-                {
-                    for (int x = 0; x < this.TileTextureSize; ++x)
-                    {
-                        flippedPixels[y * this.TileTextureSize + x] = pixels[(this.TileTextureSize - y - 1) * TileTextureSize + x];
-                    }
-
-                }
-                pixels = flippedPixels;
-            }
-
-            _tilePixels.Add(spriteName, pixels);
-        }
-        return _tilePixels[spriteName];
-    }
-
     private void setTileSpriteIndexInMesh(int tileX, int tileY, int spriteIndex)
     {
         int tileIndex = tileY * _width + tileX;
         int startingUVIndex = tileIndex * 4;
         MeshFilter meshFilter = this.GetComponent<MeshFilter>();
 
-        Vector2[] spriteUVs = _tileSprites[this.SpritesByTileId[spriteIndex]].uv;
+        Vector2[] spriteUVs = this.Sprites[this.SpritesByTileId[spriteIndex]].uv;
         Vector2[] uvs = meshFilter.mesh.uv;
         uvs[startingUVIndex] = spriteUVs[0]; // bottom left
         uvs[startingUVIndex + 1] = spriteUVs[1]; // bottom right
@@ -291,13 +163,6 @@ public class TileRenderer : VoBehavior
         uvs[startingUVIndex + 3] = spriteUVs[3]; // top right
 
         meshFilter.mesh.uv = uvs;
-    }
-
-    private void setTileSpriteIndexInTexture(int tileX, int tileY, int spriteIndex)
-    {
-        Texture2D texture = (Texture2D)this.renderer.material.mainTexture;
-        texture.SetPixels(tileX * this.TileTextureSize, tileY * this.TileTextureSize, this.TileTextureSize, this.TileTextureSize, getPixelsForSpriteIndex(spriteIndex));
-        texture.Apply();
     }
 
 
@@ -311,24 +176,12 @@ public class TileRenderer : VoBehavior
             int tileIndex = y[i] * _width + x[i];
             int startingUVIndex = tileIndex * 4;
 
-            Vector2[] spriteUVs = _tileSprites[this.SpritesByTileId[spriteIndices[i]]].uv;
+            Vector2[] spriteUVs = this.Sprites[this.SpritesByTileId[spriteIndices[i]]].uv;
             uvs[startingUVIndex] = spriteUVs[0]; // bottom left
             uvs[startingUVIndex + 1] = spriteUVs[1]; // bottom right
             uvs[startingUVIndex + 2] = spriteUVs[2]; // top left
             uvs[startingUVIndex + 3] = spriteUVs[3]; // top right
         }
         meshFilter.mesh.uv = uvs;
-    }
-
-    private void setTileSpriteIndicesInTexture(int[] x, int[] y, int[] spriteIndices)
-    {
-        Texture2D texture = (Texture2D)this.renderer.material.mainTexture;
-
-        for (int i = 0; i < x.Length; ++i)
-        {
-            texture.SetPixels(x[i] * this.TileTextureSize, y[i] * this.TileTextureSize, this.TileTextureSize, this.TileTextureSize, getPixelsForSpriteIndex(spriteIndices[i]));
-        }
-
-        texture.Apply();
     }
 }

@@ -8,13 +8,13 @@ public class MapInfo
     public MapLayer[] layers;
     public int tilewidth;
     public int tileheight;
+    public MapTileSet[] tilesets;
 
     // unused
 #if UNITY_EDITOR
     public int nextobjectid;
     public string orientation;
     public string renderorder;
-    public object tilesets;
     public int version;
 #endif
 
@@ -56,38 +56,54 @@ public class MapInfo
         public string draworder;
 #endif
 
-        public int[,] Grid
+        public MapGridSpaceInfo[,] GetGrid(MapTileSet[] tilesets)
         {
-            get
+            MapGridSpaceInfo[,] grid = new MapGridSpaceInfo[width, height];
+            int i = 0;
+
+            for (int y = 0; y < height; ++y)
             {
-                int[,] grid = new int[width, height];
-                int i = 0;
-
-                for (int y = 0; y < height; ++y)
+                for (int x = 0; x < width; ++x)
                 {
-                    for (int x = 0; x < width; ++x)
-                    {
-                        grid[x, y] = data[i];
-                        ++i;
-                    }
+                    grid[x, y] = new MapGridSpaceInfo(data[i], tilesets);
+                    ++i;
                 }
-
-                return grid;
             }
 
-            set
+            return grid;
+        }
+
+        public void SetGrid(MapGridSpaceInfo[,] grid)
+        {
+            int i = 0;
+            for (int y = 0; y < grid.GetLength(1); ++y)
             {
-                int i = 0;
-                for (int y = 0; y < value.GetLength(1); ++y)
+                for (int x = 0; x < grid.GetLength(0); ++x)
                 {
-                    for (int x = 0; x < value.GetLength(0); ++x)
-                    {
-                        data[i] = value[x, y];
-                        ++i;
-                    }
+                    data[i] = grid[x, y].FullTileGid;
+                    ++i;
                 }
             }
         }
+    }
+
+    public class MapTileSet
+    {
+        public string name;
+        public int firstgid;
+        public int tilecount;
+        public int tileheight;
+        public int tilewidth;
+
+        // unused
+#if UNITY_EDITOR
+        public int columns;
+        public string image;
+        public int imageheight;
+        public int imagewidth;
+        public int margin;
+        public int spacing;
+#endif
     }
 
     public MapLayer GetLayerWithName(string layerName)
@@ -106,6 +122,39 @@ public class MapInfo
         {
             if (layers[l].name == layerName)
                 layers[l] = layer;
+        }
+    }
+}
+
+public struct MapGridSpaceInfo
+{
+    public string ImageName;
+    public int TileId;
+    public int TileSetGid;
+    public int FullTileGid { get { return this.TileSetGid + this.TileId - 1; } }
+
+    public MapGridSpaceInfo(int fullTileGid, MapInfo.MapTileSet[] tilesets)
+    {
+        MapInfo.MapTileSet tileset = null;
+        for (int i = 0; i < tilesets.Length; ++i)
+        {
+            if (fullTileGid >= tilesets[i].firstgid && fullTileGid < tilesets[i].firstgid + tilesets[i].tilecount)
+            {
+                tileset = tilesets[i];
+            }
+        }
+
+        if (tileset != null)
+        {
+            this.ImageName = tileset.name.Replace("_tiled", "");
+            this.TileId = fullTileGid - tileset.firstgid + 1;
+            this.TileSetGid = tileset.firstgid;
+        }
+        else
+        {
+            this.ImageName = "invalid";
+            this.TileId = 0;
+            this.TileSetGid = -1;
         }
     }
 }

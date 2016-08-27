@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.IO;
 using System.Text;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 public class MapLoader : MonoBehaviour
@@ -10,6 +11,9 @@ public class MapLoader : MonoBehaviour
     public TileRenderer BGRenderer;
     public MapGeometryCreator GeometryCreator;
     public ObjectPlacer ObjectPlacer;
+    public Texture2D[] ValidAtlases;
+    private Dictionary<string, Texture2D> Atlases;
+    private Dictionary<string, Dictionary<string, Sprite>> Sprites;
     public string PlatformsLayer = "platforms";
     public string BGLayer = "background";
     public string ObjectsLayer = "objects";
@@ -29,15 +33,29 @@ public class MapLoader : MonoBehaviour
     {
         this.ClearMap();
         _cleared = false;
+
+        if (this.Atlases == null || this.Atlases.Count == 0)
+        {
+            this.Atlases = CompileTextures(this.ValidAtlases);
+            this.Sprites = CompileSprites(this.Atlases);
+        }
+        
         MapInfo mapInfo = gatherMapInfo();
         MapGridSpaceInfo[,] grid = mapInfo.GetLayerWithName(this.PlatformsLayer).GetGrid(mapInfo.tilesets);
         _width = mapInfo.width;
         _height = mapInfo.height;
         this.transform.position = this.transform.position + new Vector3(-_width * this.PlatformsRenderer.TileRenderSize / 2, -_height * this.PlatformsRenderer.TileRenderSize / 2, 0);
+        this.PlatformsRenderer.Atlas = this.Atlases[this.PlatformsLayer];
+        this.PlatformsRenderer.Sprites = this.Sprites[this.PlatformsLayer];
         this.PlatformsRenderer.CreateMapWithGrid(grid);
         MapInfo.MapLayer bgLayer = mapInfo.GetLayerWithName(this.BGLayer);
         if (bgLayer != null)
-            this.BGRenderer.CreateMapWithGrid(bgLayer.GetGrid(mapInfo.tilesets));
+        {
+            MapGridSpaceInfo[,] bgGrid = bgLayer.GetGrid(mapInfo.tilesets);
+            this.BGRenderer.Atlas = this.Atlases[this.BGLayer];
+            this.BGRenderer.Sprites = this.Sprites[this.BGLayer];
+            this.BGRenderer.CreateMapWithGrid(bgGrid);
+        }
         this.GeometryCreator.CreateGeometryForGrid(grid);
 
         if (loadObjects)
@@ -53,10 +71,17 @@ public class MapLoader : MonoBehaviour
         MapGridSpaceInfo[,] grid = platformsLayer.GetGrid(mapInfo.tilesets);
 
         grid = correctTiles(grid);
+        this.PlatformsRenderer.Atlas = this.Atlases[this.PlatformsLayer];
+        this.PlatformsRenderer.Sprites = this.Sprites[this.PlatformsLayer];
         this.PlatformsRenderer.CreateMapWithGrid(grid);
         MapInfo.MapLayer bgLayer = mapInfo.GetLayerWithName(this.BGLayer);
         if (bgLayer != null)
-            this.BGRenderer.CreateMapWithGrid(bgLayer.GetGrid(mapInfo.tilesets));
+        {
+            MapGridSpaceInfo[,] bgGrid = bgLayer.GetGrid(mapInfo.tilesets);
+            this.BGRenderer.Atlas = this.Atlases[this.BGLayer];
+            this.BGRenderer.Sprites = this.Sprites[this.BGLayer];
+            this.BGRenderer.CreateMapWithGrid(bgGrid);
+        }
         this.GeometryCreator.CreateGeometryForGrid(grid);
         _cleared = false;
 
@@ -88,6 +113,26 @@ public class MapLoader : MonoBehaviour
     public void AddColliders()
     {
         this.GeometryCreator.AddColliders();
+    }
+
+    private static Dictionary<string, Texture2D> CompileTextures(Texture2D[] textures)
+    {
+        Dictionary<string, Texture2D> textDict = new Dictionary<string, Texture2D>();
+        for (int i = 0; i < textures.Length; ++i)
+        {
+            textDict.Add(textures[i].name, textures[i]);
+        }
+        return textDict;
+    }
+
+    private static Dictionary<string, Dictionary<string, Sprite>> CompileSprites(Dictionary<string, Texture2D> textures)
+    {
+        Dictionary<string, Dictionary<string, Sprite>> sprites = new Dictionary<string, Dictionary<string, Sprite>>();
+        foreach (string key in textures.Keys)
+        {
+            sprites.Add(key, textures[key].GetSprites());
+        }
+        return sprites;
     }
 
     /**
