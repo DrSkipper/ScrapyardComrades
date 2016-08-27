@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: abb33daf665da8746974522f88a8ca27
-timeCreated: 1468304278
+timeCreated: 1472261160
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -71,7 +71,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 40
+        y: 104
         width: 10
         height: 10
       alignment: 0
@@ -82,7 +82,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 14
-        y: 52
+        y: 116
         width: 10
         height: 10
       alignment: 0
@@ -93,7 +93,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 24
-        y: 52
+        y: 116
         width: 10
         height: 10
       alignment: 0
@@ -104,7 +104,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 34
-        y: 52
+        y: 116
         width: 10
         height: 10
       alignment: 0
@@ -115,7 +115,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 30
+        y: 94
         width: 10
         height: 10
       alignment: 0
@@ -126,7 +126,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 20
+        y: 84
         width: 10
         height: 10
       alignment: 0
@@ -137,7 +137,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 14
-        y: 40
+        y: 104
         width: 10
         height: 10
       alignment: 0
@@ -148,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 24
-        y: 40
+        y: 104
         width: 10
         height: 10
       alignment: 0
@@ -159,7 +159,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 34
-        y: 40
+        y: 104
         width: 10
         height: 10
       alignment: 0
@@ -170,7 +170,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 14
-        y: 30
+        y: 94
         width: 10
         height: 10
       alignment: 0
@@ -181,7 +181,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 24
-        y: 30
+        y: 94
         width: 10
         height: 10
       alignment: 0
@@ -192,7 +192,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 34
-        y: 30
+        y: 94
         width: 10
         height: 10
       alignment: 0
@@ -203,7 +203,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 14
-        y: 20
+        y: 84
         width: 10
         height: 10
       alignment: 0
@@ -214,7 +214,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 24
-        y: 20
+        y: 84
         width: 10
         height: 10
       alignment: 0
@@ -225,7 +225,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 34
-        y: 20
+        y: 84
         width: 10
         height: 10
       alignment: 0
@@ -236,7 +236,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 52
+        y: 116
         width: 10
         height: 10
       alignment: 0
@@ -246,8 +246,8 @@ TextureImporter:
     - name: platforms_empty
       rect:
         serializedVersion: 2
-        x: 46
-        y: 52
+        x: 116
+        y: 2
         width: 10
         height: 10
       alignment: 0
