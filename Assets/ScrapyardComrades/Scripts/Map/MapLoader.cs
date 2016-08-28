@@ -13,7 +13,7 @@ public class MapLoader : MonoBehaviour
     public ObjectPlacer ObjectPlacer;
     public Texture2D[] ValidAtlases;
     private Dictionary<string, Texture2D> Atlases;
-    private Dictionary<string, Dictionary<string, Sprite>> Sprites;
+    private Dictionary<string, Sprite[]> Sprites;
     public string PlatformsLayer = "platforms";
     public string BGLayer = "background";
     public string ObjectsLayer = "objects";
@@ -125,12 +125,12 @@ public class MapLoader : MonoBehaviour
         return textDict;
     }
 
-    private static Dictionary<string, Dictionary<string, Sprite>> CompileSprites(Dictionary<string, Texture2D> textures)
+    private static Dictionary<string, Sprite[]> CompileSprites(Dictionary<string, Texture2D> textures)
     {
-        Dictionary<string, Dictionary<string, Sprite>> sprites = new Dictionary<string, Dictionary<string, Sprite>>();
+        Dictionary<string, Sprite[]> sprites = new Dictionary<string, Sprite[]>();
         foreach (string key in textures.Keys)
         {
-            sprites.Add(key, textures[key].GetSprites());
+            sprites.Add(key, textures[key].GetSpritesArray());
         }
         return sprites;
     }

@@ -1,26 +1,26 @@
 fileFormatVersion: 2
 guid: abb33daf665da8746974522f88a8ca27
-timeCreated: 1472261160
+timeCreated: 1472421859
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: platforms_column_top
-    21300002: platforms_island_left
-    21300004: platforms_island_mid
-    21300006: platforms_island_right
-    21300008: platforms_column_mid
-    21300010: platforms_column_bottom
-    21300012: platforms_top_left
-    21300014: platforms_top_mid
-    21300016: platforms_top_right
-    21300018: platforms_mid_left
-    21300020: platforms_mid_mid
-    21300022: platforms_mid_right
-    21300024: platforms_bottom_left
-    21300026: platforms_bottom_mid
-    21300028: platforms_bottom_right
-    21300030: platforms_lone
-    21300032: platforms_empty
+    21300000: platforms_5
+    21300002: platforms_2
+    21300004: platforms_3
+    21300006: platforms_4
+    21300008: platforms_9
+    21300010: platforms_13
+    21300012: platforms_6
+    21300014: platforms_7
+    21300016: platforms_8
+    21300018: platforms_10
+    21300020: platforms_11
+    21300022: platforms_12
+    21300024: platforms_14
+    21300026: platforms_15
+    21300028: platforms_16
+    21300030: platforms_1
+    21300032: platforms_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -67,186 +67,186 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: platforms_column_top
+    - name: platforms_5
       rect:
         serializedVersion: 2
         x: 2
-        y: 104
+        y: 232
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_island_left
+    - name: platforms_2
       rect:
         serializedVersion: 2
         x: 14
-        y: 116
+        y: 244
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_island_mid
+    - name: platforms_3
       rect:
         serializedVersion: 2
         x: 24
-        y: 116
+        y: 244
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_island_right
+    - name: platforms_4
       rect:
         serializedVersion: 2
         x: 34
-        y: 116
+        y: 244
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_column_mid
+    - name: platforms_9
       rect:
         serializedVersion: 2
         x: 2
-        y: 94
+        y: 222
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_column_bottom
+    - name: platforms_13
       rect:
         serializedVersion: 2
         x: 2
-        y: 84
+        y: 212
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_top_left
+    - name: platforms_6
       rect:
         serializedVersion: 2
         x: 14
-        y: 104
+        y: 232
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_top_mid
+    - name: platforms_7
       rect:
         serializedVersion: 2
         x: 24
-        y: 104
+        y: 232
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_top_right
+    - name: platforms_8
       rect:
         serializedVersion: 2
         x: 34
-        y: 104
+        y: 232
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_mid_left
+    - name: platforms_10
       rect:
         serializedVersion: 2
         x: 14
-        y: 94
+        y: 222
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_mid_mid
+    - name: platforms_11
       rect:
         serializedVersion: 2
         x: 24
-        y: 94
+        y: 222
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_mid_right
+    - name: platforms_12
       rect:
         serializedVersion: 2
         x: 34
-        y: 94
+        y: 222
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_bottom_left
+    - name: platforms_14
       rect:
         serializedVersion: 2
         x: 14
-        y: 84
+        y: 212
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_bottom_mid
+    - name: platforms_15
       rect:
         serializedVersion: 2
         x: 24
-        y: 84
+        y: 212
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_bottom_right
+    - name: platforms_16
       rect:
         serializedVersion: 2
         x: 34
-        y: 84
+        y: 212
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_lone
+    - name: platforms_1
       rect:
         serializedVersion: 2
         x: 2
-        y: 116
+        y: 244
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_empty
+    - name: platforms_0
       rect:
         serializedVersion: 2
-        x: 116
+        x: 244
         y: 2
         width: 10
         height: 10

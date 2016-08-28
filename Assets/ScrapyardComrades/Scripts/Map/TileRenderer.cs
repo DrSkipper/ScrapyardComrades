@@ -14,8 +14,7 @@ public class TileRenderer : VoBehavior
     public int TileRenderSize = 20;
     public int TileTextureSize = 10;
     public Texture2D Atlas;
-    public Dictionary<string, Sprite> Sprites;
-    public string[] SpritesByTileId;
+    public Sprite[] Sprites;
     public TilingMethod Method = TilingMethod.CPU;
     public bool FlipVertical = true;
 
@@ -105,17 +104,17 @@ public class TileRenderer : VoBehavior
                 // Handle UVs
                 int spriteIndex = grid[x, y].TileId;
 
-                /*if (spriteIndex >= this.SpritesByTileId.Length || spriteIndex < 0)
+                if (spriteIndex >= this.Sprites.Length || spriteIndex < 0)
                 {
                     Debug.LogWarning("Invalid sprite index: " + spriteIndex);
                 }
 
-                if (!this.Sprites.ContainsKey(this.SpritesByTileId[spriteIndex]))
+                /*if (!this.Sprites.ContainsKey(this.SpritesByTileId[spriteIndex]))
                 {
                     Debug.LogWarning("Couldn't find sprite key: " + this.SpritesByTileId[spriteIndex]);
                 }*/
 
-                Vector2[] spriteUVs = this.Sprites[this.SpritesByTileId[spriteIndex]].uv;
+                Vector2[] spriteUVs = this.Sprites[spriteIndex].uv;
                 Vector2 bottomLeftUV = spriteUVs[0];
                 Vector2 bottomRightUV = spriteUVs[1];
                 Vector2 topLeftUV = spriteUVs[2];
@@ -155,7 +154,7 @@ public class TileRenderer : VoBehavior
         int startingUVIndex = tileIndex * 4;
         MeshFilter meshFilter = this.GetComponent<MeshFilter>();
 
-        Vector2[] spriteUVs = this.Sprites[this.SpritesByTileId[spriteIndex]].uv;
+        Vector2[] spriteUVs = this.Sprites[spriteIndex].uv;
         Vector2[] uvs = meshFilter.mesh.uv;
         uvs[startingUVIndex] = spriteUVs[0]; // bottom left
         uvs[startingUVIndex + 1] = spriteUVs[1]; // bottom right
@@ -176,7 +175,7 @@ public class TileRenderer : VoBehavior
             int tileIndex = y[i] * _width + x[i];
             int startingUVIndex = tileIndex * 4;
 
-            Vector2[] spriteUVs = this.Sprites[this.SpritesByTileId[spriteIndices[i]]].uv;
+            Vector2[] spriteUVs = this.Sprites[spriteIndices[i]].uv;
             uvs[startingUVIndex] = spriteUVs[0]; // bottom left
             uvs[startingUVIndex + 1] = spriteUVs[1]; // bottom right
             uvs[startingUVIndex + 2] = spriteUVs[2]; // top left
