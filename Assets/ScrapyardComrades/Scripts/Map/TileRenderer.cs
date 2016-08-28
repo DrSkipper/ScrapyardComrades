@@ -109,11 +109,6 @@ public class TileRenderer : VoBehavior
                     Debug.LogWarning("Invalid sprite index: " + spriteIndex);
                 }
 
-                /*if (!this.Sprites.ContainsKey(this.SpritesByTileId[spriteIndex]))
-                {
-                    Debug.LogWarning("Couldn't find sprite key: " + this.SpritesByTileId[spriteIndex]);
-                }*/
-
                 Vector2[] spriteUVs = this.Sprites[spriteIndex].uv;
                 Vector2 bottomLeftUV = spriteUVs[0];
                 Vector2 bottomRightUV = spriteUVs[1];
