@@ -116,8 +116,11 @@ public class MapLoader : MonoBehaviour
         if (!_cleared)
         {
             _cleared = true;
-            this.PlatformsRenderer.Clear();
-            this.BGRenderer.Clear();
+            if (editor)
+            {
+                this.PlatformsRenderer.Clear();
+                this.BGRenderer.Clear();
+            }
             this.GeometryCreator.Clear(editor);
             this.transform.position = this.transform.position + new Vector3(_width * this.PlatformsRenderer.TileRenderSize / 2, _height * this.PlatformsRenderer.TileRenderSize / 2, this.transform.position.z);
             _width = 0;

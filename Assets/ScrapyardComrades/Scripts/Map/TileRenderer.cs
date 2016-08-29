@@ -5,17 +5,11 @@ using System.Collections.Generic;
 [RequireComponent(typeof(MeshRenderer))]
 public class TileRenderer : VoBehavior
 {
-    public enum TilingMethod
-    {
-        CPU,
-        GPU
-    }
-    
+    public MeshFilter MeshFilter;
     public int TileRenderSize = 20;
     public int TileTextureSize = 10;
     public Texture2D Atlas;
     public Sprite[] Sprites;
-    public TilingMethod Method = TilingMethod.CPU;
     public bool FlipVertical = true;
 
     public void CreateEmptyMap(int width, int height)
@@ -25,16 +19,49 @@ public class TileRenderer : VoBehavior
 
     public void CreateMapWithGrid(MapGridSpaceInfo[,] grid)
     {
-        this.Clear();
-        _width = grid.GetLength(0);
-        _height = grid.GetLength(1);
-        createMapUsingMesh(grid);
+        if (_cleared)
+        {
+            _width = grid.GetLength(0);
+            _height = grid.GetLength(1);
+            createMapUsingMesh(grid);
+        }
+        else if (_width != grid.GetLength(0) || _height != grid.GetLength(1))
+        {
+            this.Clear();
+            _width = grid.GetLength(0);
+            _height = grid.GetLength(1);
+            createMapUsingMesh(grid);
+        }
+        else
+        {
+            Vector2[] uvs = this.MeshFilter.mesh.uv;
+
+            for (int y = 0; y < grid.GetLength(0); ++y)
+            {
+                for (int x = 0; x < grid.GetLength(1); ++x)
+                {
+                    int tileIndex = y * _width + x;
+                    int startingUVIndex = tileIndex * 4;
+
+                    Vector2[] spriteUVs = this.Sprites[grid[x, y].TileId].uv;
+                    uvs[startingUVIndex] = spriteUVs[0]; // bottom left
+                    uvs[startingUVIndex + 1] = spriteUVs[1]; // bottom right
+                    uvs[startingUVIndex + 2] = spriteUVs[2]; // top left
+                    uvs[startingUVIndex + 3] = spriteUVs[3]; // top right
+                }
+            }
+
+            this.MeshFilter.mesh.uv = uvs;
+        }
     }
 
     public void Clear()
     {
-        this.GetComponent<MeshFilter>().mesh = null;
-        this.renderer.material.mainTexture = null;
+        if (!_cleared)
+        {
+            this.MeshFilter.mesh = null;
+            this.renderer.material.mainTexture = null;
+        }
     }
 
     public void SetSpriteIndicesForTiles(int[] x, int[] y, int[] spriteIndices)
@@ -53,6 +80,7 @@ public class TileRenderer : VoBehavior
      */
     private int _width;
     private int _height;
+    private bool _cleared = true;
 
     private void createMapUsingMesh(MapGridSpaceInfo[,] grid)
     {
@@ -139,7 +167,7 @@ public class TileRenderer : VoBehavior
         mesh.triangles = triangles;
 
         // Assign mesh to behaviors
-        this.GetComponent<MeshFilter>().mesh = mesh;
+        this.MeshFilter.mesh = mesh;
         this.renderer.material.mainTexture = this.Atlas;
     }
 
@@ -147,23 +175,21 @@ public class TileRenderer : VoBehavior
     {
         int tileIndex = tileY * _width + tileX;
         int startingUVIndex = tileIndex * 4;
-        MeshFilter meshFilter = this.GetComponent<MeshFilter>();
 
         Vector2[] spriteUVs = this.Sprites[spriteIndex].uv;
-        Vector2[] uvs = meshFilter.mesh.uv;
+        Vector2[] uvs = this.MeshFilter.mesh.uv;
         uvs[startingUVIndex] = spriteUVs[0]; // bottom left
         uvs[startingUVIndex + 1] = spriteUVs[1]; // bottom right
         uvs[startingUVIndex + 2] = spriteUVs[2]; // top left
         uvs[startingUVIndex + 3] = spriteUVs[3]; // top right
 
-        meshFilter.mesh.uv = uvs;
+        this.MeshFilter.mesh.uv = uvs;
     }
 
 
     private void setTileSpriteIndicesInMesh(int[] x, int[] y, int[] spriteIndices)
     {
-        MeshFilter meshFilter = this.GetComponent<MeshFilter>();
-        Vector2[] uvs = meshFilter.mesh.uv;
+        Vector2[] uvs = this.MeshFilter.mesh.uv;
 
         for (int i = 0; i < x.Length; ++i)
         {
@@ -176,6 +202,6 @@ public class TileRenderer : VoBehavior
             uvs[startingUVIndex + 2] = spriteUVs[2]; // top left
             uvs[startingUVIndex + 3] = spriteUVs[3]; // top right
         }
-        meshFilter.mesh.uv = uvs;
+        this.MeshFilter.mesh.uv = uvs;
     }
 }
