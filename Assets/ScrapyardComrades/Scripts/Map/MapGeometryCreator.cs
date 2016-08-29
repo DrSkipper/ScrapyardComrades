@@ -7,6 +7,7 @@ public class MapGeometryCreator : VoBehavior
     public int[] TileTypesToIgnore;
     public int TileRenderSize = 20;
     public int MaxSolidsToStore = 2048;
+    public int SolidsToPreload = 512;
     public bool FlipVertical = true;
 
     public void CreateGeometryForGrid(MapGridSpaceInfo[,] grid)
@@ -83,6 +84,21 @@ public class MapGeometryCreator : VoBehavior
         }
     }
 
+    public void Preload()
+    {
+        if (_unusedGeometry == null)
+            _unusedGeometry = new List<IntegerCollider>();
+        if (_usedGeometry == null)
+            _usedGeometry = new List<IntegerCollider>();
+
+        for (int i = 0; i < this.SolidsToPreload; ++i)
+        {
+            IntegerCollider geom = createGeometry();
+            geom.enabled = false;
+            _unusedGeometry.Add(geom);
+        }
+    }
+
     /**
      * Private
      */
@@ -115,12 +131,18 @@ public class MapGeometryCreator : VoBehavior
         }
         else
         {
-            GameObject go = Instantiate<GameObject>(this.PlatformGeometryPrefab);
-            geom = go.GetComponent<IntegerCollider>();
-            geom.transform.parent = this.transform;
+            geom = createGeometry();
         }
 
         _usedGeometry.Add(geom);
+        return geom;
+    }
+
+    private IntegerCollider createGeometry()
+    {
+        GameObject go = Instantiate<GameObject>(this.PlatformGeometryPrefab);
+        IntegerCollider geom = go.GetComponent<IntegerCollider>();
+        geom.transform.parent = this.transform;
         return geom;
     }
 }

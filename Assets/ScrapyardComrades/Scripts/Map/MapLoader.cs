@@ -133,6 +133,11 @@ public class MapLoader : MonoBehaviour
         this.GeometryCreator.AddColliders();
     }
 
+    public void Preload()
+    {
+        this.GeometryCreator.Preload();
+    }
+
     private static Dictionary<string, Texture2D> CompileTextures(Texture2D[] textures)
     {
         Dictionary<string, Texture2D> textDict = new Dictionary<string, Texture2D>();
