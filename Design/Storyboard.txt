@@ -1,0 +1,38 @@
+
+Intro:
+Injured at start, at at low health, moving slowly clutching side, can't roll, jump, or attack. In an alley, or grimey subway station, or some other dark urban-y feeling place.
+Encounter dying body, when close game flow pauses and camera moves to body to show them cough their last and fade a little, and heart item rises above their body and glows.
+Player control resumes, keep walking towards the heart, button prompt to "consume" appears above the heart when player is on it, player has choice (is essentially forced because of how low health is and inability to jump or roll) to consume the heart.
+Once heart is consumed, short scene in which health recharges, and player appears healthy and possibly slightly more muscular or less fragile than before. The player can now roll, jump, and attack. At the end of the alley there is an obstacle to jump over.
+
+Room or two to practice platforming
+
+Room in which there is an enemy hanging out. Once player approaches game flow pauses and camera moves to enemy, enemy appears to be at low-ish health. Enemy notices player, starts charging at player, control resumes, player has opportunity to practice combat against lone weak enemy. If player kills enemy (or waits for them to die, which would be a bit before player would die from waiting) and eats their heart, "levels up" and mutates very slightly (still looks pretty normal), slightly taller, has to roll to get through exit which could have just run through before.
+
+There are a couple points where "elites" (men in suits) show up:
+- player checkpoints where they appear and give player a "paycheck", emblematic of game state autosaving
+- an NPC or two they need to silence, player may have opportunity to attack the elites in this case, very difficult enemies, will only stick around to finish battle if player deals enough damage to them before they would leave, in which case they will decide to stay and battle the player.
+
+NPC ideas:
+- some NPCs may have aura in their vicinity that prevents health from decreasing - utopian ending commune will also exhibit this aura.
+- maybe one is a revolutionary who gives the player a new ability.
+- some secret areas (maybe housing NPCs?) which players have to come back to once getting new abilities (either through mutation or other means) in order to access (also maybe there are openings to sequence break at some of these points).
+
+Can pick up certain items
+- rocks/bricks that can be thrown spelunky style
+- some enemies have weapons appropriate for the area they're encountered in? might be difficult to make new animations, could use same moveset data though with damage boost, then can use interact button to throw them.
+
+Ideas towards end of game:
+The different paths become more explicit and unique towards end of game, at least for max-mutations vs middle/low tier. Max mutants are taken though a series of rooms in which they must engage in difficult battles, having many chances to keep levelling up and mutate so they can become the colossal mutant in the final area. There are multiple rooms which require them to level up in order to progress. Middle/low tier players may see posters or graffiti spreading word of planned protest against the system.
+
+End sequence:
+Final room/area of the game is a convergence point - middle to low level tier enemies team up on colossal mutant - if player enters as top level mutant they take that role in the battle, other wise they can team up with the others to try to take the colossus down. If the player is the colossus, they take on one last mutation after the battle which allows them to take one exit (Elites appear, heal player and take them somewhere in order to enlist them?). If the player is one of the masses, the death of the colossus results in a different exit appearing (falls on and smashes door to capitol?). If the player has consumed no hearts except the very first mandatory one, there is a third exit available which only they can fit through by rolling (taking them to a utopian commune place?).
+
+Speed run ideas:
+- throw rock at critical points to stun enemies which would jump in front of path normally
+- may be worth it to back track at certain points if can now go down different path or get ability for unlocking different path
+- also might be worth skipping abilities that are normally non-secret to save a few seconds, but requires trickier platforming and dodging later or something.
+
+Sequence break ideas:
+- necessary to use stored jump toward end of maximum storage frames
+- leverage fact that enemies will teleport back to their spawn points if player moves load-distance away from them in quads and then comes back (or exits and reloads game).

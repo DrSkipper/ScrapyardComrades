@@ -3,3 +3,4 @@ Ideas:
 
 Might be good to programatically set camera orthographic size to 1/2 window height, unless below certain amount (480?) then set to full height.
 
+Heart healing: possibly have an enemy's heart heal a portion (close to 100%?) of damage that enemy dealt to the player, plus a constant. Maybe that constant scales inversely with amount of health player currently has? Maybe "high level" mutated players take less damage from enemies?
