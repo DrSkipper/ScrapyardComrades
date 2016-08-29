@@ -16,6 +16,8 @@ public class WorldLoadingManager : MonoBehaviour
     public List<GameObject> IgnoreRecenterObjects;
     public List<MapLoader> MapLoaders;
     public CollisionManager CollisionManager;
+    public Dictionary<string, Texture2D> CachedAtlases;
+    public Dictionary<string, Sprite[]> CachedSprites;
 
     public class MapQuad
     {
@@ -39,13 +41,14 @@ public class WorldLoadingManager : MonoBehaviour
             this.MapLoaders = new List<MapLoader>();
 
         gatherWorldMapInfo();
+        _quadData = new Dictionary<string, MapInfo>();
+
         for (int i = 0; i < _allMapQuads.Count; ++i)
         {
             if (_allMapQuads[i].Name == this.StartingAreaName)
-            {
                 _currentQuad = _allMapQuads[i];
-                break;
-            }
+
+            _quadData.Add(_allMapQuads[i].Name, MapLoader.GatherMapInfo(_allMapQuads[i].Name));
         }
 
         if (_currentQuad == null)
@@ -82,6 +85,11 @@ public class WorldLoadingManager : MonoBehaviour
         }
     }
 
+    public MapInfo GetMapInfoForQuad(string quadName)
+    {
+        return _quadData[quadName];
+    }
+
     /**
      * Private
      */
@@ -102,6 +110,7 @@ public class WorldLoadingManager : MonoBehaviour
     private Transform _tracker;
     private IntegerVector _recenterOffset = IntegerVector.Zero;
     private IntegerVector _trackerPosition = IntegerVector.Zero;
+    private Dictionary<string, MapInfo> _quadData;
 
     private void gatherWorldMapInfo()
     {
@@ -164,6 +173,7 @@ public class WorldLoadingManager : MonoBehaviour
 
         GameObject newMapLoaderObject = Instantiate(this.MapLoaderPrefab, position, Quaternion.identity) as GameObject;
         MapLoader newMapLoader = newMapLoaderObject.GetComponent<MapLoader>();
+        newMapLoader.WorldLoadingManager = this;
         this.MapLoaders.Add(newMapLoader);
         return newMapLoader;
     }

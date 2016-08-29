@@ -104,10 +104,10 @@ public class TileRenderer : VoBehavior
                 // Handle UVs
                 int spriteIndex = grid[x, y].TileId;
 
-                if (spriteIndex >= this.Sprites.Length || spriteIndex < 0)
+                /*if (spriteIndex >= this.Sprites.Length || spriteIndex < 0)
                 {
                     Debug.LogWarning("Invalid sprite index: " + spriteIndex);
-                }
+                }*/
 
                 Vector2[] spriteUVs = this.Sprites[spriteIndex].uv;
                 Vector2 bottomLeftUV = spriteUVs[0];

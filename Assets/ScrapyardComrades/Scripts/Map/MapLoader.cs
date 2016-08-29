@@ -20,6 +20,7 @@ public class MapLoader : MonoBehaviour
     public bool FlipVertical = true;
     public bool LoadPlayer = false;
     public bool LoadOnStart = false;
+    public WorldLoadingManager WorldLoadingManager;
 
     public bool Cleared { get { return _cleared; } }
 
@@ -36,11 +37,25 @@ public class MapLoader : MonoBehaviour
 
         if (this.Atlases == null || this.Atlases.Count == 0)
         {
-            this.Atlases = CompileTextures(this.ValidAtlases);
-            this.Sprites = CompileSprites(this.Atlases);
+            if (this.WorldLoadingManager == null || this.WorldLoadingManager.CachedAtlases == null)
+            {
+                this.Atlases = CompileTextures(this.ValidAtlases);
+                this.Sprites = CompileSprites(this.Atlases);
+
+                if (this.WorldLoadingManager != null)
+                {
+                    this.WorldLoadingManager.CachedAtlases = this.Atlases;
+                    this.WorldLoadingManager.CachedSprites = this.Sprites;
+                }
+            }
+            else
+            {
+                this.Atlases = this.WorldLoadingManager.CachedAtlases;
+                this.Sprites = this.WorldLoadingManager.CachedSprites;
+            }
         }
         
-        MapInfo mapInfo = gatherMapInfo();
+        MapInfo mapInfo = this.WorldLoadingManager != null ? this.WorldLoadingManager.GetMapInfoForQuad(this.MapName) : GatherMapInfo(this.MapName);
         MapGridSpaceInfo[,] grid = mapInfo.GetLayerWithName(this.PlatformsLayer).GetGrid(mapInfo.tilesets);
         _width = mapInfo.width;
         _height = mapInfo.height;
@@ -66,7 +81,7 @@ public class MapLoader : MonoBehaviour
     {
 #if UNITY_EDITOR
         this.ClearMap(editor);
-        MapInfo mapInfo = gatherMapInfo();
+        MapInfo mapInfo = GatherMapInfo(this.MapName);
         MapInfo.MapLayer platformsLayer = mapInfo.GetLayerWithName(this.PlatformsLayer);
         MapGridSpaceInfo[,] grid = platformsLayer.GetGrid(mapInfo.tilesets);
 
@@ -135,6 +150,13 @@ public class MapLoader : MonoBehaviour
         return sprites;
     }
 
+    public static MapInfo GatherMapInfo(string mapName)
+    {
+        TextAsset asset = Resources.Load<TextAsset>(PATH + mapName);
+        MapInfo mapInfo = JsonConvert.DeserializeObject<MapInfo>(asset.text);
+        return mapInfo;
+    }
+
     /**
      * Private
      */
@@ -142,13 +164,6 @@ public class MapLoader : MonoBehaviour
     private bool _cleared = false;
     private int _width = 0;
     private int _height = 0;
-
-    private MapInfo gatherMapInfo()
-    {
-        TextAsset asset = Resources.Load<TextAsset>(PATH + this.MapName);
-        MapInfo mapInfo = JsonConvert.DeserializeObject<MapInfo>(asset.text);
-        return mapInfo;
-    }
 
     private const int TILE_LONE = 1;
     private const int TILE_ISLAND_LEFT = 2;
