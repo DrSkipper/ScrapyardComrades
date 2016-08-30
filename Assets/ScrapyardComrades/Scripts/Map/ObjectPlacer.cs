@@ -4,6 +4,7 @@ public class ObjectPlacer : VoBehavior
 {
     public GameObject PlayerSpawnerPrefab;
     public GameObject EnemySpawnerPrefab;
+    public GameObject HeartSpawnerPrefab;
     public int TileRenderSize = 20;
     public int TileTextureSize = 10;
     public bool FlipVertical = true;
@@ -26,6 +27,10 @@ public class ObjectPlacer : VoBehavior
             {
                 spawner = Instantiate<GameObject>(this.EnemySpawnerPrefab);
             }
+            else if (mapObject.name.Contains(HEART))
+            {
+                spawner = Instantiate<GameObject>(this.HeartSpawnerPrefab);
+            }
 
             if (spawner != null)
             {
@@ -41,4 +46,5 @@ public class ObjectPlacer : VoBehavior
 
     private const string PLAYER = "player";
     private const string ENEMY = "enemy";
+    private const string HEART = "heart";
 }
