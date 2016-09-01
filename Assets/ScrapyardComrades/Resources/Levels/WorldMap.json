@@ -38,6 +38,17 @@
                  "width":128,
                  "x":576,
                  "y":1440
+                }, 
+                {
+                 "height":64,
+                 "id":10,
+                 "name":"intro_2",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":640,
+                 "y":1376
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -46,7 +57,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":10,
+ "nextobjectid":11,
  "orientation":"orthogonal",
  "renderorder":"right-up",
  "tileheight":32,
