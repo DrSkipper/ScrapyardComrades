@@ -9,6 +9,9 @@ Room or two to practice platforming
 
 Room in which there is an enemy hanging out. Once player approaches game flow pauses and camera moves to enemy, enemy appears to be at low-ish health. Enemy notices player, starts charging at player, control resumes, player has opportunity to practice combat against lone weak enemy. If player kills enemy (or waits for them to die, which would be a bit before player would die from waiting) and eats their heart, "levels up" and mutates very slightly (still looks pretty normal), slightly taller, has to roll to get through exit which could have just run through before.
 
+Idea for early game:
+Foreshadow mutant facility as towering building in background, rising out of skyline.
+
 There are a couple points where "elites" (men in suits) show up:
 - player checkpoints where they appear and give player a "paycheck", emblematic of game state autosaving
 - an NPC or two they need to silence, player may have opportunity to attack the elites in this case, very difficult enemies, will only stick around to finish battle if player deals enough damage to them before they would leave, in which case they will decide to stay and battle the player.
@@ -17,6 +20,7 @@ NPC ideas:
 - some NPCs may have aura in their vicinity that prevents health from decreasing - utopian ending commune will also exhibit this aura.
 - maybe one is a revolutionary who gives the player a new ability.
 - some secret areas (maybe housing NPCs?) which players have to come back to once getting new abilities (either through mutation or other means) in order to access (also maybe there are openings to sequence break at some of these points).
+- also sneaky group of revolutionaries that can be encountered at different points: found sneaking into mutant facility (towards the end of it), will attack player on sight since player will have to be pretty mutated by that point. Can also be found sneaking around prison, planning break-out, player can go past them in min-mutant route, in this case they won't fight the player unless attacked first. also present amongst ranks of rebel mutants in final scene. Image in head is kinda 3-musketeers-style hats, maybe eye-masks, maybe red capes. presence is foreshadowed with graffiti/posters encouraging "join the <resistance name>!" with their likeliness, and possibly with billboards advertising "beware the <name> menace!" or something.
 
 Can pick up certain items
 - rocks/bricks that can be thrown spelunky style
