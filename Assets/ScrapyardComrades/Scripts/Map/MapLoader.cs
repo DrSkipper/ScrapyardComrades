@@ -71,7 +71,7 @@ public class MapLoader : MonoBehaviour
             this.BGRenderer.Sprites = this.Sprites[this.BGLayer];
             this.BGRenderer.CreateMapWithGrid(bgGrid);
         }
-        this.GeometryCreator.CreateGeometryForGrid(grid);
+        this.GeometryCreator.CreateGeometryForGrid(grid, false);
 
         if (loadObjects)
             this.ObjectPlacer.PlaceObjects(mapInfo.GetLayerWithName(this.ObjectsLayer).objects, mapInfo.width, mapInfo.height, this.LoadPlayer);
@@ -97,7 +97,7 @@ public class MapLoader : MonoBehaviour
             this.BGRenderer.Sprites = this.Sprites[this.BGLayer];
             this.BGRenderer.CreateMapWithGrid(bgGrid);
         }
-        this.GeometryCreator.CreateGeometryForGrid(grid);
+        this.GeometryCreator.CreateGeometryForGrid(grid, editor);
         _cleared = false;
 
         platformsLayer.SetGrid(grid);
@@ -131,11 +131,6 @@ public class MapLoader : MonoBehaviour
     public void AddColliders()
     {
         this.GeometryCreator.AddColliders();
-    }
-
-    public void Preload()
-    {
-        this.GeometryCreator.Preload();
     }
 
     private static Dictionary<string, Texture2D> CompileTextures(Texture2D[] textures)

@@ -68,9 +68,7 @@ public class ObjectPools : MonoBehaviour
             List<PooledObject> pool = _pools[prefab.PoolId];
             if (pool.Count > 0)
             {
-                int last = pool.Count - 1;
-                PooledObject instance = pool[last];
-                pool.RemoveAt(last);
+                PooledObject instance = pool.Pop();
                 instance.gameObject.SetActive(true);
                 return instance;
             }
@@ -104,7 +102,7 @@ public class ObjectPools : MonoBehaviour
     {
         if (pool.Count < pool.Capacity)
         {
-            obj.BroadcastMessage("OnReturnToPool");
+            obj.BroadcastMessage("OnReturnToPool", SendMessageOptions.DontRequireReceiver);
             obj.gameObject.SetActive(false);
             pool.Add(obj);
             return true;

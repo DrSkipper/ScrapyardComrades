@@ -119,7 +119,6 @@ public class WorldLoadingManager : MonoBehaviour
         for (int i = 0; i < this.MapLoadersToPreload; ++i)
         {
             MapLoader loader = createMapLoader(this.transform.position);
-            loader.Preload();
             loader.gameObject.SetActive(false);
         }
         this.CollisionManager.RemoveAllSolids();

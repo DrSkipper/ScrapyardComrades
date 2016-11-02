@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 public static class ListExtensions
 {
@@ -20,5 +18,17 @@ public static class ListExtensions
     {
         if (!self.Contains(toAdd))
             self.Add(toAdd);
+    }
+
+    public static T Pop<T>(this List<T> self)
+    {
+        if (self.Count > 0)
+        {
+            int last = self.Count - 1;
+            T retVal = self[last];
+            self.RemoveAt(last);
+            return retVal;
+        }
+        return default(T);
     }
 }

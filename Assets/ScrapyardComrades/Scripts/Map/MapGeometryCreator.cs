@@ -3,19 +3,15 @@ using System.Collections.Generic;
 
 public class MapGeometryCreator : VoBehavior
 {
-    public GameObject PlatformGeometryPrefab;
+    public PooledObject PlatformGeometryPrefab;
     public int[] TileTypesToIgnore;
     public int TileRenderSize = 20;
-    public int MaxSolidsToStore = 2048;
-    public int SolidsToPreload = 512;
     public bool FlipVertical = true;
 
-    public void CreateGeometryForGrid(MapGridSpaceInfo[,] grid)
+    public void CreateGeometryForGrid(MapGridSpaceInfo[,] grid, bool editor)
     {
-        if (_unusedGeometry == null)
-            _unusedGeometry = new List<IntegerCollider>();
-        if (_usedGeometry == null)
-            _usedGeometry = new List<IntegerCollider>();
+        if (_geometry == null)
+            _geometry = new List<IntegerCollider>();
 
         int halfSize = this.TileRenderSize / 2;
         for (int x = 0; x < grid.GetLength(0); ++x)
@@ -24,7 +20,7 @@ public class MapGeometryCreator : VoBehavior
             {
                 if (!shouldIgnore(grid[x, y]))
                 {
-                    IntegerCollider geom = findAvailableGeometry();
+                    IntegerCollider geom = aquireGeometry(editor);
                     int posY = this.FlipVertical ? (grid.GetLength(1) - y - 1) * this.TileRenderSize : y * this.TileRenderSize;
                     geom.transform.localPosition = new Vector3(x * this.TileRenderSize + halfSize, posY + halfSize, 0);
                 }
@@ -41,69 +37,33 @@ public class MapGeometryCreator : VoBehavior
                 DestroyImmediate(this.transform.GetChild(0).gameObject);
             }
 
-            if (_unusedGeometry != null)
-                _unusedGeometry.Clear();
-            if (_usedGeometry != null)
-                _usedGeometry.Clear();
+            if (_geometry != null)
+                _geometry.Clear();
         }
-        else if (_unusedGeometry != null)
+        else if (_geometry != null)
         {
-            // If not in editor, only destroy down to max storage count, then simply disable the rest
-            int numToDestroy = this.transform.childCount - this.MaxSolidsToStore;
-            int destroyedCount = 0;
-
-            while (_usedGeometry.Count > 0)
+            while (_geometry.Count > 0)
             {
-                int index = _usedGeometry.Count - 1;
-                IntegerCollider collider = _usedGeometry[index];
-                _usedGeometry.RemoveAt(index);
-
-                if (destroyedCount < numToDestroy)
-                {
-                    Destroy(collider);
-                    ++destroyedCount;
-                }
-                else
-                {
-                    //collider.RemoveFromCollisionPool(); // Now using CollisionManager.RemoveAllSolids instead
-                    collider.enabled = false;
-                    _unusedGeometry.Add(collider);
-                }
+                ObjectPools.Release(_geometry.Pop().gameObject);
             }
         }
     }
 
     public void AddColliders()
     {
-        if (_usedGeometry != null)
+        if (_geometry != null)
         {
-            for (int i = 0; i < _usedGeometry.Count; ++i)
+            for (int i = 0; i < _geometry.Count; ++i)
             {
-                _usedGeometry[i].AddToCollisionPool();
+                _geometry[i].AddToCollisionPool();
             }
-        }
-    }
-
-    public void Preload()
-    {
-        if (_unusedGeometry == null)
-            _unusedGeometry = new List<IntegerCollider>();
-        if (_usedGeometry == null)
-            _usedGeometry = new List<IntegerCollider>();
-
-        for (int i = 0; i < this.SolidsToPreload; ++i)
-        {
-            IntegerCollider geom = createGeometry();
-            geom.enabled = false;
-            _unusedGeometry.Add(geom);
         }
     }
 
     /**
      * Private
      */
-    private List<IntegerCollider> _unusedGeometry;
-    private List<IntegerCollider> _usedGeometry;
+    private List<IntegerCollider> _geometry;
 
     private bool shouldIgnore(MapGridSpaceInfo tile)
     {
@@ -119,29 +79,10 @@ public class MapGeometryCreator : VoBehavior
         return false;
     }
 
-    private IntegerCollider findAvailableGeometry()
+    private IntegerCollider aquireGeometry(bool editor)
     {
-        IntegerCollider geom;
-
-        if (_unusedGeometry.Count > 0)
-        {
-            geom = _unusedGeometry[_unusedGeometry.Count - 1];
-            _unusedGeometry.RemoveAt(_unusedGeometry.Count - 1);
-            geom.enabled = true;
-        }
-        else
-        {
-            geom = createGeometry();
-        }
-
-        _usedGeometry.Add(geom);
-        return geom;
-    }
-
-    private IntegerCollider createGeometry()
-    {
-        GameObject go = Instantiate<GameObject>(this.PlatformGeometryPrefab);
-        IntegerCollider geom = go.GetComponent<IntegerCollider>();
+        PooledObject obj = !editor ? this.PlatformGeometryPrefab.Retain() : Instantiate<PooledObject>(this.PlatformGeometryPrefab);
+        IntegerCollider geom = obj.GetComponent<IntegerCollider>();
         geom.transform.parent = this.transform;
         return geom;
     }
