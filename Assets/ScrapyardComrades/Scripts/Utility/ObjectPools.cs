@@ -104,7 +104,7 @@ public class ObjectPools : MonoBehaviour
     {
         if (pool.Count < pool.Capacity)
         {
-            obj.BroadcastMessage("OnRelease");
+            obj.BroadcastMessage("OnReturnToPool");
             obj.gameObject.SetActive(false);
             pool.Add(obj);
             return true;
