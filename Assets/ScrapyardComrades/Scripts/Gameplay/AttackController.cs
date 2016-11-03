@@ -3,6 +3,7 @@
 public class AttackController : VoBehavior
 {
     public IntegerRectCollider[] DamageBoxes;
+    public IntegerRectCollider Hurtbox;
     public SCSpriteAnimator Animator;
     public Damagable Damagable;
     public LayerMask DamagableLayers;
@@ -30,8 +31,8 @@ public class AttackController : VoBehavior
                     if (i < keyframe.Value.HitboxCount)
                     {
                         this.DamageBoxes[i].enabled = true;
-                        this.DamageBoxes[i].transform.localPosition = (Vector2)keyframe.Value.Positions[i];
-                        this.DamageBoxes[i].Size = keyframe.Value.Sizes[i];
+                        this.DamageBoxes[i].transform.localPosition = (Vector2)keyframe.Value.HitboxPositions[i];
+                        this.DamageBoxes[i].Size = keyframe.Value.HitboxSizes[i];
 
                         if (collided == null)
                         {
@@ -44,6 +45,16 @@ public class AttackController : VoBehavior
                     {
                         this.DamageBoxes[i].enabled = false;
                     }
+                }
+                if (keyframe.Value.HurtboxRect.Size != IntegerVector.Zero)
+                {
+                    this.Hurtbox.enabled = true;
+                    this.Hurtbox.Offset = keyframe.Value.HurtboxRect.Center;
+                    this.Hurtbox.Size = keyframe.Value.HurtboxRect.Size;
+                }
+                else
+                {
+                    this.Hurtbox.enabled = false;
                 }
 
                 // Apply damage if we hit

@@ -9,6 +9,7 @@ public class SCAttackEditing : MonoBehaviour
     public SCSpriteAnimator AttackAnimator;
     public SCSpriteAnimator Animator;
     public IntegerRectCollider[] Hitboxes;
+    public IntegerRectCollider Hurtbox;
     public SCAttack AttackObject;
     [HideInInspector]
     public int CurrentIndex = 0;
@@ -24,6 +25,9 @@ public class SCAttackEditing : MonoBehaviour
         }
         if (this.Hitboxes == null || this.Hitboxes.Length == 0)
             Debug.LogWarning("Saving attack keyframes with no hitboxes");
+
+        if (this.Hurtbox == null)
+            Debug.LogWarning("Saving attack keyframes with no hurtbox");
         
         if (this.CurrentIndex >= 0 && this.CurrentIndex < this.AttackObject.HitboxKeyframes.Length)
         {
@@ -60,21 +64,24 @@ public class SCAttackEditing : MonoBehaviour
     {
         if (this.CurrentIndex >= 0 && this.CurrentIndex < this.AttackObject.HitboxKeyframes.Length)
         {
-            this.Frame = this.AttackObject.HitboxKeyframes[this.CurrentIndex].VisualFrame;
+            SCAttack.HitboxKeyframe currentHitboxFrame = this.AttackObject.HitboxKeyframes[this.CurrentIndex];
+            this.Frame = currentHitboxFrame.VisualFrame;
             for (int i = 0; i < this.Hitboxes.Length; ++i)
             {
-                if (i < this.AttackObject.HitboxKeyframes[this.CurrentIndex].Positions.Length)
+                if (currentHitboxFrame.HitboxPositions != null && i < currentHitboxFrame.HitboxPositions.Length)
                 {
                     this.Hitboxes[i].enabled = true;
                     this.Hitboxes[i].Offset = IntegerVector.Zero;
-                    this.Hitboxes[i].transform.position = (Vector2)this.AttackObject.HitboxKeyframes[this.CurrentIndex].Positions[i];
-                    this.Hitboxes[i].Size = this.AttackObject.HitboxKeyframes[this.CurrentIndex].Sizes[i];
+                    this.Hitboxes[i].transform.position = (Vector2)currentHitboxFrame.HitboxPositions[i];
+                    this.Hitboxes[i].Size = currentHitboxFrame.HitboxSizes[i];
                 }
                 else
                 {
                     this.Hitboxes[i].enabled = false;
                 }
             }
+            this.Hurtbox.Offset = currentHitboxFrame.HurtboxRect.Center;
+            this.Hurtbox.Size = currentHitboxFrame.HurtboxRect.Size;
         }
         this.Animator.GoToFrame(this.Frame);
     }
@@ -109,10 +116,11 @@ public class SCAttackEditing : MonoBehaviour
             }
         }
 
+        keyframe.HurtboxRect = this.Hurtbox != null && this.Hurtbox.enabled ? new IntegerRect(this.Hurtbox.Offset, this.Hurtbox.Size) : new IntegerRect();
         keyframe.Frame = this.Animator.GetDataFrameForVisualFrame(this.Frame);
         keyframe.VisualFrame = this.Frame;
-        keyframe.Positions = hitboxPositions.ToArray();
-        keyframe.Sizes = hitboxSizes.ToArray();
+        keyframe.HitboxPositions = hitboxPositions.ToArray();
+        keyframe.HitboxSizes = hitboxSizes.ToArray();
         return keyframe;
     }
 

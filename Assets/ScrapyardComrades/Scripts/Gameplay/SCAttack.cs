@@ -11,8 +11,9 @@ public class SCAttack : ScriptableObject
         public int Frame;
         public int VisualFrame;
         public int HitboxCount;
-        public IntegerVector[] Positions;
-        public IntegerVector[] Sizes;
+        public IntegerVector[] HitboxPositions;
+        public IntegerVector[] HitboxSizes;
+        public IntegerRect HurtboxRect;
     }
 
     public SCSpriteAnimation SpriteAnimation;
