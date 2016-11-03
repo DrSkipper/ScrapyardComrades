@@ -23,6 +23,7 @@ public class MapGeometryCreator : VoBehavior
                     IntegerCollider geom = aquireGeometry(editor);
                     int posY = this.FlipVertical ? (grid.GetLength(1) - y - 1) * this.TileRenderSize : y * this.TileRenderSize;
                     geom.transform.localPosition = new Vector3(x * this.TileRenderSize + halfSize, posY + halfSize, 0);
+                    _geometry.Add(geom);
                 }
             }
         }
@@ -44,6 +45,7 @@ public class MapGeometryCreator : VoBehavior
         {
             while (_geometry.Count > 0)
             {
+                //NOTE: No need to remove from collision pool here, as we're now just calling "CollisionManager.RemoveAllSolids()"
                 ObjectPools.Release(_geometry.Pop().gameObject);
             }
         }

@@ -3,13 +3,15 @@ using System.Collections.Generic;
 
 public abstract class IntegerCollider : VoBehavior
 {
+    public bool AddOnStart = true;
     public IntegerVector Offset = IntegerVector.Zero;
     public abstract IntegerRect Bounds { get; }
     public Color DebugColor = Color.red;
 
     void Start()
     {
-        this.AddToCollisionPool();
+        if (this.AddOnStart)
+            this.AddToCollisionPool();
     }
 
     public override void OnDestroy()
