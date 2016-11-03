@@ -15,7 +15,8 @@ MonoBehaviour:
   editorControllerName: 
   description: 
   controllerGuid: 6e386ae1-c15b-4bf2-b5ff-0e523a44110e
-  templateGuids: []
+  templateGuids:
+  - 061a00cf-d8c2-4f8d-8cb5-a15a010bc53e
   hideInLists: 0
   elementIdentifiers:
   - _id: 0
@@ -199,6 +200,7 @@ MonoBehaviour:
     _elementType: 1
     _compoundElementType: 0
   directInput:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -213,7 +215,9 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   rawInput:
+    description: 
     matchingCriteria:
       axisCount: 5
       buttonCount: 32
@@ -870,7 +874,9 @@ MonoBehaviour:
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
         sourceOtherAxis: 0
+    variants: []
   xInput:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -880,7 +886,9 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   osx:
+    description: 
     matchingCriteria:
       axisCount: 5
       buttonCount: 32
@@ -1582,7 +1590,9 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   linux:
+    description: 
     matchingCriteria:
       axisCount: 5
       buttonCount: 32
@@ -2196,7 +2206,9 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   windowsUWP:
+    description: 
     matchingCriteria:
       axisCount: 5
       buttonCount: 32
@@ -2808,7 +2820,9 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   fallback_Windows:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -2817,6 +2831,9 @@ MonoBehaviour:
       productName_useRegex: 0
       productName:
       - Throttle - HOTAS Warthog
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes:
@@ -3484,1359 +3501,9 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
-  fallback_OSX:
-    matchingCriteria:
-      axisCount: 0
-      buttonCount: 0
-      disabled: 0
-      alwaysMatch: 0
-      productName_useRegex: 0
-      productName:
-      - Thrustmaster Throttle - HOTAS Warthog
-    elements:
-      compoundElements: []
-      axes:
-      - elementIdentifier: 0
-        sourceType: 1
-        sourceAxis: 5
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        invert: 1
-        sourceAxisRange: 0
-        buttonAxisContribution: 0
-        calibrateAxis: 1
-        axisZero: 1
-        axisMin: -1
-        axisMax: 1
-      - elementIdentifier: 1
-        sourceType: 1
-        sourceAxis: 4
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        invert: 1
-        sourceAxisRange: 0
-        buttonAxisContribution: 0
-        calibrateAxis: 1
-        axisZero: 1
-        axisMin: -1
-        axisMax: 1
-      - elementIdentifier: 2
-        sourceType: 1
-        sourceAxis: 3
-        axisDeadZone: .0500000007
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        invert: 1
-        sourceAxisRange: 0
-        buttonAxisContribution: 0
-        calibrateAxis: 0
-        axisZero: 0
-        axisMin: 0
-        axisMax: 0
-      - elementIdentifier: 21
-        sourceType: 1
-        sourceAxis: 1
-        axisDeadZone: .00999999978
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        invert: 0
-        sourceAxisRange: 0
-        buttonAxisContribution: 0
-        calibrateAxis: 0
-        axisZero: 0
-        axisMin: 0
-        axisMax: 0
-      - elementIdentifier: 22
-        sourceType: 1
-        sourceAxis: 2
-        axisDeadZone: .00999999978
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        invert: 1
-        sourceAxisRange: 0
-        buttonAxisContribution: 0
-        calibrateAxis: 0
-        axisZero: 0
-        axisMin: 0
-        axisMax: 0
-      buttons:
-      - elementIdentifier: 8
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 16
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 9
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 17
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 11
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 18
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 13
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 19
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 14
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 20
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 18
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 13
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 19
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 14
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 20
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 15
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 23
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 1
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 24
-        sourceType: 2
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 6
-        unityHat_sourceAxis2: 7
-        unityHat_isActiveAxisValues1: {x: 0, y: -1}
-        unityHat_isActiveAxisValues2: {x: 0, y: -1}
-        unityHat_isActiveAxisValues3: {x: 0, y: -1}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 25
-        sourceType: 2
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 6
-        unityHat_sourceAxis2: 7
-        unityHat_isActiveAxisValues1: {x: 1, y: -1}
-        unityHat_isActiveAxisValues2: {x: 1, y: -1}
-        unityHat_isActiveAxisValues3: {x: 1, y: -1}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 26
-        sourceType: 2
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 6
-        unityHat_sourceAxis2: 7
-        unityHat_isActiveAxisValues1: {x: 1, y: 0}
-        unityHat_isActiveAxisValues2: {x: 1, y: 0}
-        unityHat_isActiveAxisValues3: {x: 1, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 27
-        sourceType: 2
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 6
-        unityHat_sourceAxis2: 7
-        unityHat_isActiveAxisValues1: {x: 1, y: 1}
-        unityHat_isActiveAxisValues2: {x: 1, y: 1}
-        unityHat_isActiveAxisValues3: {x: 1, y: 1}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 28
-        sourceType: 2
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 6
-        unityHat_sourceAxis2: 7
-        unityHat_isActiveAxisValues1: {x: 0, y: 1}
-        unityHat_isActiveAxisValues2: {x: 0, y: 1}
-        unityHat_isActiveAxisValues3: {x: 0, y: 1}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 29
-        sourceType: 2
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 6
-        unityHat_sourceAxis2: 7
-        unityHat_isActiveAxisValues1: {x: -1, y: 1}
-        unityHat_isActiveAxisValues2: {x: -1, y: 1}
-        unityHat_isActiveAxisValues3: {x: -1, y: 1}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 30
-        sourceType: 2
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 6
-        unityHat_sourceAxis2: 7
-        unityHat_isActiveAxisValues1: {x: -1, y: 0}
-        unityHat_isActiveAxisValues2: {x: -1, y: 0}
-        unityHat_isActiveAxisValues3: {x: -1, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 31
-        sourceType: 2
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 6
-        unityHat_sourceAxis2: 7
-        unityHat_isActiveAxisValues1: {x: -1, y: -1}
-        unityHat_isActiveAxisValues2: {x: -1, y: -1}
-        unityHat_isActiveAxisValues3: {x: -1, y: -1}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 32
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 3
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 33
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 4
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 34
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 5
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 35
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 6
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 36
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 2
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 37
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 7
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 38
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 8
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 39
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 9
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 40
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 10
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 41
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 11
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 42
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 12
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-  fallback_Linux:
-    matchingCriteria:
-      axisCount: 0
-      buttonCount: 0
-      disabled: 0
-      alwaysMatch: 0
-      productName_useRegex: 0
-      productName:
-      - Thrustmaster Throttle - HOTAS Warthog
-    elements:
-      compoundElements: []
-      axes:
-      - elementIdentifier: 0
-        sourceType: 1
-        sourceAxis: 4
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        invert: 1
-        sourceAxisRange: 0
-        buttonAxisContribution: 0
-        calibrateAxis: 0
-        axisZero: 0
-        axisMin: 0
-        axisMax: 0
-      - elementIdentifier: 1
-        sourceType: 1
-        sourceAxis: 3
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        invert: 1
-        sourceAxisRange: 0
-        buttonAxisContribution: 0
-        calibrateAxis: 0
-        axisZero: 0
-        axisMin: 0
-        axisMax: 0
-      - elementIdentifier: 2
-        sourceType: 1
-        sourceAxis: 5
-        axisDeadZone: .0500000007
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        invert: 1
-        sourceAxisRange: 0
-        buttonAxisContribution: 0
-        calibrateAxis: 0
-        axisZero: 0
-        axisMin: 0
-        axisMax: 0
-      - elementIdentifier: 21
-        sourceType: 1
-        sourceAxis: 1
-        axisDeadZone: .00999999978
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        invert: 0
-        sourceAxisRange: 0
-        buttonAxisContribution: 0
-        calibrateAxis: 0
-        axisZero: 0
-        axisMin: 0
-        axisMax: 0
-      - elementIdentifier: 22
-        sourceType: 1
-        sourceAxis: 2
-        axisDeadZone: .00999999978
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        invert: 1
-        sourceAxisRange: 0
-        buttonAxisContribution: 0
-        calibrateAxis: 0
-        axisZero: 0
-        axisMin: 0
-        axisMax: 0
-      buttons:
-      - elementIdentifier: 8
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 16
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 9
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 17
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 11
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 18
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 13
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 19
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 14
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 20
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 18
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 13
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 19
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 14
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 20
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 15
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 23
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 1
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 24
-        sourceType: 2
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 6
-        unityHat_sourceAxis2: 7
-        unityHat_isActiveAxisValues1: {x: 0, y: -1}
-        unityHat_isActiveAxisValues2: {x: 0, y: -1}
-        unityHat_isActiveAxisValues3: {x: 0, y: -1}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 25
-        sourceType: 2
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 6
-        unityHat_sourceAxis2: 7
-        unityHat_isActiveAxisValues1: {x: 1, y: -1}
-        unityHat_isActiveAxisValues2: {x: 1, y: -1}
-        unityHat_isActiveAxisValues3: {x: 1, y: -1}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 26
-        sourceType: 2
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 6
-        unityHat_sourceAxis2: 7
-        unityHat_isActiveAxisValues1: {x: 1, y: 0}
-        unityHat_isActiveAxisValues2: {x: 1, y: 0}
-        unityHat_isActiveAxisValues3: {x: 1, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 27
-        sourceType: 2
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 6
-        unityHat_sourceAxis2: 7
-        unityHat_isActiveAxisValues1: {x: 1, y: 1}
-        unityHat_isActiveAxisValues2: {x: 1, y: 1}
-        unityHat_isActiveAxisValues3: {x: 1, y: 1}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 28
-        sourceType: 2
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 6
-        unityHat_sourceAxis2: 7
-        unityHat_isActiveAxisValues1: {x: 0, y: 1}
-        unityHat_isActiveAxisValues2: {x: 0, y: 1}
-        unityHat_isActiveAxisValues3: {x: 0, y: 1}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 29
-        sourceType: 2
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 6
-        unityHat_sourceAxis2: 7
-        unityHat_isActiveAxisValues1: {x: -1, y: 1}
-        unityHat_isActiveAxisValues2: {x: -1, y: 1}
-        unityHat_isActiveAxisValues3: {x: -1, y: 1}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 30
-        sourceType: 2
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 6
-        unityHat_sourceAxis2: 7
-        unityHat_isActiveAxisValues1: {x: -1, y: 0}
-        unityHat_isActiveAxisValues2: {x: -1, y: 0}
-        unityHat_isActiveAxisValues3: {x: -1, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 31
-        sourceType: 2
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 0
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 6
-        unityHat_sourceAxis2: 7
-        unityHat_isActiveAxisValues1: {x: -1, y: -1}
-        unityHat_isActiveAxisValues2: {x: -1, y: -1}
-        unityHat_isActiveAxisValues3: {x: -1, y: -1}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 32
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 3
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 33
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 4
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 34
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 5
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 35
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 6
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 36
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 2
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 37
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 7
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 38
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 8
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 39
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 9
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 40
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 10
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 41
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 11
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-      - elementIdentifier: 42
-        sourceType: 0
-        sourceAxis: 0
-        axisDeadZone: 0
-        sourceButton: 12
-        sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        sourceAxisPole: 0
-        unityHat_sourceAxis1: 0
-        unityHat_sourceAxis2: 0
-        unityHat_isActiveAxisValues1: {x: 0, y: 0}
-        unityHat_isActiveAxisValues2: {x: 0, y: 0}
-        unityHat_isActiveAxisValues3: {x: 0, y: 0}
-        unityHat_zeroValues: {x: 0, y: 0}
-        unityHat_checkNeverPressed: 0
-        unityHat_neverPressedZeroValues: {x: 0, y: 0}
-        requireMultipleButtons: 0
-        requiredButtons: 
-        ignoreIfButtonsActive: 0
-        ignoreIfButtonsActiveButtons: 
-  fallback_Linux_PreConfigured:
+    variants: []
+  fallback_WindowsUWP:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -4844,11 +3511,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
-  fallback_Android:
+    variants: []
+  fallback_OSX:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -4857,6 +3529,1388 @@ MonoBehaviour:
       productName_useRegex: 0
       productName:
       - Thrustmaster Throttle - HOTAS Warthog
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
+    elements:
+      compoundElements: []
+      axes:
+      - elementIdentifier: 0
+        sourceType: 1
+        sourceAxis: 5
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        invert: 1
+        sourceAxisRange: 0
+        buttonAxisContribution: 0
+        calibrateAxis: 1
+        axisZero: 1
+        axisMin: -1
+        axisMax: 1
+      - elementIdentifier: 1
+        sourceType: 1
+        sourceAxis: 4
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        invert: 1
+        sourceAxisRange: 0
+        buttonAxisContribution: 0
+        calibrateAxis: 1
+        axisZero: 1
+        axisMin: -1
+        axisMax: 1
+      - elementIdentifier: 2
+        sourceType: 1
+        sourceAxis: 3
+        axisDeadZone: .0500000007
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        invert: 1
+        sourceAxisRange: 0
+        buttonAxisContribution: 0
+        calibrateAxis: 0
+        axisZero: 0
+        axisMin: 0
+        axisMax: 0
+      - elementIdentifier: 21
+        sourceType: 1
+        sourceAxis: 1
+        axisDeadZone: .00999999978
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        invert: 0
+        sourceAxisRange: 0
+        buttonAxisContribution: 0
+        calibrateAxis: 0
+        axisZero: 0
+        axisMin: 0
+        axisMax: 0
+      - elementIdentifier: 22
+        sourceType: 1
+        sourceAxis: 2
+        axisDeadZone: .00999999978
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        invert: 1
+        sourceAxisRange: 0
+        buttonAxisContribution: 0
+        calibrateAxis: 0
+        axisZero: 0
+        axisMin: 0
+        axisMax: 0
+      buttons:
+      - elementIdentifier: 8
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 16
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 9
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 17
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 11
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 18
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 13
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 19
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 14
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 20
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 18
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 13
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 19
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 14
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 20
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 15
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 23
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 1
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 24
+        sourceType: 2
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 6
+        unityHat_sourceAxis2: 7
+        unityHat_isActiveAxisValues1: {x: 0, y: -1}
+        unityHat_isActiveAxisValues2: {x: 0, y: -1}
+        unityHat_isActiveAxisValues3: {x: 0, y: -1}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 25
+        sourceType: 2
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 6
+        unityHat_sourceAxis2: 7
+        unityHat_isActiveAxisValues1: {x: 1, y: -1}
+        unityHat_isActiveAxisValues2: {x: 1, y: -1}
+        unityHat_isActiveAxisValues3: {x: 1, y: -1}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 26
+        sourceType: 2
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 6
+        unityHat_sourceAxis2: 7
+        unityHat_isActiveAxisValues1: {x: 1, y: 0}
+        unityHat_isActiveAxisValues2: {x: 1, y: 0}
+        unityHat_isActiveAxisValues3: {x: 1, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 27
+        sourceType: 2
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 6
+        unityHat_sourceAxis2: 7
+        unityHat_isActiveAxisValues1: {x: 1, y: 1}
+        unityHat_isActiveAxisValues2: {x: 1, y: 1}
+        unityHat_isActiveAxisValues3: {x: 1, y: 1}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 28
+        sourceType: 2
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 6
+        unityHat_sourceAxis2: 7
+        unityHat_isActiveAxisValues1: {x: 0, y: 1}
+        unityHat_isActiveAxisValues2: {x: 0, y: 1}
+        unityHat_isActiveAxisValues3: {x: 0, y: 1}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 29
+        sourceType: 2
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 6
+        unityHat_sourceAxis2: 7
+        unityHat_isActiveAxisValues1: {x: -1, y: 1}
+        unityHat_isActiveAxisValues2: {x: -1, y: 1}
+        unityHat_isActiveAxisValues3: {x: -1, y: 1}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 30
+        sourceType: 2
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 6
+        unityHat_sourceAxis2: 7
+        unityHat_isActiveAxisValues1: {x: -1, y: 0}
+        unityHat_isActiveAxisValues2: {x: -1, y: 0}
+        unityHat_isActiveAxisValues3: {x: -1, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 31
+        sourceType: 2
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 6
+        unityHat_sourceAxis2: 7
+        unityHat_isActiveAxisValues1: {x: -1, y: -1}
+        unityHat_isActiveAxisValues2: {x: -1, y: -1}
+        unityHat_isActiveAxisValues3: {x: -1, y: -1}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 32
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 3
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 33
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 4
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 34
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 5
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 35
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 6
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 36
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 2
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 37
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 7
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 38
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 8
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 39
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 9
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 40
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 10
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 41
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 11
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 42
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 12
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+    variants: []
+  fallback_Linux:
+    description: 
+    matchingCriteria:
+      axisCount: 0
+      buttonCount: 0
+      disabled: 0
+      alwaysMatch: 0
+      productName_useRegex: 0
+      productName:
+      - Thrustmaster Throttle - HOTAS Warthog
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
+    elements:
+      compoundElements: []
+      axes:
+      - elementIdentifier: 0
+        sourceType: 1
+        sourceAxis: 4
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        invert: 1
+        sourceAxisRange: 0
+        buttonAxisContribution: 0
+        calibrateAxis: 0
+        axisZero: 0
+        axisMin: 0
+        axisMax: 0
+      - elementIdentifier: 1
+        sourceType: 1
+        sourceAxis: 3
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        invert: 1
+        sourceAxisRange: 0
+        buttonAxisContribution: 0
+        calibrateAxis: 0
+        axisZero: 0
+        axisMin: 0
+        axisMax: 0
+      - elementIdentifier: 2
+        sourceType: 1
+        sourceAxis: 5
+        axisDeadZone: .0500000007
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        invert: 1
+        sourceAxisRange: 0
+        buttonAxisContribution: 0
+        calibrateAxis: 0
+        axisZero: 0
+        axisMin: 0
+        axisMax: 0
+      - elementIdentifier: 21
+        sourceType: 1
+        sourceAxis: 1
+        axisDeadZone: .00999999978
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        invert: 0
+        sourceAxisRange: 0
+        buttonAxisContribution: 0
+        calibrateAxis: 0
+        axisZero: 0
+        axisMin: 0
+        axisMax: 0
+      - elementIdentifier: 22
+        sourceType: 1
+        sourceAxis: 2
+        axisDeadZone: .00999999978
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        invert: 1
+        sourceAxisRange: 0
+        buttonAxisContribution: 0
+        calibrateAxis: 0
+        axisZero: 0
+        axisMin: 0
+        axisMax: 0
+      buttons:
+      - elementIdentifier: 8
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 16
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 9
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 17
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 11
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 18
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 13
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 19
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 14
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 20
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 18
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 13
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 19
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 14
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 20
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 15
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 23
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 1
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 24
+        sourceType: 2
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 6
+        unityHat_sourceAxis2: 7
+        unityHat_isActiveAxisValues1: {x: 0, y: -1}
+        unityHat_isActiveAxisValues2: {x: 0, y: -1}
+        unityHat_isActiveAxisValues3: {x: 0, y: -1}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 25
+        sourceType: 2
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 6
+        unityHat_sourceAxis2: 7
+        unityHat_isActiveAxisValues1: {x: 1, y: -1}
+        unityHat_isActiveAxisValues2: {x: 1, y: -1}
+        unityHat_isActiveAxisValues3: {x: 1, y: -1}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 26
+        sourceType: 2
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 6
+        unityHat_sourceAxis2: 7
+        unityHat_isActiveAxisValues1: {x: 1, y: 0}
+        unityHat_isActiveAxisValues2: {x: 1, y: 0}
+        unityHat_isActiveAxisValues3: {x: 1, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 27
+        sourceType: 2
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 6
+        unityHat_sourceAxis2: 7
+        unityHat_isActiveAxisValues1: {x: 1, y: 1}
+        unityHat_isActiveAxisValues2: {x: 1, y: 1}
+        unityHat_isActiveAxisValues3: {x: 1, y: 1}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 28
+        sourceType: 2
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 6
+        unityHat_sourceAxis2: 7
+        unityHat_isActiveAxisValues1: {x: 0, y: 1}
+        unityHat_isActiveAxisValues2: {x: 0, y: 1}
+        unityHat_isActiveAxisValues3: {x: 0, y: 1}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 29
+        sourceType: 2
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 6
+        unityHat_sourceAxis2: 7
+        unityHat_isActiveAxisValues1: {x: -1, y: 1}
+        unityHat_isActiveAxisValues2: {x: -1, y: 1}
+        unityHat_isActiveAxisValues3: {x: -1, y: 1}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 30
+        sourceType: 2
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 6
+        unityHat_sourceAxis2: 7
+        unityHat_isActiveAxisValues1: {x: -1, y: 0}
+        unityHat_isActiveAxisValues2: {x: -1, y: 0}
+        unityHat_isActiveAxisValues3: {x: -1, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 31
+        sourceType: 2
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 0
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 6
+        unityHat_sourceAxis2: 7
+        unityHat_isActiveAxisValues1: {x: -1, y: -1}
+        unityHat_isActiveAxisValues2: {x: -1, y: -1}
+        unityHat_isActiveAxisValues3: {x: -1, y: -1}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 32
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 3
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 33
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 4
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 34
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 5
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 35
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 6
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 36
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 2
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 37
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 7
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 38
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 8
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 39
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 9
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 40
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 10
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 41
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 11
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 42
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 12
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
+    variants: []
+  fallback_Linux_PreConfigured:
+    description: 
+    matchingCriteria:
+      axisCount: 0
+      buttonCount: 0
+      disabled: 0
+      alwaysMatch: 0
+      productName_useRegex: 0
+      productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
+    elements:
+      compoundElements: []
+      axes: []
+      buttons: []
+    variants: []
+  fallback_Android:
+    description: 
+    matchingCriteria:
+      axisCount: 0
+      buttonCount: 0
+      disabled: 0
+      alwaysMatch: 0
+      productName_useRegex: 0
+      productName:
+      - Thrustmaster Throttle - HOTAS Warthog
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes:
@@ -5356,7 +5410,9 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   fallback_iOS:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5364,11 +5420,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_Blackberry:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5376,11 +5437,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_WindowsPhone8:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5388,11 +5454,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_XBox360:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5400,11 +5471,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_XBoxOne:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5412,11 +5488,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_PS3:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5424,11 +5505,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_PS4:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5436,11 +5522,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_PSM:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5448,11 +5539,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_PSVita:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5460,11 +5556,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_Wii:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5472,11 +5573,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_WiiU:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5484,11 +5590,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_AmazonFireTV:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5496,11 +5607,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_RazerForgeTV:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5508,11 +5624,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   ouya:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5522,7 +5643,9 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   xboxOne:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5534,7 +5657,9 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   internalDriver:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5548,7 +5673,9 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   sdl2_Linux:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5565,7 +5692,9 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   sdl2_Windows:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5582,7 +5711,9 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   sdl2_OSX:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5599,4 +5730,5 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   elementIdentifierIdCounter: 45

@@ -1729,111 +1729,6 @@ MonoBehaviour:
       joystickId2: 0
       splitAxis: 0
       sourceAxisPole: 0
-  - id: 43
-    name: Xbox One Controller (Windows 10+)
-    joystickGuid: d068ac3b-1ee4-4dd3-b2ae-b7cb12cc537e
-    fileGuid: 9da0e4e5da76f45488bb9c0e69fe519c
-    elementIdentifierMappings:
-    - templateId: 0
-      joystickId: 0
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 1
-      joystickId: 1
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 1
-    - templateId: 2
-      joystickId: 2
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 3
-      joystickId: 3
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 4
-      joystickId: 6
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 5
-      joystickId: 7
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 7
-      joystickId: 8
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 8
-      joystickId: 9
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 10
-      joystickId: 10
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 11
-      joystickId: 4
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 12
-      joystickId: 11
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 13
-      joystickId: 5
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 14
-      joystickId: 12
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 15
-      joystickId: 13
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 17
-      joystickId: 14
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 18
-      joystickId: 15
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 19
-      joystickId: 16
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 20
-      joystickId: 17
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 21
-      joystickId: 18
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
-    - templateId: 22
-      joystickId: 19
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
   - id: 14
     name: Sony Playstation Vita
     joystickGuid: d2aef070-7caa-42ff-b2dc-daac7e4a62b4
@@ -5754,11 +5649,6 @@ MonoBehaviour:
       joystickId2: 0
       splitAxis: 0
       sourceAxisPole: 0
-    - templateId: 18
-      joystickId: 14
-      joystickId2: 0
-      splitAxis: 0
-      sourceAxisPole: 0
     - templateId: 17
       joystickId: 15
       joystickId2: 0
@@ -6089,6 +5979,61 @@ MonoBehaviour:
       joystickId2: 0
       splitAxis: 0
       sourceAxisPole: 0
+  - id: 72
+    name: 8Bitdo SNES30 and SFC30 Wired
+    joystickGuid: 7939b1e7-3422-475c-ba5a-c47b303de2e4
+    fileGuid: e52eca5a1a5eea24488343aa1fe759ad
+    elementIdentifierMappings:
+    - templateId: 0
+      joystickId: 1
+      joystickId2: 3
+      splitAxis: 1
+      sourceAxisPole: 0
+    - templateId: 1
+      joystickId: 0
+      joystickId2: 2
+      splitAxis: 1
+      sourceAxisPole: 1
+    - templateId: 4
+      joystickId: 4
+      joystickId2: 0
+      splitAxis: 0
+      sourceAxisPole: 1
+    - templateId: 5
+      joystickId: 5
+      joystickId2: 0
+      splitAxis: 0
+      sourceAxisPole: 1
+    - templateId: 7
+      joystickId: 6
+      joystickId2: 0
+      splitAxis: 0
+      sourceAxisPole: 1
+    - templateId: 8
+      joystickId: 7
+      joystickId2: 0
+      splitAxis: 0
+      sourceAxisPole: 1
+    - templateId: 11
+      joystickId: 8
+      joystickId2: 0
+      splitAxis: 0
+      sourceAxisPole: 1
+    - templateId: 13
+      joystickId: 9
+      joystickId2: 0
+      splitAxis: 0
+      sourceAxisPole: 1
+    - templateId: 14
+      joystickId: 10
+      joystickId2: 0
+      splitAxis: 0
+      sourceAxisPole: 1
+    - templateId: 15
+      joystickId: 11
+      joystickId2: 0
+      splitAxis: 0
+      sourceAxisPole: 1
   - id: 62
     name: 8Bitdo SNES30 and SFC30 (Wireless, Joy Mode)
     joystickGuid: 26d555b5-a82f-4dd0-92a6-2bb305c3214e
@@ -6974,6 +6919,16 @@ MonoBehaviour:
       joystickId2: 0
       splitAxis: 0
       sourceAxisPole: 1
+    - templateId: 14
+      joystickId: 8
+      joystickId2: 0
+      splitAxis: 0
+      sourceAxisPole: 1
+    - templateId: 15
+      joystickId: 9
+      joystickId2: 0
+      splitAxis: 0
+      sourceAxisPole: 1
     - templateId: 17
       joystickId: 14
       joystickId2: 0
@@ -7005,4 +6960,4 @@ MonoBehaviour:
       splitAxis: 0
       sourceAxisPole: 1
   elementIdentifierIdCounter: 23
-  joystickIdCounter: 72
+  joystickIdCounter: 73

@@ -15,7 +15,8 @@ MonoBehaviour:
   editorControllerName: 
   description: 
   controllerGuid: acd80423-3ce9-4029-9c4b-9230907ea4b1
-  templateGuids: []
+  templateGuids:
+  - f311fa16-0ccc-41c0-ac4b-50f7100bb8ff
   hideInLists: 0
   elementIdentifiers:
   - _id: 0
@@ -199,6 +200,7 @@ MonoBehaviour:
     _elementType: 1
     _compoundElementType: 0
   directInput:
+    description: 
     matchingCriteria:
       axisCount: 6
       buttonCount: 26
@@ -814,7 +816,9 @@ MonoBehaviour:
         requiredButtons: 0d0000000a000000
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   rawInput:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -829,7 +833,9 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   xInput:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -839,7 +845,9 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   osx:
+    description: 
     matchingCriteria:
       axisCount: 6
       buttonCount: 26
@@ -1545,7 +1553,9 @@ MonoBehaviour:
         requiredButtons: 0d0000000a000000
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   linux:
+    description: 
     matchingCriteria:
       axisCount: 6
       buttonCount: 26
@@ -2163,7 +2173,9 @@ MonoBehaviour:
         requiredButtons: 0d0000000a000000
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   windowsUWP:
+    description: 
     matchingCriteria:
       axisCount: 6
       buttonCount: 26
@@ -2779,7 +2791,9 @@ MonoBehaviour:
         requiredButtons: 0d0000000a000000
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   fallback_Windows:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -2788,6 +2802,9 @@ MonoBehaviour:
       productName_useRegex: 0
       productName:
       - CH ECLIPSE YOKE
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes:
@@ -3695,7 +3712,26 @@ MonoBehaviour:
         requiredButtons: 0e0000000b000000
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
+  fallback_WindowsUWP:
+    description: 
+    matchingCriteria:
+      axisCount: 0
+      buttonCount: 0
+      disabled: 0
+      alwaysMatch: 0
+      productName_useRegex: 0
+      productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
+    elements:
+      compoundElements: []
+      axes: []
+      buttons: []
+    variants: []
   fallback_OSX:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -3704,6 +3740,9 @@ MonoBehaviour:
       productName_useRegex: 0
       productName:
       - S CH ECLIPSE YOKE
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes:
@@ -4485,7 +4524,9 @@ MonoBehaviour:
         requiredButtons: 0e0000000b000000
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   fallback_Linux:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -4494,6 +4535,9 @@ MonoBehaviour:
       productName_useRegex: 0
       productName:
       - S CH ECLIPSE YOKE
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes:
@@ -5275,7 +5319,9 @@ MonoBehaviour:
         requiredButtons: 0e0000000b000000
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   fallback_Linux_PreConfigured:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5283,11 +5329,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_Android:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5296,6 +5347,9 @@ MonoBehaviour:
       productName_useRegex: 0
       productName:
       - S CH ECLIPSE YOKE
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes:
@@ -5678,7 +5732,9 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   fallback_iOS:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5686,11 +5742,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_Blackberry:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5698,11 +5759,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_WindowsPhone8:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5710,11 +5776,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_XBox360:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5722,11 +5793,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_XBoxOne:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5734,11 +5810,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_PS3:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5746,11 +5827,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_PS4:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5758,11 +5844,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_PSM:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5770,11 +5861,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_PSVita:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5782,11 +5878,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_Wii:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5794,11 +5895,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_WiiU:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5806,11 +5912,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_AmazonFireTV:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5818,11 +5929,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_RazerForgeTV:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5830,11 +5946,16 @@ MonoBehaviour:
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   ouya:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5844,7 +5965,9 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   xboxOne:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5856,7 +5979,9 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   internalDriver:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5870,7 +5995,9 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   sdl2_Linux:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5887,7 +6014,9 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   sdl2_Windows:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5904,7 +6033,9 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   sdl2_OSX:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
@@ -5921,4 +6052,5 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   elementIdentifierIdCounter: 45

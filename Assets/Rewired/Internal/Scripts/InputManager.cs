@@ -33,13 +33,16 @@ namespace Rewired {
             editorPlatform = EditorPlatform.Windows;
 #endif
 
+#if UNITY_EDITOR_LINUX
+            editorPlatform = EditorPlatform.Linux;
+#endif
+
 #if UNITY_EDITOR_OSX
             editorPlatform = EditorPlatform.OSX;
 #endif
 
 #if UNITY_STANDALONE_OSX
             platform = Platform.OSX;
-            
 #endif
 
 #if UNITY_DASHBOARD_WIDGET
@@ -54,10 +57,6 @@ namespace Rewired {
             platform = Platform.Linux;
 #endif
 
-#if UNITY_STANDALONE
-
-#endif
-
 #if UNITY_ANDROID
             platform = Platform.Android;
 #if !UNITY_EDITOR
@@ -67,17 +66,17 @@ namespace Rewired {
             } else if(CheckDeviceName("Amazon AFT.*", deviceName, deviceModel)) {
                 platform = Platform.AmazonFireTV;
             } else if(CheckDeviceName("razer Forge", deviceName, deviceModel)) {
+#if REWIRED_OUYA && REWIRED_USE_OUYA_SDK_ON_FORGETV
+                platform = Platform.Ouya;
+#else
                 platform = Platform.RazerForgeTV;
+#endif
             }
 #endif
 #endif
 
 #if UNITY_BLACKBERRY
             platform = Platform.Blackberry;
-#endif
-
-#if UNITY_WP8
-            platform = Platform.WindowsPhone8;
 #endif
 
 #if UNITY_IPHONE || UNITY_IOS
@@ -128,12 +127,18 @@ namespace Rewired {
             platform = Platform.WindowsAppStore;
 #endif
 
-#if UNITY_WSA_10_0
-            platform = Platform.WindowsUWP;
+            // Windows Phone overrides Windows Store -- this is not set when doing Universal 8.1 builds
+#if UNITY_WP8 || UNITY_WP8_1 || UNITY_WP_8 || UNITY_WP_8_1 // documentation error on format of WP8 defines, so include both
+            platform = Platform.WindowsPhone8;
 #endif
 
-#if UNITY_WINRT
+            // Windows 8.1 Universal
+#if UNITY_WINRT_8_1 && !UNITY_WSA_8_1 // this seems to be the only way to detect this
+            
+#endif
 
+#if UNITY_WSA_10_0
+            platform = Platform.WindowsUWP;
 #endif
 
 #if UNITY_WEBGL

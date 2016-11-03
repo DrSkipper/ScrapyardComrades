@@ -834,6 +834,18 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+  fallback_WindowsUWP:
+    matchingCriteria:
+      axisCount: 0
+      buttonCount: 0
+      disabled: 0
+      alwaysMatch: 0
+      productName_useRegex: 0
+      productName: []
+    elements:
+      compoundElements: []
+      axes: []
+      buttons: []
   fallback_OSX:
     matchingCriteria:
       axisCount: 0
@@ -897,7 +909,7 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
-      - elementIdentifier: 1
+      - elementIdentifier: 3
         sourceType: 1
         sourceAxis: 4
         axisDeadZone: .150000006

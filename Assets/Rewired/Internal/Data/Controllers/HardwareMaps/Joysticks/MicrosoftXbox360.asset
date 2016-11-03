@@ -112,10 +112,12 @@ MonoBehaviour:
     _elementType: 100
     _compoundElementType: 0
   directInput:
+    description: 
     matchingCriteria:
       axisCount: 5
       buttonCount: 10
       disabled: 0
+      tag: 
       hatCount: 1
       productName_useRegex: 1
       productName:
@@ -130,25 +132,149 @@ MonoBehaviour:
       - .*Xett Wired gamepad.*
       - Street Fighter IV FightStick TE
       productGUID:
-      - 028e045e-0000-0000-0000-504944564944
-      - 02a1045e-0000-0000-0000-504944564944
-      - 0291045e-0000-0000-0000-504944564944
-      - 011f0e6f-0000-0000-0000-504944564944
-      - 04010e6f-0000-0000-0000-504944564944
-      - F0231BAD-0000-0000-0000-504944564944
+      - 0202045E-0000-0000-0000-504944564944
+      - 0285045E-0000-0000-0000-504944564944
+      - 0287045E-0000-0000-0000-504944564944
+      - 0288045E-0000-0000-0000-504944564944
+      - 0289045E-0000-0000-0000-504944564944
+      - 028E045E-0000-0000-0000-504944564944
+      - 028F045E-0000-0000-0000-504944564944
+      - 0291045E-0000-0000-0000-504944564944
+      - 02A0045E-0000-0000-0000-504944564944
+      - 02A1045E-0000-0000-0000-504944564944
+      - C21E046D-0000-0000-0000-504944564944
+      - C242046D-0000-0000-0000-504944564944
+      - C261046D-0000-0000-0000-504944564944
       - F301046D-0000-0000-0000-504944564944
-      - 01310E6F-0000-0000-0000-504944564944
       - 1702043E-0000-0000-0000-504944564944
-      - FD001689-0000-0000-0000-504944564944
-      - 01130E6F-0000-0000-0000-504944564944
-      - 04130E6F-0000-0000-0000-504944564944
-      - 5D0424C6-0000-0000-0000-504944564944
-      - 530024C6-0000-0000-0000-504944564944
-      - 01330E6F-0000-0000-0000-504944564944
-      - F301046D-0000-0000-0000-504944564944
-      - 021f0e6f-0000-0000-0000-504944564944
+      - 7021043E-0000-0000-0000-504944564944
+      - B326044F-0000-0000-0000-504944564944
+      - 47160738-0000-0000-0000-504944564944
+      - 47180738-0000-0000-0000-504944564944
+      - 47260738-0000-0000-0000-504944564944
+      - 47280738-0000-0000-0000-504944564944
+      - 47360738-0000-0000-0000-504944564944
       - 47380738-0000-0000-0000-504944564944
-      productId: 8e0200001f010000
+      - 47400738-0000-0000-0000-504944564944
+      - 47580738-0000-0000-0000-504944564944
+      - 98710738-0000-0000-0000-504944564944
+      - B7260738-0000-0000-0000-504944564944
+      - B7380738-0000-0000-0000-504944564944
+      - BEEF0738-0000-0000-0000-504944564944
+      - CB020738-0000-0000-0000-504944564944
+      - CB030738-0000-0000-0000-504944564944
+      - CB290738-0000-0000-0000-504944564944
+      - F4010738-0000-0000-0000-504944564944
+      - F7380738-0000-0000-0000-504944564944
+      - 00030810-0000-0000-0000-504944564944
+      - 01050E6F-0000-0000-0000-504944564944
+      - 01130E6F-0000-0000-0000-504944564944
+      - 011F0E6F-0000-0000-0000-504944564944
+      - 01310E6F-0000-0000-0000-504944564944
+      - 01330E6F-0000-0000-0000-504944564944
+      - 01390E6F-0000-0000-0000-504944564944
+      - 013A0E6F-0000-0000-0000-504944564944
+      - 01460E6F-0000-0000-0000-504944564944
+      - 01470E6F-0000-0000-0000-504944564944
+      - 02010E6F-0000-0000-0000-504944564944
+      - 02130E6F-0000-0000-0000-504944564944
+      - 021F0E6F-0000-0000-0000-504944564944
+      - 02460E6F-0000-0000-0000-504944564944
+      - 02A00E6F-0000-0000-0000-504944564944
+      - 03010E6F-0000-0000-0000-504944564944
+      - 03460E6F-0000-0000-0000-504944564944
+      - 04010E6F-0000-0000-0000-504944564944
+      - 04130E6F-0000-0000-0000-504944564944
+      - 40100E6F-0000-0000-0000-504944564944
+      - F5010E6F-0000-0000-0000-504944564944
+      - 000A0F0D-0000-0000-0000-504944564944
+      - 000C0F0D-0000-0000-0000-504944564944
+      - 000D0F0D-0000-0000-0000-504944564944
+      - 00160F0D-0000-0000-0000-504944564944
+      - 00630F0D-0000-0000-0000-504944564944
+      - 00670F0D-0000-0000-0000-504944564944
+      - 550611C0-0000-0000-0000-504944564944
+      - 55F011C9-0000-0000-0000-504944564944
+      - 000412AB-0000-0000-0000-504944564944
+      - 000612AB-0000-0000-0000-504944564944
+      - 030112AB-0000-0000-0000-504944564944
+      - 030212AB-0000-0000-0000-504944564944
+      - 02A01430-0000-0000-0000-504944564944
+      - 47341430-0000-0000-0000-504944564944
+      - 47481430-0000-0000-0000-504944564944
+      - 474C1430-0000-0000-0000-504944564944
+      - F8011430-0000-0000-0000-504944564944
+      - 0601146B-0000-0000-0000-504944564944
+      - 0A001532-0000-0000-0000-504944564944
+      - 0A031532-0000-0000-0000-504944564944
+      - 3F0015E4-0000-0000-0000-504944564944
+      - 3F0A15E4-0000-0000-0000-504944564944
+      - 3F1015E4-0000-0000-0000-504944564944
+      - BEEF162E-0000-0000-0000-504944564944
+      - 00011689-0000-0000-0000-504944564944
+      - FD001689-0000-0000-0000-504944564944
+      - FD011689-0000-0000-0000-504944564944
+      - FE001689-0000-0000-0000-504944564944
+      - 00021BAD-0000-0000-0000-504944564944
+      - 00031BAD-0000-0000-0000-504944564944
+      - 01301BAD-0000-0000-0000-504944564944
+      - 028E1BAD-0000-0000-0000-504944564944
+      - 55001BAD-0000-0000-0000-504944564944
+      - F0161BAD-0000-0000-0000-504944564944
+      - F0191BAD-0000-0000-0000-504944564944
+      - F0211BAD-0000-0000-0000-504944564944
+      - F0231BAD-0000-0000-0000-504944564944
+      - F0251BAD-0000-0000-0000-504944564944
+      - F0271BAD-0000-0000-0000-504944564944
+      - F0281BAD-0000-0000-0000-504944564944
+      - F02D1BAD-0000-0000-0000-504944564944
+      - F02E1BAD-0000-0000-0000-504944564944
+      - F0361BAD-0000-0000-0000-504944564944
+      - F0381BAD-0000-0000-0000-504944564944
+      - F0391BAD-0000-0000-0000-504944564944
+      - F03A1BAD-0000-0000-0000-504944564944
+      - F03D1BAD-0000-0000-0000-504944564944
+      - F03F1BAD-0000-0000-0000-504944564944
+      - F0801BAD-0000-0000-0000-504944564944
+      - F0CA1BAD-0000-0000-0000-504944564944
+      - F5011BAD-0000-0000-0000-504944564944
+      - F5021BAD-0000-0000-0000-504944564944
+      - F5031BAD-0000-0000-0000-504944564944
+      - F5041BAD-0000-0000-0000-504944564944
+      - F5051BAD-0000-0000-0000-504944564944
+      - F5061BAD-0000-0000-0000-504944564944
+      - F9001BAD-0000-0000-0000-504944564944
+      - F9011BAD-0000-0000-0000-504944564944
+      - F9021BAD-0000-0000-0000-504944564944
+      - F9031BAD-0000-0000-0000-504944564944
+      - F9041BAD-0000-0000-0000-504944564944
+      - F9061BAD-0000-0000-0000-504944564944
+      - F9071BAD-0000-0000-0000-504944564944
+      - FA011BAD-0000-0000-0000-504944564944
+      - FD001BAD-0000-0000-0000-504944564944
+      - FD011BAD-0000-0000-0000-504944564944
+      - 005324C6-0000-0000-0000-504944564944
+      - 500024C6-0000-0000-0000-504944564944
+      - 530024C6-0000-0000-0000-504944564944
+      - 530A24C6-0000-0000-0000-504944564944
+      - 531A24C6-0000-0000-0000-504944564944
+      - 541A24C6-0000-0000-0000-504944564944
+      - 542A24C6-0000-0000-0000-504944564944
+      - 543A24C6-0000-0000-0000-504944564944
+      - 550024C6-0000-0000-0000-504944564944
+      - 550124C6-0000-0000-0000-504944564944
+      - 550224C6-0000-0000-0000-504944564944
+      - 550624C6-0000-0000-0000-504944564944
+      - 550D24C6-0000-0000-0000-504944564944
+      - 5B0024C6-0000-0000-0000-504944564944
+      - 5B0224C6-0000-0000-0000-504944564944
+      - 5B0324C6-0000-0000-0000-504944564944
+      - 5D0424C6-0000-0000-0000-504944564944
+      - FAFC24C6-0000-0000-0000-504944564944
+      - FAFD24C6-0000-0000-0000-504944564944
+      - FAFE24C6-0000-0000-0000-504944564944
+      - 07384738-0000-0000-0000-504944564944
+      productId: 
       deviceType: 21
     elements:
       compoundElements:
@@ -169,6 +295,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -184,6 +312,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -199,6 +329,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -214,6 +346,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -229,6 +363,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: -1
         axisMax: 1
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -244,6 +380,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -432,11 +570,14 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   rawInput:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       hatCount: 0
       productName_useRegex: 0
       productName: []
@@ -447,11 +588,14 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   xInput:
+    description: 
     matchingCriteria:
       axisCount: 6
       buttonCount: 14
       disabled: 0
+      tag: 
       subType: 01000000
     elements:
       compoundElements:
@@ -474,6 +618,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 1
         sourceType: 1
         sourceButton: 0
@@ -486,6 +632,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 2
         sourceType: 1
         sourceButton: 0
@@ -498,6 +646,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 3
         sourceType: 1
         sourceButton: 0
@@ -510,6 +660,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 4
         sourceType: 1
         sourceButton: 0
@@ -522,6 +674,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 5
         sourceType: 1
         sourceButton: 0
@@ -534,6 +688,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       buttons:
       - elementIdentifier: 6
         sourceType: 0
@@ -625,11 +781,14 @@ MonoBehaviour:
         sourceAxis: 0
         axisDeadZone: 0
         sourceAxisPole: 0
+    variants: []
   osx:
+    description: 
     matchingCriteria:
       axisCount: 6
       buttonCount: 15
       disabled: 0
+      tag: 
       hatCount: 0
       productName_useRegex: 1
       productName:
@@ -649,8 +808,8 @@ MonoBehaviour:
       - "\xA9Microsoft Corporation"
       - Microsoft
       - Performance Designed Products
-      productId: 8e0200001f010000a1020000910200000104000023f0000001f30000310100000217000000fd00001301000013040000045d0000005300003301000001f300001f02000038070000
-      vendorId: 5e0400006f0e00005e0400005e0400006f0e0000ad1b00006d0400006f0e00003e040000891600006f0e00006f0e0000c6240000c62400006f0e00006d0400006f0e000038470000
+      productId: 02020000850200008702000088020000890200008e0200008f02000091020000a0020000a10200001ec2000042c2000061c2000001f30000021700002170000026b3000016470000184700002647000028470000364700003847000040470000584700007198000026b7000038b70000efbe000002cb000003cb000029cb000001f4000038f700000300000005010000130100001f0100003101000033010000390100003a010000460100004701000001020000130200001f02000046020000a0020000010300004603000001040000130400001040000001f500000a0000000c0000000d00000016000000630000006700000006550000f055000004000000060000000103000002030000a002000034470000484700004c47000001f8000001060000000a0000030a0000003f00000a3f0000103f0000efbe00000100000000fd000001fd000000fe00000200000003000000300100008e0200000055000016f0000019f0000021f0000023f0000025f0000027f0000028f000002df000002ef0000036f0000038f0000039f000003af000003df000003ff0000080f00000caf0000001f5000002f5000003f5000004f5000005f5000006f5000000f9000001f9000002f9000003f9000004f9000006f9000007f9000001fa000000fd000001fd00005300000000500000005300000a5300001a5300001a5400002a5400003a540000005500000155000002550000065500000d550000005b0000025b0000035b0000045d0000fcfa0000fdfa0000fefa000038070000
+      vendorId: 5e0400005e0400005e0400005e0400005e0400005e0400005e0400005e0400005e0400005e0400006d0400006d0400006d0400006d0400003e0400003e0400004f0400003807000038070000380700003807000038070000380700003807000038070000380700003807000038070000380700003807000038070000380700003807000038070000100800006f0e00006f0e00006f0e00006f0e00006f0e00006f0e00006f0e00006f0e00006f0e00006f0e00006f0e00006f0e00006f0e00006f0e00006f0e00006f0e00006f0e00006f0e00006f0e00006f0e00000d0f00000d0f00000d0f00000d0f00000d0f00000d0f0000c0110000c9110000ab120000ab120000ab120000ab12000030140000301400003014000030140000301400006b1400003215000032150000e4150000e4150000e41500002e16000089160000891600008916000089160000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000ad1b0000c6240000c6240000c6240000c6240000c6240000c6240000c6240000c6240000c6240000c6240000c6240000c6240000c6240000c6240000c6240000c6240000c6240000c6240000c6240000c624000038470000
     elements:
       compoundElements:
       - type: 0
@@ -672,6 +831,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: -1
         axisMax: 1
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -689,6 +850,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: -1
         axisMax: 1
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -706,6 +869,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: -1
         axisMax: 1
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -723,6 +888,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: -1
         axisMax: 1
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -740,6 +907,8 @@ MonoBehaviour:
         axisZero: -1
         axisMin: -1
         axisMax: 1
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -757,6 +926,8 @@ MonoBehaviour:
         axisZero: -1
         axisMin: -1
         axisMax: 1
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -883,6 +1054,21 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 22
+        sourceType: 0
+        sourceButton: 10
+        sourceStick: 0
+        sourceAxis: 0
+        sourceOtherAxis: 0
+        sourceAxisPole: 0
+        axisDeadZone: 0
+        sourceHat: 0
+        sourceHatType: 0
+        sourceHatDirection: 0
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
       - elementIdentifier: 14
         sourceType: 0
         sourceButton: 6
@@ -973,11 +1159,14 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   linux:
+    description: 
     matchingCriteria:
       axisCount: 6
       buttonCount: 11
       disabled: 0
+      tag: 
       hatCount: 1
       manufacturer_useRegex: 0
       productName_useRegex: 1
@@ -1003,24 +1192,148 @@ MonoBehaviour:
       - .*xbox[ ]*360.*
       - Mad Catz, Inc\. Street Fighter IV FightStick TE
       productGUID:
-      - 028e045e-0000-0000-0000-504944564944
-      - 02a1045e-0000-0000-0000-504944564944
-      - 0291045e-0000-0000-0000-504944564944
-      - 011f0e6f-0000-0000-0000-504944564944
-      - 04010e6f-0000-0000-0000-504944564944
-      - F0231BAD-0000-0000-0000-504944564944
+      - 0202045E-0000-0000-0000-504944564944
+      - 0285045E-0000-0000-0000-504944564944
+      - 0287045E-0000-0000-0000-504944564944
+      - 0288045E-0000-0000-0000-504944564944
+      - 0289045E-0000-0000-0000-504944564944
+      - 028E045E-0000-0000-0000-504944564944
+      - 028F045E-0000-0000-0000-504944564944
+      - 0291045E-0000-0000-0000-504944564944
+      - 02A0045E-0000-0000-0000-504944564944
+      - 02A1045E-0000-0000-0000-504944564944
+      - C21E046D-0000-0000-0000-504944564944
+      - C242046D-0000-0000-0000-504944564944
+      - C261046D-0000-0000-0000-504944564944
       - F301046D-0000-0000-0000-504944564944
-      - 01310E6F-0000-0000-0000-504944564944
       - 1702043E-0000-0000-0000-504944564944
-      - FD001689-0000-0000-0000-504944564944
-      - 01130E6F-0000-0000-0000-504944564944
-      - 04130E6F-0000-0000-0000-504944564944
-      - 5D0424C6-0000-0000-0000-504944564944
-      - 530024C6-0000-0000-0000-504944564944
-      - 01330E6F-0000-0000-0000-504944564944
-      - F301046D-0000-0000-0000-504944564944
-      - 021f0e6f-0000-0000-0000-504944564944
+      - 7021043E-0000-0000-0000-504944564944
+      - B326044F-0000-0000-0000-504944564944
+      - 47160738-0000-0000-0000-504944564944
+      - 47180738-0000-0000-0000-504944564944
+      - 47260738-0000-0000-0000-504944564944
+      - 47280738-0000-0000-0000-504944564944
+      - 47360738-0000-0000-0000-504944564944
       - 47380738-0000-0000-0000-504944564944
+      - 47400738-0000-0000-0000-504944564944
+      - 47580738-0000-0000-0000-504944564944
+      - 98710738-0000-0000-0000-504944564944
+      - B7260738-0000-0000-0000-504944564944
+      - B7380738-0000-0000-0000-504944564944
+      - BEEF0738-0000-0000-0000-504944564944
+      - CB020738-0000-0000-0000-504944564944
+      - CB030738-0000-0000-0000-504944564944
+      - CB290738-0000-0000-0000-504944564944
+      - F4010738-0000-0000-0000-504944564944
+      - F7380738-0000-0000-0000-504944564944
+      - 00030810-0000-0000-0000-504944564944
+      - 01050E6F-0000-0000-0000-504944564944
+      - 01130E6F-0000-0000-0000-504944564944
+      - 011F0E6F-0000-0000-0000-504944564944
+      - 01310E6F-0000-0000-0000-504944564944
+      - 01330E6F-0000-0000-0000-504944564944
+      - 01390E6F-0000-0000-0000-504944564944
+      - 013A0E6F-0000-0000-0000-504944564944
+      - 01460E6F-0000-0000-0000-504944564944
+      - 01470E6F-0000-0000-0000-504944564944
+      - 02010E6F-0000-0000-0000-504944564944
+      - 02130E6F-0000-0000-0000-504944564944
+      - 021F0E6F-0000-0000-0000-504944564944
+      - 02460E6F-0000-0000-0000-504944564944
+      - 02A00E6F-0000-0000-0000-504944564944
+      - 03010E6F-0000-0000-0000-504944564944
+      - 03460E6F-0000-0000-0000-504944564944
+      - 04010E6F-0000-0000-0000-504944564944
+      - 04130E6F-0000-0000-0000-504944564944
+      - 40100E6F-0000-0000-0000-504944564944
+      - F5010E6F-0000-0000-0000-504944564944
+      - 000A0F0D-0000-0000-0000-504944564944
+      - 000C0F0D-0000-0000-0000-504944564944
+      - 000D0F0D-0000-0000-0000-504944564944
+      - 00160F0D-0000-0000-0000-504944564944
+      - 00630F0D-0000-0000-0000-504944564944
+      - 00670F0D-0000-0000-0000-504944564944
+      - 550611C0-0000-0000-0000-504944564944
+      - 55F011C9-0000-0000-0000-504944564944
+      - 000412AB-0000-0000-0000-504944564944
+      - 000612AB-0000-0000-0000-504944564944
+      - 030112AB-0000-0000-0000-504944564944
+      - 030212AB-0000-0000-0000-504944564944
+      - 02A01430-0000-0000-0000-504944564944
+      - 47341430-0000-0000-0000-504944564944
+      - 47481430-0000-0000-0000-504944564944
+      - 474C1430-0000-0000-0000-504944564944
+      - F8011430-0000-0000-0000-504944564944
+      - 0601146B-0000-0000-0000-504944564944
+      - 0A001532-0000-0000-0000-504944564944
+      - 0A031532-0000-0000-0000-504944564944
+      - 3F0015E4-0000-0000-0000-504944564944
+      - 3F0A15E4-0000-0000-0000-504944564944
+      - 3F1015E4-0000-0000-0000-504944564944
+      - BEEF162E-0000-0000-0000-504944564944
+      - 00011689-0000-0000-0000-504944564944
+      - FD001689-0000-0000-0000-504944564944
+      - FD011689-0000-0000-0000-504944564944
+      - FE001689-0000-0000-0000-504944564944
+      - 00021BAD-0000-0000-0000-504944564944
+      - 00031BAD-0000-0000-0000-504944564944
+      - 01301BAD-0000-0000-0000-504944564944
+      - 028E1BAD-0000-0000-0000-504944564944
+      - 55001BAD-0000-0000-0000-504944564944
+      - F0161BAD-0000-0000-0000-504944564944
+      - F0191BAD-0000-0000-0000-504944564944
+      - F0211BAD-0000-0000-0000-504944564944
+      - F0231BAD-0000-0000-0000-504944564944
+      - F0251BAD-0000-0000-0000-504944564944
+      - F0271BAD-0000-0000-0000-504944564944
+      - F0281BAD-0000-0000-0000-504944564944
+      - F02D1BAD-0000-0000-0000-504944564944
+      - F02E1BAD-0000-0000-0000-504944564944
+      - F0361BAD-0000-0000-0000-504944564944
+      - F0381BAD-0000-0000-0000-504944564944
+      - F0391BAD-0000-0000-0000-504944564944
+      - F03A1BAD-0000-0000-0000-504944564944
+      - F03D1BAD-0000-0000-0000-504944564944
+      - F03F1BAD-0000-0000-0000-504944564944
+      - F0801BAD-0000-0000-0000-504944564944
+      - F0CA1BAD-0000-0000-0000-504944564944
+      - F5011BAD-0000-0000-0000-504944564944
+      - F5021BAD-0000-0000-0000-504944564944
+      - F5031BAD-0000-0000-0000-504944564944
+      - F5041BAD-0000-0000-0000-504944564944
+      - F5051BAD-0000-0000-0000-504944564944
+      - F5061BAD-0000-0000-0000-504944564944
+      - F9001BAD-0000-0000-0000-504944564944
+      - F9011BAD-0000-0000-0000-504944564944
+      - F9021BAD-0000-0000-0000-504944564944
+      - F9031BAD-0000-0000-0000-504944564944
+      - F9041BAD-0000-0000-0000-504944564944
+      - F9061BAD-0000-0000-0000-504944564944
+      - F9071BAD-0000-0000-0000-504944564944
+      - FA011BAD-0000-0000-0000-504944564944
+      - FD001BAD-0000-0000-0000-504944564944
+      - FD011BAD-0000-0000-0000-504944564944
+      - 005324C6-0000-0000-0000-504944564944
+      - 500024C6-0000-0000-0000-504944564944
+      - 530024C6-0000-0000-0000-504944564944
+      - 530A24C6-0000-0000-0000-504944564944
+      - 531A24C6-0000-0000-0000-504944564944
+      - 541A24C6-0000-0000-0000-504944564944
+      - 542A24C6-0000-0000-0000-504944564944
+      - 543A24C6-0000-0000-0000-504944564944
+      - 550024C6-0000-0000-0000-504944564944
+      - 550124C6-0000-0000-0000-504944564944
+      - 550224C6-0000-0000-0000-504944564944
+      - 550624C6-0000-0000-0000-504944564944
+      - 550D24C6-0000-0000-0000-504944564944
+      - 5B0024C6-0000-0000-0000-504944564944
+      - 5B0224C6-0000-0000-0000-504944564944
+      - 5B0324C6-0000-0000-0000-504944564944
+      - 5D0424C6-0000-0000-0000-504944564944
+      - FAFC24C6-0000-0000-0000-504944564944
+      - FAFD24C6-0000-0000-0000-504944564944
+      - FAFE24C6-0000-0000-0000-504944564944
+      - 07384738-0000-0000-0000-504944564944
     elements:
       compoundElements:
       - type: 0
@@ -1040,6 +1353,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -1055,6 +1370,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -1070,6 +1387,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -1085,6 +1404,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -1100,6 +1421,8 @@ MonoBehaviour:
         axisZero: -1
         axisMin: -1
         axisMax: 1
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -1115,6 +1438,8 @@ MonoBehaviour:
         axisZero: -1
         axisMin: -1
         axisMax: 1
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -1316,11 +1641,494 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants:
+    - description: SteamOS
+      matchingCriteria:
+        axisCount: 6
+        buttonCount: 15
+        disabled: 0
+        tag: 
+        hatCount: 0
+        manufacturer_useRegex: 0
+        productName_useRegex: 1
+        systemName_useRegex: 0
+        manufacturer:
+        - "\xA9Microsoft Corporation"
+        - Microsoft
+        productName:
+        - .*xbox[ ]*360.*
+        - .*Razer Sabertooth.*
+        - .*Batarang wired controller \(XBOX\).*
+        - .*Infinity Controller 360.*
+        - .*MadCatz GamePad.*
+        - .*MadCatz Call of Duty GamePad.*
+        - .*Mad Catz FPS Pro GamePad.*
+        - .*XEOX Gamepad.*
+        - .*Xett Wired gamepad.*
+        - Street Fighter IV FightStick TE
+        systemName:
+        - Microsoft X-Box 360 pad
+        - Xbox 360 Wireless Receiver
+        - Generic X-Box pad
+        - .*xbox[ ]*360.*
+        - Mad Catz, Inc\. Street Fighter IV FightStick TE
+        productGUID:
+        - 0202045E-0000-0000-0000-504944564944
+        - 0285045E-0000-0000-0000-504944564944
+        - 0287045E-0000-0000-0000-504944564944
+        - 0288045E-0000-0000-0000-504944564944
+        - 0289045E-0000-0000-0000-504944564944
+        - 028E045E-0000-0000-0000-504944564944
+        - 028F045E-0000-0000-0000-504944564944
+        - 0291045E-0000-0000-0000-504944564944
+        - 02A0045E-0000-0000-0000-504944564944
+        - 02A1045E-0000-0000-0000-504944564944
+        - C21E046D-0000-0000-0000-504944564944
+        - C242046D-0000-0000-0000-504944564944
+        - C261046D-0000-0000-0000-504944564944
+        - F301046D-0000-0000-0000-504944564944
+        - 1702043E-0000-0000-0000-504944564944
+        - 7021043E-0000-0000-0000-504944564944
+        - B326044F-0000-0000-0000-504944564944
+        - 47160738-0000-0000-0000-504944564944
+        - 47180738-0000-0000-0000-504944564944
+        - 47260738-0000-0000-0000-504944564944
+        - 47280738-0000-0000-0000-504944564944
+        - 47360738-0000-0000-0000-504944564944
+        - 47380738-0000-0000-0000-504944564944
+        - 47400738-0000-0000-0000-504944564944
+        - 47580738-0000-0000-0000-504944564944
+        - 98710738-0000-0000-0000-504944564944
+        - B7260738-0000-0000-0000-504944564944
+        - B7380738-0000-0000-0000-504944564944
+        - BEEF0738-0000-0000-0000-504944564944
+        - CB020738-0000-0000-0000-504944564944
+        - CB030738-0000-0000-0000-504944564944
+        - CB290738-0000-0000-0000-504944564944
+        - F4010738-0000-0000-0000-504944564944
+        - F7380738-0000-0000-0000-504944564944
+        - 00030810-0000-0000-0000-504944564944
+        - 01050E6F-0000-0000-0000-504944564944
+        - 01130E6F-0000-0000-0000-504944564944
+        - 011F0E6F-0000-0000-0000-504944564944
+        - 01310E6F-0000-0000-0000-504944564944
+        - 01330E6F-0000-0000-0000-504944564944
+        - 01390E6F-0000-0000-0000-504944564944
+        - 013A0E6F-0000-0000-0000-504944564944
+        - 01460E6F-0000-0000-0000-504944564944
+        - 01470E6F-0000-0000-0000-504944564944
+        - 02010E6F-0000-0000-0000-504944564944
+        - 02130E6F-0000-0000-0000-504944564944
+        - 021F0E6F-0000-0000-0000-504944564944
+        - 02460E6F-0000-0000-0000-504944564944
+        - 02A00E6F-0000-0000-0000-504944564944
+        - 03010E6F-0000-0000-0000-504944564944
+        - 03460E6F-0000-0000-0000-504944564944
+        - 04010E6F-0000-0000-0000-504944564944
+        - 04130E6F-0000-0000-0000-504944564944
+        - 40100E6F-0000-0000-0000-504944564944
+        - F5010E6F-0000-0000-0000-504944564944
+        - 000A0F0D-0000-0000-0000-504944564944
+        - 000C0F0D-0000-0000-0000-504944564944
+        - 000D0F0D-0000-0000-0000-504944564944
+        - 00160F0D-0000-0000-0000-504944564944
+        - 00630F0D-0000-0000-0000-504944564944
+        - 00670F0D-0000-0000-0000-504944564944
+        - 550611C0-0000-0000-0000-504944564944
+        - 55F011C9-0000-0000-0000-504944564944
+        - 000412AB-0000-0000-0000-504944564944
+        - 000612AB-0000-0000-0000-504944564944
+        - 030112AB-0000-0000-0000-504944564944
+        - 030212AB-0000-0000-0000-504944564944
+        - 02A01430-0000-0000-0000-504944564944
+        - 47341430-0000-0000-0000-504944564944
+        - 47481430-0000-0000-0000-504944564944
+        - 474C1430-0000-0000-0000-504944564944
+        - F8011430-0000-0000-0000-504944564944
+        - 0601146B-0000-0000-0000-504944564944
+        - 0A001532-0000-0000-0000-504944564944
+        - 0A031532-0000-0000-0000-504944564944
+        - 3F0015E4-0000-0000-0000-504944564944
+        - 3F0A15E4-0000-0000-0000-504944564944
+        - 3F1015E4-0000-0000-0000-504944564944
+        - BEEF162E-0000-0000-0000-504944564944
+        - 00011689-0000-0000-0000-504944564944
+        - FD001689-0000-0000-0000-504944564944
+        - FD011689-0000-0000-0000-504944564944
+        - FE001689-0000-0000-0000-504944564944
+        - 00021BAD-0000-0000-0000-504944564944
+        - 00031BAD-0000-0000-0000-504944564944
+        - 01301BAD-0000-0000-0000-504944564944
+        - 028E1BAD-0000-0000-0000-504944564944
+        - 55001BAD-0000-0000-0000-504944564944
+        - F0161BAD-0000-0000-0000-504944564944
+        - F0191BAD-0000-0000-0000-504944564944
+        - F0211BAD-0000-0000-0000-504944564944
+        - F0231BAD-0000-0000-0000-504944564944
+        - F0251BAD-0000-0000-0000-504944564944
+        - F0271BAD-0000-0000-0000-504944564944
+        - F0281BAD-0000-0000-0000-504944564944
+        - F02D1BAD-0000-0000-0000-504944564944
+        - F02E1BAD-0000-0000-0000-504944564944
+        - F0361BAD-0000-0000-0000-504944564944
+        - F0381BAD-0000-0000-0000-504944564944
+        - F0391BAD-0000-0000-0000-504944564944
+        - F03A1BAD-0000-0000-0000-504944564944
+        - F03D1BAD-0000-0000-0000-504944564944
+        - F03F1BAD-0000-0000-0000-504944564944
+        - F0801BAD-0000-0000-0000-504944564944
+        - F0CA1BAD-0000-0000-0000-504944564944
+        - F5011BAD-0000-0000-0000-504944564944
+        - F5021BAD-0000-0000-0000-504944564944
+        - F5031BAD-0000-0000-0000-504944564944
+        - F5041BAD-0000-0000-0000-504944564944
+        - F5051BAD-0000-0000-0000-504944564944
+        - F5061BAD-0000-0000-0000-504944564944
+        - F9001BAD-0000-0000-0000-504944564944
+        - F9011BAD-0000-0000-0000-504944564944
+        - F9021BAD-0000-0000-0000-504944564944
+        - F9031BAD-0000-0000-0000-504944564944
+        - F9041BAD-0000-0000-0000-504944564944
+        - F9061BAD-0000-0000-0000-504944564944
+        - F9071BAD-0000-0000-0000-504944564944
+        - FA011BAD-0000-0000-0000-504944564944
+        - FD001BAD-0000-0000-0000-504944564944
+        - FD011BAD-0000-0000-0000-504944564944
+        - 005324C6-0000-0000-0000-504944564944
+        - 500024C6-0000-0000-0000-504944564944
+        - 530024C6-0000-0000-0000-504944564944
+        - 530A24C6-0000-0000-0000-504944564944
+        - 531A24C6-0000-0000-0000-504944564944
+        - 541A24C6-0000-0000-0000-504944564944
+        - 542A24C6-0000-0000-0000-504944564944
+        - 543A24C6-0000-0000-0000-504944564944
+        - 550024C6-0000-0000-0000-504944564944
+        - 550124C6-0000-0000-0000-504944564944
+        - 550224C6-0000-0000-0000-504944564944
+        - 550624C6-0000-0000-0000-504944564944
+        - 550D24C6-0000-0000-0000-504944564944
+        - 5B0024C6-0000-0000-0000-504944564944
+        - 5B0224C6-0000-0000-0000-504944564944
+        - 5B0324C6-0000-0000-0000-504944564944
+        - 5D0424C6-0000-0000-0000-504944564944
+        - FAFC24C6-0000-0000-0000-504944564944
+        - FAFD24C6-0000-0000-0000-504944564944
+        - FAFE24C6-0000-0000-0000-504944564944
+        - 07384738-0000-0000-0000-504944564944
+      elements:
+        compoundElements:
+        - type: 0
+          elementIdentifier: 20
+          componentElementIdentifiers: 0000000001000000
+        - type: 0
+          elementIdentifier: 21
+          componentElementIdentifiers: 0200000003000000
+        axes:
+        - elementIdentifier: 0
+          sourceType: 1
+          sourceAxis: 0
+          sourceAxisRange: 0
+          invert: 0
+          axisDeadZone: .25
+          calibrateAxis: 0
+          axisZero: 0
+          axisMin: 0
+          axisMax: 0
+          axisInfo:
+            _dataFormat: 0
+          sourceButton: 0
+          buttonAxisContribution: 0
+          sourceHat: 0
+          sourceHatDirection: 0
+          sourceHatRange: 0
+        - elementIdentifier: 1
+          sourceType: 1
+          sourceAxis: 1
+          sourceAxisRange: 0
+          invert: 1
+          axisDeadZone: .25
+          calibrateAxis: 0
+          axisZero: 0
+          axisMin: 0
+          axisMax: 0
+          axisInfo:
+            _dataFormat: 0
+          sourceButton: 0
+          buttonAxisContribution: 0
+          sourceHat: 0
+          sourceHatDirection: 0
+          sourceHatRange: 0
+        - elementIdentifier: 2
+          sourceType: 1
+          sourceAxis: 3
+          sourceAxisRange: 0
+          invert: 0
+          axisDeadZone: .25
+          calibrateAxis: 0
+          axisZero: 0
+          axisMin: 0
+          axisMax: 0
+          axisInfo:
+            _dataFormat: 0
+          sourceButton: 0
+          buttonAxisContribution: 0
+          sourceHat: 0
+          sourceHatDirection: 0
+          sourceHatRange: 0
+        - elementIdentifier: 3
+          sourceType: 1
+          sourceAxis: 4
+          sourceAxisRange: 0
+          invert: 1
+          axisDeadZone: .25
+          calibrateAxis: 0
+          axisZero: 0
+          axisMin: 0
+          axisMax: 0
+          axisInfo:
+            _dataFormat: 0
+          sourceButton: 0
+          buttonAxisContribution: 0
+          sourceHat: 0
+          sourceHatDirection: 0
+          sourceHatRange: 0
+        - elementIdentifier: 4
+          sourceType: 1
+          sourceAxis: 2
+          sourceAxisRange: 0
+          invert: 0
+          axisDeadZone: .0500000007
+          calibrateAxis: 1
+          axisZero: -1
+          axisMin: -1
+          axisMax: 1
+          axisInfo:
+            _dataFormat: 0
+          sourceButton: 0
+          buttonAxisContribution: 0
+          sourceHat: 0
+          sourceHatDirection: 0
+          sourceHatRange: 0
+        - elementIdentifier: 5
+          sourceType: 1
+          sourceAxis: 5
+          sourceAxisRange: 0
+          invert: 0
+          axisDeadZone: .0500000007
+          calibrateAxis: 1
+          axisZero: -1
+          axisMin: -1
+          axisMax: 1
+          axisInfo:
+            _dataFormat: 0
+          sourceButton: 0
+          buttonAxisContribution: 0
+          sourceHat: 0
+          sourceHatDirection: 0
+          sourceHatRange: 0
+        buttons:
+        - elementIdentifier: 6
+          sourceType: 0
+          sourceButton: 0
+          sourceAxis: 0
+          sourceAxisPole: 0
+          axisDeadZone: 0
+          sourceHat: 0
+          sourceHatType: 0
+          sourceHatDirection: 0
+          requireMultipleButtons: 0
+          requiredButtons: 
+          ignoreIfButtonsActive: 0
+          ignoreIfButtonsActiveButtons: 
+        - elementIdentifier: 7
+          sourceType: 0
+          sourceButton: 1
+          sourceAxis: 0
+          sourceAxisPole: 0
+          axisDeadZone: 0
+          sourceHat: 0
+          sourceHatType: 0
+          sourceHatDirection: 0
+          requireMultipleButtons: 0
+          requiredButtons: 
+          ignoreIfButtonsActive: 0
+          ignoreIfButtonsActiveButtons: 
+        - elementIdentifier: 8
+          sourceType: 0
+          sourceButton: 2
+          sourceAxis: 0
+          sourceAxisPole: 0
+          axisDeadZone: 0
+          sourceHat: 0
+          sourceHatType: 0
+          sourceHatDirection: 0
+          requireMultipleButtons: 0
+          requiredButtons: 
+          ignoreIfButtonsActive: 0
+          ignoreIfButtonsActiveButtons: 
+        - elementIdentifier: 9
+          sourceType: 0
+          sourceButton: 3
+          sourceAxis: 0
+          sourceAxisPole: 0
+          axisDeadZone: 0
+          sourceHat: 0
+          sourceHatType: 0
+          sourceHatDirection: 0
+          requireMultipleButtons: 0
+          requiredButtons: 
+          ignoreIfButtonsActive: 0
+          ignoreIfButtonsActiveButtons: 
+        - elementIdentifier: 10
+          sourceType: 0
+          sourceButton: 4
+          sourceAxis: 0
+          sourceAxisPole: 0
+          axisDeadZone: 0
+          sourceHat: 0
+          sourceHatType: 0
+          sourceHatDirection: 0
+          requireMultipleButtons: 0
+          requiredButtons: 
+          ignoreIfButtonsActive: 0
+          ignoreIfButtonsActiveButtons: 
+        - elementIdentifier: 11
+          sourceType: 0
+          sourceButton: 5
+          sourceAxis: 0
+          sourceAxisPole: 0
+          axisDeadZone: 0
+          sourceHat: 0
+          sourceHatType: 0
+          sourceHatDirection: 0
+          requireMultipleButtons: 0
+          requiredButtons: 
+          ignoreIfButtonsActive: 0
+          ignoreIfButtonsActiveButtons: 
+        - elementIdentifier: 12
+          sourceType: 0
+          sourceButton: 6
+          sourceAxis: 0
+          sourceAxisPole: 0
+          axisDeadZone: 0
+          sourceHat: 0
+          sourceHatType: 0
+          sourceHatDirection: 0
+          requireMultipleButtons: 0
+          requiredButtons: 
+          ignoreIfButtonsActive: 0
+          ignoreIfButtonsActiveButtons: 
+        - elementIdentifier: 13
+          sourceType: 0
+          sourceButton: 7
+          sourceAxis: 0
+          sourceAxisPole: 0
+          axisDeadZone: 0
+          sourceHat: 0
+          sourceHatType: 0
+          sourceHatDirection: 0
+          requireMultipleButtons: 0
+          requiredButtons: 
+          ignoreIfButtonsActive: 0
+          ignoreIfButtonsActiveButtons: 
+        - elementIdentifier: 22
+          sourceType: 0
+          sourceButton: 8
+          sourceAxis: 0
+          sourceAxisPole: 0
+          axisDeadZone: 0
+          sourceHat: 0
+          sourceHatType: 0
+          sourceHatDirection: 0
+          requireMultipleButtons: 0
+          requiredButtons: 
+          ignoreIfButtonsActive: 0
+          ignoreIfButtonsActiveButtons: 
+        - elementIdentifier: 14
+          sourceType: 0
+          sourceButton: 9
+          sourceAxis: 0
+          sourceAxisPole: 0
+          axisDeadZone: 0
+          sourceHat: 0
+          sourceHatType: 0
+          sourceHatDirection: 0
+          requireMultipleButtons: 0
+          requiredButtons: 
+          ignoreIfButtonsActive: 0
+          ignoreIfButtonsActiveButtons: 
+        - elementIdentifier: 15
+          sourceType: 0
+          sourceButton: 10
+          sourceAxis: 0
+          sourceAxisPole: 0
+          axisDeadZone: 0
+          sourceHat: 0
+          sourceHatType: 0
+          sourceHatDirection: 0
+          requireMultipleButtons: 0
+          requiredButtons: 
+          ignoreIfButtonsActive: 0
+          ignoreIfButtonsActiveButtons: 
+        - elementIdentifier: 16
+          sourceType: 0
+          sourceButton: 13
+          sourceAxis: 0
+          sourceAxisPole: 0
+          axisDeadZone: 0
+          sourceHat: 0
+          sourceHatType: 0
+          sourceHatDirection: 0
+          requireMultipleButtons: 0
+          requiredButtons: 
+          ignoreIfButtonsActive: 0
+          ignoreIfButtonsActiveButtons: 
+        - elementIdentifier: 17
+          sourceType: 0
+          sourceButton: 12
+          sourceAxis: 0
+          sourceAxisPole: 0
+          axisDeadZone: 0
+          sourceHat: 0
+          sourceHatType: 0
+          sourceHatDirection: 0
+          requireMultipleButtons: 0
+          requiredButtons: 
+          ignoreIfButtonsActive: 0
+          ignoreIfButtonsActiveButtons: 
+        - elementIdentifier: 18
+          sourceType: 0
+          sourceButton: 14
+          sourceAxis: 0
+          sourceAxisPole: 0
+          axisDeadZone: 0
+          sourceHat: 0
+          sourceHatType: 0
+          sourceHatDirection: 0
+          requireMultipleButtons: 0
+          requiredButtons: 
+          ignoreIfButtonsActive: 0
+          ignoreIfButtonsActiveButtons: 
+        - elementIdentifier: 19
+          sourceType: 0
+          sourceButton: 11
+          sourceAxis: 0
+          sourceAxisPole: 0
+          axisDeadZone: 0
+          sourceHat: 0
+          sourceHatType: 0
+          sourceHatDirection: 0
+          requireMultipleButtons: 0
+          requiredButtons: 
+          ignoreIfButtonsActive: 0
+          ignoreIfButtonsActiveButtons: 
   windowsUWP:
+    description: 
     matchingCriteria:
       axisCount: 6
       buttonCount: 14
       disabled: 0
+      tag: 
       hatCount: 0
       manufacturer_useRegex: 0
       productName_useRegex: 0
@@ -1348,6 +2156,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -1363,6 +2173,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -1378,6 +2190,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -1393,6 +2207,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -1408,6 +2224,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -1423,6 +2241,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -1611,11 +2431,14 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   fallback_Windows:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 1
       productName:
@@ -1629,6 +2452,9 @@ MonoBehaviour:
       - .*XEOX Gamepad.*
       - .*Xett Wired gamepad.*
       - Street Fighter IV FightStick TE
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements:
       - type: 0
@@ -1653,6 +2479,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 1
         sourceType: 1
         sourceAxis: 2
@@ -1668,6 +2496,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 2
         sourceType: 1
         sourceAxis: 4
@@ -1683,6 +2513,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 3
         sourceType: 1
         sourceAxis: 5
@@ -1698,36 +2530,64 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 4
-        sourceType: 1
-        sourceAxis: 3
+        sourceType: 100
+        sourceAxis: 0
         axisDeadZone: .0500000007
         sourceButton: 0
         sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
+        customCalculation: {fileID: 11400000, guid: 0a3b17054e2d93b48a80750e056a3afc,
+          type: 2}
+        customCalculationSourceData:
+        - sourceType: 1
+          sourceElement: 3
+          sourceAxisRange: 1
+          deadzone: 0
+          invert: 0
+        - sourceType: 1
+          sourceElement: 9
+          sourceAxisRange: 0
+          deadzone: 0
+          invert: 0
         invert: 0
-        sourceAxisRange: 1
+        sourceAxisRange: 0
         buttonAxisContribution: 0
         calibrateAxis: 0
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 5
-        sourceType: 1
-        sourceAxis: 3
+        sourceType: 100
+        sourceAxis: 0
         axisDeadZone: .0500000007
         sourceButton: 0
         sourceKeyCode: 0
-        customCalculation: {fileID: 0}
-        customCalculationSourceData: []
-        invert: 1
-        sourceAxisRange: 2
+        customCalculation: {fileID: 11400000, guid: 0a3b17054e2d93b48a80750e056a3afc,
+          type: 2}
+        customCalculationSourceData:
+        - sourceType: 1
+          sourceElement: 3
+          sourceAxisRange: 2
+          deadzone: 0
+          invert: 1
+        - sourceType: 1
+          sourceElement: 10
+          sourceAxisRange: 0
+          deadzone: 0
+          invert: 0
+        invert: 0
+        sourceAxisRange: 0
         buttonAxisContribution: 0
         calibrateAxis: 0
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       buttons:
       - elementIdentifier: 6
         sourceType: 0
@@ -2023,11 +2883,14 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   fallback_WindowsUWP:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 1
       productName:
@@ -2041,6 +2904,9 @@ MonoBehaviour:
       - .*XEOX Gamepad.*
       - .*Xett Wired gamepad.*
       - Street Fighter IV FightStick TE
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements:
       - type: 0
@@ -2065,6 +2931,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 1
         sourceType: 1
         sourceAxis: 2
@@ -2080,6 +2948,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 2
         sourceType: 1
         sourceAxis: 4
@@ -2095,6 +2965,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 3
         sourceType: 1
         sourceAxis: 5
@@ -2110,6 +2982,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 4
         sourceType: 1
         sourceAxis: 3
@@ -2125,6 +2999,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 5
         sourceType: 1
         sourceAxis: 3
@@ -2140,6 +3016,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       buttons:
       - elementIdentifier: 6
         sourceType: 0
@@ -2435,11 +3313,14 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   fallback_OSX:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 1
       productName:
@@ -2456,6 +3337,9 @@ MonoBehaviour:
       - .*XEOX Gamepad.*
       - .*Xett Wired gamepad.*
       - Mad Catz, Inc\. Street Fighter IV FightStick TE
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements:
       - type: 0
@@ -2480,6 +3364,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 1
         sourceType: 1
         sourceAxis: 2
@@ -2495,6 +3381,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 2
         sourceType: 1
         sourceAxis: 3
@@ -2510,6 +3398,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 3
         sourceType: 1
         sourceAxis: 4
@@ -2525,10 +3415,12 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 4
         sourceType: 1
         sourceAxis: 5
-        axisDeadZone: .25
+        axisDeadZone: .0500000007
         sourceButton: 0
         sourceKeyCode: 0
         customCalculation: {fileID: 0}
@@ -2540,10 +3432,12 @@ MonoBehaviour:
         axisZero: -1
         axisMin: -1
         axisMax: 1
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 5
         sourceType: 1
         sourceAxis: 6
-        axisDeadZone: .25
+        axisDeadZone: .0500000007
         sourceButton: 0
         sourceKeyCode: 0
         customCalculation: {fileID: 0}
@@ -2555,6 +3449,8 @@ MonoBehaviour:
         axisZero: -1
         axisMin: -1
         axisMax: 1
+        axisInfo:
+          _dataFormat: 0
       buttons:
       - elementIdentifier: 6
         sourceType: 0
@@ -2724,6 +3620,27 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+      - elementIdentifier: 22
+        sourceType: 0
+        sourceAxis: 0
+        axisDeadZone: 0
+        sourceButton: 16
+        sourceKeyCode: 0
+        customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        sourceAxisPole: 0
+        unityHat_sourceAxis1: 0
+        unityHat_sourceAxis2: 0
+        unityHat_isActiveAxisValues1: {x: 0, y: 0}
+        unityHat_isActiveAxisValues2: {x: 0, y: 0}
+        unityHat_isActiveAxisValues3: {x: 0, y: 0}
+        unityHat_zeroValues: {x: 0, y: 0}
+        unityHat_checkNeverPressed: 0
+        unityHat_neverPressedZeroValues: {x: 0, y: 0}
+        requireMultipleButtons: 0
+        requiredButtons: 
+        ignoreIfButtonsActive: 0
+        ignoreIfButtonsActiveButtons: 
       - elementIdentifier: 14
         sourceType: 0
         sourceAxis: 0
@@ -2850,11 +3767,14 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   fallback_Linux:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 1
       productName:
@@ -2863,6 +3783,9 @@ MonoBehaviour:
       - Generic X-Box pad
       - .*xbox[ ]*360.*
       - Mad Catz, Inc\. Street Fighter IV FightStick TE
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements:
       - type: 0
@@ -2887,6 +3810,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 1
         sourceType: 1
         sourceAxis: 2
@@ -2902,6 +3827,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 2
         sourceType: 1
         sourceAxis: 4
@@ -2917,6 +3844,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 3
         sourceType: 1
         sourceAxis: 5
@@ -2932,6 +3861,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 4
         sourceType: 1
         sourceAxis: 3
@@ -2947,6 +3878,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 5
         sourceType: 1
         sourceAxis: 6
@@ -2962,6 +3895,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       buttons:
       - elementIdentifier: 6
         sourceType: 0
@@ -3278,23 +4213,32 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   fallback_Linux_PreConfigured:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_Android:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 1
       productName:
@@ -3303,6 +4247,9 @@ MonoBehaviour:
       - Generic X-Box pad
       - .*xbox[ ]*360.*
       - Mad Catz, Inc\. Street Fighter IV FightStick TE
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements:
       - type: 0
@@ -3327,6 +4274,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 1
         sourceType: 1
         sourceAxis: 2
@@ -3342,6 +4291,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 2
         sourceType: 1
         sourceAxis: 3
@@ -3357,6 +4308,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 3
         sourceType: 1
         sourceAxis: 4
@@ -3372,6 +4325,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 4
         sourceType: 1
         sourceAxis: 7
@@ -3387,6 +4342,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 5
         sourceType: 1
         sourceAxis: 8
@@ -3402,6 +4359,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       buttons:
       - elementIdentifier: 6
         sourceType: 0
@@ -3697,143 +4656,212 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   fallback_iOS:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_Blackberry:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_WindowsPhone8:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_XBox360:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_XBoxOne:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_PS3:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_PS4:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_PSM:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_PSVita:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_Wii:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_WiiU:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   fallback_AmazonFireTV:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 1
       productName:
@@ -3841,6 +4869,9 @@ MonoBehaviour:
       - Xbox 360 Wireless Receiver
       - Generic X-Box pad
       - .*xbox[ ]*360.*
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements:
       - type: 0
@@ -3865,6 +4896,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 1
         sourceType: 1
         sourceAxis: 2
@@ -3880,6 +4913,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 2
         sourceType: 1
         sourceAxis: 3
@@ -3895,6 +4930,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 3
         sourceType: 1
         sourceAxis: 4
@@ -3910,6 +4947,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 4
         sourceType: 1
         sourceAxis: 13
@@ -3925,6 +4964,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       - elementIdentifier: 5
         sourceType: 1
         sourceAxis: 12
@@ -3940,6 +4981,8 @@ MonoBehaviour:
         axisZero: 0
         axisMin: 0
         axisMax: 0
+        axisInfo:
+          _dataFormat: 0
       buttons:
       - elementIdentifier: 6
         sourceType: 0
@@ -4235,33 +5278,45 @@ MonoBehaviour:
         requiredButtons: 
         ignoreIfButtonsActive: 0
         ignoreIfButtonsActiveButtons: 
+    variants: []
   fallback_RazerForgeTV:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
+      matchUnityVersion: 0
+      matchUnityVersion_min: 
+      matchUnityVersion_max: 
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   ouya:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
     elements:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   xboxOne:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
@@ -4269,11 +5324,29 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
-  internalDriver:
+    variants: []
+  ps4:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
+      alwaysMatch: 0
+      productName_useRegex: 0
+      productName: []
+    elements:
+      compoundElements: []
+      axes: []
+      buttons: []
+    variants: []
+  internalDriver:
+    description: 
+    matchingCriteria:
+      axisCount: 0
+      buttonCount: 0
+      disabled: 0
+      tag: 
       alwaysMatch: 0
       productName_useRegex: 0
       productName: []
@@ -4283,11 +5356,14 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   sdl2_Linux:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       hatCount: 0
       manufacturer_useRegex: 0
       productName_useRegex: 0
@@ -4300,11 +5376,14 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   sdl2_Windows:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       hatCount: 0
       manufacturer_useRegex: 0
       productName_useRegex: 0
@@ -4317,11 +5396,14 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   sdl2_OSX:
+    description: 
     matchingCriteria:
       axisCount: 0
       buttonCount: 0
       disabled: 0
+      tag: 
       hatCount: 0
       manufacturer_useRegex: 0
       productName_useRegex: 0
@@ -4334,4 +5416,5 @@ MonoBehaviour:
       compoundElements: []
       axes: []
       buttons: []
+    variants: []
   elementIdentifierIdCounter: 23

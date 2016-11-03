@@ -15,6 +15,9 @@ namespace Rewired.Data {
     /// </summary>
     public class UserDataStore_PlayerPrefs : UserDataStore {
 
+        private const string thisScriptName = "UserDataStore_PlayerPrefs";
+        private const string editorLoadedMessage = "\nIf unexpected input issues occur, the loaded XML data may be outdated or invalid. Clear PlayerPrefs using the inspector option on the UserDataStore_PlayerPrefs component.";
+
         [SerializeField]
         private bool isEnabled = true;
 
@@ -33,10 +36,14 @@ namespace Rewired.Data {
         /// </summary>
         public override void Save() {
             if(!isEnabled) {
-                Debug.LogWarning("UserDataStore_PlayerPrefs is disabled and will not save any data.", this);
+                Debug.LogWarning(thisScriptName + " is disabled and will not save any data.", this);
                 return;
             }
             SaveAll();
+
+#if UNITY_EDITOR
+            Debug.Log("Rewired: " + thisScriptName + " saved all user data to XML.");
+#endif
         }
 
         /// <summary>
@@ -47,10 +54,14 @@ namespace Rewired.Data {
         /// <param name="controllerId">Controller id</param>
         public override void SaveControllerData(int playerId, ControllerType controllerType, int controllerId) {
             if(!isEnabled) {
-                Debug.LogWarning("UserDataStore_PlayerPrefs is disabled and will not save any data.", this);
+                Debug.LogWarning(thisScriptName + " is disabled and will not save any data.", this);
                 return;
             }
             SaveControllerDataNow(playerId, controllerType, controllerId);
+
+#if UNITY_EDITOR
+            Debug.Log("Rewired: " + thisScriptName + " saved " + controllerType + " " + controllerId + " data for Player " + playerId + " to XML.");
+#endif
         }
 
         /// <summary>
@@ -60,10 +71,14 @@ namespace Rewired.Data {
         /// <param name="controllerId">Controller id</param>
         public override void SaveControllerData(ControllerType controllerType, int controllerId) {
             if(!isEnabled) {
-                Debug.LogWarning("UserDataStore_PlayerPrefs is disabled and will not save any data.", this);
+                Debug.LogWarning(thisScriptName + " is disabled and will not save any data.", this);
                 return;
             }
             SaveControllerDataNow(controllerType, controllerId);
+
+#if UNITY_EDITOR
+            Debug.Log("Rewired: " + thisScriptName + " saved " + controllerType + " " + controllerId + " data to XML.");
+#endif
         }
 
         /// <summary>
@@ -72,10 +87,14 @@ namespace Rewired.Data {
         /// <param name="playerId">Player id</param>
         public override void SavePlayerData(int playerId) {
             if(!isEnabled) {
-                Debug.LogWarning("UserDataStore_PlayerPrefs is disabled and will not save any data.", this);
+                Debug.LogWarning(thisScriptName + " is disabled and will not save any data.", this);
                 return;
             }
             SavePlayerDataNow(playerId);
+
+#if UNITY_EDITOR
+            Debug.Log("Rewired: " + thisScriptName + " saved all user data for Player " + playerId + " to XML.");
+#endif
         }
 
         /// <summary>
@@ -85,10 +104,14 @@ namespace Rewired.Data {
         /// <param name="behaviorId">Input Behavior id</param>
         public override void SaveInputBehavior(int playerId, int behaviorId) {
             if(!isEnabled) {
-                Debug.LogWarning("UserDataStore_PlayerPrefs is disabled and will not save any data.", this);
+                Debug.LogWarning(thisScriptName + " is disabled and will not save any data.", this);
                 return;
             }
             SaveInputBehaviorNow(playerId, behaviorId);
+
+#if UNITY_EDITOR
+            Debug.Log("Rewired: " + thisScriptName + " saved Input Behavior data for Player " + playerId + " to XML.");
+#endif
         }
 
         /// <summary>
@@ -96,10 +119,14 @@ namespace Rewired.Data {
         /// </summary>
         public override void Load() {
             if(!isEnabled) {
-                Debug.LogWarning("UserDataStore_PlayerPrefs is disabled and will not load any data.", this);
+                Debug.LogWarning(thisScriptName + " is disabled and will not load any data.", this);
                 return;
             }
-            LoadAll();
+            int count = LoadAll();
+
+#if UNITY_EDITOR
+            if(count > 0) Debug.Log("Rewired: " + thisScriptName + " loaded all user data from XML. " + editorLoadedMessage);
+#endif
         }
 
         /// <summary>
@@ -110,10 +137,14 @@ namespace Rewired.Data {
         /// <param name="controllerId">Controller id</param>
         public override void LoadControllerData(int playerId, ControllerType controllerType, int controllerId) {
             if(!isEnabled) {
-                Debug.LogWarning("UserDataStore_PlayerPrefs is disabled and will not load any data.", this);
+                Debug.LogWarning(thisScriptName + " is disabled and will not load any data.", this);
                 return;
             }
-            LoadControllerDataNow(playerId, controllerType, controllerId);
+            int count = LoadControllerDataNow(playerId, controllerType, controllerId);
+
+#if UNITY_EDITOR
+            if(count > 0) Debug.Log("Rewired: " + thisScriptName + " loaded user data for " + controllerType + " " + controllerId + " for Player " + playerId + " from XML. " + editorLoadedMessage);
+#endif
         }
 
         /// <summary>
@@ -123,10 +154,14 @@ namespace Rewired.Data {
         /// <param name="controllerId">Controller id</param>
         public override void LoadControllerData(ControllerType controllerType, int controllerId) {
             if(!isEnabled) {
-                Debug.LogWarning("UserDataStore_PlayerPrefs is disabled and will not load any data.", this);
+                Debug.LogWarning(thisScriptName + " is disabled and will not load any data.", this);
                 return;
             }
-            LoadControllerDataNow(controllerType, controllerId);
+            int count = LoadControllerDataNow(controllerType, controllerId);
+
+#if UNITY_EDITOR
+            if(count > 0) Debug.Log("Rewired: " + thisScriptName + " loaded user data for " + controllerType + " " + controllerId + " from XML. " + editorLoadedMessage);
+#endif
         }
 
         /// <summary>
@@ -135,10 +170,14 @@ namespace Rewired.Data {
         /// <param name="playerId">Player id</param>
         public override void LoadPlayerData(int playerId) {
             if(!isEnabled) {
-                Debug.LogWarning("UserDataStore_PlayerPrefs is disabled and will not load any data.", this);
+                Debug.LogWarning(thisScriptName + " is disabled and will not load any data.", this);
                 return;
             }
-            LoadPlayerDataNow(playerId);
+            int count = LoadPlayerDataNow(playerId);
+
+#if UNITY_EDITOR
+            if(count > 0) Debug.Log("Rewired: " + thisScriptName + " loaded Player + " + playerId + " user data from XML. " + editorLoadedMessage);
+#endif
         }
 
         /// <summary>
@@ -148,10 +187,14 @@ namespace Rewired.Data {
         /// <param name="behaviorId">Input Behavior id</param>
         public override void LoadInputBehavior(int playerId, int behaviorId) {
             if(!isEnabled) {
-                Debug.LogWarning("UserDataStore_PlayerPrefs is disabled and will not load any data.", this);
+                Debug.LogWarning(thisScriptName + " is disabled and will not load any data.", this);
                 return;
             }
-            LoadInputBehaviorNow(playerId, behaviorId);
+            int count = LoadInputBehaviorNow(playerId, behaviorId);
+
+#if UNITY_EDITOR
+            if(count > 0) Debug.Log("Rewired: " + thisScriptName + " loaded Player + " + playerId + " InputBehavior data from XML. " + editorLoadedMessage);
+#endif
         }
 
         // Event Handlers
@@ -171,7 +214,12 @@ namespace Rewired.Data {
             if(!isEnabled) return;
 
             // Load data when joystick is connected
-            if(args.controllerType == ControllerType.Joystick) LoadJoystickData(args.controllerId);
+            if(args.controllerType == ControllerType.Joystick) {
+                int count = LoadJoystickData(args.controllerId);
+#if UNITY_EDITOR
+                if(count > 0) Debug.Log("Rewired: " + thisScriptName + " loaded Joystick " + args.controllerId + " (" + ReInput.controllers.GetJoystick(args.controllerId).hardwareName + ") data from XML. " + editorLoadedMessage);
+#endif
+            }
         }
 
         /// <summary>
@@ -182,7 +230,12 @@ namespace Rewired.Data {
             if(!isEnabled) return;
 
             // Save data before joystick is disconnected
-            if(args.controllerType == ControllerType.Joystick) SaveJoystickData(args.controllerId);
+            if(args.controllerType == ControllerType.Joystick) {
+                SaveJoystickData(args.controllerId);
+#if UNITY_EDITOR
+                Debug.Log("Rewired: " + thisScriptName + " saved Joystick " + args.controllerId + " (" + ReInput.controllers.GetJoystick(args.controllerId).hardwareName + ") data to XML.");
+#endif
+            }
         }
 
         /// <summary>
@@ -199,125 +252,153 @@ namespace Rewired.Data {
 
         #region Load
 
-        private void LoadAll() {
-            
+        private int LoadAll() {
+
+            int count = 0;
+
             // Load all data for all players
             IList<Player> allPlayers = ReInput.players.AllPlayers;
             for(int i = 0; i < allPlayers.Count; i++) {
-                LoadPlayerDataNow(allPlayers[i]);
+                count += LoadPlayerDataNow(allPlayers[i]);
             }
 
             // Load all joystick calibration maps
-            LoadAllJoystickCalibrationData();
+            count += LoadAllJoystickCalibrationData();
+
+            return count;
         }
 
-        private void LoadPlayerDataNow(int playerId) {
-            LoadPlayerDataNow(ReInput.players.GetPlayer(playerId));
+        private int LoadPlayerDataNow(int playerId) {
+            return LoadPlayerDataNow(ReInput.players.GetPlayer(playerId));
         }
-        private void LoadPlayerDataNow(Player player) {
-            if(player == null) return;
+        private int LoadPlayerDataNow(Player player) {
+            if(player == null) return 0;
+
+            int count = 0;
 
             // Load Input Behaviors
-            LoadInputBehaviors(player.id);
+            count += LoadInputBehaviors(player.id);
 
             // Load Keyboard Maps
-            LoadControllerMaps(player.id, ControllerType.Keyboard, 0);
+            count += LoadControllerMaps(player.id, ControllerType.Keyboard, 0);
 
             // Load Mouse Maps
-            LoadControllerMaps(player.id, ControllerType.Mouse, 0);
+            count += LoadControllerMaps(player.id, ControllerType.Mouse, 0);
 
             // Load Joystick Maps for each joystick
             foreach(Joystick joystick in player.controllers.Joysticks) {
-                LoadControllerMaps(player.id, ControllerType.Joystick, joystick.id);
+                count += LoadControllerMaps(player.id, ControllerType.Joystick, joystick.id);
             }
+
+            return count;
         }
 
-        private void LoadAllJoystickCalibrationData() {
+        private int LoadAllJoystickCalibrationData() {
+            int count = 0;
             // Load all calibration maps from all joysticks
             IList<Joystick> joysticks = ReInput.controllers.Joysticks;
             for(int i = 0; i < joysticks.Count; i++) {
-                LoadJoystickCalibrationData(joysticks[i]);
+                count += LoadJoystickCalibrationData(joysticks[i]);
             }
+            return count;
         }
 
-        private void LoadJoystickCalibrationData(Joystick joystick) {
-            if(joystick == null) return;
-            joystick.ImportCalibrationMapFromXmlString(GetJoystickCalibrationMapXml(joystick)); // load joystick calibration map
+        private int LoadJoystickCalibrationData(Joystick joystick) {
+            if(joystick == null) return 0;
+            return joystick.ImportCalibrationMapFromXmlString(GetJoystickCalibrationMapXml(joystick)) ? 1 : 0; // load joystick calibration map
         }
-        private void LoadJoystickCalibrationData(int joystickId) {
-            LoadJoystickCalibrationData(ReInput.controllers.GetJoystick(joystickId));
+        private int LoadJoystickCalibrationData(int joystickId) {
+            return LoadJoystickCalibrationData(ReInput.controllers.GetJoystick(joystickId));
         }
 
-        private void LoadJoystickData(int joystickId) {
+        private int LoadJoystickData(int joystickId) {
+            int count = 0;
             // Load joystick maps in all Players for this joystick id
             IList<Player> allPlayers = ReInput.players.AllPlayers;
             for(int i = 0; i < allPlayers.Count; i++) { // this controller may be owned by more than one player, so check all
                 Player player = allPlayers[i];
                 if(!player.controllers.ContainsController(ControllerType.Joystick, joystickId)) continue; // player does not have the joystick
-                LoadControllerMaps(player.id, ControllerType.Joystick, joystickId); // load the maps
+                count += LoadControllerMaps(player.id, ControllerType.Joystick, joystickId); // load the maps
             }
 
             // Load calibration maps for joystick
-            LoadJoystickCalibrationData(joystickId);
+            count += LoadJoystickCalibrationData(joystickId);
+
+            return count;
         }
 
-        private void LoadControllerDataNow(int playerId, ControllerType controllerType, int controllerId) {
+        private int LoadControllerDataNow(int playerId, ControllerType controllerType, int controllerId) {
+
+            int count = 0;
 
             // Load map data
-            LoadControllerMaps(playerId, controllerType, controllerId);
+            count += LoadControllerMaps(playerId, controllerType, controllerId);
 
             // Loat other controller data
-            LoadControllerDataNow(controllerType, controllerId);
+            count += LoadControllerDataNow(controllerType, controllerId);
+
+            return count;
         }
-        private void LoadControllerDataNow(ControllerType controllerType, int controllerId) {
+        private int LoadControllerDataNow(ControllerType controllerType, int controllerId) {
+
+            int count = 0;
 
             // Load calibration data for joysticks
             if(controllerType == ControllerType.Joystick) {
-                LoadJoystickCalibrationData(controllerId);
+                count += LoadJoystickCalibrationData(controllerId);
             }
+
+            return count;
         }
 
-        private void LoadControllerMaps(int playerId, ControllerType controllerType, int controllerId) {
+        private int LoadControllerMaps(int playerId, ControllerType controllerType, int controllerId) {
+            int count = 0;
             Player player = ReInput.players.GetPlayer(playerId);
-            if(player == null) return;
+            if(player == null) return count;
 
             Controller controller = ReInput.controllers.GetController(controllerType, controllerId);
-            if(controller == null) return;
+            if(controller == null) return count;
 
             // Load the controller maps first and make sure we have them to load
             List<string> xmlMaps = GetAllControllerMapsXml(player, true, controllerType, controller);
-            if(xmlMaps.Count == 0) return;
+            if(xmlMaps.Count == 0) return count;
 
             // Load Joystick Maps
-            player.controllers.maps.AddMapsFromXml(controllerType, controllerId, xmlMaps); // load controller maps
+            count += player.controllers.maps.AddMapsFromXml(controllerType, controllerId, xmlMaps); // load controller maps
+
+            return count;
         }
 
-        private void LoadInputBehaviors(int playerId) {
+        private int LoadInputBehaviors(int playerId) {
             Player player = ReInput.players.GetPlayer(playerId);
-            if(player == null) return;
+            if(player == null) return 0;
+
+            int count = 0;
 
             // All players have an instance of each input behavior so it can be modified
             IList<InputBehavior> behaviors = ReInput.mapping.GetInputBehaviors(player.id); // get all behaviors from player
             for(int i = 0; i < behaviors.Count; i++) {
-                LoadInputBehaviorNow(player, behaviors[i]);
+                count += LoadInputBehaviorNow(player, behaviors[i]);
             }
+
+            return count;
         }
 
-        private void LoadInputBehaviorNow(int playerId, int behaviorId) {
+        private int LoadInputBehaviorNow(int playerId, int behaviorId) {
             Player player = ReInput.players.GetPlayer(playerId);
-            if(player == null) return;
+            if(player == null) return 0;
 
             InputBehavior behavior = ReInput.mapping.GetInputBehavior(playerId, behaviorId);
-            if(behavior == null) return;
+            if(behavior == null) return 0;
 
-            LoadInputBehaviorNow(player, behavior);
+            return LoadInputBehaviorNow(player, behavior);
         }
-        private void LoadInputBehaviorNow(Player player, InputBehavior inputBehavior) {
-            if(player == null || inputBehavior == null) return;
+        private int LoadInputBehaviorNow(Player player, InputBehavior inputBehavior) {
+            if(player == null || inputBehavior == null) return 0;
 
             string xml = GetInputBehaviorXml(player, inputBehavior.id); // try to the behavior for this id
-            if(xml == null || xml == string.Empty) return; // no data found for this behavior
-            inputBehavior.ImportXmlString(xml); // import the data into the behavior
+            if(xml == null || xml == string.Empty) return 0; // no data found for this behavior
+            return inputBehavior.ImportXmlString(xml) ? 1 : 0; // import the data into the behavior
         }
 
         #endregion
@@ -341,6 +422,9 @@ namespace Rewired.Data {
 
         private void SavePlayerDataNow(int playerId) {
             SavePlayerDataNow(ReInput.players.GetPlayer(playerId));
+
+            // Save changes to PlayerPrefs
+            PlayerPrefs.Save();
         }
         private void SavePlayerDataNow(Player player) {
             if(player == null) return;
@@ -395,6 +479,9 @@ namespace Rewired.Data {
 
             // Save other controller data
             SaveControllerDataNow(controllerType, controllerId);
+
+            // Save changes to PlayerPrefs
+            PlayerPrefs.Save();
         }
         private void SaveControllerDataNow(ControllerType controllerType, int controllerId) {
 
@@ -402,6 +489,9 @@ namespace Rewired.Data {
             if(controllerType == ControllerType.Joystick) {
                 SaveJoystickCalibrationData(controllerId);
             }
+
+            // Save changes to PlayerPrefs
+            PlayerPrefs.Save();
         }
 
         private void SaveControllerMaps(Player player, PlayerSaveData playerSaveData) {
@@ -444,6 +534,9 @@ namespace Rewired.Data {
             if(behavior == null) return;
 
             SaveInputBehaviorNow(player, behavior);
+
+            // Save changes to PlayerPrefs
+            PlayerPrefs.Save();
         }
         private void SaveInputBehaviorNow(Player player, InputBehavior inputBehavior) {
             if(player == null || inputBehavior == null) return;
@@ -452,9 +545,9 @@ namespace Rewired.Data {
             PlayerPrefs.SetString(key, inputBehavior.ToXmlString()); // save the behavior to player prefs in XML format
         }
 
-        #endregion
+#endregion
 
-        #region PlayerPrefs Methods
+#region PlayerPrefs Methods
 
         /* NOTE ON PLAYER PREFS:
          * PlayerPrefs on Windows Standalone is saved in the registry. There is a bug in Regedit that makes any entry with a name equal to or greater than 255 characters
@@ -559,6 +652,6 @@ namespace Rewired.Data {
             return PlayerPrefs.GetString(key); // return the data
         }
 
-        #endregion
+#endregion
     }
 }
