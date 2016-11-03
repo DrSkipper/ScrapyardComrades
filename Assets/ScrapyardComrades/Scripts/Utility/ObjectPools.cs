@@ -103,6 +103,7 @@ public class ObjectPools : MonoBehaviour
         if (pool.Count < pool.Capacity)
         {
             obj.BroadcastMessage("OnReturnToPool", SendMessageOptions.DontRequireReceiver);
+            obj.transform.parent = null;
             obj.gameObject.SetActive(false);
             pool.Add(obj);
             return true;

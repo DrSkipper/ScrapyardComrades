@@ -12,13 +12,12 @@ public class WorldLoadingManager : MonoBehaviour
     public int BoundsToLoadBuffer = 32;
     public int MinDistanceToLoad = 6;
     public bool FlipVertical = true;
-    public GameObject MapLoaderPrefab;
+    public PooledObject MapLoaderPrefab;
     public List<GameObject> IgnoreRecenterObjects;
-    public List<MapLoader> MapLoaders;
     public CollisionManager CollisionManager;
     public Dictionary<string, Texture2D> CachedAtlases;
     public Dictionary<string, Sprite[]> CachedSprites;
-    public int MapLoadersToPreload = 7;
+    public const int MAX_MAP_LOADERS = 12;
 
     public class MapQuad
     {
@@ -38,8 +37,7 @@ public class WorldLoadingManager : MonoBehaviour
 
     void Awake()
     {
-        if (this.MapLoaders == null)
-            this.MapLoaders = new List<MapLoader>();
+        _activeMapLoaders = new List<MapLoader>(MAX_MAP_LOADERS);
 
         gatherWorldMapInfo();
         _quadData = new Dictionary<string, MapInfo>();
@@ -55,7 +53,7 @@ public class WorldLoadingManager : MonoBehaviour
         if (_currentQuad == null)
             Debug.LogWarning("Starting quad '" + this.StartingAreaName + "' not found. Quad count = " + _allMapQuads.Count);
 
-        preload();
+        this.CollisionManager.RemoveAllSolids();
         _targetLoadedQuads = new List<MapQuad>();
         _currentLoadedQuads = new List<MapQuad>();
         gatherTargetLoadedQuads();
@@ -104,6 +102,7 @@ public class WorldLoadingManager : MonoBehaviour
     private const int LOAD_PHASE_RECENTER = 3;
     private const int LOAD_PHASE_LOAD_QUADS = 4;
     private const int LOAD_SPACING = 2;
+    private List<MapLoader> _activeMapLoaders;
     private MapQuad _currentQuad;
     private List<MapQuad> _currentLoadedQuads;
     private List<MapQuad> _targetLoadedQuads;
@@ -113,16 +112,6 @@ public class WorldLoadingManager : MonoBehaviour
     private IntegerVector _recenterOffset = IntegerVector.Zero;
     private IntegerVector _trackerPosition = IntegerVector.Zero;
     private Dictionary<string, MapInfo> _quadData;
-
-    private void preload()
-    {
-        for (int i = 0; i < this.MapLoadersToPreload; ++i)
-        {
-            MapLoader loader = createMapLoader(this.transform.position);
-            loader.gameObject.SetActive(false);
-        }
-        this.CollisionManager.RemoveAllSolids();
-    }
 
     private void gatherWorldMapInfo()
     {
@@ -163,35 +152,21 @@ public class WorldLoadingManager : MonoBehaviour
 
     private MapLoader mapLoaderForQuadName(string quadName)
     {
-        for (int i = 0; i < this.MapLoaders.Count; ++i)
+        for (int i = 0; i < _activeMapLoaders.Count; ++i)
         {
-            if (this.MapLoaders[i].gameObject.activeInHierarchy && this.MapLoaders[i].MapName == quadName)
-                return this.MapLoaders[i];
+            if (_activeMapLoaders[i].gameObject.activeInHierarchy && _activeMapLoaders[i].MapName == quadName)
+                return _activeMapLoaders[i];
         }
         return null;
     }
 
-    private MapLoader findUnusedMapLoader(Vector2 position)
+    private MapLoader aquireMapLoader(Vector2 position)
     {
-        for (int i = 0; i < this.MapLoaders.Count; ++i)
-        {
-            if (!this.MapLoaders[i].gameObject.activeInHierarchy)
-            {
-                this.MapLoaders[i].gameObject.SetActive(true);
-                this.MapLoaders[i].transform.position = new Vector3(position.x, position.y, this.MapLoaders[i].transform.position.z);
-                return this.MapLoaders[i];
-            }
-        }
-
-        return createMapLoader(position);
-    }
-
-    private MapLoader createMapLoader(Vector2 position)
-    {
-        GameObject newMapLoaderObject = Instantiate(this.MapLoaderPrefab, position, Quaternion.identity) as GameObject;
-        MapLoader newMapLoader = newMapLoaderObject.GetComponent<MapLoader>();
+        PooledObject loader = this.MapLoaderPrefab.Retain();
+        loader.transform.position = new Vector3(position.x, position.y, loader.transform.position.z);
+        MapLoader newMapLoader = loader.GetComponent<MapLoader>();
         newMapLoader.WorldLoadingManager = this;
-        this.MapLoaders.Add(newMapLoader);
+        _activeMapLoaders.Add(newMapLoader);
         return newMapLoader;
     }
 
@@ -221,7 +196,8 @@ public class WorldLoadingManager : MonoBehaviour
                 if (loader != null)
                 {
                     loader.ClearMap();
-                    loader.gameObject.SetActive(false);
+                    _activeMapLoaders.Remove(loader);
+                    ObjectPools.Release(loader.gameObject);
                 }
             }
         }
@@ -253,17 +229,16 @@ public class WorldLoadingManager : MonoBehaviour
             if (!_currentLoadedQuads.Contains(_targetLoadedQuads[i]))
             {
                 IntegerVector relativeCenter = _targetLoadedQuads[i].GetRelativeBounds(_currentQuad).Center;
-                MapLoader loader = findUnusedMapLoader(new Vector2(relativeCenter.X * this.TileRenderSize, relativeCenter.Y * this.TileRenderSize));
+                MapLoader loader = aquireMapLoader(new Vector2(relativeCenter.X * this.TileRenderSize, relativeCenter.Y * this.TileRenderSize));
                 loader.MapName = _targetLoadedQuads[i].Name;
                 loader.LoadPlayer = loadPlayer && _targetLoadedQuads[i] == _currentQuad;
                 loader.LoadMap(true); //TODO - figure out how to handle when to load objects/remember where they were/discard them
             }
         }
 
-        for (int i = 0; i < this.MapLoaders.Count; ++i)
+        for (int i = 0; i < _activeMapLoaders.Count; ++i)
         {
-            if (this.MapLoaders[i].gameObject.activeInHierarchy)
-                this.MapLoaders[i].AddColliders();
+            _activeMapLoaders[i].AddColliders();
         }
     }
 }
