@@ -44,4 +44,3 @@ public class SCAttack : ScriptableObject
 
     public PlayerController.VelocityBoost[] VelocityBoosts;
 }
-

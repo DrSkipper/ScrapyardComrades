@@ -9,7 +9,18 @@ public class AttackController : VoBehavior
     public LayerMask DamagableLayers;
     public GameObject HitEffect;
 
-    public void UpdateDamageBoxes(SCAttack currentAttack)
+    /*void OnStart()
+    {
+        this.SetDefaults();
+    }
+
+    public void SetDefaults()
+    {
+        this.DefaultHurtboxOffset = this.Hurtbox.Offset;
+        this.DefaultHurtboxSize = this.Hurtbox.Size;
+    }*/
+
+    public void UpdateHitBoxes(SCAttack currentAttack, LayerMask haltMovementMask)
     {
         if (currentAttack == null)
         {
@@ -18,6 +29,8 @@ public class AttackController : VoBehavior
                 this.DamageBoxes[i].transform.localPosition = Vector2.zero;
                 this.DamageBoxes[i].enabled = false;
             }
+            this.Hurtbox.enabled = true;
+            //attemptHitboxChange(this.DefaultHurtboxOffset, this.DefaultHurtboxSize, haltMovementMask);
         }
         else
         {
@@ -48,9 +61,7 @@ public class AttackController : VoBehavior
                 }
                 if (keyframe.Value.HurtboxRect.Size != IntegerVector.Zero)
                 {
-                    this.Hurtbox.enabled = true;
-                    this.Hurtbox.Offset = keyframe.Value.HurtboxRect.Center;
-                    this.Hurtbox.Size = keyframe.Value.HurtboxRect.Size;
+                    attemptHitboxChange(keyframe.Value.HurtboxRect.Center, keyframe.Value.HurtboxRect.Size, haltMovementMask);
                 }
                 else
                 {
@@ -84,6 +95,9 @@ public class AttackController : VoBehavior
     /**
      * Private
      */
+    private IntegerVector DefaultHurtboxOffset;
+    private IntegerVector DefaultHurtboxSize;
+
     private SCAttack.HitboxKeyframe? getKeyframeForUpdateFrame(SCAttack attack, int updateFrame)
     {
         SCAttack.HitboxKeyframe? keyframe = null;
@@ -95,5 +109,20 @@ public class AttackController : VoBehavior
                 break;
         }
         return keyframe;
+    }
+
+    private void attemptHitboxChange(IntegerVector offset, IntegerVector size, LayerMask haltMovementMask)
+    {
+        if (!this.Hurtbox.enabled || offset != this.Hurtbox.Offset || size != this.Hurtbox.Size)
+        {
+            this.Hurtbox.enabled = true;
+            this.Hurtbox.Offset = offset;
+            this.Hurtbox.Size = size;
+            if (this.Hurtbox.CollideFirst(0, 0, haltMovementMask) != null)
+            {
+                //this.Animator.Loop()
+                this.localNotifier.SendEvent(new CharacterForceDuckEvent());
+            }
+        }
     }
 }

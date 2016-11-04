@@ -183,12 +183,15 @@ public class SCCharacterController : Actor2D
                     jump();
             }
 
-            // Or if we're beginning an attack
-            else if (input.AttackLightBegin)
+            // Or if we're beginning an attack/dodge/other move
+            else
             {
-                _currentAttack = this.MoveSet.GroundNeutral;
-                _attackTimer.reset(_currentAttack.NormalFrameLength);
-                _attackTimer.start();
+                _currentAttack = this.MoveSet.GetAttackForInput(input);
+                if (_currentAttack != null)
+                {
+                    _attackTimer.reset(_currentAttack.NormalFrameLength);
+                    _attackTimer.start();
+                }
             }
         }
         else
@@ -209,7 +212,7 @@ public class SCCharacterController : Actor2D
         this.localNotifier.SendEvent(new CharacterUpdateFinishedEvent(_currentAttack));
 
         if (this.AttackController != null)
-            this.AttackController.UpdateDamageBoxes(_currentAttack);
+            this.AttackController.UpdateHitBoxes(_currentAttack, this.HaltMovementMask);
     }
 
     public bool IsGrounded

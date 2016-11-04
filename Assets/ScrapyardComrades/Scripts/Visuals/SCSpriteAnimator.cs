@@ -55,8 +55,7 @@ public class SCSpriteAnimator : VoBehavior
                 {
                     if (_looping)
                     {
-                        _frame = _currentAnimation.LoopFrame;
-                        _elapsed = Mathf.RoundToInt(_currentAnimation.LoopFrame * frameDuration);
+                        this.Loop(_currentAnimation.LoopFrame, frameDuration);
                     }
                     else
                     {
@@ -81,6 +80,15 @@ public class SCSpriteAnimator : VoBehavior
     public int GetDataFrameForVisualFrame(int visualFrame)
     {
         return Mathf.Clamp(Mathf.RoundToInt(this.GetFrameDuration() * (float)Mathf.Clamp(visualFrame, 0, _currentAnimation.Frames.Length - 1)), 0, _currentAnimation.LengthInFrames - 1);
+    }
+
+    public void Loop(int frame = 0, float frameDuration = -1)
+    {
+        if (frameDuration < 0.0f)
+            frameDuration = this.GetFrameDuration();
+        _frame = frame;
+        _elapsed = Mathf.RoundToInt(frame * frameDuration);
+        //this.localNotifier.SendEvent(new SCSpriteAnimationLoopEvent(_elapsed));
     }
 
     /**

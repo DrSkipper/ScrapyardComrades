@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9c805a874707c1d43af4612aa16f33c8
-timeCreated: 1452838204
+timeCreated: 1478236082
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -19,6 +19,7 @@ TextureImporter:
     21300024: amelia_attack_neutral_4
     21300026: amelia_run_2
     21300028: amelia_run_3
+    21300030: amelia_slide_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -61,11 +62,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 0.5
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: amelia_idle_0
+    - serializedVersion: 2
+      name: amelia_idle_0
       rect:
         serializedVersion: 2
         x: 390
@@ -75,19 +79,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.305, y: 0.51}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -6.25, y: 16.170013}
-        - {x: -15.25, y: 2.1700134}
-        - {x: -15.25, y: -3.8299866}
-        - {x: -13.25, y: -5.8299866}
-        - {x: -14.25, y: -12.829987}
-        - {x: -14.25, y: -13.829987}
-        - {x: -11.25, y: -16.829987}
-        - {x: 23.75, y: -16.829987}
-        - {x: 31.75, y: -15.829987}
-        - {x: 34.75, y: -14.829987}
-        - {x: 34.75, y: 16.170013}
-    - name: amelia_jump_0
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: amelia_jump_0
       rect:
         serializedVersion: 2
         x: 44
@@ -97,26 +92,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.356, y: 0.492}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 38.64, y: 11.287994}
-        - {x: 38.64, y: 16.287994}
-        - {x: 22.64, y: 18.287994}
-        - {x: -4.3600006, y: 18.287994}
-        - {x: -16.36, y: 6.2879944}
-        - {x: -18.36, y: -1.7120056}
-        - {x: -17.36, y: -6.7120056}
-        - {x: -15.360001, y: -8.712006}
-        - {x: -12.360001, y: -8.712006}
-        - {x: -15.360001, y: -8.712006}
-        - {x: -18.36, y: -7.7120056}
-        - {x: -19.36, y: -7.7120056}
-        - {x: -21.36, y: -9.712006}
-        - {x: -21.36, y: -17.712006}
-        - {x: 11.639999, y: -17.712006}
-        - {x: 11.639999, y: -11.712006}
-        - {x: 8.639999, y: -10.712006}
-        - {x: 36.64, y: 8.287994}
-    - name: amelia_run_0
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: amelia_run_0
       rect:
         serializedVersion: 2
         x: 186
@@ -126,18 +105,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.488, y: 0.34}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 10.432007, y: 2}
-        - {x: 18.432007, y: 23}
-        - {x: 18.432007, y: 33}
-        - {x: 0.43200684, y: 33}
-        - {x: -17.567993, y: 9}
-        - {x: -17.567993, y: -17}
-        - {x: 11.432007, y: -17}
-        - {x: 13.432007, y: -14}
-        - {x: 11.432007, y: -11}
-        - {x: 5.432007, y: -10}
-    - name: amelia_fall_0
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: amelia_fall_0
       rect:
         serializedVersion: 2
         x: 233
@@ -147,17 +118,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.321, y: 0.471}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 32.591995, y: 21.160004}
-        - {x: -10.408005, y: 21.160004}
-        - {x: -15.408005, y: 7.1600037}
-        - {x: -15.408005, y: -18.839996}
-        - {x: 19.591995, y: -18.839996}
-        - {x: 28.591995, y: -17.839996}
-        - {x: 30.591995, y: -15.839996}
-        - {x: 29.591995, y: -12.839996}
-        - {x: 32.591995, y: 1.1600037}
-    - name: amelia_run_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: amelia_run_1
       rect:
         serializedVersion: 2
         x: 222
@@ -167,14 +131,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.455, y: 0.34}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 11.619995, y: 33}
-        - {x: -6.380005, y: 17}
-        - {x: -16.380005, y: -7}
-        - {x: -16.380005, y: -17}
-        - {x: 19.619995, y: -17}
-        - {x: 19.619995, y: 33}
-    - name: amelia_jump_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: amelia_jump_1
       rect:
         serializedVersion: 2
         x: 108
@@ -184,27 +144,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.356, y: 0.492}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 38.64, y: 14.287994}
-        - {x: 37.64, y: 17.287994}
-        - {x: 29.64, y: 18.287994}
-        - {x: -7.3600006, y: 18.287994}
-        - {x: -21.36, y: -1.7120056}
-        - {x: -17.36, y: -6.7120056}
-        - {x: -15.360001, y: -8.712006}
-        - {x: -12.360001, y: -8.712006}
-        - {x: -10.360001, y: -10.712006}
-        - {x: -17.36, y: -7.7120056}
-        - {x: -20.36, y: -6.7120056}
-        - {x: -21.36, y: -7.7120056}
-        - {x: -21.36, y: -16.712006}
-        - {x: -19.36, y: -17.712006}
-        - {x: 26.64, y: -17.712006}
-        - {x: 36.64, y: -16.712006}
-        - {x: 37.64, y: -14.712006}
-        - {x: 36.64, y: -11.712006}
-        - {x: 38.64, y: 4.2879944}
-    - name: amelia_fall_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: amelia_fall_1
       rect:
         serializedVersion: 2
         x: 177
@@ -214,14 +157,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.321, y: 0.471}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -4.4080048, y: 21.160004}
-        - {x: -15.408005, y: 5.1600037}
-        - {x: -15.408005, y: -9.839996}
-        - {x: -12.408005, y: -18.839996}
-        - {x: 32.591995, y: -18.839996}
-        - {x: 32.591995, y: 21.160004}
-    - name: amelia_idle_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: amelia_idle_1
       rect:
         serializedVersion: 2
         x: 446
@@ -231,15 +170,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.318, y: 0.51}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -5.5360107, y: 15.679993}
-        - {x: -9.536011, y: 14.679993}
-        - {x: -16.53601, y: 2.6799927}
-        - {x: -16.53601, y: -16.320007}
-        - {x: 33.46399, y: -16.320007}
-        - {x: 35.46399, y: -8.320007}
-        - {x: 35.46399, y: 15.679993}
-    - name: amelia_attack_neutral_0
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: amelia_attack_neutral_0
       rect:
         serializedVersion: 2
         x: 113
@@ -249,17 +183,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.346, y: 0.343}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -11.223999, y: 34.164}
-        - {x: -12.223999, y: 33.164}
-        - {x: -15.223999, y: 10.164001}
-        - {x: -15.223999, y: -8.835999}
-        - {x: -14.223999, y: -16.835999}
-        - {x: -12.223999, y: -17.835999}
-        - {x: 18.776001, y: -17.835999}
-        - {x: 28.776001, y: -16.835999}
-        - {x: 28.776001, y: 34.164}
-    - name: amelia_attack_neutral_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: amelia_attack_neutral_1
       rect:
         serializedVersion: 2
         x: 266
@@ -269,20 +196,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.479, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 25.007996, y: -11.400002}
-        - {x: 17.007996, y: 13.599998}
-        - {x: 2.0079956, y: 27.599998}
-        - {x: -19.992004, y: 27.599998}
-        - {x: -22.992004, y: 22.599998}
-        - {x: -22.992004, y: 10.599998}
-        - {x: -17.992004, y: 8.599998}
-        - {x: -22.992004, y: -3.4000015}
-        - {x: -22.992004, y: -18.400002}
-        - {x: 14.007996, y: -18.400002}
-        - {x: 24.007996, y: -16.400002}
-        - {x: 25.007996, y: -15.400002}
-    - name: amelia_attack_neutral_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: amelia_attack_neutral_2
       rect:
         serializedVersion: 2
         x: 319
@@ -292,13 +209,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.54, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -31.320007, y: 27.599998}
-        - {x: -31.320007, y: -18.400002}
-        - {x: 26.679993, y: -18.400002}
-        - {x: 26.679993, y: 26.599998}
-        - {x: 24.679993, y: 27.599998}
-    - name: amelia_attack_neutral_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: amelia_attack_neutral_3
       rect:
         serializedVersion: 2
         x: 377
@@ -308,15 +222,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.54, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -23.320007, y: 27.599998}
-        - {x: -24.320007, y: 17.599998}
-        - {x: -24.320007, y: -18.400002}
-        - {x: 25.679993, y: -18.400002}
-        - {x: 25.679993, y: -14.400002}
-        - {x: 21.679993, y: 26.599998}
-        - {x: 18.679993, y: 27.599998}
-    - name: amelia_attack_neutral_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: amelia_attack_neutral_4
       rect:
         serializedVersion: 2
         x: 439
@@ -326,14 +235,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.54, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -12.320007, y: 27.599998}
-        - {x: -31.320007, y: 24.599998}
-        - {x: -31.320007, y: -7.4000015}
-        - {x: -27.320007, y: -18.400002}
-        - {x: 26.679993, y: -18.400002}
-        - {x: 26.679993, y: 27.599998}
-    - name: amelia_run_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: amelia_run_2
       rect:
         serializedVersion: 2
         x: 260
@@ -343,16 +248,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.45, y: 0.34}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 3.7999878, y: 30.359985}
-        - {x: -6.200012, y: 25.359985}
-        - {x: -16.200012, y: 3.3599854}
-        - {x: -16.200012, y: -15.640015}
-        - {x: 10.799988, y: -15.640015}
-        - {x: 17.799988, y: -13.640015}
-        - {x: 19.799988, y: 13.359985}
-        - {x: 19.799988, y: 30.359985}
-    - name: amelia_run_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: amelia_run_3
       rect:
         serializedVersion: 2
         x: 298
@@ -362,17 +261,21 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.45, y: 0.34}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 19.799988, y: 20.359985}
-        - {x: 19.799988, y: 30.359985}
-        - {x: 13.799988, y: 30.359985}
-        - {x: -7.200012, y: 17.359985}
-        - {x: -16.200012, y: -0.64001465}
-        - {x: -16.200012, y: -15.640015}
-        - {x: 13.799988, y: -15.640015}
-        - {x: 13.799988, y: -12.640015}
-        - {x: 12.799988, y: -9.640015}
-        - {x: 8.799988, y: -8.640015}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: amelia_slide_0
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 166
+        width: 56
+        height: 33
+      alignment: 9
+      pivot: {x: 0.29, y: 0.59}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
