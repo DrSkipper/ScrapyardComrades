@@ -4,12 +4,16 @@ using System.Collections.Generic;
 using UnityEditor;
 #endif
 
-public class SCAttackEditing : MonoBehaviour
+public class SCMoveSetEditing : MonoBehaviour
 {
     public SCSpriteAnimator AttackAnimator;
     public SCSpriteAnimator Animator;
     public IntegerRectCollider[] Hitboxes;
-    public IntegerRectCollider Hurtbox;
+    public IntegerRectCollider NormalHurtbox;
+    public IntegerRectCollider DuckHurtbox;
+    public SCMoveSet MoveSet;
+    public SCAttack.HurtboxState HurtboxState;
+    [HideInInspector]
     public SCAttack AttackObject;
     [HideInInspector]
     public int CurrentIndex = 0;
@@ -25,9 +29,6 @@ public class SCAttackEditing : MonoBehaviour
         }
         if (this.Hitboxes == null || this.Hitboxes.Length == 0)
             Debug.LogWarning("Saving attack keyframes with no hitboxes");
-
-        if (this.Hurtbox == null)
-            Debug.LogWarning("Saving attack keyframes with no hurtbox");
         
         if (this.CurrentIndex >= 0 && this.CurrentIndex < this.AttackObject.HitboxKeyframes.Length)
         {
@@ -80,8 +81,8 @@ public class SCAttackEditing : MonoBehaviour
                     this.Hitboxes[i].enabled = false;
                 }
             }
-            this.Hurtbox.Offset = currentHitboxFrame.HurtboxRect.Center;
-            this.Hurtbox.Size = currentHitboxFrame.HurtboxRect.Size;
+            this.HurtboxState = currentHitboxFrame.HurtboxState;
+
         }
         this.Animator.GoToFrame(this.Frame);
     }
@@ -98,9 +99,19 @@ public class SCAttackEditing : MonoBehaviour
         }
     }
 
+    public void UpdateMoveSetHurtboxes()
+    {
+        this.MoveSet.NormalHitboxSpecs = new IntegerRect(this.NormalHurtbox.Offset, this.NormalHurtbox.Size);
+        this.MoveSet.DuckHitboxSpecs = new IntegerRect(this.DuckHurtbox.Offset, this.DuckHurtbox.Size);
+        EditorUtility.SetDirty(this.MoveSet);
+        AssetDatabase.SaveAssets();
+    }
+
     /**
      * Private
      */
+    private SCAttack.HurtboxState _hurtboxState;
+
     private SCAttack.HitboxKeyframe gatherKeyframeData()
     {
         List<IntegerVector> hitboxPositions = new List<IntegerVector>();
@@ -116,7 +127,7 @@ public class SCAttackEditing : MonoBehaviour
             }
         }
 
-        keyframe.HurtboxRect = this.Hurtbox != null && this.Hurtbox.enabled ? new IntegerRect(this.Hurtbox.Offset, this.Hurtbox.Size) : new IntegerRect();
+        keyframe.HurtboxState = this.HurtboxState;
         keyframe.Frame = this.Animator.GetDataFrameForVisualFrame(this.Frame);
         keyframe.VisualFrame = this.Frame;
         keyframe.HitboxPositions = hitboxPositions.ToArray();

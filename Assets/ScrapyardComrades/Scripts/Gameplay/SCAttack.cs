@@ -13,9 +13,16 @@ public class SCAttack : ScriptableObject
         public int HitboxCount;
         public IntegerVector[] HitboxPositions;
         public IntegerVector[] HitboxSizes;
-        public IntegerRect HurtboxRect;
+        public HurtboxState HurtboxState;
     }
 
+    [System.Serializable]
+    public enum HurtboxState
+    {
+        Normal,
+        Ducking
+    }
+    
     public SCSpriteAnimation SpriteAnimation;
     public int NormalFrameLength;
     public IntegerVector[] HitFrameRanges;
