@@ -122,12 +122,14 @@ public class SCSpriteAnimationLoopEvent : LocalEventNotifier.Event
     }
 }
 
-public class CharacterForceDuckEvent : LocalEventNotifier.Event
+public class HurtboxStateChangeEvent : LocalEventNotifier.Event
 {
-    public const string NAME = "FORCE_DUCK";
+    public const string NAME = "HURTBOX_CHANGE";
+    public SCAttack.HurtboxState NewState;
 
-    public CharacterForceDuckEvent()
+    public HurtboxStateChangeEvent(SCAttack.HurtboxState newState)
     {
         this.Name = NAME;
+        this.NewState = newState;
     }
 }
