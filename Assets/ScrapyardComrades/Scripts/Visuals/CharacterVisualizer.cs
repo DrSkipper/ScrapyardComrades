@@ -8,11 +8,13 @@ public class CharacterVisualizer : VoBehavior
     public SCSpriteAnimation RunAnimation;
     public SCSpriteAnimation JumpAnimation;
     public SCSpriteAnimation FallAnimation;
+    public SCSpriteAnimation DuckAnimation;
 
     private const string IDLE_STATE = "idle";
     private const string RUNNING_STATE = "run";
     private const string JUMPING_STATE = "jump";
     private const string FALLING_STATE = "fall";
+    private const string DUCKING_STATE = "duck";
     private const string ATTACK_STATE = "attack";
 
     void Awake()
@@ -24,6 +26,7 @@ public class CharacterVisualizer : VoBehavior
         _stateMachine.AddState(RUNNING_STATE, this.updateGeneric, this.enterRunning);
         _stateMachine.AddState(JUMPING_STATE, this.updateGeneric, this.enterJumping);
         _stateMachine.AddState(FALLING_STATE, this.updateGeneric, this.enterFalling);
+        _stateMachine.AddState(DUCKING_STATE, this.updateGeneric, this.enterDucking);
         _stateMachine.AddState(ATTACK_STATE, this.updateAttack, this.enterAttack);
         _stateMachine.BeginWithInitialState(IDLE_STATE);
 
@@ -55,14 +58,20 @@ public class CharacterVisualizer : VoBehavior
         {
             return ATTACK_STATE;
         }
-        else if (!_characterController.OnGround)
+        if (_characterController.Ducking)
+        {
+            return DUCKING_STATE;
+        }
+        if (!_characterController.OnGround)
         {
             if (GameplayInput.JumpHeld && _characterController.Velocity.y > 0.0f)
                 return JUMPING_STATE;
             return FALLING_STATE;
         }
         if (_characterController.MoveAxis != 0 && _characterController.Velocity.x != 0)
+        {
             return RUNNING_STATE;
+        }
         return IDLE_STATE;
     }
 
@@ -101,5 +110,10 @@ public class CharacterVisualizer : VoBehavior
     private void enterFalling()
     {
         _spriteAnimator.PlayAnimation(this.FallAnimation);
+    }
+
+    private void enterDucking()
+    {
+        _spriteAnimator.PlayAnimation(this.DuckAnimation);
     }
 }

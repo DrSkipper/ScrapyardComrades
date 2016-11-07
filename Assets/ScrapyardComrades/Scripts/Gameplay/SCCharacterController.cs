@@ -73,7 +73,7 @@ public class SCCharacterController : Actor2D
     public bool OnGround { get { return _onGround; } }
     public int MoveAxis { get { return _moveAxis; } }
     public SCAttack.HurtboxState HurtboxState = SCAttack.HurtboxState.Normal;
-    public bool Ducking { get { return _currentAttack == null && this.HurtboxState == SCAttack.HurtboxState.Normal; } }
+    public bool Ducking { get { return _currentAttack == null && this.HurtboxState == SCAttack.HurtboxState.Ducking; } }
 
     public virtual InputWrapper GatherInput()
     {
@@ -180,6 +180,9 @@ public class SCCharacterController : Actor2D
 
         if (_currentAttack == null)
         {
+            // Attempt to stand up if necessary
+            attemptHurtboxChangeHelper(SCAttack.HurtboxState.Normal);
+
             // Check if it's time to jump
             if (input.JumpBegin || !_jumpBufferTimer.Completed)
             {

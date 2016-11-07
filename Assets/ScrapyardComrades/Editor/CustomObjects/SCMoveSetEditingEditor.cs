@@ -15,12 +15,12 @@ public class SCMoveSetEditingEditor : Editor
         SCMoveSet moveSet = behavior.MoveSet;
         if (moveSet != null)
         {
-            if (moveSet != _moveSet)
+            if (moveSet != behavior.EditingMoveSet)
             {
                 newAttack = true;
-                _moveSet = moveSet;
+                behavior.EditingMoveSet = moveSet;
                 behavior.AttackObject = behavior.MoveSet.GroundNeutral;
-                _moveIndex = 0;
+                behavior.MoveIndex = 0;
                 behavior.CurrentIndex = 0;
                 behavior.Frame = 0;
             }
@@ -33,16 +33,16 @@ public class SCMoveSetEditingEditor : Editor
                 _moveOptions.Add("Dodge");
             }
 
-            int oldMoveIndex = _moveIndex;
-            _moveIndex = EditorGUILayout.Popup(label: "Current Move", selectedIndex: _moveIndex, displayedOptions: _moveOptions.ToArray());
+            int oldMoveIndex = behavior.MoveIndex;
+            behavior.MoveIndex = EditorGUILayout.Popup(label: "Current Move", selectedIndex: behavior.MoveIndex, displayedOptions: _moveOptions.ToArray());
 
             //TODO: Expand as more attack options, combos, etc are added
-            if (oldMoveIndex != _moveIndex)
+            if (oldMoveIndex != behavior.MoveIndex)
             {
                 newAttack = true;
-                if (_moveIndex == 0)
+                if (behavior.MoveIndex == 0)
                     behavior.AttackObject = behavior.MoveSet.GroundNeutral;
-                else if (_moveIndex == 1)
+                else if (behavior.MoveIndex == 1)
                     behavior.AttackObject = behavior.MoveSet.Dodge;
                 behavior.CurrentIndex = 0;
                 behavior.Frame = 0;
@@ -158,7 +158,5 @@ public class SCMoveSetEditingEditor : Editor
     }
 
     private bool _attackObjectFoldout = false;
-    private SCMoveSet _moveSet = null;
-    private int _moveIndex = 0;
     private List<string> _moveOptions = null;
 }

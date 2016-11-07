@@ -19,6 +19,10 @@ public class SCMoveSetEditing : MonoBehaviour
     public int CurrentIndex = 0;
     [HideInInspector]
     public int Frame = 0;
+    [HideInInspector]
+    public SCMoveSet EditingMoveSet;
+    [HideInInspector]
+    public int MoveIndex;
 
     public void SaveToCurrentIndex()
     {
