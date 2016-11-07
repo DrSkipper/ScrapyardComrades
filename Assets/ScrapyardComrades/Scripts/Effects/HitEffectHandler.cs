@@ -6,6 +6,7 @@ public class HitEffectHandler : MonoBehaviour
 
     public void InitializeWithFreezeFrames(int freezeFrames)
     {
+        this.Animator.Play("Empty");
         _freezeTimer = new Timer(freezeFrames, false, true);
     }
 
@@ -21,7 +22,7 @@ public class HitEffectHandler : MonoBehaviour
 
     public void EffectCompleted()
     {
-        Destroy(this.gameObject);
+        ObjectPools.Release(this.gameObject);
     }
 
     private Timer _freezeTimer;
