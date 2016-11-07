@@ -25,7 +25,6 @@ public class SCAttack : ScriptableObject
     
     public SCSpriteAnimation SpriteAnimation;
     public int NormalFrameLength;
-    public IntegerVector[] HitFrameRanges;
     public HitboxKeyframe[] HitboxKeyframes;
     public int JumpInterruptFrame;
     public int LedgeGrabInterruptFrame;
