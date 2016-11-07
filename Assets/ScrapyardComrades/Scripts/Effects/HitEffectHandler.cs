@@ -6,7 +6,6 @@ public class HitEffectHandler : MonoBehaviour
 
     public void InitializeWithFreezeFrames(int freezeFrames)
     {
-        this.Animator.Play("Empty");
         _freezeTimer = new Timer(freezeFrames, false, true);
     }
 
@@ -16,7 +15,7 @@ public class HitEffectHandler : MonoBehaviour
         {
             _freezeTimer.update();
             if (_freezeTimer.Completed)
-                this.Animator.SetTrigger("Begin");
+                this.Animator.SetTrigger(BEGIN_TRIGGER);
         }
     }
 
@@ -25,5 +24,12 @@ public class HitEffectHandler : MonoBehaviour
         ObjectPools.Release(this.gameObject);
     }
 
+    void OnReturnToPool()
+    {
+        this.Animator.Play(STARTING_STATE);
+    }
+
     private Timer _freezeTimer;
+    private const string STARTING_STATE = "Empty";
+    private const string BEGIN_TRIGGER = "Begin";
 }

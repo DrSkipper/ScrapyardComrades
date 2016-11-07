@@ -102,7 +102,7 @@ public class ObjectPools : MonoBehaviour
     {
         if (pool.Count < pool.Capacity)
         {
-            obj.BroadcastMessage("OnReturnToPool", SendMessageOptions.DontRequireReceiver);
+            obj.BroadcastMessage(POOL_RETURN_METHOD, SendMessageOptions.DontRequireReceiver);
             obj.transform.parent = null;
             obj.gameObject.SetActive(false);
             pool.Add(obj);
@@ -110,4 +110,6 @@ public class ObjectPools : MonoBehaviour
         }
         return false;
     }
+
+    private const string POOL_RETURN_METHOD = "OnReturnToPool";
 }
