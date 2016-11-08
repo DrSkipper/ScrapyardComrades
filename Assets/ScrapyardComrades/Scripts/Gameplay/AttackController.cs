@@ -61,12 +61,14 @@ public class AttackController : VoBehavior
 
                         if (landedHit)
                         {
-                            this.localNotifier.SendEvent(new FreezeFrameEvent(Damagable.FreezeFrames));
+                            if (_freezeFrameEvent == null)
+                                _freezeFrameEvent = new FreezeFrameEvent(Damagable.FREEZE_FRAMES);
+                            this.localNotifier.SendEvent(_freezeFrameEvent);
                             if (this.Damagable != null)
-                                this.Damagable.SetInvincible(Damagable.FreezeFrames);
+                                this.Damagable.SetInvincible(Damagable.FREEZE_FRAMES);
                             PooledObject hitEffect = this.HitEffect.Retain();
                             hitEffect.transform.position = (Vector2)hitPoint;
-                            hitEffect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(Damagable.FreezeFrames);
+                            hitEffect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(Damagable.FREEZE_FRAMES);
                         }
                     }
                 }
@@ -77,6 +79,8 @@ public class AttackController : VoBehavior
     /**
      * Private
      */
+    private FreezeFrameEvent _freezeFrameEvent;
+
     private SCAttack.HitboxKeyframe? getKeyframeForUpdateFrame(SCAttack attack, int updateFrame)
     {
         SCAttack.HitboxKeyframe? keyframe = null;

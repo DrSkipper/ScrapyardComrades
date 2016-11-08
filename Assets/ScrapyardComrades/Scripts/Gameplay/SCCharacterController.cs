@@ -97,6 +97,8 @@ public class SCCharacterController : Actor2D
         _hitStunTimer = new Timer(1);
         _hitStunTimer.complete();
 
+        _updateFinishEvent = new CharacterUpdateFinishedEvent(null);
+
         this.localNotifier.Listen(FreezeFrameEvent.NAME, this, freezeFrame);
         this.localNotifier.Listen(HitStunEvent.NAME, this, hitStun);
         this.localNotifier.Listen(HurtboxStateChangeEvent.NAME, this, attemptHurtboxStateChange);
@@ -225,7 +227,8 @@ public class SCCharacterController : Actor2D
         this.Velocity = _velocity;
         base.FixedUpdate();
 
-        this.localNotifier.SendEvent(new CharacterUpdateFinishedEvent(_currentAttack));
+        _updateFinishEvent.CurrentAttack = _currentAttack;
+        this.localNotifier.SendEvent(_updateFinishEvent);
 
         if (this.AttackController != null)
             this.AttackController.UpdateHitBoxes(_currentAttack, this.HurtboxState);
@@ -247,6 +250,7 @@ public class SCCharacterController : Actor2D
     private bool _canJumpHold;
     private bool _onGround;
     private SCAttack _currentAttack = null;
+    private CharacterUpdateFinishedEvent _updateFinishEvent;
     private Timer _attackTimer;
     private ControlParameters _parameters;
     private Timer _freezeFrameTimer;

@@ -2,12 +2,14 @@
 
 public class Damagable : VoBehavior
 {
-    public const int FreezeFrames = 6;
+    public const int FREEZE_FRAMES = 6;
     public bool Invincible { get; private set; }
 
     void Awake()
     {
         _invincibilityTimer = new Timer(1, false, false);
+        _freezeFrameEvent = new FreezeFrameEvent(FREEZE_FRAMES);
+        _hitStunEvent = new HitStunEvent(1);
     }
 
     public bool Damage(SCAttack attack, IntegerVector origin, IntegerVector hitPoint)
@@ -19,10 +21,11 @@ public class Damagable : VoBehavior
         Vector2 knockbackDirection = ((Vector2)(hitPoint - origin)).normalized;
         this.Actor.Velocity = knockbackDirection * attack.KnockbackPower;
         this.Invincible = true;
-        _invincibilityTimer.reset(attack.HitInvincibilityDuration + FreezeFrames);
+        _invincibilityTimer.reset(attack.HitInvincibilityDuration + FREEZE_FRAMES);
         _invincibilityTimer.start();
-        this.localNotifier.SendEvent(new FreezeFrameEvent(FreezeFrames));
-        this.localNotifier.SendEvent(new HitStunEvent(attack.HitStunDuration));
+        this.localNotifier.SendEvent(_freezeFrameEvent);
+        _hitStunEvent.NumFrames = attack.HitStunDuration;
+        this.localNotifier.SendEvent(_hitStunEvent);
         return true;
     }
 
@@ -48,4 +51,6 @@ public class Damagable : VoBehavior
      * Private
      */
     private Timer _invincibilityTimer;
+    private FreezeFrameEvent _freezeFrameEvent;
+    private HitStunEvent _hitStunEvent;
 }
