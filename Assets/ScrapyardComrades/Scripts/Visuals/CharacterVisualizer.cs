@@ -75,7 +75,6 @@ public class CharacterVisualizer : VoBehavior
                 return JUMPING_STATE;
             return FALLING_STATE;
         }
-        if (_characterController.MoveAxis != 0 && _characterController.Velocity.x != 0)
         {
             return RUNNING_STATE;
         }
