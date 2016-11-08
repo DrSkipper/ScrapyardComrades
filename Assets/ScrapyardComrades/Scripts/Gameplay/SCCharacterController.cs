@@ -75,6 +75,7 @@ public class SCCharacterController : Actor2D
     public SCAttack.HurtboxState HurtboxState = SCAttack.HurtboxState.Normal;
     public bool Ducking { get { return _currentAttack == null && this.HurtboxState == SCAttack.HurtboxState.Ducking; } }
     public bool HitStunned { get { return _freezeFrameTimer.Completed && !_hitStunTimer.Completed; } }
+    public InputWrapper MostRecentInput { get; private set; }
 
     public virtual InputWrapper GatherInput()
     {
@@ -117,6 +118,7 @@ public class SCCharacterController : Actor2D
 
         _hitStunTimer.update();
         InputWrapper input = !_hitStunTimer.Completed ? new EmptyInput() : this.GatherInput();
+        this.MostRecentInput = input;
         _moveAxis = input.MovementAxis;
         _velocity = this.Velocity;
         _onGround = this.IsGrounded;

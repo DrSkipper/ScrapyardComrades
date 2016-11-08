@@ -71,7 +71,7 @@ public class CharacterVisualizer : VoBehavior
         }
         if (!_characterController.OnGround)
         {
-            if (GameplayInput.JumpHeld && _characterController.Velocity.y > 0.0f)
+            if (_characterController.MostRecentInput.JumpHeld && _characterController.Velocity.y > 0.0f)
                 return JUMPING_STATE;
             return FALLING_STATE;
         }
