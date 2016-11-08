@@ -74,6 +74,7 @@ public class SCCharacterController : Actor2D
     public int MoveAxis { get { return _moveAxis; } }
     public SCAttack.HurtboxState HurtboxState = SCAttack.HurtboxState.Normal;
     public bool Ducking { get { return _currentAttack == null && this.HurtboxState == SCAttack.HurtboxState.Ducking; } }
+    public bool HitStunned { get { return _freezeFrameTimer.Completed && !_hitStunTimer.Completed; } }
 
     public virtual InputWrapper GatherInput()
     {
@@ -93,8 +94,11 @@ public class SCCharacterController : Actor2D
 
         _freezeFrameTimer = new Timer(1);
         _freezeFrameTimer.complete();
+        _hitStunTimer = new Timer(1);
+        _hitStunTimer.complete();
 
         this.localNotifier.Listen(FreezeFrameEvent.NAME, this, freezeFrame);
+        this.localNotifier.Listen(HitStunEvent.NAME, this, hitStun);
         this.localNotifier.Listen(HurtboxStateChangeEvent.NAME, this, attemptHurtboxStateChange);
     }
 
@@ -109,7 +113,8 @@ public class SCCharacterController : Actor2D
                 this.localNotifier.SendEvent(new FreezeFrameEndedEvent());
         }
 
-        InputWrapper input = this.GatherInput();
+        _hitStunTimer.update();
+        InputWrapper input = !_hitStunTimer.Completed ? new EmptyInput() : this.GatherInput();
         _moveAxis = input.MovementAxis;
         _velocity = this.Velocity;
         _onGround = this.IsGrounded;
@@ -245,6 +250,7 @@ public class SCCharacterController : Actor2D
     private Timer _attackTimer;
     private ControlParameters _parameters;
     private Timer _freezeFrameTimer;
+    private Timer _hitStunTimer;
 
     private struct ControlParameters
     {
@@ -324,6 +330,11 @@ public class SCCharacterController : Actor2D
     private void freezeFrame(LocalEventNotifier.Event e)
     {
         _freezeFrameTimer.reset((e as FreezeFrameEvent).NumFrames);
+    }
+
+    private void hitStun(LocalEventNotifier.Event e)
+    {
+        _hitStunTimer.reset((e as HitStunEvent).NumFrames);
     }
 
     private void attemptHurtboxStateChange(LocalEventNotifier.Event e)

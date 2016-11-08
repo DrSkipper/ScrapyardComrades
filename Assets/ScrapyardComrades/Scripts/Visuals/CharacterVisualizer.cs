@@ -9,12 +9,14 @@ public class CharacterVisualizer : VoBehavior
     public SCSpriteAnimation JumpAnimation;
     public SCSpriteAnimation FallAnimation;
     public SCSpriteAnimation DuckAnimation;
+    public SCSpriteAnimation HitStunAnimation;
 
     private const string IDLE_STATE = "idle";
     private const string RUNNING_STATE = "run";
     private const string JUMPING_STATE = "jump";
     private const string FALLING_STATE = "fall";
     private const string DUCKING_STATE = "duck";
+    private const string STUNNED_STATE = "stun";
     private const string ATTACK_STATE = "attack";
 
     void Awake()
@@ -27,6 +29,7 @@ public class CharacterVisualizer : VoBehavior
         _stateMachine.AddState(JUMPING_STATE, this.updateGeneric, this.enterJumping);
         _stateMachine.AddState(FALLING_STATE, this.updateGeneric, this.enterFalling);
         _stateMachine.AddState(DUCKING_STATE, this.updateGeneric, this.enterDucking);
+        _stateMachine.AddState(STUNNED_STATE, this.updateGeneric, this.enterHitStun);
         _stateMachine.AddState(ATTACK_STATE, this.updateAttack, this.enterAttack);
         _stateMachine.BeginWithInitialState(IDLE_STATE);
 
@@ -57,6 +60,10 @@ public class CharacterVisualizer : VoBehavior
         if (_currentAttack != null)
         {
             return ATTACK_STATE;
+        }
+        if (_characterController.HitStunned)
+        {
+            return STUNNED_STATE;
         }
         if (_characterController.Ducking)
         {
@@ -115,5 +122,10 @@ public class CharacterVisualizer : VoBehavior
     private void enterDucking()
     {
         _spriteAnimator.PlayAnimation(this.DuckAnimation);
+    }
+
+    private void enterHitStun()
+    {
+        _spriteAnimator.PlayAnimation(this.HitStunAnimation);
     }
 }

@@ -86,6 +86,18 @@ public class FreezeFrameEndedEvent : LocalEventNotifier.Event
     }
 }
 
+public class HitStunEvent : LocalEventNotifier.Event
+{
+    public const string NAME = "HIT_STUN";
+    public int NumFrames;
+
+    public HitStunEvent(int numFrames)
+    {
+        this.Name = NAME;
+        this.NumFrames = numFrames;
+    }
+}
+
 public class PlayerSpawnedEvent : LocalEventNotifier.Event
 {
     public const string NAME = "PLAYER_SPAWNED";

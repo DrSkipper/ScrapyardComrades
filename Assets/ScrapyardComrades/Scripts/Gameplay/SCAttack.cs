@@ -35,7 +35,7 @@ public class SCAttack : ScriptableObject
 
     public float KnockbackPower = 10.0f;
     public int HitInvincibilityDuration = 4;
-    //public int HitStunDuration = 4;
+    public int HitStunDuration = 4;
     //TODO - 4 types of knockback - Hard-set direction, 1stChar-to-2ndChar origin difference, 1stChar-to-hit, hit-to-2ndChar
 
     public float GravityMultiplier = 1.0f;

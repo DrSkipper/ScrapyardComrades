@@ -2,7 +2,7 @@
 
 public class Damagable : VoBehavior
 {
-    public const int FreezeFrames = 4;
+    public const int FreezeFrames = 6;
     public bool Invincible { get; private set; }
 
     void Awake()
@@ -22,6 +22,7 @@ public class Damagable : VoBehavior
         _invincibilityTimer.reset(attack.HitInvincibilityDuration + FreezeFrames);
         _invincibilityTimer.start();
         this.localNotifier.SendEvent(new FreezeFrameEvent(FreezeFrames));
+        this.localNotifier.SendEvent(new HitStunEvent(attack.HitStunDuration));
         return true;
     }
 

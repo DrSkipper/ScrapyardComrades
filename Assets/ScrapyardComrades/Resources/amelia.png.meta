@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9c805a874707c1d43af4612aa16f33c8
-timeCreated: 1478553947
+timeCreated: 1478562557
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -21,6 +21,7 @@ TextureImporter:
     21300028: amelia_run_3
     21300030: amelia_slide_0
     21300032: amelia_duck_0
+    21300034: amelia_hitstun_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -284,6 +285,19 @@ TextureImporter:
         x: 239
         y: 300
         width: 50
+        height: 33
+      alignment: 9
+      pivot: {x: 0.305, y: 0.51}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: amelia_hitstun_0
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 204
+        width: 54
         height: 33
       alignment: 9
       pivot: {x: 0.305, y: 0.51}
