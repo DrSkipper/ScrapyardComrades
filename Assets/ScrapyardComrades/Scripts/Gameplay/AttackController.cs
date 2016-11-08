@@ -7,6 +7,8 @@ public class AttackController : VoBehavior
     public Damagable Damagable;
     public LayerMask DamagableLayers;
     public PooledObject HitEffect;
+    public HurtboxChangeDelegate HurtboxChangeCallback;
+    public delegate bool HurtboxChangeDelegate(SCAttack.HurtboxState newState);
 
     public void UpdateHitBoxes(SCAttack currentAttack, SCAttack.HurtboxState hurtboxState)
     {
@@ -23,6 +25,13 @@ public class AttackController : VoBehavior
             SCAttack.HitboxKeyframe? keyframe = getKeyframeForUpdateFrame(currentAttack, this.Animator.Elapsed);
             if (keyframe.HasValue)
             {
+                if (keyframe.Value.HurtboxState != hurtboxState)
+                {
+                    bool success = this.HurtboxChangeCallback(keyframe.Value.HurtboxState);
+                    if (!success)
+                        return;
+                }
+
                 GameObject collided = null;
                 IntegerRectCollider collider = null;
                 for (int i = 0; i < this.DamageBoxes.Length; ++i)
@@ -44,10 +53,6 @@ public class AttackController : VoBehavior
                     {
                         this.DamageBoxes[i].enabled = false;
                     }
-                }
-                if (keyframe.Value.HurtboxState != hurtboxState)
-                {
-                    this.localNotifier.SendEvent(new HurtboxStateChangeEvent(keyframe.Value.HurtboxState));
                 }
 
                 // Apply damage if we hit

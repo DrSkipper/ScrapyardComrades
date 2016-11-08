@@ -102,7 +102,9 @@ public class SCCharacterController : Actor2D
 
         this.localNotifier.Listen(FreezeFrameEvent.NAME, this, freezeFrame);
         this.localNotifier.Listen(HitStunEvent.NAME, this, hitStun);
-        this.localNotifier.Listen(HurtboxStateChangeEvent.NAME, this, attemptHurtboxStateChange);
+
+        if (this.AttackController != null)
+            this.AttackController.HurtboxChangeCallback = attemptHurtboxStateChange;
     }
 
     public override void FixedUpdate()
@@ -190,7 +192,7 @@ public class SCCharacterController : Actor2D
         if (_currentAttack == null)
         {
             // Attempt to stand up if necessary
-            attemptHurtboxChangeHelper(SCAttack.HurtboxState.Normal);
+            attemptHurtboxStateChange(SCAttack.HurtboxState.Normal);
 
             // Check if it's time to jump
             if (input.JumpBegin || !_jumpBufferTimer.Completed)
@@ -219,7 +221,7 @@ public class SCCharacterController : Actor2D
             {
                 // End attack, and stand up if necessary
                 _currentAttack = null;
-                attemptHurtboxChangeHelper(SCAttack.HurtboxState.Normal);
+                attemptHurtboxStateChange(SCAttack.HurtboxState.Normal);
             }
         }
 
@@ -229,11 +231,11 @@ public class SCCharacterController : Actor2D
         this.Velocity = _velocity;
         base.FixedUpdate();
 
-        _updateFinishEvent.CurrentAttack = _currentAttack;
-        this.localNotifier.SendEvent(_updateFinishEvent);
-
         if (this.AttackController != null)
             this.AttackController.UpdateHitBoxes(_currentAttack, this.HurtboxState);
+
+        _updateFinishEvent.CurrentAttack = _currentAttack;
+        this.localNotifier.SendEvent(_updateFinishEvent);
     }
 
     public bool IsGrounded
@@ -343,26 +345,21 @@ public class SCCharacterController : Actor2D
         _hitStunTimer.reset((e as HitStunEvent).NumFrames);
     }
 
-    private void attemptHurtboxStateChange(LocalEventNotifier.Event e)
-    {
-        attemptHurtboxChangeHelper((e as HurtboxStateChangeEvent).NewState);
-    }
-
-    private void attemptHurtboxChangeHelper(SCAttack.HurtboxState newState)
+    private bool attemptHurtboxStateChange(SCAttack.HurtboxState newState)
     {
         if (newState == this.HurtboxState)
-            return;
+            return true;
         updateHurtboxForState(newState);
         if (this.Hurtbox.CollideFirst(0, 0, this.HaltMovementMask) != null)
         {
             // We collided when trying to stand up, so boot out of attack into ducking position
             _currentAttack = null;
             updateHurtboxForState(this.HurtboxState);
+            return false;
         }
-        else
-        {
-            this.HurtboxState = newState;
-        }
+
+        this.HurtboxState = newState;
+        return true;
     }
 
     private void updateHurtboxForState(SCAttack.HurtboxState state)

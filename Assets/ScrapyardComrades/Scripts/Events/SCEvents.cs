@@ -133,15 +133,3 @@ public class SCSpriteAnimationLoopEvent : LocalEventNotifier.Event
         this.NewElapsed = newElapsed;
     }
 }
-
-public class HurtboxStateChangeEvent : LocalEventNotifier.Event
-{
-    public const string NAME = "HURTBOX_CHANGE";
-    public SCAttack.HurtboxState NewState;
-
-    public HurtboxStateChangeEvent(SCAttack.HurtboxState newState)
-    {
-        this.Name = NAME;
-        this.NewState = newState;
-    }
-}
