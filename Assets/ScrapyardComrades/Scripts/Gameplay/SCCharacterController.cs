@@ -203,6 +203,14 @@ public class SCCharacterController : Actor2D
                 {
                     _attackTimer.reset(_currentAttack.NormalFrameLength);
                     _attackTimer.start();
+
+                    // Change direction facing if necessary (need to do this before checking first frame velocity boost)
+                    if (_moveAxis != 0)
+                        _facing = (Facing)_moveAxis;
+
+                    // Apply velocity boost for current frame in current Move
+                    handleVelocityBoosts();
+                    allowFaceChange = false;
                 }
             }
         }
@@ -219,25 +227,7 @@ public class SCCharacterController : Actor2D
             else
             {
                 // Apply velocity boost for current frame in current Move
-                Vector2 boost = _parameters.VelocityBoost;
-                boost.x *= (int)_facing;
-                switch (_parameters.VelocityBoostType)
-                {
-                    default:
-                    case SCAttack.VelocityBoost.BoostType.None:
-                        break;
-                    case SCAttack.VelocityBoost.BoostType.Additive:
-                        _velocity += boost;
-                        break;
-                    case SCAttack.VelocityBoost.BoostType.Average:
-                        _velocity = (_velocity + boost) / 2.0f;
-                        break;
-                    case SCAttack.VelocityBoost.BoostType.Absolute:
-                        _velocity = boost;
-                        if (boost.x != 0.0f)
-                            allowFaceChange = false;
-                        break;
-                }
+                allowFaceChange = handleVelocityBoosts();
             }
         }
 
@@ -407,5 +397,29 @@ public class SCCharacterController : Actor2D
                 this.Hurtbox.Size = this.MoveSet.DuckHitboxSpecs.Size;
                 break;
         }
+    }
+
+    private bool handleVelocityBoosts()
+    {
+        Vector2 boost = _parameters.VelocityBoost;
+        boost.x *= (int)_facing;
+        switch (_parameters.VelocityBoostType)
+        {
+            default:
+            case SCAttack.VelocityBoost.BoostType.None:
+                break;
+            case SCAttack.VelocityBoost.BoostType.Additive:
+                _velocity += boost;
+                break;
+            case SCAttack.VelocityBoost.BoostType.Average:
+                _velocity = (_velocity + boost) / 2.0f;
+                break;
+            case SCAttack.VelocityBoost.BoostType.Absolute:
+                _velocity = boost;
+                if (boost.x != 0.0f)
+                    return false;
+                break;
+        }
+        return true;
     }
 }
