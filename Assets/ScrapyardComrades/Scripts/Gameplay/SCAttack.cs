@@ -22,7 +22,25 @@ public class SCAttack : ScriptableObject
         Normal,
         Ducking
     }
-    
+
+    [System.Serializable]
+    public struct VelocityBoost
+    {
+        public int EffectFrame;
+        public Vector2 Boost;
+        public BoostType Type;
+        public int DurationFrames;
+
+        [System.Serializable]
+        public enum BoostType
+        {
+            None,
+            Additive,
+            Average,
+            Absolute
+        }
+    }
+
     public SCSpriteAnimation SpriteAnimation;
     public int NormalFrameLength;
     public HitboxKeyframe[] HitboxKeyframes;
@@ -48,5 +66,17 @@ public class SCAttack : ScriptableObject
     public float RunDeccelerationMultiplier = 1.0f;
     public float AirRunAccelerationMultiplier = 1.0f;
 
-    public PlayerController.VelocityBoost[] VelocityBoosts;
+    public VelocityBoost[] VelocityBoosts;
+
+    public VelocityBoost? GetVelocityBoostForFrame(int frame)
+    {
+        if (this.VelocityBoosts == null)
+            return null;
+        for (int i = 0; i < this.VelocityBoosts.Length; ++i)
+        {
+            if (this.VelocityBoosts[i].EffectFrame <= frame && this.VelocityBoosts[i].EffectFrame + this.VelocityBoosts[i].DurationFrames > frame)
+                return this.VelocityBoosts[i];
+        }
+        return null;
+    }
 }

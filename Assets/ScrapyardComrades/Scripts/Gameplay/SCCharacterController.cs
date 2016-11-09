@@ -9,12 +9,6 @@ public class SCCharacterController : Actor2D
         Right = 1
     }
 
-    public struct VelocityBoost
-    {
-        int EffectFrame;
-        Vector2 Boost;
-    }
-
     public interface InputWrapper
     {
         int MovementAxis { get; }
@@ -124,9 +118,9 @@ public class SCCharacterController : Actor2D
         _moveAxis = input.MovementAxis;
         _velocity = this.Velocity;
         _onGround = this.IsGrounded;
+        bool allowFaceChange = true;
 
         updateControlParametersForCurrentAttack();
-        _velocity += _parameters.VelocityBoost;
 
         // Update jumpBufferCounter, and if input indicates Jump is pressed, set it to JUMP_BUFFER
         _jumpBufferTimer.update();
@@ -201,7 +195,7 @@ public class SCCharacterController : Actor2D
                     jump();
             }
 
-            // Or if we're beginning an attack/dodge/other move
+            // Or if we're beginning a Move
             else
             {
                 _currentAttack = this.MoveSet.GetAttackForInput(input);
@@ -214,26 +208,52 @@ public class SCCharacterController : Actor2D
         }
         else
         {
-            // Update the attack
+            // Update the Move timer, check if done
             _attackTimer.update();
-
             if (_attackTimer.Completed)
             {
-                // End attack, and stand up if necessary
+                // End Move, and stand up if necessary
                 _currentAttack = null;
                 attemptHurtboxStateChange(SCAttack.HurtboxState.Normal);
             }
+            else
+            {
+                // Apply velocity boost for current frame in current Move
+                Vector2 boost = _parameters.VelocityBoost;
+                boost.x *= (int)_facing;
+                switch (_parameters.VelocityBoostType)
+                {
+                    default:
+                    case SCAttack.VelocityBoost.BoostType.None:
+                        break;
+                    case SCAttack.VelocityBoost.BoostType.Additive:
+                        _velocity += boost;
+                        break;
+                    case SCAttack.VelocityBoost.BoostType.Average:
+                        _velocity = (_velocity + boost) / 2.0f;
+                        break;
+                    case SCAttack.VelocityBoost.BoostType.Absolute:
+                        _velocity = boost;
+                        if (boost.x != 0.0f)
+                            allowFaceChange = false;
+                        break;
+                }
+            }
         }
 
-        if (_moveAxis != 0)
+        // Change direction facing if necessary
+        if (allowFaceChange && _moveAxis != 0)
             _facing = (Facing)_moveAxis;
 
+        // Actor2D update
         this.Velocity = _velocity;
         base.FixedUpdate();
 
+        // Update Move hitboxes
         if (this.AttackController != null)
             this.AttackController.UpdateHitBoxes(_currentAttack, this.HurtboxState);
 
+        // Send update finished event (so visual state handling can know to update)
         _updateFinishEvent.CurrentAttack = _currentAttack;
         this.localNotifier.SendEvent(_updateFinishEvent);
     }
@@ -280,6 +300,7 @@ public class SCCharacterController : Actor2D
         public float AirRunAcceleration;
 
         public Vector2 VelocityBoost;
+        public SCAttack.VelocityBoost.BoostType VelocityBoostType;
     }
 
     private void updateControlParametersForCurrentAttack()
@@ -297,7 +318,16 @@ public class SCCharacterController : Actor2D
             _parameters.AirRunAcceleration = this.AirRunAcceleration * _currentAttack.AirRunAccelerationMultiplier;
 
             _parameters.VelocityBoost = Vector2.zero;
-            //if (_currentAttack.VelocityBoosts != null && _currentAttack)
+            _parameters.VelocityBoostType = SCAttack.VelocityBoost.BoostType.None;
+            if (this.AttackController != null)
+            {
+                SCAttack.VelocityBoost? boost = this.AttackController.GetCurrentVelocityBoost(_currentAttack);
+                if (boost.HasValue)
+                {
+                    _parameters.VelocityBoost = boost.Value.Boost;
+                    _parameters.VelocityBoostType = boost.Value.Type;
+                }
+            }
         }
         else
         {
@@ -311,6 +341,7 @@ public class SCCharacterController : Actor2D
             _parameters.RunDecceleration = this.RunDecceleration;
             _parameters.AirRunAcceleration = this.AirRunAcceleration;
             _parameters.VelocityBoost = Vector2.zero;
+            _parameters.VelocityBoostType = SCAttack.VelocityBoost.BoostType.None;
         }
 
         _parameters.MaxFallSpeed = this.MaxFallSpeed;

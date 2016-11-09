@@ -81,6 +81,11 @@ public class AttackController : VoBehavior
         }
     }
 
+    public SCAttack.VelocityBoost? GetCurrentVelocityBoost(SCAttack currentAttack)
+    {
+        return currentAttack.GetVelocityBoostForFrame(this.Animator.Elapsed);
+    }
+
     /**
      * Private
      */
