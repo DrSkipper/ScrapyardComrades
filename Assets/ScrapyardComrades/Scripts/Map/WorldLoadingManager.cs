@@ -19,6 +19,8 @@ public class WorldLoadingManager : MonoBehaviour
     public Dictionary<string, Sprite[]> CachedSprites;
     public const int MAX_MAP_LOADERS = 12;
 
+    public IntegerRectCollider CurrentQuadBoundsCheck;
+
     public class MapQuad
     {
         public string Name;
@@ -59,6 +61,7 @@ public class WorldLoadingManager : MonoBehaviour
         gatherTargetLoadedQuads();
         loadQuads(true);
         _currentLoadedQuads.AddRange(_targetLoadedQuads);
+        updateBoundsCheck();
 
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
     }
@@ -218,8 +221,15 @@ public class WorldLoadingManager : MonoBehaviour
             }
         }
 
+        updateBoundsCheck();
+
         // Send recenter event so lerpers/tweens know to change targets
         GlobalEvents.Notifier.SendEvent(new WorldRecenterEvent(_recenterOffset * -this.TileRenderSize));
+    }
+
+    private void updateBoundsCheck()
+    {
+        this.CurrentQuadBoundsCheck.Size = new IntegerVector(_currentQuad.CenteredBounds.Size.X * this.TileRenderSize, _currentQuad.CenteredBounds.Size.Y * this.TileRenderSize);
     }
 
     private void loadQuads(bool loadPlayer)

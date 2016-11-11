@@ -105,10 +105,12 @@ public class SCMoveSetEditing : MonoBehaviour
 
     public void UpdateMoveSetHurtboxes()
     {
+#if UNITY_EDITOR
         this.MoveSet.NormalHitboxSpecs = new IntegerRect(this.NormalHurtbox.Offset, this.NormalHurtbox.Size);
         this.MoveSet.DuckHitboxSpecs = new IntegerRect(this.DuckHurtbox.Offset, this.DuckHurtbox.Size);
         EditorUtility.SetDirty(this.MoveSet);
         AssetDatabase.SaveAssets();
+#endif
     }
 
     /**
