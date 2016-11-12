@@ -133,3 +133,27 @@ public class SCSpriteAnimationLoopEvent : LocalEventNotifier.Event
         this.NewElapsed = newElapsed;
     }
 }
+
+public class PauseEvent : LocalEventNotifier.Event
+{
+    public static string NAME = "PAUSE";
+    public PauseController.PauseGroup PauseGroup;
+
+    public PauseEvent(PauseController.PauseGroup pauseGroup)
+    {
+        this.Name = NAME;
+        this.PauseGroup = pauseGroup;
+    }
+}
+
+public class ResumeEvent : LocalEventNotifier.Event
+{
+    public static string NAME = "RESUME";
+    public PauseController.PauseGroup PauseGroup;
+
+    public ResumeEvent(PauseController.PauseGroup pauseGroup)
+    {
+        this.Name = NAME;
+        this.PauseGroup = pauseGroup;
+    }
+}
