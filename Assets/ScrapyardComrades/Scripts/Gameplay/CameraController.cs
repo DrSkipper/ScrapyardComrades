@@ -2,14 +2,28 @@
 
 public class CameraController : MonoBehaviour, IPausable
 {
-    public IntegerRectCollider BoundsChecker;
+    public IntegerRectCollider BoundsChecker; // Y value should be set to match vision of screen height in world at start. X will be driven by screen width to height ratio.
     public WorldLoadingManager WorldManager;
+    public int RoomBorder = 10; // Modifies BoundsChecker size to give small visual overlap between rooms
     public float TransitionSpeed = 1.0f;
 
     void Awake()
     {
-        _halfBoundsWidth = this.BoundsChecker.Size.X / 2;
-        _halfBoundsHeight = this.BoundsChecker.Size.Y / 2;
+        int height = this.BoundsChecker.Size.Y;
+        int width = Mathf.RoundToInt((float)height * (float)Screen.width / (float)Screen.height);
+        height -= this.RoomBorder;
+        width -= this.RoomBorder;
+
+        //float ratio = (float)Screen.width / (float)Screen.height;
+        //int diff = Screen.height - height;
+        //int width = Screen.width - Mathf.RoundToInt(ratio * diff);
+        //int width = Screen.width - diff;
+        //int height = Screen.height;
+        //int width = Screen.width;
+
+        this.BoundsChecker.Size = new IntegerVector(width, height);
+        _halfBoundsWidth = width / 2;
+        _halfBoundsHeight = height / 2;
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
         GlobalEvents.Notifier.Listen(PauseEvent.NAME, this, onPause);
     }
