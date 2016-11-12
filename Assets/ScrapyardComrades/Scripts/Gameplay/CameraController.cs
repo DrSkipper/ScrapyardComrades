@@ -14,16 +14,10 @@ public class CameraController : MonoBehaviour, IPausable
         height -= this.RoomBorder;
         width -= this.RoomBorder;
 
-        //float ratio = (float)Screen.width / (float)Screen.height;
-        //int diff = Screen.height - height;
-        //int width = Screen.width - Mathf.RoundToInt(ratio * diff);
-        //int width = Screen.width - diff;
-        //int height = Screen.height;
-        //int width = Screen.width;
-
         this.BoundsChecker.Size = new IntegerVector(width, height);
         _halfBoundsWidth = width / 2;
         _halfBoundsHeight = height / 2;
+
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
         GlobalEvents.Notifier.Listen(PauseEvent.NAME, this, onPause);
     }
