@@ -39,25 +39,34 @@ public class PauseHandler : VoBehavior
             this.PreviouslyEnabled = behavior.enabled;
         }
 
-        public void Pause()
+        public bool Pause()
         {
+            if (this.Behavior == null)
+                return false;
             this.PreviouslyEnabled = this.Behavior.enabled;
             this.Behavior.enabled = false;
+            return true;
         }
 
-        public void Resume()
+        public bool Resume()
         {
+            if (this.Behavior == null)
+                return false;
             this.Behavior.enabled = this.PreviouslyEnabled;
+            return true;
         }
     }
 
     private void pause(LocalEventNotifier.Event e)
     {
-        if (isAffected((e as ResumeEvent).PauseGroup))
+        if (isAffected((e as PauseEvent).PauseGroup))
         {
-            for (int i = 0; i < _pausables.Count; ++i)
+            for (int i = 0; i < _pausables.Count;)
             {
-                _pausables[i].Pause();
+                if (_pausables[i].Pause())
+                    ++i;
+                else
+                    _pausables.RemoveAt(i);
             }
 
             /*
@@ -71,9 +80,12 @@ public class PauseHandler : VoBehavior
     {
         if (isAffected((e as ResumeEvent).PauseGroup))
         {
-            for (int i = 0; i < _pausables.Count; ++i)
+            for (int i = 0; i < _pausables.Count;)
             {
-                _pausables[i].Resume();
+                if (_pausables[i].Resume())
+                    ++i;
+                else
+                    _pausables.RemoveAt(i);
             }
 
             /*

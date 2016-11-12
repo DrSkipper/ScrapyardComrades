@@ -112,11 +112,11 @@ public static class GameplayInput
         }
     }
 
-    public static bool Pause
+    public static bool PausePressed
     {
         get
         {
-            return ReInput.players.GetPlayer(PLAYER_ID).GetButton(PAUSE);
+            return ReInput.players.GetPlayer(PLAYER_ID).GetButtonDown(PAUSE);
         }
     }
 }

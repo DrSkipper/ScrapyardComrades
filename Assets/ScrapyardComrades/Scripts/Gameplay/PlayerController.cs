@@ -16,7 +16,7 @@ public class PlayerController : SCCharacterController
         public bool AttackStrongHeld { get { return GameplayInput.AttackStrongHeld; } }
         public bool UseItem { get { return GameplayInput.UseItem; } }
         public bool Interact { get { return GameplayInput.Interact; } }
-        public bool Pause { get { return GameplayInput.Pause; } }
+        public bool PausePressed { get { return GameplayInput.PausePressed; } }
     }
 
     public override InputWrapper GatherInput()

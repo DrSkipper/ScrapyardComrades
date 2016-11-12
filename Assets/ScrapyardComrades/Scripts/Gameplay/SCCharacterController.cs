@@ -23,7 +23,7 @@ public class SCCharacterController : Actor2D
         bool AttackStrongHeld { get; }
         bool UseItem { get; }
         bool Interact { get; }
-        bool Pause { get; }
+        bool PausePressed { get; }
     }
 
     public struct EmptyInput : InputWrapper
@@ -40,7 +40,7 @@ public class SCCharacterController : Actor2D
         public bool AttackStrongHeld { get { return false; } }
         public bool UseItem { get { return false; } }
         public bool Interact { get { return false; } }
-        public bool Pause { get { return false; } }
+        public bool PausePressed { get { return false; } }
     }
 
     public float Gravity = 100.0f;
