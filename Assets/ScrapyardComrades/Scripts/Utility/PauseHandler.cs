@@ -8,6 +8,8 @@ public class PauseHandler : VoBehavior
     void Awake()
     {
         _pausables = new List<Pausable>();
+        //_animator = this.GetComponent<Animator>();
+
         IPausable[] components = this.GetComponents<IPausable>();
         for (int i = 0; i < components.Length; ++i)
         {
@@ -22,6 +24,9 @@ public class PauseHandler : VoBehavior
      * Private
      */
     private List<Pausable> _pausables;
+
+    //TODO: Will require state saving and continuing code to get Animator class to work properly with this pausing system. As is the animator state will be restarted when returning from pause. GetCurrentAnimatorStateInfo() and GetNextAnimatorStateInfo() may need to be used, and then data from those passed int Play();
+    //private Animator _animator;
 
     private struct Pausable
     {
@@ -54,6 +59,11 @@ public class PauseHandler : VoBehavior
             {
                 _pausables[i].Pause();
             }
+
+            /*
+            if (_animator != null)
+                _animator.GetCurrentAnimatorStateInfo();
+                */
         }
     }
 
@@ -65,6 +75,11 @@ public class PauseHandler : VoBehavior
             {
                 _pausables[i].Resume();
             }
+
+            /*
+            if (_animator != null)
+                _animator.
+                */
         }
     }
 
