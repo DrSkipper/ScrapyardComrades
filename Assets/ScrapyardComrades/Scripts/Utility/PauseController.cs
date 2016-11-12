@@ -22,6 +22,18 @@ public static class PauseController
         GlobalEvents.Notifier.SendEvent(_resumeEvent);
     }
 
+    public static void BeginSequence()
+    {
+        _pauseEvent.PauseGroup = PauseGroup.SequencedPause;
+        GlobalEvents.Notifier.SendEvent(_pauseEvent);
+    }
+
+    public static void EndSequence()
+    {
+        _resumeEvent.PauseGroup = PauseGroup.SequencedPause;
+        GlobalEvents.Notifier.SendEvent(_resumeEvent);
+    }
+
     /**
      * Private
      */
