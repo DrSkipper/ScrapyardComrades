@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-public class WorldLoadingManager : MonoBehaviour
+public class WorldLoadingManager : MonoBehaviour, IPausable
 {
     public string WorldMapName = "WorldMap";
     public string StartingAreaName = "Quad_0_0";

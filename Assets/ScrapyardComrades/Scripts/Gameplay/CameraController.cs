@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraController : MonoBehaviour, IPausable
 {
     public IntegerRectCollider BoundsChecker;
     public WorldLoadingManager WorldManager;

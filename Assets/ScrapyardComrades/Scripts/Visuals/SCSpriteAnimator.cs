@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SCSpriteAnimator : VoBehavior
+public class SCSpriteAnimator : VoBehavior, IPausable
 {
     public SCSpriteAnimation DefaultAnimation;
     public SCSpriteAnimation CurrentAnimation { get { guaranteeCurrentAnimation(); return _currentAnimation; } }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ActorFriction : VoBehavior
+public class ActorFriction : VoBehavior, IPausable
 {
     public float Friction;
     public string VelocityKey = "";

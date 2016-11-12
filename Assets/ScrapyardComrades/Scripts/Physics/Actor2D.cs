@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-public class Actor2D : VoBehavior
+public class Actor2D : VoBehavior, IPausable
 {
     public Vector2 Velocity;
     public LayerMask HaltMovementMask;

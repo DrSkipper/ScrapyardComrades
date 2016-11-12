@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 [RequireComponent(typeof(PerlinShake))]
-public class ShakeHandler : VoBehavior
+public class ShakeHandler : VoBehavior, IPausable
 {
     [System.Serializable]
     public struct ShakeTier

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AttackController : VoBehavior
+public class AttackController : VoBehavior, IPausable
 {
     public IntegerRectCollider[] DamageBoxes;
     public SCSpriteAnimator Animator;

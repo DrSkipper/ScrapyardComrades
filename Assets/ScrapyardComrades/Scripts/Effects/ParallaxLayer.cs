@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ParallaxLayer : VoBehavior
+public class ParallaxLayer : VoBehavior, IPausable
 {
     public Vector2 ParallaxMultiplier = new Vector2(0.5f, 0.5f);
 
@@ -10,6 +10,7 @@ public class ParallaxLayer : VoBehavior
         GlobalEvents.Notifier.Listen(WorldRecenterEvent.NAME, this, onRecenter);
     }
 
+    //TODO: fixed update?
     void Update()
     {
         if (_tracker != null)

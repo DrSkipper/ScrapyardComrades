@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Damagable : VoBehavior
+public class Damagable : VoBehavior, IPausable
 {
     public const int FREEZE_FRAMES = 6;
     public bool Invincible { get; private set; }

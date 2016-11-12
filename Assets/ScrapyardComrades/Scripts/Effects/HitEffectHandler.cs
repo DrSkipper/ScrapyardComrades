@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class HitEffectHandler : MonoBehaviour
+public class HitEffectHandler : MonoBehaviour, IPausable
 {
     public Animator Animator;
 

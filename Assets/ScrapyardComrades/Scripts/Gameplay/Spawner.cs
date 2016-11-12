@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(TimedCallbacks))]
-public class Spawner : VoBehavior
+public class Spawner : VoBehavior, IPausable
 {
     public GameObject ObjectToSpawn;
     public Transform SpawnLocation;

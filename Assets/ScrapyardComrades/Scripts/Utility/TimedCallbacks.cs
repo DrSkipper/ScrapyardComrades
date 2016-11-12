@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class TimedCallbacks : VoBehavior
+public class TimedCallbacks : VoBehavior, IPausable
 {
     public delegate void Callback();
 
