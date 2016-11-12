@@ -18,6 +18,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable
     public Dictionary<string, Texture2D> CachedAtlases;
     public Dictionary<string, Sprite[]> CachedSprites;
     public const int MAX_MAP_LOADERS = 12;
+    public const string ROOM_TRANSITION_SEQUENCE = "room_transition";
 
     public IntegerRectCollider CurrentQuadBoundsCheck;
 
@@ -84,6 +85,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable
                 _currentLoadedQuads.Clear();
                 _currentLoadedQuads.AddRange(_targetLoadedQuads);
                 _positionOfLastLoading = _tracker.transform.position;
+                PauseController.BeginSequence(ROOM_TRANSITION_SEQUENCE);
             }
         }
     }

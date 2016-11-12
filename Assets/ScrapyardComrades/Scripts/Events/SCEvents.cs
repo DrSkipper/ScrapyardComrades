@@ -138,11 +138,13 @@ public class PauseEvent : LocalEventNotifier.Event
 {
     public static string NAME = "PAUSE";
     public PauseController.PauseGroup PauseGroup;
+    public string Tag;
 
-    public PauseEvent(PauseController.PauseGroup pauseGroup)
+    public PauseEvent(PauseController.PauseGroup pauseGroup, string tag = null)
     {
         this.Name = NAME;
         this.PauseGroup = pauseGroup;
+        this.Tag = tag;
     }
 }
 
@@ -150,10 +152,12 @@ public class ResumeEvent : LocalEventNotifier.Event
 {
     public static string NAME = "RESUME";
     public PauseController.PauseGroup PauseGroup;
+    public string Tag;
 
-    public ResumeEvent(PauseController.PauseGroup pauseGroup)
+    public ResumeEvent(PauseController.PauseGroup pauseGroup, string tag = null)
     {
         this.Name = NAME;
         this.PauseGroup = pauseGroup;
+        this.Tag = tag;
     }
 }

@@ -13,24 +13,28 @@ public static class PauseController
     public static void UserPause()
     {
         _pauseEvent.PauseGroup = PauseGroup.UserPause;
+        _pauseEvent.Tag = null;
         GlobalEvents.Notifier.SendEvent(_pauseEvent);
     }
 
     public static void UserResume()
     {
         _resumeEvent.PauseGroup = PauseGroup.UserPause;
+        _resumeEvent.Tag = null;
         GlobalEvents.Notifier.SendEvent(_resumeEvent);
     }
 
-    public static void BeginSequence()
+    public static void BeginSequence(string sequenceTag)
     {
         _pauseEvent.PauseGroup = PauseGroup.SequencedPause;
+        _pauseEvent.Tag = sequenceTag;
         GlobalEvents.Notifier.SendEvent(_pauseEvent);
     }
 
-    public static void EndSequence()
+    public static void EndSequence(string sequenceTag)
     {
         _resumeEvent.PauseGroup = PauseGroup.SequencedPause;
+        _resumeEvent.Tag = sequenceTag;
         GlobalEvents.Notifier.SendEvent(_resumeEvent);
     }
 
