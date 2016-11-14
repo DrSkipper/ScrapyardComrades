@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections.Generic;
 
 public class PauseHandler : VoBehavior
@@ -24,6 +25,7 @@ public class PauseHandler : VoBehavior
      * Private
      */
     private List<Pausable> _pausables;
+    private uint _currentPausedLayers;
 
     //TODO: Will require state saving and continuing code to get Animator class to work properly with this pausing system. As is the animator state will be restarted when returning from pause. GetCurrentAnimatorStateInfo() and GetNextAnimatorStateInfo() may need to be used, and then data from those passed int Play();
     //private Animator _animator;
@@ -56,11 +58,13 @@ public class PauseHandler : VoBehavior
             return true;
         }
     }
-
+    
     private void pause(LocalEventNotifier.Event e)
     {
-        if (isAffected((e as PauseEvent).PauseGroup))
+        PauseController.PauseGroup group = (e as PauseEvent).PauseGroup;
+        if (isAffected(group))
         {
+            _currentPausedLayers += (uint)group;
             for (int i = 0; i < _pausables.Count;)
             {
                 if (_pausables[i].Pause())
@@ -78,14 +82,19 @@ public class PauseHandler : VoBehavior
 
     private void resume(LocalEventNotifier.Event e)
     {
-        if (isAffected((e as ResumeEvent).PauseGroup))
+        PauseController.PauseGroup group = (e as ResumeEvent).PauseGroup;
+        if (_currentPausedLayers != 0 && isAffected(group))
         {
-            for (int i = 0; i < _pausables.Count;)
+            _currentPausedLayers = _currentPausedLayers.Approach(0, (uint)group);
+            if (_currentPausedLayers == 0)
             {
-                if (_pausables[i].Resume())
-                    ++i;
-                else
-                    _pausables.RemoveAt(i);
+                for (int i = 0; i < _pausables.Count;)
+                {
+                    if (_pausables[i].Resume())
+                        ++i;
+                    else
+                        _pausables.RemoveAt(i);
+                }
             }
 
             /*

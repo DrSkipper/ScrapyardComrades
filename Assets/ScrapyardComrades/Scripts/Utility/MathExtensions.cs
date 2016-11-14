@@ -19,6 +19,23 @@ public static class MathExtensions
         return self <= target ? Math.Min(self + maxChange, target) : Math.Max(self - maxChange, target);
     }
 
+    public static uint Approach(this uint self, uint target, uint maxChange)
+    {
+        if (target < self)
+        {
+            if (self - target < maxChange)
+                return target;
+            return self - maxChange;
+        }
+        else if (target > self)
+        {
+            if (target - self < maxChange)
+                return target;
+            return self + maxChange;
+        }
+        return self;
+    }
+
     public static Vector2 AngleToVector(float angleRadians, float length)
     {
         return new Vector2((float)Math.Cos((double)angleRadians) * length, (float)Math.Sin((double)angleRadians) * length);
