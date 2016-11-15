@@ -2,23 +2,25 @@
 
 public class CameraController : MonoBehaviour, IPausable
 {
-    public IntegerRectCollider BoundsChecker; // Y value should be set to match vision of screen height in world at start. X will be driven by screen width to height ratio.
+    public Camera Camera;
+    public IntegerRectCollider BoundsChecker;
     public WorldLoadingManager WorldManager;
     public int RoomBorder = 10; // Modifies BoundsChecker size to give small visual overlap between rooms
     public Easing.Function TransitionEasingFunction;
     public Easing.Flow TransitionEasingFlow;
     public float TransitionDuration = 1.0f;
 
-    void Awake()
+    void Start()
     {
-        int height = this.BoundsChecker.Size.Y;
+        int cameraHeight = Screen.height > RESOLUTION_DOUBLING_THRESHOLD ? Screen.height / 2 : Screen.height;
+        Camera.orthographicSize = cameraHeight;
+        int height = cameraHeight * PIXELS_TO_UNITS;
+        this.BoundsChecker.Size.Y = height;
         int width = Mathf.RoundToInt((float)height * (float)Screen.width / (float)Screen.height);
-        height -= this.RoomBorder;
-        width -= this.RoomBorder;
+        _attemptedHeight = height - this.RoomBorder * 2;
+        _attemptedWidth = width - this.RoomBorder * 2;
+        calculateBounds();
 
-        this.BoundsChecker.Size = new IntegerVector(width, height);
-        _halfBoundsWidth = width / 2;
-        _halfBoundsHeight = height / 2;
         _easingDelegate = Easing.GetFunction(this.TransitionEasingFunction, this.TransitionEasingFlow);
 
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
@@ -46,7 +48,7 @@ public class CameraController : MonoBehaviour, IPausable
                 Vector2 target = _transitionOrigin.EaseTowards(_transitionDestination, _transitionTime, this.TransitionDuration, _easingDelegate);
                 this.transform.position = new Vector3(target.x, target.y, this.transform.position.z);
 
-                if (Vector2.Distance(this.transform.position, _transitionDestination) < 0.05f)
+                if (Vector2.Distance(this.transform.position, _transitionDestination) < TRANSITION_END_BUFFER)
                 {
                     this.transform.position = new Vector3(_transitionDestination.X, _transitionDestination.Y, this.transform.position.z);
                     _inTransition = false;
@@ -63,11 +65,16 @@ public class CameraController : MonoBehaviour, IPausable
     private Transform _tracker;
     private int _halfBoundsWidth;
     private int _halfBoundsHeight;
+    private int _attemptedWidth;
+    private int _attemptedHeight;
     private bool _inTransition;
     private float _transitionTime;
     private IntegerVector _transitionDestination;
     private Vector2 _transitionOrigin;
     private Easing.EasingDelegate _easingDelegate;
+    private const int RESOLUTION_DOUBLING_THRESHOLD = 540;
+    private const int PIXELS_TO_UNITS = 2;
+    private const float TRANSITION_END_BUFFER = 0.04f;
 
     private void playerSpawned(LocalEventNotifier.Event e)
     {
@@ -82,6 +89,7 @@ public class CameraController : MonoBehaviour, IPausable
         {
             _inTransition = true;
             _transitionTime = 0.0f;
+            calculateBounds();
         }
     }
 
@@ -114,5 +122,21 @@ public class CameraController : MonoBehaviour, IPausable
                 destination.Y = quad.Min.Y + _halfBoundsHeight;
         }
         return destination;
+    }
+
+    private void calculateBounds()
+    {
+        int width = _attemptedWidth;
+        int height = _attemptedHeight;
+
+        // Make sure our camera target bounds don't go outside the quad bounds
+        if (width > this.WorldManager.CurrentQuadBoundsCheck.Size.X)
+            width = this.WorldManager.CurrentQuadBoundsCheck.Size.X;
+        if (height > this.WorldManager.CurrentQuadBoundsCheck.Size.Y)
+            height = this.WorldManager.CurrentQuadBoundsCheck.Size.Y;
+
+        this.BoundsChecker.Size = new IntegerVector(width, height);
+        _halfBoundsWidth = width / 2;
+        _halfBoundsHeight = height / 2;
     }
 }
