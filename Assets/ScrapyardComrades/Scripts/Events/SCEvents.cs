@@ -166,16 +166,16 @@ public class ResumeEvent : LocalEventNotifier.Event
     }
 }
 
-public class EnemyDiedEvent : LocalEventNotifier.Event
+public class EntityConsumedEvent : LocalEventNotifier.Event
 {
-    public const string NAME = "ENEMY_DIED";
+    public const string NAME = "ENTITY_CONSUMED";
     public string QuadName;
-    public string EnemyName;
+    public string EntityName;
 
-    public EnemyDiedEvent(string quadName, string enemyName)
+    public EntityConsumedEvent(string quadName, string entityName)
     {
         this.Name = NAME;
         this.QuadName = quadName;
-        this.EnemyName = enemyName;
+        this.EntityName = entityName;
     }
 }

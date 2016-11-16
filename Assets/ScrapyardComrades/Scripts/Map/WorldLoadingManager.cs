@@ -15,6 +15,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable
     public PooledObject MapLoaderPrefab;
     public List<GameObject> IgnoreRecenterObjects;
     public CollisionManager CollisionManager;
+    public EntityTracker EntityTracker;
     public Dictionary<string, Texture2D> CachedAtlases;
     public Dictionary<string, Sprite[]> CachedSprites;
     public const int MAX_MAP_LOADERS = 12;
@@ -171,6 +172,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable
         loader.transform.position = new Vector3(position.x, position.y, loader.transform.position.z);
         MapLoader newMapLoader = loader.GetComponent<MapLoader>();
         newMapLoader.WorldLoadingManager = this;
+        newMapLoader.ObjectPlacer.EntityTracker = this.EntityTracker;
         _activeMapLoaders.Add(newMapLoader);
         return newMapLoader;
     }

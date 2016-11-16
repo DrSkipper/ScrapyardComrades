@@ -5,7 +5,7 @@ public class ObjectPlacer : VoBehavior
     public PooledObject PlayerSpawnerPrefab;
     public PooledObject EnemySpawnerPrefab;
     public PooledObject HeartSpawnerPrefab;
-    public EnemyTracker EnemyTracker;
+    public EntityTracker EntityTracker;
     public int TileRenderSize = 20;
     public int TileTextureSize = 10;
     public bool FlipVertical = true;
@@ -26,7 +26,7 @@ public class ObjectPlacer : VoBehavior
             }
             else if (mapObject.name.Contains(ENEMY))
             {
-                if (this.EnemyTracker.AttemptLoad(quadName, mapObject.name))
+                if (this.EntityTracker.CanLoadEntity(quadName, mapObject.name))
                 {
                     //TODO - Apply enemy health remaining
                     spawner = this.EnemySpawnerPrefab.Retain();
