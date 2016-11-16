@@ -128,7 +128,7 @@ public class WorldRecenterEvent : LocalEventNotifier.Event
 
 public class SCSpriteAnimationLoopEvent : LocalEventNotifier.Event
 {
-    public static string NAME = "ANIM_LOOP";
+    public const string NAME = "ANIM_LOOP";
     public int NewElapsed;
 
     public SCSpriteAnimationLoopEvent(int newElapsed)
@@ -140,7 +140,7 @@ public class SCSpriteAnimationLoopEvent : LocalEventNotifier.Event
 
 public class PauseEvent : LocalEventNotifier.Event
 {
-    public static string NAME = "PAUSE";
+    public const string NAME = "PAUSE";
     public PauseController.PauseGroup PauseGroup;
     public string Tag;
 
@@ -154,7 +154,7 @@ public class PauseEvent : LocalEventNotifier.Event
 
 public class ResumeEvent : LocalEventNotifier.Event
 {
-    public static string NAME = "RESUME";
+    public const string NAME = "RESUME";
     public PauseController.PauseGroup PauseGroup;
     public string Tag;
 
@@ -163,5 +163,19 @@ public class ResumeEvent : LocalEventNotifier.Event
         this.Name = NAME;
         this.PauseGroup = pauseGroup;
         this.Tag = tag;
+    }
+}
+
+public class EnemyDiedEvent : LocalEventNotifier.Event
+{
+    public const string NAME = "ENEMY_DIED";
+    public string QuadName;
+    public string EnemyName;
+
+    public EnemyDiedEvent(string quadName, string enemyName)
+    {
+        this.Name = NAME;
+        this.QuadName = quadName;
+        this.EnemyName = enemyName;
     }
 }

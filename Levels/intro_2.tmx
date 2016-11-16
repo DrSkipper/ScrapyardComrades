@@ -183,6 +183,6 @@
  </layer>
  <objectgroup name="objects">
   <object id="25" name="player" gid="401" x="368" y="620" width="14" height="26"/>
-  <object id="31" name="enemy" gid="402" x="908" y="620" width="14" height="26"/>
+  <object id="31" name="enemy 1" gid="402" x="908" y="620" width="14" height="26"/>
  </objectgroup>
 </map>

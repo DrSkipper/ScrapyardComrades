@@ -26,8 +26,20 @@ public class Spawner : VoBehavior, IPausable
         IntegerCollider collider = spawn.GetComponent<IntegerCollider>();
         int yOffset = collider != null ? collider.Bounds.Size.Y / 2 : 0;
 
+        ISpawnable[] spawnables = spawn.GetComponents<ISpawnable>();
+
+        for (int i = 0; i < spawnables.Length; ++i)
+        {
+            spawnables[i].OnSpawn();
+        }
+
         spawn.transform.position = new Vector3(this.SpawnLocation.position.x, this.SpawnLocation.position.y + yOffset, this.SpawnLocation.position.z);
         if (this.DestroyAfterSpawn)
             Destroy(this.gameObject);
     }
+}
+
+public interface ISpawnable
+{
+    void OnSpawn();
 }

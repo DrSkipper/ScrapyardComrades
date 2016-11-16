@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-public class SCCharacterController : Actor2D
+public class SCCharacterController : Actor2D, ISpawnable
 {
     public enum Facing
     {
@@ -78,6 +78,17 @@ public class SCCharacterController : Actor2D
 
     void Awake()
     {
+        _updateFinishEvent = new CharacterUpdateFinishedEvent(null);
+
+        this.localNotifier.Listen(FreezeFrameEvent.NAME, this, freezeFrame);
+        this.localNotifier.Listen(HitStunEvent.NAME, this, hitStun);
+
+        if (this.AttackController != null)
+            this.AttackController.HurtboxChangeCallback = attemptHurtboxStateChange;
+    }
+
+    public virtual void OnSpawn()
+    {
         _jumpBufferTimer = new Timer(this.JumpBufferFrames);
         _jumpBufferTimer.complete();
 
@@ -91,14 +102,10 @@ public class SCCharacterController : Actor2D
         _freezeFrameTimer.complete();
         _hitStunTimer = new Timer(1);
         _hitStunTimer.complete();
+    }
 
-        _updateFinishEvent = new CharacterUpdateFinishedEvent(null);
-
-        this.localNotifier.Listen(FreezeFrameEvent.NAME, this, freezeFrame);
-        this.localNotifier.Listen(HitStunEvent.NAME, this, hitStun);
-
-        if (this.AttackController != null)
-            this.AttackController.HurtboxChangeCallback = attemptHurtboxStateChange;
+    public virtual void OnDeath()
+    {
     }
 
     public override void FixedUpdate()
