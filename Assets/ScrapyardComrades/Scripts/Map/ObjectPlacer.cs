@@ -2,34 +2,43 @@
 
 public class ObjectPlacer : VoBehavior
 {
-    public GameObject PlayerSpawnerPrefab;
-    public GameObject EnemySpawnerPrefab;
-    public GameObject HeartSpawnerPrefab;
+    public PooledObject PlayerSpawnerPrefab;
+    public PooledObject EnemySpawnerPrefab;
+    public PooledObject HeartSpawnerPrefab;
+    public EnemyTracker EnemyTracker;
     public int TileRenderSize = 20;
     public int TileTextureSize = 10;
     public bool FlipVertical = true;
 
-    public void PlaceObjects(MapInfo.MapObject[] mapObjects, int gridWidth, int gridHeight, bool loadPlayer)
+    public void PlaceObjects(MapInfo.MapObject[] mapObjects, int gridWidth, int gridHeight, bool loadPlayer, string quadName)
     {
         int positionCorrection = this.TileRenderSize / this.TileTextureSize;
 
         for (int i = 0; i < mapObjects.Length; ++i)
         {
             MapInfo.MapObject mapObject = mapObjects[i];
-            GameObject spawner = null;
+            PooledObject spawner = null;
 
             if (mapObject.name == PLAYER)
             {
                 if (loadPlayer)
-                    spawner = Instantiate<GameObject>(this.PlayerSpawnerPrefab);
+                    spawner = this.PlayerSpawnerPrefab.Retain();
             }
             else if (mapObject.name.Contains(ENEMY))
             {
-                spawner = Instantiate<GameObject>(this.EnemySpawnerPrefab);
+                if (this.EnemyTracker.AttemptLoad(quadName, mapObject.name))
+                {
+                    //TODO - Apply enemy health remaining
+                    spawner = this.EnemySpawnerPrefab.Retain();
+                    Spawner spawnerComponent = spawner.GetComponent<Spawner>();
+                    spawnerComponent.ClearSpawnData();
+                    spawnerComponent.AddSpawnData(EnemyController.QUAD_NAME_KEY, quadName);
+                    spawnerComponent.AddSpawnData(EnemyController.ENEMY_NAME_KEY, mapObject.name);
+                }
             }
             else if (mapObject.name.Contains(HEART))
             {
-                spawner = Instantiate<GameObject>(this.HeartSpawnerPrefab);
+                spawner = this.HeartSpawnerPrefab.Retain();
             }
 
             if (spawner != null)

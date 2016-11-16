@@ -74,7 +74,7 @@ public class MapLoader : MonoBehaviour
         this.GeometryCreator.CreateGeometryForGrid(grid, false);
 
         if (loadObjects)
-            this.ObjectPlacer.PlaceObjects(mapInfo.GetLayerWithName(this.ObjectsLayer).objects, mapInfo.width, mapInfo.height, this.LoadPlayer);
+            this.ObjectPlacer.PlaceObjects(mapInfo.GetLayerWithName(this.ObjectsLayer).objects, mapInfo.width, mapInfo.height, this.LoadPlayer, this.MapName);
     }
 
     public void CorrectTiling(bool editor = false)

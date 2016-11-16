@@ -31,6 +31,8 @@ public class Damagable : VoBehavior, IPausable
         _hitStunEvent.GravityMultiplier = attack.HitParameters.HitStunGravityMultiplier;
         _hitStunEvent.AirFrictionMultiplier = attack.HitParameters.HitStunAirFrictionMultiplier;
         this.localNotifier.SendEvent(_hitStunEvent);
+
+        //TODO - Subtract health, send death event if dead
         return true;
     }
 

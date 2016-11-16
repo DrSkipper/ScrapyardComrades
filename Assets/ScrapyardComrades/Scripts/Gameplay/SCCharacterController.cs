@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 public class SCCharacterController : Actor2D, ISpawnable
 {
@@ -87,7 +88,7 @@ public class SCCharacterController : Actor2D, ISpawnable
             this.AttackController.HurtboxChangeCallback = attemptHurtboxStateChange;
     }
 
-    public virtual void OnSpawn()
+    public virtual void OnSpawn(Dictionary<string, string> spawnData = null)
     {
         _jumpBufferTimer = new Timer(this.JumpBufferFrames);
         _jumpBufferTimer.complete();

@@ -32,6 +32,7 @@ public class EnemyTracker : MonoBehaviour
     {
         public string Name;
         public bool IsAlive;
+        //TODO - Health remaining
 
         public EnemyEntry(string name)
         {

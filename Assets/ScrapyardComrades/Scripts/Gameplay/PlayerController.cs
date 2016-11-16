@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
 
 public class PlayerController : SCCharacterController
 {
@@ -24,8 +24,9 @@ public class PlayerController : SCCharacterController
         return new PlayerInput();
     }
 
-    void Start()
+    public override void OnSpawn(Dictionary<string, string> spawnData = null)
     {
+        base.OnSpawn(spawnData);
         GlobalEvents.Notifier.SendEvent(new PlayerSpawnedEvent(this.gameObject));
     }
 }
