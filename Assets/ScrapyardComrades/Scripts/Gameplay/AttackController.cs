@@ -10,6 +10,22 @@ public class AttackController : VoBehavior, IPausable
     public HurtboxChangeDelegate HurtboxChangeCallback;
     public delegate bool HurtboxChangeDelegate(SCAttack.HurtboxState newState);
 
+    public void AddDamageBoxes()
+    {
+        for (int i = 0; i < this.DamageBoxes.Length; ++i)
+        {
+            this.DamageBoxes[i].AddToCollisionPool();
+        }
+    }
+
+    void OnReturnToPool()
+    {
+        for (int i = 0; i < this.DamageBoxes.Length; ++i)
+        {
+            this.DamageBoxes[i].RemoveFromCollisionPool();
+        }
+    }
+
     public void UpdateHitBoxes(SCAttack currentAttack, SCAttack.HurtboxState hurtboxState, SCCharacterController.Facing facing)
     {
         if (currentAttack == null)
@@ -62,7 +78,7 @@ public class AttackController : VoBehavior, IPausable
                     if (otherDamagable != null)
                     {
                         IntegerVector hitPoint = collided.GetComponent<IntegerCollider>().ClosestContainedPoint((Vector2)collider.transform.position);
-                        bool landedHit = otherDamagable.Damage(currentAttack, (Vector2)this.Actor.transform.position, hitPoint, facing);
+                        bool landedHit = otherDamagable.Damage(currentAttack.HitParameters, (Vector2)this.Actor.transform.position, hitPoint, facing);
 
                         if (landedHit)
                         {

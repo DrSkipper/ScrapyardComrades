@@ -61,7 +61,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable
         _targetLoadedQuads = new List<MapQuad>();
         _currentLoadedQuads = new List<MapQuad>();
         gatherTargetLoadedQuads();
-        loadQuads(true);
+        loadQuads();
         _currentLoadedQuads.AddRange(_targetLoadedQuads);
         updateBoundsCheck();
 
@@ -82,7 +82,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable
                 gatherTargetLoadedQuads();
                 unloadQuads();
                 recenter();
-                loadQuads(false);
+                loadQuads();
                 _currentLoadedQuads.Clear();
                 _currentLoadedQuads.AddRange(_targetLoadedQuads);
                 _positionOfLastLoading = _tracker.transform.position;
@@ -226,6 +226,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable
         }
 
         updateBoundsCheck();
+        this.EntityTracker.QuadsUnloaded(_targetLoadedQuads, _currentQuad, this.TileRenderSize);
 
         // Send recenter event so lerpers/tweens know to change targets
         GlobalEvents.Notifier.SendEvent(new WorldRecenterEvent(_recenterOffset * -this.TileRenderSize));
@@ -236,7 +237,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable
         this.CurrentQuadBoundsCheck.Size = new IntegerVector(_currentQuad.CenteredBounds.Size.X * this.TileRenderSize, _currentQuad.CenteredBounds.Size.Y * this.TileRenderSize);
     }
 
-    private void loadQuads(bool loadPlayer)
+    private void loadQuads()
     {
         for (int i = 0; i < _targetLoadedQuads.Count; ++i)
         {
@@ -245,7 +246,6 @@ public class WorldLoadingManager : MonoBehaviour, IPausable
                 IntegerVector relativeCenter = _targetLoadedQuads[i].GetRelativeBounds(_currentQuad).Center;
                 MapLoader loader = aquireMapLoader(new Vector2(relativeCenter.X * this.TileRenderSize, relativeCenter.Y * this.TileRenderSize));
                 loader.MapName = _targetLoadedQuads[i].Name;
-                loader.LoadPlayer = loadPlayer && _targetLoadedQuads[i] == _currentQuad;
                 loader.LoadMap(true); //TODO - figure out how to handle when to load objects/remember where they were/discard them
             }
         }

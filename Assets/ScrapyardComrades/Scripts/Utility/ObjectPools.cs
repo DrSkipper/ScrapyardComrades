@@ -20,7 +20,7 @@ public class ObjectPools : MonoBehaviour
             // Preload
             while (_pools[i].Count < prefab.MaxToStore)
             {
-                returnObject(_pools[i], instantiate(prefab));
+                returnObject(_pools[i], instantiate(prefab), false);
             }
         }
     }
@@ -98,11 +98,12 @@ public class ObjectPools : MonoBehaviour
         return Instantiate<PooledObject>(prefab);
     }
 
-    private bool returnObject(List<PooledObject> pool, PooledObject obj)
+    private bool returnObject(List<PooledObject> pool, PooledObject obj, bool broadcastMessage = true)
     {
         if (pool.Count < pool.Capacity)
         {
-            obj.BroadcastMessage(POOL_RETURN_METHOD, SendMessageOptions.DontRequireReceiver);
+            if (broadcastMessage)
+                obj.BroadcastMessage(POOL_RETURN_METHOD, SendMessageOptions.DontRequireReceiver);
             obj.transform.parent = null;
             obj.gameObject.SetActive(false);
             pool.Add(obj);

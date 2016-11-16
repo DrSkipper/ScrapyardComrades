@@ -3,7 +3,9 @@
 public class Damagable : VoBehavior, IPausable
 {
     public const int FREEZE_FRAMES = 6;
+    public int Health = 10;
     public bool Invincible { get; private set; }
+    public bool Dead { get { return this.Health <= 0; } }
 
     void Awake()
     {
@@ -12,27 +14,30 @@ public class Damagable : VoBehavior, IPausable
         _hitStunEvent = new HitStunEvent(1, 1.0f, 1.0f);
     }
 
-    public bool Damage(SCAttack attack, IntegerVector origin, IntegerVector hitPoint, SCCharacterController.Facing attackerFacing)
+    public bool Damage(SCAttack.HitData hitData, IntegerVector origin, IntegerVector hitPoint, SCCharacterController.Facing attackerFacing)
     {
         if (this.Invincible)
             return false;
+
+        // Damage
+        this.Health = Mathf.Max(0, this.Health - hitData.Damage);
         
         // Handle knockback
-        this.Actor.Velocity = attack.HitParameters.GetKnockback(origin, this.transform.position, hitPoint, attackerFacing);
+        this.Actor.Velocity = hitData.GetKnockback(origin, this.transform.position, hitPoint, attackerFacing);
 
         // Handle invincibility and freeze frames
         this.Invincible = true;
-        _invincibilityTimer.reset(attack.HitParameters.HitInvincibilityDuration + FREEZE_FRAMES);
+        int invinciblityDuration = (!this.Dead ? hitData.HitInvincibilityDuration : DEATH_HITSTUN) + FREEZE_FRAMES;
+        _invincibilityTimer.reset(invinciblityDuration);
         _invincibilityTimer.start();
         this.localNotifier.SendEvent(_freezeFrameEvent);
 
         // Handle hitstun
-        _hitStunEvent.NumFrames = attack.HitParameters.HitStunDuration;
-        _hitStunEvent.GravityMultiplier = attack.HitParameters.HitStunGravityMultiplier;
-        _hitStunEvent.AirFrictionMultiplier = attack.HitParameters.HitStunAirFrictionMultiplier;
+        _hitStunEvent.NumFrames = !this.Dead ? hitData.HitStunDuration + FREEZE_FRAMES : invinciblityDuration;
+        _hitStunEvent.GravityMultiplier = hitData.HitStunGravityMultiplier;
+        _hitStunEvent.AirFrictionMultiplier = hitData.HitStunAirFrictionMultiplier;
         this.localNotifier.SendEvent(_hitStunEvent);
 
-        //TODO - Subtract health, send death event if dead
         return true;
     }
 
@@ -60,4 +65,5 @@ public class Damagable : VoBehavior, IPausable
     private Timer _invincibilityTimer;
     private FreezeFrameEvent _freezeFrameEvent;
     private HitStunEvent _hitStunEvent;
+    private const int DEATH_HITSTUN = 16;
 }

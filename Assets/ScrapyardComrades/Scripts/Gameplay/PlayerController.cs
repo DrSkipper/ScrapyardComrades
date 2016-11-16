@@ -24,9 +24,9 @@ public class PlayerController : SCCharacterController
         return new PlayerInput();
     }
 
-    public override void OnSpawn(Dictionary<string, string> spawnData = null)
+    public override void OnSpawn()
     {
-        base.OnSpawn(spawnData);
+        base.OnSpawn();
         GlobalEvents.Notifier.SendEvent(new PlayerSpawnedEvent(this.gameObject));
     }
 }

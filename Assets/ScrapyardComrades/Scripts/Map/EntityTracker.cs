@@ -3,19 +3,27 @@ using System.Collections.Generic;
 
 public class EntityTracker : MonoBehaviour
 {
+    public const string PLAYER = "player";
+    public const string ENEMY = "enemy";
+    public const string HEART = "heart";
+
     public class Entity
     {
-        public string Name;
+        public string QuadName;
+        public string EntityName;
         public bool Consumed;
         //TODO - Health remaining
+        public bool AttemptingLoad;
         public bool Loaded;
-        public bool CanLoad { get { return !this.Consumed && !this.Loaded; } }
+        public bool CanLoad { get { return !this.Consumed && !this.Loaded && !this.AttemptingLoad; } }
 
-        public Entity(string name)
+        public Entity(string quadName, string entityName)
         {
-            this.Name = name;
+            this.QuadName = quadName;
+            this.EntityName = entityName;
             this.Consumed = false;
             this.Loaded = false;
+            this.AttemptingLoad = false;
         }
     }
 
@@ -24,8 +32,12 @@ public class EntityTracker : MonoBehaviour
         GlobalEvents.Notifier.Listen(EntityConsumedEvent.NAME, this, entityConsumed);
     }
 
-    public bool CanLoadEntity(string quadName, string entityName)
+    public Entity GetEntity(string quadName, string entityName)
     {
+        // Players owned globally, not by quad
+        if (entityName == PLAYER)
+            quadName = PLAYER;
+
         if (!_trackedEntities.ContainsKey(quadName))
         {
             _trackedEntities.Add(quadName, new Dictionary<string, Entity>());
@@ -33,10 +45,10 @@ public class EntityTracker : MonoBehaviour
 
         if (!_trackedEntities[quadName].ContainsKey(entityName))
         {
-            _trackedEntities[quadName].Add(entityName, new Entity(entityName));
+            _trackedEntities[quadName].Add(entityName, new Entity(quadName, entityName));
         }
 
-        return _trackedEntities[quadName][entityName].CanLoad;
+        return _trackedEntities[quadName][entityName];
     }
 
     public void TrackLoadedEntity(WorldEntity entity)

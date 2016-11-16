@@ -18,7 +18,6 @@ public class MapLoader : MonoBehaviour
     public string BGLayer = "background";
     public string ObjectsLayer = "objects";
     public bool FlipVertical = true;
-    public bool LoadPlayer = false;
     public bool LoadOnStart = false;
     public WorldLoadingManager WorldLoadingManager;
 
@@ -74,7 +73,7 @@ public class MapLoader : MonoBehaviour
         this.GeometryCreator.CreateGeometryForGrid(grid, false);
 
         if (loadObjects)
-            this.ObjectPlacer.PlaceObjects(mapInfo.GetLayerWithName(this.ObjectsLayer).objects, mapInfo.width, mapInfo.height, this.LoadPlayer, this.MapName);
+            this.ObjectPlacer.PlaceObjects(mapInfo.GetLayerWithName(this.ObjectsLayer).objects, mapInfo.width, mapInfo.height, this.MapName);
     }
 
     public void CorrectTiling(bool editor = false)
@@ -122,6 +121,7 @@ public class MapLoader : MonoBehaviour
                 this.BGRenderer.Clear();
             }
             this.GeometryCreator.Clear(editor);
+            this.ObjectPlacer.WipeSpawns();
             this.transform.position = this.transform.position + new Vector3(_width * this.PlatformsRenderer.TileRenderSize / 2, _height * this.PlatformsRenderer.TileRenderSize / 2, this.transform.position.z);
             _width = 0;
             _height = 0;

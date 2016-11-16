@@ -116,8 +116,6 @@ public class SCMoveSetEditing : MonoBehaviour
     /**
      * Private
      */
-    private SCAttack.HurtboxState _hurtboxState;
-
     private SCAttack.HitboxKeyframe gatherKeyframeData()
     {
         List<IntegerVector> hitboxPositions = new List<IntegerVector>();

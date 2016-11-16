@@ -10,6 +10,7 @@ public class CharacterVisualizer : VoBehavior
     public SCSpriteAnimation FallAnimation;
     public SCSpriteAnimation DuckAnimation;
     public SCSpriteAnimation HitStunAnimation;
+    public SCSpriteAnimation DeathAnimation;
 
     private const string IDLE_STATE = "idle";
     private const string RUNNING_STATE = "run";
@@ -17,6 +18,7 @@ public class CharacterVisualizer : VoBehavior
     private const string FALLING_STATE = "fall";
     private const string DUCKING_STATE = "duck";
     private const string STUNNED_STATE = "stun";
+    private const string DEATH_STATE = "death";
     private const string ATTACK_STATE = "attack";
 
     void Awake()
@@ -30,6 +32,7 @@ public class CharacterVisualizer : VoBehavior
         _stateMachine.AddState(FALLING_STATE, this.updateGeneric, this.enterFalling);
         _stateMachine.AddState(DUCKING_STATE, this.updateGeneric, this.enterDucking);
         _stateMachine.AddState(STUNNED_STATE, this.updateGeneric, this.enterHitStun);
+        _stateMachine.AddState(DEATH_STATE, this.updateDying, this.enterDeath);
         _stateMachine.AddState(ATTACK_STATE, this.updateAttack, this.enterAttack);
         _stateMachine.BeginWithInitialState(IDLE_STATE);
 
@@ -63,6 +66,8 @@ public class CharacterVisualizer : VoBehavior
         }
         if (_characterController.HitStunned)
         {
+            if (_characterController.Damagable.Dead)
+                return DEATH_STATE;
             return STUNNED_STATE;
         }
         if (_characterController.Ducking)
@@ -80,6 +85,11 @@ public class CharacterVisualizer : VoBehavior
             return RUNNING_STATE;
         }
         return IDLE_STATE;
+    }
+
+    private string updateDying()
+    {
+        return DEATH_STATE;
     }
 
     private string updateAttack()
@@ -127,5 +137,10 @@ public class CharacterVisualizer : VoBehavior
     private void enterHitStun()
     {
         _spriteAnimator.PlayAnimation(this.HitStunAnimation);
+    }
+
+    private void enterDeath()
+    {
+        _spriteAnimator.PlayAnimation(this.DeathAnimation);
     }
 }

@@ -44,6 +44,7 @@ public class SCAttack : ScriptableObject
     [System.Serializable]
     public struct HitData
     {
+        public int Damage;
         public KnockbackType KnockbackType;
         public VectorExtensions.Direction16 KnockbackDirection;
         public float KnockbackPower;

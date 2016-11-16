@@ -61,6 +61,8 @@ public class SCCharacterController : Actor2D, ISpawnable
     public float RunDecceleration = 3.0f;
     public float AirRunAcceleration = 0.1f;
 
+    public WorldEntity WorldEntity;
+    public Damagable Damagable;
     public AttackController AttackController;
     public IntegerRectCollider Hurtbox;
     public SCMoveSet MoveSet;
@@ -88,25 +90,39 @@ public class SCCharacterController : Actor2D, ISpawnable
             this.AttackController.HurtboxChangeCallback = attemptHurtboxStateChange;
     }
 
-    public virtual void OnSpawn(Dictionary<string, string> spawnData = null)
+    public virtual void OnSpawn()
     {
-        _jumpBufferTimer = new Timer(this.JumpBufferFrames);
+        if (_jumpBufferTimer == null)
+            _jumpBufferTimer = new Timer(this.JumpBufferFrames);
         _jumpBufferTimer.complete();
 
-        _jumpGraceTimer = new Timer(this.JumpGraceFrames);
+        if (_jumpGraceTimer == null)
+            _jumpGraceTimer = new Timer(this.JumpGraceFrames);
         _jumpGraceTimer.complete();
 
-        _attackTimer = new Timer(1);
+        if (_attackTimer == null)
+            _attackTimer = new Timer(1);
         _attackTimer.complete();
 
-        _freezeFrameTimer = new Timer(1);
+        if (_freezeFrameTimer == null)
+            _freezeFrameTimer = new Timer(1);
         _freezeFrameTimer.complete();
-        _hitStunTimer = new Timer(1);
+
+        if (_hitStunTimer == null)
+            _hitStunTimer = new Timer(1);
         _hitStunTimer.complete();
+
+        //TODO - Data-drive health
+        this.Damagable.Health = 10;
+
+        this.Hurtbox.AddToCollisionPool();
+        if (this.AttackController != null)
+            this.AttackController.AddDamageBoxes();
     }
 
-    public virtual void OnDeath()
+    void OnReturnToPool()
     {
+        this.Hurtbox.RemoveFromCollisionPool();
     }
 
     public override void FixedUpdate()
@@ -119,8 +135,18 @@ public class SCCharacterController : Actor2D, ISpawnable
             else
                 this.localNotifier.SendEvent(new FreezeFrameEndedEvent());
         }
+        
+        if (!_hitStunTimer.Completed)
+        {
+            _hitStunTimer.update();
 
-        _hitStunTimer.update();
+            if (_hitStunTimer.Completed && this.Damagable.Dead)
+            {
+                this.WorldEntity.TriggerConsumption();
+                return;
+            }
+        }
+
         InputWrapper input = !_hitStunTimer.Completed ? new EmptyInput() : this.GatherInput();
         this.MostRecentInput = input;
         _moveAxis = input.MovementAxis;
