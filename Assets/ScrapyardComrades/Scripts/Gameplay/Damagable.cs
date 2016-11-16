@@ -9,22 +9,27 @@ public class Damagable : VoBehavior, IPausable
     {
         _invincibilityTimer = new Timer(1, false, false);
         _freezeFrameEvent = new FreezeFrameEvent(FREEZE_FRAMES);
-        _hitStunEvent = new HitStunEvent(1);
+        _hitStunEvent = new HitStunEvent(1, 1.0f, 1.0f);
     }
 
-    public bool Damage(SCAttack attack, IntegerVector origin, IntegerVector hitPoint)
+    public bool Damage(SCAttack attack, IntegerVector origin, IntegerVector hitPoint, SCCharacterController.Facing attackerFacing)
     {
         if (this.Invincible)
             return false;
+        
+        // Handle knockback
+        this.Actor.Velocity = attack.HitParameters.GetKnockback(origin, this.transform.position, hitPoint, attackerFacing);
 
-        //TODO - Normalize knockback effect to 16 directions
-        Vector2 knockbackDirection = ((Vector2)(hitPoint - origin)).normalized;
-        this.Actor.Velocity = knockbackDirection * attack.KnockbackPower;
+        // Handle invincibility and freeze frames
         this.Invincible = true;
-        _invincibilityTimer.reset(attack.HitInvincibilityDuration + FREEZE_FRAMES);
+        _invincibilityTimer.reset(attack.HitParameters.HitInvincibilityDuration + FREEZE_FRAMES);
         _invincibilityTimer.start();
         this.localNotifier.SendEvent(_freezeFrameEvent);
-        _hitStunEvent.NumFrames = attack.HitStunDuration;
+
+        // Handle hitstun
+        _hitStunEvent.NumFrames = attack.HitParameters.HitStunDuration;
+        _hitStunEvent.GravityMultiplier = attack.HitParameters.HitStunGravityMultiplier;
+        _hitStunEvent.AirFrictionMultiplier = attack.HitParameters.HitStunAirFrictionMultiplier;
         this.localNotifier.SendEvent(_hitStunEvent);
         return true;
     }

@@ -90,11 +90,15 @@ public class HitStunEvent : LocalEventNotifier.Event
 {
     public const string NAME = "HIT_STUN";
     public int NumFrames;
+    public float GravityMultiplier;
+    public float AirFrictionMultiplier;
 
-    public HitStunEvent(int numFrames)
+    public HitStunEvent(int numFrames, float gravityMultiplier, float airFrictionMultiplier)
     {
         this.Name = NAME;
         this.NumFrames = numFrames;
+        this.GravityMultiplier = gravityMultiplier;
+        this.AirFrictionMultiplier = airFrictionMultiplier;
     }
 }
 

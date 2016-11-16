@@ -120,7 +120,7 @@ public class SCCharacterController : Actor2D
         _onGround = this.IsGrounded;
         bool allowFaceChange = true;
 
-        updateControlParametersForCurrentAttack();
+        updateControlParameters();
 
         // Update jumpBufferCounter, and if input indicates Jump is pressed, set it to JUMP_BUFFER
         _jumpBufferTimer.update();
@@ -241,7 +241,7 @@ public class SCCharacterController : Actor2D
 
         // Update Move hitboxes
         if (this.AttackController != null)
-            this.AttackController.UpdateHitBoxes(_currentAttack, this.HurtboxState);
+            this.AttackController.UpdateHitBoxes(_currentAttack, this.HurtboxState, _facing);
 
         // Send update finished event (so visual state handling can know to update)
         _updateFinishEvent.CurrentAttack = _currentAttack;
@@ -269,6 +269,8 @@ public class SCCharacterController : Actor2D
     private ControlParameters _parameters;
     private Timer _freezeFrameTimer;
     private Timer _hitStunTimer;
+    private float _hitStunGravityMultiplier;
+    private float _hitStunAirFrictionMultiplier;
 
     private struct ControlParameters
     {
@@ -293,10 +295,11 @@ public class SCCharacterController : Actor2D
         public SCAttack.VelocityBoost.BoostType VelocityBoostType;
     }
 
-    private void updateControlParametersForCurrentAttack()
+    private void updateControlParameters()
     {
         if (_currentAttack != null)
         {
+            // Update with parameters for current attack
             _parameters.Gravity = this.Gravity * _currentAttack.GravityMultiplier;
             _parameters.JumpPower = this.JumpPower * _currentAttack.JumpPowerMultiplier;
             _parameters.JumpHorizontalBoost = this.JumpHorizontalBoost * _currentAttack.JumpHorizontalBoostMultiplier;
@@ -306,9 +309,8 @@ public class SCCharacterController : Actor2D
             _parameters.RunAcceleration = this.RunAcceleration * _currentAttack.RunAccelerationMultiplier;
             _parameters.RunDecceleration = this.RunDecceleration * _currentAttack.RunDeccelerationMultiplier;
             _parameters.AirRunAcceleration = this.AirRunAcceleration * _currentAttack.AirRunAccelerationMultiplier;
-
-            _parameters.VelocityBoost = Vector2.zero;
             _parameters.VelocityBoostType = SCAttack.VelocityBoost.BoostType.None;
+
             if (this.AttackController != null)
             {
                 SCAttack.VelocityBoost? boost = this.AttackController.GetCurrentVelocityBoost(_currentAttack);
@@ -321,6 +323,7 @@ public class SCCharacterController : Actor2D
         }
         else
         {
+            // Otherwise use standard parameters
             _parameters.Gravity = this.Gravity;
             _parameters.JumpPower = this.JumpPower;
             _parameters.JumpHorizontalBoost = this.JumpHorizontalBoost;
@@ -330,8 +333,14 @@ public class SCCharacterController : Actor2D
             _parameters.RunAcceleration = this.RunAcceleration;
             _parameters.RunDecceleration = this.RunDecceleration;
             _parameters.AirRunAcceleration = this.AirRunAcceleration;
-            _parameters.VelocityBoost = Vector2.zero;
             _parameters.VelocityBoostType = SCAttack.VelocityBoost.BoostType.None;
+
+            // Check if we need to apply hit stun multipliers
+            if (!_hitStunTimer.Completed)
+            {
+                _parameters.Gravity *= _hitStunGravityMultiplier;
+                _parameters.AirFriction *= _hitStunAirFrictionMultiplier;
+            }
         }
 
         _parameters.MaxFallSpeed = this.MaxFallSpeed;
@@ -363,7 +372,9 @@ public class SCCharacterController : Actor2D
 
     private void hitStun(LocalEventNotifier.Event e)
     {
-        _hitStunTimer.reset((e as HitStunEvent).NumFrames);
+        HitStunEvent stunEvent = e as HitStunEvent;
+        _hitStunGravityMultiplier = stunEvent.GravityMultiplier;
+        _hitStunTimer.reset(stunEvent.NumFrames);
     }
 
     private bool attemptHurtboxStateChange(SCAttack.HurtboxState newState)

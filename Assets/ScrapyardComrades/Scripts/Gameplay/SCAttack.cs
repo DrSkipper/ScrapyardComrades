@@ -41,6 +41,49 @@ public class SCAttack : ScriptableObject
         }
     }
 
+    [System.Serializable]
+    public struct HitData
+    {
+        public KnockbackType KnockbackType;
+        public VectorExtensions.Direction16 KnockbackDirection;
+        public float KnockbackPower;
+        public int HitInvincibilityDuration;
+        public int HitStunDuration;
+        public float HitStunGravityMultiplier;
+        public float HitStunAirFrictionMultiplier;
+
+        public Vector2 GetKnockback(Vector2 attackerPos, Vector2 defenderPos, Vector2 hitPos, SCCharacterController.Facing attackerFacing)
+        {
+            switch (this.KnockbackType)
+            {
+                default:
+                case KnockbackType.None:
+                    return Vector2.zero;
+                case KnockbackType.Constant:
+                    Vector2 knockback = VectorExtensions.VectorFromDirection16(this.KnockbackDirection) * this.KnockbackPower;
+                    if ((int)attackerFacing == -1)
+                        knockback = new Vector2(knockback.x * -1, knockback.y);
+                    return knockback;
+                case KnockbackType.CharacterDiff:
+                    return (defenderPos - attackerPos).Normalized16() * this.KnockbackPower;
+                case KnockbackType.AttackerToHitPoint:
+                    return (hitPos - attackerPos).Normalized16() * this.KnockbackPower;
+                case KnockbackType.HitPointToDefender:
+                    return (defenderPos - hitPos).Normalized16() * this.KnockbackPower;
+            }
+        }
+    }
+
+    [System.Serializable]
+    public enum KnockbackType
+    {
+        None,
+        Constant,
+        CharacterDiff,
+        AttackerToHitPoint,
+        HitPointToDefender
+    }
+
     public SCSpriteAnimation SpriteAnimation;
     public int NormalFrameLength;
     public HitboxKeyframe[] HitboxKeyframes;
@@ -51,10 +94,7 @@ public class SCAttack : ScriptableObject
     public int AttackInterruptFrame; // Have this be different by attack type?
     public int AttackCooldown; // Should also probably be by attack type
 
-    public float KnockbackPower = 10.0f;
-    public int HitInvincibilityDuration = 4;
-    public int HitStunDuration = 4;
-    //TODO - 4 types of knockback - Hard-set direction, 1stChar-to-2ndChar origin difference, 1stChar-to-hit, hit-to-2ndChar
+    public HitData HitParameters;
 
     public float GravityMultiplier = 1.0f;
     public float JumpPowerMultiplier = 1.0f;

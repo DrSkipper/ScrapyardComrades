@@ -10,7 +10,7 @@ public class AttackController : VoBehavior, IPausable
     public HurtboxChangeDelegate HurtboxChangeCallback;
     public delegate bool HurtboxChangeDelegate(SCAttack.HurtboxState newState);
 
-    public void UpdateHitBoxes(SCAttack currentAttack, SCAttack.HurtboxState hurtboxState)
+    public void UpdateHitBoxes(SCAttack currentAttack, SCAttack.HurtboxState hurtboxState, SCCharacterController.Facing facing)
     {
         if (currentAttack == null)
         {
@@ -62,7 +62,7 @@ public class AttackController : VoBehavior, IPausable
                     if (otherDamagable != null)
                     {
                         IntegerVector hitPoint = collided.GetComponent<IntegerCollider>().ClosestContainedPoint((Vector2)collider.transform.position);
-                        bool landedHit = otherDamagable.Damage(currentAttack, (Vector2)this.Actor.transform.position, hitPoint);
+                        bool landedHit = otherDamagable.Damage(currentAttack, (Vector2)this.Actor.transform.position, hitPoint, facing);
 
                         if (landedHit)
                         {
