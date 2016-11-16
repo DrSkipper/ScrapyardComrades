@@ -374,6 +374,7 @@ public class SCCharacterController : Actor2D
     {
         HitStunEvent stunEvent = e as HitStunEvent;
         _hitStunGravityMultiplier = stunEvent.GravityMultiplier;
+        _hitStunAirFrictionMultiplier = stunEvent.AirFrictionMultiplier;
         _hitStunTimer.reset(stunEvent.NumFrames);
     }
 
