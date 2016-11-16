@@ -39,6 +39,11 @@ public class CharacterVisualizer : VoBehavior
         this.localNotifier.Listen(CharacterUpdateFinishedEvent.NAME, this, this.UpdateVisual);
     }
 
+    void OnReturnToPool()
+    {
+        _stateMachine.BeginWithInitialState(IDLE_STATE);
+    }
+
     public void UpdateVisual(LocalEventNotifier.Event localEvent)
     {
         SCAttack attack = ((CharacterUpdateFinishedEvent)localEvent).CurrentAttack;
