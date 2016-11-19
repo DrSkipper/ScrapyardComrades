@@ -7,6 +7,7 @@ public static class SCCustomObjectCreator
     private const string ANIMATION_PATH = "Animations/NewSpriteAnimation.asset";
     private const string ATTACK_PATH = "Attacks/NewAttack.asset";
     private const string MOVESET_PATH = "Attacks/NewMoveSet.asset";
+    private const string PARALLAX_PATH = "Parallax/NewParallaxLayer.asset";
 
     [MenuItem("Custom Objects/Create Sprite Animation")]
     public static void CreateSpriteAnimation()
@@ -24,6 +25,12 @@ public static class SCCustomObjectCreator
     public static void CreateMoveSet()
     {
         SaveAsset(new SCMoveSet(), PATH + MOVESET_PATH);
+    }
+
+    [MenuItem("Custom Objects/Create Parallax Layer")]
+    public static void CreateParallaxLayer()
+    {
+        SaveAsset(new SCParallaxLayer(), PATH + PARALLAX_PATH);
     }
 
     public static void SaveAsset(ScriptableObject asset, string path)
