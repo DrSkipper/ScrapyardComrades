@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ParallaxLayer : VoBehavior, IPausable
+public class OLDParallaxLayer : VoBehavior, IPausable
 {
     public Vector2 ParallaxMultiplier = new Vector2(0.5f, 0.5f);
 
