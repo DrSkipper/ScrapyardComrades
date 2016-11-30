@@ -7,7 +7,10 @@ public class ParallaxLayerController : MonoBehaviour
 
     public void TransitionToNewLayer(SCParallaxLayer layer)
     {
-        this.PreviousLayerVisual.UpdateWithMesh(this.CurrentLayerVisual.MeshFilter.mesh);
-        this.CurrentLayerVisual.CreateMeshForLayer(layer);
+        if (layer.Sprite != this.CurrentLayerVisual.MostRecentSprite)
+        {
+            this.PreviousLayerVisual.UpdateWithMesh(this.CurrentLayerVisual.MeshFilter.mesh);
+            this.CurrentLayerVisual.CreateMeshForLayer(layer);
+        }
     }
 }

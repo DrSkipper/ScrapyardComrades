@@ -20,6 +20,9 @@ public class ParallaxManager : MonoBehaviour
     public WorldLoadingManager WorldManager;
     public QuadParallaxData[] ParallaxData;
     public ParallaxLayerController[] LayerControllers;
+    public Material MatForCurrentParallax;
+    public Material MatForPreviousParallax;
+    public Texture2D ParallaxAtlas;
 
     public void Awake()
     {
@@ -39,6 +42,9 @@ public class ParallaxManager : MonoBehaviour
 
             _parallaxData.Add(quadData.QuadName, layers);
         }
+
+        this.MatForCurrentParallax.mainTexture = this.ParallaxAtlas;
+        this.MatForPreviousParallax.mainTexture = this.ParallaxAtlas;
 
         GlobalEvents.Notifier.Listen(PauseEvent.NAME, this, onPause);
     }

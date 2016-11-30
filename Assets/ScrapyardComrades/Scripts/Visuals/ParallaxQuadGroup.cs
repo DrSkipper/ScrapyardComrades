@@ -5,6 +5,7 @@ public class ParallaxQuadGroup : MonoBehaviour
 {
     public CameraController CameraController;
     public MeshFilter MeshFilter;
+    public Sprite MostRecentSprite { get { return _mostRecentSprite; } }
 
     public void UpdateWithMesh(Mesh mesh)
     {
@@ -26,6 +27,7 @@ public class ParallaxQuadGroup : MonoBehaviour
         float originX = 0.0f;
         float originY = 0.0f;
         float originZ = 0.0f;
+        _mostRecentSprite = layer.Sprite;
         Vector2[] spriteUVs = layer.Sprite.uv;
         Vector3 normal = Vector3.back;
 
@@ -118,6 +120,7 @@ public class ParallaxQuadGroup : MonoBehaviour
     private List<Vector3> _norms;
     private List<Vector2> _uvs;
     private List<int> _tris;
+    private Sprite _mostRecentSprite;
 
     private void initializeLists()
     {
