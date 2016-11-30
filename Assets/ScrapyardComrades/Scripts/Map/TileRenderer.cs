@@ -148,10 +148,10 @@ public class TileRenderer : VoBehavior
                 vertices.Add(bottomRight);
                 vertices.Add(topLeft);
                 vertices.Add(topRight);
-                normals.Add(Vector3.up);
-                normals.Add(Vector3.up);
-                normals.Add(Vector3.up);
-                normals.Add(Vector3.up);
+                normals.Add(Vector3.back);
+                normals.Add(Vector3.back);
+                normals.Add(Vector3.back);
+                normals.Add(Vector3.back);
                 uvs.Add(bottomLeftUV);
                 uvs.Add(bottomRightUV);
                 uvs.Add(topLeftUV);

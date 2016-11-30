@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour, IPausable
     public Easing.Function TransitionEasingFunction;
     public Easing.Flow TransitionEasingFlow;
     public float TransitionDuration = 1.0f;
+    public int CameraViewWidth { get; private set; }
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class CameraController : MonoBehaviour, IPausable
         int width = Mathf.RoundToInt((float)height * (float)Screen.width / (float)Screen.height);
         _attemptedHeight = height - this.RoomBorder * 2;
         _attemptedWidth = width - this.RoomBorder * 2;
+        this.CameraViewWidth = width;
         calculateBounds();
 
         _easingDelegate = Easing.GetFunction(this.TransitionEasingFunction, this.TransitionEasingFlow);

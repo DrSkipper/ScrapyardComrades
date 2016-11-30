@@ -22,6 +22,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable
     public const string ROOM_TRANSITION_SEQUENCE = "room_transition";
 
     public IntegerRectCollider CurrentQuadBoundsCheck;
+    public string CurrentQuadName { get { return _currentQuad.Name; } }
 
     public class MapQuad
     {
