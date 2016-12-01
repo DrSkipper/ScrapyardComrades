@@ -28,10 +28,7 @@ public class ParallaxQuadGroup : MonoBehaviour
         float originY = 0.0f;
         float originZ = 0.0f;
         _mostRecentSprite = layer.Sprite;
-        //string spriteName = layer.Sprite.name;
-        //Sprite forRealSprite = layer.Sprite.texture.GetSprites()[spriteName];
-        Vector2[] spriteUVs = layer.Sprite.uv;
-        //Vector2[] spriteUVs = forRealSprite.uv;
+        Vector2[] spriteUVs = layer.Sprite.GetUVs();
         Vector3 normal = Vector3.back;
 
         //TODO: Add more loops after determining max distance layer can move from center of vision
@@ -61,10 +58,10 @@ public class ParallaxQuadGroup : MonoBehaviour
         float maxY = originY + spriteHeight / 2.0f;
         float minX = originX - (spriteWidth * numQuads) / 2.0f;
         float currentX = minX;
-        Vector2 bottomLeftUV = spriteUVs[0]; //new Vector2(0, 0); //
-        Vector2 bottomRightUV = spriteUVs[1]; //new Vector2(1, 0); //
-        Vector2 topLeftUV = spriteUVs[2]; //new Vector2(0, 1); //
-        Vector2 topRightUV = spriteUVs[3]; //new Vector2(1, 1); //
+        Vector2 bottomLeftUV = spriteUVs[0];
+        Vector2 bottomRightUV = spriteUVs[1];
+        Vector2 topLeftUV = spriteUVs[2];
+        Vector2 topRightUV = spriteUVs[3];
 
         for (int quad = 0; quad < numQuads; ++quad)
         {
