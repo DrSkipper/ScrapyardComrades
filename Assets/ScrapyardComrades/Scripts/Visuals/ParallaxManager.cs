@@ -23,6 +23,7 @@ public class ParallaxManager : MonoBehaviour
     public Material MatForCurrentParallax;
     public Material MatForPreviousParallax;
     public Texture2D ParallaxAtlas;
+    public CameraController CameraController;
 
     public void Awake()
     {
@@ -49,26 +50,56 @@ public class ParallaxManager : MonoBehaviour
         GlobalEvents.Notifier.Listen(PauseEvent.NAME, this, onPause);
     }
 
-    public void Start()
+    void Start()
     {
-        loadParallaxForCurrentQuad();
+        loadParallaxForCurrentQuad(false);
+    }
+
+    void Update()
+    {
+        if (_inTransition)
+        {
+            _transitionTime += Time.deltaTime;
+
+            float currentAlpha = 1.0f;
+            float previousAlpha = 0.0f;
+
+            if (_transitionTime >= this.CameraController.TransitionDuration)
+            {
+                _inTransition = false;
+            }
+            else
+            {
+                currentAlpha = Easing.QuadEaseInOut(_transitionTime, 0.0f, 1.0f, this.CameraController.TransitionDuration);
+                previousAlpha = Easing.QuadEaseInOut(_transitionTime, 1.0f, -1.0f, this.CameraController.TransitionDuration);
+            }
+
+            Color color = this.MatForCurrentParallax.color;
+            color.a = currentAlpha;
+            this.MatForCurrentParallax.color = color;
+            color = this.MatForPreviousParallax.color;
+            color.a = previousAlpha;
+            this.MatForPreviousParallax.color = color;
+        }
     }
 
     /**
      * Private
      */
     private Dictionary<string, SCParallaxLayer[]> _parallaxData;
+    private bool _inTransition;
+    private float _transitionTime;
 
     private void onPause(LocalEventNotifier.Event e)
     {
         PauseEvent pauseEvent = e as PauseEvent;
         if (pauseEvent.PauseGroup == PauseController.PauseGroup.SequencedPause && pauseEvent.Tag == WorldLoadingManager.ROOM_TRANSITION_SEQUENCE)
         {
-            loadParallaxForCurrentQuad();
+            loadParallaxForCurrentQuad(true);
         }
     }
 
-    private void loadParallaxForCurrentQuad()
+    private void loadParallaxForCurrentQuad(bool transition)
     {
         if (_parallaxData.ContainsKey(this.WorldManager.CurrentQuadName))
         {
@@ -81,6 +112,17 @@ public class ParallaxManager : MonoBehaviour
             }
         }
 
-        //TODO: Fade previous material out and current material in, with timing that matches camera transition
+        if (transition)
+        {
+            // Fade previous material out and current material in, with timing that matches camera transition
+            _inTransition = true;
+            _transitionTime = 0.0f;
+            Color color = this.MatForCurrentParallax.color;
+            color.a = 0.0f;
+            this.MatForCurrentParallax.color = color;
+            color = this.MatForPreviousParallax.color;
+            color.a = 1.0f;
+            this.MatForPreviousParallax.color = color;
+        }
     }
 }
