@@ -23,7 +23,7 @@ public class ParallaxLayerController : MonoBehaviour
     {
         this.PreviousLayerVisual.UpdateWithMesh(this.CurrentLayerVisual.MeshFilter.mesh);
         this.CurrentLayerVisual.CreateMeshForLayer(layer, this.ParallaxRatio, quadWidth);
-        this.PreviousLayerVisual.transform.localPosition = new Vector3(this.PreviousLayerVisual.transform.localPosition.x, this.CurrentLayerVisual.transform.localPosition.y, this.PreviousLayerVisual.transform.localPosition.z);
-        this.CurrentLayerVisual.transform.localPosition = new Vector3(this.CurrentLayerVisual.transform.localPosition.x, Mathf.RoundToInt(this.CameraController.CameraViewHeight * layer.Height - this.CameraController.CameraViewHeight / 2), this.CurrentLayerVisual.transform.localPosition.z);
+        this.PreviousLayerVisual.transform.SetLocalY(this.CurrentLayerVisual.transform.localPosition.y);
+        this.CurrentLayerVisual.transform.SetLocalY(Mathf.RoundToInt(this.CameraController.CameraViewHeight * (layer != null ? layer.Height : 0.5f) - this.CameraController.CameraViewHeight / 2));
     }
 }
