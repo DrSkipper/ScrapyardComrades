@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour, IPausable
     public float TransitionDuration = 1.0f;
     public int CameraViewWidth { get; private set; }
 
-    void Start()
+    void Awake()
     {
         int cameraHeight = Screen.height > RESOLUTION_DOUBLING_THRESHOLD ? Screen.height / 2 : Screen.height;
         Camera.orthographicSize = cameraHeight;
