@@ -110,7 +110,7 @@ public class ParallaxManager : VoBehavior
             for (int i = 0; i < SCParallaxLayer.NUM_RENDER_LAYERS; ++i)
             {
                 if (this.CurrentLayerControllers[i] != null)
-                    this.CurrentLayerControllers[i].TransitionToNewLayer(layers[i]);
+                    this.CurrentLayerControllers[i].TransitionToNewLayer(layers[i], this.WorldManager.CurrentQuadWidth);
             }
         }
 

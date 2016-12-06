@@ -12,7 +12,7 @@ public class ParallaxQuadGroup : MonoBehaviour
         this.MeshFilter.mesh = mesh;
     }
 
-    public void CreateMeshForLayer(SCParallaxLayer layer)
+    public void CreateMeshForLayer(SCParallaxLayer layer, float parallaxRatio, int quadWidth)
     {
         if (layer == null)
         {
@@ -30,13 +30,14 @@ public class ParallaxQuadGroup : MonoBehaviour
         _mostRecentSprite = layer.Sprite;
         Vector2[] spriteUVs = layer.Sprite.GetUVs();
         Vector3 normal = Vector3.back;
-
-        //TODO: Add more loops after determining max distance layer can move from center of vision
+        
         // If layer is looped, get number of quads we need
         if (layer.LoopsHorizontally)
         {
             int cameraWidth = this.CameraController.CameraViewWidth;
-            float floatQuadCount = cameraWidth / spriteWidth;
+            // Account for extra loops needed due to parallax ratio
+            int extraWidth = Mathf.RoundToInt((quadWidth - cameraWidth) * (1.0f - parallaxRatio));
+            float floatQuadCount = (cameraWidth + extraWidth) / spriteWidth;
             numQuads = Mathf.RoundToInt(floatQuadCount);
 
             // We want an odd number of quads (so layer is centered), and want to make sure we round up so there isn't blank space on sides.

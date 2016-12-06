@@ -23,6 +23,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable
 
     public IntegerRectCollider CurrentQuadBoundsCheck;
     public string CurrentQuadName { get { return _currentQuad.Name; } }
+    public int CurrentQuadWidth { get { return _currentQuad.Bounds.Size.X * this.TileRenderSize; } }
 
     public class MapQuad
     {

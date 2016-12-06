@@ -15,15 +15,18 @@ public class CameraController : MonoBehaviour, IPausable
     {
         int cameraHeight = Screen.height > RESOLUTION_DOUBLING_THRESHOLD ? Screen.height / 2 : Screen.height;
         Camera.orthographicSize = cameraHeight;
-        int height = cameraHeight * PIXELS_TO_UNITS;
-        this.BoundsChecker.Size.Y = height;
-        int width = Mathf.RoundToInt((float)height * (float)Screen.width / (float)Screen.height);
-        _attemptedHeight = height - this.RoomBorder * 2;
-        _attemptedWidth = width - this.RoomBorder * 2;
-        this.CameraViewWidth = width;
-        calculateBounds();
-
+        _attemptedHeight = cameraHeight * PIXELS_TO_UNITS;
+        _attemptedWidth = Mathf.RoundToInt((float)_attemptedHeight * (float)Screen.width / (float)Screen.height);
+        this.CameraViewWidth = _attemptedWidth;
         _easingDelegate = Easing.GetFunction(this.TransitionEasingFunction, this.TransitionEasingFlow);
+    }
+
+    void Start()
+    {
+        this.BoundsChecker.Size.Y = _attemptedHeight;
+        _attemptedHeight -= this.RoomBorder * 2;
+        _attemptedWidth -= this.RoomBorder * 2;
+        calculateBounds();
 
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
         GlobalEvents.Notifier.Listen(PauseEvent.NAME, this, onPause);

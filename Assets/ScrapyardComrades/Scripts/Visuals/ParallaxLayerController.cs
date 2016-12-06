@@ -18,12 +18,12 @@ public class ParallaxLayerController : MonoBehaviour
         this.transform.position = new Vector3(final.X, final.Y, this.transform.position.z);
     }
 
-    public void TransitionToNewLayer(SCParallaxLayer layer)
+    public void TransitionToNewLayer(SCParallaxLayer layer, int quadWidth)
     {
         //if (layer.Sprite != this.CurrentLayerVisual.MostRecentSprite)
         //{
             this.PreviousLayerVisual.UpdateWithMesh(this.CurrentLayerVisual.MeshFilter.mesh);
-            this.CurrentLayerVisual.CreateMeshForLayer(layer);
+            this.CurrentLayerVisual.CreateMeshForLayer(layer, this.ParallaxRatio, quadWidth);
         //}
     }
 }
