@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class ParallaxManager : MonoBehaviour
+public class ParallaxManager : VoBehavior
 {
     [System.Serializable]
     public struct QuadParallaxData
@@ -19,7 +19,8 @@ public class ParallaxManager : MonoBehaviour
 
     public WorldLoadingManager WorldManager;
     public QuadParallaxData[] ParallaxData;
-    public ParallaxLayerController[] LayerControllers;
+    public ParallaxLayerController[] CurrentLayerControllers;
+    public Transform PreviousParallaxRoot;
     public Material MatForCurrentParallax;
     public Material MatForPreviousParallax;
     public Texture2D ParallaxAtlas;
@@ -67,6 +68,7 @@ public class ParallaxManager : MonoBehaviour
             if (_transitionTime >= this.CameraController.TransitionDuration)
             {
                 _inTransition = false;
+                this.PreviousParallaxRoot.position = this.transform.position;
             }
             else
             {
@@ -107,8 +109,8 @@ public class ParallaxManager : MonoBehaviour
 
             for (int i = 0; i < SCParallaxLayer.NUM_RENDER_LAYERS; ++i)
             {
-                if (this.LayerControllers[i] != null)
-                    this.LayerControllers[i].TransitionToNewLayer(layers[i]);
+                if (this.CurrentLayerControllers[i] != null)
+                    this.CurrentLayerControllers[i].TransitionToNewLayer(layers[i]);
             }
         }
 

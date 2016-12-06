@@ -9,11 +9,12 @@ public class ParallaxLayerController : MonoBehaviour
 
     void Update()
     {
-        // Move to position ParallaxRatio between 0,0 and tracker (camera) position
-        Vector2 trackerPos = this.Tracker.transform.position;
+        // Move to position ParallaxRatio between origin and tracker (camera) position
+        Vector2 origin = this.transform.parent.position;
+        Vector2 trackerPos = (Vector2)this.Tracker.transform.position - origin;
         Vector2 trackerNormalized = trackerPos.normalized;
         float magnitude = trackerPos.magnitude * this.ParallaxRatio;
-        IntegerVector final = trackerNormalized * magnitude;
+        IntegerVector final = trackerNormalized * magnitude + origin;
         this.transform.position = new Vector3(final.X, final.Y, this.transform.position.z);
     }
 
