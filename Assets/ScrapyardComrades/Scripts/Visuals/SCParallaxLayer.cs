@@ -18,4 +18,5 @@ public class SCParallaxLayer : ScriptableObject
     public Sprite Sprite;
     public RenderLayer DefaultRenderLayer = RenderLayer.Mid;
     public bool LoopsHorizontally = true;
+    public float Height = 0.5f;
 }

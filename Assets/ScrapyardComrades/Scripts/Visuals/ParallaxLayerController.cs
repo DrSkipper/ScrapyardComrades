@@ -5,6 +5,7 @@ public class ParallaxLayerController : MonoBehaviour
     public ParallaxQuadGroup CurrentLayerVisual;
     public ParallaxQuadGroup PreviousLayerVisual;
     public Transform Tracker;
+    public CameraController CameraController;
     public float ParallaxRatio;
 
     void Update()
@@ -20,10 +21,9 @@ public class ParallaxLayerController : MonoBehaviour
 
     public void TransitionToNewLayer(SCParallaxLayer layer, int quadWidth)
     {
-        //if (layer.Sprite != this.CurrentLayerVisual.MostRecentSprite)
-        //{
-            this.PreviousLayerVisual.UpdateWithMesh(this.CurrentLayerVisual.MeshFilter.mesh);
-            this.CurrentLayerVisual.CreateMeshForLayer(layer, this.ParallaxRatio, quadWidth);
-        //}
+        this.PreviousLayerVisual.UpdateWithMesh(this.CurrentLayerVisual.MeshFilter.mesh);
+        this.CurrentLayerVisual.CreateMeshForLayer(layer, this.ParallaxRatio, quadWidth);
+        this.PreviousLayerVisual.transform.localPosition = new Vector3(this.PreviousLayerVisual.transform.localPosition.x, this.CurrentLayerVisual.transform.localPosition.y, this.PreviousLayerVisual.transform.localPosition.z);
+        this.CurrentLayerVisual.transform.localPosition = new Vector3(this.CurrentLayerVisual.transform.localPosition.x, Mathf.RoundToInt(this.CameraController.CameraViewHeight * layer.Height - this.CameraController.CameraViewHeight / 2), this.CurrentLayerVisual.transform.localPosition.z);
     }
 }

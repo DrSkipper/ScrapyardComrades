@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class ParallaxQuadGroup : MonoBehaviour
+public class ParallaxQuadGroup : VoBehavior
 {
     public CameraController CameraController;
     public MeshFilter MeshFilter;

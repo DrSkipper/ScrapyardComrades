@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour, IPausable
     public Easing.Flow TransitionEasingFlow;
     public float TransitionDuration = 1.0f;
     public int CameraViewWidth { get; private set; }
+    public int CameraViewHeight { get; private set; }
 
     void Awake()
     {
@@ -18,6 +19,7 @@ public class CameraController : MonoBehaviour, IPausable
         _attemptedHeight = cameraHeight * PIXELS_TO_UNITS;
         _attemptedWidth = Mathf.RoundToInt((float)_attemptedHeight * (float)Screen.width / (float)Screen.height);
         this.CameraViewWidth = _attemptedWidth;
+        this.CameraViewHeight = _attemptedHeight;
         _easingDelegate = Easing.GetFunction(this.TransitionEasingFunction, this.TransitionEasingFlow);
     }
 
