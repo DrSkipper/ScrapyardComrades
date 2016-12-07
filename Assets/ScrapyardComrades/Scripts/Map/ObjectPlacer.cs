@@ -40,7 +40,7 @@ public class ObjectPlacer : VoBehavior
                     int y = !this.FlipVertical ?
                         (mapObject.y + mapObject.height) * positionCorrection :
                         gridHeight * this.TileRenderSize - ((mapObject.y) * positionCorrection) + (1 * positionCorrection);
-                    Vector3 spawnPos = new Vector3(x + this.transform.position.x, y + this.transform.position.y);
+                    Vector3 spawnPos = new Vector3(x + this.transform.position.x, y + this.transform.position.y, this.transform.position.z);
                     addSpawn(toSpawn, spawnPos, entity);
                 }
             }
