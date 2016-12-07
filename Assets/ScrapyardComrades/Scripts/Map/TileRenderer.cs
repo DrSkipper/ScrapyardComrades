@@ -12,6 +12,11 @@ public class TileRenderer : VoBehavior
     public Sprite[] Sprites;
     public bool FlipVertical = true;
 
+    void Awake()
+    {
+        this.renderer.sharedMaterial.mainTexture = this.Atlas;
+    }
+
     public void CreateEmptyMap(int width, int height)
     {
         this.CreateMapWithGrid(new MapGridSpaceInfo[width, width]);
@@ -60,7 +65,7 @@ public class TileRenderer : VoBehavior
         if (!_cleared)
         {
             this.MeshFilter.mesh = null;
-            this.renderer.material.mainTexture = null;
+            //this.renderer.material.mainTexture = null;
         }
     }
 
@@ -168,7 +173,7 @@ public class TileRenderer : VoBehavior
 
         // Assign mesh to behaviors
         this.MeshFilter.mesh = mesh;
-        this.renderer.material.mainTexture = this.Atlas;
+        //this.renderer.material.mainTexture = this.Atlas;
     }
 
     private void setTileSpriteIndexInMesh(int tileX, int tileY, int spriteIndex)
