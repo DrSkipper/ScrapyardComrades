@@ -73,6 +73,7 @@ public class SCCharacterController : Actor2D, ISpawnable
     public bool Ducking { get { return _currentAttack == null && this.HurtboxState == SCAttack.HurtboxState.Ducking; } }
     public bool HitStunned { get { return _freezeFrameTimer.Completed && !_hitStunTimer.Completed; } }
     public InputWrapper MostRecentInput { get; private set; }
+    public bool ExecutingMove { get { return _currentAttack == null; } }
 
     public virtual InputWrapper GatherInput()
     {
