@@ -148,7 +148,7 @@ public class SCCharacterController : Actor2D, ISpawnable
             }
         }
 
-        InputWrapper input = !_hitStunTimer.Completed ? new EmptyInput() : this.GatherInput();
+        InputWrapper input = (!_hitStunTimer.Completed || (_currentAttack != null && _currentAttack.LockInput)) ? new EmptyInput() : this.GatherInput();
         this.MostRecentInput = input;
         _moveAxis = input.MovementAxis;
         _velocity = this.Velocity;

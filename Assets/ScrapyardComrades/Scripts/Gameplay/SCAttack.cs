@@ -108,6 +108,7 @@ public class SCAttack : ScriptableObject
     public float AirRunAccelerationMultiplier = 1.0f;
 
     public VelocityBoost[] VelocityBoosts;
+    public bool LockInput = false;
 
     public VelocityBoost? GetVelocityBoostForFrame(int frame)
     {
