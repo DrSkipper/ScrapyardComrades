@@ -77,7 +77,7 @@ public class SCMoveSetEditing : MonoBehaviour
                 {
                     this.Hitboxes[i].enabled = true;
                     this.Hitboxes[i].Offset = IntegerVector.Zero;
-                    this.Hitboxes[i].transform.position = (Vector2)currentHitboxFrame.HitboxPositions[i];
+                    this.Hitboxes[i].transform.localPosition = (Vector2)currentHitboxFrame.HitboxPositions[i];
                     this.Hitboxes[i].Size = currentHitboxFrame.HitboxSizes[i];
                 }
                 else
