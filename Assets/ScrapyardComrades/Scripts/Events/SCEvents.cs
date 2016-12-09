@@ -114,6 +114,16 @@ public class PlayerSpawnedEvent : LocalEventNotifier.Event
     }
 }
 
+public class PlayerDiedEvent : LocalEventNotifier.Event
+{
+    public const string NAME = "PLAYER_DIED";
+
+    public PlayerDiedEvent()
+    {
+        this.Name = NAME;
+    }
+}
+
 public class WorldRecenterEvent : LocalEventNotifier.Event
 {
     public const string NAME = "WORLD_RECENTER";

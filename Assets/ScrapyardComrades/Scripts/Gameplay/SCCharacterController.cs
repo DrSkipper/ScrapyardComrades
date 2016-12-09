@@ -80,7 +80,7 @@ public class SCCharacterController : Actor2D, ISpawnable
         return new EmptyInput();
     }
 
-    void Awake()
+    public virtual void Awake()
     {
         _updateFinishEvent = new CharacterUpdateFinishedEvent(null);
 

@@ -2,31 +2,33 @@
 
 public class EnemyController : SCCharacterController
 {
-    public enum EnemyState
+    public override void Awake()
     {
-        Idle
+        base.Awake();
+        GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
     }
-
     public override void OnSpawn()
     {
         base.OnSpawn();
 
-        //TODO: Data-drive which AI to use
-        _ai = new AI();
+        //TODO: Data-drive which AI to use, as well as parameters
+        _ai = new SimpleAI(500, 750, 50, 20);
     }
 
     public override InputWrapper GatherInput()
     {
-        return new EnemyInput(_state, _intendedFacing);
+        _target = PlayerReference.Collider;
+        EnemyInput controlInput = new EnemyInput(_ai.RunAI(gatherAiInput()), _previousInput);
+        _previousInput = controlInput;
+        return controlInput;
     }
 
     /**
      * Private
      */
-    private EnemyState _state;
-    private Facing _intendedFacing;
     private AI _ai;
     private IntegerCollider _target;
+    private EnemyInput _previousInput;
 
     private AIInput gatherAiInput()
     {
@@ -40,6 +42,11 @@ public class EnemyController : SCCharacterController
         aiInput.ExecutingMove = this.ExecutingMove;
         aiInput.HitStunned = this.HitStunned;
         return aiInput;
+    }
+
+    private void playerSpawned(LocalEventNotifier.Event e)
+    {
+        _target = (e as PlayerSpawnedEvent).PlayerObject.GetComponent<IntegerCollider>();
     }
 
     private struct EnemyInput : InputWrapper
@@ -58,28 +65,21 @@ public class EnemyController : SCCharacterController
         public bool Interact { get; private set; }
         public bool PausePressed { get; private set; }
 
-        public EnemyInput(EnemyState state, Facing intendedFacing)
+        public EnemyInput(AIOutput output, EnemyInput previousInput)
         {
+            this.MovementAxis = output.MovementDirection;
+            this.JumpBegin = output.Jump;
+            this.JumpHeld = output.Jump;
+            this.DodgeBegin = false;
+            this.DodgeHeld = false;
+            this.Duck = false;
+            this.AttackLightBegin = output.Attack;
+            this.AttackLightHeld = output.Attack;
+            this.AttackStrongBegin = false;
+            this.AttackStrongHeld = false;
+            this.UseItem = false;
+            this.Interact = false;
             this.PausePressed = false;
-
-            switch (state)
-            {
-                default:
-                case EnemyState.Idle:
-                    this.MovementAxis = 0;
-                    this.JumpBegin = false;
-                    this.JumpHeld = false;
-                    this.DodgeBegin = false;
-                    this.DodgeHeld = false;
-                    this.Duck = false;
-                    this.AttackLightBegin = false;
-                    this.AttackLightHeld = false;
-                    this.AttackStrongBegin = false;
-                    this.AttackStrongHeld = false;
-                    this.UseItem = false;
-                    this.Interact = false;
-                    break;
-            }
         }
     }
 }

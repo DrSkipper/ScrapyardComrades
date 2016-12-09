@@ -29,4 +29,16 @@ public class PlayerController : SCCharacterController
         base.OnSpawn();
         GlobalEvents.Notifier.SendEvent(new PlayerSpawnedEvent(this.gameObject));
     }
+
+    public override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        if (!_died && this.Damagable.Dead)
+        {
+            _died = true;
+            GlobalEvents.Notifier.SendEvent(new PlayerDiedEvent());
+        }
+    }
+
+    private bool _died;
 }

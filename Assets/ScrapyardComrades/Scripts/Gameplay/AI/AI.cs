@@ -21,11 +21,31 @@ public struct AIInput
 
 public class AI
 {
-    public AINode Root;
+    public AIState CurrentState;
 
-    
-    public virtual AIOutput RunAI(AIInput input)
+    public AIOutput RunAI(AIInput input)
     {
-        return new AIOutput();
+        if (this.CurrentState == null)
+            return new AIOutput();
+        AIState newState = this.CurrentState.CheckTransitions(input);
+        if (newState != this.CurrentState)
+        {
+            this.CurrentState.ExitState();
+            newState.EnterState();
+            this.CurrentState = newState;
+        }
+        return this.CurrentState.UpdateState(input);
+    }
+}
+
+public class SimpleAI : AI
+{
+    public SimpleAI(float attackStateRange, float pursuitRange, float executeAttackRange, float attackingPursuitTargetDist)
+    {
+        AIState idleState = new IdleState();
+        AIState attackState = new SimpleAttackState(executeAttackRange, attackingPursuitTargetDist);
+        idleState.AddTransition(new TargetWithinRangeTransition(attackState, 0, attackStateRange));
+        attackState.AddTransition(new TargetWithinRangeTransition(idleState, pursuitRange));
+        this.CurrentState = idleState;
     }
 }
