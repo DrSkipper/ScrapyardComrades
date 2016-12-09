@@ -12,7 +12,7 @@ public class EnemyController : SCCharacterController
         base.OnSpawn();
 
         //TODO: Data-drive which AI to use, as well as parameters
-        _ai = new SimpleAI(500, 750, 60, 15);
+        _ai = new SimpleAI(500, 700, 60, 20);
     }
 
     public override InputWrapper GatherInput()

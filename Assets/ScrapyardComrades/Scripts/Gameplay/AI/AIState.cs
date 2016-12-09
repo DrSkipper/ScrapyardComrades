@@ -51,7 +51,7 @@ public class IdleState : AIState
 
 public class SimpleAttackState : AIState
 {
-    public SimpleAttackState(float pursuitToDist, float executeAttackRange)
+    public SimpleAttackState(float executeAttackRange, float pursuitToDist)
     {
         _executeAttackRange = executeAttackRange;
         _pursuitToDist = pursuitToDist;

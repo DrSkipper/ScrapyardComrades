@@ -408,6 +408,8 @@ public class SCCharacterController : Actor2D, ISpawnable
     private void hitStun(LocalEventNotifier.Event e)
     {
         HitStunEvent stunEvent = e as HitStunEvent;
+        _currentAttack = null;
+        _attackTimer.complete();
         _hitStunGravityMultiplier = stunEvent.GravityMultiplier;
         _hitStunAirFrictionMultiplier = stunEvent.AirFrictionMultiplier;
         _hitStunTimer.reset(stunEvent.NumFrames);
