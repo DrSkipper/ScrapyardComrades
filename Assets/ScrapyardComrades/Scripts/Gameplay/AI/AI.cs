@@ -45,6 +45,7 @@ public class SimpleAI : AI
         AIState idleState = new IdleState();
         AIState attackState = new SimpleAttackState(executeAttackRange, attackingPursuitTargetDist);
         idleState.AddTransition(new TargetWithinRangeTransition(attackState, 0, attackStateRange));
+        attackState.AddTransition(new NoTargetTransition(idleState));
         attackState.AddTransition(new TargetWithinRangeTransition(idleState, pursuitRange));
         this.CurrentState = idleState;
     }
