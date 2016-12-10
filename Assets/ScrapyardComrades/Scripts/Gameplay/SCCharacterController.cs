@@ -113,6 +113,10 @@ public class SCCharacterController : Actor2D, ISpawnable
             _hitStunTimer = new Timer(1);
         _hitStunTimer.complete();
 
+        if (_cooldownTimer == null)
+            _cooldownTimer = new Timer(1);
+        _cooldownTimer.complete();
+
         //TODO - Data-drive health
         this.Damagable.Health = 10;
 
@@ -136,6 +140,8 @@ public class SCCharacterController : Actor2D, ISpawnable
             else
                 this.localNotifier.SendEvent(new FreezeFrameEndedEvent());
         }
+
+        _cooldownTimer.update();
         
         if (!_hitStunTimer.Completed)
         {
@@ -233,19 +239,27 @@ public class SCCharacterController : Actor2D, ISpawnable
             // Or if we're beginning a Move
             else
             {
-                _currentAttack = this.MoveSet.GetAttackForInput(input);
+                _currentAttack = this.MoveSet.GetAttackForInput(input, this);
                 if (_currentAttack != null)
                 {
-                    _attackTimer.reset(_currentAttack.NormalFrameLength);
-                    _attackTimer.start();
+                    if (!_cooldownTimer.Completed && (((int)_currentAttack.Category & _cooldownCategoryMask) != 0))
+                    {
+                        _currentAttack = null;
+                    }
+                    else
+                    {
+                        _cooldownTimer.complete();
+                        _attackTimer.reset(_currentAttack.NormalFrameLength);
+                        _attackTimer.start();
 
-                    // Change direction facing if necessary (need to do this before checking first frame velocity boost)
-                    if (_moveAxis != 0)
-                        _facing = (Facing)_moveAxis;
+                        // Change direction facing if necessary (need to do this before checking first frame velocity boost)
+                        if (_moveAxis != 0)
+                            _facing = (Facing)_moveAxis;
 
-                    // Apply velocity boost for current frame in current Move
-                    handleVelocityBoosts();
-                    allowFaceChange = false;
+                        // Apply velocity boost for current frame in current Move
+                        handleVelocityBoosts();
+                        allowFaceChange = false;
+                    }
                 }
             }
         }
@@ -256,6 +270,11 @@ public class SCCharacterController : Actor2D, ISpawnable
             if (_attackTimer.Completed)
             {
                 // End Move, and stand up if necessary
+                if (_currentAttack.CooldownDuration > 0)
+                {
+                    _cooldownTimer.reset(_currentAttack.CooldownDuration);
+                    _cooldownCategoryMask = _currentAttack.CooldownCategoriesMask;
+                }
                 _currentAttack = null;
                 attemptHurtboxStateChange(SCAttack.HurtboxState.Normal);
             }
@@ -306,6 +325,8 @@ public class SCCharacterController : Actor2D, ISpawnable
     private Timer _hitStunTimer;
     private float _hitStunGravityMultiplier;
     private float _hitStunAirFrictionMultiplier;
+    private Timer _cooldownTimer;
+    private int _cooldownCategoryMask;
 
     private struct ControlParameters
     {

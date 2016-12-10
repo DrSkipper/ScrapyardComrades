@@ -30,7 +30,9 @@ public class SCMoveSetEditingEditor : Editor
                 //TODO: Expand as more attack options, combos, etc are added
                 _moveOptions = new List<string>();
                 _moveOptions.Add("Ground Neutral");
-                _moveOptions.Add("Dodge");
+                _moveOptions.Add("Ground Dodge");
+                _moveOptions.Add("Air Neutral");
+                _moveOptions.Add("Air Dodge");
             }
 
             int oldMoveIndex = behavior.MoveIndex;
@@ -43,7 +45,11 @@ public class SCMoveSetEditingEditor : Editor
                 if (behavior.MoveIndex == 0)
                     behavior.AttackObject = behavior.MoveSet.GroundNeutral;
                 else if (behavior.MoveIndex == 1)
-                    behavior.AttackObject = behavior.MoveSet.Dodge;
+                    behavior.AttackObject = behavior.MoveSet.GroundDodge;
+                else if (behavior.MoveIndex == 2)
+                    behavior.AttackObject = behavior.MoveSet.AirNeutral;
+                else if (behavior.MoveIndex == 3)
+                    behavior.AttackObject = behavior.MoveSet.AirDodge;
                 behavior.CurrentIndex = 0;
                 behavior.Frame = 0;
             }

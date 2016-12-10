@@ -2,8 +2,17 @@
 
 public class SCAttack : ScriptableObject
 {
-    // Attack type enum?
     // Also probably need some sort of "sub attack"/"sub animation" set up so there can be multiple animations and/or stages associated with an attack
+
+    [System.Serializable]
+    public enum MoveCategory
+    {
+        None = 0,
+        Normal = 2,
+        Dodge = 4
+        //Combo?
+        //Recovery?
+    }
 
     [System.Serializable]
     public struct HitboxKeyframe
@@ -85,15 +94,17 @@ public class SCAttack : ScriptableObject
         HitPointToDefender
     }
 
+    public MoveCategory Category;
     public SCSpriteAnimation SpriteAnimation;
     public int NormalFrameLength;
     public HitboxKeyframe[] HitboxKeyframes;
     public int JumpInterruptFrame;
     public int LedgeGrabInterruptFrame;
-    public int DodgeInterruptFrame;
-    public int ThrowInterruptFrame;
-    public int AttackInterruptFrame; // Have this be different by attack type?
-    public int AttackCooldown; // Should also probably be by attack type
+    public MoveCategory[] MoveInterruptCategories;
+    public int MoveInterruptFrame;
+    public MoveCategory[] CooldownCategories;
+    public int CooldownDuration;
+    //public int ComboWindow;
 
     public HitData HitParameters;
 
@@ -120,5 +131,21 @@ public class SCAttack : ScriptableObject
                 return this.VelocityBoosts[i];
         }
         return null;
+    }
+
+    public int MoveInterruptCategoryMask { get { return categoryArrayToMask(this.MoveInterruptCategories); } }
+    public int CooldownCategoriesMask { get { return categoryArrayToMask(this.CooldownCategories); } }
+
+    /**
+     * Private
+     */
+    private static int categoryArrayToMask(MoveCategory[] array)
+    {
+        int mask = 0;
+        for (int i = 0; i < array.Length; ++i)
+        {
+            mask |= (int)array[i];
+        }
+        return mask;
     }
 }
