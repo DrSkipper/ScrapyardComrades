@@ -228,6 +228,7 @@ public class SCCharacterController : Actor2D, ISpawnable
 
         // Check for interrupts
         bool attemptingJump = checkForJump(input);
+        //SCAttack interruptingMove = null;
         if (_currentAttack != null)
         {
             bool interrupted = false;
