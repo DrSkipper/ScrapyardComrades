@@ -2,11 +2,6 @@
 
 public class EnemyController : SCCharacterController
 {
-    public override void Awake()
-    {
-        base.Awake();
-        GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
-    }
     public override void OnSpawn()
     {
         base.OnSpawn();
@@ -17,8 +12,7 @@ public class EnemyController : SCCharacterController
 
     public override InputWrapper GatherInput()
     {
-        _target = PlayerReference.Collider;
-        EnemyInput controlInput = new EnemyInput(_ai.RunAI(gatherAiInput()), _previousInput);
+        EnemyInput controlInput = new EnemyInput(_ai.RunAI(gatherAiInput(PlayerReference.Collider)), _previousInput);
         _previousInput = controlInput;
         return controlInput;
     }
@@ -27,28 +21,22 @@ public class EnemyController : SCCharacterController
      * Private
      */
     private AI _ai;
-    private IntegerCollider _target;
     private EnemyInput _previousInput;
 
-    private AIInput gatherAiInput()
+    private AIInput gatherAiInput(IntegerCollider target)
     {
         AIInput aiInput = new AIInput();
-        aiInput.HasTarget = _target != null;
+        aiInput.HasTarget = target != null;
         aiInput.OurPosition = (Vector2)this.transform.position;
-        aiInput.TargetPosition = _target != null ? (Vector2)_target.transform.position : Vector2.zero;
+        aiInput.TargetPosition = target != null ? (Vector2)target.transform.position : Vector2.zero;
         aiInput.OurCollider = this.Hurtbox;
-        aiInput.TargetCollider = _target;
+        aiInput.TargetCollider = target;
         aiInput.OnGround = this.OnGround;
         aiInput.ExecutingMove = this.ExecutingMove;
         aiInput.HitStunned = this.HitStunned;
         return aiInput;
     }
-
-    private void playerSpawned(LocalEventNotifier.Event e)
-    {
-        _target = (e as PlayerSpawnedEvent).PlayerObject.GetComponent<IntegerCollider>();
-    }
-
+    
     private struct EnemyInput : InputWrapper
     {
         public int MovementAxis { get; private set; }
