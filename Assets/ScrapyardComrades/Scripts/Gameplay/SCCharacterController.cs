@@ -42,6 +42,8 @@ public class SCCharacterController : Actor2D, ISpawnable
         public bool UseItem { get { return false; } }
         public bool Interact { get { return false; } }
         public bool PausePressed { get { return false; } }
+
+        public static EmptyInput Reference = new EmptyInput();
     }
 
     public float Gravity = 100.0f;
@@ -77,7 +79,7 @@ public class SCCharacterController : Actor2D, ISpawnable
 
     public virtual InputWrapper GatherInput()
     {
-        return new EmptyInput();
+        return EmptyInput.Reference;
     }
 
     void Awake()
@@ -154,7 +156,7 @@ public class SCCharacterController : Actor2D, ISpawnable
             }
         }
 
-        InputWrapper input = (!_hitStunTimer.Completed || (_currentAttack != null && _currentAttack.LockInput)) ? new EmptyInput() : this.GatherInput();
+        InputWrapper input = (!_hitStunTimer.Completed || (_currentAttack != null && _currentAttack.LockInput)) ? EmptyInput.Reference : this.GatherInput();
         this.MostRecentInput = input;
         _moveAxis = input.MovementAxis;
         _velocity = this.Velocity;
@@ -224,17 +226,30 @@ public class SCCharacterController : Actor2D, ISpawnable
             _velocity.y = _velocity.y.Approach(-targetFallSpeed, -gravity);
         }
 
+        // Check for interrupts
+        bool attemptingJump = checkForJump(input);
+        if (_currentAttack != null)
+        {
+            bool interrupted = false;
+            if (attemptingJump && canJumpInterrupt())
+                interrupted = true;
+            //TODO: Add other interrupt checks here
+
+            if (interrupted)
+            {
+                _attackTimer.complete();
+                endMove();
+            }
+        }
+
         if (_currentAttack == null)
         {
             // Attempt to stand up if necessary
             attemptHurtboxStateChange(SCAttack.HurtboxState.Normal);
 
             // Check if it's time to jump
-            if (input.JumpBegin || !_jumpBufferTimer.Completed)
-            {
-                if (!_jumpGraceTimer.Completed)
-                    jump();
-            }
+            if (attemptingJump)
+                jump();
 
             // Or if we're beginning a Move
             else
@@ -270,12 +285,7 @@ public class SCCharacterController : Actor2D, ISpawnable
             if (_attackTimer.Completed)
             {
                 // End Move, and stand up if necessary
-                if (_currentAttack.CooldownDuration > 0)
-                {
-                    _cooldownTimer.reset(_currentAttack.CooldownDuration);
-                    _cooldownCategoryMask = _currentAttack.CooldownCategoriesMask;
-                }
-                _currentAttack = null;
+                endMove();
                 attemptHurtboxStateChange(SCAttack.HurtboxState.Normal);
             }
             else
@@ -406,6 +416,26 @@ public class SCCharacterController : Actor2D, ISpawnable
         _parameters.JumpBufferFrames = this.JumpBufferFrames;
         _parameters.JumpGraceFrames = this.JumpGraceFrames;
         _parameters.LandingHorizontalMultiplier = this.LandingHorizontalMultiplier;
+    }
+
+    private bool checkForJump(InputWrapper input)
+    {
+        return (input.JumpBegin || !_jumpBufferTimer.Completed) && !_jumpGraceTimer.Completed;
+    }
+
+    private bool canJumpInterrupt()
+    {
+        return _currentAttack.NormalFrameLength - _attackTimer.FramesRemaining >= _currentAttack.JumpInterruptFrame;
+    }
+
+    private void endMove()
+    {
+        if (_currentAttack.CooldownDuration > 0)
+        {
+            _cooldownTimer.reset(_currentAttack.CooldownDuration);
+            _cooldownCategoryMask = _currentAttack.CooldownCategoriesMask;
+        }
+        _currentAttack = null;
     }
 
     private void jump()
