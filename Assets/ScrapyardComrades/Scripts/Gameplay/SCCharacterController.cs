@@ -228,13 +228,20 @@ public class SCCharacterController : Actor2D, ISpawnable
 
         // Check for interrupts
         bool attemptingJump = checkForJump(input);
-        //SCAttack interruptingMove = null;
+        SCAttack interruptingMove = null;
         if (_currentAttack != null)
         {
             bool interrupted = false;
             if (attemptingJump && canJumpInterrupt())
+            {
                 interrupted = true;
-            //TODO: Add other interrupt checks here
+            }
+            else if (canMoveInterrupt())
+            {
+                interruptingMove = this.MoveSet.GetAttackForInput(input, this, _currentAttack.MoveInterruptCategoryMask);
+                if (interruptingMove != null)
+                    interrupted = true;
+            }
 
             if (interrupted)
             {
@@ -255,7 +262,7 @@ public class SCCharacterController : Actor2D, ISpawnable
             // Or if we're beginning a Move
             else
             {
-                _currentAttack = this.MoveSet.GetAttackForInput(input, this);
+                _currentAttack = interruptingMove != null ? interruptingMove : this.MoveSet.GetAttackForInput(input, this);
                 if (_currentAttack != null)
                 {
                     if (!_cooldownTimer.Completed && (((int)_currentAttack.Category & _cooldownCategoryMask) != 0))
@@ -427,6 +434,11 @@ public class SCCharacterController : Actor2D, ISpawnable
     private bool canJumpInterrupt()
     {
         return _currentAttack.NormalFrameLength - _attackTimer.FramesRemaining >= _currentAttack.JumpInterruptFrame;
+    }
+
+    private bool canMoveInterrupt()
+    {
+        return _currentAttack.NormalFrameLength - _attackTimer.FramesRemaining >= _currentAttack.MoveInterruptFrame;
     }
 
     private void endMove()
