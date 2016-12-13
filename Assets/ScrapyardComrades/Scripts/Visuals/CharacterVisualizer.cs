@@ -8,6 +8,7 @@ public class CharacterVisualizer : VoBehavior
     public SCSpriteAnimation RunAnimation;
     public SCSpriteAnimation JumpAnimation;
     public SCSpriteAnimation FallAnimation;
+    public SCSpriteAnimation WallSlideAnimation;
     public SCSpriteAnimation DuckAnimation;
     public SCSpriteAnimation HitStunAnimation;
     public SCSpriteAnimation DeathAnimation;
@@ -16,6 +17,7 @@ public class CharacterVisualizer : VoBehavior
     private const string RUNNING_STATE = "run";
     private const string JUMPING_STATE = "jump";
     private const string FALLING_STATE = "fall";
+    private const string WALLSLIDE_STATE = "wallslide";
     private const string DUCKING_STATE = "duck";
     private const string STUNNED_STATE = "stun";
     private const string DEATH_STATE = "death";
@@ -30,6 +32,7 @@ public class CharacterVisualizer : VoBehavior
         _stateMachine.AddState(RUNNING_STATE, this.updateGeneric, this.enterRunning);
         _stateMachine.AddState(JUMPING_STATE, this.updateGeneric, this.enterJumping);
         _stateMachine.AddState(FALLING_STATE, this.updateGeneric, this.enterFalling);
+        _stateMachine.AddState(WALLSLIDE_STATE, this.updateGeneric, this.enterWallSlide);
         _stateMachine.AddState(DUCKING_STATE, this.updateGeneric, this.enterDucking);
         _stateMachine.AddState(STUNNED_STATE, this.updateGeneric, this.enterHitStun);
         _stateMachine.AddState(DEATH_STATE, this.updateDying, this.enterDeath);
@@ -83,6 +86,8 @@ public class CharacterVisualizer : VoBehavior
         {
             if (_characterController.MostRecentInput.JumpHeld && _characterController.Velocity.y > 0.0f)
                 return JUMPING_STATE;
+            if (_characterController.IsWallSliding)
+                return WALLSLIDE_STATE;
             return FALLING_STATE;
         }
         if (_characterController.MoveAxis != 0)
@@ -132,6 +137,11 @@ public class CharacterVisualizer : VoBehavior
     private void enterFalling()
     {
         _spriteAnimator.PlayAnimation(this.FallAnimation);
+    }
+
+    private void enterWallSlide()
+    {
+        _spriteAnimator.PlayAnimation(this.WallSlideAnimation);
     }
 
     private void enterDucking()

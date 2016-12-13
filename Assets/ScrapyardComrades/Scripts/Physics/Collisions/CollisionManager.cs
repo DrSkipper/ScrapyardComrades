@@ -126,10 +126,13 @@ public class CollisionManager : VoBehavior
             {
                 for (int y = minY; y <= maxY; ++y)
                 {
-                    foreach (IntegerCollider collider in _solids[x, y])
+                    if (_solids[x, y] != null)
                     {
-                        if (collider.Contains(point) && collider.enabled)
-                            return collider.gameObject;
+                        foreach (IntegerCollider collider in _solids[x, y])
+                        {
+                            if (collider.Contains(point) && collider.enabled)
+                                return collider.gameObject;
+                        }
                     }
                 }
             }

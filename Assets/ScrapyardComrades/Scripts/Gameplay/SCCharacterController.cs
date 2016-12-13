@@ -49,6 +49,7 @@ public class SCCharacterController : Actor2D, ISpawnable
     public float Gravity = 100.0f;
     public float MaxFallSpeed = 500.0f;
     public float FastFallSpeed = 750.0f;
+    public float WallSlideSpeed = 100.0f;
     public float JumpPower = 320.0f;
     public float JumpHorizontalBoost = 50.0f;
     public float JumpHeldGravityMultiplier = 0.5f;
@@ -76,6 +77,7 @@ public class SCCharacterController : Actor2D, ISpawnable
     public bool HitStunned { get { return _freezeFrameTimer.Completed && !_hitStunTimer.Completed; } }
     public InputWrapper MostRecentInput { get; private set; }
     public bool ExecutingMove { get { return _currentAttack == null; } }
+    public bool IsWallSliding { get; private set; }
 
     public virtual InputWrapper GatherInput()
     {
@@ -161,6 +163,7 @@ public class SCCharacterController : Actor2D, ISpawnable
         _moveAxis = input.MovementAxis;
         _velocity = this.Velocity;
         _onGround = this.IsGrounded;
+        this.IsWallSliding = false;
         bool allowFaceChange = true;
 
         updateControlParameters();
@@ -213,21 +216,37 @@ public class SCCharacterController : Actor2D, ISpawnable
         }
 
         // Handle falling
+        bool againstWall = false;
+        bool leftWallJumpValid = false;
+        bool rightWallJumpValid = false;
         if (!_onGround)
         {
+            againstWall = checkAgainstWall((Facing)_moveAxis);
+
             // If jump button is held down use smaller number for gravity
             float gravity = (input.JumpHeld && _canJumpHold && (Math.Sign(_velocity.y) == 1 || Mathf.Abs(_velocity.y) < _parameters.JumpHoldAllowance)) ? (_parameters.JumpHeldGravityMultiplier * _parameters.Gravity) : _parameters.Gravity;
             float targetFallSpeed = _parameters.MaxFallSpeed;
 
+            // Check if we're wall sliding
+            if (_currentAttack == null && !input.JumpBegin && !input.Duck && againstWall)
+            {
+                targetFallSpeed = this.WallSlideSpeed;
+                this.IsWallSliding = true;
+            }
+
             // Check if we need to fast fall
-            if (input.Duck && Math.Sign(_velocity.y) == -1)
+            else if (input.Duck && Math.Sign(_velocity.y) == -1)
                 targetFallSpeed = _parameters.FastFallSpeed;
 
             _velocity.y = _velocity.y.Approach(-targetFallSpeed, -gravity);
+
+            leftWallJumpValid = (againstWall && (Facing)_moveAxis == Facing.Left) || (!againstWall && checkAgainstWall(Facing.Left));
+            rightWallJumpValid = !leftWallJumpValid && (againstWall || checkAgainstWall(Facing.Right));
         }
 
         // Check for interrupts
-        bool attemptingJump = checkForJump(input);
+        bool wallJumpValid = leftWallJumpValid || rightWallJumpValid;
+        bool attemptingJump = checkForJump(input, _onGround, wallJumpValid);
         SCAttack interruptingMove = null;
         if (_currentAttack != null)
         {
@@ -257,7 +276,19 @@ public class SCCharacterController : Actor2D, ISpawnable
 
             // Check if it's time to jump
             if (attemptingJump)
-                jump();
+            {
+                if (wallJumpValid)
+                {
+                    if (leftWallJumpValid)
+                        jump(); //TODO: wall jump off left wall
+                    else
+                        jump(); //TODO: wall jump off right wall;
+                }
+                else
+                {
+                    jump();
+                }
+            }
 
             // Or if we're beginning a Move
             else
@@ -426,9 +457,15 @@ public class SCCharacterController : Actor2D, ISpawnable
         _parameters.LandingHorizontalMultiplier = this.LandingHorizontalMultiplier;
     }
 
-    private bool checkForJump(InputWrapper input)
+    private bool checkAgainstWall(Facing direction)
     {
-        return (input.JumpBegin || !_jumpBufferTimer.Completed) && !_jumpGraceTimer.Completed;
+        IntegerVector checkPoint = new Vector2(this.transform.position.x + ((int)direction) * (this.Hurtbox.Bounds.Size.X / 2 + 1), this.transform.position.y);
+        return this.CollisionManager.CollidePointFirst(checkPoint, this.HaltMovementMask) != null;
+    }
+
+    private bool checkForJump(InputWrapper input, bool onGround, bool againstWall)
+    {
+        return (input.JumpBegin || !_jumpBufferTimer.Completed) && (onGround || againstWall || !_jumpGraceTimer.Completed);
     }
 
     private bool canJumpInterrupt()
