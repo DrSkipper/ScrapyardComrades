@@ -205,16 +205,33 @@ public class SCCharacterController : Actor2D, ISpawnable
         {
             _jumpGraceTimer.update();
         }
+        
+        // If we're auto-moving, do that
+        if (!_autoMoveTimer.Completed)
+        {
+            if ((_velocity.x < 0 && _autoMoveValue.x < 0) || (_velocity.x > 0 && _autoMoveValue.x > 0))
+                _velocity.x = Mathf.Sign(_autoMoveValue.x) * Mathf.Max(Mathf.Abs(_autoMoveValue.x), Mathf.Abs(_velocity.x));
+            else
+                _velocity.x = _autoMoveValue.x;
+
+            if ((_velocity.y < 0 && _autoMoveValue.y < 0) || (_velocity.y > 0 && _autoMoveValue.y > 0))
+                _velocity.y = Mathf.Sign(_autoMoveValue.y) * Mathf.Max(Mathf.Abs(_autoMoveValue.y), Mathf.Abs(_velocity.y));
+            else
+                _velocity.y = _autoMoveValue.y;
+
+            allowFaceChange = false;
+            _facing = (Facing)Mathf.RoundToInt(Mathf.Sign(_velocity.x));
+        }
 
         // Friction (No friction if continue to hold in direction of movement in air)
-        if (_moveAxis != Math.Sign(_velocity.x) || (_onGround && _moveAxis == 0))
+        else if (_moveAxis != Math.Sign(_velocity.x) || (_onGround && _moveAxis == 0))
         {
             float maxSlowDown = _onGround ? _parameters.Friction : _parameters.AirFriction;
             _velocity.x = _velocity.x.Approach(0.0f, maxSlowDown);
         }
 
         // Normal movement
-        if (_moveAxis != 0)
+        if (_autoMoveTimer.Completed && _moveAxis != 0)
         {
             // Landing speed multiplier
             if (_onGround && !prevOnGround)
@@ -242,23 +259,7 @@ public class SCCharacterController : Actor2D, ISpawnable
         {
             againstWall = checkAgainstWall((Facing)_moveAxis);
 
-            // If we're auto-moving, do that
-            if (!_autoMoveTimer.Completed)
-            {
-                if ((_velocity.x < 0 && _autoMoveValue.x < 0) || (_velocity.x > 0 && _autoMoveValue.x > 0))
-                    _velocity.x = Mathf.Sign(_autoMoveValue.x) * Mathf.Max(Mathf.Abs(_autoMoveValue.x), Mathf.Abs(_velocity.x));
-                else
-                    _velocity.x = _autoMoveValue.x;
-
-                if ((_velocity.y < 0 && _autoMoveValue.y < 0) || (_velocity.y > 0 && _autoMoveValue.y > 0))
-                    _velocity.y = Mathf.Sign(_autoMoveValue.y) * Mathf.Max(Mathf.Abs(_autoMoveValue.y), Mathf.Abs(_velocity.y));
-                else
-                    _velocity.y = _autoMoveValue.y;
-
-                allowFaceChange = false;
-                _facing = (Facing)Mathf.RoundToInt(Mathf.Sign(_velocity.x));
-            }
-            else
+            if (_autoMoveTimer.Completed)
             {
                 // If jump button is held down use smaller number for gravity
                 float gravity = (input.JumpHeld && _canJumpHold && (Math.Sign(_velocity.y) == 1 || Mathf.Abs(_velocity.y) < _parameters.JumpHoldAllowance)) ? (_parameters.JumpHeldGravityMultiplier * _parameters.Gravity) : _parameters.Gravity;
