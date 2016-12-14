@@ -60,6 +60,7 @@ public class SCCharacterController : Actor2D, ISpawnable
     public float JumpHoldAllowance = 1.0f;
     public int JumpBufferFrames = 6;
     public int JumpGraceFrames = 6;
+    //public int LedgeGrabDistance;
     public float LandingHorizontalMultiplier = 0.6f;
     public float Friction = 0.2f;
     public float AirFriction = 0.14f;
@@ -281,9 +282,18 @@ public class SCCharacterController : Actor2D, ISpawnable
             rightWallJumpValid = !leftWallJumpValid && (againstWall || checkAgainstWall(Facing.Right));
         }
 
-        // Check for interrupts
+        // Determine if wall jumping, normal jumping, or ledge grabbing
         bool wallJumpValid = leftWallJumpValid || rightWallJumpValid;
         bool attemptingJump = checkForJump(input, _onGround, wallJumpValid);
+        bool ledgeGrabbing = false;
+        if (leftWallJumpValid && (Facing)_moveAxis == Facing.Left)
+            ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Left);
+        else if (rightWallJumpValid && (Facing)_moveAxis == Facing.Right)
+            ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Right);
+        if (ledgeGrabbing)
+            wallJumpValid = false;
+        
+        // Check for interrupts
         SCAttack interruptingMove = null;
         if (_currentAttack != null)
         {
@@ -352,6 +362,12 @@ public class SCCharacterController : Actor2D, ISpawnable
                         handleVelocityBoosts();
                         allowFaceChange = false;
                     }
+                }
+
+                // Otherwise, might be ledge grabbing
+                else if (ledgeGrabbing)
+                {
+                    //TODO: Lock to ledge grab position
                 }
             }
         }
@@ -506,6 +522,12 @@ public class SCCharacterController : Actor2D, ISpawnable
     {
         IntegerVector checkPoint = new Vector2(this.transform.position.x + ((int)direction) * (this.Hurtbox.Offset.X + this.Hurtbox.Bounds.Size.X / 2 + 1), this.transform.position.y + 1 + this.Hurtbox.Offset.Y - this.Hurtbox.Bounds.Size.Y / 2);
         return this.CollisionManager.CollidePointFirst(checkPoint, this.HaltMovementMask) != null;
+    }
+
+    private bool checkTopHalfLedgeGrab(Facing direction)
+    {
+        IntegerVector checkPoint = new Vector2(this.transform.position.x + ((int)direction) * (this.Hurtbox.Offset.X + this.Hurtbox.Bounds.Size.X / 2 + 1), this.transform.position.y + this.Hurtbox.Offset.Y + this.Hurtbox.Bounds.Size.Y / 4);
+        return this.CollisionManager.CollidePointFirst(checkPoint, this.HaltMovementMask) == null;
     }
 
     private bool checkForJump(InputWrapper input, bool onGround, bool againstWall)
