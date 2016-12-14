@@ -52,6 +52,7 @@ public class SCCharacterController : Actor2D, ISpawnable
     public float WallSlideSpeed = 100.0f;
     public float JumpPower = 320.0f;
     public float JumpHorizontalBoost = 50.0f;
+    public float MaxSpeedForJumpHorizontalBoost = 50.0f;
     public float JumpHeldGravityMultiplier = 0.5f;
     public float JumpHoldAllowance = 1.0f;
     public int JumpBufferFrames = 6;
@@ -97,6 +98,9 @@ public class SCCharacterController : Actor2D, ISpawnable
 
     public virtual void OnSpawn()
     {
+        this.HurtboxState = SCAttack.HurtboxState.Normal;
+        updateHurtboxForState(this.HurtboxState);
+
         if (_jumpBufferTimer == null)
             _jumpBufferTimer = new Timer(this.JumpBufferFrames);
         _jumpBufferTimer.complete();
@@ -162,6 +166,7 @@ public class SCCharacterController : Actor2D, ISpawnable
         this.MostRecentInput = input;
         _moveAxis = input.MovementAxis;
         _velocity = this.Velocity;
+        bool prevOnGround = _onGround;
         _onGround = this.IsGrounded;
         this.IsWallSliding = false;
         bool allowFaceChange = true;
@@ -201,6 +206,10 @@ public class SCCharacterController : Actor2D, ISpawnable
         // Normal movement
         if (_moveAxis != 0)
         {
+            // Landing speed multiplier
+            if (_onGround && !prevOnGround)
+                _velocity.x *= this.LandingHorizontalMultiplier;
+
             // Deccel if past max speed
             if (Mathf.Abs(_velocity.x) > _parameters.MaxRunSpeed && Math.Sign(_velocity.x) == _moveAxis)
             {
@@ -496,7 +505,16 @@ public class SCCharacterController : Actor2D, ISpawnable
         _velocity.y = this.JumpPower;
 
         if (_moveAxis != 0)
-            _velocity.x += this.JumpHorizontalBoost * _moveAxis;
+        {
+            if (Mathf.RoundToInt(Mathf.Sign(_velocity.x)) == _moveAxis)
+            {
+                _velocity.x = _velocity.x.Approach(_moveAxis * this.MaxSpeedForJumpHorizontalBoost, _parameters.JumpHorizontalBoost);
+            }
+            else
+            {
+                _velocity.x += _parameters.JumpHorizontalBoost * _moveAxis;
+            }
+        }
 
         _canJumpHold = true;
     }
