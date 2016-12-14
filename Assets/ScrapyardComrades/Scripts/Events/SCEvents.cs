@@ -16,18 +16,6 @@ public class CollisionEvent : LocalEventNotifier.Event
     }
 }
 
-public class HitEvent : LocalEventNotifier.Event
-{
-    public const string NAME = "DAMAGE";
-    public GameObject Hit;
-
-    public HitEvent(GameObject hit)
-    {
-        this.Name = NAME;
-        this.Hit = hit;
-    }
-}
-
 public class CharacterUpdateFinishedEvent : LocalEventNotifier.Event
 {
     public const string NAME = "UPDATE_FINISHED";

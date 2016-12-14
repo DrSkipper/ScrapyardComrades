@@ -32,9 +32,6 @@ public class Actor2D : VoBehavior, IPausable
                 GameObject[] collisions = _collisionsFromMove.ToArray();
                 _collisionsFromMove.Clear();
                 this.localNotifier.SendEvent(new CollisionEvent(collisions, Vector2.zero, Vector2.zero));
-
-                foreach (GameObject collision in collisions)
-                    this.localNotifier.SendEvent(new HitEvent(collision));
             }
         }
 
@@ -108,9 +105,6 @@ public class Actor2D : VoBehavior, IPausable
             _horizontalCollisions.Clear();
             _verticalCollisions.Clear();
             this.localNotifier.SendEvent(new CollisionEvent(collisions, oldVelocity, soFar));
-
-            foreach (GameObject collision in collisions)
-                this.localNotifier.SendEvent(new HitEvent(collision));
         }
     }
 

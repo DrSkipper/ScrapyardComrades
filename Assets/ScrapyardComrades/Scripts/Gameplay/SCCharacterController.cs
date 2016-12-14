@@ -53,6 +53,9 @@ public class SCCharacterController : Actor2D, ISpawnable
     public float JumpPower = 320.0f;
     public float JumpHorizontalBoost = 50.0f;
     public float MaxSpeedForJumpHorizontalBoost = 50.0f;
+    public float WallJumpYPower = 50.0f;
+    public float WallJumpXPower = 50.0f;
+    public int WallJumpAutomoveFrames = 4;
     public float JumpHeldGravityMultiplier = 0.5f;
     public float JumpHoldAllowance = 1.0f;
     public int JumpBufferFrames = 6;
@@ -91,6 +94,7 @@ public class SCCharacterController : Actor2D, ISpawnable
 
         this.localNotifier.Listen(FreezeFrameEvent.NAME, this, freezeFrame);
         this.localNotifier.Listen(HitStunEvent.NAME, this, hitStun);
+        this.localNotifier.Listen(CollisionEvent.NAME, this, onCollide);
 
         if (this.AttackController != null)
             this.AttackController.HurtboxChangeCallback = attemptHurtboxStateChange;
@@ -124,6 +128,10 @@ public class SCCharacterController : Actor2D, ISpawnable
         if (_cooldownTimer == null)
             _cooldownTimer = new Timer(1);
         _cooldownTimer.complete();
+
+        if (_autoMoveTimer == null)
+            _autoMoveTimer = new Timer(1);
+        _autoMoveTimer.complete();
 
         //TODO - Data-drive health
         this.Damagable.Health = 10;
@@ -170,6 +178,7 @@ public class SCCharacterController : Actor2D, ISpawnable
         _onGround = this.IsGrounded;
         this.IsWallSliding = false;
         bool allowFaceChange = true;
+        _autoMoveTimer.update();
 
         updateControlParameters();
 
@@ -232,22 +241,41 @@ public class SCCharacterController : Actor2D, ISpawnable
         {
             againstWall = checkAgainstWall((Facing)_moveAxis);
 
-            // If jump button is held down use smaller number for gravity
-            float gravity = (input.JumpHeld && _canJumpHold && (Math.Sign(_velocity.y) == 1 || Mathf.Abs(_velocity.y) < _parameters.JumpHoldAllowance)) ? (_parameters.JumpHeldGravityMultiplier * _parameters.Gravity) : _parameters.Gravity;
-            float targetFallSpeed = _parameters.MaxFallSpeed;
-
-            // Check if we're wall sliding
-            if (_currentAttack == null && !input.JumpBegin && !input.Duck && againstWall)
+            // If we're auto-moving, do that
+            if (!_autoMoveTimer.Completed)
             {
-                targetFallSpeed = this.WallSlideSpeed;
-                this.IsWallSliding = true;
+                if ((_velocity.x < 0 && _autoMoveValue.x < 0) || (_velocity.x > 0 && _autoMoveValue.x > 0))
+                    _velocity.x = Mathf.Sign(_autoMoveValue.x) * Mathf.Max(Mathf.Abs(_autoMoveValue.x), Mathf.Abs(_velocity.x));
+                else
+                    _velocity.x = _autoMoveValue.x;
+
+                if ((_velocity.y < 0 && _autoMoveValue.y < 0) || (_velocity.y > 0 && _autoMoveValue.y > 0))
+                    _velocity.y = Mathf.Sign(_autoMoveValue.y) * Mathf.Max(Mathf.Abs(_autoMoveValue.y), Mathf.Abs(_velocity.y));
+                else
+                    _velocity.y = _autoMoveValue.y;
+
+                allowFaceChange = false;
+                _facing = (Facing)Mathf.RoundToInt(Mathf.Sign(_velocity.x));
             }
+            else
+            {
+                // If jump button is held down use smaller number for gravity
+                float gravity = (input.JumpHeld && _canJumpHold && (Math.Sign(_velocity.y) == 1 || Mathf.Abs(_velocity.y) < _parameters.JumpHoldAllowance)) ? (_parameters.JumpHeldGravityMultiplier * _parameters.Gravity) : _parameters.Gravity;
+                float targetFallSpeed = _parameters.MaxFallSpeed;
 
-            // Check if we need to fast fall
-            else if (input.Duck && Math.Sign(_velocity.y) == -1)
-                targetFallSpeed = _parameters.FastFallSpeed;
+                // Check if we're wall sliding
+                if (_currentAttack == null && !input.JumpBegin && !input.Duck && againstWall)
+                {
+                    targetFallSpeed = this.WallSlideSpeed;
+                    this.IsWallSliding = true;
+                }
 
-            _velocity.y = _velocity.y.Approach(-targetFallSpeed, -gravity);
+                // Check if we need to fast fall
+                else if (input.Duck && Math.Sign(_velocity.y) == -1)
+                    targetFallSpeed = _parameters.FastFallSpeed;
+
+                _velocity.y = _velocity.y.Approach(-targetFallSpeed, -gravity);
+            }
 
             leftWallJumpValid = (againstWall && (Facing)_moveAxis == Facing.Left) || (!againstWall && checkAgainstWall(Facing.Left));
             rightWallJumpValid = !leftWallJumpValid && (againstWall || checkAgainstWall(Facing.Right));
@@ -289,9 +317,9 @@ public class SCCharacterController : Actor2D, ISpawnable
                 if (wallJumpValid)
                 {
                     if (leftWallJumpValid)
-                        jump(); //TODO: wall jump off left wall
+                        wallJump(Facing.Right);
                     else
-                        jump(); //TODO: wall jump off right wall;
+                        wallJump(Facing.Left);
                 }
                 else
                 {
@@ -314,6 +342,7 @@ public class SCCharacterController : Actor2D, ISpawnable
                         _cooldownTimer.complete();
                         _attackTimer.reset(_currentAttack.NormalFrameLength);
                         _attackTimer.start();
+                        _autoMoveTimer.complete();
 
                         // Change direction facing if necessary (need to do this before checking first frame velocity boost)
                         if (_moveAxis != 0)
@@ -385,6 +414,8 @@ public class SCCharacterController : Actor2D, ISpawnable
     private float _hitStunAirFrictionMultiplier;
     private Timer _cooldownTimer;
     private int _cooldownCategoryMask;
+    private Timer _autoMoveTimer;
+    private Vector2 _autoMoveValue;
 
     private struct ControlParameters
     {
@@ -466,9 +497,14 @@ public class SCCharacterController : Actor2D, ISpawnable
         _parameters.LandingHorizontalMultiplier = this.LandingHorizontalMultiplier;
     }
 
+    private void onCollide(LocalEventNotifier.Event e)
+    {
+        _autoMoveTimer.complete();
+    }
+
     private bool checkAgainstWall(Facing direction)
     {
-        IntegerVector checkPoint = new Vector2(this.transform.position.x + ((int)direction) * (this.Hurtbox.Bounds.Size.X / 2 + 1), this.transform.position.y);
+        IntegerVector checkPoint = new Vector2(this.transform.position.x + ((int)direction) * (this.Hurtbox.Offset.X + this.Hurtbox.Bounds.Size.X / 2 + 1), this.transform.position.y + 1 + this.Hurtbox.Offset.Y - this.Hurtbox.Bounds.Size.Y / 2);
         return this.CollisionManager.CollidePointFirst(checkPoint, this.HaltMovementMask) != null;
     }
 
@@ -516,6 +552,19 @@ public class SCCharacterController : Actor2D, ISpawnable
             }
         }
 
+        _canJumpHold = true;
+    }
+
+    private void wallJump(Facing direction)
+    {
+        _jumpBufferTimer.complete();
+        _jumpGraceTimer.complete();
+
+        _autoMoveTimer.reset(this.WallJumpAutomoveFrames);
+        _autoMoveValue.x = ((int)direction) * this.WallJumpXPower;
+        _autoMoveValue.y = this.WallJumpYPower;
+        _velocity.x = _autoMoveValue.x;
+        _velocity.y = Mathf.Max(_autoMoveValue.y, _velocity.y);
         _canJumpHold = true;
     }
 
