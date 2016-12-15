@@ -60,7 +60,8 @@ public class SCCharacterController : Actor2D, ISpawnable
     public float JumpHoldAllowance = 1.0f;
     public int JumpBufferFrames = 6;
     public int JumpGraceFrames = 6;
-    //public int LedgeGrabDistance;
+    public int LedgeGrabCheckDistance = 6;
+    public int LedgeGrabPeekDistance = 8;
     public float LandingHorizontalMultiplier = 0.6f;
     public float Friction = 0.2f;
     public float AirFriction = 0.14f;
@@ -287,12 +288,15 @@ public class SCCharacterController : Actor2D, ISpawnable
         bool wallJumpValid = leftWallJumpValid || rightWallJumpValid;
         bool attemptingJump = checkForJump(input, _onGround, wallJumpValid);
         bool ledgeGrabbing = false;
-        if (leftWallJumpValid && (Facing)_moveAxis == Facing.Left)
-            ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Left);
-        else if (rightWallJumpValid && (Facing)_moveAxis == Facing.Right)
-            ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Right);
-        if (ledgeGrabbing)
-            wallJumpValid = false;
+        if (!_onGround && !input.Duck && _velocity.y < 0.0f)
+        {
+            if (leftWallJumpValid && (Facing)_moveAxis == Facing.Left)
+                ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Left);
+            else if (rightWallJumpValid && (Facing)_moveAxis == Facing.Right)
+                ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Right);
+            if (ledgeGrabbing)
+                wallJumpValid = false;
+        }
         
         // Check for interrupts
         SCAttack interruptingMove = null;
@@ -368,7 +372,7 @@ public class SCCharacterController : Actor2D, ISpawnable
                 // Otherwise, might be ledge grabbing
                 else if (ledgeGrabbing)
                 {
-                    //TODO: Lock to ledge grab position
+                    grabLedge((Facing)_moveAxis);
                 }
             }
         }
@@ -527,8 +531,18 @@ public class SCCharacterController : Actor2D, ISpawnable
 
     private bool checkTopHalfLedgeGrab(Facing direction)
     {
-        IntegerVector checkPoint = new Vector2(this.transform.position.x + ((int)direction) * (this.Hurtbox.Offset.X + this.Hurtbox.Bounds.Size.X / 2 + 1), this.transform.position.y + this.Hurtbox.Offset.Y + this.Hurtbox.Bounds.Size.Y / 4);
+        IntegerVector checkPoint = new Vector2(this.transform.position.x + ((int)direction) * (this.Hurtbox.Offset.X + this.Hurtbox.Bounds.Size.X / 2 + 1), this.transform.position.y + this.Hurtbox.Offset.Y + this.Hurtbox.Bounds.Size.Y / 2 - this.LedgeGrabCheckDistance);
         return this.CollisionManager.CollidePointFirst(checkPoint, this.HaltMovementMask) == null;
+    }
+
+    private void grabLedge(Facing direction)
+    {
+        IntegerVector rayOrigin = new Vector2(this.transform.position.x + ((int)direction) * (this.Hurtbox.Offset.X + this.Hurtbox.Bounds.Size.X / 2 + 1), this.transform.position.y + this.Hurtbox.Offset.Y + this.Hurtbox.Bounds.Size.Y / 2 - LedgeGrabCheckDistance);
+        CollisionManager.RaycastResult result = this.CollisionManager.RaycastFirst(rayOrigin, Vector2.down, this.Hurtbox.Bounds.Size.Y, this.HaltMovementMask);
+        IntegerVector ledgeTop = result.FarthestPointReached;
+        this.transform.SetY(ledgeTop.Y - this.Hurtbox.Offset.Y - this.Hurtbox.Size.Y / 2 + this.LedgeGrabPeekDistance);
+        _velocity.x = 0;
+        _velocity.y = 0;
     }
 
     private bool checkForJump(InputWrapper input, bool onGround, bool againstWall)
