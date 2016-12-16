@@ -308,13 +308,21 @@ public class SCCharacterController : Actor2D, ISpawnable
             bool interrupted = false;
             if (attemptingJump && canJumpInterrupt())
             {
-                interrupted = true;
+                interrupted = true; // Jump or Wall Jump interrupt
             }
             else if (canMoveInterrupt())
             {
                 interruptingMove = this.MoveSet.GetAttackForInput(input, this, _currentAttack.MoveInterruptCategoryMask);
                 if (interruptingMove != null)
-                    interrupted = true;
+                    interrupted = true; // Move interrupt
+            }
+
+            if (ledgeGrabbing)
+            {
+                if (!interrupted && canLedgeGrabInterrupt())
+                    interrupted = true; // Ledge grab interrupt
+                else
+                    ledgeGrabbing = false;
             }
 
             if (interrupted)
@@ -565,6 +573,11 @@ public class SCCharacterController : Actor2D, ISpawnable
     private bool canMoveInterrupt()
     {
         return _currentAttack.NormalFrameLength - _attackTimer.FramesRemaining >= _currentAttack.MoveInterruptFrame;
+    }
+
+    private bool canLedgeGrabInterrupt()
+    {
+        return _currentAttack.NormalFrameLength - _attackTimer.FramesRemaining >= _currentAttack.LedgeGrabInterruptFrame;
     }
 
     private void endMove()
