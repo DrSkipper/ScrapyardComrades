@@ -177,3 +177,15 @@ public class EntityConsumedEvent : LocalEventNotifier.Event
         this.EntityName = entityName;
     }
 }
+
+public class InteractionTargetChangeEvent : LocalEventNotifier.Event
+{
+    public const string NAME = "INTERACT_TARGET";
+    public GameObject Target;
+
+    public InteractionTargetChangeEvent(GameObject target)
+    {
+        this.Name = NAME;
+        this.Target = target;
+    }
+}
