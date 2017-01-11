@@ -8,6 +8,9 @@ public static class SCCustomObjectCreator
     private const string ATTACK_PATH = "Attacks/NewAttack.asset";
     private const string MOVESET_PATH = "Attacks/NewMoveSet.asset";
     private const string PARALLAX_PATH = "Parallax/NewParallaxLayer.asset";
+    private const string PICKUP_PATH = "Pickups/NewPickup.asset";
+    private const string CONSUMABLE_PATH = "Consumables/NewConsumable.asset";
+    private const string DIALOG_PATH = "Dialog/NewDialog.asset";
 
     [MenuItem("Custom Objects/Create Sprite Animation")]
     public static void CreateSpriteAnimation()
@@ -31,6 +34,24 @@ public static class SCCustomObjectCreator
     public static void CreateParallaxLayer()
     {
         SaveAsset(new SCParallaxLayer(), PATH + PARALLAX_PATH);
+    }
+
+    [MenuItem("Custom Objects/Create Pickup")]
+    public static void CreatePickup()
+    {
+        SaveAsset(new SCPickup(), PATH + PICKUP_PATH);
+    }
+
+    [MenuItem("Custom Objects/Create Consumable")]
+    public static void CreateConsumable()
+    {
+        SaveAsset(new SCConsumable(), PATH + CONSUMABLE_PATH);
+    }
+
+    [MenuItem("Custom Objects/Create Dialog")]
+    public static void CreateDialog()
+    {
+        SaveAsset(new SCDialog(), PATH + DIALOG_PATH);
     }
 
     public static void SaveAsset(ScriptableObject asset, string path)

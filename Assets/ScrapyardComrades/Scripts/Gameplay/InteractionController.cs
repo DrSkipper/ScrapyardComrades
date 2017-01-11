@@ -50,7 +50,7 @@ public class InteractionController : VoBehavior
         // If interacting, trigger interataction with object
         if ((e as CharacterUpdateFinishedEvent).CurrentAttack == null && this.CharacterController.MostRecentInput.Interact)
         {
-            //TODO
+            _highlightedObject.GetComponent<Interactable>().Interact(this);
         }
     }
 }

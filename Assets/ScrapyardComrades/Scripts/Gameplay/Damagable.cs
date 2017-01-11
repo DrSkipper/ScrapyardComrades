@@ -4,6 +4,7 @@ public class Damagable : VoBehavior, IPausable
 {
     public const int FREEZE_FRAMES = 6;
     public int Health = 10;
+    public int MaxHealth = 10;
     public bool Invincible { get; private set; }
     public bool Dead { get { return this.Health <= 0; } }
 
@@ -12,6 +13,11 @@ public class Damagable : VoBehavior, IPausable
         _invincibilityTimer = new Timer(1, false, false);
         _freezeFrameEvent = new FreezeFrameEvent(FREEZE_FRAMES);
         _hitStunEvent = new HitStunEvent(1, 1.0f, 1.0f);
+    }
+
+    public void Heal(int amount)
+    {
+        this.Health = Mathf.Min(this.Health + amount, this.MaxHealth);
     }
 
     public bool Damage(SCAttack.HitData hitData, IntegerVector origin, IntegerVector hitPoint, SCCharacterController.Facing attackerFacing)
