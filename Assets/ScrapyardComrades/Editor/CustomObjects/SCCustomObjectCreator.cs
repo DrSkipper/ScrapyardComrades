@@ -8,9 +8,9 @@ public static class SCCustomObjectCreator
     private const string ATTACK_PATH = "Attacks/NewAttack.asset";
     private const string MOVESET_PATH = "Attacks/NewMoveSet.asset";
     private const string PARALLAX_PATH = "Parallax/NewParallaxLayer.asset";
-    private const string PICKUP_PATH = "Pickups/NewPickup.asset";
-    private const string CONSUMABLE_PATH = "Consumables/NewConsumable.asset";
-    private const string DIALOG_PATH = "Dialog/NewDialog.asset";
+    private const string PICKUP_PATH = "Interactables/Pickups/NewPickup.asset";
+    private const string CONSUMABLE_PATH = "Interactables/Consumables/NewConsumable.asset";
+    private const string DIALOG_PATH = "Interactables/Dialog/NewDialog.asset";
 
     [MenuItem("Custom Objects/Create Sprite Animation")]
     public static void CreateSpriteAnimation()

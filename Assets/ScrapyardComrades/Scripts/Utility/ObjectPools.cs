@@ -37,9 +37,14 @@ public class ObjectPools : MonoBehaviour
     {
         PooledObject pooledObject = toRelease.GetComponent<PooledObject>();
         if (pooledObject == null)
+        {
             Debug.LogWarning("No PooledObject script found on " + toRelease);
+            Destroy(toRelease.gameObject);
+        }
         else
+        {
             Release(pooledObject);
+        }
     }
 
     public static void Release(PooledObject toRelease)

@@ -48,7 +48,7 @@ public class InteractionController : VoBehavior
         }
 
         // If interacting, trigger interataction with object
-        if ((e as CharacterUpdateFinishedEvent).CurrentAttack == null && this.CharacterController.MostRecentInput.Interact)
+        if (_highlightedObject != null && (e as CharacterUpdateFinishedEvent).CurrentAttack == null && this.CharacterController.MostRecentInput.Interact)
         {
             _highlightedObject.GetComponent<Interactable>().Interact(this);
         }
