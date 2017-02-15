@@ -4,6 +4,9 @@ public class InventoryController : MonoBehaviour
 {
     public int InventorySize;
 
+    public int NumItems { get { return _currentItemCount; } }
+    public SCPickup GetItem(int index) { return _inventory[index]; }
+
     void Awake()
     {
         _inventory = new SCPickup[this.InventorySize];
@@ -45,6 +48,9 @@ public class InventoryController : MonoBehaviour
         _currentItemCount = 0;
     }
 
+    /**
+     * Private
+     */
     private int _currentItemCount;
     private SCPickup[] _inventory;
 }
