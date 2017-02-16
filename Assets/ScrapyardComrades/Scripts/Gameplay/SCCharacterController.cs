@@ -74,6 +74,7 @@ public class SCCharacterController : Actor2D, ISpawnable
     public Damagable Damagable;
     public AttackController AttackController;
     public IntegerRectCollider Hurtbox;
+    public InventoryController InventoryController;
     public SCMoveSet MoveSet;
     public Facing CurrentFacing { get { return _facing; } }
     public bool OnGround { get { return _onGround; } }
@@ -337,8 +338,25 @@ public class SCCharacterController : Actor2D, ISpawnable
             // Attempt to stand up if necessary
             attemptHurtboxStateChange(SCAttack.HurtboxState.Normal);
 
+            // Check if we're using an item
+            if (input.UseItem && this.InventoryController.NumItems > 0)
+            {
+                PooledObject item = this.InventoryController.UseItem(0);
+                if (item != null)
+                {
+                    item.transform.SetPosition2D(this.transform.position.x, this.transform.position.y);
+                    ThrownActor actor = item.GetComponent<ThrownActor>();
+                    if (actor != null)
+                    {
+                        //TODO: Throw position marked in character data
+                        //TODO: Item thrown up a bit if looking up
+                        actor.Throw(item.GetComponent<Pickup>().Data.ThrowVelocity * new Vector2((int)_facing, 0));
+                    }
+                }
+            }
+
             // Check if it's time to jump
-            if (attemptingJump)
+            else if (attemptingJump)
             {
                 if (wallJumpValid)
                 {
