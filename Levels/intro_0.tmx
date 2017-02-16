@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="128" height="64" tilewidth="10" tileheight="10" nextobjectid="33">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="128" height="64" tilewidth="10" tileheight="10" nextobjectid="34">
  <tileset firstgid="1" name="platforms_tiled" tilewidth="10" tileheight="10" tilecount="400" columns="20">
   <image source="Textures/platforms_tiled.png" width="200" height="200"/>
  </tileset>
@@ -50,6 +50,9 @@
  </tileset>
  <tileset firstgid="1125" name="light" tilewidth="10" tileheight="10" tilecount="1" columns="1">
   <image source="../Assets/ScrapyardComrades/Resources/light.png" width="10" height="10"/>
+ </tileset>
+ <tileset firstgid="1126" name="rock" tilewidth="8" tileheight="8" tilecount="1" columns="1">
+  <image source="../Assets/ScrapyardComrades/Resources/rock.png" width="8" height="8"/>
  </tileset>
  <layer name="background" width="128" height="64">
   <data encoding="csv">
@@ -191,6 +194,7 @@
   <object id="25" name="player" gid="401" x="228" y="320" width="14" height="26"/>
   <object id="29" name="enemy 1" gid="402" x="828" y="320" width="14" height="26"/>
   <object id="30" name="heart" gid="1123" x="580" y="310" width="20" height="20"/>
+  <object id="33" name="rock" gid="1126" x="510" y="310" width="8" height="8"/>
  </objectgroup>
  <objectgroup name="props">
   <object id="31" gid="1124" x="629" y="320" width="32" height="128"/>

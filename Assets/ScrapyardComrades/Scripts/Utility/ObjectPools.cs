@@ -70,7 +70,7 @@ public class ObjectPools : MonoBehaviour
         }
         else
         {
-            List<PooledObject> pool = _pools[prefab.PoolId];
+            List<PooledObject> pool = _pools[poolId];
             if (pool.Count > 0)
             {
                 PooledObject instance = pool.Pop();

@@ -6,6 +6,7 @@ public class EntityTracker : MonoBehaviour
     public const string PLAYER = "player";
     public const string ENEMY = "enemy";
     public const string HEART = "heart";
+    public const string ROCK = "rock";
 
     public class Entity
     {

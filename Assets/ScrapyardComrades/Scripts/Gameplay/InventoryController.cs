@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class InventoryController : MonoBehaviour
 {
     public int InventorySize;
-    public Pickup[] ItemPrefabs;
+    public PooledObject[] ItemPrefabs;
 
     public int NumItems { get { return _currentItemCount; } }
     public SCPickup GetItem(int index) { return _inventory[index]; }
@@ -12,11 +12,11 @@ public class InventoryController : MonoBehaviour
     void Awake()
     {
         _inventory = new SCPickup[this.InventorySize];
-        _itemPrefabs = new Dictionary<string, Pickup>();
+        _itemPrefabs = new Dictionary<string, PooledObject>();
         for (int i = 0; i < this.ItemPrefabs.Length; ++i)
         {
-            Pickup prefab = this.ItemPrefabs[i];
-            _itemPrefabs.Add(prefab.Data.Name, prefab);
+            PooledObject prefab = this.ItemPrefabs[i];
+            _itemPrefabs.Add(prefab.GetComponent<Pickup>().Data.Name, prefab);
         }
     }
 
@@ -49,8 +49,7 @@ public class InventoryController : MonoBehaviour
 
         if (item != null)
         {
-            Pickup prefab = _itemPrefabs[item.Name];
-            return prefab.GetComponent<PooledObject>().Retain();
+            return _itemPrefabs[item.Name].Retain();
         }
 
         return null;
@@ -68,5 +67,5 @@ public class InventoryController : MonoBehaviour
      */
     private int _currentItemCount;
     private SCPickup[] _inventory;
-    private Dictionary<string, Pickup> _itemPrefabs;
+    private Dictionary<string, PooledObject> _itemPrefabs;
 }

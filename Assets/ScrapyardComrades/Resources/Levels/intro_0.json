@@ -62,6 +62,18 @@
                  "width":20,
                  "x":580,
                  "y":310
+                }, 
+                {
+                 "gid":1126,
+                 "height":8,
+                 "id":33,
+                 "name":"rock",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":8,
+                 "x":510,
+                 "y":310
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -72,7 +84,7 @@
         }, 
         {
          "draworder":"topdown",
-         "height":64,
+         "height":0,
          "name":"props",
          "objects":[
                 {
@@ -102,11 +114,11 @@
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":128,
+         "width":0,
          "x":0,
          "y":0
         }],
- "nextobjectid":33,
+ "nextobjectid":34,
  "orientation":"orthogonal",
  "renderorder":"right-up",
  "tileheight":10,
@@ -317,6 +329,19 @@
          "tilecount":1,
          "tileheight":10,
          "tilewidth":10
+        }, 
+        {
+         "columns":1,
+         "firstgid":1126,
+         "image":"..\/rock.png",
+         "imageheight":8,
+         "imagewidth":8,
+         "margin":0,
+         "name":"rock",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":8,
+         "tilewidth":8
         }],
  "tilewidth":10,
  "version":1,

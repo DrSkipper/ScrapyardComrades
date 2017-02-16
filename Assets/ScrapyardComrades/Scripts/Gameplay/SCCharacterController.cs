@@ -352,6 +352,13 @@ public class SCCharacterController : Actor2D, ISpawnable
                         //TODO: Item thrown up a bit if looking up
                         actor.Throw(item.GetComponent<Pickup>().Data.ThrowVelocity * new Vector2((int)_facing, 0));
                     }
+
+                    ISpawnable[] spawnables = item.GetComponents<ISpawnable>();
+
+                    for (int i = 0; i < spawnables.Length; ++i)
+                    {
+                        spawnables[i].OnSpawn();
+                    }
                 }
             }
 

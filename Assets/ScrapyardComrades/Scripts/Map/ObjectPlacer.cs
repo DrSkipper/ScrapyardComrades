@@ -6,6 +6,7 @@ public class ObjectPlacer : VoBehavior
     public PooledObject PlayerPrefab;
     public PooledObject EnemyPrefab;
     public PooledObject HeartPrefab;
+    public PooledObject RockPrefab;
     public TimedCallbacks TimedCallbacks;
     public EntityTracker EntityTracker;
     public float SpawnDelay = 0.5f;
@@ -32,6 +33,8 @@ public class ObjectPlacer : VoBehavior
                     toSpawn = this.EnemyPrefab;
                 else if (mapObject.name.Contains(EntityTracker.HEART))
                     toSpawn = this.HeartPrefab;
+                else if (mapObject.name.Contains(EntityTracker.ROCK))
+                    toSpawn = this.RockPrefab;
 
                 if (toSpawn != null)
                 {
