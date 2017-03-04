@@ -133,7 +133,7 @@ public class MapLoader : MonoBehaviour
         this.GeometryCreator.AddColliders();
     }
 
-    private static Dictionary<string, Texture2D> CompileTextures(Texture2D[] textures)
+    public static Dictionary<string, Texture2D> CompileTextures(Texture2D[] textures)
     {
         Dictionary<string, Texture2D> textDict = new Dictionary<string, Texture2D>();
         for (int i = 0; i < textures.Length; ++i)
@@ -143,7 +143,7 @@ public class MapLoader : MonoBehaviour
         return textDict;
     }
 
-    private static Dictionary<string, Sprite[]> CompileSprites(Dictionary<string, Texture2D> textures)
+    public static Dictionary<string, Sprite[]> CompileSprites(Dictionary<string, Texture2D> textures)
     {
         Dictionary<string, Sprite[]> sprites = new Dictionary<string, Sprite[]>();
         foreach (string key in textures.Keys)
