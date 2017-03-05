@@ -24,12 +24,31 @@ public class MapEditorManager : MonoBehaviour
         this.Quad.Sprites = _sprites;
     }
 
+    void Start()
+    {
+        this.Cursor.ChangeBrushContents(this.GetSpriteForBrush(this.CurrentBrush), this.CurrentBrush.SpriteIndex == 0);
+    }
+
     void FixedUpdate()
     {
         if (MapEditorInput.Confirm)
         {
             //TODO: Handle different layers
             this.Quad.PlatformsRenderer.SetSpriteIndexForTile(this.Cursor.GridPos.X, this.FlipVertical ? this.Grid.Height - this.Cursor.GridPos.Y - 1 : this.Cursor.GridPos.Y, this.CurrentBrush.SpriteIndex);
+        }
+        else if (MapEditorInput.CycleNext)
+        {
+            ++this.CurrentBrush.SpriteIndex;
+            if (this.CurrentBrush.SpriteIndex >= _sprites[this.ValidAtlases[this.CurrentBrush.Layer].name].Length)
+                this.CurrentBrush.SpriteIndex = 0;
+            this.Cursor.ChangeBrushContents(this.GetSpriteForBrush(this.CurrentBrush), this.CurrentBrush.SpriteIndex == 0); //TODO: Probably need better way to detect eraser
+        }
+        else if (MapEditorInput.CyclePrev)
+        {
+            --this.CurrentBrush.SpriteIndex;
+            if (this.CurrentBrush.SpriteIndex < 0)
+                this.CurrentBrush.SpriteIndex = _sprites[this.ValidAtlases[this.CurrentBrush.Layer].name].Length - 1;
+            this.Cursor.ChangeBrushContents(this.GetSpriteForBrush(this.CurrentBrush), this.CurrentBrush.SpriteIndex == 0);
         }
     }
 
