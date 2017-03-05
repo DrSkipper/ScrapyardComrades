@@ -31,7 +31,7 @@ public class MapEditorManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (MapEditorInput.Confirm)
+        if (MapEditorInput.ConfirmHeld)
         {
             //TODO: Handle different layers
             this.Quad.PlatformsRenderer.SetSpriteIndexForTile(this.Cursor.GridPos.X, this.FlipVertical ? this.Grid.Height - this.Cursor.GridPos.Y - 1 : this.Cursor.GridPos.Y, this.CurrentBrush.SpriteIndex);

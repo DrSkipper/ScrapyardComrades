@@ -6,6 +6,7 @@ public static class MapEditorInput
 
     public static bool Start { get { return RewiredPlayer.GetButtonDown(START); } }
     public static bool Confirm { get { return RewiredPlayer.GetButtonDown(CONFIRM); } }
+    public static bool ConfirmHeld { get { return RewiredPlayer.GetButton(CONFIRM); } }
     public static bool Cancel { get { return RewiredPlayer.GetButtonDown(CANCEL); } }
     public static bool Exit { get { return RewiredPlayer.GetButtonDown(EXIT); } }
 
