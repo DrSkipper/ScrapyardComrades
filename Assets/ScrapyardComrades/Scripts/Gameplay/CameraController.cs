@@ -4,7 +4,8 @@ public class CameraController : MonoBehaviour, IPausable
 {
     public Camera Camera;
     public IntegerRectCollider BoundsChecker;
-    public WorldLoadingManager WorldManager;
+    public GameObject WorldBoundsHandler;
+    public Transform InitialTracker;
     public int RoomBorder = 10; // Modifies BoundsChecker size to give small visual overlap between rooms
     public Easing.Function TransitionEasingFunction;
     public Easing.Flow TransitionEasingFlow;
@@ -14,6 +15,8 @@ public class CameraController : MonoBehaviour, IPausable
 
     void Awake()
     {
+        _tracker = this.InitialTracker;
+        _boundsHandler = this.WorldBoundsHandler.GetComponent<CameraBoundsHandler>();
         int cameraHeight = Screen.height > RESOLUTION_DOUBLING_THRESHOLD ? Screen.height / 2 : Screen.height;
         Camera.orthographicSize = cameraHeight;
         _attemptedHeight = cameraHeight * PIXELS_TO_UNITS;
@@ -28,10 +31,26 @@ public class CameraController : MonoBehaviour, IPausable
         this.BoundsChecker.Size.Y = _attemptedHeight;
         _attemptedHeight -= this.RoomBorder * 2;
         _attemptedWidth -= this.RoomBorder * 2;
-        calculateBounds();
+        this.CalculateBounds();
 
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
         GlobalEvents.Notifier.Listen(PauseEvent.NAME, this, onPause);
+    }
+
+    public void CalculateBounds()
+    {
+        int width = _attemptedWidth;
+        int height = _attemptedHeight;
+
+        // Make sure our camera target bounds don't go outside the quad bounds
+        if (width > _boundsHandler.GetBounds().Size.X)
+            width = _boundsHandler.GetBounds().Size.X;
+        if (height > _boundsHandler.GetBounds().Size.Y)
+            height = _boundsHandler.GetBounds().Size.Y;
+
+        this.BoundsChecker.Size = new IntegerVector(width, height);
+        _halfBoundsWidth = width / 2;
+        _halfBoundsHeight = height / 2;
     }
 
     void Update()
@@ -69,6 +88,7 @@ public class CameraController : MonoBehaviour, IPausable
     /**
      * Private
      */
+    private CameraBoundsHandler _boundsHandler;
     private Transform _tracker;
     private int _halfBoundsWidth;
     private int _halfBoundsHeight;
@@ -96,7 +116,7 @@ public class CameraController : MonoBehaviour, IPausable
         {
             _inTransition = true;
             _transitionTime = 0.0f;
-            calculateBounds();
+            this.CalculateBounds();
         }
     }
 
@@ -104,10 +124,10 @@ public class CameraController : MonoBehaviour, IPausable
     {
         // Find closest position to centering on tracker that doesn't result in our bounds leaving the current quad
         IntegerVector target = (Vector2)_tracker.transform.position;
-        IntegerRect quad = this.WorldManager.CurrentQuadBoundsCheck.Bounds;
+        IntegerRect quad = _boundsHandler.GetBounds().Bounds;
         IntegerVector destination = target;
 
-        if (target.X > 0)
+        if (target.X > quad.Center.X)
         {
             if (quad.Max.X - target.X < _halfBoundsWidth)
                 destination.X = quad.Max.X - _halfBoundsWidth;
@@ -118,7 +138,7 @@ public class CameraController : MonoBehaviour, IPausable
                 destination.X = quad.Min.X + _halfBoundsWidth;
         }
 
-        if (target.Y > 0)
+        if (target.Y > quad.Center.Y)
         {
             if (quad.Max.Y - target.Y < _halfBoundsHeight)
                 destination.Y = quad.Max.Y - _halfBoundsHeight;
@@ -129,21 +149,5 @@ public class CameraController : MonoBehaviour, IPausable
                 destination.Y = quad.Min.Y + _halfBoundsHeight;
         }
         return destination;
-    }
-
-    private void calculateBounds()
-    {
-        int width = _attemptedWidth;
-        int height = _attemptedHeight;
-
-        // Make sure our camera target bounds don't go outside the quad bounds
-        if (width > this.WorldManager.CurrentQuadBoundsCheck.Size.X)
-            width = this.WorldManager.CurrentQuadBoundsCheck.Size.X;
-        if (height > this.WorldManager.CurrentQuadBoundsCheck.Size.Y)
-            height = this.WorldManager.CurrentQuadBoundsCheck.Size.Y;
-
-        this.BoundsChecker.Size = new IntegerVector(width, height);
-        _halfBoundsWidth = width / 2;
-        _halfBoundsHeight = height / 2;
     }
 }

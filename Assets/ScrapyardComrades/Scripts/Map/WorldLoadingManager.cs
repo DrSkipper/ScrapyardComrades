@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-public class WorldLoadingManager : MonoBehaviour, IPausable
+public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
 {
     public string WorldMapName = "WorldMap";
     public string StartingAreaName = "Quad_0_0";
@@ -22,6 +22,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable
     public const string ROOM_TRANSITION_SEQUENCE = "room_transition";
 
     public IntegerRectCollider CurrentQuadBoundsCheck;
+    public IntegerRectCollider GetBounds() { return this.CurrentQuadBoundsCheck; }
     public string CurrentQuadName { get { return _currentQuad.Name; } }
     public int CurrentQuadWidth { get { return _currentQuad.Bounds.Size.X * this.TileRenderSize; } }
 
