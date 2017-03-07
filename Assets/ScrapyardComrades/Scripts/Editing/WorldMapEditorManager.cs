@@ -24,7 +24,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         this.Grid.InitializeGridForSize(mapInfo.width, mapInfo.height);
         MapInfo.MapLayer layer = mapInfo.GetLayerWithName(WorldLoadingManager.LAYER);
         _quadVisuals = new Dictionary<string, WorldEditorQuadVisual>();
-        this.WorldPanel.sizeDelta = new Vector2(mapInfo.width * this.GridSpaceRenderSize, mapInfo.height * this.GridSpaceRenderSize);
+        this.WorldPanel.sizeDelta = new Vector2((mapInfo.width - 1) * this.GridSpaceRenderSize, (mapInfo.height - 1) * this.GridSpaceRenderSize);
         this.WorldBounds.Size = this.WorldPanel.sizeDelta;
         this.WorldBounds.Offset = this.WorldPanel.sizeDelta / 2;
 
@@ -68,13 +68,12 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 if (_selectedQuad != null)
                 {
                     _selectedQuad.Select();
-                    this.Cursor.gameObject.SetActive(false);
+                    this.Cursor.Hide();
                 }
             }
             else
             {
-                this.Cursor.gameObject.SetActive(true);
-                //this.Cursor.GridPos = _selectedQuad.QuadBounds.Min;
+                this.Cursor.UnHide();
                 this.Cursor.MoveToGridPos();
                 _selectedQuad.UnSelect();
                 _selectedQuad = null;
@@ -88,6 +87,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 --newPos.X;
                 this.Cursor.GridPos = new IntegerVector(this.Cursor.GridPos.X - 1, this.Cursor.GridPos.Y);
                 _selectedQuad.QuadBounds = new IntegerRect(newPos, _selectedQuad.QuadBounds.Size);
+                this.Cursor.MoveToGridPos();
                 _selectedQuad.MoveToGridPos(this.Grid);
             }
             else if (MapEditorInput.NavRight && canMoveRight(_selectedQuad))
@@ -96,6 +96,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 ++newPos.X;
                 this.Cursor.GridPos = new IntegerVector(this.Cursor.GridPos.X + 1, this.Cursor.GridPos.Y);
                 _selectedQuad.QuadBounds = new IntegerRect(newPos, _selectedQuad.QuadBounds.Size);
+                this.Cursor.MoveToGridPos();
                 _selectedQuad.MoveToGridPos(this.Grid);
             }
             else if (MapEditorInput.NavDown && canMoveDown(_selectedQuad))
@@ -104,6 +105,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 --newPos.Y;
                 this.Cursor.GridPos = new IntegerVector(this.Cursor.GridPos.X, this.Cursor.GridPos.Y - 1);
                 _selectedQuad.QuadBounds = new IntegerRect(newPos, _selectedQuad.QuadBounds.Size);
+                this.Cursor.MoveToGridPos();
                 _selectedQuad.MoveToGridPos(this.Grid);
             }
             else if (MapEditorInput.NavUp && canMoveUp(_selectedQuad))
@@ -112,6 +114,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 ++newPos.Y;
                 this.Cursor.GridPos = new IntegerVector(this.Cursor.GridPos.X, this.Cursor.GridPos.Y + 1);
                 _selectedQuad.QuadBounds = new IntegerRect(newPos, _selectedQuad.QuadBounds.Size);
+                this.Cursor.MoveToGridPos();
                 _selectedQuad.MoveToGridPos(this.Grid);
             }
         }
