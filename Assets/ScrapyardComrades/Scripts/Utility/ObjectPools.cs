@@ -109,7 +109,7 @@ public class ObjectPools : MonoBehaviour
         {
             if (broadcastMessage)
                 obj.BroadcastMessage(POOL_RETURN_METHOD, SendMessageOptions.DontRequireReceiver);
-            obj.transform.parent = null;
+            obj.transform.SetParent(null);
             obj.gameObject.SetActive(false);
             pool.Add(obj);
             return true;

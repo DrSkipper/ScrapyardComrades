@@ -28,6 +28,11 @@ public class MapEditorCursor : VoBehavior
         else if (MapEditorInput.NavUp)
             this.GridPos = this.Grid.MoveUp(this.GridPos);
 
+        this.MoveToGridPos();
+    }
+
+    public void MoveToGridPos()
+    {
         IntegerVector worldPos = this.Grid.GridToWorld(this.GridPos);
         this.transform.SetPosition2D(worldPos.X, worldPos.Y);
     }

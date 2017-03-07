@@ -99,12 +99,18 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         return _quadData[quadName];
     }
 
+    public static MapInfo ReadWorldMapInfo(string worldMapName)
+    {
+        TextAsset asset = Resources.Load<TextAsset>(PATH + worldMapName);
+        return JsonConvert.DeserializeObject<MapInfo>(asset.text);
+    }
+
     /**
      * Private
      */
     private const string PATH = "Levels/";
-    private const string LAYER = "map";
-    private const int BOUNDS_TO_LOAD = 32;
+    public const string LAYER = "map";
+    private const int BOUNDS_TO_LOAD = 16;
     private const int LOAD_PHASE_CHANGE_CURRENT = 0;
     private const int LOAD_PHASE_GATHER_TARGETS = 1;
     private const int LOAD_PHASE_UNLOAD_QUADS = 2;
@@ -124,8 +130,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
 
     private void gatherWorldMapInfo()
     {
-        TextAsset asset = Resources.Load<TextAsset>(PATH + this.WorldMapName);
-        MapInfo mapInfo = JsonConvert.DeserializeObject<MapInfo>(asset.text);
+        MapInfo mapInfo = ReadWorldMapInfo(this.WorldMapName);
         _allMapQuads = new List<MapQuad>();
 
         MapInfo.MapLayer layer = mapInfo.GetLayerWithName(LAYER);
