@@ -99,7 +99,7 @@ public class CameraController : MonoBehaviour, IPausable
     private IntegerVector _transitionDestination;
     private Vector2 _transitionOrigin;
     private Easing.EasingDelegate _easingDelegate;
-    private const int RESOLUTION_DOUBLING_THRESHOLD = 540;
+    private const int RESOLUTION_DOUBLING_THRESHOLD = 270;
     private const int PIXELS_TO_UNITS = 2;
     private const float TRANSITION_END_BUFFER = 0.04f;
 

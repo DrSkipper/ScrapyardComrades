@@ -40,11 +40,12 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
             ((RectTransform)quadVisualObject.transform).sizeDelta = new Vector2((size.X) * this.GridSpaceRenderSize, (size.Y) * this.GridSpaceRenderSize);
 
             WorldEditorQuadVisual quadVisual = quadVisualObject.GetComponent<WorldEditorQuadVisual>();
-            quadVisual.Text.text = mapObject.name;
-            IntegerRect bounds = new IntegerRect(IntegerVector.Zero, size);
-            bounds.Min = pos;
-            bounds.Max = pos + size;
-            quadVisual.QuadBounds = bounds;
+            quadVisual.ConfigureForQuad(mapObject.name, MapLoader.GatherMapInfo(mapObject.name), this.WorldGridSpaceSize, this.GridSpaceRenderSize, pos);
+            //quadVisual.Text.text = mapObject.name;
+            //IntegerRect bounds = new IntegerRect(IntegerVector.Zero, size);
+            //bounds.Min = pos;
+            //bounds.Max = pos + size;
+            //quadVisual.QuadBounds = bounds;
             _quadVisuals.Add(mapObject.name, quadVisual);
         }
     }
