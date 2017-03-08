@@ -41,11 +41,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
 
             WorldEditorQuadVisual quadVisual = quadVisualObject.GetComponent<WorldEditorQuadVisual>();
             quadVisual.ConfigureForQuad(mapObject.name, MapLoader.GatherMapInfo(mapObject.name), this.WorldGridSpaceSize, this.GridSpaceRenderSize, pos);
-            //quadVisual.Text.text = mapObject.name;
-            //IntegerRect bounds = new IntegerRect(IntegerVector.Zero, size);
-            //bounds.Min = pos;
-            //bounds.Max = pos + size;
-            //quadVisual.QuadBounds = bounds;
+            //TODO: Change map object's size if necessary based on loaded quad data
             _quadVisuals.Add(mapObject.name, quadVisual);
         }
     }
@@ -59,7 +55,8 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 //TODO: Iterating through all quads here probably not great - should probably have a grid system of storage;
                 foreach (WorldEditorQuadVisual quadVisual in _quadVisuals.Values)
                 {
-                    if (quadVisual.QuadBounds.Contains(this.Cursor.GridPos))
+                    //TODO: Not sure why I have to check against the outside border of the bounds here
+                    if (quadVisual.QuadBounds.Contains(this.Cursor.GridPos) && this.Cursor.GridPos.X != quadVisual.QuadBounds.Max.X && this.Cursor.GridPos.Y != quadVisual.QuadBounds.Max.Y)
                     {
                         _selectedQuad = quadVisual;
                         break;
