@@ -49,7 +49,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
             _quadVisuals.Add(mapObject.name, quadVisual);
         }
 
-        this.ContextMenu.EnterState(NO_SELECTION_STATE);
+        this.ContextMenu.EnterState(hoveredQuadVisual() == null ? NO_SELECTION_STATE : HOVER_STATE);
         _cursorPrev = this.Cursor.GridPos;
     }
 
