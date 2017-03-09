@@ -39,14 +39,18 @@ public class ContextMenu : MonoBehaviour
         {
             for (int i = 0; i < _currentValidElements.Count; ++i)
             {
-                _currentValidElements[i].transform.SetLocalX(this.Border + i * (this.ElementSize + this.Border));
+                Vector2 pos = ((RectTransform)_currentValidElements[i].transform).anchoredPosition;
+                pos = new Vector2(this.Border + i * (this.ElementSize + this.Border), pos.y);
+                ((RectTransform)_currentValidElements[i].transform).anchoredPosition = pos;
             }
         }
         else
         {
             for (int i = 0; i < _currentValidElements.Count; ++i)
             {
-                _currentValidElements[i].transform.SetLocalY(this.Border + i * (this.ElementSize + this.Border));
+                Vector2 pos = ((RectTransform)_currentValidElements[i].transform).anchoredPosition;
+                pos = new Vector2(pos.y, this.Border + i * (this.ElementSize + this.Border));
+                ((RectTransform)_currentValidElements[i].transform).anchoredPosition = pos;
             }
         }
     }

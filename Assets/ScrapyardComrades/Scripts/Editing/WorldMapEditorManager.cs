@@ -10,6 +10,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     public int GridSpaceRenderSize = 20;
     public bool FlipVertical = true;
     public RectTransform WorldPanel;
+    public ContextMenu ContextMenu;
     public MapEditorCursor Cursor;
     public MapEditorGrid Grid;
     public IntegerRectCollider WorldBounds;
@@ -47,6 +48,9 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
             //TODO: Change map object's size if necessary based on loaded quad data
             _quadVisuals.Add(mapObject.name, quadVisual);
         }
+
+        this.ContextMenu.EnterState(NO_SELECTION_STATE);
+        _cursorPrev = this.Cursor.GridPos;
     }
 
     void Update()
@@ -55,25 +59,18 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         {
             if (_selectedQuad == null)
             {
-                //TODO: Iterating through all quads here probably not great - should probably have a grid system of storage;
-                foreach (WorldEditorQuadVisual quadVisual in _quadVisuals.Values)
+                WorldEditorQuadVisual hoveredQuad = hoveredQuadVisual();
+                if (hoveredQuad != null)
                 {
-                    //TODO: Not sure why I have to check against the outside border of the bounds here
-                    if (quadVisual.QuadBounds.Contains(this.Cursor.GridPos) && this.Cursor.GridPos.X != quadVisual.QuadBounds.Max.X && this.Cursor.GridPos.Y != quadVisual.QuadBounds.Max.Y)
-                    {
-                        _selectedQuad = quadVisual;
-                        break;
-                    }
-                }
-
-                if (_selectedQuad != null)
-                {
+                    this.ContextMenu.EnterState(SELECTION_STATE);
+                    _selectedQuad = hoveredQuad;
                     _selectedQuad.Select();
                     this.Cursor.Hide();
                 }
             }
             else
             {
+                this.ContextMenu.EnterState(HOVER_STATE);
                 this.Cursor.UnHide();
                 this.Cursor.MoveToGridPos();
                 _selectedQuad.UnSelect();
@@ -82,6 +79,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         }
         else if (_selectedQuad != null)
         {
+            bool moved = false;
             if (MapEditorInput.NavLeft && canMoveLeft(_selectedQuad))
             {
                 IntegerVector newPos = _selectedQuad.QuadBounds.Center;
@@ -90,6 +88,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 _selectedQuad.QuadBounds = new IntegerRect(newPos, _selectedQuad.QuadBounds.Size);
                 this.Cursor.MoveToGridPos();
                 _selectedQuad.MoveToGridPos(this.Grid);
+                moved = true;
             }
             else if (MapEditorInput.NavRight && canMoveRight(_selectedQuad))
             {
@@ -99,6 +98,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 _selectedQuad.QuadBounds = new IntegerRect(newPos, _selectedQuad.QuadBounds.Size);
                 this.Cursor.MoveToGridPos();
                 _selectedQuad.MoveToGridPos(this.Grid);
+                moved = true;
             }
             else if (MapEditorInput.NavDown && canMoveDown(_selectedQuad))
             {
@@ -108,6 +108,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 _selectedQuad.QuadBounds = new IntegerRect(newPos, _selectedQuad.QuadBounds.Size);
                 this.Cursor.MoveToGridPos();
                 _selectedQuad.MoveToGridPos(this.Grid);
+                moved = true;
             }
             else if (MapEditorInput.NavUp && canMoveUp(_selectedQuad))
             {
@@ -117,12 +118,23 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 _selectedQuad.QuadBounds = new IntegerRect(newPos, _selectedQuad.QuadBounds.Size);
                 this.Cursor.MoveToGridPos();
                 _selectedQuad.MoveToGridPos(this.Grid);
+                moved = true;
             }
         }
-        else if (MapEditorInput.Exit) //TODO: Save option should be in UI, not exit key
+        else if (MapEditorInput.Exit) //TODO: Don't use exit key
         {
             this.Save();
         }
+
+        if (_selectedQuad == null && _cursorPrev != this.Cursor.GridPos)
+        {
+            WorldEditorQuadVisual hoveredQuad = hoveredQuadVisual();
+            if (hoveredQuad)
+                this.ContextMenu.EnterState(HOVER_STATE);
+            else
+                this.ContextMenu.EnterState(NO_SELECTION_STATE);
+        }
+        _cursorPrev = this.Cursor.GridPos;
     }
 
     public void Save()
@@ -161,9 +173,28 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     /**
      * Private
      */
+    private const string HOVER_STATE = "Hover";
+    private const string SELECTION_STATE = "Selection";
+    private const string NO_SELECTION_STATE = "NoSelection";
     private Dictionary<string, WorldEditorQuadVisual> _quadVisuals;
     private WorldEditorQuadVisual _selectedQuad;
     private MapInfo _mapInfo;
+    private IntegerVector _cursorPrev;
+
+    private WorldEditorQuadVisual hoveredQuadVisual()
+    {
+        //TODO: Iterating through all quads here probably not great - should probably have a grid system of storage
+        foreach (WorldEditorQuadVisual quadVisual in _quadVisuals.Values)
+        {
+            //TODO: Not sure why I have to check against the outside border of the bounds here
+            if (quadVisual.QuadBounds.Contains(this.Cursor.GridPos) && this.Cursor.GridPos.X != quadVisual.QuadBounds.Max.X && this.Cursor.GridPos.Y != quadVisual.QuadBounds.Max.Y)
+            {
+                return quadVisual;
+            }
+        }
+
+        return null;
+    }
 
     private bool canMoveLeft(WorldEditorQuadVisual quadVisual)
     {
