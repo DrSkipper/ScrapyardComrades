@@ -12,9 +12,11 @@ public class WorldEditorQuadVisual : MonoBehaviour
     public Color FilledColor;
     public Color EmptyColor;
     public string PreviewLayerName;
+    public string QuadName { get; private set; }
     
     public void ConfigureForQuad(string name, MapInfo quadInfo, int worldGridSpaceSize, int gridSpaceRenderSize, IntegerVector quadPos)
     {
+        this.QuadName = name;
         this.Text.text = name;
         IntegerVector size = new IntegerVector(quadInfo.width / worldGridSpaceSize, quadInfo.height / worldGridSpaceSize);
         IntegerRect bounds = new IntegerRect(IntegerVector.Zero, size);

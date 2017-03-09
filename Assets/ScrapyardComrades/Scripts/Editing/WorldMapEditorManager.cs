@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 
 public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
 {
@@ -12,6 +14,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     public MapEditorGrid Grid;
     public IntegerRectCollider WorldBounds;
     public PooledObject QuadPrefab;
+    public string WorldMapFilePath = "Levels/WorldMap/World.json";
 
     public IntegerRectCollider GetBounds()
     {
@@ -20,11 +23,11 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
 
     void Start()
     {
-        MapInfo mapInfo = WorldLoadingManager.ReadWorldMapInfo(this.WorldMapName);
-        this.Grid.InitializeGridForSize(mapInfo.width, mapInfo.height);
-        MapInfo.MapLayer layer = mapInfo.GetLayerWithName(WorldLoadingManager.LAYER);
+        this.Load();
+        this.Grid.InitializeGridForSize(_mapInfo.width, _mapInfo.height);
+        MapInfo.MapLayer layer = _mapInfo.GetLayerWithName(WorldLoadingManager.LAYER);
         _quadVisuals = new Dictionary<string, WorldEditorQuadVisual>();
-        this.WorldPanel.sizeDelta = new Vector2((mapInfo.width) * this.GridSpaceRenderSize, (mapInfo.height) * this.GridSpaceRenderSize);
+        this.WorldPanel.sizeDelta = new Vector2(_mapInfo.width * this.GridSpaceRenderSize, _mapInfo.height * this.GridSpaceRenderSize);
         this.WorldBounds.Size = this.WorldPanel.sizeDelta;
         this.WorldBounds.Offset = this.WorldPanel.sizeDelta / 2;
 
@@ -33,7 +36,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
             MapInfo.MapObject mapObject = layer.objects[i];
             PooledObject quadVisualObject = this.QuadPrefab.Retain();
             ((RectTransform)quadVisualObject.transform).SetParent(this.WorldPanel, false);
-            IntegerVector pos = new IntegerVector(mapObject.x / this.WorldGridSpaceSize, this.FlipVertical ? mapInfo.height - ((mapObject.height + mapObject.y) / this.WorldGridSpaceSize) : mapObject.y / this.WorldGridSpaceSize);
+            IntegerVector pos = new IntegerVector(mapObject.x / this.WorldGridSpaceSize, this.FlipVertical ? _mapInfo.height - ((mapObject.height + mapObject.y) / this.WorldGridSpaceSize) : mapObject.y / this.WorldGridSpaceSize);
             IntegerVector size = new IntegerVector(mapObject.width / this.WorldGridSpaceSize, mapObject.height / this.WorldGridSpaceSize);
 
             quadVisualObject.transform.SetLocalPosition2D(pos.X * this.GridSpaceRenderSize, pos.Y * this.GridSpaceRenderSize);
@@ -116,6 +119,43 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 _selectedQuad.MoveToGridPos(this.Grid);
             }
         }
+        else if (MapEditorInput.Exit) //TODO: Save option should be in UI, not exit key
+        {
+            this.Save();
+        }
+    }
+
+    public void Save()
+    {
+        MapInfo.MapLayer layer = _mapInfo.GetLayerWithName(WorldLoadingManager.LAYER);
+
+        for (int i = 0; i < layer.objects.Length; ++i)
+        {
+            MapInfo.MapObject mapObject = layer.objects[i];
+            WorldEditorQuadVisual quadVisual = _quadVisuals[mapObject.name];
+            mapObject.x = quadVisual.QuadBounds.Min.X * this.WorldGridSpaceSize;
+            mapObject.y = quadVisual.QuadBounds.Min.Y * this.WorldGridSpaceSize;
+            mapObject.width = quadVisual.QuadBounds.Size.X * this.WorldGridSpaceSize;
+            mapObject.height = quadVisual.QuadBounds.Size.Y * this.WorldGridSpaceSize;
+        }
+
+        string path = Application.streamingAssetsPath + "/" + this.WorldMapFilePath;
+        File.WriteAllText(path, JsonConvert.SerializeObject(_mapInfo));
+    }
+
+    public void Load()
+    {
+        string path = Application.streamingAssetsPath + "/" + this.WorldMapFilePath;
+        if (File.Exists(path))
+        {
+            this.FlipVertical = false;
+            _mapInfo = JsonConvert.DeserializeObject<MapInfo>(File.ReadAllText(path));
+        }
+        else
+        {
+            this.FlipVertical = true;
+            _mapInfo = WorldLoadingManager.ReadWorldMapInfo(this.WorldMapName);
+        }
     }
 
     /**
@@ -123,6 +163,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
      */
     private Dictionary<string, WorldEditorQuadVisual> _quadVisuals;
     private WorldEditorQuadVisual _selectedQuad;
+    private MapInfo _mapInfo;
 
     private bool canMoveLeft(WorldEditorQuadVisual quadVisual)
     {
