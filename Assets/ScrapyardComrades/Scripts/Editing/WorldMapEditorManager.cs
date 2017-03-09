@@ -24,7 +24,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         this.Grid.InitializeGridForSize(mapInfo.width, mapInfo.height);
         MapInfo.MapLayer layer = mapInfo.GetLayerWithName(WorldLoadingManager.LAYER);
         _quadVisuals = new Dictionary<string, WorldEditorQuadVisual>();
-        this.WorldPanel.sizeDelta = new Vector2((mapInfo.width - 1) * this.GridSpaceRenderSize, (mapInfo.height - 1) * this.GridSpaceRenderSize);
+        this.WorldPanel.sizeDelta = new Vector2((mapInfo.width) * this.GridSpaceRenderSize, (mapInfo.height) * this.GridSpaceRenderSize);
         this.WorldBounds.Size = this.WorldPanel.sizeDelta;
         this.WorldBounds.Offset = this.WorldPanel.sizeDelta / 2;
 
@@ -136,7 +136,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     private bool canMoveRight(WorldEditorQuadVisual quadVisual)
     {
         IntegerRect newBounds = quadVisual.QuadBounds;
-        if (newBounds.Max.X >= this.Grid.Width - 1)
+        if (newBounds.Max.X >= this.Grid.Width)
             return false;
         newBounds.Center = new IntegerVector(newBounds.Center.X + 1, newBounds.Center.Y);
         return validQuadLocation(newBounds, quadVisual);
@@ -154,7 +154,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     private bool canMoveUp(WorldEditorQuadVisual quadVisual)
     {
         IntegerRect newBounds = quadVisual.QuadBounds;
-        if (newBounds.Max.Y >= this.Grid.Height - 1)
+        if (newBounds.Max.Y >= this.Grid.Height)
             return false;
         newBounds.Center = new IntegerVector(newBounds.Center.X, newBounds.Center.Y + 1);
         return validQuadLocation(newBounds, quadVisual);
