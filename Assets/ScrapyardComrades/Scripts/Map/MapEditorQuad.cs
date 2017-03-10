@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 
 public class MapEditorQuad : MonoBehaviour
 {
     public string MapName = "GameplayTest";
+    public string DirectoryPath = "Levels";
     public MapEditorGrid Grid;
     public TileRenderer PlatformsRenderer;
     public TileRenderer BGRenderer;
@@ -11,6 +14,7 @@ public class MapEditorQuad : MonoBehaviour
     public string BGLayer = "background";
     public string ObjectsLayer = "objects";
     public bool LoadOnStart = false;
+    public bool FlipVertical = true;
 
     public bool Cleared { get { return _cleared; } }
     public Dictionary<string, Texture2D> Atlases;
@@ -22,25 +26,27 @@ public class MapEditorQuad : MonoBehaviour
             this.LoadMap();
     }
 
-    public void LoadMap(bool loadObjects = false)
+    public void LoadMap()
     {
         this.ClearMap();
         _cleared = false;
 
-        MapInfo mapInfo = MapLoader.GatherMapInfo(this.MapName);
-        MapGridSpaceInfo[,] grid = mapInfo.GetLayerWithName(this.PlatformsLayer).GetGrid(mapInfo.tilesets);
-        _width = mapInfo.width;
-        _height = mapInfo.height;
+        this.Load();
+        MapGridSpaceInfo[,] grid = _mapInfo.GetLayerWithName(this.PlatformsLayer).GetGrid(_mapInfo.tilesets);
+        _width = _mapInfo.width;
+        _height = _mapInfo.height;
         this.Grid.InitializeGridForSize(_width, _height);
         this.PlatformsRenderer.Atlas = this.Atlases[this.PlatformsLayer];
         this.PlatformsRenderer.Sprites = this.Sprites[this.PlatformsLayer];
+        this.PlatformsRenderer.FlipVertical = this.FlipVertical;
         this.PlatformsRenderer.CreateMapWithGrid(grid);
-        MapInfo.MapLayer bgLayer = mapInfo.GetLayerWithName(this.BGLayer);
+        MapInfo.MapLayer bgLayer = _mapInfo.GetLayerWithName(this.BGLayer);
         if (bgLayer != null)
         {
-            MapGridSpaceInfo[,] bgGrid = bgLayer.GetGrid(mapInfo.tilesets);
+            MapGridSpaceInfo[,] bgGrid = bgLayer.GetGrid(_mapInfo.tilesets);
             this.BGRenderer.Atlas = this.Atlases[this.BGLayer];
             this.BGRenderer.Sprites = this.Sprites[this.BGLayer];
+            this.BGRenderer.FlipVertical = this.FlipVertical;
             this.BGRenderer.CreateMapWithGrid(bgGrid);
         }
     }
@@ -60,6 +66,29 @@ public class MapEditorQuad : MonoBehaviour
         }
     }
 
+    public void Load()
+    {
+        string path = Application.streamingAssetsPath + "/" + this.DirectoryPath + "/" + this.MapName;
+        if (File.Exists(path))
+        {
+            this.FlipVertical = false;
+            _mapInfo = JsonConvert.DeserializeObject<MapInfo>(File.ReadAllText(path));
+        }
+        else
+        {
+            this.FlipVertical = true;
+            _mapInfo = MapLoader.GatherMapInfo(this.MapName);
+        }
+    }
+
+    public void Save()
+    {
+        //TODO: complete
+
+        string path = Application.streamingAssetsPath + "/" + this.DirectoryPath + "/" + this.MapName;
+        File.WriteAllText(path, JsonConvert.SerializeObject(_mapInfo));
+    }
+
     /**
      * Private
      */
@@ -67,4 +96,5 @@ public class MapEditorQuad : MonoBehaviour
     private bool _cleared = false;
     private int _width = 0;
     private int _height = 0;
+    private MapInfo _mapInfo;
 }

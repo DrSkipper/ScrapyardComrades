@@ -8,7 +8,6 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     public string WorldMapName;
     public int WorldGridSpaceSize = 16;
     public int GridSpaceRenderSize = 20;
-    public bool FlipVertical = true;
     public RectTransform WorldPanel;
     public ContextMenu ContextMenu;
     public MapEditorCursor Cursor;
@@ -25,28 +24,27 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     void Start()
     {
         this.Load();
-        this.Grid.InitializeGridForSize(_mapInfo.width, _mapInfo.height);
-        MapInfo.MapLayer layer = _mapInfo.GetLayerWithName(WorldLoadingManager.LAYER);
+        this.Grid.InitializeGridForSize(_worldInfo.width, _worldInfo.height);
         _quadVisuals = new Dictionary<string, WorldEditorQuadVisual>();
-        this.WorldPanel.sizeDelta = new Vector2(_mapInfo.width * this.GridSpaceRenderSize, _mapInfo.height * this.GridSpaceRenderSize);
+        this.WorldPanel.sizeDelta = new Vector2(_worldInfo.width * this.GridSpaceRenderSize, _worldInfo.height * this.GridSpaceRenderSize);
         this.WorldBounds.Size = this.WorldPanel.sizeDelta;
         this.WorldBounds.Offset = this.WorldPanel.sizeDelta / 2;
 
-        for (int i = 0; i < layer.objects.Length; ++i)
+        for (int i = 0; i < _worldInfo.level_quads.Length; ++i)
         {
-            MapInfo.MapObject mapObject = layer.objects[i];
+            WorldInfo.LevelQuad levelQuad = _worldInfo.level_quads[i];
             PooledObject quadVisualObject = this.QuadPrefab.Retain();
             ((RectTransform)quadVisualObject.transform).SetParent(this.WorldPanel, false);
-            IntegerVector pos = new IntegerVector(mapObject.x / this.WorldGridSpaceSize, this.FlipVertical ? _mapInfo.height - ((mapObject.height + mapObject.y) / this.WorldGridSpaceSize) : mapObject.y / this.WorldGridSpaceSize);
-            IntegerVector size = new IntegerVector(mapObject.width / this.WorldGridSpaceSize, mapObject.height / this.WorldGridSpaceSize);
+            IntegerVector pos = new IntegerVector(levelQuad.x, levelQuad.y);
+            IntegerVector size = new IntegerVector(levelQuad.width, levelQuad.height);
 
             quadVisualObject.transform.SetLocalPosition2D(pos.X * this.GridSpaceRenderSize, pos.Y * this.GridSpaceRenderSize);
             ((RectTransform)quadVisualObject.transform).sizeDelta = new Vector2((size.X) * this.GridSpaceRenderSize, (size.Y) * this.GridSpaceRenderSize);
 
             WorldEditorQuadVisual quadVisual = quadVisualObject.GetComponent<WorldEditorQuadVisual>();
-            quadVisual.ConfigureForQuad(mapObject.name, MapLoader.GatherMapInfo(mapObject.name), this.WorldGridSpaceSize, this.GridSpaceRenderSize, pos);
+            quadVisual.ConfigureForQuad(levelQuad.name, MapLoader.GatherMapInfo(levelQuad.name), this.WorldGridSpaceSize, this.GridSpaceRenderSize, pos);
             //TODO: Change map object's size if necessary based on loaded quad data
-            _quadVisuals.Add(mapObject.name, quadVisual);
+            _quadVisuals.Add(levelQuad.name, quadVisual);
         }
 
         this.ContextMenu.EnterState(hoveredQuadVisual() == null ? NO_SELECTION_STATE : HOVER_STATE);
@@ -79,7 +77,6 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         }
         else if (_selectedQuad != null)
         {
-            bool moved = false;
             if (MapEditorInput.NavLeft && canMoveLeft(_selectedQuad))
             {
                 IntegerVector newPos = _selectedQuad.QuadBounds.Center;
@@ -88,7 +85,6 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 _selectedQuad.QuadBounds = new IntegerRect(newPos, _selectedQuad.QuadBounds.Size);
                 this.Cursor.MoveToGridPos();
                 _selectedQuad.MoveToGridPos(this.Grid);
-                moved = true;
             }
             else if (MapEditorInput.NavRight && canMoveRight(_selectedQuad))
             {
@@ -98,7 +94,6 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 _selectedQuad.QuadBounds = new IntegerRect(newPos, _selectedQuad.QuadBounds.Size);
                 this.Cursor.MoveToGridPos();
                 _selectedQuad.MoveToGridPos(this.Grid);
-                moved = true;
             }
             else if (MapEditorInput.NavDown && canMoveDown(_selectedQuad))
             {
@@ -108,7 +103,6 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 _selectedQuad.QuadBounds = new IntegerRect(newPos, _selectedQuad.QuadBounds.Size);
                 this.Cursor.MoveToGridPos();
                 _selectedQuad.MoveToGridPos(this.Grid);
-                moved = true;
             }
             else if (MapEditorInput.NavUp && canMoveUp(_selectedQuad))
             {
@@ -118,7 +112,6 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 _selectedQuad.QuadBounds = new IntegerRect(newPos, _selectedQuad.QuadBounds.Size);
                 this.Cursor.MoveToGridPos();
                 _selectedQuad.MoveToGridPos(this.Grid);
-                moved = true;
             }
         }
         else if (MapEditorInput.Exit) //TODO: Don't use exit key
@@ -139,20 +132,18 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
 
     public void Save()
     {
-        MapInfo.MapLayer layer = _mapInfo.GetLayerWithName(WorldLoadingManager.LAYER);
-
-        for (int i = 0; i < layer.objects.Length; ++i)
+        for (int i = 0; i < _worldInfo.level_quads.Length; ++i)
         {
-            MapInfo.MapObject mapObject = layer.objects[i];
-            WorldEditorQuadVisual quadVisual = _quadVisuals[mapObject.name];
-            mapObject.x = quadVisual.QuadBounds.Min.X * this.WorldGridSpaceSize;
-            mapObject.y = quadVisual.QuadBounds.Min.Y * this.WorldGridSpaceSize;
-            mapObject.width = quadVisual.QuadBounds.Size.X * this.WorldGridSpaceSize;
-            mapObject.height = quadVisual.QuadBounds.Size.Y * this.WorldGridSpaceSize;
+            WorldInfo.LevelQuad levelQuad = _worldInfo.level_quads[i];
+            WorldEditorQuadVisual quadVisual = _quadVisuals[levelQuad.name];
+            levelQuad.x = quadVisual.QuadBounds.Min.X;
+            levelQuad.y = quadVisual.QuadBounds.Min.Y;
+            levelQuad.width = quadVisual.QuadBounds.Size.X;
+            levelQuad.height = quadVisual.QuadBounds.Size.Y;
         }
 
         string path = Application.streamingAssetsPath + "/" + this.WorldMapFilePath;
-        File.WriteAllText(path, JsonConvert.SerializeObject(_mapInfo));
+        File.WriteAllText(path, JsonConvert.SerializeObject(_worldInfo));
     }
 
     public void Load()
@@ -160,13 +151,12 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         string path = Application.streamingAssetsPath + "/" + this.WorldMapFilePath;
         if (File.Exists(path))
         {
-            this.FlipVertical = false;
-            _mapInfo = JsonConvert.DeserializeObject<MapInfo>(File.ReadAllText(path));
+            _worldInfo = JsonConvert.DeserializeObject<WorldInfo>(File.ReadAllText(path));
+            //_worldInfo = mapInfoToWorldInfo(JsonConvert.DeserializeObject<MapInfo>(File.ReadAllText(path)));
         }
         else
         {
-            this.FlipVertical = true;
-            _mapInfo = WorldLoadingManager.ReadWorldMapInfo(this.WorldMapName);
+            _worldInfo = mapInfoToWorldInfo(WorldLoadingManager.ReadWorldMapInfo(this.WorldMapName), this.WorldGridSpaceSize);
         }
     }
 
@@ -178,8 +168,33 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     private const string NO_SELECTION_STATE = "NoSelection";
     private Dictionary<string, WorldEditorQuadVisual> _quadVisuals;
     private WorldEditorQuadVisual _selectedQuad;
-    private MapInfo _mapInfo;
+    private WorldInfo _worldInfo;
     private IntegerVector _cursorPrev;
+
+    private static WorldInfo mapInfoToWorldInfo(MapInfo mapInfo, int worldGridSpaceSize)
+    {
+        WorldInfo worldInfo = new WorldInfo();
+        worldInfo.width = mapInfo.width;
+        worldInfo.height = mapInfo.height;
+        worldInfo.tile_size = mapInfo.tilewidth;
+        List<WorldInfo.LevelQuad> levelQuads = new List<WorldInfo.LevelQuad>();
+
+        MapInfo.MapLayer layer = mapInfo.GetLayerWithName(WorldLoadingManager.LAYER);
+        for (int i = 0; i < layer.objects.Length; ++i)
+        {
+            MapInfo.MapObject mapObject = layer.objects[i];
+            WorldInfo.LevelQuad levelQuad = new WorldInfo.LevelQuad();
+            levelQuad.name = mapObject.name;
+            levelQuad.x = mapObject.x / worldGridSpaceSize;
+            levelQuad.y = mapObject.y / worldGridSpaceSize;
+            levelQuad.width = mapObject.width / worldGridSpaceSize;
+            levelQuad.height = mapObject.height / worldGridSpaceSize;
+            levelQuads.Add(levelQuad);
+        }
+
+        worldInfo.level_quads = levelQuads.ToArray();
+        return worldInfo;
+    }
 
     private WorldEditorQuadVisual hoveredQuadVisual()
     {
