@@ -37,12 +37,12 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
             ((RectTransform)quadVisualObject.transform).SetParent(this.WorldPanel, false);
             IntegerVector pos = new IntegerVector(levelQuad.x, levelQuad.y);
             IntegerVector size = new IntegerVector(levelQuad.width, levelQuad.height);
-
-            quadVisualObject.transform.SetLocalPosition2D(pos.X * this.GridSpaceRenderSize, pos.Y * this.GridSpaceRenderSize);
+            
             ((RectTransform)quadVisualObject.transform).sizeDelta = new Vector2((size.X) * this.GridSpaceRenderSize, (size.Y) * this.GridSpaceRenderSize);
 
             WorldEditorQuadVisual quadVisual = quadVisualObject.GetComponent<WorldEditorQuadVisual>();
             quadVisual.ConfigureForQuad(levelQuad.name, MapLoader.GatherMapInfo(levelQuad.name), this.WorldGridSpaceSize, this.GridSpaceRenderSize, pos);
+            quadVisual.MoveToGridPos(this.Grid);
             //TODO: Change map object's size if necessary based on loaded quad data
             _quadVisuals.Add(levelQuad.name, quadVisual);
         }
