@@ -20,26 +20,23 @@ public class TilesetEditorManagerEditor : Editor
     void OnSceneGUI()
     {
         Event current = Event.current;
-        int controlID = GUIUtility.GetControlID(FocusType.Passive);
 
-        switch (current.type)
+        if (current.type == EventType.layout)
         {
-            case EventType.mouseDown:
-                TilesetEditorManager behavior = this.target as TilesetEditorManager;
-                Ray ray = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
+            HandleUtility.AddDefaultControl(GUIUtility.GetControlID(FocusType.Passive));
+        }
+        else if (current.type == EventType.mouseDown && current.button == 0)
+        {
+            TilesetEditorManager behavior = this.target as TilesetEditorManager;
+            Ray ray = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
 
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit))
-                {
-                    Selection.activeGameObject = behavior.gameObject;
-                }
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                Selection.activeGameObject = behavior.gameObject;
+            }
 
-                current.Use();
-                break;
-
-            case EventType.layout:
-                HandleUtility.AddDefaultControl(controlID);
-                break;
+            current.Use();
         }
     }
 }
