@@ -13,6 +13,7 @@ public class ContextMenu : MonoBehaviour
     {
         if (state == _currentState)
             return;
+        _currentState = state;
 
         if (_currentValidElements == null)
             _currentValidElements = new List<ContextMenuElement>();

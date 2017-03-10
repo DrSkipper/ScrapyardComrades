@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class SCCustomObjectCreator
 {
-    private const string PATH = "Assets/ScrapyardComrades/";
+    private const string PATH = "Assets/ScrapyardComrades/CustomObjects/";
     private const string ANIMATION_PATH = "Animations/NewSpriteAnimation.asset";
     private const string ATTACK_PATH = "Attacks/NewAttack.asset";
     private const string MOVESET_PATH = "Attacks/NewMoveSet.asset";
@@ -11,6 +11,7 @@ public static class SCCustomObjectCreator
     private const string PICKUP_PATH = "Interactables/Pickups/NewPickup.asset";
     private const string CONSUMABLE_PATH = "Interactables/Consumables/NewConsumable.asset";
     private const string DIALOG_PATH = "Interactables/Dialog/NewDialog.asset";
+    private const string TILESET_DATA_PATH = "Tilesets/NewTileset.asset";
 
     [MenuItem("Custom Objects/Create Sprite Animation")]
     public static void CreateSpriteAnimation()
@@ -52,6 +53,12 @@ public static class SCCustomObjectCreator
     public static void CreateDialog()
     {
         SaveAsset(new SCDialog(), PATH + DIALOG_PATH);
+    }
+
+    [MenuItem("Custom Objects/Create Tileset")]
+    public static void CreateTileset()
+    {
+        SaveAsset(new TilesetData(), PATH + TILESET_DATA_PATH);
     }
 
     public static void SaveAsset(ScriptableObject asset, string path)
