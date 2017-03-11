@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
 
 [System.Serializable]
 public class NewMapInfo
@@ -7,10 +7,59 @@ public class NewMapInfo
     public int width;
     public int height;
     public int tile_size;
-    public MapLayer[] tile_layers;
-    public ParallaxLayer[] parallax_layers;
-    public MapObject[] props;
-    public MapObject[] objects;
+    public List<MapLayer> tile_layers; // Use accessors to add/remove
+    public List<ParallaxLayer> parallax_layers; // Access directly
+    public List<MapObject> props; // Access directly
+    public List<MapObject> objects; // Access directly
+
+    public NewMapInfo(string n, int w, int h, int tileSize)
+    {
+        name = n;
+        width = w;
+        height = h;
+        tile_size = tileSize;
+        tile_layers = new List<MapLayer>();
+        parallax_layers = new List<ParallaxLayer>();
+        props = new List<MapObject>();
+        objects = new List<MapObject>();
+    }
+
+    public void AddTileLayer(string layerName)
+    {
+        tile_layers.Add(new MapLayer(layerName, width, height));
+    }
+
+    public void RemoveTileLayer(string layerName)
+    {
+        tile_layers.RemoveAll(l => l.name == layerName);
+    }
+
+    public MapLayer GetMapLayer(string layerName)
+    {
+        return tile_layers.Find(l => l.name == layerName);
+    }
+
+    public void ResizeWidth(int newWidth)
+    {
+        tile_layers.ForEach(x => x.ResizeWidth(newWidth));
+        if (newWidth < width)
+        {
+            props.RemoveAll(p => p.x >= newWidth);
+            objects.RemoveAll(o => o.x >= newWidth);
+        }
+        width = newWidth;
+    }
+
+    public void ResizeHeight(int newHeight)
+    {
+        tile_layers.ForEach(x => x.ResizeHeight(newHeight));
+        if (newHeight < height)
+        {
+            props.RemoveAll(p => p.y >= newHeight);
+            objects.RemoveAll(o => o.y >= newHeight);
+        }
+        height = newHeight;
+    }
 
     [System.Serializable]
     public class MapLayer
@@ -18,8 +67,69 @@ public class NewMapInfo
         public string name;
         public int width;
         public int height;
-        public int[,] data;
+        public List<string> tileset_names; //TODO: implement
+        public MapTile[] data;
+
+        public MapLayer(string n, int w, int h)
+        {
+            name = n;
+            width = w;
+            height = h;
+            data = new MapTile[w * h];
+            tileset_names = new List<string>();
+        }
+
+        public MapTile[,] GetDataGrid()
+        {
+            MapTile[,] grid = new MapTile[width, height];
+            for (int x = 0; x < width; ++x)
+            {
+                for (int y = 0; y < height; ++y)
+                {
+                    grid[x, y] = data[y * width + x];
+                }
+            }
+            return grid;
+        }
+
+        public void SetTile(int x, int y, string tilesetName, string spriteName)
+        {
+            data[y * width + x].tileset_name = tilesetName;
+            data[y * width + x].sprite_name = spriteName;
+        }
+
+        public void ResizeWidth(int newWidth)
+        {
+            MapTile[] newData = new MapTile[newWidth * height];
+            for (int x = 0; x < newWidth; ++x)
+            {
+                for (int y = 0; y < height; ++y)
+                {
+                    newData[y * newWidth + x] = x >= width ? new MapTile() : data[y * width + x];
+                }
+            }
+            data = newData;
+        }
+
+        public void ResizeHeight(int newHeight)
+        {
+            MapTile[] newData = new MapTile[width * newHeight];
+            for (int x = 0; x < width; ++x)
+            {
+                for (int y = 0; y < newHeight; ++y)
+                {
+                    newData[y * width + x] = y >= height ? new MapTile() : data[y * width + x];
+                }
+            }
+            data = newData;
+        }
+    }
+
+    [System.Serializable]
+    public class MapTile
+    {
         public string tileset_name;
+        public string sprite_name;
     }
 
     [System.Serializable]

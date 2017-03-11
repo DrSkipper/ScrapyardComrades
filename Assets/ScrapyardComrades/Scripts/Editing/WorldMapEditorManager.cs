@@ -152,7 +152,6 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         if (File.Exists(path))
         {
             _worldInfo = JsonConvert.DeserializeObject<WorldInfo>(File.ReadAllText(path));
-            //_worldInfo = mapInfoToWorldInfo(JsonConvert.DeserializeObject<MapInfo>(File.ReadAllText(path)));
         }
         else
         {

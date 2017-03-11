@@ -65,9 +65,6 @@ public class TilesetEditorManager : MonoBehaviour
                 Vector3 meshSize = this.MeshFilter.sharedMesh.bounds.size;
                 this.Cursor.SetPosition2D((sprite.rect.center.x / _texture.width - 0.5f) * meshSize.x, (sprite.rect.center.y / _texture.height - 0.5f) * meshSize.z);
                 this.Cursor.sizeDelta = new Vector2(sprite.rect.size.x / _texture.width * meshSize.x, sprite.rect.size.y / _texture.height * meshSize.z);
-                //this.Cursor.localScale = new Vector3(/*sprite.rect.width / this.CursorRenderer.sprite.rect.width * */ this.CursorRenderer.sprite.pixelsPerUnit / sprite.pixelsPerUnit, /*sprite.rect.height / this.CursorRenderer.sprite.rect.height * */ this.CursorRenderer.sprite.pixelsPerUnit /  sprite.pixelsPerUnit, 1.0f);
-                //this.Cursor.localScale = new Vector2(1, 1) * sprite.bounds.size.x / this.CursorRenderer.sprite.bounds.size.x;
-                //this.Cursor.localScale = new Vector2(1, 1) * _texture.width / meshSize.x;
                 break;
             }
         }
