@@ -6,7 +6,7 @@ public class TilesetEditorManager : MonoBehaviour
 {
     public MeshRenderer MeshRenderer;
     public MeshFilter MeshFilter;
-    public Transform Cursor;
+    public RectTransform Cursor;
     public TilesetData TilesetToEdit;
     public float PixelsToUnits;
     public TilesetData CurrentEditingTileset { get; set; }
@@ -14,6 +14,7 @@ public class TilesetEditorManager : MonoBehaviour
     [Header("TILE DATA")]
     public Sprite SelectedSprite; // Exposed for debugging
     public TilesetData.SpriteData SelectedSpriteData { get; set; }
+    //public SpriteRenderer CursorRenderer { get { if (_cursorSpriteRenderer == null) _cursorSpriteRenderer = this.Cursor.GetComponent<SpriteRenderer>(); return _cursorSpriteRenderer; } }
 
     void Start()
     {
@@ -61,8 +62,12 @@ public class TilesetEditorManager : MonoBehaviour
             {
                 this.SelectedSprite = sprite;
                 this.SelectedSpriteData = _spriteData[sprite.name];
-                Vector2 meshSize = this.MeshFilter.mesh.bounds.size;
-                this.Cursor.SetPosition2D((sprite.rect.center.x / _texture.width - _texture.width / 2.0f) * meshSize.x, (sprite.rect.center.y / _texture.height - _texture.height / 2.0f) * meshSize.y);
+                Vector3 meshSize = this.MeshFilter.sharedMesh.bounds.size;
+                this.Cursor.SetPosition2D((sprite.rect.center.x / _texture.width - 0.5f) * meshSize.x, (sprite.rect.center.y / _texture.height - 0.5f) * meshSize.z);
+                this.Cursor.sizeDelta = new Vector2(sprite.rect.size.x / _texture.width * meshSize.x, sprite.rect.size.y / _texture.height * meshSize.z);
+                //this.Cursor.localScale = new Vector3(/*sprite.rect.width / this.CursorRenderer.sprite.rect.width * */ this.CursorRenderer.sprite.pixelsPerUnit / sprite.pixelsPerUnit, /*sprite.rect.height / this.CursorRenderer.sprite.rect.height * */ this.CursorRenderer.sprite.pixelsPerUnit /  sprite.pixelsPerUnit, 1.0f);
+                //this.Cursor.localScale = new Vector2(1, 1) * sprite.bounds.size.x / this.CursorRenderer.sprite.bounds.size.x;
+                //this.Cursor.localScale = new Vector2(1, 1) * _texture.width / meshSize.x;
                 break;
             }
         }
@@ -89,4 +94,5 @@ public class TilesetEditorManager : MonoBehaviour
     private Texture2D _texture;
     private Sprite[] _sprites;
     private Dictionary<string, TilesetData.SpriteData> _spriteData;
+    //private SpriteRenderer _cursorSpriteRenderer;
 }

@@ -47,9 +47,12 @@ public class TilesetData : ScriptableObject
     public Dictionary<string, SpriteData> GetSpriteDataDictionary()
     {
         Dictionary<string, SpriteData> dict = new Dictionary<string, SpriteData>();
-        for (int i = 0; i < this.Tiles.Length; ++i)
+        if (this.Tiles != null)
         {
-            dict[this.Tiles[i].SpriteName] = this.Tiles[i];
+            for (int i = 0; i < this.Tiles.Length; ++i)
+            {
+                dict[this.Tiles[i].SpriteName] = this.Tiles[i];
+            }
         }
         return dict;
     }
@@ -63,14 +66,17 @@ public class TilesetData : ScriptableObject
     {
         Dictionary<TileType, List<SpriteData>> dict = new Dictionary<TileType, List<SpriteData>>();
 
-        for (int i = 0; i < this.Tiles.Length; ++i)
+        if (this.Tiles != null)
         {
-            SpriteData tile = this.Tiles[i];
-            if (tile.AllowAutotile)
+            for (int i = 0; i < this.Tiles.Length; ++i)
             {
-                if (!dict.ContainsKey(tile.Type))
-                    dict.Add(tile.Type, new List<SpriteData>());
-                dict[tile.Type].Add(tile);
+                SpriteData tile = this.Tiles[i];
+                if (tile.AllowAutotile)
+                {
+                    if (!dict.ContainsKey(tile.Type))
+                        dict.Add(tile.Type, new List<SpriteData>());
+                    dict[tile.Type].Add(tile);
+                }
             }
         }
 

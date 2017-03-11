@@ -127,11 +127,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 0.5
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 5
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: platforms_5
+    - serializedVersion: 2
+      name: platforms_5
       rect:
         serializedVersion: 2
         x: 46
@@ -142,7 +145,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_2
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_2
       rect:
         serializedVersion: 2
         x: 14
@@ -153,7 +158,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_3
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_3
       rect:
         serializedVersion: 2
         x: 24
@@ -164,7 +171,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_4
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_4
       rect:
         serializedVersion: 2
         x: 34
@@ -175,7 +184,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_9
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_9
       rect:
         serializedVersion: 2
         x: 90
@@ -186,7 +197,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_13
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_13
       rect:
         serializedVersion: 2
         x: 134
@@ -197,7 +210,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_6
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_6
       rect:
         serializedVersion: 2
         x: 58
@@ -208,7 +223,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_7
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_7
       rect:
         serializedVersion: 2
         x: 68
@@ -219,7 +236,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_8
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_8
       rect:
         serializedVersion: 2
         x: 78
@@ -230,7 +249,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_10
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_10
       rect:
         serializedVersion: 2
         x: 102
@@ -241,7 +262,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_11
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_11
       rect:
         serializedVersion: 2
         x: 112
@@ -252,7 +275,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_12
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_12
       rect:
         serializedVersion: 2
         x: 122
@@ -263,7 +288,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_14
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_14
       rect:
         serializedVersion: 2
         x: 146
@@ -274,7 +301,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_15
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_15
       rect:
         serializedVersion: 2
         x: 156
@@ -285,7 +314,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_16
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_16
       rect:
         serializedVersion: 2
         x: 166
@@ -296,7 +327,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_1
       rect:
         serializedVersion: 2
         x: 2
@@ -307,7 +340,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_0
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_0
       rect:
         serializedVersion: 2
         x: 244
@@ -318,7 +353,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_17
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_17
       rect:
         serializedVersion: 2
         x: 178
@@ -329,7 +366,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_18
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_18
       rect:
         serializedVersion: 2
         x: 190
@@ -340,7 +379,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_19
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_19
       rect:
         serializedVersion: 2
         x: 200
@@ -351,7 +392,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_20
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_20
       rect:
         serializedVersion: 2
         x: 210
@@ -362,7 +405,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_21
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_21
       rect:
         serializedVersion: 2
         x: 2
@@ -373,7 +418,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_22
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_22
       rect:
         serializedVersion: 2
         x: 14
@@ -384,7 +431,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_23
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_23
       rect:
         serializedVersion: 2
         x: 24
@@ -395,7 +444,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_24
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_24
       rect:
         serializedVersion: 2
         x: 34
@@ -406,7 +457,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_25
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_25
       rect:
         serializedVersion: 2
         x: 46
@@ -417,7 +470,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_26
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_26
       rect:
         serializedVersion: 2
         x: 58
@@ -428,7 +483,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_27
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_27
       rect:
         serializedVersion: 2
         x: 68
@@ -439,7 +496,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_28
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_28
       rect:
         serializedVersion: 2
         x: 78
@@ -450,7 +509,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_29
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_29
       rect:
         serializedVersion: 2
         x: 90
@@ -461,7 +522,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_30
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_30
       rect:
         serializedVersion: 2
         x: 102
@@ -472,7 +535,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_31
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_31
       rect:
         serializedVersion: 2
         x: 112
@@ -483,7 +548,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_32
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_32
       rect:
         serializedVersion: 2
         x: 122
@@ -494,7 +561,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_33
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_33
       rect:
         serializedVersion: 2
         x: 134
@@ -505,7 +574,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_34
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_34
       rect:
         serializedVersion: 2
         x: 146
@@ -516,7 +587,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_35
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_35
       rect:
         serializedVersion: 2
         x: 156
@@ -527,7 +600,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_36
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_36
       rect:
         serializedVersion: 2
         x: 166
@@ -538,7 +613,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_37
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_37
       rect:
         serializedVersion: 2
         x: 178
@@ -549,7 +626,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_38
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_38
       rect:
         serializedVersion: 2
         x: 190
@@ -560,7 +639,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_39
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_39
       rect:
         serializedVersion: 2
         x: 200
@@ -571,7 +652,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_40
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_40
       rect:
         serializedVersion: 2
         x: 210
@@ -582,7 +665,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_41
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_41
       rect:
         serializedVersion: 2
         x: 2
@@ -593,7 +678,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_42
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_42
       rect:
         serializedVersion: 2
         x: 14
@@ -604,7 +691,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_43
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_43
       rect:
         serializedVersion: 2
         x: 24
@@ -615,7 +704,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_44
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_44
       rect:
         serializedVersion: 2
         x: 34
@@ -626,7 +717,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_45
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_45
       rect:
         serializedVersion: 2
         x: 46
@@ -637,7 +730,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_46
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_46
       rect:
         serializedVersion: 2
         x: 58
@@ -648,7 +743,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_47
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_47
       rect:
         serializedVersion: 2
         x: 68
@@ -659,7 +756,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_48
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_48
       rect:
         serializedVersion: 2
         x: 78
@@ -670,7 +769,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_49
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_49
       rect:
         serializedVersion: 2
         x: 90
@@ -681,7 +782,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_50
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_50
       rect:
         serializedVersion: 2
         x: 102
@@ -692,7 +795,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_51
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_51
       rect:
         serializedVersion: 2
         x: 112
@@ -703,7 +808,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_52
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_52
       rect:
         serializedVersion: 2
         x: 122
@@ -714,7 +821,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_53
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_53
       rect:
         serializedVersion: 2
         x: 134
@@ -725,7 +834,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_54
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_54
       rect:
         serializedVersion: 2
         x: 146
@@ -736,7 +847,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_55
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_55
       rect:
         serializedVersion: 2
         x: 156
@@ -747,7 +860,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_56
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_56
       rect:
         serializedVersion: 2
         x: 166
@@ -758,7 +873,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_57
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_57
       rect:
         serializedVersion: 2
         x: 178
@@ -769,7 +886,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_58
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_58
       rect:
         serializedVersion: 2
         x: 190
@@ -780,7 +899,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_59
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_59
       rect:
         serializedVersion: 2
         x: 200
@@ -791,7 +912,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_60
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_60
       rect:
         serializedVersion: 2
         x: 210
@@ -802,7 +925,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_61
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_61
       rect:
         serializedVersion: 2
         x: 2
@@ -813,7 +938,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_62
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_62
       rect:
         serializedVersion: 2
         x: 14
@@ -824,7 +951,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_63
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_63
       rect:
         serializedVersion: 2
         x: 24
@@ -835,7 +964,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_64
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_64
       rect:
         serializedVersion: 2
         x: 34
@@ -846,7 +977,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_65
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_65
       rect:
         serializedVersion: 2
         x: 46
@@ -857,7 +990,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_66
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_66
       rect:
         serializedVersion: 2
         x: 58
@@ -868,7 +1003,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_67
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_67
       rect:
         serializedVersion: 2
         x: 68
@@ -879,7 +1016,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_68
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_68
       rect:
         serializedVersion: 2
         x: 78
@@ -890,7 +1029,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_69
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_69
       rect:
         serializedVersion: 2
         x: 90
@@ -901,7 +1042,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_70
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_70
       rect:
         serializedVersion: 2
         x: 102
@@ -912,7 +1055,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_71
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_71
       rect:
         serializedVersion: 2
         x: 112
@@ -923,7 +1068,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_72
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_72
       rect:
         serializedVersion: 2
         x: 122
@@ -934,7 +1081,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_73
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_73
       rect:
         serializedVersion: 2
         x: 134
@@ -945,7 +1094,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_74
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_74
       rect:
         serializedVersion: 2
         x: 146
@@ -956,7 +1107,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_75
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_75
       rect:
         serializedVersion: 2
         x: 156
@@ -967,7 +1120,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_76
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_76
       rect:
         serializedVersion: 2
         x: 166
@@ -978,7 +1133,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_77
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_77
       rect:
         serializedVersion: 2
         x: 178
@@ -989,7 +1146,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_78
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_78
       rect:
         serializedVersion: 2
         x: 190
@@ -1000,7 +1159,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_79
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_79
       rect:
         serializedVersion: 2
         x: 200
@@ -1011,7 +1172,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: platforms_80
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: platforms_80
       rect:
         serializedVersion: 2
         x: 210
@@ -1022,6 +1185,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 
