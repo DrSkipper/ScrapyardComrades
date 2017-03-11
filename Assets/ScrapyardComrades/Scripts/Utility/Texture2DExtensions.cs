@@ -34,4 +34,10 @@ public static class Texture2DExtensions
         uvs[3] = new Vector2(maxX, maxY);
         return uvs;
     }
+
+    public static IntegerRect GetIntegerBounds(this Sprite self)
+    {
+        Rect bounds = self.rect;
+        return new IntegerRect((Vector2)bounds.center, (Vector2)bounds.size);
+    }
 }

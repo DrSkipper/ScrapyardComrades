@@ -31,9 +31,49 @@ public class TilesetData : ScriptableObject
         public string SpriteName;
         public TileType Type;
         public bool AllowAutotile;
+
+        public SpriteData(string spriteName)
+        {
+            this.SpriteName = spriteName;
+            this.Type = TileType.Empty;
+            this.AllowAutotile = false;
+        }
     }
 
     public string AtlasName;
     public int StandardTileSize;
-    public List<SpriteData> Tiles;
+    public SpriteData[] Tiles;
+
+    public Dictionary<string, SpriteData> GetSpriteDataDictionary()
+    {
+        Dictionary<string, SpriteData> dict = new Dictionary<string, SpriteData>();
+        for (int i = 0; i < this.Tiles.Length; ++i)
+        {
+            dict[this.Tiles[i].SpriteName] = this.Tiles[i];
+        }
+        return dict;
+    }
+
+    public void ApplySpriteDataDictionary(Dictionary<string, SpriteData> dict)
+    {
+        this.Tiles = new List<SpriteData>(dict.Values).ToArray();
+    }
+
+    public Dictionary<TileType, List<SpriteData>> GetAutotileDictionary()
+    {
+        Dictionary<TileType, List<SpriteData>> dict = new Dictionary<TileType, List<SpriteData>>();
+
+        for (int i = 0; i < this.Tiles.Length; ++i)
+        {
+            SpriteData tile = this.Tiles[i];
+            if (tile.AllowAutotile)
+            {
+                if (!dict.ContainsKey(tile.Type))
+                    dict.Add(tile.Type, new List<SpriteData>());
+                dict[tile.Type].Add(tile);
+            }
+        }
+
+        return dict;
+    }
 }

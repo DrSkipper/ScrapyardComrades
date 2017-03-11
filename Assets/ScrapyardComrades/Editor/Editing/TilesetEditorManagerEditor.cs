@@ -14,6 +14,17 @@ public class TilesetEditorManagerEditor : Editor
         {
             behavior.CurrentEditingTileset = behavior.TilesetToEdit;
             behavior.Reload();
+            AssetDatabase.SaveAssets();
+        }
+
+        if (behavior.SelectedSprite != null)
+        {
+            EditorGUILayout.Separator();
+            TilesetData.TileType tileType = (TilesetData.TileType)EditorGUILayout.EnumPopup("Tile Type", behavior.SelectedSpriteData.Type);
+            bool autoTile = EditorGUILayout.Toggle("Allow AutoTile", behavior.SelectedSpriteData.AllowAutotile);
+            EditorGUILayout.Separator();
+            if (behavior.ApplySpriteData(tileType, autoTile))
+                AssetDatabase.SaveAssets();
         }
     }
 
@@ -27,16 +38,21 @@ public class TilesetEditorManagerEditor : Editor
         }
         else if (current.type == EventType.mouseDown && current.button == 0)
         {
+            current.Use();
             TilesetEditorManager behavior = this.target as TilesetEditorManager;
             Ray ray = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
-
             RaycastHit hit;
+
             if (Physics.Raycast(ray, out hit))
             {
                 Selection.activeGameObject = behavior.gameObject;
-            }
 
-            current.Use();
+                Texture2D texture = behavior.Texture;
+                Vector2 texCoord = hit.textureCoord;
+                texCoord.x *= texture.width;
+                texCoord.y *= texture.height;
+                behavior.SelectSpriteAtPixel(texCoord);
+            }
         }
     }
 }
