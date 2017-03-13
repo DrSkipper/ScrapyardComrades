@@ -60,15 +60,15 @@ public class MapLoader : MonoBehaviour
         _height = mapInfo.height;
         this.transform.position = this.transform.position + new Vector3(-_width * this.PlatformsRenderer.TileRenderSize / 2, -_height * this.PlatformsRenderer.TileRenderSize / 2, 0);
         this.PlatformsRenderer.Atlas = this.Atlases[this.PlatformsLayer];
-        this.PlatformsRenderer.Sprites = this.Sprites[this.PlatformsLayer];
-        this.PlatformsRenderer.CreateMapWithGrid(grid);
+        //this.PlatformsRenderer.Sprites = this.Sprites[this.PlatformsLayer];
+        //this.PlatformsRenderer.CreateMapWithGrid(grid);
         MapInfo.MapLayer bgLayer = mapInfo.GetLayerWithName(this.BGLayer);
         if (bgLayer != null)
         {
             MapGridSpaceInfo[,] bgGrid = bgLayer.GetGrid(mapInfo.tilesets);
             this.BGRenderer.Atlas = this.Atlases[this.BGLayer];
-            this.BGRenderer.Sprites = this.Sprites[this.BGLayer];
-            this.BGRenderer.CreateMapWithGrid(bgGrid);
+        //    this.BGRenderer.Sprites = this.Sprites[this.BGLayer];
+        //    this.BGRenderer.CreateMapWithGrid(bgGrid);
         }
         this.GeometryCreator.CreateGeometryForGrid(grid, false);
 
@@ -86,15 +86,15 @@ public class MapLoader : MonoBehaviour
 
         grid = correctTiles(grid);
         this.PlatformsRenderer.Atlas = this.Atlases[this.PlatformsLayer];
-        this.PlatformsRenderer.Sprites = this.Sprites[this.PlatformsLayer];
-        this.PlatformsRenderer.CreateMapWithGrid(grid);
+        //this.PlatformsRenderer.Sprites = this.Sprites[this.PlatformsLayer];
+        //this.PlatformsRenderer.CreateMapWithGrid(grid);
         MapInfo.MapLayer bgLayer = mapInfo.GetLayerWithName(this.BGLayer);
         if (bgLayer != null)
         {
             MapGridSpaceInfo[,] bgGrid = bgLayer.GetGrid(mapInfo.tilesets);
             this.BGRenderer.Atlas = this.Atlases[this.BGLayer];
-            this.BGRenderer.Sprites = this.Sprites[this.BGLayer];
-            this.BGRenderer.CreateMapWithGrid(bgGrid);
+        //    this.BGRenderer.Sprites = this.Sprites[this.BGLayer];
+        //    this.BGRenderer.CreateMapWithGrid(bgGrid);
         }
         this.GeometryCreator.CreateGeometryForGrid(grid, editor);
         _cleared = false;

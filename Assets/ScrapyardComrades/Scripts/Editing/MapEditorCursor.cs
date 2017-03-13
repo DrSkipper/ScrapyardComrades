@@ -7,9 +7,6 @@ public class MapEditorCursor : VoBehavior
     public MapEditorGrid Grid;
     public Image ContentsImage;
     public Image HighlightImage;
-    public Color StandardColor;
-    public Color EraserColor;
-    public Sprite EraserSprite;
     public IntegerVector GridPos;
 
     void Start()
@@ -56,20 +53,6 @@ public class MapEditorCursor : VoBehavior
             this.ContentsImage.enabled = true;
         if (this.HighlightImage != null)
             this.HighlightImage.enabled = true;
-    }
-
-    public void ChangeBrushContents(Sprite brushSprite, bool eraser)
-    {
-        if (!eraser)
-        {
-            this.ContentsImage.sprite = brushSprite;
-            this.HighlightImage.color = this.StandardColor;
-        }
-        else
-        {
-            this.ContentsImage.sprite = this.EraserSprite;
-            this.HighlightImage.color = this.EraserColor;
-        }
     }
 
     /** 

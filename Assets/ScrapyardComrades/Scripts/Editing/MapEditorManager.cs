@@ -29,6 +29,8 @@ public class MapEditorManager : MonoBehaviour
         _atlases = MapLoader.CompileTextures(validAtlases().ToArray());
         _sprites = MapLoader.CompileSprites(_atlases);
         this.Layers = new Dictionary<string, MapEditorLayer>();
+        this.CurrentLayer = PLATFORMS_LAYER;
+        previousCursorPos = new IntegerVector(-9999, -9999);
         
         // Load Data
         string path = Application.streamingAssetsPath + LEVELS_PATH + this.MapName;
@@ -46,7 +48,7 @@ public class MapEditorManager : MonoBehaviour
         {
             _mapInfo.AddTileLayer(PLATFORMS_LAYER);
             platformsLayerData = _mapInfo.GetMapLayer(PLATFORMS_LAYER);
-            platformsLayerData.tileset_name = PLATFORMS_LAYER;
+            platformsLayerData.tileset_name = DEFAULT_PLATFORMS_TILESET;
         }
 
         NewMapInfo.MapLayer backgroundLayerData = _mapInfo.GetMapLayer(BACKGROUND_LAYER);
@@ -54,12 +56,15 @@ public class MapEditorManager : MonoBehaviour
         {
             _mapInfo.AddTileLayer(BACKGROUND_LAYER);
             backgroundLayerData = _mapInfo.GetMapLayer(BACKGROUND_LAYER);
-            backgroundLayerData.tileset_name = BACKGROUND_LAYER;
+            backgroundLayerData.tileset_name = DEFAULT_BACKGROUND_TILESET;
         }
+
+        // Setup Grid
+        this.Grid.InitializeGridForSize(_mapInfo.width, _mapInfo.height);
         
         // Setup Tile Layers
-        this.Layers.Add(PLATFORMS_LAYER, new MapEditorTilesLayer(platformsLayerData, PLATFORMS_LAYER_DEPTH));
-        this.Layers.Add(BACKGROUND_LAYER, new MapEditorTilesLayer(backgroundLayerData, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT));
+        this.Layers.Add(PLATFORMS_LAYER, new MapEditorTilesLayer(platformsLayerData, PLATFORMS_LAYER_DEPTH, _tilesets, this.PlatformsRenderer));
+        this.Layers.Add(BACKGROUND_LAYER, new MapEditorTilesLayer(backgroundLayerData, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT, _tilesets, this.PlatformsRenderer));
 
         //TODO: Setup Object Layers
 
@@ -72,10 +77,12 @@ public class MapEditorManager : MonoBehaviour
 
         // Handle Visuals
         updateVisuals();
+        updateCurrentLayer();
     }
 
     void FixedUpdate()
     {
+        updateCurrentLayer();
     }
 
     /**
@@ -85,15 +92,41 @@ public class MapEditorManager : MonoBehaviour
     private Dictionary<string, TilesetData> _tilesets;
     private Dictionary<string, Texture2D> _atlases;
     private Dictionary<string, Sprite[]> _sprites;
+    private IntegerVector previousCursorPos;
+
+    private void updateCurrentLayer()
+    {
+        MapEditorLayer currentLayer = this.Layers[this.CurrentLayer];
+        if (currentLayer.Type == MapEditorLayer.LayerType.Tiles)
+            updateTileLayer(currentLayer as MapEditorTilesLayer);
+    }
+
+    private void updateTileLayer(MapEditorTilesLayer layer)
+    {
+        if (layer.Type == MapEditorLayer.LayerType.Tiles)
+        {
+            if (previousCursorPos != this.Cursor.GridPos)
+            {
+                (layer as MapEditorTilesLayer).ApplyData(previousCursorPos.X, previousCursorPos.Y);
+                previousCursorPos = this.Cursor.GridPos;
+                (layer as MapEditorTilesLayer).PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+            }
+
+            if (MapEditorInput.ConfirmHeld)
+            {
+                (layer as MapEditorTilesLayer).ApplyBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+            }
+        }
+    }
 
     private void updateVisuals()
     {
         MapEditorTilesLayer platformsLayer = this.Layers[PLATFORMS_LAYER] as MapEditorTilesLayer;
-        this.PlatformsRenderer.Atlas = _atlases[_tilesets[platformsLayer.TilesetName].AtlasName];
+        this.PlatformsRenderer.SetAtlas(_atlases[_tilesets[platformsLayer.Tileset.name].AtlasName]);
         this.PlatformsRenderer.CreateMapWithGrid(platformsLayer.Data);
 
         MapEditorTilesLayer backgroundLayer = this.Layers[BACKGROUND_LAYER] as MapEditorTilesLayer;
-        this.BackgroundRenderer.Atlas = _atlases[_tilesets[backgroundLayer.TilesetName].AtlasName];
+        this.BackgroundRenderer.SetAtlas(_atlases[_tilesets[backgroundLayer.Tileset.name].AtlasName]);
         this.BackgroundRenderer.CreateMapWithGrid(backgroundLayer.Data);
 
         //TODO: Parallax, props, objects
@@ -126,4 +159,6 @@ public class MapEditorManager : MonoBehaviour
     private const string OBJECTS_LAYER = "objects";
     private const string PROPS_LAYER = "props";
     private const string PARALLAX_PREFIX = "parallax_";
+    private const string DEFAULT_PLATFORMS_TILESET = "GenericPlatforms";
+    private const string DEFAULT_BACKGROUND_TILESET = "GenericBackground";
 }

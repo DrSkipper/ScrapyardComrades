@@ -76,6 +76,13 @@ public class NewMapInfo
             width = w;
             height = h;
             data = new MapTile[w * h];
+            for (int x = 0; x < width; ++x)
+            {
+                for (int y = 0; y < height; ++y)
+                {
+                    data[y * width + x] = new MapTile();
+                }
+            }
         }
 
         public MapTile[,] GetDataGrid()
@@ -127,6 +134,12 @@ public class NewMapInfo
     public class MapTile
     {
         public string sprite_name;
+        public const string EMPTY_TILE_SPRITE_NAME = "empty";
+
+        public MapTile()
+        {
+            sprite_name = EMPTY_TILE_SPRITE_NAME;
+        }
     }
 
     [System.Serializable]
