@@ -9,20 +9,30 @@ public class TileRenderer : VoBehavior
     public int TileRenderSize = 20;
     public int TileTextureSize = 10;
     public Texture2D Atlas;
-    public Sprite[] Sprites;
     public bool FlipVertical = true;
 
     void Awake()
     {
+        if (this.Atlas != null)
+        {
+            this.renderer.sharedMaterial.mainTexture = this.Atlas;
+            _sprites = this.Atlas.GetSprites();
+        }
+    }
+
+    public void SetAtlas(string atlasName)
+    {
+        this.Atlas = Resources.Load<Texture2D>(atlasName);
         this.renderer.sharedMaterial.mainTexture = this.Atlas;
+        _sprites = this.Atlas.GetSprites();
     }
 
     public void CreateEmptyMap(int width, int height)
     {
-        this.CreateMapWithGrid(new MapGridSpaceInfo[width, width]);
+        this.CreateMapWithGrid(new NewMapInfo.MapTile[width, width]);
     }
 
-    public void CreateMapWithGrid(MapGridSpaceInfo[,] grid)
+    public void CreateMapWithGrid(NewMapInfo.MapTile[,] grid)
     {
         if (_cleared)
         {
@@ -48,7 +58,7 @@ public class TileRenderer : VoBehavior
                     int tileIndex = y * _width + x;
                     int startingUVIndex = tileIndex * 4;
 
-                    Vector2[] spriteUVs = this.Sprites[grid[x, y].TileId].uv;
+                    Vector2[] spriteUVs = _sprites[grid[x, y].sprite_name].uv;
                     uvs[startingUVIndex] = spriteUVs[0]; // bottom left
                     uvs[startingUVIndex + 1] = spriteUVs[1]; // bottom right
                     uvs[startingUVIndex + 2] = spriteUVs[2]; // top left
@@ -69,14 +79,14 @@ public class TileRenderer : VoBehavior
         }
     }
 
-    public void SetSpriteIndicesForTiles(int[] x, int[] y, int[] spriteIndices)
+    public void SetSpriteIndicesForTiles(int[] x, int[] y, string[] spriteNames)
     {
-        setTileSpriteIndicesInMesh(x, y, spriteIndices);
+        setTileSpriteIndicesInMesh(x, y, spriteNames);
     }
 
-    public void SetSpriteIndexForTile(int tileX, int tileY, int spriteIndex)
+    public void SetSpriteIndexForTile(int tileX, int tileY, string spriteNames)
     {
-        setTileSpriteIndexInMesh(tileX, tileY, spriteIndex);
+        setTileSpriteIndexInMesh(tileX, tileY, spriteNames);
     }
 
 
@@ -86,8 +96,9 @@ public class TileRenderer : VoBehavior
     private int _width;
     private int _height;
     private bool _cleared = true;
+    private Dictionary<string, Sprite> _sprites;
 
-    private void createMapUsingMesh(MapGridSpaceInfo[,] grid)
+    private void createMapUsingMesh(NewMapInfo.MapTile[,] grid)
     {
         float originX = 0; // this.transform.position.x;
         float originY = 0; // this.transform.position.y;
@@ -135,14 +146,7 @@ public class TileRenderer : VoBehavior
                 triangles[triangleIndex + 5] = bottomRightVert;
 
                 // Handle UVs
-                int spriteIndex = grid[x, y].TileId;
-
-                /*if (spriteIndex >= this.Sprites.Length || spriteIndex < 0)
-                {
-                    Debug.LogWarning("Invalid sprite index: " + spriteIndex);
-                }*/
-
-                Vector2[] spriteUVs = this.Sprites[spriteIndex].uv;
+                Vector2[] spriteUVs = _sprites[grid[x, y].sprite_name].uv;
                 Vector2 bottomLeftUV = spriteUVs[0];
                 Vector2 bottomRightUV = spriteUVs[1];
                 Vector2 topLeftUV = spriteUVs[2];
@@ -176,12 +180,12 @@ public class TileRenderer : VoBehavior
         //this.renderer.material.mainTexture = this.Atlas;
     }
 
-    private void setTileSpriteIndexInMesh(int tileX, int tileY, int spriteIndex)
+    private void setTileSpriteIndexInMesh(int tileX, int tileY, string spriteName)
     {
         int tileIndex = tileY * _width + tileX;
         int startingUVIndex = tileIndex * 4;
 
-        Vector2[] spriteUVs = this.Sprites[spriteIndex].uv;
+        Vector2[] spriteUVs = _sprites[spriteName].uv;
         Vector2[] uvs = this.MeshFilter.mesh.uv;
         uvs[startingUVIndex] = spriteUVs[0]; // bottom left
         uvs[startingUVIndex + 1] = spriteUVs[1]; // bottom right
@@ -192,7 +196,7 @@ public class TileRenderer : VoBehavior
     }
 
 
-    private void setTileSpriteIndicesInMesh(int[] x, int[] y, int[] spriteIndices)
+    private void setTileSpriteIndicesInMesh(int[] x, int[] y, string[] spriteNames)
     {
         Vector2[] uvs = this.MeshFilter.mesh.uv;
 
@@ -201,7 +205,7 @@ public class TileRenderer : VoBehavior
             int tileIndex = y[i] * _width + x[i];
             int startingUVIndex = tileIndex * 4;
 
-            Vector2[] spriteUVs = this.Sprites[spriteIndices[i]].uv;
+            Vector2[] spriteUVs = _sprites[spriteNames[i]].uv;
             uvs[startingUVIndex] = spriteUVs[0]; // bottom left
             uvs[startingUVIndex + 1] = spriteUVs[1]; // bottom right
             uvs[startingUVIndex + 2] = spriteUVs[2]; // top left

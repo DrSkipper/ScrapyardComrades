@@ -39,7 +39,7 @@ public class TilesetData : ScriptableObject
             this.AllowAutotile = false;
         }
     }
-
+    
     public string AtlasName;
     public int StandardTileSize;
     public SpriteData[] Tiles;

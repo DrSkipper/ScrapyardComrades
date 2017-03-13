@@ -37,17 +37,17 @@ public class MapEditorQuad : MonoBehaviour
         _height = _mapInfo.height;
         this.Grid.InitializeGridForSize(_width, _height);
         this.PlatformsRenderer.Atlas = this.Atlases[this.PlatformsLayer];
-        this.PlatformsRenderer.Sprites = this.Sprites[this.PlatformsLayer];
+        //this.PlatformsRenderer.Sprites = this.Sprites[this.PlatformsLayer];
         this.PlatformsRenderer.FlipVertical = this.FlipVertical;
-        this.PlatformsRenderer.CreateMapWithGrid(grid);
+        //this.PlatformsRenderer.CreateMapWithGrid(grid);
         MapInfo.MapLayer bgLayer = _mapInfo.GetLayerWithName(this.BGLayer);
         if (bgLayer != null)
         {
             MapGridSpaceInfo[,] bgGrid = bgLayer.GetGrid(_mapInfo.tilesets);
             this.BGRenderer.Atlas = this.Atlases[this.BGLayer];
-            this.BGRenderer.Sprites = this.Sprites[this.BGLayer];
+            //this.BGRenderer.Sprites = this.Sprites[this.BGLayer];
             this.BGRenderer.FlipVertical = this.FlipVertical;
-            this.BGRenderer.CreateMapWithGrid(bgGrid);
+            //this.BGRenderer.CreateMapWithGrid(bgGrid);
         }
     }
 

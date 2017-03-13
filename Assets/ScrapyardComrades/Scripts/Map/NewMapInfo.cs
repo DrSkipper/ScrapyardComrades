@@ -67,7 +67,7 @@ public class NewMapInfo
         public string name;
         public int width;
         public int height;
-        public List<string> tileset_names; //TODO: implement
+        public string tileset_name;
         public MapTile[] data;
 
         public MapLayer(string n, int w, int h)
@@ -76,7 +76,6 @@ public class NewMapInfo
             width = w;
             height = h;
             data = new MapTile[w * h];
-            tileset_names = new List<string>();
         }
 
         public MapTile[,] GetDataGrid()
@@ -92,9 +91,8 @@ public class NewMapInfo
             return grid;
         }
 
-        public void SetTile(int x, int y, string tilesetName, string spriteName)
+        public void SetTile(int x, int y, string spriteName)
         {
-            data[y * width + x].tileset_name = tilesetName;
             data[y * width + x].sprite_name = spriteName;
         }
 
@@ -128,7 +126,6 @@ public class NewMapInfo
     [System.Serializable]
     public class MapTile
     {
-        public string tileset_name;
         public string sprite_name;
     }
 
