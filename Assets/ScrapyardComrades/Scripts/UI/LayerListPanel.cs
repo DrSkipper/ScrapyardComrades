@@ -31,7 +31,7 @@ public class LayerListPanel : VoBehavior
                 selection = i;
             _entryList.Add(layerEntry);
         }
-        //TODO: Move Selector
+        alignSelector(selection);
     }
 
     public void ChangeCurrentLayer(string currentLayer)
@@ -42,11 +42,16 @@ public class LayerListPanel : VoBehavior
             if (_entryList[i].Title.text == currentLayer)
                 selection = i;
         }
-        //TODO: Move Selector
+        alignSelector(selection);
     }
 
     /**
      * Private
      */
     private List<LayerListEntry> _entryList;
+
+    private void alignSelector(int selection)
+    {
+        this.Selector.anchoredPosition = new Vector2(this.Selector.anchoredPosition.x, -this.Border - this.ElementHeight * selection - this.ElementHeight / 2 + this.Selector.sizeDelta.y / 2);
+    }
 }

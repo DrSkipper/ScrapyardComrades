@@ -25,13 +25,15 @@ public class MapEditorManager : MonoBehaviour
         }
     }
 
+    public int CurrentLayerIndex { get { for (int i = 0; i < _sortedLayers.Count; ++i) if (_sortedLayers[i] == this.CurrentLayer) return i; return 0; } }
+
     void Awake()
     {
         _atlases = MapLoader.CompileTextures(validAtlases().ToArray());
         _sprites = MapLoader.CompileSprites(_atlases);
         this.Layers = new Dictionary<string, MapEditorLayer>();
         this.CurrentLayer = PLATFORMS_LAYER;
-        previousCursorPos = new IntegerVector(-9999, -9999);
+        _previousCursorPos = new IntegerVector(-9999, -9999);
         
         // Load Data
         string path = Application.streamingAssetsPath + LEVELS_PATH + this.MapName;
@@ -77,13 +79,24 @@ public class MapEditorManager : MonoBehaviour
         }
 
         // Handle Visuals
-        this.LayerListPanel.ConfigureForLayers(new List<string>(this.Layers.Keys), this.CurrentLayer);
+        _sortedLayers = this.DepthSortedLayers;
+        this.LayerListPanel.ConfigureForLayers(_sortedLayers, this.CurrentLayer);
         updateVisuals();
         updateCurrentLayer();
     }
 
     void FixedUpdate()
     {
+        if (MapEditorInput.SwapModes)
+        {
+            int currentLayerIndex = this.CurrentLayerIndex;
+            ++currentLayerIndex;
+            if (currentLayerIndex == _sortedLayers.Count)
+                currentLayerIndex = 0;
+            this.CurrentLayer = _sortedLayers[currentLayerIndex];
+            this.LayerListPanel.ChangeCurrentLayer(this.CurrentLayer);
+        }
+
         updateCurrentLayer();
     }
 
@@ -94,7 +107,8 @@ public class MapEditorManager : MonoBehaviour
     private Dictionary<string, TilesetData> _tilesets;
     private Dictionary<string, Texture2D> _atlases;
     private Dictionary<string, Sprite[]> _sprites;
-    private IntegerVector previousCursorPos;
+    private IntegerVector _previousCursorPos;
+    private List<string> _sortedLayers;
 
     private void updateCurrentLayer()
     {
@@ -107,10 +121,10 @@ public class MapEditorManager : MonoBehaviour
     {
         if (layer.Type == MapEditorLayer.LayerType.Tiles)
         {
-            if (previousCursorPos != this.Cursor.GridPos)
+            if (_previousCursorPos != this.Cursor.GridPos)
             {
-                (layer as MapEditorTilesLayer).ApplyData(previousCursorPos.X, previousCursorPos.Y);
-                previousCursorPos = this.Cursor.GridPos;
+                (layer as MapEditorTilesLayer).ApplyData(_previousCursorPos.X, _previousCursorPos.Y);
+                _previousCursorPos = this.Cursor.GridPos;
                 (layer as MapEditorTilesLayer).PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
             }
 
