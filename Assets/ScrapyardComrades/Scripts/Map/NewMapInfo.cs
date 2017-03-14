@@ -98,6 +98,17 @@ public class NewMapInfo
             return grid;
         }
 
+        public void SetDataGrid(MapTile[,] grid)
+        {
+            for (int x = 0; x < width; ++x)
+            {
+                for (int y = 0; y < height; ++y)
+                {
+                    data[y * width + x] = grid[x, y];
+                }
+            }
+        }
+
         public void SetTile(int x, int y, string spriteName)
         {
             data[y * width + x].sprite_name = spriteName;

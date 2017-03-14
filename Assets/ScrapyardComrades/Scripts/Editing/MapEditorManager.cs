@@ -36,7 +36,7 @@ public class MapEditorManager : MonoBehaviour
         _previousCursorPos = new IntegerVector(-9999, -9999);
         
         // Load Data
-        string path = Application.streamingAssetsPath + LEVELS_PATH + this.MapName;
+        string path = Application.streamingAssetsPath + LEVELS_PATH + this.MapName + JSON_SUFFIX;
         if (File.Exists(path))
         {
             _mapInfo = JsonConvert.DeserializeObject<NewMapInfo>(path);
@@ -110,6 +110,12 @@ public class MapEditorManager : MonoBehaviour
                 ((MapEditorTilesLayer)currentLayer).EraserEnabled = _eraserEnabled;
                 ((MapEditorTilesLayer)currentLayer).PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
             }
+        }
+        else if (MapEditorInput.Start)
+        {
+            foreach (MapEditorLayer layer in this.Layers.Values)
+                layer.SaveData(_mapInfo);
+            File.WriteAllText(Application.streamingAssetsPath + LEVELS_PATH + this.MapName + JSON_SUFFIX, JsonConvert.SerializeObject(_mapInfo, Formatting.Indented));
         }
 
         updateCurrentLayer();
@@ -209,6 +215,7 @@ public class MapEditorManager : MonoBehaviour
     private const int PLATFORMS_LAYER_DEPTH = 0;
     private const int LAYER_DEPTH_INCREMENT = 2;
     private const string LEVELS_PATH = "/Levels/";
+    private const string JSON_SUFFIX = ".json";
     private const string PLATFORMS_LAYER = "platforms";
     private const string BACKGROUND_LAYER = "background";
     private const string OBJECTS_LAYER = "objects";

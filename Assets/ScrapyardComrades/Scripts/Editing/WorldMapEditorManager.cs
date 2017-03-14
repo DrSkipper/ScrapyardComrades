@@ -141,9 +141,8 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
             levelQuad.width = quadVisual.QuadBounds.Size.X;
             levelQuad.height = quadVisual.QuadBounds.Size.Y;
         }
-
-        string path = Application.streamingAssetsPath + "/" + this.WorldMapFilePath;
-        File.WriteAllText(path, JsonConvert.SerializeObject(_worldInfo));
+        
+        File.WriteAllText(Application.streamingAssetsPath + "/" + this.WorldMapFilePath, JsonConvert.SerializeObject(_worldInfo, Formatting.Indented));
     }
 
     public void Load()

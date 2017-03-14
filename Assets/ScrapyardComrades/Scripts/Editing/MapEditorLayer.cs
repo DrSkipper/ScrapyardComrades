@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class MapEditorLayer
+public abstract class MapEditorLayer
 {
     public string Name;
     public LayerType Type;
@@ -13,6 +13,8 @@ public class MapEditorLayer
         Objects,
         Parallax
     }
+
+    public abstract void SaveData(NewMapInfo mapInfo);
 }
 
 public class MapEditorTilesLayer : MapEditorLayer
@@ -84,6 +86,12 @@ public class MapEditorTilesLayer : MapEditorLayer
         }
     }
 
+    public override void SaveData(NewMapInfo mapInfo)
+    {
+        NewMapInfo.MapLayer layer = mapInfo.GetMapLayer(this.Name);
+        layer.SetDataGrid(this.Data);
+    }
+
     /**
      * Private
      */
@@ -116,6 +124,11 @@ public class MapEditorObjectsLayer : MapEditorLayer
         this.Depth = depth;
         this.Objects = objects;
     }
+
+    public override void SaveData(NewMapInfo mapInfo)
+    {
+
+    }
 }
 
 public class MapEditorParallaxLayer : MapEditorLayer
@@ -132,5 +145,10 @@ public class MapEditorParallaxLayer : MapEditorLayer
         this.SpriteName = parallaxLayer.sprite_name;
         this.Loops = parallaxLayer.loops;
         this.Height = parallaxLayer.height;
+    }
+
+    public override void SaveData(NewMapInfo mapInfo)
+    {
+
     }
 }
