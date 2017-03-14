@@ -13,6 +13,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     public MapEditorCursor Cursor;
     public MapEditorGrid Grid;
     public IntegerRectCollider WorldBounds;
+    public ActivateAndAnimateImage SaveIcon;
     public PooledObject QuadPrefab;
     public string WorldMapFilePath = "Levels/WorldMap/World.json";
 
@@ -114,7 +115,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 _selectedQuad.MoveToGridPos(this.Grid);
             }
         }
-        else if (MapEditorInput.Exit) //TODO: Don't use exit key
+        else if (MapEditorInput.Start)
         {
             this.Save();
         }
@@ -132,6 +133,8 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
 
     public void Save()
     {
+        this.SaveIcon.Run();
+
         for (int i = 0; i < _worldInfo.level_quads.Length; ++i)
         {
             WorldInfo.LevelQuad levelQuad = _worldInfo.level_quads[i];

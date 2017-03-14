@@ -14,6 +14,7 @@ public class MapEditorManager : MonoBehaviour
     public Dictionary<string, MapEditorLayer> Layers;
     public string CurrentLayer;
     public LayerListPanel LayerListPanel;
+    public ActivateAndAnimateImage SaveIcon;
 
     public List<string> DepthSortedLayers
     {
@@ -113,6 +114,7 @@ public class MapEditorManager : MonoBehaviour
         }
         else if (MapEditorInput.Start)
         {
+            this.SaveIcon.Run();
             foreach (MapEditorLayer layer in this.Layers.Values)
                 layer.SaveData(_mapInfo);
             File.WriteAllText(Application.streamingAssetsPath + LEVELS_PATH + this.MapName + JSON_SUFFIX, JsonConvert.SerializeObject(_mapInfo, Formatting.Indented));
