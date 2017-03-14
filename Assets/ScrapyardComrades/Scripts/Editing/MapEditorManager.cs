@@ -13,6 +13,7 @@ public class MapEditorManager : MonoBehaviour
     public string MapName;
     public Dictionary<string, MapEditorLayer> Layers;
     public string CurrentLayer;
+    public LayerListPanel LayerListPanel;
 
     public List<string> DepthSortedLayers
     {
@@ -76,6 +77,7 @@ public class MapEditorManager : MonoBehaviour
         }
 
         // Handle Visuals
+        this.LayerListPanel.ConfigureForLayers(new List<string>(this.Layers.Keys), this.CurrentLayer);
         updateVisuals();
         updateCurrentLayer();
     }

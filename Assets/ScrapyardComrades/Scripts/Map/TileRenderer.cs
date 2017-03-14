@@ -95,8 +95,7 @@ public class TileRenderer : VoBehavior
     {
         setTileSpriteIndexInMesh(tileX, tileY, spriteName);
     }
-
-
+    
     /**
      * Private
      */
@@ -204,8 +203,7 @@ public class TileRenderer : VoBehavior
 
         this.MeshFilter.mesh.uv = uvs;
     }
-
-
+    
     private void setTileSpriteIndicesInMesh(int[] x, int[] y, string[] spriteNames)
     {
         Vector2[] uvs = this.MeshFilter.mesh.uv;
