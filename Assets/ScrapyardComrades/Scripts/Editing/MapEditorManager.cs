@@ -95,7 +95,9 @@ public class MapEditorManager : MonoBehaviour
                 currentLayerIndex = 0;
             else if (currentLayerIndex < 0)
                 currentLayerIndex = _sortedLayers.Count - 1;
+            leaveLayer(this.CurrentLayer);
             this.CurrentLayer = _sortedLayers[currentLayerIndex];
+            enterLayer(this.CurrentLayer);
             this.LayerListPanel.ChangeCurrentLayer(this.CurrentLayer);
         }
 
@@ -119,22 +121,43 @@ public class MapEditorManager : MonoBehaviour
             updateTileLayer(currentLayer as MapEditorTilesLayer);
     }
 
+    private void enterLayer(string layerName)
+    {
+        MapEditorLayer layer = this.Layers[layerName];
+        if (layer.Type == MapEditorLayer.LayerType.Tiles)
+            enterTileLayer(layer as MapEditorTilesLayer);
+    }
+
+    private void leaveLayer(string layerName)
+    {
+        MapEditorLayer layer = this.Layers[layerName];
+        if (layer.Type == MapEditorLayer.LayerType.Tiles)
+            leaveTileLayer(layer as MapEditorTilesLayer);
+    }
+
     private void updateTileLayer(MapEditorTilesLayer layer)
     {
-        if (layer.Type == MapEditorLayer.LayerType.Tiles)
+        if (_previousCursorPos != this.Cursor.GridPos)
         {
-            if (_previousCursorPos != this.Cursor.GridPos)
-            {
-                (layer as MapEditorTilesLayer).ApplyData(_previousCursorPos.X, _previousCursorPos.Y);
-                _previousCursorPos = this.Cursor.GridPos;
-                (layer as MapEditorTilesLayer).PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
-            }
-
-            if (MapEditorInput.ConfirmHeld)
-            {
-                (layer as MapEditorTilesLayer).ApplyBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
-            }
+            (layer as MapEditorTilesLayer).ApplyData(_previousCursorPos.X, _previousCursorPos.Y);
+            _previousCursorPos = this.Cursor.GridPos;
+            (layer as MapEditorTilesLayer).PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
         }
+
+        if (MapEditorInput.ConfirmHeld)
+        {
+            (layer as MapEditorTilesLayer).ApplyBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+        }
+    }
+
+    private void leaveTileLayer(MapEditorTilesLayer layer)
+    {
+        (layer as MapEditorTilesLayer).ApplyData(_previousCursorPos.X, _previousCursorPos.Y);
+    }
+
+    private void enterTileLayer(MapEditorTilesLayer layer)
+    {
+        (layer as MapEditorTilesLayer).PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
     }
 
     private void updateVisuals()
