@@ -40,7 +40,7 @@ public class MapEditorManager : MonoBehaviour
         string path = Application.streamingAssetsPath + LEVELS_PATH + this.MapName + JSON_SUFFIX;
         if (File.Exists(path))
         {
-            _mapInfo = JsonConvert.DeserializeObject<NewMapInfo>(path);
+            _mapInfo = JsonConvert.DeserializeObject<NewMapInfo>(File.ReadAllText(path));
         }
         else
         {
