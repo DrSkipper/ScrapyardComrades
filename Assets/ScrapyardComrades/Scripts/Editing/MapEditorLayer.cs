@@ -41,7 +41,7 @@ public class MapEditorTilesLayer : MapEditorLayer
 
     public void ApplyBrush(int x, int y)
     {
-        this.Data[x, y].sprite_name = this.AutoTileEnabled ? getAutoTileSprite(x, y, !this.EraserEnabled) : this.CurrentSpriteName;
+        this.Data[x, y].sprite_name = getBrushSprite(x, y);
 
         if (this.AutoTileEnabled)
         {
@@ -61,7 +61,7 @@ public class MapEditorTilesLayer : MapEditorLayer
     public void PreviewBrush(int x, int y)
     {
         if (x >= 0 && x < this.Data.GetLength(0) && y >=0 && y < this.Data.GetLength(1))
-            this.Visual.SetSpriteIndexForTile(x, y, this.AutoTileEnabled ? getAutoTileSprite(x, y, !this.EraserEnabled) : this.CurrentSpriteName);
+            this.Visual.SetSpriteIndexForTile(x, y, getBrushSprite(x, y));
         //TODO: Preview surrounding autotile if enabled
     }
 
@@ -93,6 +93,15 @@ public class MapEditorTilesLayer : MapEditorLayer
     private string getAutoTileSprite(int x, int y, bool forceFilled)
     {
         return TilesetData.GetAutotileSpriteName(TilesetData.GetAutotileType(x, y, this.Data, _spriteDataDict, forceFilled), _autotileDict, this.Tileset);
+    }
+
+    private string getBrushSprite(int x, int y)
+    {
+        if (this.EraserEnabled)
+            return this.Tileset.GetEmptySpriteName();
+        if (this.AutoTileEnabled)
+            return this.getAutoTileSprite(x, y, true);
+        return this.CurrentSpriteName;
     }
 }
 

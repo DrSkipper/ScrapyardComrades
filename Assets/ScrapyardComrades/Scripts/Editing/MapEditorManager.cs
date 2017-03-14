@@ -100,6 +100,16 @@ public class MapEditorManager : MonoBehaviour
             enterLayer(this.CurrentLayer);
             this.LayerListPanel.ChangeCurrentLayer(this.CurrentLayer);
         }
+        else if (MapEditorInput.Cancel)
+        {
+            _eraserEnabled = !_eraserEnabled;
+            MapEditorLayer currentLayer = this.Layers[this.CurrentLayer];
+            if (currentLayer.Type == MapEditorLayer.LayerType.Tiles)
+            {
+                ((MapEditorTilesLayer)currentLayer).EraserEnabled = _eraserEnabled;
+                ((MapEditorTilesLayer)currentLayer).PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+            }
+        }
 
         updateCurrentLayer();
     }
@@ -113,6 +123,7 @@ public class MapEditorManager : MonoBehaviour
     private Dictionary<string, Sprite[]> _sprites;
     private IntegerVector _previousCursorPos;
     private List<string> _sortedLayers;
+    private bool _eraserEnabled;
 
     private void updateCurrentLayer()
     {
@@ -152,12 +163,14 @@ public class MapEditorManager : MonoBehaviour
 
     private void leaveTileLayer(MapEditorTilesLayer layer)
     {
-        (layer as MapEditorTilesLayer).ApplyData(_previousCursorPos.X, _previousCursorPos.Y);
+        layer.EraserEnabled = false;
+        layer.ApplyData(_previousCursorPos.X, _previousCursorPos.Y);
     }
 
     private void enterTileLayer(MapEditorTilesLayer layer)
     {
-        (layer as MapEditorTilesLayer).PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+        layer.EraserEnabled = _eraserEnabled;
+        layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
     }
 
     private void updateVisuals()
