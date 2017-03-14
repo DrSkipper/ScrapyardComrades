@@ -103,6 +103,7 @@ public class MapEditorManager : MonoBehaviour
         else if (MapEditorInput.Cancel)
         {
             _eraserEnabled = !_eraserEnabled;
+            this.Cursor.EnableEraser(_eraserEnabled);
             MapEditorLayer currentLayer = this.Layers[this.CurrentLayer];
             if (currentLayer.Type == MapEditorLayer.LayerType.Tiles)
             {

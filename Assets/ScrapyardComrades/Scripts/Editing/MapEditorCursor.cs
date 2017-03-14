@@ -5,9 +5,10 @@ using Rewired;
 public class MapEditorCursor : VoBehavior
 {
     public MapEditorGrid Grid;
-    public Image ContentsImage;
     public Image HighlightImage;
     public IntegerVector GridPos;
+    public Color StandardColor;
+    public Color EraserColor;
 
     void Start()
     {
@@ -40,8 +41,6 @@ public class MapEditorCursor : VoBehavior
     public void Hide()
     {
         _hidden = true;
-        if (this.ContentsImage != null)
-            this.ContentsImage.enabled = false;
         if (this.HighlightImage != null)
             this.HighlightImage.enabled = false;
     }
@@ -49,10 +48,13 @@ public class MapEditorCursor : VoBehavior
     public void UnHide()
     {
         _hidden = false;
-        if (this.ContentsImage != null)
-            this.ContentsImage.enabled = true;
         if (this.HighlightImage != null)
             this.HighlightImage.enabled = true;
+    }
+
+    public void EnableEraser(bool enable)
+    {
+        this.HighlightImage.color = enable ? this.EraserColor : this.StandardColor;
     }
 
     /** 
