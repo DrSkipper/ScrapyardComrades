@@ -14,6 +14,7 @@ public class TilesetEditorManagerEditor : Editor
         {
             behavior.CurrentEditingTileset = behavior.TilesetToEdit;
             behavior.Reload();
+            EditorUtility.SetDirty(behavior.TilesetToEdit);
             AssetDatabase.SaveAssets();
         }
 
@@ -24,7 +25,10 @@ public class TilesetEditorManagerEditor : Editor
             bool autoTile = EditorGUILayout.Toggle("Allow AutoTile", behavior.SelectedSpriteData.AllowAutotile);
             EditorGUILayout.Separator();
             if (behavior.ApplySpriteData(tileType, autoTile))
+            {
+                EditorUtility.SetDirty(behavior.TilesetToEdit);
                 AssetDatabase.SaveAssets();
+            }
         }
     }
 

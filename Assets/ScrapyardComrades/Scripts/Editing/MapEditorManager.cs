@@ -67,7 +67,7 @@ public class MapEditorManager : MonoBehaviour
         
         // Setup Tile Layers
         this.Layers.Add(PLATFORMS_LAYER, new MapEditorTilesLayer(platformsLayerData, PLATFORMS_LAYER_DEPTH, _tilesets, this.PlatformsRenderer));
-        this.Layers.Add(BACKGROUND_LAYER, new MapEditorTilesLayer(backgroundLayerData, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT, _tilesets, this.PlatformsRenderer));
+        this.Layers.Add(BACKGROUND_LAYER, new MapEditorTilesLayer(backgroundLayerData, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT, _tilesets, this.BackgroundRenderer));
 
         //TODO: Setup Object Layers
 
@@ -87,12 +87,14 @@ public class MapEditorManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (MapEditorInput.SwapModes)
+        if (MapEditorInput.CycleNextAlt || MapEditorInput.CyclePrevAlt)
         {
             int currentLayerIndex = this.CurrentLayerIndex;
-            ++currentLayerIndex;
-            if (currentLayerIndex == _sortedLayers.Count)
+            currentLayerIndex = MapEditorInput.CycleNextAlt ? currentLayerIndex + 1 : currentLayerIndex - 1;
+            if (currentLayerIndex >= _sortedLayers.Count)
                 currentLayerIndex = 0;
+            else if (currentLayerIndex < 0)
+                currentLayerIndex = _sortedLayers.Count - 1;
             this.CurrentLayer = _sortedLayers[currentLayerIndex];
             this.LayerListPanel.ChangeCurrentLayer(this.CurrentLayer);
         }
