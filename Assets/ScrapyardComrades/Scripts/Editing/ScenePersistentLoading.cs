@@ -13,7 +13,10 @@ public static class ScenePersistentLoading
     public static string ConsumeLoad()
     {
         if (IsLoading)
+        {
+            IsLoading = false;
             return _levelToLoad;
+        }
         return null;
     }
 

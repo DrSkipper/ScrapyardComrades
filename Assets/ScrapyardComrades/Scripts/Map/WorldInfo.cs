@@ -18,12 +18,14 @@ public class WorldInfo
         public int height;
     }
 
-    public void AddLevelQuad(string name, int x, int y)
+    public void AddLevelQuad(string name, int x, int y, int w, int h)
     {
         LevelQuad newQuad = new LevelQuad();
         newQuad.name = name;
         newQuad.x = x;
         newQuad.y = y;
+        newQuad.width = w;
+        newQuad.height = h;
         List<LevelQuad> quadList = new List<LevelQuad>(level_quads);
         quadList.Add(newQuad);
         level_quads = quadList.ToArray();

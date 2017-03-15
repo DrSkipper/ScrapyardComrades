@@ -6,6 +6,7 @@ public struct IntegerRect
 {
     public IntegerVector Center;
     public IntegerVector Size;
+    //TODO: Handle odd size
     public IntegerVector Extents { get { return this.Size / 2; } }
 
     public IntegerVector Min
@@ -40,6 +41,14 @@ public struct IntegerRect
     {
         this.Center = center;
         this.Size = size;
+    }
+
+    public static IntegerRect CreateFromMinMax(IntegerVector min, IntegerVector max)
+    {
+        IntegerRect rect = new IntegerRect();
+        rect.Center = (min + max) / 2;
+        rect.Size = max - min;
+        return rect;
     }
 
     public bool Overlaps(IntegerRect other)

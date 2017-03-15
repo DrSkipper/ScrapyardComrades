@@ -1,0 +1,2075 @@
+{
+  "name": "new_level0",
+  "width": 16,
+  "height": 16,
+  "tile_size": 16,
+  "tile_layers": [
+    {
+      "name": "platforms",
+      "width": 16,
+      "height": 16,
+      "tileset_name": "GenericPlatforms",
+      "data": [
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_42"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_42"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_64"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_62"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_64"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_44"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_42"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_64"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_64"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_64"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_44"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_64"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_62"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_44"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_24"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_42"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_64"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_42"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_64"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_42"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_64"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_62"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "platforms_43"
+        }
+      ]
+    },
+    {
+      "name": "background",
+      "width": 16,
+      "height": 16,
+      "tileset_name": "GenericBackground",
+      "data": [
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "background_37"
+        }
+      ]
+    }
+  ],
+  "parallax_layers": [],
+  "props": [],
+  "objects": []
+}

@@ -19,9 +19,7 @@ public class WorldEditorQuadVisual : MonoBehaviour
         this.QuadName = name;
         this.Text.text = name;
         IntegerVector size = new IntegerVector(quadInfo.width / worldGridSpaceSize, quadInfo.height / worldGridSpaceSize);
-        IntegerRect bounds = new IntegerRect(IntegerVector.Zero, size);
-        bounds.Min = quadPos;
-        bounds.Max = quadPos + size;
+        IntegerRect bounds = IntegerRect.CreateFromMinMax(quadPos, quadPos + size);
         this.QuadBounds = bounds;
         ((RectTransform)this.transform).sizeDelta = new Vector2(size.X * gridSpaceRenderSize, size.Y * gridSpaceRenderSize);
 

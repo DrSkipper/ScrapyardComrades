@@ -115,8 +115,9 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
             }
             else if (MapEditorInput.Exit)
             {
-                _worldInfo.RemoveLevelQuad(_selectedQuad.name);
-                _quadVisuals.Remove(_selectedQuad.name);
+                _worldInfo.RemoveLevelQuad(_selectedQuad.QuadName);
+                _quadVisuals.Remove(_selectedQuad.QuadName);
+                File.Delete(Application.streamingAssetsPath + MapLoader.LEVELS_PATH + _selectedQuad.QuadName + MapLoader.JSON_SUFFIX);
                 _selectedQuad.GetComponent<PooledObject>().Release();
                 _selectedQuad = null;
                 this.ContextMenu.EnterState(NO_SELECTION_STATE);
@@ -209,7 +210,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         IntegerVector pos = new IntegerVector(levelQuad.x, levelQuad.y);
         IntegerVector size = new IntegerVector(levelQuad.width, levelQuad.height);
 
-        ((RectTransform)quadVisualObject.transform).sizeDelta = new Vector2((size.X) * this.GridSpaceRenderSize, (size.Y) * this.GridSpaceRenderSize);
+        //((RectTransform)quadVisualObject.transform).sizeDelta = new Vector2(size.X * this.GridSpaceRenderSize, size.Y * this.GridSpaceRenderSize);
 
         WorldEditorQuadVisual quadVisual = quadVisualObject.GetComponent<WorldEditorQuadVisual>();
         quadVisual.ConfigureForQuad(levelQuad.name, MapLoader.GatherMapInfo(levelQuad.name), this.WorldGridSpaceSize, this.GridSpaceRenderSize, pos);
@@ -222,7 +223,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     {
         unpause();
         levelName = findUsableName(levelName);
-        NewMapInfo newMapInfo = new NewMapInfo(levelName, this.WorldGridSpaceSize, this.WorldGridSpaceSize, MapEditorManager.DEFAULT_TILE_SIZE);
+        NewMapInfo newMapInfo = new NewMapInfo(levelName, this.WorldGridSpaceSize * 1, this.WorldGridSpaceSize * 1, MapEditorManager.DEFAULT_TILE_SIZE);
         newMapInfo.AddTileLayer(MapEditorManager.PLATFORMS_LAYER);
         newMapInfo.AddTileLayer(MapEditorManager.BACKGROUND_LAYER);
         NewMapInfo.MapLayer platformsLayer = newMapInfo.GetMapLayer(MapEditorManager.PLATFORMS_LAYER);
@@ -231,7 +232,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         backgroundLayer.tileset_name = background;
 
         File.WriteAllText(Application.streamingAssetsPath + MapLoader.LEVELS_PATH + levelName + MapLoader.JSON_SUFFIX, JsonConvert.SerializeObject(newMapInfo, Formatting.Indented));
-        _worldInfo.AddLevelQuad(levelName, this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+        _worldInfo.AddLevelQuad(levelName, this.Cursor.GridPos.X, this.Cursor.GridPos.Y, 1, 1);
         _quadVisuals.Add(levelName, loadQuad(_worldInfo.GetLevelQuad(levelName)));
         this.Save();
     }
@@ -307,7 +308,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         //TODO: Iterating through all quads here probably not great - should probably have a grid system of storage
         foreach (WorldEditorQuadVisual quadVisual in _quadVisuals.Values)
         {
-            if (quadVisual.QuadBounds.Contains(this.Cursor.GridPos) && this.Cursor.GridPos.X != quadVisual.QuadBounds.Max.X && this.Cursor.GridPos.Y != quadVisual.QuadBounds.Max.Y)
+            if (quadVisual.QuadBounds.Contains(this.Cursor.GridPos) && (quadVisual.QuadBounds.Size.X % 2 == 1 || this.Cursor.GridPos.X != quadVisual.QuadBounds.Max.X) && (quadVisual.QuadBounds.Size.X % 2 == 1 || this.Cursor.GridPos.Y != quadVisual.QuadBounds.Max.Y))
             {
                 return quadVisual;
             }
