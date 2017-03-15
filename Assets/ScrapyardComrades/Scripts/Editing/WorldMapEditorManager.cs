@@ -125,6 +125,38 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 this.Cursor.UnHide();
                 this.Save();
             }
+            else if (MapEditorInput.ResizeLeft && _selectedQuad.QuadBounds.Size.X > 1)
+            {
+                WorldInfo.LevelQuad levelQuad = _worldInfo.GetLevelQuad(_selectedQuad.QuadName);
+                --levelQuad.width;
+                NewMapInfo quadInfo = MapLoader.GatherMapInfo(levelQuad.name);
+                quadInfo.ResizeWidth(levelQuad.width);
+                saveQuadResize(levelQuad, quadInfo);
+            }
+            else if (MapEditorInput.ResizeRight && canMoveRight(_selectedQuad))
+            {
+                WorldInfo.LevelQuad levelQuad = _worldInfo.GetLevelQuad(_selectedQuad.QuadName);
+                ++levelQuad.width;
+                NewMapInfo quadInfo = MapLoader.GatherMapInfo(levelQuad.name);
+                quadInfo.ResizeWidth(levelQuad.width);
+                saveQuadResize(levelQuad, quadInfo);
+            }
+            else if (MapEditorInput.ResizeDown && _selectedQuad.QuadBounds.Size.Y > 1)
+            {
+                WorldInfo.LevelQuad levelQuad = _worldInfo.GetLevelQuad(_selectedQuad.QuadName);
+                --levelQuad.height;
+                NewMapInfo quadInfo = MapLoader.GatherMapInfo(levelQuad.name);
+                quadInfo.ResizeHeight(levelQuad.height);
+                saveQuadResize(levelQuad, quadInfo);
+            }
+            else if (MapEditorInput.ResizeUp && canMoveUp(_selectedQuad))
+            {
+                WorldInfo.LevelQuad levelQuad = _worldInfo.GetLevelQuad(_selectedQuad.QuadName);
+                ++levelQuad.height;
+                NewMapInfo quadInfo = MapLoader.GatherMapInfo(levelQuad.name);
+                quadInfo.ResizeHeight(levelQuad.height);
+                saveQuadResize(levelQuad, quadInfo);
+            }
         }
         else if (MapEditorInput.Start)
         {
@@ -202,6 +234,14 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     private IntegerVector _cursorPrev;
     private bool _exiting;
     private bool _paused;
+
+    private void saveQuadResize(WorldInfo.LevelQuad levelQuad, NewMapInfo quadInfo)
+    {
+        _selectedQuad.ConfigureForQuad(levelQuad.name, quadInfo, this.WorldGridSpaceSize, this.GridSpaceRenderSize, new IntegerVector(levelQuad.x, levelQuad.y));
+        _selectedQuad.MoveToGridPos(this.Grid);
+        File.WriteAllText(Application.streamingAssetsPath + MapLoader.LEVELS_PATH + levelQuad.name + MapLoader.JSON_SUFFIX, JsonConvert.SerializeObject(quadInfo, Formatting.Indented));
+        this.Save();
+    }
 
     private WorldEditorQuadVisual loadQuad(WorldInfo.LevelQuad levelQuad)
     {

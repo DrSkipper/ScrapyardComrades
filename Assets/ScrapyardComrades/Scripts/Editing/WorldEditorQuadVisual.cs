@@ -70,5 +70,5 @@ public class WorldEditorQuadVisual : MonoBehaviour
     /**
      * Private
      */
-    Texture2D _texture;
+    private Texture2D _texture;
 }
