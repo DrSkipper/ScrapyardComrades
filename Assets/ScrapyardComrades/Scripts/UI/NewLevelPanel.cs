@@ -17,6 +17,7 @@ public class NewLevelPanel : VoBehavior
     {
         this.PlatformsPanel.Text.text = this.PlatformTilesets[0].name;
         this.BackgroundPanel.Text.text = this.BackgroundTilesets[0].name;
+        this.LevelNameField.text = DEFAULT_LEVEL_NAME;
     }
 
     public void Show()
@@ -32,6 +33,7 @@ public class NewLevelPanel : VoBehavior
             string levelName = this.LevelNameField.text;
             string platforms = this.PlatformTilesets[_selectedPlatforms].name;
             string background = this.BackgroundTilesets[_selectedBackground].name;
+            this.LevelNameField.interactable = false;
             this.LevelNameField.DeactivateInputField();
             this.CompletionCallback(levelName, platforms, background);
             this.gameObject.SetActive(false);
@@ -41,11 +43,13 @@ public class NewLevelPanel : VoBehavior
             if (_nameEntryEnabled)
             {
                 _nameEntryEnabled = false;
+                this.LevelNameField.interactable = false;
                 this.LevelNameField.DeactivateInputField();
             }
             else
             {
                 _nameEntryEnabled = true;
+                this.LevelNameField.interactable = true;
                 this.LevelNameField.ActivateInputField();
             }
         }
@@ -121,6 +125,7 @@ public class NewLevelPanel : VoBehavior
     private const int NAME_ENTRY = 0;
     private const int PLATFORMS = 1;
     private const int BACKGROUND = 2;
+    private const string DEFAULT_LEVEL_NAME = "new_level";
 
     private void selectNameEntry()
     {
