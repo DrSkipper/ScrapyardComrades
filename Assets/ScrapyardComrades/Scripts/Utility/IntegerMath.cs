@@ -6,7 +6,6 @@ public struct IntegerRect
 {
     public IntegerVector Center;
     public IntegerVector Size;
-    //TODO: Handle odd size
     public IntegerVector Extents { get { return this.Size / 2; } }
 
     public IntegerVector Min
@@ -22,7 +21,7 @@ public struct IntegerRect
 
     public IntegerVector Max
     {
-        get { return this.Center + this.Extents; }
+        get { return this.Center + this.Extents + new IntegerVector(this.Size.X % 2 == 1 ? 1 : 0, this.Size.Y % 2 == 1 ? 1 : 0); }
         set
         {
             IntegerVector newCenter = (this.Min + value) / 2;

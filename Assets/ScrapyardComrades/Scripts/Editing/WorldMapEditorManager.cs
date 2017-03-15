@@ -128,34 +128,44 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
             else if (MapEditorInput.ResizeLeft && _selectedQuad.QuadBounds.Size.X > 1)
             {
                 WorldInfo.LevelQuad levelQuad = _worldInfo.GetLevelQuad(_selectedQuad.QuadName);
+                applyQuadVisualToLevelQuad(_selectedQuad, levelQuad);
                 --levelQuad.width;
                 NewMapInfo quadInfo = MapLoader.GatherMapInfo(levelQuad.name);
-                quadInfo.ResizeWidth(levelQuad.width);
+                quadInfo.ResizeWidth(levelQuad.width * this.WorldGridSpaceSize);
                 saveQuadResize(levelQuad, quadInfo);
             }
             else if (MapEditorInput.ResizeRight && canMoveRight(_selectedQuad))
             {
                 WorldInfo.LevelQuad levelQuad = _worldInfo.GetLevelQuad(_selectedQuad.QuadName);
-                ++levelQuad.width;
-                NewMapInfo quadInfo = MapLoader.GatherMapInfo(levelQuad.name);
-                quadInfo.ResizeWidth(levelQuad.width);
-                saveQuadResize(levelQuad, quadInfo);
+                applyQuadVisualToLevelQuad(_selectedQuad, levelQuad);
+                if ((levelQuad.width + 1) * levelQuad.height * this.WorldGridSpaceSize <= MAX_TILES_IN_QUAD)
+                {
+                    ++levelQuad.width;
+                    NewMapInfo quadInfo = MapLoader.GatherMapInfo(levelQuad.name);
+                    quadInfo.ResizeWidth(levelQuad.width * this.WorldGridSpaceSize);
+                    saveQuadResize(levelQuad, quadInfo);
+                }
             }
             else if (MapEditorInput.ResizeDown && _selectedQuad.QuadBounds.Size.Y > 1)
             {
                 WorldInfo.LevelQuad levelQuad = _worldInfo.GetLevelQuad(_selectedQuad.QuadName);
+                applyQuadVisualToLevelQuad(_selectedQuad, levelQuad);
                 --levelQuad.height;
                 NewMapInfo quadInfo = MapLoader.GatherMapInfo(levelQuad.name);
-                quadInfo.ResizeHeight(levelQuad.height);
+                quadInfo.ResizeHeight(levelQuad.height * this.WorldGridSpaceSize);
                 saveQuadResize(levelQuad, quadInfo);
             }
             else if (MapEditorInput.ResizeUp && canMoveUp(_selectedQuad))
             {
                 WorldInfo.LevelQuad levelQuad = _worldInfo.GetLevelQuad(_selectedQuad.QuadName);
-                ++levelQuad.height;
-                NewMapInfo quadInfo = MapLoader.GatherMapInfo(levelQuad.name);
-                quadInfo.ResizeHeight(levelQuad.height);
-                saveQuadResize(levelQuad, quadInfo);
+                applyQuadVisualToLevelQuad(_selectedQuad, levelQuad);
+                if (levelQuad.width * (levelQuad.height + 1) * this.WorldGridSpaceSize <= MAX_TILES_IN_QUAD)
+                {
+                    ++levelQuad.height;
+                    NewMapInfo quadInfo = MapLoader.GatherMapInfo(levelQuad.name);
+                    quadInfo.ResizeHeight(levelQuad.height * this.WorldGridSpaceSize);
+                    saveQuadResize(levelQuad, quadInfo);
+                }
             }
         }
         else if (MapEditorInput.Start)
@@ -200,10 +210,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         {
             WorldInfo.LevelQuad levelQuad = _worldInfo.level_quads[i];
             WorldEditorQuadVisual quadVisual = _quadVisuals[levelQuad.name];
-            levelQuad.x = quadVisual.QuadBounds.Min.X;
-            levelQuad.y = quadVisual.QuadBounds.Min.Y;
-            levelQuad.width = quadVisual.QuadBounds.Size.X;
-            levelQuad.height = quadVisual.QuadBounds.Size.Y;
+            applyQuadVisualToLevelQuad(quadVisual, levelQuad);
         }
         
         File.WriteAllText(Application.streamingAssetsPath + "/" + this.WorldMapFilePath, JsonConvert.SerializeObject(_worldInfo, Formatting.Indented));
@@ -228,12 +235,21 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     private const string HOVER_STATE = "Hover";
     private const string SELECTION_STATE = "Selection";
     private const string NO_SELECTION_STATE = "NoSelection";
+    private const int MAX_TILES_IN_QUAD = 15000; //8192;
     private Dictionary<string, WorldEditorQuadVisual> _quadVisuals;
     private WorldEditorQuadVisual _selectedQuad;
     private WorldInfo _worldInfo;
     private IntegerVector _cursorPrev;
     private bool _exiting;
     private bool _paused;
+
+    private void applyQuadVisualToLevelQuad(WorldEditorQuadVisual quadVisual, WorldInfo.LevelQuad levelQuad)
+    {
+        levelQuad.x = quadVisual.QuadBounds.Min.X;
+        levelQuad.y = quadVisual.QuadBounds.Min.Y;
+        levelQuad.width = quadVisual.QuadBounds.Size.X;
+        levelQuad.height = quadVisual.QuadBounds.Size.Y;
+    }
 
     private void saveQuadResize(WorldInfo.LevelQuad levelQuad, NewMapInfo quadInfo)
     {
@@ -249,8 +265,6 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         ((RectTransform)quadVisualObject.transform).SetParent(this.WorldPanel, false);
         IntegerVector pos = new IntegerVector(levelQuad.x, levelQuad.y);
         IntegerVector size = new IntegerVector(levelQuad.width, levelQuad.height);
-
-        //((RectTransform)quadVisualObject.transform).sizeDelta = new Vector2(size.X * this.GridSpaceRenderSize, size.Y * this.GridSpaceRenderSize);
 
         WorldEditorQuadVisual quadVisual = quadVisualObject.GetComponent<WorldEditorQuadVisual>();
         quadVisual.ConfigureForQuad(levelQuad.name, MapLoader.GatherMapInfo(levelQuad.name), this.WorldGridSpaceSize, this.GridSpaceRenderSize, pos);
@@ -348,7 +362,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         //TODO: Iterating through all quads here probably not great - should probably have a grid system of storage
         foreach (WorldEditorQuadVisual quadVisual in _quadVisuals.Values)
         {
-            if (quadVisual.QuadBounds.Contains(this.Cursor.GridPos) && (quadVisual.QuadBounds.Size.X % 2 == 1 || this.Cursor.GridPos.X != quadVisual.QuadBounds.Max.X) && (quadVisual.QuadBounds.Size.X % 2 == 1 || this.Cursor.GridPos.Y != quadVisual.QuadBounds.Max.Y))
+            if (quadVisual.QuadBounds.Contains(this.Cursor.GridPos) && this.Cursor.GridPos.X != quadVisual.QuadBounds.Max.X && this.Cursor.GridPos.Y != quadVisual.QuadBounds.Max.Y)
             {
                 return quadVisual;
             }

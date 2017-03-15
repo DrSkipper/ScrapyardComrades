@@ -124,6 +124,7 @@ public class NewMapInfo
                     newData[y * newWidth + x] = x >= width ? new MapTile() : data[y * width + x];
                 }
             }
+            width = newWidth;
             data = newData;
         }
 
@@ -137,6 +138,7 @@ public class NewMapInfo
                     newData[y * width + x] = y >= height ? new MapTile() : data[y * width + x];
                 }
             }
+            height = newHeight;
             data = newData;
         }
     }
