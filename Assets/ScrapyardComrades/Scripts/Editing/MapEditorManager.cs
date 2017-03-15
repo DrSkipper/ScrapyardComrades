@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
@@ -15,6 +16,10 @@ public class MapEditorManager : MonoBehaviour
     public string CurrentLayer;
     public LayerListPanel LayerListPanel;
     public ActivateAndAnimateImage SaveIcon;
+    public ActivateAndAnimateImage FadeOut;
+    public TimedCallbacks TimedCallbacks;
+    public string WorldEditorSceneName = "WorldEditor";
+    public float LoadTime = 1.0f;
 
     public List<string> DepthSortedLayers
     {
@@ -35,17 +40,11 @@ public class MapEditorManager : MonoBehaviour
         this.Layers = new Dictionary<string, MapEditorLayer>();
         this.CurrentLayer = PLATFORMS_LAYER;
         _previousCursorPos = new IntegerVector(-9999, -9999);
-        
+
         // Load Data
-        string path = Application.streamingAssetsPath + LEVELS_PATH + this.MapName + JSON_SUFFIX;
-        if (File.Exists(path))
-        {
-            _mapInfo = JsonConvert.DeserializeObject<NewMapInfo>(File.ReadAllText(path));
-        }
-        else
-        {
+        _mapInfo = MapLoader.GatherMapInfo(this.MapName);
+        if (_mapInfo == null)
             _mapInfo = new NewMapInfo(this.MapName, DEFAULT_LEVEL_SIZE, DEFAULT_LEVEL_SIZE, DEFAULT_TILE_SIZE);
-        }
 
         NewMapInfo.MapLayer platformsLayerData = _mapInfo.GetMapLayer(PLATFORMS_LAYER);
         if (platformsLayerData == null)
@@ -88,6 +87,9 @@ public class MapEditorManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (_exiting)
+            return;
+
         if (MapEditorInput.CycleNextAlt || MapEditorInput.CyclePrevAlt)
         {
             int currentLayerIndex = this.CurrentLayerIndex;
@@ -114,13 +116,26 @@ public class MapEditorManager : MonoBehaviour
         }
         else if (MapEditorInput.Start)
         {
-            this.SaveIcon.Run();
-            foreach (MapEditorLayer layer in this.Layers.Values)
-                layer.SaveData(_mapInfo);
-            File.WriteAllText(Application.streamingAssetsPath + LEVELS_PATH + this.MapName + JSON_SUFFIX, JsonConvert.SerializeObject(_mapInfo, Formatting.Indented));
+            this.Save();
+        }
+        else if (MapEditorInput.Exit)
+        {
+            _exiting = true;
+            this.FadeOut.Run();
+            this.Cursor.Hide();
+            this.Save();
+            this.TimedCallbacks.AddCallback(this, loadWorldEditor, this.LoadTime);
         }
 
         updateCurrentLayer();
+    }
+
+    public void Save()
+    {
+        this.SaveIcon.Run();
+        foreach (MapEditorLayer layer in this.Layers.Values)
+            layer.SaveData(_mapInfo);
+        File.WriteAllText(Application.streamingAssetsPath + MapLoader.LEVELS_PATH + this.MapName + MapLoader.JSON_SUFFIX, JsonConvert.SerializeObject(_mapInfo, Formatting.Indented));
     }
 
     /**
@@ -133,6 +148,12 @@ public class MapEditorManager : MonoBehaviour
     private IntegerVector _previousCursorPos;
     private List<string> _sortedLayers;
     private bool _eraserEnabled;
+    private bool _exiting;
+
+    private void loadWorldEditor()
+    {
+        SceneManager.LoadScene(this.WorldEditorSceneName);
+    }
 
     private void updateCurrentLayer()
     {
@@ -216,8 +237,6 @@ public class MapEditorManager : MonoBehaviour
     private const int DEFAULT_LEVEL_SIZE = 32;
     private const int PLATFORMS_LAYER_DEPTH = 0;
     private const int LAYER_DEPTH_INCREMENT = 2;
-    private const string LEVELS_PATH = "/Levels/";
-    private const string JSON_SUFFIX = ".json";
     private const string PLATFORMS_LAYER = "platforms";
     private const string BACKGROUND_LAYER = "background";
     private const string OBJECTS_LAYER = "objects";

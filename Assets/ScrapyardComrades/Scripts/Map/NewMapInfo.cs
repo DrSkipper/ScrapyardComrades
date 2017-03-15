@@ -144,11 +144,13 @@ public class NewMapInfo
     [System.Serializable]
     public class MapTile
     {
+        public bool is_filled;
         public string sprite_name;
         public const string EMPTY_TILE_SPRITE_NAME = "empty";
 
         public MapTile()
         {
+            is_filled = false;
             sprite_name = EMPTY_TILE_SPRITE_NAME;
         }
     }

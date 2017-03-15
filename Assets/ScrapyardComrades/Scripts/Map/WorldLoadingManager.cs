@@ -47,7 +47,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         _activeMapLoaders = new List<MapLoader>(MAX_MAP_LOADERS);
 
         gatherWorldMapInfo();
-        _quadData = new Dictionary<string, MapInfo>();
+        _quadData = new Dictionary<string, NewMapInfo>();
 
         for (int i = 0; i < _allMapQuads.Count; ++i)
         {
@@ -94,7 +94,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         }
     }
 
-    public MapInfo GetMapInfoForQuad(string quadName)
+    public NewMapInfo GetMapInfoForQuad(string quadName)
     {
         return _quadData[quadName];
     }
@@ -126,7 +126,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     private Transform _tracker;
     private IntegerVector _recenterOffset = IntegerVector.Zero;
     private IntegerVector _trackerPosition = IntegerVector.Zero;
-    private Dictionary<string, MapInfo> _quadData;
+    private Dictionary<string, NewMapInfo> _quadData;
 
     private void gatherWorldMapInfo()
     {

@@ -6,6 +6,9 @@ using Newtonsoft.Json;
 
 public class MapLoader : MonoBehaviour
 {
+    public const string LEVELS_PATH = "/Levels/";
+    public const string JSON_SUFFIX = ".json";
+
     public string MapName = "GameplayTest";
     public TileRenderer PlatformsRenderer;
     public TileRenderer BGRenderer;
@@ -53,8 +56,9 @@ public class MapLoader : MonoBehaviour
                 this.Sprites = this.WorldLoadingManager.CachedSprites;
             }
         }
-        
-        MapInfo mapInfo = this.WorldLoadingManager != null ? this.WorldLoadingManager.GetMapInfoForQuad(this.MapName) : GatherMapInfo(this.MapName);
+
+        //TODO: Update for NewMapInfo
+        MapInfo mapInfo = new MapInfo(); //this.WorldLoadingManager != null ? this.WorldLoadingManager.GetMapInfoForQuad(this.MapName) : GatherMapInfo(this.MapName);
         MapGridSpaceInfo[,] grid = mapInfo.GetLayerWithName(this.PlatformsLayer).GetGrid(mapInfo.tilesets);
         _width = mapInfo.width;
         _height = mapInfo.height;
@@ -80,7 +84,8 @@ public class MapLoader : MonoBehaviour
     {
 #if UNITY_EDITOR
         this.ClearMap(editor);
-        MapInfo mapInfo = GatherMapInfo(this.MapName);
+        //TODO: Update for NewMapInfo
+        MapInfo mapInfo = new MapInfo();// = GatherMapInfo(this.MapName);
         MapInfo.MapLayer platformsLayer = mapInfo.GetLayerWithName(this.PlatformsLayer);
         MapGridSpaceInfo[,] grid = platformsLayer.GetGrid(mapInfo.tilesets);
 
@@ -153,11 +158,17 @@ public class MapLoader : MonoBehaviour
         return sprites;
     }
 
-    public static MapInfo GatherMapInfo(string mapName)
+    public static NewMapInfo GatherMapInfo(string mapName)
     {
-        TextAsset asset = Resources.Load<TextAsset>(PATH + mapName);
-        MapInfo mapInfo = JsonConvert.DeserializeObject<MapInfo>(asset.text);
-        return mapInfo;
+        //TextAsset asset = Resources.Load<TextAsset>(PATH + mapName);
+        //MapInfo mapInfo = JsonConvert.DeserializeObject<MapInfo>(asset.text);
+        
+        string path = Application.streamingAssetsPath + LEVELS_PATH + mapName + JSON_SUFFIX;
+        if (File.Exists(path))
+        {
+            return JsonConvert.DeserializeObject<NewMapInfo>(File.ReadAllText(path));
+        }
+        return null;
     }
 
     /**

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
@@ -14,8 +15,12 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     public MapEditorGrid Grid;
     public IntegerRectCollider WorldBounds;
     public ActivateAndAnimateImage SaveIcon;
+    public ActivateAndAnimateImage FadeOut;
+    public TimedCallbacks TimedCallbacks;
     public PooledObject QuadPrefab;
     public string WorldMapFilePath = "Levels/WorldMap/World.json";
+    public string LevelEditorSceneName = "LevelEditing";
+    public float LevelLoadTime = 1.0f;
 
     public IntegerRectCollider GetBounds()
     {
@@ -54,6 +59,9 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
 
     void Update()
     {
+        if (_exiting)
+            return;
+
         if (MapEditorInput.Confirm)
         {
             if (_selectedQuad == null)
@@ -119,11 +127,24 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         {
             this.Save();
         }
+        else if (MapEditorInput.Action)
+        {
+            WorldEditorQuadVisual hoveredQuad = hoveredQuadVisual();
+            if (hoveredQuad != null)
+            {
+                this.Save();
+                this.Cursor.Hide();
+                ScenePersistentLoading.BeginLoading(hoveredQuad.QuadName);
+                _exiting = true;
+                this.TimedCallbacks.AddCallback(this, loadLevelEditor, this.LevelLoadTime);
+                this.FadeOut.Run();
+            }
+        }
 
         if (_selectedQuad == null && _cursorPrev != this.Cursor.GridPos)
         {
             WorldEditorQuadVisual hoveredQuad = hoveredQuadVisual();
-            if (hoveredQuad)
+            if (hoveredQuad != null)
                 this.ContextMenu.EnterState(HOVER_STATE);
             else
                 this.ContextMenu.EnterState(NO_SELECTION_STATE);
@@ -171,6 +192,12 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     private WorldEditorQuadVisual _selectedQuad;
     private WorldInfo _worldInfo;
     private IntegerVector _cursorPrev;
+    private bool _exiting;
+
+    private void loadLevelEditor()
+    {
+        SceneManager.LoadScene(this.LevelEditorSceneName);
+    }
 
     private static WorldInfo mapInfoToWorldInfo(MapInfo mapInfo, int worldGridSpaceSize)
     {
@@ -202,7 +229,6 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         //TODO: Iterating through all quads here probably not great - should probably have a grid system of storage
         foreach (WorldEditorQuadVisual quadVisual in _quadVisuals.Values)
         {
-            //TODO: Not sure why I have to check against the outside border of the bounds here
             if (quadVisual.QuadBounds.Contains(this.Cursor.GridPos) && this.Cursor.GridPos.X != quadVisual.QuadBounds.Max.X && this.Cursor.GridPos.Y != quadVisual.QuadBounds.Max.Y)
             {
                 return quadVisual;

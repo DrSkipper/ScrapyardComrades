@@ -14,7 +14,7 @@ public class WorldEditorQuadVisual : MonoBehaviour
     public string PreviewLayerName;
     public string QuadName { get; private set; }
     
-    public void ConfigureForQuad(string name, MapInfo quadInfo, int worldGridSpaceSize, int gridSpaceRenderSize, IntegerVector quadPos)
+    public void ConfigureForQuad(string name, NewMapInfo quadInfo, int worldGridSpaceSize, int gridSpaceRenderSize, IntegerVector quadPos)
     {
         this.QuadName = name;
         this.Text.text = name;
@@ -23,21 +23,21 @@ public class WorldEditorQuadVisual : MonoBehaviour
         bounds.Min = quadPos;
         bounds.Max = quadPos + size;
         this.QuadBounds = bounds;
-        ((RectTransform)this.transform).sizeDelta = new Vector2((size.X) * gridSpaceRenderSize, (size.Y) * gridSpaceRenderSize);
+        ((RectTransform)this.transform).sizeDelta = new Vector2(size.X * gridSpaceRenderSize, size.Y * gridSpaceRenderSize);
 
         if (_texture == null)
             _texture = new Texture2D(quadInfo.width, quadInfo.height, TextureFormat.ARGB32, false);
         else
             _texture.Resize(quadInfo.width, quadInfo.height, TextureFormat.ARGB32, false);
 
-        MapInfo.MapLayer previewLayer = quadInfo.GetLayerWithName(this.PreviewLayerName);
-        MapGridSpaceInfo[,] data = previewLayer.GetGrid(quadInfo.tilesets);
+        NewMapInfo.MapLayer previewLayer = quadInfo.GetMapLayer(this.PreviewLayerName);
+        NewMapInfo.MapTile[,] data = previewLayer.GetDataGrid();
 
         for (int x = 0; x < quadInfo.width; ++x)
         {
             for (int y = 0; y < quadInfo.height; ++y)
             {
-                _texture.SetPixel(x, y, data[x, quadInfo.height - 1 - y].TileId != 0 ? this.FilledColor : this.EmptyColor);
+                _texture.SetPixel(x, y, data[x, y].is_filled ? this.FilledColor : this.EmptyColor);
             }
         }
 

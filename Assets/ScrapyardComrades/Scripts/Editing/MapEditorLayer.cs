@@ -39,11 +39,14 @@ public class MapEditorTilesLayer : MapEditorLayer
         this.Visual = visual;
         _spriteDataDict = this.Tileset.GetSpriteDataDictionary();
         _autotileDict = this.Tileset.GetAutotileDictionary();
+        guaranteeFillFlags();
     }
 
     public void ApplyBrush(int x, int y)
     {
-        this.Data[x, y].sprite_name = getBrushSprite(x, y);
+        string spriteName = getBrushSprite(x, y);
+        this.Data[x, y].sprite_name = spriteName;
+        this.Data[x, y].is_filled = shouldBeFilled(spriteName);
 
         if (this.AutoTileEnabled)
         {
@@ -88,6 +91,7 @@ public class MapEditorTilesLayer : MapEditorLayer
 
     public override void SaveData(NewMapInfo mapInfo)
     {
+        guaranteeFillFlags();
         NewMapInfo.MapLayer layer = mapInfo.GetMapLayer(this.Name);
         layer.SetDataGrid(this.Data);
     }
@@ -110,6 +114,22 @@ public class MapEditorTilesLayer : MapEditorLayer
         if (this.AutoTileEnabled)
             return this.getAutoTileSprite(x, y, true);
         return this.CurrentSpriteName;
+    }
+
+    private bool shouldBeFilled(string spriteName)
+    {
+        return spriteName != this.Tileset.GetEmptySpriteName() && spriteName != NewMapInfo.MapTile.EMPTY_TILE_SPRITE_NAME;
+    }
+
+    private void guaranteeFillFlags()
+    {
+        for (int x = 0; x < this.Data.GetLength(0); ++x)
+        {
+            for (int y = 0; y < this.Data.GetLength(1); ++y)
+            {
+                this.Data[x, y].is_filled = shouldBeFilled(this.Data[x, y].sprite_name);
+            }
+        }
     }
 }
 
