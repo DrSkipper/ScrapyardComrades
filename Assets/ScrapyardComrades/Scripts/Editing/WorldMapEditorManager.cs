@@ -16,6 +16,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     public IntegerRectCollider WorldBounds;
     public ActivateAndAnimateImage SaveIcon;
     public ActivateAndAnimateImage FadeOut;
+    public NewLevelPanel NewLevelPanel;
     public TimedCallbacks TimedCallbacks;
     public PooledObject QuadPrefab;
     public string WorldMapFilePath = "Levels/WorldMap/World.json";
@@ -30,6 +31,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     void Start()
     {
         this.Load();
+        this.NewLevelPanel.CompletionCallback = levelCreated;
         this.Grid.InitializeGridForSize(_worldInfo.width, _worldInfo.height);
         _quadVisuals = new Dictionary<string, WorldEditorQuadVisual>();
         this.WorldPanel.sizeDelta = new Vector2(_worldInfo.width * this.GridSpaceRenderSize, _worldInfo.height * this.GridSpaceRenderSize);
@@ -59,7 +61,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
 
     void Update()
     {
-        if (_exiting)
+        if (_exiting || _paused)
             return;
 
         if (MapEditorInput.Confirm)
@@ -139,6 +141,11 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 this.TimedCallbacks.AddCallback(this, loadLevelEditor, this.LevelLoadTime);
                 this.FadeOut.Run();
             }
+            else
+            {
+                pause();
+                this.NewLevelPanel.Show();
+            }
         }
 
         if (_selectedQuad == null && _cursorPrev != this.Cursor.GridPos)
@@ -193,6 +200,25 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     private WorldInfo _worldInfo;
     private IntegerVector _cursorPrev;
     private bool _exiting;
+    private bool _paused;
+
+    private void levelCreated(string levelName, string platforms, string background)
+    {
+        unpause();
+        //TODO
+    }
+
+    private void pause()
+    {
+        _paused = true;
+        this.Cursor.Hide();
+    }
+
+    private void unpause()
+    {
+        _paused = false;
+        this.Cursor.UnHide();
+    }
 
     private void loadLevelEditor()
     {
