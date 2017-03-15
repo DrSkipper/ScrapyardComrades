@@ -28,4 +28,21 @@ public class WorldInfo
         quadList.Add(newQuad);
         level_quads = quadList.ToArray();
     }
+
+    public void RemoveLevelQuad(string name)
+    {
+        List<LevelQuad> quadList = new List<LevelQuad>(level_quads);
+        quadList.RemoveAll(q => q.name == name);
+        level_quads = quadList.ToArray();
+    }
+
+    public LevelQuad GetLevelQuad(string name)
+    {
+        for (int i = 0; i < level_quads.Length; ++i)
+        {
+            if (level_quads[i].name == name)
+                return level_quads[i];
+        }
+        return null;
+    }
 }

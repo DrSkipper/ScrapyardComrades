@@ -6,6 +6,10 @@ using Newtonsoft.Json;
 
 public class MapEditorManager : MonoBehaviour
 {
+    public const int DEFAULT_TILE_SIZE = 16;
+    public const string PLATFORMS_LAYER = "platforms";
+    public const string BACKGROUND_LAYER = "background";
+
     public TileRenderer PlatformsRenderer;
     public TileRenderer BackgroundRenderer;
     public MapEditorGrid Grid;
@@ -233,12 +237,9 @@ public class MapEditorManager : MonoBehaviour
         return atlases;
     }
 
-    private const int DEFAULT_TILE_SIZE = 16;
     private const int DEFAULT_LEVEL_SIZE = 32;
     private const int PLATFORMS_LAYER_DEPTH = 0;
     private const int LAYER_DEPTH_INCREMENT = 2;
-    private const string PLATFORMS_LAYER = "platforms";
-    private const string BACKGROUND_LAYER = "background";
     private const string OBJECTS_LAYER = "objects";
     private const string PROPS_LAYER = "props";
     private const string PARALLAX_PREFIX = "parallax_";
