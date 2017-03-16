@@ -11,6 +11,8 @@ public class NewMapInfo
     public List<ParallaxLayer> parallax_layers; // Access directly
     public List<MapObject> props; // Access directly
     public List<MapObject> objects; // Access directly
+    public int next_object_id;
+    public int next_prop_id;
 
     public NewMapInfo(string n, int w, int h, int tileSize)
     {
@@ -22,6 +24,8 @@ public class NewMapInfo
         parallax_layers = new List<ParallaxLayer>();
         props = new List<MapObject>();
         objects = new List<MapObject>();
+        next_object_id = 0;
+        next_prop_id = 0;
     }
 
     public void AddTileLayer(string layerName)

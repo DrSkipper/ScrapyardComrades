@@ -140,7 +140,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
     public GameObject CurrentPrefab { get { return this.ObjectPrefabs[_currentPrefab]; } }
     public List<GameObject> LoadedObjects;
 
-    public MapEditorObjectsLayer(string name, int depth, List<NewMapInfo.MapObject> objects, GameObject[] prefabs)
+    public MapEditorObjectsLayer(string name, int depth, List<NewMapInfo.MapObject> objects, GameObject[] prefabs, int nextId)
     {
         this.Name = name;
         this.Type = LayerType.Objects;
@@ -149,6 +149,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
         _currentPrefab = 0;
         this.ObjectPrefabs = prefabs;
         this.LoadedObjects = new List<GameObject>();
+        _nextId = nextId;
     }
 
     public void CyclePrev()
@@ -168,6 +169,10 @@ public class MapEditorObjectsLayer : MapEditorLayer
     public void AddObject(GameObject gameObject)
     {
         string prefabName = this.CurrentPrefab.name;
+        gameObject.name = prefabName + "_" + _nextId;
+        ++_nextId;
+        if (_nextId == int.MaxValue)
+            _nextId = 0;
         NewMapInfo.MapObject mapObject = new NewMapInfo.MapObject();
         mapObject.name = gameObject.name;
         mapObject.prefab_name = prefabName;
@@ -195,15 +200,22 @@ public class MapEditorObjectsLayer : MapEditorLayer
     public override void SaveData(NewMapInfo mapInfo)
     {
         if (this.Name == MapEditorManager.OBJECTS_LAYER)
+        {
             mapInfo.objects = this.Objects;
+            mapInfo.next_object_id = _nextId;
+        }
         else
+        {
             mapInfo.props = this.Objects;
+            mapInfo.next_prop_id = _nextId;
+        }
     }
 
     /**
      * Private
      */
     private int _currentPrefab;
+    private int _nextId;
 }
 
 public class MapEditorParallaxLayer : MapEditorLayer

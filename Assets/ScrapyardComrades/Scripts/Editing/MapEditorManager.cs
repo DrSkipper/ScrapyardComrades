@@ -80,8 +80,8 @@ public class MapEditorManager : MonoBehaviour
         this.ObjectCursor.SetPosition2D(_mapInfo.width * this.Grid.GridSpaceSize / 2, _mapInfo.height * this.Grid.GridSpaceSize / 2);
 
         // Setup Object Layers
-        this.Layers.Add(OBJECTS_LAYER, new MapEditorObjectsLayer(OBJECTS_LAYER, PLATFORMS_LAYER_DEPTH - LAYER_DEPTH_INCREMENT, _mapInfo.objects, this.ObjectPrefabs));
-        this.Layers.Add(PROPS_LAYER, new MapEditorObjectsLayer(PROPS_LAYER, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT, _mapInfo.props, this.PropPrefabs));
+        this.Layers.Add(OBJECTS_LAYER, new MapEditorObjectsLayer(OBJECTS_LAYER, PLATFORMS_LAYER_DEPTH - LAYER_DEPTH_INCREMENT, _mapInfo.objects, this.ObjectPrefabs, _mapInfo.next_object_id));
+        this.Layers.Add(PROPS_LAYER, new MapEditorObjectsLayer(PROPS_LAYER, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT, _mapInfo.props, this.PropPrefabs, _mapInfo.next_prop_id));
 
         // Setup Tile Layers
         this.Layers.Add(PLATFORMS_LAYER, new MapEditorTilesLayer(platformsLayerData, PLATFORMS_LAYER_DEPTH, _tilesets, this.PlatformsRenderer));
@@ -310,6 +310,7 @@ public class MapEditorManager : MonoBehaviour
         for (int i = 0; i < layer.Objects.Count; ++i)
         {
             GameObject newObject = Instantiate<GameObject>(layer.PrefabForName(layer.Objects[i].prefab_name));
+            newObject.name = layer.Objects[i].name;
             newObject.transform.SetPosition(layer.Objects[i].x, layer.Objects[i].y, layer.Depth);
             layer.LoadedObjects.Add(newObject);
         }

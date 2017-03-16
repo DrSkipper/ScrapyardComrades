@@ -12312,18 +12312,20 @@
   "parallax_layers": [],
   "props": [
     {
-      "name": "SlumsLamp(Clone)",
+      "name": "SlumsLamp_0",
       "prefab_name": "SlumsLamp",
-      "x": 565,
-      "y": 80
+      "x": 585,
+      "y": 85
     }
   ],
   "objects": [
     {
-      "name": "Amelia(Clone)",
+      "name": "Amelia_0",
       "prefab_name": "Amelia",
-      "x": 315,
-      "y": 140
+      "x": 310,
+      "y": 115
     }
-  ]
+  ],
+  "next_object_id": 1,
+  "next_prop_id": 1
 }
