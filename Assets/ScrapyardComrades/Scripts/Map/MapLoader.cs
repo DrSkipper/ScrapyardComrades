@@ -25,19 +25,20 @@ public class MapLoader : MonoBehaviour
         
         NewMapInfo mapInfo = this.WorldLoadingManager != null ? this.WorldLoadingManager.GetMapInfoForQuad(this.MapName) : GatherMapInfo(this.MapName);
         NewMapInfo.MapLayer platformsLayer = mapInfo.GetMapLayer(MapEditorManager.PLATFORMS_LAYER);
-        NewMapInfo.MapTile[,] grid = platformsLayer.GetDataGrid();
+        NewMapInfo.MapTile[,] platformsGrid = platformsLayer.GetDataGrid();
         _width = mapInfo.width;
         _height = mapInfo.height;
         this.transform.position = this.transform.position + new Vector3(-_width * this.PlatformsRenderer.TileRenderSize / 2, -_height * this.PlatformsRenderer.TileRenderSize / 2, 0);
         this.PlatformsRenderer.Atlas = platformsAtlas;
+        this.PlatformsRenderer.CreateMapWithGrid(platformsGrid);
 
         NewMapInfo.MapLayer bgLayer = mapInfo.GetMapLayer(MapEditorManager.BACKGROUND_LAYER);
         if (bgLayer != null)
         {
-            NewMapInfo.MapTile[,] bgGrid = bgLayer.GetDataGrid();
             this.BGRenderer.Atlas = bgAtlas;
+            this.BGRenderer.CreateMapWithGrid(bgLayer.GetDataGrid());
         }
-        this.GeometryCreator.CreateGeometryForGrid(grid, platformsTileset.GetSpriteDataDictionary(), false);
+        this.GeometryCreator.CreateGeometryForGrid(platformsGrid, platformsTileset.GetSpriteDataDictionary(), false);
         
         this.ObjectPlacer.PlaceObjects(mapInfo.objects, this.MapName);
         this.ObjectPlacer.PlaceObjects(mapInfo.props, this.MapName);

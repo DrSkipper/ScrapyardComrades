@@ -151,9 +151,10 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
             WorldInfo.LevelQuad levelQuad = worldInfo.level_quads[i];
             MapQuad quad = new MapQuad();
             quad.Name = levelQuad.name;
-            quad.Bounds = IntegerRect.CreateFromMinMax(new IntegerVector(levelQuad.x * this.WorldGridSpaceSize, levelQuad.y * this.WorldGridSpaceSize), new IntegerVector(levelQuad.width * this.WorldGridSpaceSize, levelQuad.height * this.WorldGridSpaceSize));
+            IntegerVector pos = new IntegerVector(levelQuad.x * this.WorldGridSpaceSize, levelQuad.y * this.WorldGridSpaceSize);
+            quad.Bounds = IntegerRect.CreateFromMinMax(pos, new IntegerVector(pos.X + levelQuad.width * this.WorldGridSpaceSize, pos.Y + levelQuad.height * this.WorldGridSpaceSize));
             quad.CenteredBounds = new IntegerRect(0, 0, quad.Bounds.Size.X, quad.Bounds.Size.Y);
-            quad.BoundsToLoad = new IntegerRect(quad.Bounds.Center.X, quad.Bounds.Center.Y, levelQuad.width + BOUNDS_TO_LOAD, levelQuad.height + BOUNDS_TO_LOAD);
+            quad.BoundsToLoad = new IntegerRect(quad.Bounds.Center.X, quad.Bounds.Center.Y, quad.Bounds.Size.X + BOUNDS_TO_LOAD, quad.Bounds.Size.Y + BOUNDS_TO_LOAD);
             _allMapQuads.Add(quad);
         }
     }
