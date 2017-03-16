@@ -262,7 +262,7 @@ public class SCCharacterController : Actor2D, ISpawnable
         bool rightWallJumpValid = false;
         if (!_onGround)
         {
-            againstWall = checkAgainstWall((Facing)_moveAxis);
+            againstWall = prevGrabbingLedge || checkAgainstWall((Facing)_moveAxis);
 
             if (_autoMoveTimer.Completed)
             {
@@ -295,9 +295,9 @@ public class SCCharacterController : Actor2D, ISpawnable
         if (!_onGround && !input.Duck && _velocity.y < 0.0f)
         {
             if (leftWallJumpValid && (Facing)_moveAxis == Facing.Left)
-                ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Left);
+                ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Left, prevGrabbingLedge);
             else if (rightWallJumpValid && (Facing)_moveAxis == Facing.Right)
-                ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Right);
+                ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Right, prevGrabbingLedge);
             if (ledgeGrabbing)
                 wallJumpValid = false;
         }
@@ -567,14 +567,16 @@ public class SCCharacterController : Actor2D, ISpawnable
         return this.CollisionManager.CollidePointFirst(checkPoint, this.HaltMovementMask) != null;
     }
 
-    private bool checkTopHalfLedgeGrab(Facing direction)
+    private bool checkTopHalfLedgeGrab(Facing direction, bool prevGrabbingLedge)
     {
         IntegerVector checkPoint = new Vector2(this.transform.position.x + ((int)direction) * (this.Hurtbox.Offset.X + this.Hurtbox.Bounds.Size.X / 2 + 1), this.transform.position.y + this.Hurtbox.Offset.Y + this.Hurtbox.Bounds.Size.Y / 2 - this.LedgeGrabCheckDistance);
-        return this.CollisionManager.CollidePointFirst(checkPoint, this.HaltMovementMask) == null && checkLedgeGrab(direction);
+        return this.CollisionManager.CollidePointFirst(checkPoint, this.HaltMovementMask) == null && checkLedgeGrab(direction, prevGrabbingLedge);
     }
 
-    private bool checkLedgeGrab(Facing direction)
+    private bool checkLedgeGrab(Facing direction, bool prevGrabbingLedge)
     {
+        if (prevGrabbingLedge)
+            return true;
         IntegerVector rayOrigin = new Vector2(this.transform.position.x + ((int)direction) * (this.Hurtbox.Offset.X + this.Hurtbox.Bounds.Size.X / 2 + 1), this.transform.position.y + this.Hurtbox.Offset.Y + this.Hurtbox.Bounds.Size.Y / 2 - LedgeGrabCheckDistance);
         CollisionManager.RaycastResult result = this.CollisionManager.RaycastFirst(rayOrigin, Vector2.down, this.Hurtbox.Bounds.Size.Y, this.HaltMovementMask);
         IntegerVector ledgeTop = result.FarthestPointReached;
