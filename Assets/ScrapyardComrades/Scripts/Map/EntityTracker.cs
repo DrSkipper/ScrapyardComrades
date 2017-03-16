@@ -4,16 +4,14 @@ using System.Collections.Generic;
 public class EntityTracker : MonoBehaviour
 {
     public const string PLAYER = "player";
-    public const string ENEMY = "enemy";
-    public const string HEART = "heart";
-    public const string ROCK = "rock";
+    public List<string> PlayerObjectNames;
 
     public class Entity
     {
         public string QuadName;
         public string EntityName;
         public bool Consumed;
-        //TODO - Health remaining
+        //TODO - Health remaining, other persistent variables
         public bool AttemptingLoad;
         public bool Loaded;
         public bool CanLoad { get { return !this.Consumed && !this.Loaded && !this.AttemptingLoad; } }
@@ -33,11 +31,14 @@ public class EntityTracker : MonoBehaviour
         GlobalEvents.Notifier.Listen(EntityConsumedEvent.NAME, this, entityConsumed);
     }
 
-    public Entity GetEntity(string quadName, string entityName)
+    public Entity GetEntity(string quadName, string entityName, string prefabName)
     {
         // Players owned globally, not by quad
-        if (entityName == PLAYER)
+        if (this.PlayerObjectNames.Contains(prefabName))
+        {
             quadName = PLAYER;
+            entityName = prefabName;
+        }
 
         if (!_trackedEntities.ContainsKey(quadName))
         {

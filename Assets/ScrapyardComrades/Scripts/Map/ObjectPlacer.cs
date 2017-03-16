@@ -21,7 +21,7 @@ public class ObjectPlacer : VoBehavior
             NewMapInfo.MapObject mapObject = mapObjects[i];
             EntityTracker.Entity entity = null;
             if (trackEntities)
-                entity = this.EntityTracker.GetEntity(quadName, mapObject.name);
+                entity = this.EntityTracker.GetEntity(quadName, mapObject.name, mapObject.prefab_name);
 
             if (!trackEntities || entity.CanLoad)
             {
