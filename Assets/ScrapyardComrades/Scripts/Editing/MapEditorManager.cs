@@ -48,7 +48,6 @@ public class MapEditorManager : MonoBehaviour
         if (ScenePersistentLoading.IsLoading)
             this.MapName = ScenePersistentLoading.ConsumeLoad();
         _atlases = MapLoader.CompileTextures(validAtlases().ToArray());
-        _sprites = MapLoader.CompileSprites(_atlases);
         this.Layers = new Dictionary<string, MapEditorLayer>();
         this.CurrentLayer = PLATFORMS_LAYER;
         _previousCursorPos = new IntegerVector(-9999, -9999);
@@ -154,7 +153,6 @@ public class MapEditorManager : MonoBehaviour
     private NewMapInfo _mapInfo;
     private Dictionary<string, TilesetData> _tilesets;
     private Dictionary<string, Texture2D> _atlases;
-    private Dictionary<string, Sprite[]> _sprites;
     private IntegerVector _previousCursorPos;
     private List<string> _sortedLayers;
     private bool _tileEraserEnabled;

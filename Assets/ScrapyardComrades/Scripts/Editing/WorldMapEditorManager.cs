@@ -264,8 +264,6 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         PooledObject quadVisualObject = this.QuadPrefab.Retain();
         ((RectTransform)quadVisualObject.transform).SetParent(this.WorldPanel, false);
         IntegerVector pos = new IntegerVector(levelQuad.x, levelQuad.y);
-        IntegerVector size = new IntegerVector(levelQuad.width, levelQuad.height);
-
         WorldEditorQuadVisual quadVisual = quadVisualObject.GetComponent<WorldEditorQuadVisual>();
         quadVisual.ConfigureForQuad(levelQuad.name, MapLoader.GatherMapInfo(levelQuad.name), this.WorldGridSpaceSize, this.GridSpaceRenderSize, pos);
         quadVisual.MoveToGridPos(this.Grid);
