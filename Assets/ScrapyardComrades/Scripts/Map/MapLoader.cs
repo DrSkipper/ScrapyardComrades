@@ -40,8 +40,8 @@ public class MapLoader : MonoBehaviour
         }
         this.GeometryCreator.CreateGeometryForGrid(platformsGrid, platformsTileset.GetSpriteDataDictionary(), false);
         
-        this.ObjectPlacer.PlaceObjects(mapInfo.objects, this.MapName);
-        this.ObjectPlacer.PlaceObjects(mapInfo.props, this.MapName);
+        this.ObjectPlacer.PlaceObjects(mapInfo.objects, this.MapName, true);
+        this.ObjectPlacer.PlaceObjects(mapInfo.props, this.MapName, false);
     }
 
     public void ClearMap(bool editor = false)

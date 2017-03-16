@@ -258,7 +258,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         WorldEditorQuadVisual quadVisual = quadVisualObject.GetComponent<WorldEditorQuadVisual>();
         quadVisual.ConfigureForQuad(levelQuad.name, MapLoader.GatherMapInfo(levelQuad.name), this.WorldGridSpaceSize, this.GridSpaceRenderSize, pos);
         quadVisual.MoveToGridPos(this.Grid);
-        //TODO: Change map object's size if necessary based on loaded quad data
+        //TODO: Change level quad's size if necessary based on loaded quad data
         return quadVisual;
     }
 

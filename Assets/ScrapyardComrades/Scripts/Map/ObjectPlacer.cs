@@ -12,16 +12,18 @@ public class ObjectPlacer : VoBehavior
     public int TileTextureSize = 10;
     public bool FlipVertical = true;
 
-    public void PlaceObjects(List<NewMapInfo.MapObject> mapObjects, string quadName)
+    public void PlaceObjects(List<NewMapInfo.MapObject> mapObjects, string quadName, bool trackEntities)
     {
         int positionCorrection = this.TileRenderSize / this.TileTextureSize;
 
         for (int i = 0; i < mapObjects.Count; ++i)
         {
             NewMapInfo.MapObject mapObject = mapObjects[i];
-            EntityTracker.Entity entity = this.EntityTracker.GetEntity(quadName, mapObject.name);
+            EntityTracker.Entity entity = null;
+            if (trackEntities)
+                entity = this.EntityTracker.GetEntity(quadName, mapObject.name);
 
-            if (entity.CanLoad)
+            if (!trackEntities || entity.CanLoad)
             {
                 PooledObject toSpawn = null;
                 for (int j = 0; j < this.ObjectPrefabs.Length; ++j)
@@ -35,10 +37,11 @@ public class ObjectPlacer : VoBehavior
 
                 if (toSpawn != null)
                 {
-                    entity.AttemptingLoad = true;
+                    if (trackEntities)
+                        entity.AttemptingLoad = true;
                     int x = mapObject.x * positionCorrection;
                     int y = mapObject.y * positionCorrection;
-                    Vector3 spawnPos = new Vector3(x + this.transform.position.x, y + this.transform.position.y, this.transform.position.z);
+                    Vector3 spawnPos = new Vector3(x + this.transform.position.x, y + this.transform.position.y, mapObject.z);
                     addSpawn(toSpawn, spawnPos, entity);
                 }
             }
@@ -76,16 +79,16 @@ public class ObjectPlacer : VoBehavior
     {
         PooledObject toSpawn = _spawnQueue.Pop();
         Vector3 spawnLocation = _spawnPositions.Pop();
-        EntityTracker.Entity entity = _spawnEntities.Pop();
-        entity.AttemptingLoad = false;
-
         PooledObject spawn = toSpawn.Retain();
-        WorldEntity worldEntity = spawn.GetComponent<WorldEntity>();
-        worldEntity.QuadName = entity.QuadName;
-        worldEntity.EntityName = entity.EntityName;
-        this.EntityTracker.TrackLoadedEntity(worldEntity);
-        IntegerCollider collider = spawn.GetComponent<IntegerCollider>();
-        int yOffset = collider != null ? collider.Bounds.Size.Y / 2 : 0;
+        EntityTracker.Entity entity = _spawnEntities.Pop();
+        if (entity != null)
+        {
+            entity.AttemptingLoad = false;
+            WorldEntity worldEntity = spawn.GetComponent<WorldEntity>();
+            worldEntity.QuadName = entity.QuadName;
+            worldEntity.EntityName = entity.EntityName;
+            this.EntityTracker.TrackLoadedEntity(worldEntity);
+        }
 
         ISpawnable[] spawnables = spawn.GetComponents<ISpawnable>();
 
@@ -94,7 +97,7 @@ public class ObjectPlacer : VoBehavior
             spawnables[i].OnSpawn();
         }
 
-        spawn.transform.position = new Vector3(spawnLocation.x, spawnLocation.y + yOffset, spawnLocation.z);
+        spawn.transform.position = new Vector3(spawnLocation.x, spawnLocation.y, spawnLocation.z);
     }
 }
 

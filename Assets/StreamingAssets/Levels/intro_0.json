@@ -12310,7 +12310,24 @@
     }
   ],
   "parallax_layers": [],
-  "props": [],
-  "next_object_id": 1,
-  "next_prop_id": 1
+  "props": [
+    {
+      "name": "SlumsLamp_1",
+      "prefab_name": "SlumsLamp",
+      "x": 535,
+      "y": 75,
+      "z": 2
+    }
+  ],
+  "objects": [
+    {
+      "name": "Amelia_1",
+      "prefab_name": "Amelia",
+      "x": 310,
+      "y": 115,
+      "z": -2
+    }
+  ],
+  "next_object_id": 2,
+  "next_prop_id": 2
 }
