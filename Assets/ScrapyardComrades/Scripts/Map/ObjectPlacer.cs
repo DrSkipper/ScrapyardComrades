@@ -9,12 +9,13 @@ public class ObjectPlacer : VoBehavior
     public EntityTracker EntityTracker;
     public float SpawnDelay = 0.5f;
     public int TileRenderSize = 20;
-    public int TileTextureSize = 10;
+    //public int TileTextureSize = 10;
     public bool FlipVertical = true;
 
     public void PlaceObjects(List<NewMapInfo.MapObject> mapObjects, string quadName, bool trackEntities)
     {
-        int positionCorrection = this.TileRenderSize / this.TileTextureSize;
+        //TODO: Globalize setting of MapEditor tile render size, In-Game tile render size, and tile texture sizes (if tile texture size is ever actually even needed at this point)
+        int positionCorrection = 1; // this.TileRenderSize / this.TileTextureSize;
 
         for (int i = 0; i < mapObjects.Count; ++i)
         {
