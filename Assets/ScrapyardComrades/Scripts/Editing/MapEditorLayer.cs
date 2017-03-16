@@ -135,20 +135,75 @@ public class MapEditorTilesLayer : MapEditorLayer
 
 public class MapEditorObjectsLayer : MapEditorLayer
 {
-    public List<GameObject> Objects;
+    public List<NewMapInfo.MapObject> Objects;
+    public GameObject[] ObjectPrefabs;
+    public GameObject CurrentPrefab { get { return this.ObjectPrefabs[_currentPrefab]; } }
+    public List<GameObject> LoadedObjects;
 
-    public MapEditorObjectsLayer(string name, int depth, List<GameObject> objects)
+    public MapEditorObjectsLayer(string name, int depth, List<NewMapInfo.MapObject> objects, GameObject[] prefabs)
     {
         this.Name = name;
         this.Type = LayerType.Objects;
         this.Depth = depth;
         this.Objects = objects;
+        _currentPrefab = 0;
+        this.ObjectPrefabs = prefabs;
+        this.LoadedObjects = new List<GameObject>();
+    }
+
+    public void CyclePrev()
+    {
+        --_currentPrefab;
+        if (_currentPrefab < 0)
+            _currentPrefab = this.ObjectPrefabs.Length - 1;
+    }
+
+    public void CycleNext()
+    {
+        ++_currentPrefab;
+        if (_currentPrefab >= this.ObjectPrefabs.Length)
+            _currentPrefab = 0;
+    }
+
+    public void AddObject(GameObject gameObject)
+    {
+        string prefabName = this.CurrentPrefab.name;
+        NewMapInfo.MapObject mapObject = new NewMapInfo.MapObject();
+        mapObject.name = gameObject.name;
+        mapObject.prefab_name = prefabName;
+        mapObject.x = Mathf.RoundToInt(gameObject.transform.position.x);
+        mapObject.y = Mathf.RoundToInt(gameObject.transform.position.y);
+        this.Objects.Add(mapObject);
+    }
+
+    public void RemoveObject(GameObject toRemove)
+    {
+        this.Objects.RemoveAll(o => o.name == toRemove.name);
+        this.LoadedObjects.Remove(toRemove);
+    }
+
+    public GameObject PrefabForName(string prefabName)
+    {
+        for (int i = 0; i < this.ObjectPrefabs.Length; ++i)
+        {
+            if (this.ObjectPrefabs[i].name == prefabName)
+                return this.ObjectPrefabs[i];
+        }
+        return null;
     }
 
     public override void SaveData(NewMapInfo mapInfo)
     {
-
+        if (this.Name == MapEditorManager.OBJECTS_LAYER)
+            mapInfo.objects = this.Objects;
+        else
+            mapInfo.props = this.Objects;
     }
+
+    /**
+     * Private
+     */
+    private int _currentPrefab;
 }
 
 public class MapEditorParallaxLayer : MapEditorLayer

@@ -4,7 +4,7 @@
 public class NewMapInfo
 {
     public string name;
-    public int width;
+    public int width; // Dimensions specified in tiles
     public int height;
     public int tile_size;
     public List<MapLayer> tile_layers; // Use accessors to add/remove
@@ -65,7 +65,7 @@ public class NewMapInfo
     public class MapLayer
     {
         public string name;
-        public int width;
+        public int width; // Dimensions specified in tiles
         public int height;
         public string tileset_name;
         public MapTile[] data;
@@ -161,10 +161,11 @@ public class NewMapInfo
     public class MapObject
     {
         public string name;
-        public int x;
+        public string prefab_name;
+        public int x; // Position specified in pixel coordinates
         public int y;
-        public int width;
-        public int height;
+        //public int width;
+        //public int height;
     }
 
     [System.Serializable]

@@ -9,6 +9,7 @@ public class MapEditorCursor : VoBehavior
     public IntegerVector GridPos;
     public Color StandardColor;
     public Color EraserColor;
+    public bool Hidden { get { return _hidden; } }
 
     void Start()
     {

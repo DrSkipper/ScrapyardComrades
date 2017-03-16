@@ -3,7 +3,7 @@
 [System.Serializable]
 public class WorldInfo
 {
-    public int width;
+    public int width; // Dimensions specified in world grid spaces
     public int height;
     public int tile_size;
     public LevelQuad[] level_quads;
@@ -14,7 +14,7 @@ public class WorldInfo
         public string name;
         public int x;
         public int y;
-        public int width;
+        public int width; // Dimensions specified in world grid spaces
         public int height;
     }
 

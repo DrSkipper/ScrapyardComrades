@@ -9,11 +9,15 @@ public class MapEditorManager : MonoBehaviour
     public const int DEFAULT_TILE_SIZE = 16;
     public const string PLATFORMS_LAYER = "platforms";
     public const string BACKGROUND_LAYER = "background";
+    public const string OBJECTS_LAYER = "objects";
+    public const string PROPS_LAYER = "props";
 
+    public CameraController CameraController;
     public TileRenderer PlatformsRenderer;
     public TileRenderer BackgroundRenderer;
     public MapEditorGrid Grid;
     public MapEditorCursor Cursor;
+    public Transform ObjectCursor;
     public TilesetData[] Tilesets;
     public string MapName;
     public Dictionary<string, MapEditorLayer> Layers;
@@ -24,6 +28,8 @@ public class MapEditorManager : MonoBehaviour
     public TimedCallbacks TimedCallbacks;
     public string WorldEditorSceneName = "WorldEditor";
     public float LoadTime = 1.0f;
+    public GameObject[] ObjectPrefabs;
+    public GameObject[] PropPrefabs;
 
     public List<string> DepthSortedLayers
     {
@@ -70,12 +76,16 @@ public class MapEditorManager : MonoBehaviour
 
         // Setup Grid
         this.Grid.InitializeGridForSize(_mapInfo.width, _mapInfo.height);
-        
+        _objectPrecisionIncrement = Mathf.Clamp(Mathf.RoundToInt(this.Grid.GridSpaceSize / OBJECT_PRECISION_PER_TILE), 1, this.Grid.GridSpaceSize);
+        this.ObjectCursor.SetPosition2D(_mapInfo.width * this.Grid.GridSpaceSize / 2, _mapInfo.height * this.Grid.GridSpaceSize / 2);
+
+        // Setup Object Layers
+        this.Layers.Add(OBJECTS_LAYER, new MapEditorObjectsLayer(OBJECTS_LAYER, PLATFORMS_LAYER_DEPTH - LAYER_DEPTH_INCREMENT, _mapInfo.objects, this.ObjectPrefabs));
+        this.Layers.Add(PROPS_LAYER, new MapEditorObjectsLayer(PROPS_LAYER, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT, _mapInfo.props, this.PropPrefabs));
+
         // Setup Tile Layers
         this.Layers.Add(PLATFORMS_LAYER, new MapEditorTilesLayer(platformsLayerData, PLATFORMS_LAYER_DEPTH, _tilesets, this.PlatformsRenderer));
-        this.Layers.Add(BACKGROUND_LAYER, new MapEditorTilesLayer(backgroundLayerData, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT, _tilesets, this.BackgroundRenderer));
-
-        //TODO: Setup Object Layers
+        this.Layers.Add(BACKGROUND_LAYER, new MapEditorTilesLayer(backgroundLayerData, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT * 2, _tilesets, this.BackgroundRenderer));
 
         // Setup Parallax Layers
         for (int i = 0; i < _mapInfo.parallax_layers.Count; ++i)
@@ -108,17 +118,11 @@ public class MapEditorManager : MonoBehaviour
             this.CurrentLayer = _sortedLayers[currentLayerIndex];
             enterLayer(this.CurrentLayer);
             this.LayerListPanel.ChangeCurrentLayer(this.CurrentLayer);
-        }
-        else if (MapEditorInput.Cancel)
-        {
-            _eraserEnabled = !_eraserEnabled;
-            this.Cursor.EnableEraser(_eraserEnabled);
-            MapEditorLayer currentLayer = this.Layers[this.CurrentLayer];
-            if (currentLayer.Type == MapEditorLayer.LayerType.Tiles)
-            {
-                ((MapEditorTilesLayer)currentLayer).EraserEnabled = _eraserEnabled;
-                ((MapEditorTilesLayer)currentLayer).PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
-            }
+
+            if (!this.Cursor.Hidden && this.Layers[this.CurrentLayer].Type != MapEditorLayer.LayerType.Tiles)
+                this.Cursor.Hide();
+            else if (this.Cursor.Hidden && this.Layers[this.CurrentLayer].Type == MapEditorLayer.LayerType.Tiles)
+                this.Cursor.UnHide();
         }
         else if (MapEditorInput.Start)
         {
@@ -153,8 +157,9 @@ public class MapEditorManager : MonoBehaviour
     private Dictionary<string, Sprite[]> _sprites;
     private IntegerVector _previousCursorPos;
     private List<string> _sortedLayers;
-    private bool _eraserEnabled;
+    private bool _tileEraserEnabled;
     private bool _exiting;
+    private int _objectPrecisionIncrement;
 
     private void loadWorldEditor()
     {
@@ -166,6 +171,8 @@ public class MapEditorManager : MonoBehaviour
         MapEditorLayer currentLayer = this.Layers[this.CurrentLayer];
         if (currentLayer.Type == MapEditorLayer.LayerType.Tiles)
             updateTileLayer(currentLayer as MapEditorTilesLayer);
+        else if (currentLayer.Type == MapEditorLayer.LayerType.Objects)
+            updateObjectsLayer(currentLayer as MapEditorObjectsLayer);
     }
 
     private void enterLayer(string layerName)
@@ -173,6 +180,8 @@ public class MapEditorManager : MonoBehaviour
         MapEditorLayer layer = this.Layers[layerName];
         if (layer.Type == MapEditorLayer.LayerType.Tiles)
             enterTileLayer(layer as MapEditorTilesLayer);
+        else if (layer.Type == MapEditorLayer.LayerType.Objects)
+            enterObjectsLayer(layer as MapEditorObjectsLayer);
     }
 
     private void leaveLayer(string layerName)
@@ -180,6 +189,8 @@ public class MapEditorManager : MonoBehaviour
         MapEditorLayer layer = this.Layers[layerName];
         if (layer.Type == MapEditorLayer.LayerType.Tiles)
             leaveTileLayer(layer as MapEditorTilesLayer);
+        else if (layer.Type == MapEditorLayer.LayerType.Objects)
+            leaveObjectsLayer(layer as MapEditorObjectsLayer);
     }
 
     private void updateTileLayer(MapEditorTilesLayer layer)
@@ -195,6 +206,57 @@ public class MapEditorManager : MonoBehaviour
         {
             (layer as MapEditorTilesLayer).ApplyBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
         }
+        else if (MapEditorInput.Cancel)
+        {
+            _tileEraserEnabled = !_tileEraserEnabled;
+            this.Cursor.EnableEraser(_tileEraserEnabled);
+            layer.EraserEnabled = _tileEraserEnabled;
+            layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+        }
+    }
+
+    private void updateObjectsLayer(MapEditorObjectsLayer layer)
+    {
+        if (MapEditorInput.Confirm)
+        {
+            addObject(layer);
+        }
+        else if (MapEditorInput.NavLeft)
+        {
+            this.ObjectCursor.SetX(this.ObjectCursor.position.x - _objectPrecisionIncrement);
+            if (this.ObjectCursor.position.x < _objectPrecisionIncrement)
+                this.ObjectCursor.SetX(_mapInfo.width * this.Grid.GridSpaceSize - _objectPrecisionIncrement);
+        }
+        else if (MapEditorInput.NavRight)
+        {
+            this.ObjectCursor.SetX(this.ObjectCursor.position.x + _objectPrecisionIncrement);
+            if (this.ObjectCursor.position.x > _mapInfo.width * this.Grid.GridSpaceSize - _objectPrecisionIncrement)
+                this.ObjectCursor.SetX(_objectPrecisionIncrement);
+        }
+        else if (MapEditorInput.NavDown)
+        {
+            this.ObjectCursor.SetY(this.ObjectCursor.position.y - _objectPrecisionIncrement);
+            if (this.ObjectCursor.position.y < _objectPrecisionIncrement)
+                this.ObjectCursor.SetY(_mapInfo.height * this.Grid.GridSpaceSize - _objectPrecisionIncrement);
+        }
+        else if (MapEditorInput.NavUp)
+        {
+            this.ObjectCursor.SetY(this.ObjectCursor.position.y + _objectPrecisionIncrement);
+            if (this.ObjectCursor.position.y > _mapInfo.height * this.Grid.GridSpaceSize - _objectPrecisionIncrement)
+                this.ObjectCursor.SetY(_objectPrecisionIncrement);
+        }
+        else if (MapEditorInput.CyclePrev)
+        {
+            removeObjectBrush();
+            layer.CyclePrev();
+            addObjectBrush(layer);
+        }
+        else if (MapEditorInput.CycleNext)
+        {
+            removeObjectBrush();
+            layer.CycleNext();
+            addObjectBrush(layer);
+        }
     }
 
     private void leaveTileLayer(MapEditorTilesLayer layer)
@@ -203,10 +265,54 @@ public class MapEditorManager : MonoBehaviour
         layer.ApplyData(_previousCursorPos.X, _previousCursorPos.Y);
     }
 
+    private void leaveObjectsLayer(MapEditorObjectsLayer layer)
+    {
+        removeObjectBrush();
+    }
+
     private void enterTileLayer(MapEditorTilesLayer layer)
     {
-        layer.EraserEnabled = _eraserEnabled;
+        this.CameraController.SetTracker(this.Cursor.transform);
+        layer.EraserEnabled = _tileEraserEnabled;
         layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+    }
+
+    private void enterObjectsLayer(MapEditorObjectsLayer layer)
+    {
+        this.CameraController.SetTracker(this.ObjectCursor);
+        this.ObjectCursor.SetZ(layer.Depth);
+        addObjectBrush(layer);
+    }
+
+    private void removeObjectBrush()
+    {
+        Transform child = this.ObjectCursor.GetChild(0);
+        this.ObjectCursor.DetachChildren();
+        Destroy(child.gameObject);
+    }
+
+    private void addObjectBrush(MapEditorObjectsLayer layer)
+    {
+        GameObject child = Instantiate<GameObject>(layer.CurrentPrefab);
+        child.transform.parent = this.ObjectCursor;
+        child.transform.SetLocalPosition(0, 0, 0);
+    }
+
+    private void addObject(MapEditorObjectsLayer layer)
+    {
+        GameObject newObject = Instantiate<GameObject>(layer.CurrentPrefab);
+        newObject.transform.SetPosition(this.ObjectCursor.position.x, this.ObjectCursor.position.y, layer.Depth);
+        layer.AddObject(newObject);
+    }
+
+    private void loadObjects(MapEditorObjectsLayer layer)
+    {
+        for (int i = 0; i < layer.Objects.Count; ++i)
+        {
+            GameObject newObject = Instantiate<GameObject>(layer.PrefabForName(layer.Objects[i].prefab_name));
+            newObject.transform.SetPosition(layer.Objects[i].x, layer.Objects[i].y, layer.Depth);
+            layer.LoadedObjects.Add(newObject);
+        }
     }
 
     private void updateVisuals()
@@ -214,12 +320,20 @@ public class MapEditorManager : MonoBehaviour
         MapEditorTilesLayer platformsLayer = this.Layers[PLATFORMS_LAYER] as MapEditorTilesLayer;
         this.PlatformsRenderer.SetAtlas(_atlases[_tilesets[platformsLayer.Tileset.name].AtlasName]);
         this.PlatformsRenderer.CreateMapWithGrid(platformsLayer.Data);
+        this.PlatformsRenderer.transform.SetZ(platformsLayer.Depth);
 
         MapEditorTilesLayer backgroundLayer = this.Layers[BACKGROUND_LAYER] as MapEditorTilesLayer;
         this.BackgroundRenderer.SetAtlas(_atlases[_tilesets[backgroundLayer.Tileset.name].AtlasName]);
         this.BackgroundRenderer.CreateMapWithGrid(backgroundLayer.Data);
+        this.BackgroundRenderer.transform.SetZ(backgroundLayer.Depth);
 
-        //TODO: Parallax, props, objects
+        MapEditorObjectsLayer objectsLayer = this.Layers[OBJECTS_LAYER] as MapEditorObjectsLayer;
+        loadObjects(objectsLayer);
+
+        MapEditorObjectsLayer propsLayer = this.Layers[PROPS_LAYER] as MapEditorObjectsLayer;
+        loadObjects(propsLayer);
+
+        //TODO: Parallax
     }
 
     private int depthCompareLayers(string l1, string l2)
@@ -242,8 +356,7 @@ public class MapEditorManager : MonoBehaviour
     private const int DEFAULT_LEVEL_SIZE = 32;
     private const int PLATFORMS_LAYER_DEPTH = 0;
     private const int LAYER_DEPTH_INCREMENT = 2;
-    private const string OBJECTS_LAYER = "objects";
-    private const string PROPS_LAYER = "props";
+    private const int OBJECT_PRECISION_PER_TILE = 4;
     private const string PARALLAX_PREFIX = "parallax_";
     private const string DEFAULT_PLATFORMS_TILESET = "GenericPlatforms";
     private const string DEFAULT_BACKGROUND_TILESET = "GenericBackground";

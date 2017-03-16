@@ -85,6 +85,11 @@ public class CameraController : MonoBehaviour, IPausable
         }
     }
 
+    public void SetTracker(Transform newTracker)
+    {
+        _tracker = newTracker;
+    }
+
     /**
      * Private
      */
