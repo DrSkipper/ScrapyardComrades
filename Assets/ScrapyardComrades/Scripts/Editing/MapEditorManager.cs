@@ -46,7 +46,7 @@ public class MapEditorManager : MonoBehaviour
     void Awake()
     {
         if (ScenePersistentLoading.IsLoading)
-            this.MapName = ScenePersistentLoading.ConsumeLoad();
+            this.MapName = ScenePersistentLoading.ConsumeLoad().Value.LevelToLoad;
         _atlases = MapLoader.CompileTextures(validAtlases().ToArray());
         this.Layers = new Dictionary<string, MapEditorLayer>();
         this.CurrentLayer = PLATFORMS_LAYER;

@@ -119,4 +119,9 @@ public static class GameplayInput
             return ReInput.players.GetPlayer(PLAYER_ID).GetButtonDown(PAUSE);
         }
     }
+
+    public static bool ButtonPressed(string buttonName)
+    {
+        return ReInput.players.GetPlayer(PLAYER_ID).GetButtonDown(buttonName);
+    }
 }

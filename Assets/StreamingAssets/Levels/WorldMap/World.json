@@ -4,25 +4,18 @@
   "tile_size": 32,
   "level_quads": [
     {
-      "name": "intro_0",
-      "x": 2,
+      "name": "new_level",
+      "x": 4,
       "y": 9,
       "width": 3,
       "height": 2
     },
     {
-      "name": "new_level",
-      "x": 5,
-      "y": 9,
-      "width": 4,
-      "height": 3
-    },
-    {
       "name": "new_level0",
-      "x": 9,
+      "x": 7,
       "y": 9,
-      "width": 4,
-      "height": 4
+      "width": 3,
+      "height": 2
     }
   ]
 }

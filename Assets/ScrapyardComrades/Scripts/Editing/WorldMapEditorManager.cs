@@ -20,6 +20,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     public TimedCallbacks TimedCallbacks;
     public PooledObject QuadPrefab;
     public string LevelEditorSceneName = "LevelEditing";
+    public string TestSceneName = "MapLoadingTest";
     public float LevelLoadTime = 1.0f;
 
     public IntegerRectCollider GetBounds()
@@ -189,6 +190,19 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 this.NewLevelPanel.Show();
             }
         }
+        else if (MapEditorInput.SwapModes)
+        {
+            WorldEditorQuadVisual hoveredQuad = hoveredQuadVisual();
+            if (hoveredQuad != null)
+            {
+                this.Save();
+                this.Cursor.Hide();
+                ScenePersistentLoading.BeginLoading(hoveredQuad.QuadName, true);
+                _exiting = true;
+                this.TimedCallbacks.AddCallback(this, loadTestScene, this.LevelLoadTime);
+                this.FadeOut.Run();
+            }
+        }
 
         if (_selectedQuad == null && _cursorPrev != this.Cursor.GridPos)
         {
@@ -319,6 +333,11 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     private void loadLevelEditor()
     {
         SceneManager.LoadScene(this.LevelEditorSceneName);
+    }
+
+    private void loadTestScene()
+    {
+        SceneManager.LoadScene(this.TestSceneName);
     }
 
     private WorldEditorQuadVisual hoveredQuadVisual()

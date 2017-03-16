@@ -46,6 +46,13 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
 
     void Awake()
     {
+        if (ScenePersistentLoading.IsLoading)
+        {
+            ScenePersistentLoading.LoadInfo loadInfo = ScenePersistentLoading.ConsumeLoad().Value;
+            this.StartingAreaName = loadInfo.LevelToLoad;
+            //TODO: Handle IgnorePlayerSave bool here once player saving is implemented
+        }
+
         _activeMapLoaders = new List<MapLoader>(MAX_MAP_LOADERS);
         _tilesets = new Dictionary<string, TilesetData>();
         _cachedAtlases = new Dictionary<string, Texture2D>();
@@ -73,6 +80,8 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         _targetLoadedQuads = new List<MapQuad>();
         _currentLoadedQuads = new List<MapQuad>();
         gatherTargetLoadedQuads();
+        loadCurrentQuad();
+        _currentLoadedQuads.Add(_currentQuad);
         loadQuads();
         _currentLoadedQuads.AddRange(_targetLoadedQuads);
         updateBoundsCheck();
@@ -263,15 +272,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         {
             if (!_currentLoadedQuads.Contains(_targetLoadedQuads[i]))
             {
-                IntegerVector relativeCenter = _targetLoadedQuads[i].GetRelativeBounds(_currentQuad).Center;
-                MapLoader loader = aquireMapLoader(new Vector2(relativeCenter.X * this.TileRenderSize, relativeCenter.Y * this.TileRenderSize));
-                loader.MapName = _targetLoadedQuads[i].Name;
-                NewMapInfo mapInfo = _quadData[_targetLoadedQuads[i].Name];
-                string platformsTilesetName = mapInfo.GetMapLayer(MapEditorManager.PLATFORMS_LAYER).tileset_name;
-                string backgroundTilesetName = mapInfo.GetMapLayer(MapEditorManager.BACKGROUND_LAYER).tileset_name;
-                TilesetData platformsTileset = _tilesets[platformsTilesetName];
-                TilesetData backgroundTileset = _tilesets[backgroundTilesetName];
-                loader.LoadMap(platformsTileset, backgroundTileset, getAtlas(platformsTileset.AtlasName), getAtlas(backgroundTileset.AtlasName));
+                loadQuad(_targetLoadedQuads[i]);
             }
         }
 
@@ -279,6 +280,24 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         {
             _activeMapLoaders[i].AddColliders();
         }
+    }
+
+    private void loadCurrentQuad()
+    {
+        loadQuad(_currentQuad);
+    }
+
+    private void loadQuad(MapQuad quad)
+    {
+        IntegerVector relativeCenter = quad.GetRelativeBounds(_currentQuad).Center;
+        MapLoader loader = aquireMapLoader(new Vector2(relativeCenter.X * this.TileRenderSize, relativeCenter.Y * this.TileRenderSize));
+        loader.MapName = quad.Name;
+        NewMapInfo mapInfo = _quadData[quad.Name];
+        string platformsTilesetName = mapInfo.GetMapLayer(MapEditorManager.PLATFORMS_LAYER).tileset_name;
+        string backgroundTilesetName = mapInfo.GetMapLayer(MapEditorManager.BACKGROUND_LAYER).tileset_name;
+        TilesetData platformsTileset = _tilesets[platformsTilesetName];
+        TilesetData backgroundTileset = _tilesets[backgroundTilesetName];
+        loader.LoadMap(platformsTileset, backgroundTileset, getAtlas(platformsTileset.AtlasName), getAtlas(backgroundTileset.AtlasName));
     }
 
     private Texture2D getAtlas(string name)
