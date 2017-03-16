@@ -4,7 +4,7 @@ using UnityEditor;
 [CustomEditor(typeof(MapLoader))]
 public class MapLoaderEditor : Editor
 {
-    public override void OnInspectorGUI()
+    /*public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
         MapLoader mapLoader = this.target as MapLoader;
@@ -13,15 +13,10 @@ public class MapLoaderEditor : Editor
         {
             mapLoader.LoadMap();
         }
-
-        if (GUILayout.Button("Correct Tiling"))
-        {
-            mapLoader.CorrectTiling(true);
-        }
-
+        
         if (GUILayout.Button("Clear Map"))
         {
             mapLoader.ClearMap(true);
         }
-    }
+    }*/
 }

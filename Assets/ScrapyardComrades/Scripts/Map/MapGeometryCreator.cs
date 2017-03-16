@@ -4,11 +4,10 @@ using System.Collections.Generic;
 public class MapGeometryCreator : VoBehavior
 {
     public PooledObject PlatformGeometryPrefab;
-    public int[] TileTypesToIgnore;
     public int TileRenderSize = 20;
     public bool FlipVertical = true;
 
-    public void CreateGeometryForGrid(MapGridSpaceInfo[,] grid, bool editor)
+    public void CreateGeometryForGrid(NewMapInfo.MapTile[,] grid, Dictionary<string, TilesetData.SpriteData> spriteData, bool editor)
     {
         if (_geometry == null)
             _geometry = new List<IntegerCollider>();
@@ -18,7 +17,7 @@ public class MapGeometryCreator : VoBehavior
         {
             for (int y = 0; y < grid.GetLength(1); ++y)
             {
-                if (!shouldIgnore(grid[x, y]))
+                if (!shouldIgnore(grid[x, y], spriteData))
                 {
                     IntegerCollider geom = aquireGeometry(editor);
                     int posY = this.FlipVertical ? (grid.GetLength(1) - y - 1) * this.TileRenderSize : y * this.TileRenderSize;
@@ -67,17 +66,11 @@ public class MapGeometryCreator : VoBehavior
      */
     private List<IntegerCollider> _geometry;
 
-    private bool shouldIgnore(MapGridSpaceInfo tile)
+    private bool shouldIgnore(NewMapInfo.MapTile tile, Dictionary<string, TilesetData.SpriteData> spriteData)
     {
-        if (this.TileTypesToIgnore != null)
-        {
-            for (int i = 0; i < this.TileTypesToIgnore.Length; ++i)
-            {
-                if (this.TileTypesToIgnore[i] == tile.TileId)
-                    return true;
-            }
-        }
-
+        TilesetData.TileType type = spriteData[tile.sprite_name].Type;
+        if (!tile.is_filled || type == TilesetData.TileType.Surrounded || type == TilesetData.TileType.InnerCornerBottomLeft || type == TilesetData.TileType.InnerCornerBottomRight || type == TilesetData.TileType.InnerCornerTopLeft || type == TilesetData.TileType.InnerCornerTopRight || type == TilesetData.TileType.Empty)
+            return true;
         return false;
     }
 

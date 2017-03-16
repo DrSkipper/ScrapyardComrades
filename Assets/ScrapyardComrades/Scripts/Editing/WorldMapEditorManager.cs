@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
 {
-    public string WorldMapName;
+    public string WorldMapName = "World";
     public int WorldGridSpaceSize = 16;
     public int GridSpaceRenderSize = 20;
     public RectTransform WorldPanel;
@@ -19,7 +19,6 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     public NewLevelPanel NewLevelPanel;
     public TimedCallbacks TimedCallbacks;
     public PooledObject QuadPrefab;
-    public string WorldMapFilePath = "Levels/WorldMap/World.json";
     public string LevelEditorSceneName = "LevelEditing";
     public float LevelLoadTime = 1.0f;
 
@@ -213,20 +212,12 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
             applyQuadVisualToLevelQuad(quadVisual, levelQuad);
         }
         
-        File.WriteAllText(Application.streamingAssetsPath + "/" + this.WorldMapFilePath, JsonConvert.SerializeObject(_worldInfo, Formatting.Indented));
+        File.WriteAllText(Application.streamingAssetsPath + WorldLoadingManager.WORLD_INFO_PATH + this.WorldMapName + MapLoader.JSON_SUFFIX, JsonConvert.SerializeObject(_worldInfo, Formatting.Indented));
     }
 
     public void Load()
     {
-        string path = Application.streamingAssetsPath + "/" + this.WorldMapFilePath;
-        if (File.Exists(path))
-        {
-            _worldInfo = JsonConvert.DeserializeObject<WorldInfo>(File.ReadAllText(path));
-        }
-        else
-        {
-            _worldInfo = mapInfoToWorldInfo(WorldLoadingManager.ReadWorldMapInfo(this.WorldMapName), this.WorldGridSpaceSize);
-        }
+        _worldInfo = WorldLoadingManager.ReadWorldMapInfo(this.WorldMapName);
     }
 
     /**
@@ -328,31 +319,6 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     private void loadLevelEditor()
     {
         SceneManager.LoadScene(this.LevelEditorSceneName);
-    }
-
-    private static WorldInfo mapInfoToWorldInfo(MapInfo mapInfo, int worldGridSpaceSize)
-    {
-        WorldInfo worldInfo = new WorldInfo();
-        worldInfo.width = mapInfo.width;
-        worldInfo.height = mapInfo.height;
-        worldInfo.tile_size = mapInfo.tilewidth;
-        List<WorldInfo.LevelQuad> levelQuads = new List<WorldInfo.LevelQuad>();
-
-        MapInfo.MapLayer layer = mapInfo.GetLayerWithName(WorldLoadingManager.LAYER);
-        for (int i = 0; i < layer.objects.Length; ++i)
-        {
-            MapInfo.MapObject mapObject = layer.objects[i];
-            WorldInfo.LevelQuad levelQuad = new WorldInfo.LevelQuad();
-            levelQuad.name = mapObject.name;
-            levelQuad.x = mapObject.x / worldGridSpaceSize;
-            levelQuad.y = mapObject.y / worldGridSpaceSize;
-            levelQuad.width = mapObject.width / worldGridSpaceSize;
-            levelQuad.height = mapObject.height / worldGridSpaceSize;
-            levelQuads.Add(levelQuad);
-        }
-
-        worldInfo.level_quads = levelQuads.ToArray();
-        return worldInfo;
     }
 
     private WorldEditorQuadVisual hoveredQuadVisual()

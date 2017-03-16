@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 public class ObjectPlacer : VoBehavior
 {
-    public PooledObject PlayerPrefab;
-    public PooledObject EnemyPrefab;
-    public PooledObject HeartPrefab;
-    public PooledObject RockPrefab;
+    //TODO: Convert to dictionary at some point
+    public PooledObject[] ObjectPrefabs;
     public TimedCallbacks TimedCallbacks;
     public EntityTracker EntityTracker;
     public float SpawnDelay = 0.5f;
@@ -14,35 +12,32 @@ public class ObjectPlacer : VoBehavior
     public int TileTextureSize = 10;
     public bool FlipVertical = true;
 
-    public void PlaceObjects(MapInfo.MapObject[] mapObjects, int gridWidth, int gridHeight, string quadName)
+    public void PlaceObjects(List<NewMapInfo.MapObject> mapObjects, string quadName)
     {
         int positionCorrection = this.TileRenderSize / this.TileTextureSize;
 
-        for (int i = 0; i < mapObjects.Length; ++i)
+        for (int i = 0; i < mapObjects.Count; ++i)
         {
-            MapInfo.MapObject mapObject = mapObjects[i];
+            NewMapInfo.MapObject mapObject = mapObjects[i];
             EntityTracker.Entity entity = this.EntityTracker.GetEntity(quadName, mapObject.name);
 
             if (entity.CanLoad)
             {
                 PooledObject toSpawn = null;
-
-                if (mapObject.name == EntityTracker.PLAYER)
-                    toSpawn = this.PlayerPrefab;
-                else if (mapObject.name.Contains(EntityTracker.ENEMY))
-                    toSpawn = this.EnemyPrefab;
-                else if (mapObject.name.Contains(EntityTracker.HEART))
-                    toSpawn = this.HeartPrefab;
-                else if (mapObject.name.Contains(EntityTracker.ROCK))
-                    toSpawn = this.RockPrefab;
+                for (int j = 0; j < this.ObjectPrefabs.Length; ++j)
+                {
+                    if (this.ObjectPrefabs[j].name == mapObject.prefab_name)
+                    {
+                        toSpawn = this.ObjectPrefabs[j];
+                        break;
+                    }
+                }
 
                 if (toSpawn != null)
                 {
                     entity.AttemptingLoad = true;
-                    int x = (mapObject.x + mapObject.width / 2) * positionCorrection;
-                    int y = !this.FlipVertical ?
-                        (mapObject.y + mapObject.height) * positionCorrection :
-                        gridHeight * this.TileRenderSize - ((mapObject.y) * positionCorrection) + (1 * positionCorrection);
+                    int x = mapObject.x * positionCorrection;
+                    int y = mapObject.y * positionCorrection;
                     Vector3 spawnPos = new Vector3(x + this.transform.position.x, y + this.transform.position.y, this.transform.position.z);
                     addSpawn(toSpawn, spawnPos, entity);
                 }

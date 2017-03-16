@@ -1,25 +1,27 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System.IO;
 using Newtonsoft.Json;
 
 public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
 {
-    public string WorldMapName = "WorldMap";
-    public string StartingAreaName = "Quad_0_0";
+    public const int MAX_MAP_LOADERS = 12;
+    public const string ROOM_TRANSITION_SEQUENCE = "room_transition";
+    public const string WORLD_INFO_PATH = "/Levels/WorldMap/";
+
+    public string WorldMapName = "World";
+    public string StartingAreaName = "intro_0";
+    public int WorldGridSpaceSize = 16;
     public int MinTilesToTravelBetweenLoads = 8;
     public int TileRenderSize = 10;
-    public int BoundsToLoadBuffer = 32;
     public int MinDistanceToLoad = 6;
     public bool FlipVertical = true;
     public PooledObject MapLoaderPrefab;
     public List<GameObject> IgnoreRecenterObjects;
     public CollisionManager CollisionManager;
     public EntityTracker EntityTracker;
-    public Dictionary<string, Texture2D> CachedAtlases;
-    public Dictionary<string, Sprite[]> CachedSprites;
-    public const int MAX_MAP_LOADERS = 12;
-    public const string ROOM_TRANSITION_SEQUENCE = "room_transition";
+    public TilesetData[] Tilesets;
 
     public IntegerRectCollider CurrentQuadBoundsCheck;
     public IntegerRectCollider GetBounds() { return this.CurrentQuadBoundsCheck; }
@@ -45,6 +47,13 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     void Awake()
     {
         _activeMapLoaders = new List<MapLoader>(MAX_MAP_LOADERS);
+        _tilesets = new Dictionary<string, TilesetData>();
+        _cachedAtlases = new Dictionary<string, Texture2D>();
+
+        for (int i = 0; i < this.Tilesets.Length; ++i)
+        {
+            _tilesets.Add(this.Tilesets[i].name, this.Tilesets[i]);
+        }
 
         gatherWorldMapInfo();
         _quadData = new Dictionary<string, NewMapInfo>();
@@ -99,18 +108,20 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         return _quadData[quadName];
     }
 
-    public static MapInfo ReadWorldMapInfo(string worldMapName)
+    public static WorldInfo ReadWorldMapInfo(string worldMapName)
     {
-        TextAsset asset = Resources.Load<TextAsset>(PATH + worldMapName);
-        return JsonConvert.DeserializeObject<MapInfo>(asset.text);
+        string path = Application.streamingAssetsPath + WORLD_INFO_PATH + worldMapName + MapLoader.JSON_SUFFIX;
+        if (File.Exists(path))
+        {
+            return JsonConvert.DeserializeObject<WorldInfo>(File.ReadAllText(path));
+        }
+        return null;
     }
 
     /**
      * Private
      */
-    private const string PATH = "Levels/";
-    public const string LAYER = "map";
-    private const int BOUNDS_TO_LOAD = 16;
+    private const int BOUNDS_TO_LOAD = 8;
     private const int LOAD_PHASE_CHANGE_CURRENT = 0;
     private const int LOAD_PHASE_GATHER_TARGETS = 1;
     private const int LOAD_PHASE_UNLOAD_QUADS = 2;
@@ -127,22 +138,22 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     private IntegerVector _recenterOffset = IntegerVector.Zero;
     private IntegerVector _trackerPosition = IntegerVector.Zero;
     private Dictionary<string, NewMapInfo> _quadData;
+    private Dictionary<string, TilesetData> _tilesets;
+    private Dictionary<string, Texture2D> _cachedAtlases;
 
     private void gatherWorldMapInfo()
     {
-        MapInfo mapInfo = ReadWorldMapInfo(this.WorldMapName);
+        WorldInfo worldInfo = ReadWorldMapInfo(this.WorldMapName);
         _allMapQuads = new List<MapQuad>();
-
-        MapInfo.MapLayer layer = mapInfo.GetLayerWithName(LAYER);
-        for (int i = 0; i < layer.objects.Length; ++i)
+        
+        for (int i = 0; i < worldInfo.level_quads.Length; ++i)
         {
-            MapInfo.MapObject mapObject = layer.objects[i];
+            WorldInfo.LevelQuad levelQuad = worldInfo.level_quads[i];
             MapQuad quad = new MapQuad();
-            quad.Name = mapObject.name;
-            int y = this.FlipVertical ? mapInfo.height - mapObject.y - mapObject.height / 2 : mapObject.y + mapObject.height / 2;
-            quad.Bounds = new IntegerRect(mapObject.x + mapObject.width / 2, y, mapObject.width, mapObject.height);
-            quad.CenteredBounds = new IntegerRect(0, 0, mapObject.width, mapObject.height);
-            quad.BoundsToLoad = new IntegerRect(quad.Bounds.Center.X, quad.Bounds.Center.Y, mapObject.width + BOUNDS_TO_LOAD, mapObject.height + BOUNDS_TO_LOAD);
+            quad.Name = levelQuad.name;
+            quad.Bounds = IntegerRect.CreateFromMinMax(new IntegerVector(levelQuad.x * this.WorldGridSpaceSize, levelQuad.y * this.WorldGridSpaceSize), new IntegerVector(levelQuad.width * this.WorldGridSpaceSize, levelQuad.height * this.WorldGridSpaceSize));
+            quad.CenteredBounds = new IntegerRect(0, 0, quad.Bounds.Size.X, quad.Bounds.Size.Y);
+            quad.BoundsToLoad = new IntegerRect(quad.Bounds.Center.X, quad.Bounds.Center.Y, levelQuad.width + BOUNDS_TO_LOAD, levelQuad.height + BOUNDS_TO_LOAD);
             _allMapQuads.Add(quad);
         }
     }
@@ -254,7 +265,12 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
                 IntegerVector relativeCenter = _targetLoadedQuads[i].GetRelativeBounds(_currentQuad).Center;
                 MapLoader loader = aquireMapLoader(new Vector2(relativeCenter.X * this.TileRenderSize, relativeCenter.Y * this.TileRenderSize));
                 loader.MapName = _targetLoadedQuads[i].Name;
-                loader.LoadMap(true); //TODO - figure out how to handle when to load objects/remember where they were/discard them
+                NewMapInfo mapInfo = _quadData[_targetLoadedQuads[i].Name];
+                string platformsTilesetName = mapInfo.GetMapLayer(MapEditorManager.PLATFORMS_LAYER).tileset_name;
+                string backgroundTilesetName = mapInfo.GetMapLayer(MapEditorManager.BACKGROUND_LAYER).tileset_name;
+                TilesetData platformsTileset = _tilesets[platformsTilesetName];
+                TilesetData backgroundTileset = _tilesets[backgroundTilesetName];
+                loader.LoadMap(platformsTileset, backgroundTileset, getAtlas(platformsTileset.AtlasName), getAtlas(backgroundTileset.AtlasName));
             }
         }
 
@@ -262,5 +278,12 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         {
             _activeMapLoaders[i].AddColliders();
         }
+    }
+
+    private Texture2D getAtlas(string name)
+    {
+        if (!_cachedAtlases.ContainsKey(name))
+            _cachedAtlases[name] = Resources.Load<Texture2D>(name);
+        return _cachedAtlases[name];
     }
 }

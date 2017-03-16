@@ -168,6 +168,7 @@ public class NewMapInfo
         public string prefab_name;
         public int x; // Position specified in pixel coordinates
         public int y;
+        public int z;
         //public int width;
         //public int height;
     }

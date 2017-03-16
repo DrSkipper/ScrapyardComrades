@@ -178,6 +178,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
         mapObject.prefab_name = prefabName;
         mapObject.x = Mathf.RoundToInt(gameObject.transform.position.x);
         mapObject.y = Mathf.RoundToInt(gameObject.transform.position.y);
+        mapObject.z = this.Depth;
         this.Objects.Add(mapObject);
     }
 
