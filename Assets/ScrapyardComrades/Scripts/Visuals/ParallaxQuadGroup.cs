@@ -12,27 +12,20 @@ public class ParallaxQuadGroup : VoBehavior
         this.MeshFilter.mesh = mesh;
     }
 
-    public void CreateMeshForLayer(SCParallaxLayer layer, float parallaxRatio, int quadWidth)
+    public void CreateMeshForLayer(Sprite sprite, bool loops, float height, float parallaxRatio, int quadWidth)
     {
-        if (layer == null)
-        {
-            initializeLists();
-            this.MeshFilter.mesh = null;
-            return;
-        }
-
         int numQuads = 1;
-        float spriteWidth = layer.Sprite.rect.width / layer.Sprite.pixelsPerUnit;
-        float spriteHeight = layer.Sprite.rect.height / layer.Sprite.pixelsPerUnit;
+        float spriteWidth = sprite.rect.width / sprite.pixelsPerUnit;
+        float spriteHeight = sprite.rect.height / sprite.pixelsPerUnit;
         float originX = 0.0f;
         float originY = 0.0f;
         float originZ = 0.0f;
-        _mostRecentSprite = layer.Sprite;
-        Vector2[] spriteUVs = layer.Sprite.GetUVs();
+        _mostRecentSprite = sprite;
+        Vector2[] spriteUVs = sprite.GetUVs();
         Vector3 normal = Vector3.back;
-        
+
         // If layer is looped, get number of quads we need
-        if (layer.LoopsHorizontally)
+        if (loops)
         {
             int cameraWidth = this.CameraController.CameraViewWidth;
             // Account for extra loops needed due to parallax ratio
@@ -112,6 +105,18 @@ public class ParallaxQuadGroup : VoBehavior
         mesh.uv = _uvs.ToArray();
         mesh.triangles = _tris.ToArray();
         this.MeshFilter.mesh = mesh;
+    }
+
+    public void CreateMeshForLayer(SCParallaxLayer layer, float parallaxRatio, int quadWidth)
+    {
+        if (layer == null)
+        {
+            initializeLists();
+            this.MeshFilter.mesh = null;
+            return;
+        }
+
+        this.CreateMeshForLayer(layer.Sprite, layer.LoopsHorizontally, layer.Height, parallaxRatio, quadWidth);
     }
 
     /**

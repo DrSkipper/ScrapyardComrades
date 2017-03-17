@@ -31,6 +31,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public GameObject[] ObjectPrefabs;
     public GameObject[] PropPrefabs;
     public Sprite[] ParallaxSprites;
+    public ParallaxQuadGroup ParallaxVisualPrefab;
 
     public List<string> DepthSortedLayers
     {
@@ -52,6 +53,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
         this.Layers = new Dictionary<string, MapEditorLayer>();
         this.CurrentLayer = PLATFORMS_LAYER;
         _previousCursorPos = new IntegerVector(-9999, -9999);
+        _parallaxVisuals = new Dictionary<string, ParallaxQuadGroup>();
 
         // Load Data
         _mapInfo = MapLoader.GatherMapInfo(this.MapName);
@@ -163,6 +165,23 @@ public class MapEditorManager : MonoBehaviour, IPausable
         File.WriteAllText(Application.streamingAssetsPath + MapLoader.LEVELS_PATH + this.MapName + MapLoader.JSON_SUFFIX, JsonConvert.SerializeObject(_mapInfo, Formatting.Indented));
     }
 
+    public void HandleReturnFromMenu()
+    {
+        // Update visual data for current layer
+        MapEditorLayer currentLayer = this.Layers[this.CurrentLayer];
+        switch (currentLayer.Type)
+        {
+            default:
+            case MapEditorLayer.LayerType.Tiles:
+                break;
+            case MapEditorLayer.LayerType.Objects:
+                break;
+            case MapEditorLayer.LayerType.Parallax:
+                //
+                break;
+        }
+    }
+
     /**
      * Private
      */
@@ -171,6 +190,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     private Dictionary<string, Texture2D> _atlases;
     private IntegerVector _previousCursorPos;
     private List<string> _sortedLayers;
+    private Dictionary<string, ParallaxQuadGroup> _parallaxVisuals;
     private bool _tileEraserEnabled;
     private bool _exiting;
     private int _objectPrecisionIncrement;
