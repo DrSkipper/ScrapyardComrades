@@ -5,15 +5,24 @@ public class ParallaxQuadGroup : VoBehavior
 {
     public CameraController CameraController;
     public MeshFilter MeshFilter;
+    public MeshRenderer MeshRenderer;
     public Sprite MostRecentSprite { get { return _mostRecentSprite; } }
 
-    public void UpdateWithMesh(Mesh mesh)
+    public void UpdateWithMesh(Mesh mesh, Texture2D texture)
     {
         this.MeshFilter.mesh = mesh;
+        this.MeshRenderer.sharedMaterial.mainTexture = texture;
     }
 
     public void CreateMeshForLayer(Sprite sprite, bool loops, float height, float parallaxRatio, int quadWidth)
     {
+        if (sprite == null)
+        {
+            initializeLists();
+            this.MeshFilter.mesh = null;
+            return;
+        }
+
         int numQuads = 1;
         float spriteWidth = sprite.rect.width / sprite.pixelsPerUnit;
         float spriteHeight = sprite.rect.height / sprite.pixelsPerUnit;
@@ -105,6 +114,7 @@ public class ParallaxQuadGroup : VoBehavior
         mesh.uv = _uvs.ToArray();
         mesh.triangles = _tris.ToArray();
         this.MeshFilter.mesh = mesh;
+        this.MeshRenderer.sharedMaterial.mainTexture = sprite.texture;
     }
 
     public void CreateMeshForLayer(SCParallaxLayer layer, float parallaxRatio, int quadWidth)

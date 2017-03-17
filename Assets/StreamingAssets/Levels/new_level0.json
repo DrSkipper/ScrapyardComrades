@@ -12309,7 +12309,22 @@
       ]
     }
   ],
-  "parallax_layers": [],
+  "parallax_layers": [
+    {
+      "sprite_name": null,
+      "depth": -4,
+      "loops": false,
+      "height": 0.5,
+      "parallax_ratio": 0.2
+    },
+    {
+      "sprite_name": null,
+      "depth": 6,
+      "loops": false,
+      "height": 0.5,
+      "parallax_ratio": 0.2
+    }
+  ],
   "props": [
     {
       "name": "SlumsLamp_0",

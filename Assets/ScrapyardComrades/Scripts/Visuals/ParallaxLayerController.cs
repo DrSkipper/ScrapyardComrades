@@ -19,11 +19,21 @@ public class ParallaxLayerController : MonoBehaviour
         this.transform.position = new Vector3(final.X, final.Y, this.transform.position.z);
     }
 
-    public void TransitionToNewLayer(SCParallaxLayer layer, int quadWidth)
+    public void TransitionToNewLayer(NewMapInfo.ParallaxLayer layer, int quadWidth)
     {
-        this.PreviousLayerVisual.UpdateWithMesh(this.CurrentLayerVisual.MeshFilter.mesh);
-        this.CurrentLayerVisual.CreateMeshForLayer(layer, this.ParallaxRatio, quadWidth);
+        this.PreviousLayerVisual.UpdateWithMesh(this.CurrentLayerVisual.MeshFilter.mesh, this.CurrentLayerVisual.MeshRenderer.sharedMaterial.mainTexture as Texture2D);
+        this.PreviousLayerVisual.transform.SetZ(this.CurrentLayerVisual.transform.position.z);
+        if (layer != null)
+        {
+            Sprite sprite = Resources.Load<Sprite>(layer.sprite_name);
+            this.CurrentLayerVisual.CreateMeshForLayer(sprite, layer.loops, layer.height, layer.parallax_ratio, quadWidth);
+            this.CurrentLayerVisual.transform.SetZ(layer.depth);
+        }
+        else
+        {
+            this.CurrentLayerVisual.CreateMeshForLayer(null, false, 0, 0, 0);
+        }
         this.PreviousLayerVisual.transform.SetLocalY(this.CurrentLayerVisual.transform.localPosition.y);
-        this.CurrentLayerVisual.transform.SetLocalY(Mathf.RoundToInt(this.CameraController.CameraViewHeight * (layer != null ? layer.Height : 0.5f) - this.CameraController.CameraViewHeight / 2));
+        this.CurrentLayerVisual.transform.SetLocalY(Mathf.RoundToInt(this.CameraController.CameraViewHeight * (layer != null ? layer.height : 0.5f) - this.CameraController.CameraViewHeight / 2));
     }
 }

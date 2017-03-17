@@ -101,6 +101,15 @@ public class MapEditorManager : MonoBehaviour, IPausable
             _mapInfo.AddParallaxLayer(backgroundDepth);
             string background = PARALLAX_PREFIX + backgroundDepth;
             this.Layers.Add(background, new MapEditorParallaxLayer(_mapInfo.GetParallaxLayer(backgroundDepth), background));
+
+            ParallaxQuadGroup foregroundQuad = Instantiate<ParallaxQuadGroup>(this.ParallaxVisualPrefab);
+            ParallaxQuadGroup backgroundQuad = Instantiate<ParallaxQuadGroup>(this.ParallaxVisualPrefab);
+            foregroundQuad.CameraController = this.CameraController;
+            backgroundQuad.CameraController = this.CameraController;
+            foregroundQuad.transform.SetPosition(_mapInfo.width * this.Grid.GridSpaceSize / 2, _mapInfo.height * this.Grid.GridSpaceSize / 2, foregroundDepth);
+            backgroundQuad.transform.SetPosition(_mapInfo.width * this.Grid.GridSpaceSize / 2, _mapInfo.height * this.Grid.GridSpaceSize / 2, foregroundDepth);
+            _parallaxVisuals.Add(foreground, foregroundQuad);
+            _parallaxVisuals.Add(background, backgroundQuad);
         }
         else
         {
@@ -108,6 +117,10 @@ public class MapEditorManager : MonoBehaviour, IPausable
             {
                 string name = PARALLAX_PREFIX + _mapInfo.parallax_layers[i].depth;
                 this.Layers.Add(name, new MapEditorParallaxLayer(_mapInfo.parallax_layers[i], name));
+                ParallaxQuadGroup quad = Instantiate<ParallaxQuadGroup>(this.ParallaxVisualPrefab);
+                quad.CameraController = this.CameraController;
+                quad.transform.SetPosition(_mapInfo.width * this.Grid.GridSpaceSize / 2, _mapInfo.height * this.Grid.GridSpaceSize / 2, _mapInfo.parallax_layers[i].depth);
+                _parallaxVisuals.Add(name, quad);
             }
         }
 
@@ -177,7 +190,8 @@ public class MapEditorManager : MonoBehaviour, IPausable
             case MapEditorLayer.LayerType.Objects:
                 break;
             case MapEditorLayer.LayerType.Parallax:
-                //
+                MapEditorParallaxLayer parallaxLayer = currentLayer as MapEditorParallaxLayer;
+                _parallaxVisuals[this.CurrentLayer].CreateMeshForLayer(findParallaxSprite(parallaxLayer.SpriteName), parallaxLayer.Loops, parallaxLayer.Height, parallaxLayer.ParallaxRatio, _mapInfo.width * this.Grid.GridSpaceSize);
                 break;
         }
     }
@@ -194,6 +208,22 @@ public class MapEditorManager : MonoBehaviour, IPausable
     private bool _tileEraserEnabled;
     private bool _exiting;
     private int _objectPrecisionIncrement;
+
+    private Sprite findParallaxSprite(string spriteName)
+    {
+        if (spriteName == null)
+            return null;
+        
+        if (spriteName != null)
+        {
+            for (int i = 0; i < this.ParallaxSprites.Length; ++i)
+            {
+                if (this.ParallaxSprites[i].name == spriteName)
+                    return this.ParallaxSprites[i];
+            }
+        }
+        return null;
+    }
 
     private void loadWorldEditor()
     {

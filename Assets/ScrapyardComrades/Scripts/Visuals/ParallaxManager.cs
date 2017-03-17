@@ -3,22 +3,7 @@ using System.Collections.Generic;
 
 public class ParallaxManager : VoBehavior
 {
-    [System.Serializable]
-    public struct QuadParallaxData
-    {
-        public string QuadName;
-        public LayerEntry[] Layers;
-    }
-
-    [System.Serializable]
-    public struct LayerEntry
-    {
-        public SCParallaxLayer.RenderLayer RenderLayer;
-        public SCParallaxLayer LayerData;
-    }
-
     public WorldLoadingManager WorldManager;
-    public QuadParallaxData[] ParallaxData;
     public ParallaxLayerController[] CurrentLayerControllers;
     public Transform PreviousParallaxRoot;
     public Material MatForCurrentParallax;
@@ -28,23 +13,6 @@ public class ParallaxManager : VoBehavior
 
     public void Awake()
     {
-        _parallaxData = new Dictionary<string, SCParallaxLayer[]>();
-        for (int i = 0; i < this.ParallaxData.Length; ++i)
-        {
-            QuadParallaxData quadData = this.ParallaxData[i];
-            SCParallaxLayer[] layers = new SCParallaxLayer[SCParallaxLayer.NUM_RENDER_LAYERS];
-
-            for (int j = 0; j < quadData.Layers.Length; ++j)
-            {
-                LayerEntry layerEntry = quadData.Layers[j];
-
-                SCParallaxLayer.RenderLayer renderLayer = layerEntry.RenderLayer != SCParallaxLayer.RenderLayer.Default ? layerEntry.RenderLayer : layerEntry.LayerData.DefaultRenderLayer;
-                layers[(int)renderLayer] = layerEntry.LayerData;
-            }
-
-            _parallaxData.Add(quadData.QuadName, layers);
-        }
-
         this.MatForCurrentParallax.mainTexture = this.ParallaxAtlas;
         this.MatForPreviousParallax.mainTexture = this.ParallaxAtlas;
 
@@ -88,7 +56,6 @@ public class ParallaxManager : VoBehavior
     /**
      * Private
      */
-    private Dictionary<string, SCParallaxLayer[]> _parallaxData;
     private bool _inTransition;
     private float _transitionTime;
 
@@ -103,15 +70,13 @@ public class ParallaxManager : VoBehavior
 
     private void loadParallaxForCurrentQuad(bool transition)
     {
-        if (_parallaxData.ContainsKey(this.WorldManager.CurrentQuadName))
+        NewMapInfo currentQuadInfo = this.WorldManager.CurrentMapInfo;
+        for (int i = 0; i < this.CurrentLayerControllers.Length; ++i)
         {
-            SCParallaxLayer[] layers = _parallaxData[this.WorldManager.CurrentQuadName];
-
-            for (int i = 0; i < SCParallaxLayer.NUM_RENDER_LAYERS; ++i)
-            {
-                if (this.CurrentLayerControllers[i] != null)
-                    this.CurrentLayerControllers[i].TransitionToNewLayer(layers[i], this.WorldManager.CurrentQuadWidth);
-            }
+            if (i < currentQuadInfo.parallax_layers.Count)
+                this.CurrentLayerControllers[i].TransitionToNewLayer(currentQuadInfo.parallax_layers[i], this.WorldManager.CurrentQuadWidth);
+            else
+                this.CurrentLayerControllers[i].TransitionToNewLayer(null, 0);
         }
 
         if (transition)

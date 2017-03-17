@@ -239,6 +239,10 @@ public class MapEditorParallaxLayer : MapEditorLayer
 
     public override void SaveData(NewMapInfo mapInfo)
     {
-
+        NewMapInfo.ParallaxLayer layer = mapInfo.GetParallaxLayer(this.Depth);
+        layer.sprite_name = this.SpriteName;
+        layer.loops = this.Loops;
+        layer.height = this.Height;
+        layer.parallax_ratio = this.ParallaxRatio;
     }
 }
