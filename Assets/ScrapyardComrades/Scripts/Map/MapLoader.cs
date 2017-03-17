@@ -29,13 +29,13 @@ public class MapLoader : MonoBehaviour
         _width = mapInfo.width;
         _height = mapInfo.height;
         this.transform.position = this.transform.position + new Vector3(-_width * this.PlatformsRenderer.TileRenderSize / 2, -_height * this.PlatformsRenderer.TileRenderSize / 2, 0);
-        this.PlatformsRenderer.Atlas = platformsAtlas;
+        this.PlatformsRenderer.SetAtlas(platformsAtlas);
         this.PlatformsRenderer.CreateMapWithGrid(platformsGrid);
 
         NewMapInfo.MapLayer bgLayer = mapInfo.GetMapLayer(MapEditorManager.BACKGROUND_LAYER);
         if (bgLayer != null)
         {
-            this.BGRenderer.Atlas = bgAtlas;
+            this.BGRenderer.SetAtlas(bgAtlas);
             this.BGRenderer.CreateMapWithGrid(bgLayer.GetDataGrid());
         }
         this.GeometryCreator.CreateGeometryForGrid(platformsGrid, platformsTileset.GetSpriteDataDictionary(), false);
@@ -72,7 +72,8 @@ public class MapLoader : MonoBehaviour
         Dictionary<string, Texture2D> textDict = new Dictionary<string, Texture2D>();
         for (int i = 0; i < textures.Length; ++i)
         {
-            textDict.Add(textures[i].name, textures[i]);
+            if (!textDict.ContainsKey(textures[i].name))
+                textDict.Add(textures[i].name, textures[i]);
         }
         return textDict;
     }

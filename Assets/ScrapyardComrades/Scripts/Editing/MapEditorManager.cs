@@ -18,7 +18,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public MapEditorGrid Grid;
     public MapEditorCursor Cursor;
     public Transform ObjectCursor;
-    public TilesetData[] Tilesets;
+    public TilesetCollection TilesetCollection;
     public string MapName;
     public Dictionary<string, MapEditorLayer> Layers;
     public string CurrentLayer;
@@ -259,14 +259,16 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
     private void updateTileLayer(MapEditorTilesLayer layer)
     {
+        bool newPos = false;
         if (_previousCursorPos != this.Cursor.GridPos)
         {
+            newPos = true;
             (layer as MapEditorTilesLayer).ApplyData(_previousCursorPos.X, _previousCursorPos.Y);
             _previousCursorPos = this.Cursor.GridPos;
             (layer as MapEditorTilesLayer).PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
         }
 
-        if (MapEditorInput.ConfirmHeld)
+        if (MapEditorInput.Confirm || (newPos && MapEditorInput.ConfirmHeld))
         {
             (layer as MapEditorTilesLayer).ApplyBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
         }
@@ -410,10 +412,10 @@ public class MapEditorManager : MonoBehaviour, IPausable
     {
         List<Texture2D> atlases = new List<Texture2D>();
         _tilesets = new Dictionary<string, TilesetData>();
-        for (int i = 0; i < this.Tilesets.Length; ++i)
+        for (int i = 0; i < this.TilesetCollection.Tilesets.Length; ++i)
         {
-            _tilesets.Add(this.Tilesets[i].name, this.Tilesets[i]);
-            atlases.Add(Resources.Load<Texture2D>(this.Tilesets[i].AtlasName));
+            _tilesets.Add(this.TilesetCollection.Tilesets[i].name, this.TilesetCollection.Tilesets[i]);
+            atlases.Add(Resources.Load<Texture2D>(this.TilesetCollection.Tilesets[i].AtlasName));
         }
         return atlases;
     }

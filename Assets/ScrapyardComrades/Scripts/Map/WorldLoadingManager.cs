@@ -21,7 +21,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     public List<GameObject> IgnoreRecenterObjects;
     public CollisionManager CollisionManager;
     public EntityTracker EntityTracker;
-    public TilesetData[] Tilesets;
+    public TilesetCollection TilesetCollection;
 
     public IntegerRectCollider CurrentQuadBoundsCheck;
     public IntegerRectCollider GetBounds() { return this.CurrentQuadBoundsCheck; }
@@ -58,9 +58,9 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         _tilesets = new Dictionary<string, TilesetData>();
         _cachedAtlases = new Dictionary<string, Texture2D>();
 
-        for (int i = 0; i < this.Tilesets.Length; ++i)
+        for (int i = 0; i < this.TilesetCollection.Tilesets.Length; ++i)
         {
-            _tilesets.Add(this.Tilesets[i].name, this.Tilesets[i]);
+            _tilesets.Add(this.TilesetCollection.Tilesets[i].name, this.TilesetCollection.Tilesets[i]);
         }
 
         gatherWorldMapInfo();

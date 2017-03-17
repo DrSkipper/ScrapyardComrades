@@ -95,7 +95,7 @@ public class TilesetData : ScriptableObject
         {
             return autotileDict[type][Random.Range(0, autotileDict[type].Count)].SpriteName;
         }
-        else if ((type == TileType.TopLeft || type == TileType.TopRight) && autotileDict.ContainsKey(TileType.Top))
+        else if ((type == TileType.TopLeft || type == TileType.TopRight || type == TileType.ColumnTop || type == TileType.RowMid || type == TileType.RowLeft || type == TileType.RowRight || type == TileType.Lone) && autotileDict.ContainsKey(TileType.Top))
         {
             return autotileDict[TileType.Top][Random.Range(0, autotileDict[TileType.Top].Count)].SpriteName;
         }

@@ -7,16 +7,15 @@ public class NewLevelPanel : VoBehavior
     public CyclePanel PlatformsPanel;
     public CyclePanel BackgroundPanel;
     public RectTransform Selector;
-    public TilesetData[] PlatformTilesets;
-    public TilesetData[] BackgroundTilesets;
+    public TilesetCollection TilesetCollection;
     public OnLevelCreationComplete CompletionCallback;
 
     public delegate void OnLevelCreationComplete(string levelName, string platformsTileset, string backgroundTileset);
 
     void Awake()
     {
-        this.PlatformsPanel.Text.text = this.PlatformTilesets[0].name;
-        this.BackgroundPanel.Text.text = this.BackgroundTilesets[0].name;
+        this.PlatformsPanel.Text.text = this.TilesetCollection.Tilesets[1].name;
+        this.BackgroundPanel.Text.text = this.TilesetCollection.Tilesets[0].name;
         this.LevelNameField.text = DEFAULT_LEVEL_NAME;
     }
 
@@ -31,8 +30,8 @@ public class NewLevelPanel : VoBehavior
         if (MapEditorInput.Start)
         {
             string levelName = this.LevelNameField.text;
-            string platforms = this.PlatformTilesets[_selectedPlatforms].name;
-            string background = this.BackgroundTilesets[_selectedBackground].name;
+            string platforms = this.TilesetCollection.Tilesets[_selectedPlatforms].name;
+            string background = this.TilesetCollection.Tilesets[_selectedBackground].name;
             this.LevelNameField.interactable = false;
             this.LevelNameField.DeactivateInputField();
             this.CompletionCallback(levelName, platforms, background);
@@ -87,14 +86,14 @@ public class NewLevelPanel : VoBehavior
         {
             if (_selection == PLATFORMS)
             {
-                _selectedPlatforms = _selectedPlatforms <= 0 ? this.PlatformTilesets.Length - 1 : _selectedPlatforms - 1;
-                this.PlatformsPanel.Text.text = this.PlatformTilesets[_selectedPlatforms].name;
+                _selectedPlatforms = _selectedPlatforms <= 0 ? this.TilesetCollection.Tilesets.Length - 1 : _selectedPlatforms - 1;
+                this.PlatformsPanel.Text.text = this.TilesetCollection.Tilesets[_selectedPlatforms].name;
                 this.PlatformsPanel.CycleLeft();
             }
             else if (_selection == BACKGROUND)
             {
-                _selectedBackground = _selectedBackground <= 0 ? this.BackgroundTilesets.Length - 1 : _selectedBackground - 1;
-                this.BackgroundPanel.Text.text = this.BackgroundTilesets[_selectedBackground].name;
+                _selectedBackground = _selectedBackground <= 0 ? this.TilesetCollection.Tilesets.Length - 1 : _selectedBackground - 1;
+                this.BackgroundPanel.Text.text = this.TilesetCollection.Tilesets[_selectedBackground].name;
                 this.BackgroundPanel.CycleLeft();
             }
         }
@@ -102,14 +101,14 @@ public class NewLevelPanel : VoBehavior
         {
             if (_selection == PLATFORMS)
             {
-                _selectedPlatforms = _selectedPlatforms >= this.PlatformTilesets.Length - 1 ? 0 : _selectedPlatforms + 1;
-                this.PlatformsPanel.Text.text = this.PlatformTilesets[_selectedPlatforms].name;
+                _selectedPlatforms = _selectedPlatforms >= this.TilesetCollection.Tilesets.Length - 1 ? 0 : _selectedPlatforms + 1;
+                this.PlatformsPanel.Text.text = this.TilesetCollection.Tilesets[_selectedPlatforms].name;
                 this.PlatformsPanel.CycleRight();
             }
             else if (_selection == BACKGROUND)
             {
-                _selectedBackground = _selectedBackground >= this.BackgroundTilesets.Length - 1 ? 0 : _selectedBackground + 1;
-                this.BackgroundPanel.Text.text = this.BackgroundTilesets[_selectedBackground].name;
+                _selectedBackground = _selectedBackground >= this.TilesetCollection.Tilesets.Length - 1 ? 0 : _selectedBackground + 1;
+                this.BackgroundPanel.Text.text = this.TilesetCollection.Tilesets[_selectedBackground].name;
                 this.BackgroundPanel.CycleRight();
             }
         }
