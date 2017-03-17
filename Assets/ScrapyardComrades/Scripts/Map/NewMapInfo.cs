@@ -8,7 +8,7 @@ public class NewMapInfo
     public int height;
     public int tile_size;
     public List<MapLayer> tile_layers; // Use accessors to add/remove
-    public List<ParallaxLayer> parallax_layers; // Access directly
+    public List<ParallaxLayer> parallax_layers; // Use accessors to add/remove
     public List<MapObject> props; // Access directly
     public List<MapObject> objects; // Access directly
     public int next_object_id;
@@ -41,6 +41,21 @@ public class NewMapInfo
     public MapLayer GetMapLayer(string layerName)
     {
         return tile_layers.Find(l => l.name == layerName);
+    }
+
+    public void AddParallaxLayer(int depth)
+    {
+        parallax_layers.Add(new ParallaxLayer(depth));
+    }
+
+    public void RemoveParallaxLayer(int depth)
+    {
+        parallax_layers.RemoveAll(l => l.depth == depth);
+    }
+
+    public ParallaxLayer GetParallaxLayer(int depth)
+    {
+        return parallax_layers.Find(l => l.depth == depth);
     }
 
     public void ResizeWidth(int newWidth)
@@ -180,5 +195,15 @@ public class NewMapInfo
         public int depth;
         public bool loops;
         public float height;
+        public float parallax_ratio;
+
+        public ParallaxLayer(int d)
+        {
+            sprite_name = null;
+            depth = d;
+            loops = false;
+            height = 0.5f;
+            parallax_ratio = 0.2f;
+        }
     }
 }

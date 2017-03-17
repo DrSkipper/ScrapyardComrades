@@ -30,6 +30,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public float LoadTime = 1.0f;
     public GameObject[] ObjectPrefabs;
     public GameObject[] PropPrefabs;
+    public Sprite[] ParallaxSprites;
 
     public List<string> DepthSortedLayers
     {
@@ -87,10 +88,25 @@ public class MapEditorManager : MonoBehaviour, IPausable
         this.Layers.Add(BACKGROUND_LAYER, new MapEditorTilesLayer(backgroundLayerData, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT * 2, _tilesets, this.BackgroundRenderer));
 
         // Setup Parallax Layers
-        for (int i = 0; i < _mapInfo.parallax_layers.Count; ++i)
+        if (_mapInfo.parallax_layers.Count == 0)
         {
-            string name = PARALLAX_PREFIX + _mapInfo.parallax_layers[i].depth;
-            this.Layers.Add(name, new MapEditorParallaxLayer(_mapInfo.parallax_layers[i], name));
+            int foregroundDepth = PLATFORMS_LAYER_DEPTH - 2 * LAYER_DEPTH_INCREMENT;
+            _mapInfo.AddParallaxLayer(foregroundDepth);
+            string foreground = PARALLAX_PREFIX + foregroundDepth;
+            this.Layers.Add(foreground, new MapEditorParallaxLayer(_mapInfo.GetParallaxLayer(foregroundDepth), foreground));
+
+            int backgroundDepth = PLATFORMS_LAYER_DEPTH + 3 * LAYER_DEPTH_INCREMENT;
+            _mapInfo.AddParallaxLayer(backgroundDepth);
+            string background = PARALLAX_PREFIX + backgroundDepth;
+            this.Layers.Add(background, new MapEditorParallaxLayer(_mapInfo.GetParallaxLayer(backgroundDepth), background));
+        }
+        else
+        {
+            for (int i = 0; i < _mapInfo.parallax_layers.Count; ++i)
+            {
+                string name = PARALLAX_PREFIX + _mapInfo.parallax_layers[i].depth;
+                this.Layers.Add(name, new MapEditorParallaxLayer(_mapInfo.parallax_layers[i], name));
+            }
         }
 
         // Handle Visuals
