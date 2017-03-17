@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 
-public class MapEditorManager : MonoBehaviour
+public class MapEditorManager : MonoBehaviour, IPausable
 {
     public const int DEFAULT_TILE_SIZE = 16;
     public const string PLATFORMS_LAYER = "platforms";

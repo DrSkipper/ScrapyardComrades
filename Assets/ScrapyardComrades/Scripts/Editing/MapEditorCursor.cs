@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using Rewired;
 
-public class MapEditorCursor : VoBehavior
+public class MapEditorCursor : VoBehavior, IPausable
 {
     public MapEditorGrid Grid;
     public Image HighlightImage;

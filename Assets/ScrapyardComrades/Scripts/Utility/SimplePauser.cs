@@ -2,9 +2,11 @@
 
 public class SimplePauser : MonoBehaviour
 {
+    public bool Editor = false;
+
     void Update()
     {
-        if (GameplayInput.PausePressed)
+        if (!Editor ? GameplayInput.PausePressed : MapEditorInput.SwapModes)
         {
             _paused = !_paused;
             if (_paused)
