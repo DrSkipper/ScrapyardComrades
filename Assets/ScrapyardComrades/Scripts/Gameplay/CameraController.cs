@@ -12,12 +12,15 @@ public class CameraController : MonoBehaviour, IPausable
     public float TransitionDuration = 1.0f;
     public int CameraViewWidth { get; private set; }
     public int CameraViewHeight { get; private set; }
+    public int ResolutionDoublingThreshold = 270;
 
     void Awake()
     {
         _tracker = this.InitialTracker;
         _boundsHandler = this.WorldBoundsHandler.GetComponent<CameraBoundsHandler>();
-        int cameraHeight = Screen.height > RESOLUTION_DOUBLING_THRESHOLD ? Screen.height / 2 : Screen.height;
+        int cameraHeight = Screen.height;
+        while (cameraHeight > this.ResolutionDoublingThreshold)
+            cameraHeight /= 2;
         Camera.orthographicSize = cameraHeight;
         _attemptedHeight = cameraHeight * PIXELS_TO_UNITS;
         _attemptedWidth = Mathf.RoundToInt((float)_attemptedHeight * (float)Screen.width / (float)Screen.height);
@@ -104,7 +107,6 @@ public class CameraController : MonoBehaviour, IPausable
     private IntegerVector _transitionDestination;
     private Vector2 _transitionOrigin;
     private Easing.EasingDelegate _easingDelegate;
-    private const int RESOLUTION_DOUBLING_THRESHOLD = 270;
     private const int PIXELS_TO_UNITS = 2;
     private const float TRANSITION_END_BUFFER = 0.04f;
 
