@@ -32,6 +32,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public GameObject[] PropPrefabs;
     public Sprite[] ParallaxSprites;
     public ParallaxQuadGroup ParallaxVisualPrefab;
+    public Transform ParallaxParent;
 
     public List<string> DepthSortedLayers
     {
@@ -90,24 +91,29 @@ public class MapEditorManager : MonoBehaviour, IPausable
         this.Layers.Add(BACKGROUND_LAYER, new MapEditorTilesLayer(backgroundLayerData, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT * 2, _tilesets, this.BackgroundRenderer));
 
         // Setup Parallax Layers
+        this.ParallaxParent.SetPosition2D(_mapInfo.width * this.Grid.GridSpaceSize / 2, _mapInfo.height * this.Grid.GridSpaceSize / 2);
         if (_mapInfo.parallax_layers.Count == 0)
         {
             int foregroundDepth = PLATFORMS_LAYER_DEPTH - 2 * LAYER_DEPTH_INCREMENT;
             _mapInfo.AddParallaxLayer(foregroundDepth);
             string foreground = PARALLAX_PREFIX + foregroundDepth;
-            this.Layers.Add(foreground, new MapEditorParallaxLayer(_mapInfo.GetParallaxLayer(foregroundDepth), foreground));
+            MapEditorParallaxLayer foregroundLayer = new MapEditorParallaxLayer(_mapInfo.GetParallaxLayer(foregroundDepth), foreground);
+            this.Layers.Add(foreground, foregroundLayer);
 
             int backgroundDepth = PLATFORMS_LAYER_DEPTH + 3 * LAYER_DEPTH_INCREMENT;
             _mapInfo.AddParallaxLayer(backgroundDepth);
             string background = PARALLAX_PREFIX + backgroundDepth;
-            this.Layers.Add(background, new MapEditorParallaxLayer(_mapInfo.GetParallaxLayer(backgroundDepth), background));
+            MapEditorParallaxLayer backgroundLayer = new MapEditorParallaxLayer(_mapInfo.GetParallaxLayer(backgroundDepth), background);
+            this.Layers.Add(background, backgroundLayer);
 
             ParallaxQuadGroup foregroundQuad = Instantiate<ParallaxQuadGroup>(this.ParallaxVisualPrefab);
             ParallaxQuadGroup backgroundQuad = Instantiate<ParallaxQuadGroup>(this.ParallaxVisualPrefab);
             foregroundQuad.CameraController = this.CameraController;
             backgroundQuad.CameraController = this.CameraController;
-            foregroundQuad.transform.SetPosition(_mapInfo.width * this.Grid.GridSpaceSize / 2, _mapInfo.height * this.Grid.GridSpaceSize / 2, foregroundDepth);
-            backgroundQuad.transform.SetPosition(_mapInfo.width * this.Grid.GridSpaceSize / 2, _mapInfo.height * this.Grid.GridSpaceSize / 2, foregroundDepth);
+            foregroundQuad.transform.parent = this.ParallaxParent;
+            backgroundQuad.transform.parent = this.ParallaxParent;
+            foregroundQuad.transform.SetPosition(this.ParallaxParent.position.x, this.ParallaxParent.position.y, foregroundDepth);
+            backgroundQuad.transform.SetPosition(this.ParallaxParent.position.x, this.ParallaxParent.position.y, backgroundDepth);
             _parallaxVisuals.Add(foreground, foregroundQuad);
             _parallaxVisuals.Add(background, backgroundQuad);
         }
@@ -116,10 +122,12 @@ public class MapEditorManager : MonoBehaviour, IPausable
             for (int i = 0; i < _mapInfo.parallax_layers.Count; ++i)
             {
                 string name = PARALLAX_PREFIX + _mapInfo.parallax_layers[i].depth;
-                this.Layers.Add(name, new MapEditorParallaxLayer(_mapInfo.parallax_layers[i], name));
+                MapEditorParallaxLayer layer = new MapEditorParallaxLayer(_mapInfo.parallax_layers[i], name);
+                this.Layers.Add(name, layer);
                 ParallaxQuadGroup quad = Instantiate<ParallaxQuadGroup>(this.ParallaxVisualPrefab);
                 quad.CameraController = this.CameraController;
-                quad.transform.SetPosition(_mapInfo.width * this.Grid.GridSpaceSize / 2, _mapInfo.height * this.Grid.GridSpaceSize / 2, _mapInfo.parallax_layers[i].depth);
+                quad.transform.SetPosition(this.ParallaxParent.position.x, this.ParallaxParent.position.y, _mapInfo.parallax_layers[i].depth);
+                quad.transform.parent = this.ParallaxParent;
                 _parallaxVisuals.Add(name, quad);
             }
         }
@@ -127,6 +135,10 @@ public class MapEditorManager : MonoBehaviour, IPausable
         // Handle Visuals
         _sortedLayers = this.DepthSortedLayers;
         this.LayerListPanel.ConfigureForLayers(_sortedLayers, this.CurrentLayer);
+    }
+
+    void Start()
+    {
         updateVisuals();
         updateCurrentLayer();
     }
@@ -400,7 +412,12 @@ public class MapEditorManager : MonoBehaviour, IPausable
         MapEditorObjectsLayer propsLayer = this.Layers[PROPS_LAYER] as MapEditorObjectsLayer;
         loadObjects(propsLayer);
 
-        //TODO: Parallax
+        for (int i = 0; i < _mapInfo.parallax_layers.Count; ++i)
+        {
+            string name = PARALLAX_PREFIX + _mapInfo.parallax_layers[i].depth;
+            MapEditorParallaxLayer layer = this.Layers[name] as MapEditorParallaxLayer;
+            _parallaxVisuals[name].CreateMeshForLayer(findParallaxSprite(layer.SpriteName), layer.Loops, layer.Height, layer.ParallaxRatio, _mapInfo.width * this.Grid.GridSpaceSize);
+        }
     }
 
     private int depthCompareLayers(string l1, string l2)
@@ -423,7 +440,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     private const int DEFAULT_LEVEL_SIZE = 32;
     private const int PLATFORMS_LAYER_DEPTH = 0;
     private const int LAYER_DEPTH_INCREMENT = 2;
-    private const int OBJECT_PRECISION_PER_TILE = 4;
+    private const int OBJECT_PRECISION_PER_TILE = 8;
     private const string PARALLAX_PREFIX = "parallax_";
     private const string DEFAULT_PLATFORMS_TILESET = "GenericPlatforms";
     private const string DEFAULT_BACKGROUND_TILESET = "GenericBackground";

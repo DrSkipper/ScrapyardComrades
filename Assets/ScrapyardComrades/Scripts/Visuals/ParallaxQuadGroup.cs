@@ -23,6 +23,8 @@ public class ParallaxQuadGroup : VoBehavior
             return;
         }
 
+        this.transform.SetLocalY(Mathf.RoundToInt(this.CameraController.CameraViewHeight * height - this.CameraController.CameraViewHeight / 2));
+
         int numQuads = 1;
         float spriteWidth = sprite.rect.width / sprite.pixelsPerUnit;
         float spriteHeight = sprite.rect.height / sprite.pixelsPerUnit;

@@ -22,7 +22,10 @@ public class ParallaxLayerController : MonoBehaviour
     public void TransitionToNewLayer(NewMapInfo.ParallaxLayer layer, int quadWidth)
     {
         this.PreviousLayerVisual.UpdateWithMesh(this.CurrentLayerVisual.MeshFilter.mesh, this.CurrentLayerVisual.MeshRenderer.sharedMaterial.mainTexture as Texture2D);
+
         this.PreviousLayerVisual.transform.SetZ(this.CurrentLayerVisual.transform.position.z);
+        this.PreviousLayerVisual.transform.SetLocalY(this.CurrentLayerVisual.transform.localPosition.y);
+
         if (layer != null)
         {
             Sprite sprite = Resources.Load<Sprite>(layer.sprite_name);
@@ -33,7 +36,5 @@ public class ParallaxLayerController : MonoBehaviour
         {
             this.CurrentLayerVisual.CreateMeshForLayer(null, false, 0, 0, 0);
         }
-        this.PreviousLayerVisual.transform.SetLocalY(this.CurrentLayerVisual.transform.localPosition.y);
-        this.CurrentLayerVisual.transform.SetLocalY(Mathf.RoundToInt(this.CameraController.CameraViewHeight * (layer != null ? layer.height : 0.5f) - this.CameraController.CameraViewHeight / 2));
     }
 }
