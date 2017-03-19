@@ -46,6 +46,11 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
     public int CurrentLayerIndex { get { for (int i = 0; i < _sortedLayers.Count; ++i) if (_sortedLayers[i] == this.CurrentLayer) return i; return 0; } }
 
+    public Texture2D GetAtlasForName(string atlasName)
+    {
+        return _atlases[atlasName];
+    }
+
     void Awake()
     {
         if (ScenePersistentLoading.IsLoading)

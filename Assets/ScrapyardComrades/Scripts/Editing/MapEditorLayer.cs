@@ -26,6 +26,8 @@ public class MapEditorTilesLayer : MapEditorLayer
     public bool EraserEnabled;
     public TileRenderer Visual;
 
+    public Dictionary<string, TilesetData.SpriteData> SpriteDataDict { get { return _spriteDataDict; } }
+
     public MapEditorTilesLayer(NewMapInfo.MapLayer mapLayer, int depth, Dictionary<string, TilesetData> tilesets, TileRenderer visual)
     {
         this.Name = mapLayer.name;
