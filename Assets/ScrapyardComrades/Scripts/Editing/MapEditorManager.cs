@@ -203,6 +203,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
         {
             default:
             case MapEditorLayer.LayerType.Tiles:
+                ((MapEditorTilesLayer)currentLayer).PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
                 break;
             case MapEditorLayer.LayerType.Objects:
                 break;

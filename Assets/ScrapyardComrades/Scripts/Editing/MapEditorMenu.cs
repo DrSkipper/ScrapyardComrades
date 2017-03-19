@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class MapEditorMenu : MonoBehaviour
 {
     public MapEditorManager Manager;
-    public GameObject TilesPanel;
+    public MapEditorTilesPanel TilesPanel;
     public GameObject ObjectsPanel;
     public MapEditorParallaxPanel ParallaxPanel;
 
@@ -21,7 +21,7 @@ public class MapEditorMenu : MonoBehaviour
     private void onPause(LocalEventNotifier.Event e)
     {
         MapEditorLayer layer = this.Manager.Layers[this.Manager.CurrentLayer];
-        this.TilesPanel.SetActive(layer.Type == MapEditorLayer.LayerType.Tiles);
+        this.TilesPanel.gameObject.SetActive(layer.Type == MapEditorLayer.LayerType.Tiles);
         this.ObjectsPanel.SetActive(layer.Type == MapEditorLayer.LayerType.Objects);
         this.ParallaxPanel.gameObject.SetActive(layer.Type == MapEditorLayer.LayerType.Parallax);
 
@@ -29,6 +29,7 @@ public class MapEditorMenu : MonoBehaviour
         {
             default:
             case MapEditorLayer.LayerType.Tiles:
+                this.TilesPanel.ShowForLayer(layer);
                 break;
             case MapEditorLayer.LayerType.Objects:
                 break;
