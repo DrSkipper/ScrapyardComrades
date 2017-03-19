@@ -7,7 +7,6 @@ public static class SCCustomObjectCreator
     private const string ANIMATION_PATH = "Animations/NewSpriteAnimation.asset";
     private const string ATTACK_PATH = "Attacks/NewAttack.asset";
     private const string MOVESET_PATH = "Attacks/NewMoveSet.asset";
-    private const string PARALLAX_PATH = "Parallax/NewParallaxLayer.asset";
     private const string PICKUP_PATH = "Interactables/Pickups/NewPickup.asset";
     private const string CONSUMABLE_PATH = "Interactables/Consumables/NewConsumable.asset";
     private const string DIALOG_PATH = "Interactables/Dialog/NewDialog.asset";
@@ -30,12 +29,6 @@ public static class SCCustomObjectCreator
     public static void CreateMoveSet()
     {
         SaveAsset(SCMoveSet.CreateInstance<SCMoveSet>(), PATH + MOVESET_PATH);
-    }
-
-    [MenuItem("Custom Objects/Create Parallax Layer")]
-    public static void CreateParallaxLayer()
-    {
-        SaveAsset(SCParallaxLayer.CreateInstance<SCParallaxLayer>(), PATH + PARALLAX_PATH);
     }
 
     [MenuItem("Custom Objects/Create Pickup")]

@@ -14,7 +14,7 @@ public class ParallaxQuadGroup : VoBehavior
         this.MeshRenderer.sharedMaterial.mainTexture = texture;
     }
 
-    public void CreateMeshForLayer(Sprite sprite, bool loops, float height, float parallaxRatio, int quadWidth)
+    public void CreateMeshForLayer(Sprite sprite, bool loops, float height, float xPos, float parallaxRatio, int quadWidth)
     {
         if (sprite == null)
         {
@@ -23,7 +23,7 @@ public class ParallaxQuadGroup : VoBehavior
             return;
         }
 
-        this.transform.SetLocalY(Mathf.RoundToInt(this.CameraController.CameraViewHeight * height - this.CameraController.CameraViewHeight / 2));
+        this.transform.SetLocalPosition2D(Mathf.RoundToInt(this.CameraController.CameraViewWidth * xPos - this.CameraController.CameraViewWidth / 2), Mathf.RoundToInt(this.CameraController.CameraViewHeight * height - this.CameraController.CameraViewHeight / 2));
 
         int numQuads = 1;
         float spriteWidth = sprite.rect.width / sprite.pixelsPerUnit;
@@ -117,18 +117,6 @@ public class ParallaxQuadGroup : VoBehavior
         mesh.triangles = _tris.ToArray();
         this.MeshFilter.mesh = mesh;
         this.MeshRenderer.sharedMaterial.mainTexture = sprite.texture;
-    }
-
-    public void CreateMeshForLayer(SCParallaxLayer layer, float parallaxRatio, int quadWidth)
-    {
-        if (layer == null)
-        {
-            initializeLists();
-            this.MeshFilter.mesh = null;
-            return;
-        }
-
-        this.CreateMeshForLayer(layer.Sprite, layer.LoopsHorizontally, layer.Height, parallaxRatio, quadWidth);
     }
 
     /**

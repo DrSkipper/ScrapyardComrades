@@ -203,7 +203,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
                 break;
             case MapEditorLayer.LayerType.Parallax:
                 MapEditorParallaxLayer parallaxLayer = currentLayer as MapEditorParallaxLayer;
-                _parallaxVisuals[this.CurrentLayer].CreateMeshForLayer(findParallaxSprite(parallaxLayer.SpriteName), parallaxLayer.Loops, parallaxLayer.Height, parallaxLayer.ParallaxRatio, _mapInfo.width * this.Grid.GridSpaceSize);
+                _parallaxVisuals[this.CurrentLayer].CreateMeshForLayer(findParallaxSprite(parallaxLayer.SpriteName), parallaxLayer.Loops, parallaxLayer.Height, parallaxLayer.XPosition, parallaxLayer.ParallaxRatio, _mapInfo.width * this.Grid.GridSpaceSize);
                 break;
         }
     }
@@ -416,7 +416,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
         {
             string name = PARALLAX_PREFIX + _mapInfo.parallax_layers[i].depth;
             MapEditorParallaxLayer layer = this.Layers[name] as MapEditorParallaxLayer;
-            _parallaxVisuals[name].CreateMeshForLayer(findParallaxSprite(layer.SpriteName), layer.Loops, layer.Height, layer.ParallaxRatio, _mapInfo.width * this.Grid.GridSpaceSize);
+            _parallaxVisuals[name].CreateMeshForLayer(findParallaxSprite(layer.SpriteName), layer.Loops, layer.Height, layer.XPosition, layer.ParallaxRatio, _mapInfo.width * this.Grid.GridSpaceSize);
         }
     }
 

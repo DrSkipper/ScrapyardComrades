@@ -8,6 +8,7 @@ public class MapEditorParallaxPanel : MonoBehaviour
     public Image SpriteImage;
     public Text HeightValueText;
     public Text RatioValueText;
+    public Text XPosValueText;
     public GameObject LoopValueObject;
 
     public void ShowForLayer(MapEditorLayer layer)
@@ -42,22 +43,32 @@ public class MapEditorParallaxPanel : MonoBehaviour
         }
         else if (MapEditorInput.NavDown)
         {
-            _layer.Height = Mathf.Max(0.0f, _layer.Height - 0.1f);
+            _layer.Height = Mathf.Max(0.0f, _layer.Height - INCREMENT);
             updateVisual();
         }
         else if (MapEditorInput.NavUp)
         {
-            _layer.Height = Mathf.Min(1.0f, _layer.Height + 0.1f);
+            _layer.Height = Mathf.Min(1.0f, _layer.Height + INCREMENT);
             updateVisual();
         }
         else if (MapEditorInput.NavLeft)
         {
-            _layer.ParallaxRatio = Mathf.Max(0.0f, _layer.ParallaxRatio - 0.1f);
+            _layer.XPosition = Mathf.Max(0.0f, _layer.XPosition - INCREMENT);
             updateVisual();
         }
         else if (MapEditorInput.NavRight)
         {
-            _layer.ParallaxRatio = Mathf.Min(1.0f, _layer.ParallaxRatio + 0.1f);
+            _layer.XPosition = Mathf.Min(1.0f, _layer.XPosition + INCREMENT);
+            updateVisual();
+        }
+        else if (MapEditorInput.ResizeLeft || MapEditorInput.ResizeDown)
+        {
+            _layer.ParallaxRatio = Mathf.Max(0.0f, _layer.ParallaxRatio - INCREMENT);
+            updateVisual();
+        }
+        else if (MapEditorInput.ResizeRight || MapEditorInput.ResizeUp)
+        {
+            _layer.ParallaxRatio = Mathf.Min(1.0f, _layer.ParallaxRatio + INCREMENT);
             updateVisual();
         }
     }
@@ -68,6 +79,8 @@ public class MapEditorParallaxPanel : MonoBehaviour
     private MapEditorParallaxLayer _layer;
     private int _currentSpriteIndex;
 
+    private const float INCREMENT = 0.05f;
+
     private void updateVisual()
     {
         if (_currentSpriteIndex == -1)
@@ -75,8 +88,9 @@ public class MapEditorParallaxPanel : MonoBehaviour
         else
             this.SpriteImage.sprite = this.ValidSprites[_currentSpriteIndex];
         this.LoopValueObject.SetActive(_layer.Loops);
-        this.HeightValueText.text = "" + _layer.Height;
-        this.RatioValueText.text = "" + _layer.ParallaxRatio;
+        this.HeightValueText.text = _layer.Height.ToString("0.00");
+        this.RatioValueText.text = _layer.ParallaxRatio.ToString("0.00");
+        this.XPosValueText.text = _layer.XPosition.ToString("0.00");
     }
 
     private int findCurrentSpriteIndex()

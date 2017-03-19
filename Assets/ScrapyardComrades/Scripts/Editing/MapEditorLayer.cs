@@ -224,6 +224,7 @@ public class MapEditorParallaxLayer : MapEditorLayer
     public string SpriteName;
     public bool Loops;
     public float Height;
+    public float XPosition;
     public float ParallaxRatio;
 
     public MapEditorParallaxLayer(NewMapInfo.ParallaxLayer parallaxLayer, string name)
@@ -234,6 +235,7 @@ public class MapEditorParallaxLayer : MapEditorLayer
         this.SpriteName = parallaxLayer.sprite_name;
         this.Loops = parallaxLayer.loops;
         this.Height = parallaxLayer.height;
+        this.XPosition = parallaxLayer.x_position;
         this.ParallaxRatio = parallaxLayer.parallax_ratio;
     }
 
@@ -243,6 +245,7 @@ public class MapEditorParallaxLayer : MapEditorLayer
         layer.sprite_name = this.SpriteName;
         layer.loops = this.Loops;
         layer.height = this.Height;
+        layer.x_position = this.XPosition;
         layer.parallax_ratio = this.ParallaxRatio;
     }
 }

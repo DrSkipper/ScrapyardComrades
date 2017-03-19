@@ -195,6 +195,7 @@ public class NewMapInfo
         public int depth;
         public bool loops;
         public float height;
+        public float x_position;
         public float parallax_ratio;
 
         public ParallaxLayer(int d)
@@ -203,6 +204,7 @@ public class NewMapInfo
             depth = d;
             loops = false;
             height = 0.5f;
+            x_position = 0.5f;
             parallax_ratio = 0.2f;
         }
     }

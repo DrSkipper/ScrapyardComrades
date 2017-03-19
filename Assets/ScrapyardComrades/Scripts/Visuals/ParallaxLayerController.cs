@@ -28,13 +28,14 @@ public class ParallaxLayerController : MonoBehaviour
 
         if (layer != null)
         {
+            this.ParallaxRatio = layer.parallax_ratio;
             Sprite sprite = Resources.Load<Sprite>(layer.sprite_name);
-            this.CurrentLayerVisual.CreateMeshForLayer(sprite, layer.loops, layer.height, layer.parallax_ratio, quadWidth);
+            this.CurrentLayerVisual.CreateMeshForLayer(sprite, layer.loops, layer.height, layer.x_position,  layer.parallax_ratio, quadWidth);
             this.CurrentLayerVisual.transform.SetZ(layer.depth);
         }
         else
         {
-            this.CurrentLayerVisual.CreateMeshForLayer(null, false, 0, 0, 0);
+            this.CurrentLayerVisual.CreateMeshForLayer(null, false, 0, 0, 0, 0);
         }
     }
 }
