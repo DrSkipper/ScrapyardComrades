@@ -138,11 +138,11 @@ public class MapEditorTilesLayer : MapEditorLayer
 public class MapEditorObjectsLayer : MapEditorLayer
 {
     public List<NewMapInfo.MapObject> Objects;
-    public GameObject[] ObjectPrefabs;
-    public GameObject CurrentPrefab { get { return this.ObjectPrefabs[_currentPrefab]; } }
+    public Object[] ObjectPrefabs;
+    public Object CurrentPrefab { get { return this.ObjectPrefabs[_currentPrefab]; } }
     public List<GameObject> LoadedObjects;
 
-    public MapEditorObjectsLayer(string name, int depth, List<NewMapInfo.MapObject> objects, GameObject[] prefabs, int nextId)
+    public MapEditorObjectsLayer(string name, int depth, List<NewMapInfo.MapObject> objects, Object[] prefabs, int nextId)
     {
         this.Name = name;
         this.Type = LayerType.Objects;
@@ -171,7 +171,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
     public void AddObject(GameObject gameObject)
     {
         string prefabName = this.CurrentPrefab.name;
-        gameObject.name = prefabName + "_" + _nextId;
+        gameObject.name = this.Name + UNDERSCORE + prefabName + UNDERSCORE + _nextId;
         ++_nextId;
         if (_nextId == int.MaxValue)
             _nextId = 0;
@@ -190,7 +190,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
         this.LoadedObjects.Remove(toRemove);
     }
 
-    public GameObject PrefabForName(string prefabName)
+    public Object PrefabForName(string prefabName)
     {
         for (int i = 0; i < this.ObjectPrefabs.Length; ++i)
         {
@@ -219,6 +219,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
      */
     private int _currentPrefab;
     private int _nextId;
+    private const string UNDERSCORE = "_";
 }
 
 public class MapEditorParallaxLayer : MapEditorLayer

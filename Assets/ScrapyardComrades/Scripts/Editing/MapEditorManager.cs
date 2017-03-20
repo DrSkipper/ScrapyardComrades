@@ -11,6 +11,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public const string BACKGROUND_LAYER = "background";
     public const string OBJECTS_LAYER = "objects";
     public const string PROPS_LAYER = "props";
+    public const string PROPS_FOLDER = "Props";
 
     public CameraController CameraController;
     public TileRenderer PlatformsRenderer;
@@ -28,8 +29,9 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public TimedCallbacks TimedCallbacks;
     public string WorldEditorSceneName = "WorldEditor";
     public float LoadTime = 1.0f;
-    public GameObject[] ObjectPrefabs;
-    public GameObject[] PropPrefabs;
+    public PrefabCollection ObjectPrefabs;
+    public PrefabCollection PropPrefabs;
+    public PooledObject SpriteObjectPrefab;
     public Sprite[] ParallaxSprites;
     public ParallaxQuadGroup ParallaxVisualPrefab;
     public Transform ParallaxParent;
@@ -88,8 +90,11 @@ public class MapEditorManager : MonoBehaviour, IPausable
         this.ObjectCursor.SetPosition2D(_mapInfo.width * this.Grid.GridSpaceSize / 2, _mapInfo.height * this.Grid.GridSpaceSize / 2);
 
         // Setup Object Layers
-        this.Layers.Add(OBJECTS_LAYER, new MapEditorObjectsLayer(OBJECTS_LAYER, PLATFORMS_LAYER_DEPTH - LAYER_DEPTH_INCREMENT, _mapInfo.objects, this.ObjectPrefabs, _mapInfo.next_object_id));
-        this.Layers.Add(PROPS_LAYER, new MapEditorObjectsLayer(PROPS_LAYER, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT, _mapInfo.props, this.PropPrefabs, _mapInfo.next_prop_id));
+        this.Layers.Add(OBJECTS_LAYER, new MapEditorObjectsLayer(OBJECTS_LAYER, PLATFORMS_LAYER_DEPTH - LAYER_DEPTH_INCREMENT, _mapInfo.objects, this.ObjectPrefabs.Prefabs.ToArray(), _mapInfo.next_object_id));
+        List<Object> props = new List<Object>(Resources.LoadAll<Sprite>(PROPS_FOLDER));
+        if (this.PropPrefabs.Prefabs != null)
+            props.AddRange(props);
+        this.Layers.Add(PROPS_LAYER, new MapEditorObjectsLayer(PROPS_LAYER, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT, _mapInfo.props, props.ToArray(), _mapInfo.next_prop_id));
 
         // Setup Tile Layers
         this.Layers.Add(PLATFORMS_LAYER, new MapEditorTilesLayer(platformsLayerData, PLATFORMS_LAYER_DEPTH, _tilesets, this.PlatformsRenderer));
@@ -372,19 +377,23 @@ public class MapEditorManager : MonoBehaviour, IPausable
     {
         Transform child = this.ObjectCursor.GetChild(0);
         this.ObjectCursor.DetachChildren();
-        Destroy(child.gameObject);
+        child.GetComponent<PooledObject>().Release();
     }
 
     private void addObjectBrush(MapEditorObjectsLayer layer)
     {
-        GameObject child = Instantiate<GameObject>(layer.CurrentPrefab);
+        Object prefab = layer.CurrentPrefab;
+        PooledObject brushPooledObject = loadPooledObject(prefab);
+        GameObject child = brushPooledObject.gameObject;
         child.transform.parent = this.ObjectCursor;
         child.transform.SetLocalPosition(0, 0, 0);
     }
 
     private void addObject(MapEditorObjectsLayer layer)
     {
-        GameObject newObject = Instantiate<GameObject>(layer.CurrentPrefab);
+        Object prefab = layer.CurrentPrefab;
+        PooledObject brushPooledObject = loadPooledObject(prefab);
+        GameObject newObject = brushPooledObject.gameObject;
         newObject.transform.SetPosition(this.ObjectCursor.position.x, this.ObjectCursor.position.y, layer.Depth);
         layer.AddObject(newObject);
     }
@@ -393,11 +402,33 @@ public class MapEditorManager : MonoBehaviour, IPausable
     {
         for (int i = 0; i < layer.Objects.Count; ++i)
         {
-            GameObject newObject = Instantiate<GameObject>(layer.PrefabForName(layer.Objects[i].prefab_name));
+            Object prefab = layer.PrefabForName(layer.Objects[i].prefab_name);
+            GameObject newObject = loadPooledObject(prefab).gameObject;
             newObject.name = layer.Objects[i].name;
             newObject.transform.SetPosition(layer.Objects[i].x, layer.Objects[i].y, layer.Depth);
             layer.LoadedObjects.Add(newObject);
         }
+    }
+
+    private PooledObject loadPooledObject(Object prefab)
+    {
+        PooledObject newPooledObject;
+        if (prefab is Sprite)
+        {
+            newPooledObject = this.SpriteObjectPrefab.Retain();
+            newPooledObject.GetComponent<SpriteRenderer>().sprite = prefab as Sprite;
+        }
+        else
+        {
+            newPooledObject = (prefab as PooledObject).Retain();
+
+            foreach (MonoBehaviour c in newPooledObject.GetComponents<MonoBehaviour>())
+            {
+                if (!(c is PooledObject))
+                    c.enabled = false;
+            }
+        }
+        return newPooledObject;
     }
 
     private void updateVisuals()

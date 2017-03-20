@@ -18,7 +18,7 @@ public class MapLoader : MonoBehaviour
 
     public bool Cleared { get { return _cleared; } }
 
-    public void LoadMap(TilesetData platformsTileset, TilesetData bgTileset, Texture2D platformsAtlas, Texture2D bgAtlas)
+    public void LoadMap(TilesetData platformsTileset, TilesetData bgTileset, Texture2D platformsAtlas, Texture2D bgAtlas, Dictionary<string, PooledObject> objectPrefabs, Dictionary<string, PooledObject> propPrefabs)
     {
         this.ClearMap();
         _cleared = false;
@@ -40,8 +40,8 @@ public class MapLoader : MonoBehaviour
         }
         this.GeometryCreator.CreateGeometryForGrid(platformsGrid, platformsTileset.GetSpriteDataDictionary(), false);
         
-        this.ObjectPlacer.PlaceObjects(mapInfo.objects, this.MapName, true);
-        this.ObjectPlacer.PlaceObjects(mapInfo.props, this.MapName, false);
+        this.ObjectPlacer.PlaceObjects(mapInfo.objects, objectPrefabs, this.MapName, true);
+        this.ObjectPlacer.PlaceObjects(mapInfo.props, propPrefabs, this.MapName, false);
     }
 
     public void ClearMap(bool editor = false)

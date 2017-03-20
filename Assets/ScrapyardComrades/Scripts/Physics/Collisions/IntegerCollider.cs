@@ -28,7 +28,8 @@ public abstract class IntegerCollider : VoBehavior
 
     public void RemoveFromCollisionPool()
     {
-        this.CollisionManager.RemoveCollider(this.layerMask, this);
+        if (this.CollisionManager != null)
+            this.CollisionManager.RemoveCollider(this.layerMask, this);
     }
 
     public virtual bool Overlaps(IntegerCollider other, int offsetX = 0, int offsetY = 0)

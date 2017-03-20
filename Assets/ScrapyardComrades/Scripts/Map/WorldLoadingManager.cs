@@ -22,6 +22,8 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     public CollisionManager CollisionManager;
     public EntityTracker EntityTracker;
     public TilesetCollection TilesetCollection;
+    public PrefabCollection ObjectPrefabs;
+    public PrefabCollection PropPrefabs;
 
     public IntegerRectCollider CurrentQuadBoundsCheck;
     public IntegerRectCollider GetBounds() { return this.CurrentQuadBoundsCheck; }
@@ -76,6 +78,23 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
 
         if (_currentQuad == null)
             Debug.LogWarning("Starting quad '" + this.StartingAreaName + "' not found. Quad count = " + _allMapQuads.Count);
+
+        _objectPrefabs = new Dictionary<string, PooledObject>();
+        _propPrefabs = new Dictionary<string, PooledObject>();
+        if (this.ObjectPrefabs.Prefabs != null)
+        {
+            for (int i = 0; i < this.ObjectPrefabs.Prefabs.Count; ++i)
+            {
+                _objectPrefabs[this.ObjectPrefabs.Prefabs[i].name] = this.ObjectPrefabs.Prefabs[i];
+            }
+        }
+        if (this.PropPrefabs.Prefabs != null)
+        {
+            for (int i = 0; i < this.PropPrefabs.Prefabs.Count; ++i)
+            {
+                _propPrefabs[this.PropPrefabs.Prefabs[i].name] = this.PropPrefabs.Prefabs[i];
+            }
+        }
 
         this.CollisionManager.RemoveAllSolids();
         _targetLoadedQuads = new List<MapQuad>();
@@ -150,6 +169,8 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     private Dictionary<string, NewMapInfo> _quadData;
     private Dictionary<string, TilesetData> _tilesets;
     private Dictionary<string, Texture2D> _cachedAtlases;
+    private Dictionary<string, PooledObject> _objectPrefabs;
+    private Dictionary<string, PooledObject> _propPrefabs;
 
     private void gatherWorldMapInfo()
     {
@@ -298,7 +319,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         string backgroundTilesetName = mapInfo.GetMapLayer(MapEditorManager.BACKGROUND_LAYER).tileset_name;
         TilesetData platformsTileset = _tilesets[platformsTilesetName];
         TilesetData backgroundTileset = _tilesets[backgroundTilesetName];
-        loader.LoadMap(platformsTileset, backgroundTileset, getAtlas(platformsTileset.AtlasName), getAtlas(backgroundTileset.AtlasName));
+        loader.LoadMap(platformsTileset, backgroundTileset, getAtlas(platformsTileset.AtlasName), getAtlas(backgroundTileset.AtlasName), _objectPrefabs, _propPrefabs);
     }
 
     private Texture2D getAtlas(string name)

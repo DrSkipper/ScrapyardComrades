@@ -30761,108 +30761,52 @@
   ],
   "props": [
     {
-      "name": "SlumsNeon_0",
-      "prefab_name": "SlumsNeon",
-      "x": 904,
-      "y": 360,
+      "name": "props_slums_car_15",
+      "prefab_name": "slums_car",
+      "x": 2420,
+      "y": 452,
       "z": 2
     },
     {
-      "name": "SlumsDebris_1",
-      "prefab_name": "SlumsDebris",
-      "x": 1120,
-      "y": 280,
-      "z": 2
-    },
-    {
-      "name": "SlumsCar_2",
-      "prefab_name": "SlumsCar",
-      "x": 920,
-      "y": 256,
-      "z": 2
-    },
-    {
-      "name": "SlumsLamp_3",
-      "prefab_name": "SlumsLamp",
-      "x": 456,
-      "y": 336,
-      "z": 2
-    },
-    {
-      "name": "SlumsLamp_4",
-      "prefab_name": "SlumsLamp",
-      "x": 1016,
-      "y": 336,
-      "z": 2
-    },
-    {
-      "name": "SlumsPlant_5",
-      "prefab_name": "SlumsPlant",
-      "x": 1008,
-      "y": 224,
-      "z": 2
-    },
-    {
-      "name": "SlumsPlant_6",
-      "prefab_name": "SlumsPlant",
-      "x": 1240,
-      "y": 224,
-      "z": 2
-    },
-    {
-      "name": "SlumsPlant_7",
-      "prefab_name": "SlumsPlant",
-      "x": 272,
-      "y": 224,
-      "z": 2
-    },
-    {
-      "name": "SlumsPlant_8",
-      "prefab_name": "SlumsPlant",
-      "x": 208,
-      "y": 448,
-      "z": 2
-    },
-    {
-      "name": "SlumsPlant_9",
-      "prefab_name": "SlumsPlant",
-      "x": 488,
-      "y": 224,
-      "z": 2
-    },
-    {
-      "name": "SlumsLamp_10",
-      "prefab_name": "SlumsLamp",
-      "x": 2344,
+      "name": "props_slums_lamp_16",
+      "prefab_name": "slums_lamp",
+      "x": 2296,
       "y": 528,
       "z": 2
     },
     {
-      "name": "SlumsDebris_11",
-      "prefab_name": "SlumsDebris",
-      "x": 1872,
-      "y": 288,
-      "z": 2
-    },
-    {
-      "name": "SlumsCar_12",
-      "prefab_name": "SlumsCar",
-      "x": 2456,
-      "y": 448,
-      "z": 2
-    },
-    {
-      "name": "SlumsPlant_13",
-      "prefab_name": "SlumsPlant",
-      "x": 2352,
+      "name": "props_slums_plant_17",
+      "prefab_name": "slums_plant",
+      "x": 2300,
       "y": 416,
       "z": 2
     },
     {
-      "name": "SlumsPlant_14",
-      "prefab_name": "SlumsPlant",
-      "x": 1680,
-      "y": 256,
+      "name": "props_slums_debris_18",
+      "prefab_name": "slums_debris",
+      "x": 1872,
+      "y": 284,
+      "z": 2
+    },
+    {
+      "name": "props_slums_lamp_19",
+      "prefab_name": "slums_lamp",
+      "x": 948,
+      "y": 336,
+      "z": 2
+    },
+    {
+      "name": "props_slums_plant_20",
+      "prefab_name": "slums_plant",
+      "x": 1132,
+      "y": 228,
+      "z": 2
+    },
+    {
+      "name": "props_slums_plant_21",
+      "prefab_name": "slums_plant",
+      "x": 908,
+      "y": 224,
       "z": 2
     }
   ],
@@ -30873,8 +30817,22 @@
       "x": 368,
       "y": 264,
       "z": -2
+    },
+    {
+      "name": "objects_TestEnemy_1",
+      "prefab_name": "TestEnemy",
+      "x": 1196,
+      "y": 256,
+      "z": -2
+    },
+    {
+      "name": "objects_rock_2",
+      "prefab_name": "rock",
+      "x": 788,
+      "y": 240,
+      "z": -2
     }
   ],
-  "next_object_id": 1,
-  "next_prop_id": 15
+  "next_object_id": 3,
+  "next_prop_id": 22
 }

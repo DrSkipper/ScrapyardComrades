@@ -12,6 +12,7 @@ public static class SCCustomObjectCreator
     private const string DIALOG_PATH = "Interactables/Dialog/NewDialog.asset";
     private const string TILESET_DATA_PATH = "Tilesets/NewTileset.asset";
     private const string TILESET_COLLECTION_PATH = "TilesetCollections/NewTilesetCollection.asset";
+    private const string PREFAB_COLLECTION_PATH = "PrefabCollections/NewPrefabCollection.asset";
 
     [MenuItem("Custom Objects/Create Sprite Animation")]
     public static void CreateSpriteAnimation()
@@ -59,6 +60,12 @@ public static class SCCustomObjectCreator
     public static void CreateTilesetCollection()
     {
         SaveAsset(TilesetCollection.CreateInstance<TilesetCollection>(), PATH + TILESET_COLLECTION_PATH);
+    }
+
+    [MenuItem("Custom Objects/Create Prefab Collection")]
+    public static void CreatePrefabCollection()
+    {
+        SaveAsset(PrefabCollection.CreateInstance<PrefabCollection>(), PATH + PREFAB_COLLECTION_PATH);
     }
 
     public static void SaveAsset(ScriptableObject asset, string path)

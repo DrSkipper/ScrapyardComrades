@@ -4,23 +4,50 @@ using System.Collections.Generic;
 public class ObjectPools : MonoBehaviour
 {
     public PooledObject[] PrefabsToPool;
+    public PrefabCollection[] PrefabCollections;
 
     void Awake()
     {
         _instance = this;
-        _pools = new List<PooledObject>[this.PrefabsToPool.Length];
+        int totalCount = getTotalPrefabsCount();
+        _pools = new List<PooledObject>[totalCount];
+        int i = 0;
 
-        for (int i = 0; i < this.PrefabsToPool.Length; ++i)
+        if (this.PrefabsToPool != null)
         {
-            // Set pool ids, create pools
-            PooledObject prefab = this.PrefabsToPool[i];
-            prefab.PoolId = i;
-            _pools[i] = new List<PooledObject>(prefab.MaxToStore);
-
-            // Preload
-            while (_pools[i].Count < prefab.MaxToStore)
+            for (; i < this.PrefabsToPool.Length; ++i)
             {
-                returnObject(_pools[i], instantiate(prefab), false);
+                // Set pool ids, create pools
+                PooledObject prefab = this.PrefabsToPool[i];
+                prefab.PoolId = i;
+                _pools[i] = new List<PooledObject>(prefab.MaxToStore);
+
+                // Preload
+                while (_pools[i].Count < prefab.MaxToStore)
+                {
+                    returnObject(_pools[i], instantiate(prefab), false);
+                }
+            }
+        }
+
+        if (this.PrefabCollections != null)
+        {
+            for (int j = 0; j < this.PrefabCollections.Length; ++j)
+            {
+                for (int p = 0; p < this.PrefabCollections[j].Prefabs.Count; ++p)
+                {
+                    // Set pool ids, create pools
+                    PooledObject prefab = this.PrefabCollections[j].Prefabs[p];
+                    prefab.PoolId = i;
+                    _pools[i] = new List<PooledObject>(prefab.MaxToStore);
+
+                    // Preload
+                    while (_pools[i].Count < prefab.MaxToStore)
+                    {
+                        returnObject(_pools[i], instantiate(prefab), false);
+                    }
+                    ++i;
+                }
             }
         }
     }
@@ -60,6 +87,21 @@ public class ObjectPools : MonoBehaviour
      */
     private static ObjectPools _instance;
     private List<PooledObject>[] _pools;
+
+    private int getTotalPrefabsCount()
+    {
+        int c = 0;
+        if (this.PrefabsToPool != null)
+        {
+            c += this.PrefabsToPool.Length;
+        }
+        if (this.PrefabCollections != null)
+        {
+            for (int i = 0; i < this.PrefabCollections.Length; ++i)
+                c += this.PrefabCollections[i].Prefabs.Count;
+        }
+        return c;
+    }
 
     private PooledObject retain(PooledObject prefab)
     {
