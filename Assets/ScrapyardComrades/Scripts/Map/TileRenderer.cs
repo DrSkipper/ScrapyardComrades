@@ -16,22 +16,22 @@ public class TileRenderer : VoBehavior
         if (this.Atlas != null)
         {
             this.renderer.sharedMaterial.mainTexture = this.Atlas;
-            _sprites = this.Atlas.GetSprites();
+            _sprites = this.Atlas.GetSprites(TilesetEditorManager.TILESETS_PATH);
         }
     }
 
     public void SetAtlas(string atlasName)
     {
-        this.Atlas = Resources.Load<Texture2D>(atlasName);
+        this.Atlas = Resources.Load<Texture2D>(TilesetEditorManager.TILESETS_PATH + atlasName);
         this.renderer.sharedMaterial.mainTexture = this.Atlas;
-        _sprites = this.Atlas.GetSprites();
+        _sprites = this.Atlas.GetSprites(TilesetEditorManager.TILESETS_PATH);
     }
 
     public void SetAtlas(Texture2D atlas)
     {
         this.Atlas = atlas;
         this.renderer.sharedMaterial.mainTexture = this.Atlas;
-        _sprites = this.Atlas.GetSprites();
+        _sprites = this.Atlas.GetSprites(TilesetEditorManager.TILESETS_PATH);
     }
 
     public void CreateEmptyMap(int width, int height)

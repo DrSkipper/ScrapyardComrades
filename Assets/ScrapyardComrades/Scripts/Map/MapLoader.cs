@@ -83,7 +83,7 @@ public class MapLoader : MonoBehaviour
         Dictionary<string, Sprite[]> sprites = new Dictionary<string, Sprite[]>();
         foreach (string key in textures.Keys)
         {
-            sprites.Add(key, textures[key].GetSpritesArray());
+            sprites.Add(key, textures[key].GetSpritesArray(TilesetEditorManager.TILESETS_PATH));
         }
         return sprites;
     }

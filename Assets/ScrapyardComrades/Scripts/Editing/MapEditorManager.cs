@@ -469,7 +469,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
         for (int i = 0; i < this.TilesetCollection.Tilesets.Length; ++i)
         {
             _tilesets.Add(this.TilesetCollection.Tilesets[i].name, this.TilesetCollection.Tilesets[i]);
-            atlases.Add(Resources.Load<Texture2D>(this.TilesetCollection.Tilesets[i].AtlasName));
+            atlases.Add(Resources.Load<Texture2D>(TilesetEditorManager.TILESETS_PATH + this.TilesetCollection.Tilesets[i].AtlasName));
         }
         return atlases;
     }

@@ -325,7 +325,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     private Texture2D getAtlas(string name)
     {
         if (!_cachedAtlases.ContainsKey(name))
-            _cachedAtlases[name] = Resources.Load<Texture2D>(name);
+            _cachedAtlases[name] = Resources.Load<Texture2D>(TilesetEditorManager.TILESETS_PATH + name);
         return _cachedAtlases[name];
     }
 }

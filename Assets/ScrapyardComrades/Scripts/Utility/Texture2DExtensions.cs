@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 public static class Texture2DExtensions
 {
-    public static Dictionary<string, Sprite> GetSprites(this Texture2D self)
+    public static Dictionary<string, Sprite> GetSprites(this Texture2D self, string path)
     {
         Dictionary<string, Sprite> spriteDictionary = new Dictionary<string, Sprite>();
-        Sprite[] spriteArray = self.GetSpritesArray();
+        Sprite[] spriteArray = self.GetSpritesArray(path);
 
         foreach (Sprite sprite in spriteArray)
         {
@@ -16,9 +16,9 @@ public static class Texture2DExtensions
         return spriteDictionary;
     }
 
-    public static Sprite[] GetSpritesArray(this Texture2D self)
+    public static Sprite[] GetSpritesArray(this Texture2D self, string path)
     {
-        return Resources.LoadAll<Sprite>(self.name);
+        return Resources.LoadAll<Sprite>(path + self.name);
     }
 
     public static Vector2[] GetUVs(this Sprite self)

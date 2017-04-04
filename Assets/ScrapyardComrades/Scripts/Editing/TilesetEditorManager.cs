@@ -4,6 +4,8 @@ using System.Collections.Generic;
 [ExecuteInEditMode]
 public class TilesetEditorManager : MonoBehaviour
 {
+    public const string TILESETS_PATH = "Tilesets/";
+
     public MeshRenderer MeshRenderer;
     public MeshFilter MeshFilter;
     public RectTransform Cursor;
@@ -29,14 +31,15 @@ public class TilesetEditorManager : MonoBehaviour
             return;
         }
 
-        _texture = Resources.Load<Texture2D>(this.TilesetToEdit.AtlasName);
+        Debug.Log("loading tileset " + TILESETS_PATH + this.TilesetToEdit.AtlasName);
+        _texture = Resources.Load<Texture2D>(TILESETS_PATH + this.TilesetToEdit.AtlasName);
         if (_texture == null)
         {
             Debug.LogWarning("Could not find tileset named " + this.TilesetToEdit.AtlasName);
             return;
         }
 
-        _sprites = _texture.GetSpritesArray();
+        _sprites = _texture.GetSpritesArray(TILESETS_PATH);
         _spriteData = this.TilesetToEdit.GetSpriteDataDictionary();
         this.SelectedSprite = null;
 
