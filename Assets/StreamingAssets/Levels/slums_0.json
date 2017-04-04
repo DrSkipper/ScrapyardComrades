@@ -30812,13 +30812,6 @@
   ],
   "objects": [
     {
-      "name": "Amelia_0",
-      "prefab_name": "Amelia",
-      "x": 368,
-      "y": 264,
-      "z": -2
-    },
-    {
       "name": "objects_TestEnemy_1",
       "prefab_name": "TestEnemy",
       "x": 1196,
@@ -30831,8 +30824,15 @@
       "x": 788,
       "y": 240,
       "z": -2
+    },
+    {
+      "name": "objects_HeroLV1_3",
+      "prefab_name": "HeroLV1",
+      "x": 1860,
+      "y": 452,
+      "z": -2
     }
   ],
-  "next_object_id": 3,
+  "next_object_id": 4,
   "next_prop_id": 22
 }
