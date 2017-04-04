@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: aeba4f1553a7bdd4abdc95db8930c133
-timeCreated: 1491339086
+timeCreated: 1491344802
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,6 +13,7 @@ TextureImporter:
     21300012: hero_lv1_run_6
     21300014: hero_lv1_run_7
     21300016: hero_lv1_run_8
+    21300018: hero_lv1_run_9
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -99,11 +100,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 88
+        y: 118
         width: 35
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -112,11 +113,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 35
-        y: 88
+        y: 118
         width: 35
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -125,11 +126,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 70
-        y: 88
+        y: 118
         width: 35
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -137,12 +138,12 @@ TextureImporter:
       name: hero_lv1_run_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
+        x: 105
+        y: 118
         width: 35
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -150,12 +151,12 @@ TextureImporter:
       name: hero_lv1_run_4
       rect:
         serializedVersion: 2
-        x: 35
-        y: 48
+        x: 0
+        y: 78
         width: 35
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -163,8 +164,8 @@ TextureImporter:
       name: hero_lv1_run_5
       rect:
         serializedVersion: 2
-        x: 70
-        y: 48
+        x: 35
+        y: 78
         width: 35
         height: 40
       alignment: 0
@@ -176,8 +177,8 @@ TextureImporter:
       name: hero_lv1_run_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 8
+        x: 70
+        y: 78
         width: 35
         height: 40
       alignment: 0
@@ -189,8 +190,8 @@ TextureImporter:
       name: hero_lv1_run_7
       rect:
         serializedVersion: 2
-        x: 35
-        y: 8
+        x: 0
+        y: 38
         width: 35
         height: 40
       alignment: 0
@@ -202,8 +203,21 @@ TextureImporter:
       name: hero_lv1_run_8
       rect:
         serializedVersion: 2
+        x: 35
+        y: 38
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_lv1_run_9
+      rect:
+        serializedVersion: 2
         x: 70
-        y: 8
+        y: 38
         width: 35
         height: 40
       alignment: 0

@@ -10,6 +10,7 @@ public class CharacterVisualizer : VoBehavior
     public SCSpriteAnimation FallAnimation;
     public SCSpriteAnimation WallSlideAnimation;
     public SCSpriteAnimation LedgeGrabAnimation;
+    public SCSpriteAnimation LedgeGrabBackAnimation;
     public SCSpriteAnimation DuckAnimation;
     public SCSpriteAnimation HitStunAnimation;
     public SCSpriteAnimation DeathAnimation;
@@ -20,6 +21,7 @@ public class CharacterVisualizer : VoBehavior
     private const string FALLING_STATE = "fall";
     private const string WALLSLIDE_STATE = "wallslide";
     private const string LEDGEGRAB_STATE = "ledgegrab";
+    private const string LEDGEGRABBACK_STATE = "ledgegrabback";
     private const string DUCKING_STATE = "duck";
     private const string STUNNED_STATE = "stun";
     private const string DEATH_STATE = "death";
@@ -36,6 +38,7 @@ public class CharacterVisualizer : VoBehavior
         _stateMachine.AddState(FALLING_STATE, this.updateGeneric, this.enterFalling);
         _stateMachine.AddState(WALLSLIDE_STATE, this.updateGeneric, this.enterWallSlide);
         _stateMachine.AddState(LEDGEGRAB_STATE, this.updateGeneric, this.enterLedgeGrab);
+        _stateMachine.AddState(LEDGEGRABBACK_STATE, this.updateGeneric, this.enterLedgeGrabBack, this.exitLedgeGrabBack);
         _stateMachine.AddState(DUCKING_STATE, this.updateGeneric, this.enterDucking);
         _stateMachine.AddState(STUNNED_STATE, this.updateGeneric, this.enterHitStun);
         _stateMachine.AddState(DEATH_STATE, this.updateDying, this.enterDeath);
@@ -57,7 +60,7 @@ public class CharacterVisualizer : VoBehavior
         _currentAttack = attack;
 
         _stateMachine.Update();
-        this.transform.localScale = new Vector3((_characterController.CurrentFacing == SCCharacterController.Facing.Left ? -1 : 1) * Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
+        this.transform.localScale = new Vector3(_facingModifier * (_characterController.CurrentFacing == SCCharacterController.Facing.Left ? -1 : 1) * Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
     }
 
     /**
@@ -68,6 +71,7 @@ public class CharacterVisualizer : VoBehavior
     private SCSpriteAnimator _spriteAnimator;
     private SCAttack _currentAttack;
     private bool _attackChanged;
+    private int _facingModifier = 1;
 
     private string updateGeneric()
     {
@@ -88,7 +92,7 @@ public class CharacterVisualizer : VoBehavior
         if (!_characterController.OnGround)
         {
             if (_characterController.IsGrabbingLedge)
-                return LEDGEGRAB_STATE;
+                return _characterController.DirectionGrabbingLedge == _characterController.CurrentFacing ? LEDGEGRAB_STATE : LEDGEGRABBACK_STATE;
             if (_characterController.MostRecentInput.JumpHeld && _characterController.Velocity.y > 0.0f)
                 return JUMPING_STATE;
             if (_characterController.IsWallSliding)
@@ -152,6 +156,17 @@ public class CharacterVisualizer : VoBehavior
     private void enterLedgeGrab()
     {
         _spriteAnimator.PlayAnimation(this.LedgeGrabAnimation);
+    }
+
+    private void enterLedgeGrabBack()
+    {
+        _facingModifier = -1;
+        _spriteAnimator.PlayAnimation(this.LedgeGrabBackAnimation != null ? this.LedgeGrabBackAnimation : this.LedgeGrabAnimation);
+    }
+
+    private void exitLedgeGrabBack()
+    {
+        _facingModifier = 1;
     }
 
     private void enterDucking()
