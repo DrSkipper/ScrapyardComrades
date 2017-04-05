@@ -2,8 +2,10 @@
 
 public class ParallaxLayerController : MonoBehaviour
 {
+    public const string PARALLAX_PATH = "Parallax/";
     public ParallaxQuadGroup CurrentLayerVisual;
     public ParallaxQuadGroup PreviousLayerVisual;
+    public ParallaxLayerController PreviousLayerController;
     public Transform Tracker;
     public CameraController CameraController;
     public float ParallaxRatio;
@@ -22,14 +24,14 @@ public class ParallaxLayerController : MonoBehaviour
     public void TransitionToNewLayer(NewMapInfo.ParallaxLayer layer, int quadWidth)
     {
         this.PreviousLayerVisual.UpdateWithMesh(this.CurrentLayerVisual.MeshFilter.mesh, this.CurrentLayerVisual.MeshRenderer.sharedMaterial.mainTexture as Texture2D);
-
+        this.PreviousLayerController.ParallaxRatio = this.ParallaxRatio;
         this.PreviousLayerVisual.transform.SetZ(this.CurrentLayerVisual.transform.position.z);
         this.PreviousLayerVisual.transform.SetLocalY(this.CurrentLayerVisual.transform.localPosition.y);
 
         if (layer != null)
         {
             this.ParallaxRatio = layer.parallax_ratio;
-            Sprite sprite = Resources.Load<Sprite>(layer.sprite_name);
+            Sprite sprite = Resources.Load<Sprite>(PARALLAX_PATH + layer.sprite_name);
             this.CurrentLayerVisual.CreateMeshForLayer(sprite, layer.loops, layer.height, layer.x_position,  layer.parallax_ratio, quadWidth);
             this.CurrentLayerVisual.transform.SetZ(layer.depth);
         }
