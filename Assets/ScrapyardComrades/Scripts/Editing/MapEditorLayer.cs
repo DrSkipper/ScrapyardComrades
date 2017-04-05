@@ -60,6 +60,14 @@ public class MapEditorTilesLayer : MapEditorLayer
                 this.Data[x, y - 1].sprite_name = getAutoTileSprite(x, y - 1, false);
             if (y < this.Data.GetLength(1) - 1)
                 this.Data[x, y + 1].sprite_name = getAutoTileSprite(x, y + 1, false);
+            if (x > 0 && y > 0)
+                this.Data[x - 1, y - 1].sprite_name = getAutoTileSprite(x - 1, y - 1, false);
+            if (x < this.Data.GetLength(0) - 1 && y > 0)
+                this.Data[x + 1, y - 1].sprite_name = getAutoTileSprite(x + 1, y - 1, false);
+            if (x > 0 && y < this.Data.GetLength(1) - 1)
+                this.Data[x - 1, y + 1].sprite_name = getAutoTileSprite(x - 1, y + 1, false);
+            if (x < this.Data.GetLength(0) - 1 && y < this.Data.GetLength(1) - 1)
+                this.Data[x + 1, y + 1].sprite_name = getAutoTileSprite(x + 1, y + 1, false);
         }
 
         this.ApplyData(x, y);
