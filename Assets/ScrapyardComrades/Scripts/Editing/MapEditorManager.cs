@@ -93,7 +93,10 @@ public class MapEditorManager : MonoBehaviour, IPausable
         this.Layers.Add(OBJECTS_LAYER, new MapEditorObjectsLayer(OBJECTS_LAYER, PLATFORMS_LAYER_DEPTH - LAYER_DEPTH_INCREMENT, _mapInfo.objects, this.ObjectPrefabs.Prefabs.ToArray(), _mapInfo.next_object_id));
         List<Object> props = new List<Object>(Resources.LoadAll<Sprite>(PROPS_FOLDER));
         if (this.PropPrefabs.Prefabs != null)
-            props.AddRange(props);
+        {
+            for (int i = 0; i < this.PropPrefabs.Prefabs.Count; ++i)
+                props.Add(this.PropPrefabs.Prefabs[i].gameObject);
+        }
         this.Layers.Add(PROPS_LAYER, new MapEditorObjectsLayer(PROPS_LAYER, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT, _mapInfo.props, props.ToArray(), _mapInfo.next_prop_id));
 
         // Setup Tile Layers
@@ -420,7 +423,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
         }
         else
         {
-            newPooledObject = (prefab as PooledObject).Retain();
+            newPooledObject = prefab is GameObject ? (prefab as GameObject).GetComponent<PooledObject>().Retain() : (prefab as PooledObject).Retain();
 
             foreach (MonoBehaviour c in newPooledObject.GetComponents<MonoBehaviour>())
             {

@@ -30836,6 +30836,62 @@
       "x": 1020,
       "y": 336,
       "z": 2
+    },
+    {
+      "name": "props_SlumsLamp_27",
+      "prefab_name": "SlumsLamp",
+      "x": 532,
+      "y": 336,
+      "z": 2
+    },
+    {
+      "name": "props_OverlayPink_28",
+      "prefab_name": "OverlayPink",
+      "x": 740,
+      "y": 316,
+      "z": 2
+    },
+    {
+      "name": "props_OverlayPink_29",
+      "prefab_name": "OverlayPink",
+      "x": 1056,
+      "y": 228,
+      "z": 2
+    },
+    {
+      "name": "props_OverlayPink_30",
+      "prefab_name": "OverlayPink",
+      "x": 276,
+      "y": 592,
+      "z": 2
+    },
+    {
+      "name": "props_OverlayPink_31",
+      "prefab_name": "OverlayPink",
+      "x": 1400,
+      "y": 464,
+      "z": 2
+    },
+    {
+      "name": "props_OverlayPink_32",
+      "prefab_name": "OverlayPink",
+      "x": 1768,
+      "y": 320,
+      "z": 2
+    },
+    {
+      "name": "props_OverlayPink_33",
+      "prefab_name": "OverlayPink",
+      "x": 2016,
+      "y": 284,
+      "z": 2
+    },
+    {
+      "name": "props_SlumsLamp_34",
+      "prefab_name": "SlumsLamp",
+      "x": 2296,
+      "y": 528,
+      "z": 2
     }
   ],
   "objects": [
@@ -30862,5 +30918,5 @@
     }
   ],
   "next_object_id": 4,
-  "next_prop_id": 27
+  "next_prop_id": 35
 }
