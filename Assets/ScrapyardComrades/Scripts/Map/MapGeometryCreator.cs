@@ -73,7 +73,7 @@ public class MapGeometryCreator : VoBehavior
         if (!tile.is_filled || !spriteData.ContainsKey(tile.sprite_name))
             return true;
         TilesetData.TileType type = spriteData[tile.sprite_name].Type;
-        if (type == TilesetData.TileType.Surrounded || type == TilesetData.TileType.InnerCornerBottomLeft || type == TilesetData.TileType.InnerCornerBottomRight || type == TilesetData.TileType.InnerCornerTopLeft || type == TilesetData.TileType.InnerCornerTopRight || type == TilesetData.TileType.Empty)
+        if (type == TilesetData.TileType.Surrounded || type == TilesetData.TileType.Empty)
             return true;
         return false;
     }
