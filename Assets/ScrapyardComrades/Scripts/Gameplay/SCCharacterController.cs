@@ -61,6 +61,7 @@ public class SCCharacterController : Actor2D, ISpawnable
     public int JumpBufferFrames = 6;
     public int JumpGraceFrames = 6;
     public int AgainstWallCheckOffset = 0;
+    public int WallJumpCheckOffset = 0;
     public int LedgeGrabCheckDistance = 6;
     public int LedgeGrabPeekDistance = 8;
     public float LandingHorizontalMultiplier = 0.6f;
@@ -369,9 +370,9 @@ public class SCCharacterController : Actor2D, ISpawnable
             {
                 if (wallJumpValid)
                 {
-                    if (leftWallJumpValid)
+                    if (leftWallJumpValid && checkAgainstWallForWallJump(Facing.Left))
                         wallJump(Facing.Right);
-                    else
+                    else if (checkAgainstWallForWallJump(Facing.Right))
                         wallJump(Facing.Left);
                 }
                 else
@@ -571,6 +572,15 @@ public class SCCharacterController : Actor2D, ISpawnable
         //Debug
         Debug.DrawLine(new Vector3(this.transform.position.x + ((int)direction) * this.Hurtbox.Offset.X, checkPoint.Y, -5), new Vector3(checkPoint.X, checkPoint.Y, -5), retVal ? Color.blue : Color.red, 0.1f);
         return retVal;
+    }
+
+    private bool checkAgainstWallForWallJump(Facing direction)
+    {
+        if (this.WallJumpCheckOffset == this.AgainstWallCheckOffset)
+            return true;
+
+        IntegerVector checkPoint = new Vector2(this.transform.position.x + ((int)direction) * (this.Hurtbox.Offset.X + this.Hurtbox.Bounds.Size.X / 2 + 1), this.transform.position.y + 1 + this.Hurtbox.Offset.Y - this.Hurtbox.Bounds.Size.Y / 2 - this.WallJumpCheckOffset);
+        return this.CollisionManager.CollidePointFirst(checkPoint, this.HaltMovementMask) != null;
     }
 
     private bool checkTopHalfLedgeGrab(Facing direction, bool prevGrabbingLedge)
