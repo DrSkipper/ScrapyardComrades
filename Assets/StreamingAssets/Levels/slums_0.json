@@ -17672,7 +17672,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_34"
+          "sprite_name": "slums_tileset_33"
         },
         {
           "is_filled": true,
@@ -17696,7 +17696,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_10"
+          "sprite_name": "slums_tileset_73"
         },
         {
           "is_filled": true,
@@ -17727,8 +17727,8 @@
           "sprite_name": "slums_tileset_60"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
+          "is_filled": true,
+          "sprite_name": "slums_tileset_72"
         },
         {
           "is_filled": false,
@@ -17763,12 +17763,12 @@
           "sprite_name": "slums_tileset_68"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
+          "is_filled": true,
+          "sprite_name": "slums_tileset_61"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
+          "is_filled": true,
+          "sprite_name": "slums_tileset_67"
         },
         {
           "is_filled": true,
@@ -17883,20 +17883,20 @@
           "sprite_name": "empty"
         },
         {
-          "is_filled": false,
-          "sprite_name": "empty"
+          "is_filled": true,
+          "sprite_name": "slums_tileset_25"
         },
         {
-          "is_filled": false,
-          "sprite_name": "empty"
+          "is_filled": true,
+          "sprite_name": "slums_tileset_25"
         },
         {
-          "is_filled": false,
-          "sprite_name": "empty"
+          "is_filled": true,
+          "sprite_name": "slums_tileset_25"
         },
         {
-          "is_filled": false,
-          "sprite_name": "empty"
+          "is_filled": true,
+          "sprite_name": "slums_tileset_25"
         },
         {
           "is_filled": false,
@@ -17984,18 +17984,18 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_35"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "slums_tileset_15"
         },
         {
           "is_filled": true,
+          "sprite_name": "slums_tileset_32"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_35"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "slums_tileset_35"
         },
         {
@@ -18008,7 +18008,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_46"
+          "sprite_name": "slums_tileset_49"
         },
         {
           "is_filled": true,
@@ -18016,7 +18016,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_36"
+          "sprite_name": "slums_tileset_74"
         },
         {
           "is_filled": true,
@@ -18024,11 +18024,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_35"
+          "sprite_name": "slums_tileset_36"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_49"
+          "sprite_name": "slums_tileset_32"
         },
         {
           "is_filled": true,
@@ -18047,8 +18047,8 @@
           "sprite_name": "slums_tileset_55"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
+          "is_filled": true,
+          "sprite_name": "slums_tileset_62"
         },
         {
           "is_filled": false,
@@ -18116,7 +18116,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_49"
+          "sprite_name": "slums_tileset_35"
         },
         {
           "is_filled": true,
@@ -18203,20 +18203,20 @@
           "sprite_name": "empty"
         },
         {
-          "is_filled": false,
-          "sprite_name": "empty"
+          "is_filled": true,
+          "sprite_name": "slums_tileset_11"
         },
         {
-          "is_filled": false,
-          "sprite_name": "empty"
+          "is_filled": true,
+          "sprite_name": "slums_tileset_12"
         },
         {
-          "is_filled": false,
-          "sprite_name": "empty"
+          "is_filled": true,
+          "sprite_name": "slums_tileset_13"
         },
         {
-          "is_filled": false,
-          "sprite_name": "empty"
+          "is_filled": true,
+          "sprite_name": "slums_tileset_25"
         },
         {
           "is_filled": false,
@@ -18300,7 +18300,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_50"
+          "sprite_name": "slums_tileset_45"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_19"
         },
         {
           "is_filled": true,
@@ -18308,7 +18312,43 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_32"
+          "sprite_name": "slums_tileset_36"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_45"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_15"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_15"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_45"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_45"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_46"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_45"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_45"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_45"
         },
         {
           "is_filled": true,
@@ -18320,47 +18360,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "slums_tileset_45"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_45"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_31"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_45"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_31"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_49"
         },
         {
           "is_filled": true,
@@ -18416,7 +18416,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_49"
+          "sprite_name": "slums_tileset_46"
         },
         {
           "is_filled": true,
@@ -18424,7 +18424,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_49"
+          "sprite_name": "slums_tileset_35"
         },
         {
           "is_filled": true,
@@ -18449,650 +18449,6 @@
         {
           "is_filled": true,
           "sprite_name": "slums_tileset_45"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_60"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_22"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_22"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_32"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_31"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_50"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_45"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_31"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_58"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_14"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_31"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_50"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_49"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_31"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_49"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_45"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_58"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_14"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_32"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_50"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_31"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_49"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_59"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_45"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_31"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_32"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_32"
         },
         {
           "is_filled": true,
@@ -19171,6 +18527,650 @@
           "sprite_name": "empty"
         },
         {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_16"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_17"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_25"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_91"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_91"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_91"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_30"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_91"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_91"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_91"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_91"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_30"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_57"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_91"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_30"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_91"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_91"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_59"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_20"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_25"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_14"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_46"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_36"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_45"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_38"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_41"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_49"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_31"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_32"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_36"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_32"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_31"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_50"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_15"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_38"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_41"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_15"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_59"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_15"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_49"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_38"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_41"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_31"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_46"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_32"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_45"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_50"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_60"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_25"
+        },
+        {
           "is_filled": false,
           "sprite_name": "empty"
         },
@@ -19248,23 +19248,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_36"
+          "sprite_name": "slums_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_45"
         },
         {
           "is_filled": true,
           "sprite_name": "slums_tileset_31"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_32"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_50"
         },
         {
           "is_filled": true,
@@ -19272,15 +19264,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_45"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_50"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_32"
+          "sprite_name": "slums_tileset_19"
         },
         {
           "is_filled": true,
@@ -19288,7 +19272,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_36"
+          "sprite_name": "slums_tileset_39"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_42"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_15"
         },
         {
           "is_filled": true,
@@ -19300,14 +19292,6 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_49"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "slums_tileset_19"
         },
         {
@@ -19316,7 +19300,23 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_15"
+          "sprite_name": "slums_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_35"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_32"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_39"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_42"
         },
         {
           "is_filled": true,
@@ -19376,7 +19376,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_49"
+          "sprite_name": "slums_tileset_36"
         },
         {
           "is_filled": true,
@@ -19384,27 +19384,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_22"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_23"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "slums_tileset_46"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_15"
+          "sprite_name": "slums_tileset_39"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_42"
         },
         {
           "is_filled": true,
@@ -19412,11 +19400,23 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_19"
+          "sprite_name": "slums_tileset_46"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_58"
+          "sprite_name": "slums_tileset_36"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_90"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_46"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_56"
         },
         {
           "is_filled": false,
@@ -19464,11 +19464,11 @@
         },
         {
           "is_filled": false,
-          "sprite_name": "empty"
+          "sprite_name": "slums_tileset_68"
         },
         {
           "is_filled": false,
-          "sprite_name": "empty"
+          "sprite_name": "slums_tileset_68"
         },
         {
           "is_filled": false,
@@ -19564,19 +19564,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_45"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_32"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_50"
+          "sprite_name": "slums_tileset_31"
         },
         {
           "is_filled": true,
@@ -19584,19 +19572,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_15"
+          "sprite_name": "slums_tileset_50"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_31"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_19"
+          "sprite_name": "slums_tileset_90"
         },
         {
           "is_filled": true,
@@ -19604,19 +19584,39 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_23"
+          "sprite_name": "slums_tileset_46"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_23"
+          "sprite_name": "slums_tileset_32"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_23"
+          "sprite_name": "slums_tileset_32"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_23"
+          "sprite_name": "slums_tileset_35"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_93"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_93"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_93"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_93"
         },
         {
           "is_filled": true,
@@ -19692,15 +19692,115 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_18"
+          "sprite_name": "slums_tileset_94"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_31"
+          "sprite_name": "slums_tileset_40"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_58"
+          "sprite_name": "slums_tileset_94"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_40"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_43"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_51"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_54"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_46"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_32"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_45"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_93"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_23"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
         },
         {
           "is_filled": false,
@@ -19713,106 +19813,6 @@
         {
           "is_filled": false,
           "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_23"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
         },
         {
           "is_filled": false,
@@ -19884,27 +19884,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_50"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_45"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_50"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_49"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_31"
+          "sprite_name": "slums_tileset_32"
         },
         {
           "is_filled": true,
@@ -19912,11 +19892,31 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "slums_tileset_46"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "slums_tileset_45"
         },
         {
           "is_filled": true,
           "sprite_name": "slums_tileset_46"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_15"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_36"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_46"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_31"
         },
         {
           "is_filled": true,
@@ -20011,44 +20011,44 @@
           "sprite_name": "slums_tileset_68"
         },
         {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_52"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_53"
+        },
+        {
           "is_filled": true,
           "sprite_name": "slums_tileset_23"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_23"
+          "sprite_name": "slums_tileset_93"
         },
         {
           "is_filled": true,
           "sprite_name": "slums_tileset_23"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
         },
         {
           "is_filled": false,
@@ -20204,1607 +20204,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_49"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_32"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_50"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_32"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_50"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_19"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_55"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_14"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_49"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_45"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_50"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_32"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_50"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_22"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_22"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_9"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_45"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_32"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_49"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_45"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_50"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_49"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_55"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_22"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_32"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_49"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_59"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_14"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_46"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_32"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_45"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_59"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "empty"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_68"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_14"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_45"
         },
         {
           "is_filled": true,
@@ -21812,7 +20212,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_35"
+          "sprite_name": "slums_tileset_36"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_46"
         },
         {
           "is_filled": true,
@@ -21820,11 +20228,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_31"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_50"
+          "sprite_name": "slums_tileset_19"
         },
         {
           "is_filled": true,
@@ -21832,7 +20236,135 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "slums_tileset_15"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "slums_tileset_55"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
         },
         {
           "is_filled": false,
@@ -21933,6 +20465,194 @@
         {
           "is_filled": false,
           "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_14"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_49"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_91"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_91"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_91"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_91"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_22"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
         },
         {
           "is_filled": false,
@@ -22116,7 +20836,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_49"
+          "sprite_name": "slums_tileset_45"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_32"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_31"
         },
         {
           "is_filled": true,
@@ -22128,7 +20856,1283 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "slums_tileset_15"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_32"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "slums_tileset_35"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_36"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_55"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_32"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_49"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_46"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_35"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_35"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_46"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_32"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_59"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_14"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_36"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_31"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_49"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_35"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_36"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_31"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_46"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_59"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_14"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_45"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_45"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_32"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_46"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_32"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_56"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "empty"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_tileset_68"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_9"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_49"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_31"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_90"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_32"
         },
         {
           "is_filled": true,
@@ -22140,15 +22144,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_50"
+          "sprite_name": "slums_tileset_90"
         },
         {
           "is_filled": true,
           "sprite_name": "slums_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_49"
         },
         {
           "is_filled": true,
@@ -22440,19 +22440,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_50"
+          "sprite_name": "slums_tileset_45"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_19"
+          "sprite_name": "slums_tileset_31"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_15"
+          "sprite_name": "slums_tileset_31"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_46"
+          "sprite_name": "slums_tileset_36"
         },
         {
           "is_filled": true,
@@ -22760,19 +22760,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_49"
+          "sprite_name": "slums_tileset_31"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_19"
+          "sprite_name": "slums_tileset_35"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_36"
+          "sprite_name": "slums_tileset_35"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_45"
+          "sprite_name": "slums_tileset_35"
         },
         {
           "is_filled": true,
@@ -23076,23 +23076,23 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_50"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_50"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "slums_tileset_19"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_50"
+          "sprite_name": "slums_tileset_46"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_90"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_45"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_19"
         },
         {
           "is_filled": true,
@@ -23396,15 +23396,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_50"
+          "sprite_name": "slums_tileset_19"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_49"
+          "sprite_name": "slums_tileset_36"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_50"
+          "sprite_name": "slums_tileset_90"
         },
         {
           "is_filled": true,
@@ -23412,7 +23412,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_35"
+          "sprite_name": "slums_tileset_50"
         },
         {
           "is_filled": true,
@@ -23716,15 +23716,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_tileset_31"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_tileset_31"
+          "sprite_name": "slums_tileset_45"
         },
         {
           "is_filled": true,
           "sprite_name": "slums_tileset_46"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_31"
         },
         {
           "is_filled": true,
@@ -30789,13 +30789,6 @@
       "z": 2
     },
     {
-      "name": "props_slums_lamp_19",
-      "prefab_name": "slums_lamp",
-      "x": 948,
-      "y": 336,
-      "z": 2
-    },
-    {
       "name": "props_slums_plant_20",
       "prefab_name": "slums_plant",
       "x": 1132,
@@ -30807,6 +30800,41 @@
       "prefab_name": "slums_plant",
       "x": 908,
       "y": 224,
+      "z": 2
+    },
+    {
+      "name": "props_slums_car_22",
+      "prefab_name": "slums_car",
+      "x": 1056,
+      "y": 260,
+      "z": 2
+    },
+    {
+      "name": "props_slums_neon_23",
+      "prefab_name": "slums_neon",
+      "x": 912,
+      "y": 344,
+      "z": 2
+    },
+    {
+      "name": "props_slums_plant_24",
+      "prefab_name": "slums_plant",
+      "x": 976,
+      "y": 224,
+      "z": 2
+    },
+    {
+      "name": "props_slums_plant_25",
+      "prefab_name": "slums_plant",
+      "x": 1744,
+      "y": 228,
+      "z": 2
+    },
+    {
+      "name": "props_slums_lamp_26",
+      "prefab_name": "slums_lamp",
+      "x": 1020,
+      "y": 336,
       "z": 2
     }
   ],
@@ -30834,5 +30862,5 @@
     }
   ],
   "next_object_id": 4,
-  "next_prop_id": 22
+  "next_prop_id": 27
 }
