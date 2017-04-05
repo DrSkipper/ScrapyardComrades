@@ -30751,12 +30751,12 @@
       "parallax_ratio": 0.2
     },
     {
-      "sprite_name": "slums_bg",
+      "sprite_name": "cityscape",
       "depth": 6,
-      "loops": false,
-      "height": 0.25,
-      "x_position": 0.45,
-      "parallax_ratio": 0.400000036
+      "loops": true,
+      "height": 0.50000006,
+      "x_position": 0.55,
+      "parallax_ratio": 1.0
     }
   ],
   "props": [
