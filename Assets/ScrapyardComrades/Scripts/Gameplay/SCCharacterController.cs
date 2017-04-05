@@ -746,10 +746,8 @@ public class SCCharacterController : Actor2D, ISpawnable
                 break;
             case SCAttack.VelocityBoost.BoostType.Absolute:
                 _velocity = boost;
-                if (boost.x != 0.0f)
-                    return false;
                 break;
         }
-        return true;
+        return boost.x == 0.0f;
     }
 }
