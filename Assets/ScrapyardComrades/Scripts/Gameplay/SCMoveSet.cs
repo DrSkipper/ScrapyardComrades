@@ -5,6 +5,7 @@ public class SCMoveSet : ScriptableObject
     [System.Serializable]
     public enum MoveInput
     {
+        None,
         Neutral,
         Strong,
         Dodge
@@ -44,7 +45,7 @@ public class SCMoveSet : ScriptableObject
         return null;
     }
 
-    public SCAttack GetComboMove(SCCharacterController.InputWrapper input, SCAttack previousMove)
+    public SCAttack GetComboMove(SCCharacterController.InputWrapper input, SCAttack previousMove, MoveInput bufferedInput)
     {
         if (previousMove.Combos != null)
         {
@@ -53,8 +54,26 @@ public class SCMoveSet : ScriptableObject
                 if (checkInput(input, previousMove.Combos[i].Input))
                     return previousMove.Combos[i].ComboMove;
             }
+            
+            // If didn't find one, lets try the buffered input
+            for (int i = 0; i < previousMove.Combos.Length; ++i)
+            {
+                if (previousMove.Combos[i].Input == bufferedInput)
+                    return previousMove.Combos[i].ComboMove;
+            }
         }
         return null;
+    }
+
+    public static MoveInput GetCurrentMoveInput(SCCharacterController.InputWrapper input)
+    {
+        if (input.DodgeBegin)
+            return MoveInput.Dodge;
+        if (input.AttackStrongBegin)
+            return MoveInput.Strong;
+        if (input.AttackLightBegin)
+            return MoveInput.Neutral;
+        return MoveInput.None;
     }
 
     private static bool checkInput(SCCharacterController.InputWrapper input, MoveInput check)
@@ -62,6 +81,8 @@ public class SCMoveSet : ScriptableObject
         switch (check)
         {
             default:
+            case MoveInput.None:
+                return false;
             case MoveInput.Neutral:
                 return input.AttackLightBegin;
             case MoveInput.Strong:

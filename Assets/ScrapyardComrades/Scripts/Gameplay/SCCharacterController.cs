@@ -389,15 +389,17 @@ public class SCCharacterController : Actor2D, ISpawnable
             // Or if we're beginning a Move
             else
             {
+                // Check for combo window or buffer first
                 bool comboing = false;
-                if (interruptingMove == null && !_comboTimer.Completed)
+                if (interruptingMove == null && (_comboBufferInput != SCMoveSet.MoveInput.None || !_comboTimer.Completed))
                 {
-                    _currentAttack = this.MoveSet.GetComboMove(input, _comboSource);
+                    _currentAttack = this.MoveSet.GetComboMove(input, _comboSource, _comboBufferInput);
                     comboing = _currentAttack != null;
                 }
                 if (!comboing)
                     _currentAttack = interruptingMove != null ? interruptingMove : this.MoveSet.GetAttackForInput(input, this);
 
+                // Begin the move, if valid
                 if (_currentAttack != null)
                 {
                     if (!comboing && !_cooldownTimer.Completed && (((int)_currentAttack.Category & _cooldownCategoryMask) != 0))
@@ -408,6 +410,7 @@ public class SCCharacterController : Actor2D, ISpawnable
                     {
                         _cooldownTimer.complete();
                         _comboTimer.complete();
+                        _comboBufferInput = SCMoveSet.MoveInput.None;
                         _attackTimer.reset(_currentAttack.NormalFrameLength);
                         _attackTimer.start();
                         _autoMoveTimer.complete();
@@ -444,6 +447,10 @@ public class SCCharacterController : Actor2D, ISpawnable
             {
                 // Apply velocity boost for current frame in current Move
                 allowFaceChange = handleVelocityBoosts();
+
+                // See if we should buffer a combo
+                if (_currentAttack.Combos != null && _currentAttack.ComboBuffer >= _currentAttack.NormalFrameLength - _attackTimer.FramesRemaining)
+                    _comboBufferInput = SCMoveSet.GetCurrentMoveInput(input);
             }
         }
 
@@ -489,6 +496,7 @@ public class SCCharacterController : Actor2D, ISpawnable
     private float _hitStunAirFrictionMultiplier;
     private Timer _cooldownTimer;
     private Timer _comboTimer;
+    private SCMoveSet.MoveInput _comboBufferInput;
     private SCAttack _comboSource;
     private int _cooldownCategoryMask;
     private Timer _autoMoveTimer;

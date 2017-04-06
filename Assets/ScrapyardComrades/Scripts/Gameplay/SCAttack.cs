@@ -112,6 +112,7 @@ public class SCAttack : ScriptableObject
     public MoveCategory[] CooldownCategories;
     public int CooldownDuration;
     public int ComboWindow;
+    public int ComboBuffer;
 
     public Combo[] Combos;
     public HitData HitParameters;
