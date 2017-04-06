@@ -136,6 +136,10 @@ public class SCCharacterController : Actor2D, ISpawnable
             _cooldownTimer = new Timer(1);
         _cooldownTimer.complete();
 
+        if (_comboTimer == null)
+            _comboTimer = new Timer(1);
+        _comboTimer.complete();
+
         if (_autoMoveTimer == null)
             _autoMoveTimer = new Timer(1);
         _autoMoveTimer.complete();
@@ -165,6 +169,7 @@ public class SCCharacterController : Actor2D, ISpawnable
         }
 
         _cooldownTimer.update();
+        _comboTimer.update();
         
         if (!_hitStunTimer.Completed)
         {
@@ -336,13 +341,13 @@ public class SCCharacterController : Actor2D, ISpawnable
             }
         }
 
-        if (_currentAttack == null)
+        if (_currentAttack == null || interruptingMove != null)
         {
             // Attempt to stand up if necessary
             attemptHurtboxStateChange(SCAttack.HurtboxState.Normal);
 
             // Check if we're using an item
-            if (input.UseItem && this.InventoryController.NumItems > 0)
+            if (interruptingMove == null && input.UseItem && this.InventoryController.NumItems > 0)
             {
                 PooledObject item = this.InventoryController.UseItem(0);
                 if (item != null)
@@ -366,7 +371,7 @@ public class SCCharacterController : Actor2D, ISpawnable
             }
 
             // Check if it's time to jump
-            else if (attemptingJump)
+            else if (interruptingMove == null && attemptingJump)
             {
                 if (wallJumpValid)
                 {
@@ -384,16 +389,25 @@ public class SCCharacterController : Actor2D, ISpawnable
             // Or if we're beginning a Move
             else
             {
-                _currentAttack = interruptingMove != null ? interruptingMove : this.MoveSet.GetAttackForInput(input, this);
+                bool comboing = false;
+                if (interruptingMove == null && !_comboTimer.Completed)
+                {
+                    _currentAttack = this.MoveSet.GetComboMove(input, _comboSource);
+                    comboing = _currentAttack != null;
+                }
+                if (!comboing)
+                    _currentAttack = interruptingMove != null ? interruptingMove : this.MoveSet.GetAttackForInput(input, this);
+
                 if (_currentAttack != null)
                 {
-                    if (!_cooldownTimer.Completed && (((int)_currentAttack.Category & _cooldownCategoryMask) != 0))
+                    if (!comboing && !_cooldownTimer.Completed && (((int)_currentAttack.Category & _cooldownCategoryMask) != 0))
                     {
                         _currentAttack = null;
                     }
                     else
                     {
                         _cooldownTimer.complete();
+                        _comboTimer.complete();
                         _attackTimer.reset(_currentAttack.NormalFrameLength);
                         _attackTimer.start();
                         _autoMoveTimer.complete();
@@ -474,6 +488,8 @@ public class SCCharacterController : Actor2D, ISpawnable
     private float _hitStunGravityMultiplier;
     private float _hitStunAirFrictionMultiplier;
     private Timer _cooldownTimer;
+    private Timer _comboTimer;
+    private SCAttack _comboSource;
     private int _cooldownCategoryMask;
     private Timer _autoMoveTimer;
     private Vector2 _autoMoveValue;
@@ -643,6 +659,11 @@ public class SCCharacterController : Actor2D, ISpawnable
             _cooldownTimer.reset(_currentAttack.CooldownDuration);
             _cooldownCategoryMask = _currentAttack.CooldownCategoriesMask;
         }
+        if (_currentAttack.ComboWindow > 0)
+        {
+            _comboTimer.reset(_currentAttack.ComboWindow);
+            _comboSource = _currentAttack;
+        }
         _currentAttack = null;
     }
 
@@ -737,7 +758,7 @@ public class SCCharacterController : Actor2D, ISpawnable
         {
             default:
             case SCAttack.VelocityBoost.BoostType.None:
-                break;
+                return true;
             case SCAttack.VelocityBoost.BoostType.Additive:
                 _velocity += boost;
                 break;

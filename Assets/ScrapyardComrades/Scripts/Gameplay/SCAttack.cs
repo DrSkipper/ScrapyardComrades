@@ -10,7 +10,7 @@ public class SCAttack : ScriptableObject
         None = 0,
         Normal = 2,
         Dodge = 4
-        //Combo?
+        //Combo = 8
         //Recovery?
     }
 
@@ -94,6 +94,13 @@ public class SCAttack : ScriptableObject
         HitPointToDefender
     }
 
+    [System.Serializable]
+    public struct Combo
+    {
+        public SCAttack ComboMove;
+        public SCMoveSet.MoveInput Input;
+    }
+
     public MoveCategory Category;
     public SCSpriteAnimation SpriteAnimation;
     public int NormalFrameLength;
@@ -104,8 +111,9 @@ public class SCAttack : ScriptableObject
     public int MoveInterruptFrame;
     public MoveCategory[] CooldownCategories;
     public int CooldownDuration;
-    //public int ComboWindow;
+    public int ComboWindow;
 
+    public Combo[] Combos;
     public HitData HitParameters;
 
     public float GravityMultiplier = 1.0f;

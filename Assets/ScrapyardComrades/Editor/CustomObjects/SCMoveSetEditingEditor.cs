@@ -30,9 +30,21 @@ public class SCMoveSetEditingEditor : Editor
                 //TODO: Expand as more attack options, combos, etc are added
                 _moveOptions = new List<string>();
                 _moveOptions.Add("Ground Neutral");
+                _moveOptions.Add("Ground Strong");
                 _moveOptions.Add("Ground Dodge");
                 _moveOptions.Add("Air Neutral");
+                _moveOptions.Add("Air Strong");
                 _moveOptions.Add("Air Dodge");
+                _moveOptions.Add("Combo 1");
+                _moveOptions.Add("Combo 2");
+
+                /*if (behavior.AttackObject.Combos != null)
+                {
+                    for (int i = 0; i < behavior.AttackObject.Combos.Length; ++i)
+                    {
+                        _moveOptions.Add("Combo " + behavior.AttackObject.Combos[i].ComboMove.name);
+                    }
+                }*/
             }
 
             int oldMoveIndex = behavior.MoveIndex;
@@ -45,11 +57,20 @@ public class SCMoveSetEditingEditor : Editor
                 if (behavior.MoveIndex == 0)
                     behavior.AttackObject = behavior.MoveSet.GroundNeutral;
                 else if (behavior.MoveIndex == 1)
-                    behavior.AttackObject = behavior.MoveSet.GroundDodge;
+                    behavior.AttackObject = behavior.MoveSet.GroundStrong;
                 else if (behavior.MoveIndex == 2)
-                    behavior.AttackObject = behavior.MoveSet.AirNeutral;
+                    behavior.AttackObject = behavior.MoveSet.GroundDodge;
                 else if (behavior.MoveIndex == 3)
+                    behavior.AttackObject = behavior.MoveSet.AirNeutral;
+                else if (behavior.MoveIndex == 4)
+                    behavior.AttackObject = behavior.MoveSet.AirStrong;
+                else if (behavior.MoveIndex == 5)
                     behavior.AttackObject = behavior.MoveSet.AirDodge;
+                else
+                {
+                    int comboIndex = behavior.MoveIndex - 6;
+                    behavior.AttackObject = behavior.AttackObject.Combos[comboIndex].ComboMove;
+                }
                 behavior.CurrentIndex = 0;
                 behavior.Frame = 0;
             }
