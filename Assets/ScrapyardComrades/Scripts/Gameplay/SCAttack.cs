@@ -129,6 +129,7 @@ public class SCAttack : ScriptableObject
 
     public VelocityBoost[] VelocityBoosts;
     public bool LockInput = false;
+    public bool LockMovement = false;
 
     public VelocityBoost? GetVelocityBoostForFrame(int frame)
     {

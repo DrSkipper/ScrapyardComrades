@@ -184,7 +184,7 @@ public class SCCharacterController : Actor2D, ISpawnable
 
         InputWrapper input = (!_hitStunTimer.Completed || (_currentAttack != null && _currentAttack.LockInput)) ? EmptyInput.Reference : this.GatherInput();
         this.MostRecentInput = input;
-        _moveAxis = input.MovementAxis;
+        _moveAxis = (_currentAttack == null || !_currentAttack.LockMovement) ? input.MovementAxis : 0;
         _velocity = this.Velocity;
         bool prevOnGround = _onGround;
         _onGround = this.IsGrounded;
@@ -435,6 +435,14 @@ public class SCCharacterController : Actor2D, ISpawnable
         }
         else
         {
+            // See if we should buffer a combo
+            if (_currentAttack.Combos != null && _currentAttack.Combos.Length > 0 && _currentAttack.ComboBuffer >= _currentAttack.NormalFrameLength - _attackTimer.FramesRemaining)
+            {
+                SCMoveSet.MoveInput comboInput = SCMoveSet.GetCurrentMoveInput(input);
+                if (comboInput != SCMoveSet.MoveInput.None)
+                    _comboBufferInput = comboInput;
+            }
+
             // Update the Move timer, check if done
             _attackTimer.update();
             if (_attackTimer.Completed)
@@ -447,10 +455,6 @@ public class SCCharacterController : Actor2D, ISpawnable
             {
                 // Apply velocity boost for current frame in current Move
                 allowFaceChange = handleVelocityBoosts();
-
-                // See if we should buffer a combo
-                if (_currentAttack.Combos != null && _currentAttack.ComboBuffer >= _currentAttack.NormalFrameLength - _attackTimer.FramesRemaining)
-                    _comboBufferInput = SCMoveSet.GetCurrentMoveInput(input);
             }
         }
 
