@@ -36,7 +36,9 @@ public class AttackController : VoBehavior, IPausable
                 this.DamageBoxes[i].transform.localPosition = Vector2.zero;
                 this.DamageBoxes[i].enabled = false;
             }
-            this.EffectAnimator.gameObject.SetActive(false);
+
+            if (this.EffectAnimator != null)
+                this.EffectAnimator.gameObject.SetActive(false);
         }
         else
         {
