@@ -1,16 +1,24 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class SCSpriteAnimator : VoBehavior, IPausable
 {
     public SCSpriteAnimation DefaultAnimation;
     public SCSpriteAnimation CurrentAnimation { get { guaranteeCurrentAnimation(); return _currentAnimation; } }
     public int Elapsed { get { return _elapsed; } }
+    public bool IsPlaying { get { return _playing; } }
 
     void Awake()
     {
-        this.PlayAnimation(this.DefaultAnimation);
+        if (this.DefaultAnimation != null)
+            this.PlayAnimation(this.DefaultAnimation);
         this.localNotifier.Listen(FreezeFrameEvent.NAME, this, freezeFrame);
         this.localNotifier.Listen(FreezeFrameEndedEvent.NAME, this, freezeFrameEnded);
+    }
+
+    void OnSpawn()
+    {
+        this.PlayAnimation(this.DefaultAnimation);
     }
 
     public void PlayAnimation(SCSpriteAnimation animation)
@@ -103,7 +111,7 @@ public class SCSpriteAnimator : VoBehavior, IPausable
 
     private void guaranteeCurrentAnimation()
     {
-        if (_currentAnimation == null)
+        if (_currentAnimation == null && this.DefaultAnimation != null)
             this.PlayAnimation(this.DefaultAnimation);
     }
 

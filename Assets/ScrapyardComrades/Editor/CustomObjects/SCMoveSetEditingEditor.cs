@@ -69,7 +69,8 @@ public class SCMoveSetEditingEditor : Editor
                 else
                 {
                     int comboIndex = behavior.MoveIndex - 6;
-                    behavior.AttackObject = behavior.AttackObject.Combos[comboIndex].ComboMove;
+                    if (comboIndex < behavior.AttackObject.Combos.Length)
+                        behavior.AttackObject = behavior.AttackObject.Combos[comboIndex].ComboMove;
                 }
                 behavior.CurrentIndex = 0;
                 behavior.Frame = 0;

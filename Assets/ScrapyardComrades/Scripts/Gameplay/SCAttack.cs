@@ -101,6 +101,14 @@ public class SCAttack : ScriptableObject
         public SCMoveSet.MoveInput Input;
     }
 
+    [System.Serializable]
+    public struct Effect
+    {
+        public SCSpriteAnimation Animation;
+        public int Frame;
+        public IntegerVector Position;
+    }
+
     public MoveCategory Category;
     public SCSpriteAnimation SpriteAnimation;
     public int NormalFrameLength;
@@ -116,6 +124,7 @@ public class SCAttack : ScriptableObject
 
     public Combo[] Combos;
     public HitData HitParameters;
+    public Effect[] Effects;
 
     public float GravityMultiplier = 1.0f;
     public float JumpPowerMultiplier = 1.0f;

@@ -4,6 +4,7 @@ public class AttackController : VoBehavior, IPausable
 {
     public IntegerRectCollider[] DamageBoxes;
     public SCSpriteAnimator Animator;
+    public SCSpriteAnimator EffectAnimator;
     public Damagable Damagable;
     public LayerMask DamagableLayers;
     public PooledObject HitEffect;
@@ -35,9 +36,27 @@ public class AttackController : VoBehavior, IPausable
                 this.DamageBoxes[i].transform.localPosition = Vector2.zero;
                 this.DamageBoxes[i].enabled = false;
             }
+            this.EffectAnimator.gameObject.SetActive(false);
         }
         else
         {
+            // Activate effect if necessary
+            if (this.EffectAnimator != null)
+            {
+                SCAttack.Effect? effect = getEffectForUpdateFrame(currentAttack, this.Animator.Elapsed);
+                if (effect.HasValue)
+                {
+                    this.EffectAnimator.gameObject.SetActive(true);
+                    this.EffectAnimator.transform.SetLocalPosition2D(effect.Value.Position.X, effect.Value.Position.Y);
+                    this.EffectAnimator.PlayAnimation(effect.Value.Animation, false);
+                }
+                else if (!this.EffectAnimator.IsPlaying)
+                {
+                    this.EffectAnimator.gameObject.SetActive(false);
+                }
+            }
+
+            // Update hitboxes
             SCAttack.HitboxKeyframe? keyframe = getKeyframeForUpdateFrame(currentAttack, this.Animator.Elapsed);
             if (keyframe.HasValue)
             {
@@ -118,5 +137,18 @@ public class AttackController : VoBehavior, IPausable
                 break;
         }
         return keyframe;
+    }
+
+    private SCAttack.Effect? getEffectForUpdateFrame(SCAttack move, int updateFrame)
+    {
+        if (move.Effects != null)
+        {
+            for (int i = 0; i < move.Effects.Length; ++i)
+            {
+                if (move.Effects[i].Frame == updateFrame)
+                    return move.Effects[i];
+            }
+        }
+        return null;
     }
 }

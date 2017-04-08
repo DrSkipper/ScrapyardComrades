@@ -2,7 +2,7 @@
 
 public class Damagable : VoBehavior, IPausable
 {
-    public const int FREEZE_FRAMES = 6;
+    public const int FREEZE_FRAMES = 4;
     public int Health = 10;
     public int MaxHealth = 10;
     public bool Invincible { get; private set; }

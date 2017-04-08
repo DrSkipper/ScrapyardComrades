@@ -11,8 +11,10 @@ public class SCMoveSetEditing : MonoBehaviour
     public IntegerRectCollider[] Hitboxes;
     public IntegerRectCollider NormalHurtbox;
     public IntegerRectCollider DuckHurtbox;
+    public SCSpriteAnimator EffectAnimator;
     public SCMoveSet MoveSet;
     public SCAttack.HurtboxState HurtboxState;
+    public bool EffectFrame;
     [HideInInspector]
     public SCAttack AttackObject;
     [HideInInspector]
@@ -37,6 +39,8 @@ public class SCMoveSetEditing : MonoBehaviour
         if (this.CurrentIndex >= 0 && this.CurrentIndex < this.AttackObject.HitboxKeyframes.Length)
         {
             this.AttackObject.HitboxKeyframes[this.CurrentIndex] = gatherKeyframeData();
+            if (this.EffectAnimator != null)
+                saveEffectFrameData();
             saveState();
         }
         else
@@ -62,6 +66,9 @@ public class SCMoveSetEditing : MonoBehaviour
         this.Frame += 1;
         this.Frame = Mathf.Clamp(this.Frame, 0, this.AttackAnimator.CurrentAnimation.Frames.Length - 1);
         this.Animator.GoToFrame(this.Frame);
+
+        if (this.EffectAnimator != null)
+            saveEffectFrameData();
         saveState();
     }
 
@@ -89,6 +96,20 @@ public class SCMoveSetEditing : MonoBehaviour
 
         }
         this.Animator.GoToFrame(this.Frame);
+        
+        int foundEffect = findEffectForFrame();
+        if (foundEffect >= 0 && this.EffectAnimator != null)
+        {
+            this.EffectFrame = true;
+            this.EffectAnimator.gameObject.SetActive(true);
+            this.EffectAnimator.DefaultAnimation = this.AttackObject.Effects[foundEffect].Animation;
+            this.EffectAnimator.spriteRenderer.sprite = this.EffectAnimator.DefaultAnimation != null && this.EffectAnimator.DefaultAnimation.Frames.Length > 0 ? this.EffectAnimator.DefaultAnimation.Frames[0] : null;
+            this.EffectAnimator.transform.SetLocalPosition2D(this.AttackObject.Effects[foundEffect].Position.X, this.AttackObject.Effects[foundEffect].Position.Y);
+        }
+        else
+        {
+            this.EffectFrame = false;
+        }
     }
 
     public void RemoveCurrent()
@@ -137,6 +158,64 @@ public class SCMoveSetEditing : MonoBehaviour
         keyframe.HitboxPositions = hitboxPositions.ToArray();
         keyframe.HitboxSizes = hitboxSizes.ToArray();
         return keyframe;
+    }
+
+    private int findEffectForFrame()
+    {
+        int foundEffect = -1;
+        int searchFrame = this.Animator.GetDataFrameForVisualFrame(this.Frame);
+        if (this.AttackObject.Effects != null)
+        {
+            for (int i = 0; i < this.AttackObject.Effects.Length; ++i)
+            {
+                if (this.AttackObject.Effects[i].Frame == searchFrame)
+                {
+                    foundEffect = i;
+                    break;
+                }
+            }
+        }
+        return foundEffect;
+    }
+
+    private void saveEffectFrameData()
+    {
+        int foundEffect = findEffectForFrame();
+        if (this.EffectFrame)
+        {
+            if (foundEffect >= 0)
+            {
+                this.AttackObject.Effects[foundEffect].Animation = this.EffectAnimator.DefaultAnimation;
+                this.AttackObject.Effects[foundEffect].Position = (Vector2)this.EffectAnimator.transform.localPosition;
+            }
+            else
+            {
+                SCAttack.Effect effect = new SCAttack.Effect();
+                effect.Animation = this.EffectAnimator.DefaultAnimation;
+                effect.Position = (Vector2)this.EffectAnimator.transform.localPosition;
+                effect.Frame = this.Animator.GetDataFrameForVisualFrame(this.Frame);
+
+                List<SCAttack.Effect> effects = this.AttackObject.Effects != null ? new List<SCAttack.Effect>(this.AttackObject.Effects) : new List<SCAttack.Effect>(1);
+                effects.Add(effect);
+                effects.Sort(frameCompareEffects);
+                this.AttackObject.Effects = effects.ToArray();
+            }
+        }
+        else
+        {
+
+            if (foundEffect >= 0)
+            {
+                List<SCAttack.Effect> effects = new List<SCAttack.Effect>(this.AttackObject.Effects);
+                effects.RemoveAt(foundEffect);
+                this.AttackObject.Effects = effects.ToArray();
+            }
+        }
+    }
+
+    private static int frameCompareEffects(SCAttack.Effect e1, SCAttack.Effect e2)
+    {
+        return Mathf.Clamp(e2.Frame - e1.Frame, -1, 1);
     }
 
     private void saveState()
