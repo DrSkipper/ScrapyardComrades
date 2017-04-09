@@ -46,6 +46,9 @@ public class SCCharacterController : Actor2D, ISpawnable
         public static EmptyInput Reference = new EmptyInput();
     }
 
+    public LayerMask DuckingHaltMovementMask;
+    public LayerMask DuckingCollisionMask;
+
     public float Gravity = 100.0f;
     public float MaxFallSpeed = 500.0f;
     public float FastFallSpeed = 750.0f;
@@ -105,6 +108,9 @@ public class SCCharacterController : Actor2D, ISpawnable
 
         if (this.AttackController != null)
             this.AttackController.HurtboxChangeCallback = attemptHurtboxStateChange;
+
+        _defaultHaltMovementMask = this.HaltMovementMask;
+        _defaultCollisionMask = this.CollisionMask;
     }
 
     public virtual void OnSpawn()
@@ -483,6 +489,8 @@ public class SCCharacterController : Actor2D, ISpawnable
     /**
      * Private
      */
+    private LayerMask _defaultHaltMovementMask;
+    private LayerMask _defaultCollisionMask;
     private Facing _facing;
     private Vector2 _velocity;
     private Timer _jumpBufferTimer;
@@ -754,10 +762,14 @@ public class SCCharacterController : Actor2D, ISpawnable
             case SCAttack.HurtboxState.Normal:
                 this.Hurtbox.Offset = this.MoveSet.NormalHitboxSpecs.Center;
                 this.Hurtbox.Size = this.MoveSet.NormalHitboxSpecs.Size;
+                this.HaltMovementMask = _defaultHaltMovementMask;
+                this.CollisionMask = _defaultCollisionMask;
                 break;
             case SCAttack.HurtboxState.Ducking:
                 this.Hurtbox.Offset = this.MoveSet.DuckHitboxSpecs.Center;
                 this.Hurtbox.Size = this.MoveSet.DuckHitboxSpecs.Size;
+                this.HaltMovementMask = this.DuckingHaltMovementMask;
+                this.CollisionMask = this.DuckingCollisionMask;
                 break;
         }
     }

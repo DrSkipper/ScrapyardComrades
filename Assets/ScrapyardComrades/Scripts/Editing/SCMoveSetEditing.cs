@@ -164,11 +164,12 @@ public class SCMoveSetEditing : MonoBehaviour
     {
         int foundEffect = -1;
         int searchFrame = this.Animator.GetDataFrameForVisualFrame(this.Frame);
+        int prevFrame = this.Animator.GetDataFrameForVisualFrame(this.Frame - 1);
         if (this.AttackObject.Effects != null)
         {
             for (int i = 0; i < this.AttackObject.Effects.Length; ++i)
             {
-                if (this.AttackObject.Effects[i].Frame == searchFrame)
+                if (this.AttackObject.Effects[i].Frame <= searchFrame && this.AttackObject.Effects[i].Frame > prevFrame)
                 {
                     foundEffect = i;
                     break;

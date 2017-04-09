@@ -50,12 +50,12 @@ public class Damagable : VoBehavior, IPausable
     //TODO - This should consistently be called either before or after updates of things that can damage
     void FixedUpdate()
     {
-        _invincibilityTimer.update();
         if (_invincibilityTimer.Completed)
         {
             _invincibilityTimer.invalidate();
             this.Invincible = false;
         }
+        _invincibilityTimer.update();
     }
 
     public void SetInvincible(int numFrames)
