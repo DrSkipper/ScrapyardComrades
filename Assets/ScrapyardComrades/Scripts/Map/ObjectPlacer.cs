@@ -57,6 +57,11 @@ public class ObjectPlacer : VoBehavior
         {
             _spawnEntities[i].AttemptingLoad = false;
         }
+        for (int i = 0; i < _nonTrackedObjects.Count; ++i)
+        {
+            _nonTrackedObjects[i].Release();
+        }
+        _nonTrackedObjects.Clear();
         _spawnEntities.Clear();
         _spawnQueue.Clear();
         _spawnPositions.Clear();
@@ -70,6 +75,7 @@ public class ObjectPlacer : VoBehavior
     private List<Vector3> _spawnPositions = new List<Vector3>();
     private List<EntityTracker.Entity> _spawnEntities = new List<EntityTracker.Entity>();
     private List<string> _spriteNames = new List<string>();
+    private List<PooledObject> _nonTrackedObjects = new List<PooledObject>();
 
     private void addSpawn(PooledObject toSpawn, Vector3 spawnPos, EntityTracker.Entity entity, string spriteName = null)
     {
@@ -96,6 +102,11 @@ public class ObjectPlacer : VoBehavior
             worldEntity.EntityName = entity.EntityName;
             this.EntityTracker.TrackLoadedEntity(worldEntity);
         }
+        else
+        {
+            _nonTrackedObjects.Add(spawn);
+        }
+
         if (spriteName != null)
         {
             SpriteRenderer r = spawn.GetComponent<SpriteRenderer>();
