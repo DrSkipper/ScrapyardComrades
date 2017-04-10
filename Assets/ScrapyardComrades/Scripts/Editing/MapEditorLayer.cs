@@ -149,6 +149,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
     public Object[] ObjectPrefabs;
     public Object CurrentPrefab { get { return this.ObjectPrefabs[_currentPrefab]; } }
     public List<GameObject> LoadedObjects;
+    public bool EraserEnabled;
 
     public MapEditorObjectsLayer(string name, int depth, List<NewMapInfo.MapObject> objects, Object[] prefabs, int nextId)
     {
@@ -160,6 +161,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
         this.ObjectPrefabs = prefabs;
         this.LoadedObjects = new List<GameObject>();
         _nextId = nextId;
+        this.EraserEnabled = false;
     }
 
     public void CyclePrev()
@@ -190,6 +192,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
         mapObject.y = Mathf.RoundToInt(gameObject.transform.position.y);
         mapObject.z = this.Depth;
         this.Objects.Add(mapObject);
+        this.LoadedObjects.Add(gameObject);
     }
 
     public void RemoveObject(GameObject toRemove)

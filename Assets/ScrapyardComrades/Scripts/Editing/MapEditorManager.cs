@@ -19,6 +19,8 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public MapEditorGrid Grid;
     public MapEditorCursor Cursor;
     public Transform ObjectCursor;
+    //public LineRenderer ObjectEraseLine;
+    //public Color EraseColor;
     public TilesetCollection TilesetCollection;
     public string MapName;
     public Dictionary<string, MapEditorLayer> Layers;
@@ -232,8 +234,10 @@ public class MapEditorManager : MonoBehaviour, IPausable
     private List<string> _sortedLayers;
     private Dictionary<string, ParallaxQuadGroup> _parallaxVisuals;
     private bool _tileEraserEnabled;
+    private bool _objectEraserEnabled;
     private bool _exiting;
     private int _objectPrecisionIncrement;
+    //private Color _eraseHighlightPreviousColor;
 
     private Sprite findParallaxSprite(string spriteName)
     {
@@ -311,7 +315,14 @@ public class MapEditorManager : MonoBehaviour, IPausable
     {
         if (MapEditorInput.Confirm)
         {
-            addObject(layer);
+            if (!layer.EraserEnabled)
+            {
+                addObject(layer);
+            }
+            else
+            {
+                eraseObject(layer);
+            }
         }
         else if (MapEditorInput.NavLeft)
         {
@@ -349,6 +360,12 @@ public class MapEditorManager : MonoBehaviour, IPausable
             layer.CycleNext();
             addObjectBrush(layer);
         }
+        else if (MapEditorInput.Cancel)
+        {
+            _objectEraserEnabled = !_objectEraserEnabled;
+            layer.EraserEnabled = _objectEraserEnabled;
+            //layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+        }
     }
 
     private void leaveTileLayer(MapEditorTilesLayer layer)
@@ -359,6 +376,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
     private void leaveObjectsLayer(MapEditorObjectsLayer layer)
     {
+        layer.EraserEnabled = false;
         removeObjectBrush();
     }
 
@@ -373,6 +391,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     {
         this.CameraController.SetTracker(this.ObjectCursor);
         this.ObjectCursor.SetZ(layer.Depth);
+        layer.EraserEnabled = _objectEraserEnabled;
         addObjectBrush(layer);
     }
 
@@ -399,6 +418,29 @@ public class MapEditorManager : MonoBehaviour, IPausable
         GameObject newObject = brushPooledObject.gameObject;
         newObject.transform.SetPosition(this.ObjectCursor.position.x, this.ObjectCursor.position.y, layer.Depth);
         layer.AddObject(newObject);
+    }
+
+    private void eraseObject(MapEditorObjectsLayer layer)
+    {
+        float closest = 10000.0f;
+        GameObject find = null;
+
+        for (int i = 0; i < layer.LoadedObjects.Count; ++i)
+        {
+            GameObject go = layer.LoadedObjects[i];
+            float dist = Vector2.Distance(this.ObjectCursor.transform.position, go.transform.position);
+            if (dist < closest)
+            {
+                closest = dist;
+                find = go;
+            }
+        }
+
+        if (find != null)
+        {
+            layer.RemoveObject(find);
+            ObjectPools.Release(find);
+        }
     }
 
     private void loadObjects(MapEditorObjectsLayer layer)
