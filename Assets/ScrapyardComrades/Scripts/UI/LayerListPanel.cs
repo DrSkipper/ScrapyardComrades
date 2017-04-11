@@ -10,6 +10,8 @@ public class LayerListPanel : VoBehavior
 
     public void ConfigureForLayers(List<string> sortedLayers, string currentLayer)
     {
+        _entryX = ((RectTransform)this.LayerListEntryPrefab.transform).anchoredPosition.x;
+
         if (_entryList == null)
             _entryList = new List<LayerListEntry>();
 
@@ -25,7 +27,8 @@ public class LayerListPanel : VoBehavior
             PooledObject layerListObject = this.LayerListEntryPrefab.Retain();
             LayerListEntry layerEntry = layerListObject.GetComponent<LayerListEntry>();
             layerEntry.transform.SetParent(this.transform, false);
-            ((RectTransform)layerEntry.transform).anchoredPosition = new Vector2(((RectTransform)layerEntry.transform).anchoredPosition.x, -this.Border - this.ElementHeight * i);
+            ((RectTransform)layerEntry.transform).anchoredPosition = new Vector2(_entryX, -this.Border - this.ElementHeight * i);
+            layerEntry.transform.SetLocalZ(0);
             layerEntry.Title.text = sortedLayers[i];
             if (sortedLayers[i] == currentLayer)
                 selection = i;
@@ -49,6 +52,7 @@ public class LayerListPanel : VoBehavior
      * Private
      */
     private List<LayerListEntry> _entryList;
+    private float _entryX;
 
     private void alignSelector(int selection)
     {

@@ -6,16 +6,11 @@ public class ParallaxManager : VoBehavior
     public WorldLoadingManager WorldManager;
     public ParallaxLayerController[] CurrentLayerControllers;
     public Transform PreviousParallaxRoot;
-    public Material MatForCurrentParallax;
-    public Material MatForPreviousParallax;
     public Texture2D ParallaxAtlas;
     public CameraController CameraController;
 
     public void Awake()
     {
-        this.MatForCurrentParallax.mainTexture = this.ParallaxAtlas;
-        this.MatForPreviousParallax.mainTexture = this.ParallaxAtlas;
-
         GlobalEvents.Notifier.Listen(PauseEvent.NAME, this, onPause);
     }
 
@@ -44,12 +39,7 @@ public class ParallaxManager : VoBehavior
                 previousAlpha = Easing.QuadEaseInOut(_transitionTime, 1.0f, -1.0f, this.CameraController.TransitionDuration);
             }
 
-            Color color = this.MatForCurrentParallax.color;
-            color.a = currentAlpha;
-            this.MatForCurrentParallax.color = color;
-            color = this.MatForPreviousParallax.color;
-            color.a = previousAlpha;
-            this.MatForPreviousParallax.color = color;
+            setTransitionAlphas(currentAlpha, previousAlpha);
         }
     }
 
@@ -84,12 +74,24 @@ public class ParallaxManager : VoBehavior
             // Fade previous material out and current material in, with timing that matches camera transition
             _inTransition = true;
             _transitionTime = 0.0f;
-            Color color = this.MatForCurrentParallax.color;
-            color.a = 0.0f;
-            this.MatForCurrentParallax.color = color;
-            color = this.MatForPreviousParallax.color;
-            color.a = 1.0f;
-            this.MatForPreviousParallax.color = color;
+            setTransitionAlphas(0.0f, 1.0f);
+        }
+    }
+
+    private void setTransitionAlphas(float currentAlpha, float previousAlpha)
+    {
+        for (int i = 0; i < this.CurrentLayerControllers.Length; ++i)
+        {
+            ParallaxLayerController current = this.CurrentLayerControllers[i];
+            Material currentMat = current.CurrentLayerVisual.MeshRenderer.material;
+            Material previousMat = current.PreviousLayerVisual.MeshRenderer.material;
+
+            Color color = currentMat.color;
+            color.a = currentAlpha;
+            currentMat.color = color;
+            color = previousMat.color;
+            color.a = previousAlpha;
+            previousMat.color = color;
         }
     }
 }

@@ -11,7 +11,7 @@ public class ParallaxQuadGroup : VoBehavior
     public void UpdateWithMesh(Mesh mesh, Texture2D texture)
     {
         this.MeshFilter.mesh = mesh;
-        this.MeshRenderer.sharedMaterial.mainTexture = texture;
+        this.MeshRenderer.material.mainTexture = texture;
     }
 
     public void CreateMeshForLayer(Sprite sprite, bool loops, float height, float xPos, float parallaxRatio, int quadWidth)
@@ -116,7 +116,7 @@ public class ParallaxQuadGroup : VoBehavior
         mesh.uv = _uvs.ToArray();
         mesh.triangles = _tris.ToArray();
         this.MeshFilter.mesh = mesh;
-        this.MeshRenderer.sharedMaterial.mainTexture = sprite.texture;
+        this.MeshRenderer.material.mainTexture = sprite.texture;
     }
 
     /**

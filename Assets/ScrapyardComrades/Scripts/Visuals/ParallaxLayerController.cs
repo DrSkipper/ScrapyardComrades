@@ -23,10 +23,10 @@ public class ParallaxLayerController : MonoBehaviour
 
     public void TransitionToNewLayer(NewMapInfo.ParallaxLayer layer, int quadWidth)
     {
-        this.PreviousLayerVisual.UpdateWithMesh(this.CurrentLayerVisual.MeshFilter.mesh, this.CurrentLayerVisual.MeshRenderer.sharedMaterial.mainTexture as Texture2D);
+        this.PreviousLayerVisual.UpdateWithMesh(this.CurrentLayerVisual.MeshFilter.mesh, this.CurrentLayerVisual.MeshRenderer.material.mainTexture as Texture2D);
         this.PreviousLayerController.ParallaxRatio = this.ParallaxRatio;
-        this.PreviousLayerVisual.transform.SetZ(this.CurrentLayerVisual.transform.position.z);
-        this.PreviousLayerVisual.transform.SetLocalY(this.CurrentLayerVisual.transform.localPosition.y);
+        this.PreviousLayerVisual.transform.SetLocalPosition2D(this.CurrentLayerVisual.transform.localPosition.x, this.CurrentLayerVisual.transform.localPosition.y);
+        this.PreviousLayerVisual.transform.SetZ(this.CurrentLayerVisual.transform.position.z - 1);
 
         if (layer != null)
         {
