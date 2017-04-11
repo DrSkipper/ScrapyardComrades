@@ -48,6 +48,7 @@ public class SCCharacterController : Actor2D, ISpawnable
 
     public LayerMask DuckingHaltMovementMask;
     public LayerMask DuckingCollisionMask;
+    public LayerMask DeathCollisionMask;
 
     public float Gravity = 100.0f;
     public float MaxFallSpeed = 500.0f;
@@ -181,10 +182,16 @@ public class SCCharacterController : Actor2D, ISpawnable
         {
             _hitStunTimer.update();
 
-            if (_hitStunTimer.Completed && this.Damagable.Dead)
+            if (this.Damagable.Dead)
             {
-                this.WorldEntity.TriggerConsumption();
-                return;
+                this.HaltMovementMask = this.DeathCollisionMask;
+                this.CollisionMask = this.DeathCollisionMask;
+
+                if (_hitStunTimer.Completed)
+                {
+                    this.WorldEntity.TriggerConsumption();
+                    return;
+                }
             }
         }
 

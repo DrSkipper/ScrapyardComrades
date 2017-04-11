@@ -26,6 +26,7 @@ public class HitEffectHandler : MonoBehaviour, IPausable
 
     void OnReturnToPool()
     {
+        this.Animator.ResetTrigger(BEGIN_TRIGGER);
         this.Animator.Play(STARTING_STATE);
     }
 

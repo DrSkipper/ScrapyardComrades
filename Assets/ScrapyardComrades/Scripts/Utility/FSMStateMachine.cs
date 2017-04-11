@@ -53,8 +53,8 @@ public class FSMStateMachine
 	}
 
     /**
-        * Private
-        */
+     * Private
+     */
     private FSMState _currentState;
     private FSMState _previousState;
     private Dictionary<string, FSMState> _states;

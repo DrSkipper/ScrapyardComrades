@@ -50,7 +50,7 @@ public class CharacterVisualizer : VoBehavior
 
     void OnReturnToPool()
     {
-        _stateMachine.BeginWithInitialState(IDLE_STATE);
+        _stateMachine.CurrentState = IDLE_STATE;
     }
 
     public void UpdateVisual(LocalEventNotifier.Event localEvent)
@@ -73,6 +73,8 @@ public class CharacterVisualizer : VoBehavior
     private bool _attackChanged;
     private int _facingModifier = 1;
 
+    private const float DEATH_VELOCITY_MAX = 2.0f;
+
     private string updateGeneric()
     {
         if (_currentAttack != null)
@@ -81,7 +83,7 @@ public class CharacterVisualizer : VoBehavior
         }
         if (_characterController.HitStunned)
         {
-            if (_characterController.Damagable.Dead)
+            if (_characterController.Damagable.Dead && _characterController.OnGround && Mathf.Abs(_characterController.Velocity.x) < DEATH_VELOCITY_MAX)
                 return DEATH_STATE;
             return STUNNED_STATE;
         }
@@ -108,7 +110,7 @@ public class CharacterVisualizer : VoBehavior
 
     private string updateDying()
     {
-        return DEATH_STATE;
+        return _characterController.OnGround ? DEATH_STATE : STUNNED_STATE;
     }
 
     private string updateAttack()

@@ -103,14 +103,20 @@ public class AttackController : VoBehavior, IPausable
 
                         if (landedHit)
                         {
+                            int freezeFrames = otherDamagable.Dead ? Damagable.DEATH_FREEZE_FRAMES : Damagable.FREEZE_FRAMES;
+
                             if (_freezeFrameEvent == null)
-                                _freezeFrameEvent = new FreezeFrameEvent(Damagable.FREEZE_FRAMES);
+                                _freezeFrameEvent = new FreezeFrameEvent(freezeFrames);
+                            else
+                                _freezeFrameEvent.NumFrames = freezeFrames;
                             this.localNotifier.SendEvent(_freezeFrameEvent);
+
                             if (this.Damagable != null)
-                                this.Damagable.SetInvincible(Damagable.FREEZE_FRAMES);
+                                this.Damagable.SetInvincible(freezeFrames);
+
                             PooledObject hitEffect = this.HitEffect.Retain();
                             hitEffect.transform.position = (Vector2)hitPoint;
-                            hitEffect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(Damagable.FREEZE_FRAMES);
+                            hitEffect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(freezeFrames);
                         }
                     }
                 }
