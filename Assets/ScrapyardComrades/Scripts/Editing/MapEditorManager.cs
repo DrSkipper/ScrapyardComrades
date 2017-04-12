@@ -19,7 +19,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public MapEditorGrid Grid;
     public MapEditorCursor Cursor;
     public Transform ObjectCursor;
-    //public LineRenderer ObjectEraseLine;
+    public LineRenderer ObjectEraseLine;
     //public Color EraseColor;
     public TilesetCollection TilesetCollection;
     public string MapName;
@@ -280,6 +280,19 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
     private void updateObjectsLayer(MapEditorObjectsLayer layer)
     {
+        GameObject toErase = null;
+
+        if (layer.EraserEnabled)
+        {
+            this.ObjectEraseLine.enabled = true;
+            toErase = findEraseTarget(layer);
+            this.ObjectEraseLine.SetPositions(new Vector3[]{ this.ObjectCursor.transform.position, toErase.transform.position });
+        }
+        else
+        {
+            this.ObjectEraseLine.enabled = false;
+        }
+
         if (MapEditorInput.Confirm)
         {
             if (!layer.EraserEnabled)
@@ -288,7 +301,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
             }
             else
             {
-                eraseObject(layer);
+                eraseObject(layer, toErase);
             }
         }
         else if (MapEditorInput.NavLeft)
@@ -331,7 +344,8 @@ public class MapEditorManager : MonoBehaviour, IPausable
         {
             _objectEraserEnabled = !_objectEraserEnabled;
             layer.EraserEnabled = _objectEraserEnabled;
-            //layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+
+            this.ObjectCursor.gameObject.SetActive(!_objectEraserEnabled);
         }
     }
 
@@ -359,8 +373,10 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
     private void leaveObjectsLayer(MapEditorObjectsLayer layer)
     {
+        this.ObjectEraseLine.enabled = false;
         layer.EraserEnabled = false;
         removeObjectBrush();
+        this.ObjectCursor.gameObject.SetActive(true);
     }
 
     private void enterTileLayer(MapEditorTilesLayer layer)
@@ -376,6 +392,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
         this.ObjectCursor.SetZ(layer.Depth);
         layer.EraserEnabled = _objectEraserEnabled;
         addObjectBrush(layer);
+        this.ObjectCursor.gameObject.SetActive(!_objectEraserEnabled);
     }
 
     private void removeObjectBrush()
@@ -403,7 +420,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
         layer.AddObject(newObject);
     }
 
-    private void eraseObject(MapEditorObjectsLayer layer)
+    private GameObject findEraseTarget(MapEditorObjectsLayer layer)
     {
         float closest = 10000.0f;
         GameObject find = null;
@@ -419,10 +436,15 @@ public class MapEditorManager : MonoBehaviour, IPausable
             }
         }
 
-        if (find != null)
+        return find;
+    }
+
+    private void eraseObject(MapEditorObjectsLayer layer, GameObject toErase)
+    {
+        if (toErase != null)
         {
-            layer.RemoveObject(find);
-            ObjectPools.Release(find);
+            layer.RemoveObject(toErase);
+            ObjectPools.Release(toErase);
         }
     }
 
