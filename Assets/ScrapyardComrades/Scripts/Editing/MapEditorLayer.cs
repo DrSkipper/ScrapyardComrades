@@ -27,6 +27,16 @@ public class MapEditorTilesLayer : MapEditorLayer
     public bool EraserEnabled;
     public TileRenderer Visual;
 
+    public BrushState CurrentBrushState;
+    public string[,] GroupBrush;
+
+    public enum BrushState
+    {
+        SinglePaint,
+        GroupSet,
+        GroupPaint
+    }
+
     public Dictionary<string, TilesetData.SpriteData> SpriteDataDict { get { return _spriteDataDict; } }
 
     public MapEditorTilesLayer(NewMapInfo.MapLayer mapLayer, int depth, Dictionary<string, TilesetData> tilesets, TileRenderer visual)
@@ -43,15 +53,154 @@ public class MapEditorTilesLayer : MapEditorLayer
         _spriteDataDict = this.Tileset.GetSpriteDataDictionary();
         _autotileDict = this.Tileset.GetAutotileDictionary();
         guaranteeFillFlags();
+        this.CurrentBrushState = BrushState.SinglePaint;
     }
 
     public void ApplyBrush(int x, int y)
     {
-        string spriteName = getBrushSprite(x, y);
+        if (this.CurrentBrushState == BrushState.GroupPaint)
+        {
+            paintGroup(x, y);
+        }
+        else if (this.CurrentBrushState == BrushState.SinglePaint)
+        {
+            paintSprite(x, y, getBrushSprite(x, y), this.AutoTileEnabled);
+        }
+        
+        this.ApplyData(x, y);
+    }
+
+    public void PreviewBrush(int x, int y)
+    {
+        if (x >= 0 && x < this.Data.GetLength(0) && y >= 0 && y < this.Data.GetLength(1))
+        {
+            if (this.CurrentBrushState == BrushState.GroupPaint)
+            {
+                previewGroup(x, y);
+            }
+            else if (this.CurrentBrushState == BrushState.SinglePaint)
+            {
+                this.Visual.SetSpriteIndexForTile(x, y, getBrushSprite(x, y));
+            }
+        }
+    }
+
+    public void BeginGroupSet(int x, int y)
+    {
+        this.CurrentBrushState = BrushState.GroupSet;
+        _groupBrushLowerLeft.X = x;
+        _groupBrushLowerLeft.Y = y;
+        _groupBrushUpperRight.X = x;
+        _groupBrushUpperRight.Y = y;
+        grabGroup();
+    }
+
+    public void UpdateGroupSet(int x, int y)
+    {
+        if (x < _groupBrushLowerLeft.X)
+            _groupBrushLowerLeft.X = x;
+        else if (x > _groupBrushUpperRight.X)
+            _groupBrushUpperRight.X = x;
+        if (y < _groupBrushLowerLeft.Y)
+            _groupBrushLowerLeft.Y = y;
+        else if (y > _groupBrushUpperRight.Y)
+            _groupBrushUpperRight.Y = y;
+        grabGroup();
+    }
+
+    public IntegerVector EndGroupSet(int x, int y)
+    {
+        this.CurrentBrushState = this.GroupBrush.GetLength(0) > 1 || this.GroupBrush.GetLength(1) > 1 ? BrushState.GroupPaint : BrushState.SinglePaint;
+        return _groupBrushLowerLeft;
+    }
+
+    public void ApplyData(int x, int y)
+    {
+        if (x < 0 || y < 0)
+            return;
+
+        if (this.CurrentBrushState == BrushState.GroupPaint)
+            applyGroupData(x, y);
+        else
+            applyIndividualData(x, y);
+    }
+
+    public override void SaveData(NewMapInfo mapInfo)
+    {
+        guaranteeFillFlags();
+        NewMapInfo.MapLayer layer = mapInfo.GetMapLayer(this.Name);
+        layer.SetDataGrid(this.Data);
+    }
+
+    /**
+     * Private
+     */
+    private Dictionary<string, TilesetData.SpriteData> _spriteDataDict;
+    private Dictionary<TilesetData.TileType, List<TilesetData.SpriteData>> _autotileDict;
+    private List<int> _groupXs = new List<int>();
+    private List<int> _groupYs = new List<int>();
+    private List<string> _groupSpriteNames = new List<string>();
+    public IntegerVector _groupBrushLowerLeft;
+    public IntegerVector _groupBrushUpperRight;
+
+    private void applyGroupData(int x, int y)
+    {
+        for (int i = 0; i < this.GroupBrush.GetLength(0); ++i)
+        {
+            for (int j = 0; j < this.GroupBrush.GetLength(1); ++j)
+            {
+                if (x + i < this.Data.GetLength(0) && y + j < this.Data.GetLength(1))
+                    applyIndividualData(x + i, y + j);
+            }
+        }
+    }
+
+    private void applyIndividualData(int x, int y)
+    {
+        int minX = x > 0 ? x - 1 : x;
+        int minY = y > 0 ? y - 1 : y;
+        int maxX = x < this.Data.GetLength(0) - 1 ? x + 1 : x;
+        int maxY = y < this.Data.GetLength(1) - 1 ? y + 1 : y;
+
+        for (int i = minX; i <= maxX; ++i)
+        {
+            for (int j = minY; j <= maxY; ++j)
+            {
+                this.Visual.SetSpriteIndexForTile(i, j, this.Data[i, j].sprite_name);
+            }
+        }
+    }
+
+    private void grabGroup()
+    {
+        this.GroupBrush = new string[_groupBrushUpperRight.X - _groupBrushLowerLeft.X + 1, _groupBrushUpperRight.Y - _groupBrushLowerLeft.Y + 1];
+        for (int i = 0; i < this.GroupBrush.GetLength(0); ++i)
+        {
+            for (int j = 0; j < this.GroupBrush.GetLength(1); ++j)
+            {
+                this.GroupBrush[i, j] = this.Data[_groupBrushLowerLeft.X + i, _groupBrushLowerLeft.Y + j].sprite_name;
+            }
+        }
+    }
+
+    private void paintGroup(int x, int y)
+    {
+        for (int i = 0; i < this.GroupBrush.GetLength(0); ++i)
+        {
+            for (int j = 0; j < this.GroupBrush.GetLength(1); ++j)
+            {
+                if (x + i < this.Data.GetLength(0) && y + j < this.Data.GetLength(1))
+                    paintSprite(x + i, y + j, this.GroupBrush[i, j], false);
+            }
+        }
+    }
+
+    private void paintSprite(int x, int y, string spriteName, bool autotile)
+    {
         this.Data[x, y].sprite_name = spriteName;
         this.Data[x, y].is_filled = shouldBeFilled(spriteName);
 
-        if (this.AutoTileEnabled)
+        if (autotile)
         {
             if (x > 0)
                 this.Data[x - 1, y].sprite_name = getAutoTileSprite(x - 1, y, false);
@@ -70,48 +219,27 @@ public class MapEditorTilesLayer : MapEditorLayer
             if (x < this.Data.GetLength(0) - 1 && y < this.Data.GetLength(1) - 1)
                 this.Data[x + 1, y + 1].sprite_name = getAutoTileSprite(x + 1, y + 1, false);
         }
-
-        this.ApplyData(x, y);
     }
 
-    public void PreviewBrush(int x, int y)
+    private void previewGroup(int x, int y)
     {
-        if (x >= 0 && x < this.Data.GetLength(0) && y >=0 && y < this.Data.GetLength(1))
-            this.Visual.SetSpriteIndexForTile(x, y, getBrushSprite(x, y));
-        //TODO: Preview surrounding autotile if enabled
-    }
-
-    public void ApplyData(int x, int y)
-    {
-        if (x < 0 || y < 0)
-            return;
-
-        int minX = x > 0 ? x - 1 : x;
-        int minY = y > 0 ? y - 1 : y;
-        int maxX = x < this.Data.GetLength(0) - 1 ? x + 1 : x;
-        int maxY = y < this.Data.GetLength(1) - 1 ? y + 1 : y;
-
-        for (int i = minX; i <= maxX; ++i)
+        _groupXs.Clear();
+        _groupYs.Clear();
+        _groupSpriteNames.Clear();
+        for (int i = 0; i < this.GroupBrush.GetLength(0); ++i)
         {
-            for (int j = minY; j <= maxY; ++j)
+            for (int j = 0; j < this.GroupBrush.GetLength(1); ++j)
             {
-                this.Visual.SetSpriteIndexForTile(i, j, this.Data[i, j].sprite_name);
+                if (x + i < this.Data.GetLength(0) && y + j < this.Data.GetLength(1))
+                {
+                    _groupXs.Add(x + i);
+                    _groupYs.Add(y + j);
+                    _groupSpriteNames.Add(this.GroupBrush[i, j]);
+                }
             }
         }
+        this.Visual.SetSpriteIndicesForTiles(_groupXs.ToArray(), _groupYs.ToArray(), _groupSpriteNames.ToArray());
     }
-
-    public override void SaveData(NewMapInfo mapInfo)
-    {
-        guaranteeFillFlags();
-        NewMapInfo.MapLayer layer = mapInfo.GetMapLayer(this.Name);
-        layer.SetDataGrid(this.Data);
-    }
-
-    /**
-     * Private
-     */
-    private Dictionary<string, TilesetData.SpriteData> _spriteDataDict;
-    private Dictionary<TilesetData.TileType, List<TilesetData.SpriteData>> _autotileDict;
 
     private string getAutoTileSprite(int x, int y, bool forceFilled)
     {

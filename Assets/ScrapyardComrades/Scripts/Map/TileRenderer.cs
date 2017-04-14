@@ -214,10 +214,10 @@ public class TileRenderer : VoBehavior
             int startingUVIndex = tileIndex * 4;
 
             Vector2[] spriteUVs = _sprites.ContainsKey(spriteNames[i]) ? _sprites[spriteNames[i]].uv : EMPTY_UVS;
-            uvs[startingUVIndex] = spriteUVs[0]; // bottom left
-            uvs[startingUVIndex + 1] = spriteUVs[1]; // bottom right
-            uvs[startingUVIndex + 2] = spriteUVs[2]; // top left
-            uvs[startingUVIndex + 3] = spriteUVs[3]; // top right
+            uvs[startingUVIndex + (this.FlipUvsVertical ? 2 : 0)] = spriteUVs[0]; // bottom left
+            uvs[startingUVIndex + (this.FlipUvsVertical ? 3 : 1)] = spriteUVs[1]; // bottom right
+            uvs[startingUVIndex + (this.FlipUvsVertical ? 0 : 2)] = spriteUVs[2]; // top left
+            uvs[startingUVIndex + (this.FlipUvsVertical ? 1 : 3)] = spriteUVs[3]; // top right
         }
         this.MeshFilter.mesh.uv = uvs;
     }

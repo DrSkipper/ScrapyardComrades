@@ -276,21 +276,59 @@ public class MapEditorManager : MonoBehaviour, IPausable
         if (_previousCursorPos != this.Cursor.GridPos)
         {
             newPos = true;
-            (layer as MapEditorTilesLayer).ApplyData(_previousCursorPos.X, _previousCursorPos.Y);
+            if (layer.CurrentBrushState != MapEditorTilesLayer.BrushState.GroupSet)
+            {
+                layer.ApplyData(_previousCursorPos.X, _previousCursorPos.Y);
+                layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+            }
             _previousCursorPos = this.Cursor.GridPos;
-            (layer as MapEditorTilesLayer).PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
         }
 
-        if (MapEditorInput.Confirm || (newPos && MapEditorInput.ConfirmHeld))
+        if (layer.CurrentBrushState != MapEditorTilesLayer.BrushState.GroupSet)
         {
-            (layer as MapEditorTilesLayer).ApplyBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+            if (layer.CurrentBrushState == MapEditorTilesLayer.BrushState.GroupPaint && MapEditorInput.CyclePrev)
+            {
+                layer.ApplyData(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+                layer.CurrentBrushState = MapEditorTilesLayer.BrushState.SinglePaint;
+                layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+            }
+            else if (MapEditorInput.Confirm || (newPos && MapEditorInput.ConfirmHeld))
+            {
+                layer.ApplyBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+            }
+            else if (MapEditorInput.Cancel && layer.CurrentBrushState == MapEditorTilesLayer.BrushState.SinglePaint)
+            {
+                _tileEraserEnabled = !_tileEraserEnabled;
+                this.Cursor.EnableEraser(_tileEraserEnabled);
+                layer.EraserEnabled = _tileEraserEnabled;
+                layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+            }
+            else if (MapEditorInput.CycleNext)
+            {
+                layer.ApplyData(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+                layer.BeginGroupSet(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+                _tileEraserEnabled = false;
+                this.Cursor.EnableEraser(_tileEraserEnabled);
+                layer.EraserEnabled = _tileEraserEnabled;
+            }
         }
-        else if (MapEditorInput.Cancel)
+        else
         {
-            _tileEraserEnabled = !_tileEraserEnabled;
-            this.Cursor.EnableEraser(_tileEraserEnabled);
-            layer.EraserEnabled = _tileEraserEnabled;
-            layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+            if (MapEditorInput.CyclePrev)
+            {
+                layer.CurrentBrushState = MapEditorTilesLayer.BrushState.SinglePaint;
+                layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+            }
+            else if (newPos)
+            {
+                layer.UpdateGroupSet(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+            }
+            else if (MapEditorInput.CycleNext)
+            {
+                this.Cursor.GridPos = layer.EndGroupSet(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+                this.Cursor.MoveToGridPos();
+                layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+            }
         }
     }
 
@@ -425,6 +463,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     {
         layer.EraserEnabled = false;
         layer.ApplyData(_previousCursorPos.X, _previousCursorPos.Y);
+        layer.CurrentBrushState = MapEditorTilesLayer.BrushState.SinglePaint;
     }
 
     private void leaveObjectsLayer(MapEditorObjectsLayer layer)
