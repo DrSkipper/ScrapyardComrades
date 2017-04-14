@@ -30,6 +30,9 @@ public class MapEditorTilesLayer : MapEditorLayer
     public BrushState CurrentBrushState;
     public string[,] GroupBrush;
 
+    public IntegerVector GroupBrushLowerLeft { get { return _groupBrushLowerLeft; } }
+    public IntegerVector GroupBrushUpperRight { get { return _groupBrushUpperRight; } }
+
     public enum BrushState
     {
         SinglePaint,

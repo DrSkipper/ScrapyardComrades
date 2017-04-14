@@ -20,6 +20,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public MapEditorGrid Grid;
     public MapEditorCursor Cursor;
     public Transform ObjectCursor;
+    public MapEditorBorder SelectionBorder;
     public LineRenderer ObjectEraseLine;
     //public Color EraseColor;
     public TilesetCollection TilesetCollection;
@@ -291,6 +292,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
                 layer.ApplyData(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
                 layer.CurrentBrushState = MapEditorTilesLayer.BrushState.SinglePaint;
                 layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+                this.SelectionBorder.gameObject.SetActive(false);
             }
             else if (MapEditorInput.Confirm || (newPos && MapEditorInput.ConfirmHeld))
             {
@@ -310,6 +312,12 @@ public class MapEditorManager : MonoBehaviour, IPausable
                 _tileEraserEnabled = false;
                 this.Cursor.EnableEraser(_tileEraserEnabled);
                 layer.EraserEnabled = _tileEraserEnabled;
+                this.SelectionBorder.SetMinMax(layer.GroupBrushLowerLeft, layer.GroupBrushUpperRight);
+                this.SelectionBorder.gameObject.SetActive(true);
+            }
+            else if (newPos && layer.CurrentBrushState == MapEditorTilesLayer.BrushState.GroupPaint)
+            {
+                this.SelectionBorder.SetMinMax(this.Cursor.GridPos, this.Cursor.GridPos + new IntegerVector(layer.GroupBrush.GetLength(0) - 1, layer.GroupBrush.GetLength(1) - 1));
             }
         }
         else
@@ -318,16 +326,19 @@ public class MapEditorManager : MonoBehaviour, IPausable
             {
                 layer.CurrentBrushState = MapEditorTilesLayer.BrushState.SinglePaint;
                 layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+                this.SelectionBorder.gameObject.SetActive(false);
             }
             else if (newPos)
             {
                 layer.UpdateGroupSet(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+                this.SelectionBorder.SetMinMax(layer.GroupBrushLowerLeft, layer.GroupBrushUpperRight);
             }
             else if (MapEditorInput.CycleNext)
             {
                 this.Cursor.GridPos = layer.EndGroupSet(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
                 this.Cursor.MoveToGridPos();
                 layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+                this.SelectionBorder.SetMinMax(this.Cursor.GridPos, this.Cursor.GridPos + new IntegerVector(layer.GroupBrush.GetLength(0) - 1, layer.GroupBrush.GetLength(1) - 1));
             }
         }
     }
@@ -464,6 +475,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
         layer.EraserEnabled = false;
         layer.ApplyData(_previousCursorPos.X, _previousCursorPos.Y);
         layer.CurrentBrushState = MapEditorTilesLayer.BrushState.SinglePaint;
+        this.SelectionBorder.gameObject.SetActive(false);
     }
 
     private void leaveObjectsLayer(MapEditorObjectsLayer layer)
