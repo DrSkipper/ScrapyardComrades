@@ -246,7 +246,11 @@ public class MapEditorTilesLayer : MapEditorLayer
 
     private string getAutoTileSprite(int x, int y, bool forceFilled)
     {
-        return TilesetData.GetAutotileSpriteName(TilesetData.GetAutotileType(x, y, this.Data, _spriteDataDict, forceFilled), _autotileDict, this.Tileset);
+        string prevSpriteName = this.Data[x, y].sprite_name;
+        string newSpriteName = TilesetData.GetAutotileSpriteName(TilesetData.GetAutotileType(x, y, this.Data, _spriteDataDict, forceFilled), _autotileDict, this.Tileset);
+        if (_spriteDataDict.ContainsKey(prevSpriteName) && _spriteDataDict.ContainsKey(newSpriteName) && _spriteDataDict[prevSpriteName].Type == _spriteDataDict[newSpriteName].Type)
+            return prevSpriteName;
+        return newSpriteName;
     }
 
     private string getBrushSprite(int x, int y)
