@@ -12337,20 +12337,6 @@
   ],
   "props": [
     {
-      "name": "props_OverlayPink_0",
-      "prefab_name": "OverlayPink",
-      "x": 152,
-      "y": 460,
-      "z": 2
-    },
-    {
-      "name": "props_OverlayPink_1",
-      "prefab_name": "OverlayPink",
-      "x": 540,
-      "y": 384,
-      "z": 2
-    },
-    {
       "name": "props_slums_lamp_2",
       "prefab_name": "slums_lamp",
       "x": 324,
@@ -12398,27 +12384,6 @@
       "x": 1324,
       "y": 348,
       "z": 2
-    },
-    {
-      "name": "props_OverlayPink_9",
-      "prefab_name": "OverlayPink",
-      "x": 840,
-      "y": 428,
-      "z": 2
-    },
-    {
-      "name": "props_OverlayPink_10",
-      "prefab_name": "OverlayPink",
-      "x": 1200,
-      "y": 284,
-      "z": 2
-    },
-    {
-      "name": "props_OverlayPink_11",
-      "prefab_name": "OverlayPink",
-      "x": 996,
-      "y": 680,
-      "z": 2
     }
   ],
   "objects": [
@@ -12438,5 +12403,68 @@
     }
   ],
   "next_object_id": 2,
-  "next_prop_id": 12
+  "next_prop_id": 12,
+  "next_light_id": 4,
+  "lights": [
+    {
+      "name": "lights_OverlayLight_0",
+      "x": 600,
+      "y": 412,
+      "light_type": 2,
+      "intensity": 3,
+      "range": 550,
+      "distance": 120,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.9632353,
+      "g": 0.155817449,
+      "b": 0.306164175
+    },
+    {
+      "name": "lights_OverlayLight_1",
+      "x": 1056,
+      "y": 364,
+      "light_type": 2,
+      "intensity": 3,
+      "range": 550,
+      "distance": 120,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294
+    },
+    {
+      "name": "lights_OverlayLight_2",
+      "x": 988,
+      "y": 680,
+      "light_type": 2,
+      "intensity": 3,
+      "range": 550,
+      "distance": 120,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294
+    },
+    {
+      "name": "lights_OverlayLight_3",
+      "x": 192,
+      "y": 444,
+      "light_type": 2,
+      "intensity": 3,
+      "range": 550,
+      "distance": 120,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294
+    }
+  ]
 }

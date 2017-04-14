@@ -11,7 +11,8 @@ public abstract class MapEditorLayer
     {
         Tiles,
         Objects,
-        Parallax
+        Parallax,
+        Lighting
     }
 
     public abstract void SaveData(NewMapInfo mapInfo);
@@ -230,7 +231,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
      */
     private int _currentPrefab;
     private int _nextId;
-    private const string UNDERSCORE = "_";
+    public const string UNDERSCORE = "_";
 }
 
 public class MapEditorParallaxLayer : MapEditorLayer
@@ -262,4 +263,94 @@ public class MapEditorParallaxLayer : MapEditorLayer
         layer.x_position = this.XPosition;
         layer.parallax_ratio = this.ParallaxRatio;
     }
+}
+
+public class MapEditorLightingLayer : MapEditorLayer
+{
+    public NewMapInfo.MapLight CurrentProperties;
+    public List<NewMapInfo.MapLight> Lights;
+    public List<GameObject> LoadedLights;
+    public bool EraserEnabled;
+
+    public MapEditorLightingLayer(string name, int depth, List<NewMapInfo.MapLight> lights, PooledObject prefab, int nextId)
+    {
+        this.Name = name;
+        this.Type = LayerType.Lighting;
+        this.Depth = depth;
+        this.Lights = lights != null ? lights : new List<NewMapInfo.MapLight>();
+        _prefab = prefab;
+        this.EraserEnabled = false;
+        this.LoadedLights = new List<GameObject>();
+        _nextId = nextId;
+
+        this.CurrentProperties = new NewMapInfo.MapLight();
+        if (this.Lights.Count > 0)
+        {
+            this.CopyValues(this.CurrentProperties, this.Lights[0]);
+        }
+        else
+        {
+            this.CurrentProperties.light_type = (int)LightType.Point;
+        }
+    }
+
+    public void ApplyBrush(Transform cursor)
+    {
+        PooledObject light = _prefab.Retain();
+        light.GetComponent<SCLight>().ConfigureLight(this.CurrentProperties);
+        light.transform.parent = cursor;
+        light.transform.SetLocalPosition(0, 0, 0);
+    }
+
+    public void AddObject(GameObject gameObject)
+    {
+        string prefabName = _prefab.name;
+        gameObject.name = this.Name + MapEditorObjectsLayer.UNDERSCORE + prefabName + MapEditorObjectsLayer.UNDERSCORE + _nextId;
+        ++_nextId;
+        if (_nextId == int.MaxValue)
+            _nextId = 0;
+
+        NewMapInfo.MapLight mapLight = new NewMapInfo.MapLight();
+        mapLight.name = gameObject.name;
+        mapLight.x = Mathf.RoundToInt(gameObject.transform.position.x);
+        mapLight.y = Mathf.RoundToInt(gameObject.transform.position.y);
+
+        this.CopyValues(mapLight, this.CurrentProperties);
+
+        gameObject.GetComponent<SCLight>().ConfigureLight(mapLight);
+        this.Lights.Add(mapLight);
+        this.LoadedLights.Add(gameObject);
+    }
+
+    public void CopyValues(NewMapInfo.MapLight receiver, NewMapInfo.MapLight source)
+    {
+        receiver.light_type = source.light_type;
+        receiver.intensity = source.intensity;
+        receiver.range = source.range;
+        receiver.distance = source.distance;
+        receiver.spot_angle = source.spot_angle;
+        receiver.rot_x = source.rot_x;
+        receiver.rot_y = source.rot_y;
+        receiver.r = source.r;
+        receiver.g = source.g;
+        receiver.b = source.b;
+    }
+
+    public void RemoveObject(GameObject toRemove)
+    {
+        this.Lights.RemoveAll(o => o.name == toRemove.name);
+        this.LoadedLights.Remove(toRemove);
+    }
+
+    public override void SaveData(NewMapInfo mapInfo)
+    {
+        mapInfo.lights = this.Lights;
+        mapInfo.next_light_id = _nextId;
+    }
+
+    /**
+     * Private
+     */
+    private PooledObject _prefab;
+    private int _nextId;
 }

@@ -24,6 +24,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     public TilesetCollection TilesetCollection;
     public PrefabCollection ObjectPrefabs;
     public PrefabCollection PropPrefabs;
+    public PooledObject LightPrefab;
 
     public IntegerRectCollider CurrentQuadBoundsCheck;
     public IntegerRectCollider GetBounds() { return this.CurrentQuadBoundsCheck; }
@@ -319,7 +320,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         string backgroundTilesetName = mapInfo.GetMapLayer(MapEditorManager.BACKGROUND_LAYER).tileset_name;
         TilesetData platformsTileset = _tilesets[platformsTilesetName];
         TilesetData backgroundTileset = _tilesets[backgroundTilesetName];
-        loader.LoadMap(platformsTileset, backgroundTileset, getAtlas(platformsTileset.AtlasName), getAtlas(backgroundTileset.AtlasName), _objectPrefabs, _propPrefabs);
+        loader.LoadMap(platformsTileset, backgroundTileset, getAtlas(platformsTileset.AtlasName), getAtlas(backgroundTileset.AtlasName), _objectPrefabs, _propPrefabs, this.LightPrefab);
     }
 
     private Texture2D getAtlas(string name)

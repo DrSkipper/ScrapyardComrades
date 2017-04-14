@@ -30845,48 +30845,6 @@
       "z": 2
     },
     {
-      "name": "props_OverlayPink_28",
-      "prefab_name": "OverlayPink",
-      "x": 740,
-      "y": 316,
-      "z": 2
-    },
-    {
-      "name": "props_OverlayPink_29",
-      "prefab_name": "OverlayPink",
-      "x": 1056,
-      "y": 228,
-      "z": 2
-    },
-    {
-      "name": "props_OverlayPink_30",
-      "prefab_name": "OverlayPink",
-      "x": 276,
-      "y": 592,
-      "z": 2
-    },
-    {
-      "name": "props_OverlayPink_31",
-      "prefab_name": "OverlayPink",
-      "x": 1400,
-      "y": 464,
-      "z": 2
-    },
-    {
-      "name": "props_OverlayPink_32",
-      "prefab_name": "OverlayPink",
-      "x": 1768,
-      "y": 320,
-      "z": 2
-    },
-    {
-      "name": "props_OverlayPink_33",
-      "prefab_name": "OverlayPink",
-      "x": 2016,
-      "y": 284,
-      "z": 2
-    },
-    {
       "name": "props_SlumsLamp_34",
       "prefab_name": "SlumsLamp",
       "x": 2296,
@@ -30918,5 +30876,53 @@
     }
   ],
   "next_object_id": 4,
-  "next_prop_id": 35
+  "next_prop_id": 35,
+  "next_light_id": 4,
+  "lights": [
+    {
+      "name": "lights_OverlayLight_0",
+      "x": 1460,
+      "y": 324,
+      "light_type": 2,
+      "intensity": 3,
+      "range": 600,
+      "distance": 120,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294
+    },
+    {
+      "name": "lights_OverlayLight_2",
+      "x": 316,
+      "y": 444,
+      "light_type": 2,
+      "intensity": 3,
+      "range": 600,
+      "distance": 120,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294
+    },
+    {
+      "name": "lights_OverlayLight_3",
+      "x": 872,
+      "y": 332,
+      "light_type": 2,
+      "intensity": 3,
+      "range": 600,
+      "distance": 70,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.9632353,
+      "g": 0.155817449,
+      "b": 0.306164175
+    }
+  ]
 }

@@ -7,10 +7,12 @@ public class MapEditorMenu : MonoBehaviour
     public MapEditorTilesPanel TilesPanel;
     public GameObject ObjectsPanel;
     public MapEditorParallaxPanel ParallaxPanel;
+    public MapEditorLightingPanel LightingPanel;
 
     void Awake()
     {
         this.ParallaxPanel.ValidSprites = this.Manager.ParallaxSprites;
+        this.LightingPanel.ValidLightColors = this.Manager.ValidLightColors;
         GlobalEvents.Notifier.Listen(PauseEvent.NAME, this, onPause);
         GlobalEvents.Notifier.Listen(ResumeEvent.NAME, this, onResume);
     }
@@ -24,17 +26,20 @@ public class MapEditorMenu : MonoBehaviour
         this.TilesPanel.gameObject.SetActive(layer.Type == MapEditorLayer.LayerType.Tiles);
         this.ObjectsPanel.SetActive(layer.Type == MapEditorLayer.LayerType.Objects);
         this.ParallaxPanel.gameObject.SetActive(layer.Type == MapEditorLayer.LayerType.Parallax);
-
+        this.LightingPanel.gameObject.SetActive(layer.Type == MapEditorLayer.LayerType.Lighting);
         switch (layer.Type)
         {
             default:
+            case MapEditorLayer.LayerType.Objects:
+                break;
             case MapEditorLayer.LayerType.Tiles:
                 this.TilesPanel.ShowForLayer(layer);
                 break;
-            case MapEditorLayer.LayerType.Objects:
-                break;
             case MapEditorLayer.LayerType.Parallax:
                 this.ParallaxPanel.ShowForLayer(layer);
+                break;
+            case MapEditorLayer.LayerType.Lighting:
+                this.LightingPanel.ShowForLayer(layer);
                 break;
         }
     }

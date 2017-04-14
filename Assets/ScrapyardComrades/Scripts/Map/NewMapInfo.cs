@@ -13,6 +13,9 @@ public class NewMapInfo
     public List<MapObject> objects; // Access directly
     public int next_object_id;
     public int next_prop_id;
+    public int next_light_id;
+
+    public List<MapLight> lights;
 
     public NewMapInfo(string n, int w, int h, int tileSize)
     {
@@ -26,6 +29,7 @@ public class NewMapInfo
         objects = new List<MapObject>();
         next_object_id = 0;
         next_prop_id = 0;
+        next_light_id = 0;
     }
 
     public void AddTileLayer(string layerName)
@@ -186,6 +190,24 @@ public class NewMapInfo
         public int z;
         //public int width;
         //public int height;
+    }
+
+    [System.Serializable]
+    public class MapLight
+    {
+        public string name;
+        public int x;
+        public int y;
+        public int light_type;
+        public int intensity;
+        public int range;
+        public int distance;
+        public int spot_angle;
+        public float rot_x;
+        public float rot_y;
+        public float r;
+        public float g;
+        public float b;
     }
 
     [System.Serializable]

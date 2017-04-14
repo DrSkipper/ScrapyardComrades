@@ -12,6 +12,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public const string OBJECTS_LAYER = "objects";
     public const string PROPS_LAYER = "props";
     public const string PROPS_FOLDER = "Props";
+    public const string LIGHTING_LAYER = "lights";
 
     public CameraController CameraController;
     public TileRenderer PlatformsRenderer;
@@ -37,6 +38,8 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public Sprite[] ParallaxSprites;
     public ParallaxQuadGroup ParallaxVisualPrefab;
     public Transform ParallaxParent;
+    public PooledObject LightPrefab;
+    public Color[] ValidLightColors;
 
     public List<string> DepthSortedLayers
     {
@@ -100,6 +103,9 @@ public class MapEditorManager : MonoBehaviour, IPausable
                 props.Add(this.PropPrefabs.Prefabs[i].gameObject);
         }
         this.Layers.Add(PROPS_LAYER, new MapEditorObjectsLayer(PROPS_LAYER, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT, _mapInfo.props, props.ToArray(), _mapInfo.next_prop_id));
+
+        // Setup Lighting layer
+        this.Layers.Add(LIGHTING_LAYER, new MapEditorLightingLayer(LIGHTING_LAYER, PLATFORMS_LAYER_DEPTH - LAYER_DEPTH_INCREMENT * 2, _mapInfo.lights, this.LightPrefab, _mapInfo.next_light_id));
 
         // Setup Tile Layers
         this.Layers.Add(PLATFORMS_LAYER, new MapEditorTilesLayer(platformsLayerData, PLATFORMS_LAYER_DEPTH, _tilesets, this.PlatformsRenderer));
@@ -172,14 +178,18 @@ public class MapEditorManager : MonoBehaviour, IPausable
         switch (currentLayer.Type)
         {
             default:
+            case MapEditorLayer.LayerType.Objects:
+                break;
             case MapEditorLayer.LayerType.Tiles:
                 ((MapEditorTilesLayer)currentLayer).PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
-                break;
-            case MapEditorLayer.LayerType.Objects:
                 break;
             case MapEditorLayer.LayerType.Parallax:
                 MapEditorParallaxLayer parallaxLayer = currentLayer as MapEditorParallaxLayer;
                 _parallaxVisuals[this.CurrentLayer].CreateMeshForLayer(findParallaxSprite(parallaxLayer.SpriteName), parallaxLayer.Loops, parallaxLayer.Height, parallaxLayer.XPosition, parallaxLayer.ParallaxRatio, _mapInfo.width * this.Grid.GridSpaceSize);
+                break;
+            case MapEditorLayer.LayerType.Lighting:
+                removeObjectBrush();
+                (currentLayer as MapEditorLightingLayer).ApplyBrush(this.ObjectCursor);
                 break;
         }
     }
@@ -231,6 +241,8 @@ public class MapEditorManager : MonoBehaviour, IPausable
             updateObjectsLayer(currentLayer as MapEditorObjectsLayer);
         else if (currentLayer.Type == MapEditorLayer.LayerType.Parallax)
             updateParallaxLayer(currentLayer as MapEditorParallaxLayer);
+        else if (currentLayer.Type == MapEditorLayer.LayerType.Lighting)
+            updateLightingLayer(currentLayer as MapEditorLightingLayer);
     }
 
     private void enterLayer(string layerName)
@@ -240,6 +252,8 @@ public class MapEditorManager : MonoBehaviour, IPausable
             enterTileLayer(layer as MapEditorTilesLayer);
         else if (layer.Type == MapEditorLayer.LayerType.Objects)
             enterObjectsLayer(layer as MapEditorObjectsLayer);
+        else if (layer.Type == MapEditorLayer.LayerType.Lighting)
+            enterLightingLayer(layer as MapEditorLightingLayer);
     }
 
     private void leaveLayer(string layerName)
@@ -252,6 +266,8 @@ public class MapEditorManager : MonoBehaviour, IPausable
             leaveTileLayer(layer as MapEditorTilesLayer);
         else if (layer.Type == MapEditorLayer.LayerType.Objects)
             leaveObjectsLayer(layer as MapEditorObjectsLayer);
+        else if (layer.Type == MapEditorLayer.LayerType.Lighting)
+            leaveLightingLayer(layer as MapEditorLightingLayer);
     }
 
     private void updateTileLayer(MapEditorTilesLayer layer)
@@ -296,15 +312,74 @@ public class MapEditorManager : MonoBehaviour, IPausable
         if (MapEditorInput.Confirm)
         {
             if (!layer.EraserEnabled)
-            {
                 addObject(layer);
-            }
             else
-            {
                 eraseObject(layer, toErase);
+        }
+        else if (MapEditorInput.Cancel)
+        {
+            _objectEraserEnabled = !_objectEraserEnabled;
+            layer.EraserEnabled = _objectEraserEnabled;
+
+            this.ObjectCursor.gameObject.SetActive(!_objectEraserEnabled);
+        }
+        else
+        {
+            updateObjectMovement();
+
+            if (MapEditorInput.CyclePrev)
+            {
+                removeObjectBrush();
+                layer.CyclePrev();
+                addObjectBrush(layer);
+            }
+            else if (MapEditorInput.CycleNext)
+            {
+                removeObjectBrush();
+                layer.CycleNext();
+                addObjectBrush(layer);
             }
         }
-        else if (MapEditorInput.NavLeft)
+    }
+
+    private void updateLightingLayer(MapEditorLightingLayer layer)
+    {
+        GameObject toErase = null;
+
+        if (layer.EraserEnabled)
+        {
+            this.ObjectEraseLine.enabled = true;
+            toErase = findEraseTarget(layer);
+            this.ObjectEraseLine.SetPositions(new Vector3[] { this.ObjectCursor.transform.position, toErase.transform.position });
+        }
+        else
+        {
+            this.ObjectEraseLine.enabled = false;
+        }
+
+        if (MapEditorInput.Confirm)
+        {
+            if (!layer.EraserEnabled)
+                addLight(layer);
+            else
+                eraseObject(layer, toErase);
+        }
+        else if (MapEditorInput.Cancel)
+        {
+            _objectEraserEnabled = !_objectEraserEnabled;
+            layer.EraserEnabled = _objectEraserEnabled;
+
+            this.ObjectCursor.gameObject.SetActive(!_objectEraserEnabled);
+        }
+        else
+        {
+            updateObjectMovement();
+        }
+    }
+
+    private void updateObjectMovement()
+    {
+        if (MapEditorInput.NavLeft)
         {
             this.ObjectCursor.SetX(this.ObjectCursor.position.x - _objectPrecisionIncrement);
             if (this.ObjectCursor.position.x < _objectPrecisionIncrement)
@@ -327,25 +402,6 @@ public class MapEditorManager : MonoBehaviour, IPausable
             this.ObjectCursor.SetY(this.ObjectCursor.position.y + _objectPrecisionIncrement);
             if (this.ObjectCursor.position.y > _mapInfo.height * this.Grid.GridSpaceSize - _objectPrecisionIncrement)
                 this.ObjectCursor.SetY(_objectPrecisionIncrement);
-        }
-        else if (MapEditorInput.CyclePrev)
-        {
-            removeObjectBrush();
-            layer.CyclePrev();
-            addObjectBrush(layer);
-        }
-        else if (MapEditorInput.CycleNext)
-        {
-            removeObjectBrush();
-            layer.CycleNext();
-            addObjectBrush(layer);
-        }
-        else if (MapEditorInput.Cancel)
-        {
-            _objectEraserEnabled = !_objectEraserEnabled;
-            layer.EraserEnabled = _objectEraserEnabled;
-
-            this.ObjectCursor.gameObject.SetActive(!_objectEraserEnabled);
         }
     }
 
@@ -379,6 +435,14 @@ public class MapEditorManager : MonoBehaviour, IPausable
         this.ObjectCursor.gameObject.SetActive(true);
     }
 
+    private void leaveLightingLayer(MapEditorLightingLayer layer)
+    {
+        this.ObjectEraseLine.enabled = false;
+        layer.EraserEnabled = false;
+        removeObjectBrush();
+        this.ObjectCursor.gameObject.SetActive(true);
+    }
+
     private void enterTileLayer(MapEditorTilesLayer layer)
     {
         this.CameraController.SetTracker(this.Cursor.transform);
@@ -392,6 +456,15 @@ public class MapEditorManager : MonoBehaviour, IPausable
         this.ObjectCursor.SetZ(layer.Depth);
         layer.EraserEnabled = _objectEraserEnabled;
         addObjectBrush(layer);
+        this.ObjectCursor.gameObject.SetActive(!_objectEraserEnabled);
+    }
+
+    private void enterLightingLayer(MapEditorLightingLayer layer)
+    {
+        this.CameraController.SetTracker(this.ObjectCursor);
+        this.ObjectCursor.SetZ(layer.Depth);
+        layer.EraserEnabled = _objectEraserEnabled;
+        layer.ApplyBrush(this.ObjectCursor);
         this.ObjectCursor.gameObject.SetActive(!_objectEraserEnabled);
     }
 
@@ -420,14 +493,23 @@ public class MapEditorManager : MonoBehaviour, IPausable
         layer.AddObject(newObject);
     }
 
-    private GameObject findEraseTarget(MapEditorObjectsLayer layer)
+    private void addLight(MapEditorLightingLayer layer)
+    {
+        GameObject newLight = this.LightPrefab.Retain().gameObject;
+        newLight.transform.SetPosition(this.ObjectCursor.position.x, this.ObjectCursor.position.y, layer.Depth);
+        layer.AddObject(newLight);
+    }
+
+    private GameObject findEraseTarget(MapEditorLayer layer)
     {
         float closest = 10000.0f;
         GameObject find = null;
 
-        for (int i = 0; i < layer.LoadedObjects.Count; ++i)
+        List<GameObject> loadedObjects = layer.Type == MapEditorLayer.LayerType.Objects ? (layer as MapEditorObjectsLayer).LoadedObjects : (layer as MapEditorLightingLayer).LoadedLights;
+
+        for (int i = 0; i < loadedObjects.Count; ++i)
         {
-            GameObject go = layer.LoadedObjects[i];
+            GameObject go = loadedObjects[i];
             float dist = Vector2.Distance(this.ObjectCursor.transform.position, go.transform.position);
             if (dist < closest)
             {
@@ -439,11 +521,14 @@ public class MapEditorManager : MonoBehaviour, IPausable
         return find;
     }
 
-    private void eraseObject(MapEditorObjectsLayer layer, GameObject toErase)
+    private void eraseObject(MapEditorLayer layer, GameObject toErase)
     {
         if (toErase != null)
         {
-            layer.RemoveObject(toErase);
+            if (layer.Type == MapEditorLayer.LayerType.Objects)
+                (layer as MapEditorObjectsLayer).RemoveObject(toErase);
+            else if (layer.Type == MapEditorLayer.LayerType.Lighting)
+                (layer as MapEditorLightingLayer).RemoveObject(toErase);
             ObjectPools.Release(toErase);
         }
     }
@@ -457,6 +542,18 @@ public class MapEditorManager : MonoBehaviour, IPausable
             newObject.name = layer.Objects[i].name;
             newObject.transform.SetPosition(layer.Objects[i].x, layer.Objects[i].y, layer.Depth);
             layer.LoadedObjects.Add(newObject);
+        }
+    }
+
+    private void loadLights(MapEditorLightingLayer layer)
+    {
+        for (int i = 0; i < layer.Lights.Count; ++i)
+        {
+            GameObject newObject = this.LightPrefab.Retain().gameObject;
+            newObject.name = layer.Lights[i].name;
+            newObject.transform.SetPosition(layer.Lights[i].x, layer.Lights[i].y, layer.Depth);
+            newObject.GetComponent<SCLight>().ConfigureLight(layer.Lights[i]);
+            layer.LoadedLights.Add(newObject);
         }
     }
 
@@ -498,6 +595,9 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
         MapEditorObjectsLayer propsLayer = this.Layers[PROPS_LAYER] as MapEditorObjectsLayer;
         loadObjects(propsLayer);
+
+        MapEditorLightingLayer lightingLayer = this.Layers[LIGHTING_LAYER] as MapEditorLightingLayer;
+        loadLights(lightingLayer);
 
         for (int i = 0; i < _mapInfo.parallax_layers.Count; ++i)
         {
@@ -545,7 +645,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
     private void addParallaxLayer(bool foreground)
     {
-        int depth = foreground ? PLATFORMS_LAYER_DEPTH - (2 + _foregroundParallaxCount) * LAYER_DEPTH_INCREMENT : PLATFORMS_LAYER_DEPTH + (3 + _backgroundParallaxCount) * LAYER_DEPTH_INCREMENT;
+        int depth = foreground ? PLATFORMS_LAYER_DEPTH - (3 + _foregroundParallaxCount) * LAYER_DEPTH_INCREMENT : PLATFORMS_LAYER_DEPTH + (3 + _backgroundParallaxCount) * LAYER_DEPTH_INCREMENT;
         _mapInfo.AddParallaxLayer(depth);
         string name = PARALLAX_PREFIX + depth;
         MapEditorParallaxLayer layer = new MapEditorParallaxLayer(_mapInfo.GetParallaxLayer(depth), name);

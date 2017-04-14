@@ -13,9 +13,6 @@ public class ObjectPlacer : VoBehavior
 
     public void PlaceObjects(List<NewMapInfo.MapObject> mapObjects, Dictionary<string, PooledObject> prefabs, string quadName, bool trackEntities)
     {
-        //TODO: Globalize setting of MapEditor tile render size, In-Game tile render size, and tile texture sizes (if tile texture size is ever actually even needed at this point)
-        int positionCorrection = 1; // this.TileRenderSize / this.TileTextureSize;
-
         for (int i = 0; i < mapObjects.Count; ++i)
         {
             NewMapInfo.MapObject mapObject = mapObjects[i];
@@ -41,12 +38,24 @@ public class ObjectPlacer : VoBehavior
                 {
                     if (trackEntities)
                         entity.AttemptingLoad = true;
-                    int x = mapObject.x * positionCorrection;
-                    int y = mapObject.y * positionCorrection;
+                    int x = mapObject.x;
+                    int y = mapObject.y;
                     Vector3 spawnPos = new Vector3(x + this.transform.position.x, y + this.transform.position.y, mapObject.z);
                     addSpawn(toSpawn, spawnPos, entity, spriteObject ? mapObject.prefab_name : null);
                 }
             }
+        }
+    }
+
+    public void PlaceLights(List<NewMapInfo.MapLight> lights, PooledObject lightPrefab)
+    {
+        if (lights == null)
+            return;
+
+        for (int i = 0; i < lights.Count; ++i)
+        {
+            NewMapInfo.MapLight light = lights[i];
+            addLightSpawn(lightPrefab, new Vector3(light.x + this.transform.position.x, light.y + this.transform.position.y, LIGHTING_Z), light);
         }
     }
 
@@ -76,6 +85,7 @@ public class ObjectPlacer : VoBehavior
     private List<EntityTracker.Entity> _spawnEntities = new List<EntityTracker.Entity>();
     private List<string> _spriteNames = new List<string>();
     private List<PooledObject> _nonTrackedObjects = new List<PooledObject>();
+    private const int LIGHTING_Z = -4;
 
     private void addSpawn(PooledObject toSpawn, Vector3 spawnPos, EntityTracker.Entity entity, string spriteName = null)
     {
@@ -84,6 +94,14 @@ public class ObjectPlacer : VoBehavior
         _spawnEntities.Add(entity);
         _spriteNames.Add(spriteName);
         this.TimedCallbacks.AddCallback(this, spawn, this.SpawnDelay);
+    }
+
+    private void addLightSpawn(PooledObject lightPrefab, Vector3 spawnPos, NewMapInfo.MapLight light)
+    {
+        PooledObject spawn = lightPrefab.Retain();
+        spawn.GetComponent<SCLight>().ConfigureLight(light);
+        _nonTrackedObjects.Add(spawn);
+        spawn.transform.position = spawnPos;
     }
 
     private void spawn()
@@ -121,7 +139,7 @@ public class ObjectPlacer : VoBehavior
             spawnables[i].OnSpawn();
         }
 
-        spawn.transform.position = new Vector3(spawnLocation.x, spawnLocation.y, spawnLocation.z);
+        spawn.transform.position = spawnLocation;
     }
 
     private const string SLASH = "/";
