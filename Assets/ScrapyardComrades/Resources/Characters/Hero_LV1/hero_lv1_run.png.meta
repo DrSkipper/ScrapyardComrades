@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: aeba4f1553a7bdd4abdc95db8930c133
-timeCreated: 1491344802
+timeCreated: 1492213953
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -100,11 +100,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 118
+        y: 88
         width: 35
         height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -113,11 +113,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 35
-        y: 118
+        y: 88
         width: 35
         height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -126,11 +126,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 70
-        y: 118
+        y: 88
         width: 35
         height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -139,11 +139,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 105
-        y: 118
+        y: 88
         width: 35
         height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -151,12 +151,12 @@ TextureImporter:
       name: hero_lv1_run_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 78
+        x: 140
+        y: 88
         width: 35
         height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -164,8 +164,8 @@ TextureImporter:
       name: hero_lv1_run_5
       rect:
         serializedVersion: 2
-        x: 35
-        y: 78
+        x: 175
+        y: 88
         width: 35
         height: 40
       alignment: 0
@@ -177,8 +177,8 @@ TextureImporter:
       name: hero_lv1_run_6
       rect:
         serializedVersion: 2
-        x: 70
-        y: 78
+        x: 210
+        y: 88
         width: 35
         height: 40
       alignment: 0
@@ -191,7 +191,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 38
+        y: 48
         width: 35
         height: 40
       alignment: 0
@@ -204,7 +204,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 35
-        y: 38
+        y: 48
         width: 35
         height: 40
       alignment: 0
@@ -217,7 +217,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 70
-        y: 38
+        y: 48
         width: 35
         height: 40
       alignment: 0
