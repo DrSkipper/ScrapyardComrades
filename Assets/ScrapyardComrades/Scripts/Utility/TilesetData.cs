@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class TilesetData : ScriptableObject
 {
+    public const string TILESETS_PATH = "Tilesets/";
+
     [System.Serializable]
     public enum TileType
     {

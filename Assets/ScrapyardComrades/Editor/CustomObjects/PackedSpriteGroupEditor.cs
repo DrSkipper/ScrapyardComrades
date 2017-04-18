@@ -43,14 +43,14 @@ public class PackedSpriteGroupEditor : Editor
 
     }
     
-    public static T[] GetAtPath<T>(string path, List<string> relativePaths = null) where T:Object
+    public static T[] GetAtPath<T>(string path, List<string> relativePaths = null, List<Sprite[]> sprites = null) where T:Object
     {
         List<T> list = new List<T>();
-        getAllAtPathRecursive<T>(path, "", list, relativePaths);
+        getAllAtPathRecursive<T>(path, "", list, relativePaths, sprites);
         return list.ToArray();
     }
 
-    private static void getAllAtPathRecursive<T>(string path, string namePrefix, List<T> list, List<string> relativePaths) where T:Object
+    private static void getAllAtPathRecursive<T>(string path, string namePrefix, List<T> list, List<string> relativePaths, List<Sprite[]> sprites) where T:Object
     {
         string fullPath = Application.dataPath.Replace("Assets", "") + path;
         Debug.Log("full path = " + fullPath);
@@ -62,7 +62,7 @@ public class PackedSpriteGroupEditor : Editor
             string name = folderName.Substring(index + 1);
 
             Debug.Log("asset type = folder");
-            getAllAtPathRecursive<T>(path + name + "/", name + "/", list, relativePaths);
+            getAllAtPathRecursive<T>(path + name + "/", name + "/", list, relativePaths, sprites);
         }
 
         string[] fileEntries = Directory.GetFiles(fullPath);
@@ -85,7 +85,9 @@ public class PackedSpriteGroupEditor : Editor
                     list.Add(t);
 
                     if (relativePaths != null)
-                        relativePaths.Add(namePrefix + name);
+                        relativePaths.Add(namePrefix + name.Replace(PackedSpriteGroup.TEXTURE_SUFFIX, ""));
+
+                    //TODO: Add the sprites!!!!
                 }
             }
         }

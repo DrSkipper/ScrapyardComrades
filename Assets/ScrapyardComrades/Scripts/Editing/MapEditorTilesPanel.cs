@@ -19,7 +19,7 @@ public class MapEditorTilesPanel : MonoBehaviour
         this.Grid.InitializeGridForSize(atlas.width / this.Grid.GridSpaceSize, atlas.height / this.Grid.GridSpaceSize);
         this.AtlasBackdrop.sizeDelta = new Vector2(atlas.width, atlas.height);
 
-        _sprites = atlas.GetSprites(TilesetEditorManager.TILESETS_PATH);
+        _sprites = atlas.GetSprites(TilesetData.TILESETS_PATH);
 
         if (_tileSpriteObjects != null)
         {

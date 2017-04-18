@@ -84,16 +84,13 @@ public class MapLoader : MonoBehaviour
         Dictionary<string, Sprite[]> sprites = new Dictionary<string, Sprite[]>();
         foreach (string key in textures.Keys)
         {
-            sprites.Add(key, textures[key].GetSpritesArray(TilesetEditorManager.TILESETS_PATH));
+            sprites.Add(key, textures[key].GetSpritesArray(TilesetData.TILESETS_PATH));
         }
         return sprites;
     }
 
     public static NewMapInfo GatherMapInfo(string mapName)
     {
-        //TextAsset asset = Resources.Load<TextAsset>(PATH + mapName);
-        //MapInfo mapInfo = JsonConvert.DeserializeObject<MapInfo>(asset.text);
-        
         string path = Application.streamingAssetsPath + LEVELS_PATH + mapName + JSON_SUFFIX;
         if (File.Exists(path))
         {
