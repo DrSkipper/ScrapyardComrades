@@ -54,23 +54,18 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
     public int CurrentLayerIndex { get { for (int i = 0; i < _sortedLayers.Count; ++i) if (_sortedLayers[i] == this.CurrentLayer) return i; return 0; } }
 
-    public Texture2D GetAtlasForName(string atlasName)
-    {
-        return _atlases[atlasName];
-    }
-
     void Awake()
     {
         if (ScenePersistentLoading.IsLoading)
             this.MapName = ScenePersistentLoading.ConsumeLoad().Value.LevelToLoad;
-        _atlases = MapLoader.CompileTextures(validAtlases().ToArray());
         this.Layers = new Dictionary<string, MapEditorLayer>();
         this.CurrentLayer = PLATFORMS_LAYER;
         _previousCursorPos = new IntegerVector(-9999, -9999);
         _parallaxVisuals = new Dictionary<string, ParallaxQuadGroup>();
+        compileTilesets();
 
-        // Load Data
-        _mapInfo = MapLoader.GatherMapInfo(this.MapName);
+         // Load Data
+         _mapInfo = MapLoader.GatherMapInfo(this.MapName);
         if (_mapInfo == null)
             _mapInfo = new NewMapInfo(this.MapName, DEFAULT_LEVEL_SIZE, DEFAULT_LEVEL_SIZE, DEFAULT_TILE_SIZE);
 
@@ -200,7 +195,6 @@ public class MapEditorManager : MonoBehaviour, IPausable
      */
     private NewMapInfo _mapInfo;
     private Dictionary<string, TilesetData> _tilesets;
-    private Dictionary<string, Texture2D> _atlases;
     private IntegerVector _previousCursorPos;
     private List<string> _sortedLayers;
     private Dictionary<string, ParallaxQuadGroup> _parallaxVisuals;
@@ -632,12 +626,12 @@ public class MapEditorManager : MonoBehaviour, IPausable
     private void updateVisuals()
     {
         MapEditorTilesLayer platformsLayer = this.Layers[PLATFORMS_LAYER] as MapEditorTilesLayer;
-        this.PlatformsRenderer.SetAtlas(_atlases[_tilesets[platformsLayer.Tileset.name].AtlasName]);
+        this.PlatformsRenderer.SetAtlas(_tilesets[platformsLayer.Tileset.name].AtlasName);
         this.PlatformsRenderer.CreateMapWithGrid(platformsLayer.Data);
         this.PlatformsRenderer.transform.SetZ(platformsLayer.Depth);
 
         MapEditorTilesLayer backgroundLayer = this.Layers[BACKGROUND_LAYER] as MapEditorTilesLayer;
-        this.BackgroundRenderer.SetAtlas(_atlases[_tilesets[backgroundLayer.Tileset.name].AtlasName]);
+        this.BackgroundRenderer.SetAtlas(_tilesets[backgroundLayer.Tileset.name].AtlasName);
         this.BackgroundRenderer.CreateMapWithGrid(backgroundLayer.Data);
         this.BackgroundRenderer.transform.SetZ(backgroundLayer.Depth);
 
@@ -663,16 +657,13 @@ public class MapEditorManager : MonoBehaviour, IPausable
         return Mathf.Clamp(this.Layers[l1].Depth - this.Layers[l2].Depth, -1, 1);
     }
 
-    private List<Texture2D> validAtlases()
+    private void compileTilesets()
     {
-        List<Texture2D> atlases = new List<Texture2D>();
         _tilesets = new Dictionary<string, TilesetData>();
         for (int i = 0; i < this.TilesetCollection.Tilesets.Length; ++i)
         {
             _tilesets.Add(this.TilesetCollection.Tilesets[i].name, this.TilesetCollection.Tilesets[i]);
-            atlases.Add(IndexedSpriteManager.GetAtlas(TilesetData.TILESETS_PATH, this.TilesetCollection.Tilesets[i].AtlasName));
         }
-        return atlases;
     }
 
     private void cycleLayers(bool next)

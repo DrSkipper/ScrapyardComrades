@@ -47,12 +47,9 @@ public class IndexedSpriteManager : MonoBehaviour
                     _atlases.Add(atlasEntry.RelativePath, new Dictionary<string, Texture2D>());
                 if (!_sprites.ContainsKey(atlasEntry.RelativePath))
                     _sprites.Add(atlasEntry.RelativePath, new Dictionary<string, Sprite[]>());
-                _atlases[atlasEntry.RelativePath].Add(atlasEntry.Atlas.name, atlasEntry.Atlas);
-                _sprites[atlasEntry.RelativePath].Add(atlasEntry.Atlas.name, atlasEntry.Sprites);
+                _atlases[atlasEntry.RelativePath].Add(atlasEntry.AtlasName, atlasEntry.Atlas);
+                _sprites[atlasEntry.RelativePath].Add(atlasEntry.AtlasName, atlasEntry.Sprites);
             }
         }
-
-        //Debug.Log("All Atlases: " + _atlases.ToString());
-        //Debug.Log("All Sprites: " + _sprites.ToString());
     }
 }

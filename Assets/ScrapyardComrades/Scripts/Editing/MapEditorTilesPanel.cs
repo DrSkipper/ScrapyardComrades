@@ -10,16 +10,15 @@ public class MapEditorTilesPanel : MonoBehaviour
     public GameObject AutotileValue;
     public Image SelectionImage;
     public MapEditorGrid Grid;
-    public MapEditorManager Manager;
 
     public void ShowForLayer(MapEditorLayer layer)
     {
         _layer = layer as MapEditorTilesLayer;
-        Texture2D atlas = Manager.GetAtlasForName(_layer.Tileset.AtlasName);
+        Texture2D atlas = IndexedSpriteManager.GetAtlas(TilesetData.TILESETS_PATH, _layer.Tileset.AtlasName);
         this.Grid.InitializeGridForSize(atlas.width / this.Grid.GridSpaceSize, atlas.height / this.Grid.GridSpaceSize);
         this.AtlasBackdrop.sizeDelta = new Vector2(atlas.width, atlas.height);
 
-        _sprites = atlas.GetSprites(TilesetData.TILESETS_PATH);
+        _sprites = Texture2DExtensions.GetSprites(TilesetData.TILESETS_PATH, _layer.Tileset.AtlasName);
 
         if (_tileSpriteObjects != null)
         {

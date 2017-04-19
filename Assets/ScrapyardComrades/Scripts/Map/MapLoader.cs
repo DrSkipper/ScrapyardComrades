@@ -18,7 +18,7 @@ public class MapLoader : MonoBehaviour
 
     public bool Cleared { get { return _cleared; } }
 
-    public void LoadMap(TilesetData platformsTileset, TilesetData bgTileset, Texture2D platformsAtlas, Texture2D bgAtlas, Dictionary<string, PooledObject> objectPrefabs, Dictionary<string, PooledObject> propPrefabs, PooledObject lightPrefab)
+    public void LoadMap(TilesetData platformsTileset, TilesetData bgTileset, string platformsAtlas, string bgAtlas, Dictionary<string, PooledObject> objectPrefabs, Dictionary<string, PooledObject> propPrefabs, PooledObject lightPrefab)
     {
         this.ClearMap();
         _cleared = false;
@@ -66,27 +66,6 @@ public class MapLoader : MonoBehaviour
     public void AddColliders()
     {
         this.GeometryCreator.AddColliders();
-    }
-
-    public static Dictionary<string, Texture2D> CompileTextures(Texture2D[] textures)
-    {
-        Dictionary<string, Texture2D> textDict = new Dictionary<string, Texture2D>();
-        for (int i = 0; i < textures.Length; ++i)
-        {
-            if (!textDict.ContainsKey(textures[i].name))
-                textDict.Add(textures[i].name, textures[i]);
-        }
-        return textDict;
-    }
-
-    public static Dictionary<string, Sprite[]> CompileSprites(Dictionary<string, Texture2D> textures)
-    {
-        Dictionary<string, Sprite[]> sprites = new Dictionary<string, Sprite[]>();
-        foreach (string key in textures.Keys)
-        {
-            sprites.Add(key, textures[key].GetSpritesArray(TilesetData.TILESETS_PATH));
-        }
-        return sprites;
     }
 
     public static NewMapInfo GatherMapInfo(string mapName)

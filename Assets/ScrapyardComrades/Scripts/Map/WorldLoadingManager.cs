@@ -318,11 +318,6 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         string backgroundTilesetName = mapInfo.GetMapLayer(MapEditorManager.BACKGROUND_LAYER).tileset_name;
         TilesetData platformsTileset = _tilesets[platformsTilesetName];
         TilesetData backgroundTileset = _tilesets[backgroundTilesetName];
-        loader.LoadMap(platformsTileset, backgroundTileset, getAtlas(platformsTileset.AtlasName), getAtlas(backgroundTileset.AtlasName), _objectPrefabs, _propPrefabs, this.LightPrefab);
-    }
-
-    private Texture2D getAtlas(string name)
-    {
-        return IndexedSpriteManager.GetAtlas(TilesetData.TILESETS_PATH, name);
+        loader.LoadMap(platformsTileset, backgroundTileset, platformsTileset.AtlasName, backgroundTileset.AtlasName, _objectPrefabs, _propPrefabs, this.LightPrefab);
     }
 }

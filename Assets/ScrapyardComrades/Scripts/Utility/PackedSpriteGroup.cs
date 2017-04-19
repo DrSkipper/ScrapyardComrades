@@ -11,8 +11,16 @@ public class PackedSpriteGroup : ScriptableObject
     [System.Serializable]
     public struct AtlasEntry
     {
+        public string AtlasName;
         public string RelativePath;
-        public Texture2D Atlas;
         public Sprite[] Sprites;
+
+        public Texture2D Atlas
+        {
+            get
+            {
+                return this.Sprites != null && this.Sprites.Length > 0 ? this.Sprites[0].texture : null;
+            }
+        }
     }
 }

@@ -32,7 +32,7 @@ public class PackedSpriteGroupEditor : Editor
         {
             PackedSpriteGroup.AtlasEntry atlasEntry = new PackedSpriteGroup.AtlasEntry();
             atlasEntry.RelativePath = relativePaths[i];
-            atlasEntry.Atlas = atlases[i];
+            atlasEntry.AtlasName = atlases[i].name;
             atlasEntry.Sprites = sprites[i];
             atlasEntries.Add(atlasEntry);
         }
