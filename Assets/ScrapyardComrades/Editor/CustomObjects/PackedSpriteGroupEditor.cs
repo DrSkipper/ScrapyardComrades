@@ -2,6 +2,7 @@
 using UnityEditor;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 [CustomEditor(typeof(PackedSpriteGroup))]
 public class PackedSpriteGroupEditor : Editor
@@ -23,8 +24,20 @@ public class PackedSpriteGroupEditor : Editor
         path = path.Replace(suffix, "");
         Debug.Log("root path = " + path);
         List<string> relativePaths = new List<string>();
-        psg.Atlases = GetAtPath<Texture2D>(path, relativePaths);
-        psg.AtlasNames = relativePaths.ToArray();
+        List<Sprite[]> sprites = new List<Sprite[]>();
+        Texture2D[] atlases = GetAtPath<Texture2D>(path, relativePaths, sprites);
+
+        List<PackedSpriteGroup.AtlasEntry> atlasEntries = new List<PackedSpriteGroup.AtlasEntry>();
+        for (int i = 0; i < atlases.Length; ++i)
+        {
+            PackedSpriteGroup.AtlasEntry atlasEntry = new PackedSpriteGroup.AtlasEntry();
+            atlasEntry.RelativePath = relativePaths[i];
+            atlasEntry.Atlas = atlases[i];
+            atlasEntry.Sprites = sprites[i];
+            atlasEntries.Add(atlasEntry);
+        }
+        psg.Atlases = atlasEntries.ToArray();
+
         EditorUtility.SetDirty(psg);
         AssetDatabase.SaveAssets();
     }
@@ -40,7 +53,6 @@ public class PackedSpriteGroupEditor : Editor
             PackedSpriteGroup psg = AssetDatabase.LoadAssetAtPath<PackedSpriteGroup>(AssetDatabase.GUIDToAssetPath(guid));
             AggregateAtlases(psg);
         }
-
     }
     
     public static T[] GetAtPath<T>(string path, List<string> relativePaths = null, List<Sprite[]> sprites = null) where T:Object
@@ -85,9 +97,10 @@ public class PackedSpriteGroupEditor : Editor
                     list.Add(t);
 
                     if (relativePaths != null)
-                        relativePaths.Add(namePrefix + name.Replace(PackedSpriteGroup.TEXTURE_SUFFIX, ""));
-
-                    //TODO: Add the sprites!!!!
+                        relativePaths.Add(namePrefix);
+                    
+                    if (sprites != null && type == typeof(Texture2D))
+                        sprites.Add(AssetDatabase.LoadAllAssetsAtPath(localPath).OfType<Sprite>().ToArray());
                 }
             }
         }

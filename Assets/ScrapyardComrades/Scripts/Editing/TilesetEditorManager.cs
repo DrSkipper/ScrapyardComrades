@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
 using System.Linq;
+#endif
 
 [ExecuteInEditMode]
 public class TilesetEditorManager : MonoBehaviour
@@ -25,6 +27,7 @@ public class TilesetEditorManager : MonoBehaviour
 
     public void Reload()
     {
+#if UNITY_EDITOR
         if (this.TilesetToEdit == null)
         {
             Debug.LogWarning("Attempted to load null tileset");
@@ -52,6 +55,9 @@ public class TilesetEditorManager : MonoBehaviour
 
         this.TilesetToEdit.ApplySpriteDataDictionary(_spriteData);
         this.MeshRenderer.sharedMaterial.mainTexture = _texture;
+#else
+        Debug.Log("TilesetEditorManager should not be used at runtime!");
+#endif
     }
 
     public void SelectSpriteAtPixel(IntegerVector pixel)
@@ -91,9 +97,13 @@ public class TilesetEditorManager : MonoBehaviour
 
     public static Sprite[] GetSpritesArrayEditor(string path)
     {
+#if UNITY_EDITOR
         Sprite[] sprites = AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>().ToArray();
         //List<Sprite> sprites = new List<Sprite>();
         return sprites.ToArray();
+#else
+        return null;
+#endif
     }
 
     /**

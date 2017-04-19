@@ -6,8 +6,13 @@ public class PackedSpriteGroup : ScriptableObject
     public const string INDEXED_TEXTURES_PATH = "Assets/ScrapyardComrades/Textures/IndexedTextures/";
     public const string TEXTURE_SUFFIX = ".png";
 
-    public Texture2D[] Atlases;
-    public string[] AtlasNames;
+    public AtlasEntry[] Atlases;
 
-    public List<Sprite[]> Sprites;
+    [System.Serializable]
+    public struct AtlasEntry
+    {
+        public string RelativePath;
+        public Texture2D Atlas;
+        public Sprite[] Sprites;
+    }
 }

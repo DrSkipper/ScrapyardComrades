@@ -18,15 +18,16 @@ public static class Texture2DExtensions
 
     public static Sprite[] GetSpritesArray(this Texture2D self, string path)
     {
-        return Resources.LoadAll<Sprite>(path + self.name);
+        //return Resources.LoadAll<Sprite>(path + self.name);
+        return IndexedSpriteManager.GetSprites(path, self.name);
     }
 
     public static Vector2[] GetUVs(this Sprite self)
     {
-        float minX = self.rect.xMin / self.texture.width;
-        float minY = self.rect.yMin / self.texture.height;
-        float maxX = self.rect.xMax / self.texture.width;
-        float maxY = self.rect.yMax / self.texture.height;
+        float minX = (self.rect.xMin + self.textureRectOffset.x) / self.texture.width;
+        float minY = (self.rect.yMin + self.textureRectOffset.y) / self.texture.height;
+        float maxX = (self.rect.xMax + self.textureRectOffset.x) / self.texture.width;
+        float maxY = (self.rect.yMax + self.textureRectOffset.y) / self.texture.height;
         Vector2[] uvs = new Vector2[4];
         uvs[0] = new Vector2(minX, minY);
         uvs[1] = new Vector2(maxX, minY);

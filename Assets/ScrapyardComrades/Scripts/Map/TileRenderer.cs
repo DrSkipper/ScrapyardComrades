@@ -16,22 +16,32 @@ public class TileRenderer : VoBehavior
         if (this.Atlas != null)
         {
             this.renderer.sharedMaterial.mainTexture = this.Atlas;
-            _sprites = this.Atlas.GetSprites(TilesetEditorManager.TILESETS_PATH);
+            _sprites = this.Atlas.GetSprites(TilesetData.TILESETS_PATH);
         }
     }
 
     public void SetAtlas(string atlasName)
     {
-        this.Atlas = Resources.Load<Texture2D>(TilesetEditorManager.TILESETS_PATH + atlasName);
+        this.Atlas = IndexedSpriteManager.GetAtlas(TilesetData.TILESETS_PATH, atlasName);
+        _sprites = this.Atlas.GetSprites(TilesetData.TILESETS_PATH);
+        foreach (Sprite sprite in _sprites.Values)
+        {
+            this.Atlas = sprite.texture;
+            break;
+        }
         this.renderer.sharedMaterial.mainTexture = this.Atlas;
-        _sprites = this.Atlas.GetSprites(TilesetEditorManager.TILESETS_PATH);
     }
 
     public void SetAtlas(Texture2D atlas)
     {
         this.Atlas = atlas;
+        _sprites = this.Atlas.GetSprites(TilesetData.TILESETS_PATH);
+        foreach (Sprite sprite in _sprites.Values)
+        {
+            this.Atlas = sprite.texture;
+            break;
+        }
         this.renderer.sharedMaterial.mainTexture = this.Atlas;
-        _sprites = this.Atlas.GetSprites(TilesetEditorManager.TILESETS_PATH);
     }
 
     public void CreateEmptyMap(int width, int height)
@@ -65,7 +75,7 @@ public class TileRenderer : VoBehavior
                     int tileIndex = y * _width + x;
                     int startingUVIndex = tileIndex * 4;
 
-                    Vector2[] spriteUVs = _sprites[grid[x, y].sprite_name].uv;
+                    Vector2[] spriteUVs = _sprites[grid[x, y].sprite_name].uv;// GetUVs();
                     uvs[startingUVIndex] = spriteUVs[0]; // bottom left
                     uvs[startingUVIndex + 1] = spriteUVs[1]; // bottom right
                     uvs[startingUVIndex + 2] = spriteUVs[2]; // top left
@@ -154,7 +164,7 @@ public class TileRenderer : VoBehavior
 
                 // Handle UVs
                 string spriteName = grid[x, y].sprite_name;
-                Vector2[] spriteUVs = _sprites.ContainsKey(spriteName) ? _sprites[spriteName].uv : EMPTY_UVS;
+                Vector2[] spriteUVs = _sprites.ContainsKey(spriteName) ? _sprites[spriteName].uv /* GetUVs() */: EMPTY_UVS;
 
                 Vector2 bottomLeftUV = spriteUVs[this.FlipUvsVertical ? 2 : 0];
                 Vector2 bottomRightUV = spriteUVs[this.FlipUvsVertical ? 3 : 1];
@@ -194,7 +204,7 @@ public class TileRenderer : VoBehavior
         int tileIndex = tileY * _width + tileX;
         int startingUVIndex = tileIndex * 4;
 
-        Vector2[] spriteUVs = _sprites.ContainsKey(spriteName) ? _sprites[spriteName].uv : EMPTY_UVS;
+        Vector2[] spriteUVs = _sprites.ContainsKey(spriteName) ? _sprites[spriteName].uv /*GetUVs()*/ : EMPTY_UVS;
         Vector2[] uvs = this.MeshFilter.mesh.uv;
         uvs[startingUVIndex] = spriteUVs[this.FlipUvsVertical ? 2 : 0]; // bottom left
         uvs[startingUVIndex + 1] = spriteUVs[this.FlipUvsVertical ? 3 : 1]; // bottom right
@@ -213,7 +223,7 @@ public class TileRenderer : VoBehavior
             int tileIndex = y[i] * _width + x[i];
             int startingUVIndex = tileIndex * 4;
 
-            Vector2[] spriteUVs = _sprites.ContainsKey(spriteNames[i]) ? _sprites[spriteNames[i]].uv : EMPTY_UVS;
+            Vector2[] spriteUVs = _sprites.ContainsKey(spriteNames[i]) ? _sprites[spriteNames[i]].uv /*GetUVs()*/ : EMPTY_UVS;
             uvs[startingUVIndex + (this.FlipUvsVertical ? 2 : 0)] = spriteUVs[0]; // bottom left
             uvs[startingUVIndex + (this.FlipUvsVertical ? 3 : 1)] = spriteUVs[1]; // bottom right
             uvs[startingUVIndex + (this.FlipUvsVertical ? 0 : 2)] = spriteUVs[2]; // top left

@@ -59,7 +59,6 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
 
         _activeMapLoaders = new List<MapLoader>(MAX_MAP_LOADERS);
         _tilesets = new Dictionary<string, TilesetData>();
-        _cachedAtlases = new Dictionary<string, Texture2D>();
 
         for (int i = 0; i < this.TilesetCollection.Tilesets.Length; ++i)
         {
@@ -169,7 +168,6 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     private IntegerVector _trackerPosition = IntegerVector.Zero;
     private Dictionary<string, NewMapInfo> _quadData;
     private Dictionary<string, TilesetData> _tilesets;
-    private Dictionary<string, Texture2D> _cachedAtlases;
     private Dictionary<string, PooledObject> _objectPrefabs;
     private Dictionary<string, PooledObject> _propPrefabs;
 
@@ -325,8 +323,6 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
 
     private Texture2D getAtlas(string name)
     {
-        if (!_cachedAtlases.ContainsKey(name))
-            _cachedAtlases[name] = Resources.Load<Texture2D>(TilesetEditorManager.TILESETS_PATH + name);
-        return _cachedAtlases[name];
+        return IndexedSpriteManager.GetAtlas(TilesetData.TILESETS_PATH, name);
     }
 }
