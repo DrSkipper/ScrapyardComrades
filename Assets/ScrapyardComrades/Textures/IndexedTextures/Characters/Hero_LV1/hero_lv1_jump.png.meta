@@ -1,11 +1,17 @@
 fileFormatVersion: 2
-guid: d74901905ff235f4f9242fdbc6c3e675
-timeCreated: 1491346326
+guid: 98c28d73adce78e438bd234b934c97dc
+timeCreated: 1491339076
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hero_wallslide_0
-    21300002: hero_wallslide_1
+    21300000: hero_lv1_jump_0
+    21300002: hero_lv1_jump_1
+    21300004: hero_lv1_jump_2
+    21300006: hero_lv1_jump_3
+    21300008: hero_lv1_jump_4
+    21300010: hero_lv1_jump_5
+    21300012: hero_lv1_jump_6
+    21300014: hero_lv1_jump_7
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -88,33 +94,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hero_wallslide_0
+      name: hero_lv1_jump_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 24
-        width: 32
+        y: 88
+        width: 35
         height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hero_wallslide_1
+      name: hero_lv1_jump_1
       rect:
         serializedVersion: 2
         x: 35
-        y: 24
-        width: 32
+        y: 88
+        width: 35
         height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_lv1_jump_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 88
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_lv1_jump_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_lv1_jump_4
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 48
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_lv1_jump_5
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 48
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_lv1_jump_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_lv1_jump_7
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 8
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     outline: []
-  spritePackingTag: 
+  spritePackingTag: hero_1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

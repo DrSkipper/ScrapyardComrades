@@ -1,17 +1,19 @@
 fileFormatVersion: 2
-guid: 98c28d73adce78e438bd234b934c97dc
-timeCreated: 1491339076
+guid: aeba4f1553a7bdd4abdc95db8930c133
+timeCreated: 1492213953
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hero_lv1_jump_0
-    21300002: hero_lv1_jump_1
-    21300004: hero_lv1_jump_2
-    21300006: hero_lv1_jump_3
-    21300008: hero_lv1_jump_4
-    21300010: hero_lv1_jump_5
-    21300012: hero_lv1_jump_6
-    21300014: hero_lv1_jump_7
+    21300000: hero_lv1_run_0
+    21300002: hero_lv1_run_1
+    21300004: hero_lv1_run_2
+    21300006: hero_lv1_run_3
+    21300008: hero_lv1_run_4
+    21300010: hero_lv1_run_5
+    21300012: hero_lv1_run_6
+    21300014: hero_lv1_run_7
+    21300016: hero_lv1_run_8
+    21300018: hero_lv1_run_9
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -94,7 +96,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hero_lv1_jump_0
+      name: hero_lv1_run_0
       rect:
         serializedVersion: 2
         x: 0
@@ -107,7 +109,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hero_lv1_jump_1
+      name: hero_lv1_run_1
       rect:
         serializedVersion: 2
         x: 35
@@ -120,7 +122,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hero_lv1_jump_2
+      name: hero_lv1_run_2
       rect:
         serializedVersion: 2
         x: 70
@@ -133,7 +135,59 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hero_lv1_jump_3
+      name: hero_lv1_run_3
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 88
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_lv1_run_4
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 88
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_lv1_run_5
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 88
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_lv1_run_6
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 88
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_lv1_run_7
       rect:
         serializedVersion: 2
         x: 0
@@ -146,7 +200,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hero_lv1_jump_4
+      name: hero_lv1_run_8
       rect:
         serializedVersion: 2
         x: 35
@@ -159,37 +213,11 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hero_lv1_jump_5
+      name: hero_lv1_run_9
       rect:
         serializedVersion: 2
         x: 70
         y: 48
-        width: 35
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero_lv1_jump_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 8
-        width: 35
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero_lv1_jump_7
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 8
         width: 35
         height: 40
       alignment: 0
@@ -198,7 +226,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     outline: []
-  spritePackingTag: 
+  spritePackingTag: hero_1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

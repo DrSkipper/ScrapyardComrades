@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 214a6138ce8a15a4cafd887f278b4978
-timeCreated: 1491426020
+guid: 27c8f9847d6ac3f43a2990d25a6cf127
+timeCreated: 1491425990
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: enemy_run_0
-    21300002: enemy_run_1
-    21300004: enemy_run_2
-    21300006: enemy_run_3
-    21300008: enemy_run_4
-    21300010: enemy_run_5
-    21300012: enemy_run_6
+    21300000: enemy_stun_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -93,89 +87,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_run_0
+      name: enemy_stun_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 88
-        width: 35
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: enemy_run_1
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 88
-        width: 35
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: enemy_run_2
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 88
-        width: 35
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: enemy_run_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 48
-        width: 35
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: enemy_run_4
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 48
-        width: 35
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: enemy_run_5
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 48
-        width: 35
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: enemy_run_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 8
+        y: 24
         width: 35
         height: 40
       alignment: 0
@@ -184,7 +100,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     outline: []
-  spritePackingTag: 
+  spritePackingTag: enemy_1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

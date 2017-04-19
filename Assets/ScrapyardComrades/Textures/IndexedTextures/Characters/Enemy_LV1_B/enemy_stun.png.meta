@@ -1,15 +1,10 @@
 fileFormatVersion: 2
-guid: 6dc1c34bd453eb44ba812f09185b68d8
-timeCreated: 1491425963
+guid: 2038ae699b88f3c4cb9ec24bf844338d
+timeCreated: 1491426028
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: enemy_idle_0
-    21300002: enemy_idle_1
-    21300004: enemy_idle_2
-    21300006: enemy_idle_3
-    21300008: enemy_idle_4
-    21300010: enemy_idle_5
+    21300000: enemy_stun_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -92,76 +87,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_idle_0
+      name: enemy_stun_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 88
-        width: 35
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: enemy_idle_1
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 88
-        width: 35
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: enemy_idle_2
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 88
-        width: 35
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: enemy_idle_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 48
-        width: 35
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: enemy_idle_4
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 48
-        width: 35
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: enemy_idle_5
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 48
+        y: 24
         width: 35
         height: 40
       alignment: 0
@@ -170,7 +100,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     outline: []
-  spritePackingTag: 
+  spritePackingTag: enemy_1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
