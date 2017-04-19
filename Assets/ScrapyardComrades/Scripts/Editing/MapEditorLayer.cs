@@ -49,7 +49,8 @@ public class MapEditorTilesLayer : MapEditorLayer
         this.Depth = depth;
         this.Tileset = tilesets[mapLayer.tileset_name];
         this.Data = mapLayer.GetDataGrid();
-        this.CurrentSpriteName = NewMapInfo.MapTile.EMPTY_TILE_SPRITE_NAME;
+        _emptySpriteName = this.Tileset.GetEmptySpriteName();
+        this.CurrentSpriteName = _emptySpriteName;
         this.AutoTileEnabled = true;
         this.EraserEnabled = false;
         this.Visual = visual;
@@ -143,8 +144,9 @@ public class MapEditorTilesLayer : MapEditorLayer
     private List<int> _groupXs = new List<int>();
     private List<int> _groupYs = new List<int>();
     private List<string> _groupSpriteNames = new List<string>();
-    public IntegerVector _groupBrushLowerLeft;
-    public IntegerVector _groupBrushUpperRight;
+    private string _emptySpriteName;
+    private IntegerVector _groupBrushLowerLeft;
+    private IntegerVector _groupBrushUpperRight;
 
     private void applyGroupData(int x, int y)
     {
@@ -169,6 +171,8 @@ public class MapEditorTilesLayer : MapEditorLayer
         {
             for (int j = minY; j <= maxY; ++j)
             {
+                if (this.Data[i, j].sprite_name == NewMapInfo.MapTile.EMPTY_TILE_SPRITE_NAME)
+                    this.Data[i, j].sprite_name = _emptySpriteName;
                 this.Visual.SetSpriteIndexForTile(i, j, this.Data[i, j].sprite_name);
             }
         }
@@ -274,6 +278,8 @@ public class MapEditorTilesLayer : MapEditorLayer
             for (int y = 0; y < this.Data.GetLength(1); ++y)
             {
                 this.Data[x, y].is_filled = shouldBeFilled(this.Data[x, y].sprite_name);
+                if (this.Data[x, y].sprite_name == NewMapInfo.MapTile.EMPTY_TILE_SPRITE_NAME)
+                    this.Data[x, y].sprite_name = _emptySpriteName;
             }
         }
     }

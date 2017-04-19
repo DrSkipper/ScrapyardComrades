@@ -58,7 +58,8 @@ public class TileRenderer : VoBehavior
                     int tileIndex = y * _width + x;
                     int startingUVIndex = tileIndex * 4;
 
-                    Vector2[] spriteUVs = _sprites[grid[x, y].sprite_name].uv;
+                    string spriteName = grid[x, y].sprite_name;
+                    Vector2[] spriteUVs = _sprites.ContainsKey(spriteName) ? _sprites[spriteName].uv : EMPTY_UVS;
                     uvs[startingUVIndex] = spriteUVs[0]; // bottom left
                     uvs[startingUVIndex + 1] = spriteUVs[1]; // bottom right
                     uvs[startingUVIndex + 2] = spriteUVs[2]; // top left
@@ -121,6 +122,7 @@ public class TileRenderer : VoBehavior
             {
                 int tileIndex = _width * y + x;
                 int triangleIndex = tileIndex * 2 * 3;
+                string spriteName = grid[x, y].sprite_name;
 
                 // Create 4 verts
                 float smallY = this.FlipVertical ? finalY - y * this.TileRenderSize : originY + y * this.TileRenderSize;
@@ -146,7 +148,6 @@ public class TileRenderer : VoBehavior
                 triangles[triangleIndex + 5] = bottomRightVert;
 
                 // Handle UVs
-                string spriteName = grid[x, y].sprite_name;
                 Vector2[] spriteUVs = _sprites.ContainsKey(spriteName) ? _sprites[spriteName].uv : EMPTY_UVS;
 
                 Vector2 bottomLeftUV = spriteUVs[this.FlipUvsVertical ? 2 : 0];
