@@ -1,14 +1,13 @@
 fileFormatVersion: 2
-guid: 29d56a8dded68614094b055af8128352
-timeCreated: 1491604575
+guid: 30f4aa9d14c4247439ee1d0a63ae5c57
+timeCreated: 1491604678
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: jabFX_0
-    21300002: jabFX_1
-    21300004: jabFX_2
-    21300006: jabFX_3
-    21300008: jabFX_4
+    21300000: uppercutFX_0
+    21300002: uppercutFX_1
+    21300004: uppercutFX_2
+    21300006: uppercutFX_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -91,72 +90,59 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jabFX_0
+      name: uppercutFX_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 43
+        y: 24
         width: 30
-        height: 21
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: jabFX_1
+      name: uppercutFX_1
       rect:
         serializedVersion: 2
         x: 30
-        y: 43
+        y: 24
         width: 30
-        height: 21
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: jabFX_2
+      name: uppercutFX_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 23
+        x: 60
+        y: 24
         width: 30
-        height: 21
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: jabFX_3
+      name: uppercutFX_3
       rect:
         serializedVersion: 2
-        x: 30
-        y: 23
+        x: 90
+        y: 24
         width: 30
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: jabFX_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 3
-        width: 30
-        height: 21
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     outline: []
-  spritePackingTag: 
+  spritePackingTag: effects_1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
