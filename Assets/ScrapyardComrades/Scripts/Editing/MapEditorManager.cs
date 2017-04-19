@@ -11,7 +11,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public const string BACKGROUND_LAYER = "background";
     public const string OBJECTS_LAYER = "objects";
     public const string PROPS_LAYER = "props";
-    public const string PROPS_FOLDER = "Props";
+    public const string PROPS_PATH = "Props/";
     public const string LIGHTING_LAYER = "lights";
 
     public CameraController CameraController;
@@ -92,7 +92,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
         // Setup Object Layers
         this.Layers.Add(OBJECTS_LAYER, new MapEditorObjectsLayer(OBJECTS_LAYER, PLATFORMS_LAYER_DEPTH - LAYER_DEPTH_INCREMENT, _mapInfo.objects, this.ObjectPrefabs.Prefabs.ToArray(), _mapInfo.next_object_id));
-        List<Object> props = new List<Object>(Resources.LoadAll<Sprite>(PROPS_FOLDER));
+        List<Object> props = new List<Object>(IndexedSpriteManager.GetAllSpritesAtPath(PROPS_PATH).ToArray());
         if (this.PropPrefabs.Prefabs != null)
         {
             for (int i = 0; i < this.PropPrefabs.Prefabs.Count; ++i)

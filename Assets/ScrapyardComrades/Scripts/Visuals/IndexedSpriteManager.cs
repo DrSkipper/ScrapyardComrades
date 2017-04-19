@@ -18,6 +18,28 @@ public class IndexedSpriteManager : MonoBehaviour
         return _instance._sprites[path][atlasName];
     }
 
+    public static Sprite GetSprite(string path, string atlasName, string spriteName)
+    {
+        Sprite[] spriteGroup = _instance._sprites[path][atlasName];
+        for (int i = 0; i < spriteGroup.Length; ++i)
+        {
+            if (spriteGroup[i].name == spriteName)
+                return spriteGroup[i];
+        }
+        return null;
+    }
+
+    public static List<Sprite> GetAllSpritesAtPath(string path)
+    {
+        List<Sprite> sprites = new List<Sprite>();
+        foreach (Sprite[] spriteGroup in _instance._sprites[path].Values)
+        {
+            for (int i = 0; i < spriteGroup.Length; ++i)
+                sprites.Add(spriteGroup[i]);
+        }
+        return sprites;
+    }
+
     public PackedSpriteGroup[] SpriteGroups;
 
     void Awake()

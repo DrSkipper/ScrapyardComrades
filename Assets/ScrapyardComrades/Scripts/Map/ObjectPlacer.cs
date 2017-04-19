@@ -129,7 +129,7 @@ public class ObjectPlacer : VoBehavior
         {
             SpriteRenderer r = spawn.GetComponent<SpriteRenderer>();
             if (r != null)
-                r.sprite = Resources.Load<Sprite>(MapEditorManager.PROPS_FOLDER + SLASH + spriteName);
+                r.sprite = IndexedSpriteManager.GetSprite(MapEditorManager.PROPS_PATH, spriteName, spriteName);
         }
 
         ISpawnable[] spawnables = spawn.GetComponents<ISpawnable>();

@@ -18,7 +18,6 @@ public static class Texture2DExtensions
 
     public static Sprite[] GetSpritesArray(string path, string atlasName)
     {
-        //return Resources.LoadAll<Sprite>(path + self.name);
         return IndexedSpriteManager.GetSprites(path, atlasName);
     }
 
