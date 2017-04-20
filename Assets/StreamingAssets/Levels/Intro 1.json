@@ -16415,14 +16415,6 @@
       "parallax_ratio": 0.2
     },
     {
-      "sprite_name": "slums_bg",
-      "depth": 6,
-      "loops": false,
-      "height": 0.349999964,
-      "x_position": 0.9,
-      "parallax_ratio": 0.7500001
-    },
-    {
       "sprite_name": "cityscape",
       "depth": 8,
       "loops": true,
@@ -16433,39 +16425,48 @@
   ],
   "props": [
     {
-      "name": "props_slums_neon_0",
-      "prefab_name": "slums_neon",
-      "x": 908,
-      "y": 260,
+      "name": "props_enemy_sleeveless_laying_1",
+      "prefab_name": "enemy_sleeveless_laying",
+      "x": 1208,
+      "y": 72,
       "z": 2
     },
     {
-      "name": "props_SlumsLamp_1",
+      "name": "props_slums_neon_2",
+      "prefab_name": "slums_neon",
+      "x": 904,
+      "y": 256,
+      "z": 2
+    },
+    {
+      "name": "props_SlumsLamp_3",
       "prefab_name": "SlumsLamp",
-      "x": 264,
+      "x": 280,
       "y": 176,
       "z": 2
     },
     {
-      "name": "props_slums_plant_2",
+      "name": "props_slums_plant_4",
       "prefab_name": "slums_plant",
       "x": 176,
       "y": 64,
       "z": 2
     },
     {
-      "name": "props_SlumsLamp_3",
+      "name": "props_SlumsLamp_5",
       "prefab_name": "SlumsLamp",
-      "x": 1880,
+      "x": 1872,
       "y": 240,
       "z": 2
-    },
+    }
+  ],
+  "props_background": [
     {
-      "name": "props_enemy_sleeveless_laying_4",
-      "prefab_name": "enemy_sleeveless_laying",
-      "x": 1208,
-      "y": 72,
-      "z": 2
+      "name": "props_back_slums_bg_1",
+      "prefab_name": "slums_bg",
+      "x": 1676,
+      "y": 368,
+      "z": 6
     }
   ],
   "objects": [
@@ -16485,7 +16486,8 @@
     }
   ],
   "next_object_id": 2,
-  "next_prop_id": 5,
+  "next_prop_id": 6,
+  "next_prop_bg_id": 2,
   "next_light_id": 5,
   "lights": [
     {

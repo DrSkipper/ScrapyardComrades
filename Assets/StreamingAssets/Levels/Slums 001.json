@@ -12386,6 +12386,7 @@
       "z": 2
     }
   ],
+  "props_background": [],
   "objects": [
     {
       "name": "objects_HeroLV1_0",
@@ -12404,6 +12405,7 @@
   ],
   "next_object_id": 2,
   "next_prop_id": 12,
+  "next_prop_bg_id": 0,
   "next_light_id": 4,
   "lights": [
     {

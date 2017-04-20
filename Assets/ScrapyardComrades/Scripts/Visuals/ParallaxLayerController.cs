@@ -28,12 +28,16 @@ public class ParallaxLayerController : MonoBehaviour
         this.PreviousLayerVisual.transform.SetLocalPosition2D(this.CurrentLayerVisual.transform.localPosition.x, this.CurrentLayerVisual.transform.localPosition.y);
         this.PreviousLayerVisual.transform.SetZ(this.CurrentLayerVisual.transform.position.z - 1);
 
+        this.PreviousLayerVisual.MeshRenderer.sortingLayerName = this.CurrentLayerVisual.transform.position.z > MapEditorManager.PLATFORMS_LAYER_DEPTH ? MapEditorManager.PARALLAX_BACK_SORT_LAYER : MapEditorManager.PARALLAX_FRONT_SORT_LAYER;
+
         if (layer != null)
         {
             this.ParallaxRatio = layer.parallax_ratio;
             Sprite sprite = Resources.Load<Sprite>(PARALLAX_PATH + layer.sprite_name);
             this.CurrentLayerVisual.CreateMeshForLayer(sprite, layer.loops, layer.height, layer.x_position,  layer.parallax_ratio, quadWidth);
             this.CurrentLayerVisual.transform.SetZ(layer.depth);
+
+            this.CurrentLayerVisual.MeshRenderer.sortingLayerName = layer.depth > MapEditorManager.PLATFORMS_LAYER_DEPTH ? MapEditorManager.PARALLAX_BACK_SORT_LAYER : MapEditorManager.PARALLAX_FRONT_SORT_LAYER;
         }
         else
         {

@@ -298,7 +298,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
         this.Name = name;
         this.Type = LayerType.Objects;
         this.Depth = depth;
-        this.Objects = objects;
+        this.Objects = objects != null ? objects : new List<NewMapInfo.MapObject>();
         _currentPrefab = 0;
         this.ObjectPrefabs = prefabs;
         this.LoadedObjects = new List<GameObject>();
@@ -335,6 +335,9 @@ public class MapEditorObjectsLayer : MapEditorLayer
         mapObject.z = this.Depth;
         this.Objects.Add(mapObject);
         this.LoadedObjects.Add(gameObject);
+        Renderer r = gameObject.GetComponent<Renderer>();
+        if (r != null)
+            r.sortingLayerName = this.Name;
     }
 
     public void RemoveObject(GameObject toRemove)
@@ -360,10 +363,15 @@ public class MapEditorObjectsLayer : MapEditorLayer
             mapInfo.objects = this.Objects;
             mapInfo.next_object_id = _nextId;
         }
-        else
+        else if (this.Name == MapEditorManager.PROPS_LAYER)
         {
             mapInfo.props = this.Objects;
             mapInfo.next_prop_id = _nextId;
+        }
+        else
+        {
+            mapInfo.props_background = this.Objects;
+            mapInfo.next_prop_bg_id = _nextId;
         }
     }
 

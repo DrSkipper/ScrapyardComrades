@@ -10,9 +10,11 @@ public class NewMapInfo
     public List<MapLayer> tile_layers; // Use accessors to add/remove
     public List<ParallaxLayer> parallax_layers; // Use accessors to add/remove
     public List<MapObject> props; // Access directly
+    public List<MapObject> props_background; // Access directly
     public List<MapObject> objects; // Access directly
     public int next_object_id;
     public int next_prop_id;
+    public int next_prop_bg_id;
     public int next_light_id;
 
     public List<MapLight> lights;
@@ -26,9 +28,11 @@ public class NewMapInfo
         tile_layers = new List<MapLayer>();
         parallax_layers = new List<ParallaxLayer>();
         props = new List<MapObject>();
+        props_background = new List<MapObject>();
         objects = new List<MapObject>();
         next_object_id = 0;
         next_prop_id = 0;
+        next_prop_bg_id = 0;
         next_light_id = 0;
     }
 

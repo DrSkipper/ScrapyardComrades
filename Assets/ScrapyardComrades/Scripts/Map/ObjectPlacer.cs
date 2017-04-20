@@ -13,7 +13,7 @@ public class ObjectPlacer : VoBehavior
     //public int TileTextureSize = 10;
     public bool FlipVertical = true;
 
-    public void PlaceObjects(List<NewMapInfo.MapObject> mapObjects, Dictionary<string, PooledObject> prefabs, string quadName, bool trackEntities)
+    public void PlaceObjects(List<NewMapInfo.MapObject> mapObjects, Dictionary<string, PooledObject> prefabs, string quadName, bool trackEntities, string sortingLayerName)
     {
         for (int i = 0; i < mapObjects.Count; ++i)
         {
@@ -43,7 +43,7 @@ public class ObjectPlacer : VoBehavior
                     int x = mapObject.x;
                     int y = mapObject.y;
                     Vector3 spawnPos = new Vector3(x + this.transform.position.x, y + this.transform.position.y, mapObject.z);
-                    addSpawn(toSpawn, spawnPos, entity, spriteObject ? mapObject.prefab_name : null);
+                    addSpawn(toSpawn, spawnPos, entity, sortingLayerName, spriteObject ? mapObject.prefab_name : null);
                 }
             }
         }
@@ -77,6 +77,7 @@ public class ObjectPlacer : VoBehavior
         _spawnQueue.Clear();
         _spawnPositions.Clear();
         _spriteNames.Clear();
+        _sortingLayerNames.Clear();
     }
 
     /**
@@ -86,15 +87,17 @@ public class ObjectPlacer : VoBehavior
     private List<Vector3> _spawnPositions = new List<Vector3>();
     private List<EntityTracker.Entity> _spawnEntities = new List<EntityTracker.Entity>();
     private List<string> _spriteNames = new List<string>();
+    private List<string> _sortingLayerNames = new List<string>();
     private List<PooledObject> _nonTrackedObjects = new List<PooledObject>();
     private const int LIGHTING_Z = -4;
 
-    private void addSpawn(PooledObject toSpawn, Vector3 spawnPos, EntityTracker.Entity entity, string spriteName = null)
+    private void addSpawn(PooledObject toSpawn, Vector3 spawnPos, EntityTracker.Entity entity, string sortingLayerName, string spriteName = null)
     {
         _spawnQueue.Add(toSpawn);
         _spawnPositions.Add(spawnPos);
         _spawnEntities.Add(entity);
         _spriteNames.Add(spriteName);
+        _sortingLayerNames.Add(sortingLayerName);
         this.TimedCallbacks.AddCallback(this, spawn, this.SpawnDelay);
     }
 
@@ -131,7 +134,16 @@ public class ObjectPlacer : VoBehavior
         {
             SpriteRenderer r = spawn.GetComponent<SpriteRenderer>();
             if (r != null)
+            {
                 r.sprite = IndexedSpriteManager.GetSprite(MapEditorManager.PROPS_PATH, spriteName, spriteName);
+                r.sortingLayerName = _sortingLayerNames.Pop();
+            }
+        }
+        else
+        {
+            Renderer r = spawn.GetComponent<Renderer>();
+            if (r != null)
+                r.sortingLayerName = _sortingLayerNames.Pop();
         }
 
         spawn.transform.position = spawnLocation;

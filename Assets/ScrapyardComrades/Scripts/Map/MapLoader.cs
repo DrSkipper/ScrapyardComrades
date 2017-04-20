@@ -18,6 +18,12 @@ public class MapLoader : MonoBehaviour
 
     public bool Cleared { get { return _cleared; } }
 
+    void Awake()
+    {
+        this.PlatformsRenderer.GetComponent<MeshRenderer>().sortingLayerName = MapEditorManager.PLATFORMS_LAYER;
+        this.BGRenderer.GetComponent<MeshRenderer>().sortingLayerName = MapEditorManager.BACKGROUND_LAYER;
+    }
+
     public void LoadMap(TilesetData platformsTileset, TilesetData bgTileset, string platformsAtlas, string bgAtlas, Dictionary<string, PooledObject> objectPrefabs, Dictionary<string, PooledObject> propPrefabs, PooledObject lightPrefab)
     {
         this.ClearMap();
@@ -40,8 +46,10 @@ public class MapLoader : MonoBehaviour
         }
         this.GeometryCreator.CreateGeometryForGrid(platformsGrid, platformsTileset.GetSpriteDataDictionary(), false);
         
-        this.ObjectPlacer.PlaceObjects(mapInfo.objects, objectPrefabs, this.MapName, true);
-        this.ObjectPlacer.PlaceObjects(mapInfo.props, propPrefabs, this.MapName, false);
+        this.ObjectPlacer.PlaceObjects(mapInfo.objects, objectPrefabs, this.MapName, true, MapEditorManager.OBJECTS_LAYER);
+        this.ObjectPlacer.PlaceObjects(mapInfo.props, propPrefabs, this.MapName, false, MapEditorManager.PROPS_LAYER);
+        if (mapInfo.props_background != null && mapInfo.props_background.Count > 0)
+            this.ObjectPlacer.PlaceObjects(mapInfo.props_background, propPrefabs, this.MapName, false, MapEditorManager.PROPS_BACK_LAYER);
         this.ObjectPlacer.PlaceLights(mapInfo.lights, lightPrefab);
     }
 
