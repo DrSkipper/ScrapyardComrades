@@ -16459,6 +16459,13 @@
       "x": 1880,
       "y": 240,
       "z": 2
+    },
+    {
+      "name": "props_enemy_sleeveless_laying_4",
+      "prefab_name": "enemy_sleeveless_laying",
+      "x": 1208,
+      "y": 72,
+      "z": 2
     }
   ],
   "objects": [
@@ -16468,10 +16475,17 @@
       "x": 228,
       "y": 100,
       "z": -2
+    },
+    {
+      "name": "objects_Heart_1",
+      "prefab_name": "Heart",
+      "x": 1208,
+      "y": 96,
+      "z": -2
     }
   ],
-  "next_object_id": 1,
-  "next_prop_id": 4,
+  "next_object_id": 2,
+  "next_prop_id": 5,
   "next_light_id": 5,
   "lights": [
     {
