@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Pickup : VoBehavior, Interactable, ISpawnable
+public class Pickup : VoBehavior, Interactable
 {
     public SCPickup Data;
 

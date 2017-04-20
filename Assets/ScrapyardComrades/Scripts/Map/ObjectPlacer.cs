@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class ObjectPlacer : VoBehavior
 {
+    public const string ON_SPAWN_METHOD = "OnSpawn";
+
     public TimedCallbacks TimedCallbacks;
     public EntityTracker EntityTracker;
     public PooledObject SpriteObjectPrefab;
@@ -132,20 +134,9 @@ public class ObjectPlacer : VoBehavior
                 r.sprite = IndexedSpriteManager.GetSprite(MapEditorManager.PROPS_PATH, spriteName, spriteName);
         }
 
-        ISpawnable[] spawnables = spawn.GetComponents<ISpawnable>();
-
-        for (int i = 0; i < spawnables.Length; ++i)
-        {
-            spawnables[i].OnSpawn();
-        }
-
         spawn.transform.position = spawnLocation;
+        spawn.BroadcastMessage(ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
     }
 
     private const string SLASH = "/";
-}
-
-public interface ISpawnable
-{
-    void OnSpawn();
 }

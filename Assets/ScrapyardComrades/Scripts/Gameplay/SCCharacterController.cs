@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-public class SCCharacterController : Actor2D, ISpawnable
+public class SCCharacterController : Actor2D
 {
     public enum Facing
     {
@@ -375,12 +375,7 @@ public class SCCharacterController : Actor2D, ISpawnable
                         actor.Throw(item.GetComponent<Pickup>().Data.ThrowVelocity * new Vector2((int)_facing, 0));
                     }
 
-                    ISpawnable[] spawnables = item.GetComponents<ISpawnable>();
-
-                    for (int i = 0; i < spawnables.Length; ++i)
-                    {
-                        spawnables[i].OnSpawn();
-                    }
+                    item.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
                 }
             }
 
