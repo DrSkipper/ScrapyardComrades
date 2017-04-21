@@ -14,6 +14,8 @@ public class Hover : MonoBehaviour
         _goingUp = true;
         _t = 0;
         _easingDelegate = Easing.GetFunction(this.EasingFunction, this.EasingFlow);
+
+        GlobalEvents.Notifier.Listen(WorldRecenterEvent.NAME, this, onRecenter);
     }
 
     void FixedUpdate()
@@ -32,6 +34,11 @@ public class Hover : MonoBehaviour
         }
     }
 
+    void OnReturnToPool()
+    {
+        GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, WorldRecenterEvent.NAME);
+    }
+
     /**
      * Private
      */
@@ -40,4 +47,11 @@ public class Hover : MonoBehaviour
     private Vector2 _min;
     private Vector2 _max;
     private Easing.EasingDelegate _easingDelegate;
+
+    private void onRecenter(LocalEventNotifier.Event e)
+    {
+        Vector2 offset = (e as WorldRecenterEvent).RecenterOffset;
+        _min += offset;
+        _max += offset;
+    }
 }
