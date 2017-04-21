@@ -337,7 +337,10 @@ public class MapEditorObjectsLayer : MapEditorLayer
         this.LoadedObjects.Add(gameObject);
         Renderer r = gameObject.GetComponent<Renderer>();
         if (r != null)
+        {
             r.sortingLayerName = this.Name;
+            r.sortingOrder = _nextId - 1;
+        }
     }
 
     public void RemoveObject(GameObject toRemove)

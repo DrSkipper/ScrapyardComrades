@@ -90,7 +90,8 @@ public class ObjectPlacer : VoBehavior
     private List<string> _sortingLayerNames = new List<string>();
     private List<PooledObject> _nonTrackedObjects = new List<PooledObject>();
     private const int LIGHTING_Z = -4;
-    private static int SORTING_IN_LAYER = 0;
+    private static int SORTING_IN_LAYER = MAX_SORTING_ORDER;
+    private const int MIN_SORTING_ORDER = -10000;
     private const int MAX_SORTING_ORDER = 10000;
 
     private void addSpawn(PooledObject toSpawn, Vector3 spawnPos, EntityTracker.Entity entity, string sortingLayerName, string spriteName = null)
@@ -139,7 +140,7 @@ public class ObjectPlacer : VoBehavior
             {
                 r.sprite = IndexedSpriteManager.GetSprite(MapEditorManager.PROPS_PATH, spriteName, spriteName);
                 r.sortingLayerName = _sortingLayerNames.Pop();
-                r.sortingOrder = ++SORTING_IN_LAYER;
+                r.sortingOrder = --SORTING_IN_LAYER;
             }
         }
         else
@@ -150,12 +151,12 @@ public class ObjectPlacer : VoBehavior
                 r.sortingLayerName = _sortingLayerNames.Pop();
 
                 if (r.sortingOrder == 0)
-                    r.sortingOrder = ++SORTING_IN_LAYER;
+                    r.sortingOrder = --SORTING_IN_LAYER;
             }
         }
 
-        if (SORTING_IN_LAYER >= MAX_SORTING_ORDER)
-            SORTING_IN_LAYER = 0;
+        if (SORTING_IN_LAYER <= MIN_SORTING_ORDER)
+            SORTING_IN_LAYER = MAX_SORTING_ORDER;
         
         spawn.transform.position = spawnLocation;
         spawn.BroadcastMessage(ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);

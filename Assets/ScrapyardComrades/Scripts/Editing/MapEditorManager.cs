@@ -609,7 +609,10 @@ public class MapEditorManager : MonoBehaviour, IPausable
             layer.LoadedObjects.Add(newObject);
             Renderer r = newObject.GetComponent<Renderer>();
             if (r != null)
+            {
                 r.sortingLayerName = layer.Name;
+                r.sortingOrder = i;
+            }
         }
     }
 
