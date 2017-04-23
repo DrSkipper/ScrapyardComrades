@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using UnityEngine;
+using UnityEditor;
 using System;
 
 //Credit: https://gist.github.com/paraself/0d75962a2c509759a6c9
@@ -44,8 +45,7 @@ public class EditorPlayMode
 
     private static void OnUnityPlayModeChanged()
     {
-
-        var changedState = PlayModeState.Stopped;
+        var changedState = _currentState;
 
         //Stoped -> Playing : 22112
         //playing -> abouttostop : 22122
@@ -86,7 +86,8 @@ public class EditorPlayMode
                 changedState = PlayModeState.Paused;
                 break;
             default:
-                throw new SystemException("No such state combination defined: " + state);
+                Debug.LogWarning("No such state combination defined: " + state);
+                break;
         }
 
         // Fire PlayModeChanged event.
@@ -95,8 +96,5 @@ public class EditorPlayMode
 
         // Set current state.
         _currentState = changedState;
-
-
     }
-
 }
