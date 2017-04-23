@@ -6,6 +6,7 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
 {
     public UIBar Bar;
     public Image CurrentHealthImage;
+    public LostHealthBarChunk LostHealthChunk;
     public Color StrobeColor;
     public int MinStrobeDuration;
     public int MaxStrobeDuration;
@@ -55,12 +56,14 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
     private Vector3 _currentHSV;
     private Vector3 _startHSV;
     private Vector3 _endHSV;
+    private int _prevHealth;
 
     private void playerSpawned(LocalEventNotifier.Event e)
     {
         PlayerHealthController healthController = (e as PlayerSpawnedEvent).PlayerObject.GetComponent<PlayerHealthController>();
         if (healthController != null)
         {
+            _prevHealth = healthController.Damagable.Health;
             playerHealthChanged(healthController.Damagable.Health, healthController.Damagable.MaxHealth);
             healthController.HealthChangedCallback += playerHealthChanged;
         }
@@ -73,5 +76,11 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
 
         _currentDuration = Mathf.RoundToInt(Mathf.Lerp(this.MinStrobeDuration, this.MaxStrobeDuration, (float)currentHealth / (float)maxHealth));
         _currentSpeed = (_endHSV - _startHSV) / _currentDuration;
+
+        if (currentHealth < _prevHealth)
+        {
+            this.LostHealthChunk.TriggerHealthLostAnimation(currentHealth, _prevHealth, maxHealth, this.Bar.TargetLength);
+            _prevHealth = currentHealth;
+        }
     }
 }
