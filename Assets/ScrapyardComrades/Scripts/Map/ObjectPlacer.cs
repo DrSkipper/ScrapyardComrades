@@ -66,7 +66,8 @@ public class ObjectPlacer : VoBehavior
         this.TimedCallbacks.RemoveCallbacksForOwner(this);
         for (int i = 0; i < _spawnEntities.Count; ++i)
         {
-            _spawnEntities[i].AttemptingLoad = false;
+            if (_spawnEntities[i] != null)
+                _spawnEntities[i].AttemptingLoad = false;
         }
         for (int i = 0; i < _nonTrackedObjects.Count; ++i)
         {
