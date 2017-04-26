@@ -13,7 +13,6 @@ public class LostHealthBarChunk : MonoBehaviour
     {
         _y = Mathf.RoundToInt(this.Bar.BarTransform.anchoredPosition.y);
         _timer = new Timer(this.AnimationDelay, false, false, playAnimation);
-        //this.Animation.clip
     }
 
     void FixedUpdate()
