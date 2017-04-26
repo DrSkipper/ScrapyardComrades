@@ -12319,12 +12319,20 @@
       "parallax_ratio": 0.2
     },
     {
-      "sprite_name": "cityscape",
+      "sprite_name": "city_hill",
       "depth": 8,
       "loops": true,
+      "height": 0.199999958,
+      "x_position": 0.399999857,
+      "parallax_ratio": 0.74999994
+    },
+    {
+      "sprite_name": "cityscape",
+      "depth": 10,
+      "loops": true,
       "height": 0.5,
-      "x_position": 0.499999881,
-      "parallax_ratio": 0.950000167
+      "x_position": 0.5,
+      "parallax_ratio": 0.95
     }
   ],
   "props": [],

@@ -9,7 +9,7 @@ public class MapEditorMenu : MonoBehaviour
     public MapEditorParallaxPanel ParallaxPanel;
     public MapEditorLightingPanel LightingPanel;
 
-    void Awake()
+    void Start()
     {
         this.ParallaxPanel.ValidSprites = this.Manager.ParallaxSprites;
         this.LightingPanel.ValidLightColors = this.Manager.ValidLightColors;

@@ -40,7 +40,6 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public PrefabCollection ObjectPrefabs;
     public PrefabCollection PropPrefabs;
     public PooledObject SpriteObjectPrefab;
-    public Sprite[] ParallaxSprites;
     public ParallaxQuadGroup ParallaxVisualPrefab;
     public Transform ParallaxParent;
     public PooledObject LightPrefab;
@@ -58,6 +57,8 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
     public int CurrentLayerIndex { get { for (int i = 0; i < _sortedLayers.Count; ++i) if (_sortedLayers[i] == this.CurrentLayer) return i; return 0; } }
 
+    public List<Sprite> ParallaxSprites { get { return _parallaxSprites; } }
+
     void Awake()
     {
         if (ScenePersistentLoading.IsLoading)
@@ -67,6 +68,12 @@ public class MapEditorManager : MonoBehaviour, IPausable
         _previousCursorPos = new IntegerVector(-9999, -9999);
         _parallaxVisuals = new Dictionary<string, ParallaxQuadGroup>();
         compileTilesets();
+        _parallaxSprites = new List<Sprite>();
+        Texture2D[] parallaxTextures = Resources.LoadAll<Texture2D>(ParallaxLayerController.PARALLAX_PATH);
+        for (int i = 0; i < parallaxTextures.Length; ++i)
+        {
+            _parallaxSprites.AddRange(Resources.LoadAll<Sprite>(ParallaxLayerController.PARALLAX_PATH + parallaxTextures[i].name));
+        }
 
         this.ObjectEraseLine.sortingLayerName = LIGHTING_LAYER;
 
@@ -214,7 +221,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     private int _objectPrecisionIncrement;
     private int _foregroundParallaxCount;
     private int _backgroundParallaxCount;
-    //private Color _eraseHighlightPreviousColor;
+    private List<Sprite> _parallaxSprites;
 
     private Sprite findParallaxSprite(string spriteName)
     {
@@ -223,10 +230,10 @@ public class MapEditorManager : MonoBehaviour, IPausable
         
         if (spriteName != null)
         {
-            for (int i = 0; i < this.ParallaxSprites.Length; ++i)
+            for (int i = 0; i < _parallaxSprites.Count; ++i)
             {
-                if (this.ParallaxSprites[i].name == spriteName)
-                    return this.ParallaxSprites[i];
+                if (_parallaxSprites[i].name == spriteName)
+                    return _parallaxSprites[i];
             }
         }
         return null;

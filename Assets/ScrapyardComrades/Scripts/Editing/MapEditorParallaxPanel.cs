@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class MapEditorParallaxPanel : MonoBehaviour
 {
     [HideInInspector]
-    public Sprite[] ValidSprites;
+    public List<Sprite> ValidSprites;
     public Image SpriteImage;
     public Text HeightValueText;
     public Text RatioValueText;
@@ -24,14 +25,14 @@ public class MapEditorParallaxPanel : MonoBehaviour
         {
             --_currentSpriteIndex;
             if (_currentSpriteIndex < -1)
-                _currentSpriteIndex = this.ValidSprites.Length - 1;
+                _currentSpriteIndex = this.ValidSprites.Count - 1;
             _layer.SpriteName = _currentSpriteIndex == -1 ? null : this.ValidSprites[_currentSpriteIndex].name;
             updateVisual();
         }
         else if (MapEditorInput.CycleNext)
         {
             ++_currentSpriteIndex;
-            if (_currentSpriteIndex >= this.ValidSprites.Length)
+            if (_currentSpriteIndex >= this.ValidSprites.Count)
                 _currentSpriteIndex = -1;
             _layer.SpriteName = _currentSpriteIndex == -1 ? null : this.ValidSprites[_currentSpriteIndex].name;
             updateVisual();
@@ -95,7 +96,7 @@ public class MapEditorParallaxPanel : MonoBehaviour
 
     private int findCurrentSpriteIndex()
     {
-        for (int i = 0; i < this.ValidSprites.Length; ++i)
+        for (int i = 0; i < this.ValidSprites.Count; ++i)
         {
             if (this.ValidSprites[i].name == _layer.SpriteName)
                 return i;
