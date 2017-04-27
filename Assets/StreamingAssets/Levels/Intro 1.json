@@ -16435,6 +16435,16 @@
       "x_position": 0.5,
       "parallax_ratio": 0.95,
       "layer_name": "ParallaxBack"
+    },
+    {
+      "sprite_name": "slums_gradient",
+      "depth": 12,
+      "loops": true,
+      "lit": false,
+      "height": 0.849999964,
+      "x_position": 0.5,
+      "parallax_ratio": 1.0,
+      "layer_name": "ParallaxBack"
     }
   ],
   "props": [
