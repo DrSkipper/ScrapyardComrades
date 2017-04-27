@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerHealthController : VoBehavior
+public class PlayerHealthController : VoBehavior, IPausable
 {
     public Damagable Damagable;
     public int AttritionInterval = 3000;
