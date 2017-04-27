@@ -12,6 +12,7 @@ public class MapEditorParallaxPanel : MonoBehaviour
     public Text XPosValueText;
     public Text LayerNameText;
     public GameObject LoopValueObject;
+    public GameObject LitValueObject;
     public string[] ValidLayerNames;
 
     public void ShowForLayer(MapEditorLayer layer)
@@ -81,6 +82,11 @@ public class MapEditorParallaxPanel : MonoBehaviour
             _layer.LayerName = ValidLayerNames[_currentLayerNameIndex];
             updateVisual();
         }
+        else if (MapEditorInput.Confirm)
+        {
+            _layer.Lit = !_layer.Lit;
+            updateVisual();
+        }
     }
 
     /**
@@ -99,6 +105,7 @@ public class MapEditorParallaxPanel : MonoBehaviour
         else
             this.SpriteImage.sprite = this.ValidSprites[_currentSpriteIndex];
         this.LoopValueObject.SetActive(_layer.Loops);
+        this.LitValueObject.SetActive(_layer.Lit);
         this.HeightValueText.text = _layer.Height.ToString("0.00");
         this.RatioValueText.text = _layer.ParallaxRatio.ToString("0.00");
         this.XPosValueText.text = _layer.XPosition.ToString("0.00");

@@ -41,6 +41,8 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public PrefabCollection PropPrefabs;
     public PooledObject SpriteObjectPrefab;
     public ParallaxQuadGroup ParallaxVisualPrefab;
+    public Shader ParallaxLitShader;
+    public Shader ParallaxUnlitShader;
     public Transform ParallaxParent;
     public PooledObject LightPrefab;
     public Color[] ValidLightColors;
@@ -199,7 +201,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
             case MapEditorLayer.LayerType.Parallax:
                 MapEditorParallaxLayer parallaxLayer = currentLayer as MapEditorParallaxLayer;
                 _parallaxVisuals[this.CurrentLayer].gameObject.layer = LayerMask.NameToLayer(parallaxLayer.LayerName);
-                _parallaxVisuals[this.CurrentLayer].CreateMeshForLayer(findParallaxSprite(parallaxLayer.SpriteName), parallaxLayer.Loops, parallaxLayer.Height, parallaxLayer.XPosition, parallaxLayer.ParallaxRatio, _mapInfo.width * this.Grid.GridSpaceSize);
+                _parallaxVisuals[this.CurrentLayer].CreateMeshForLayer(findParallaxSprite(parallaxLayer.SpriteName), parallaxLayer.Loops, parallaxLayer.Height, parallaxLayer.XPosition, parallaxLayer.ParallaxRatio, _mapInfo.width * this.Grid.GridSpaceSize, parallaxLayer.Lit ? this.ParallaxLitShader : this.ParallaxUnlitShader);
                 break;
             case MapEditorLayer.LayerType.Lighting:
                 removeObjectBrush();
@@ -687,7 +689,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
             MapEditorParallaxLayer layer = this.Layers[name] as MapEditorParallaxLayer;
             int layerIndex = LayerMask.NameToLayer(layer.LayerName);
             _parallaxVisuals[name].gameObject.layer = layerIndex;
-            _parallaxVisuals[name].CreateMeshForLayer(findParallaxSprite(layer.SpriteName), layer.Loops, layer.Height, layer.XPosition, layer.ParallaxRatio, _mapInfo.width * this.Grid.GridSpaceSize);
+            _parallaxVisuals[name].CreateMeshForLayer(findParallaxSprite(layer.SpriteName), layer.Loops, layer.Height, layer.XPosition, layer.ParallaxRatio, _mapInfo.width * this.Grid.GridSpaceSize, layer.Lit ? this.ParallaxLitShader : this.ParallaxUnlitShader);
         }
     }
 

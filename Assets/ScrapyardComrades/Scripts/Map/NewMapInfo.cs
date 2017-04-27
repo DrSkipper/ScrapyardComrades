@@ -246,6 +246,7 @@ public class NewMapInfo
         public string sprite_name;
         public int depth;
         public bool loops;
+        public bool lit;
         public float height;
         public float x_position;
         public float parallax_ratio;
@@ -257,6 +258,7 @@ public class NewMapInfo
             sprite_name = null;
             depth = d;
             loops = false;
+            lit = false;
             height = 0.5f;
             x_position = 0.5f;
             parallax_ratio = 0.2f;
