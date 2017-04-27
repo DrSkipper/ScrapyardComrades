@@ -30743,20 +30743,13 @@
   ],
   "parallax_layers": [
     {
-      "sprite_name": null,
-      "depth": -4,
-      "loops": false,
-      "height": 0.5,
-      "x_position": 0.5,
-      "parallax_ratio": 0.2
-    },
-    {
       "sprite_name": "cityscape",
       "depth": 6,
       "loops": true,
       "height": 0.50000006,
       "x_position": 0.5,
-      "parallax_ratio": 0.95
+      "parallax_ratio": 0.95,
+      "layer_name": "ParallaxFront"
     }
   ],
   "props": [
@@ -30852,6 +30845,7 @@
       "z": 2
     }
   ],
+  "props_background": [],
   "objects": [
     {
       "name": "objects_TestEnemy_1",
@@ -30877,6 +30871,7 @@
   ],
   "next_object_id": 4,
   "next_prop_id": 35,
+  "next_prop_bg_id": 0,
   "next_light_id": 4,
   "lights": [
     {
@@ -30892,7 +30887,9 @@
       "rot_y": 0.0,
       "r": 0.908836544,
       "g": 0.237132356,
-      "b": 0.9485294
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": null
     },
     {
       "name": "lights_OverlayLight_2",
@@ -30907,7 +30904,9 @@
       "rot_y": 0.0,
       "r": 0.908836544,
       "g": 0.237132356,
-      "b": 0.9485294
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": null
     },
     {
       "name": "lights_OverlayLight_3",
@@ -30922,7 +30921,9 @@
       "rot_y": 0.0,
       "r": 0.9632353,
       "g": 0.155817449,
-      "b": 0.306164175
+      "b": 0.306164175,
+      "affects_foreground": true,
+      "affects_parallax": null
     }
   ]
 }

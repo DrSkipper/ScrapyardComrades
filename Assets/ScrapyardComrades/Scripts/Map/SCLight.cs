@@ -4,6 +4,8 @@ public class SCLight : VoBehavior
 {
     public Light Light;
     public Transform LightTransform;
+    public LayerMask ObjectsAndTilesLayers;
+    public LayerMask[] ParallaxLayers;
 
     public void ConfigureLight(NewMapInfo.MapLight lightInfo)
     {
@@ -19,5 +21,13 @@ public class SCLight : VoBehavior
         this.LightTransform.rotation = Quaternion.identity;
         this.LightTransform.Rotate(Vector3.right, lightInfo.rot_x);
         this.LightTransform.Rotate(Vector3.up, lightInfo.rot_y);
+
+        this.Light.cullingMask = lightInfo.affects_foreground ? (int)this.ObjectsAndTilesLayers : 0;
+        
+        for (int i = 0; i < this.ParallaxLayers.Length; ++i)
+        {
+            if (lightInfo.AffectsParallax(i))
+                this.Light.cullingMask |= this.ParallaxLayers[i];
+        }
     }
 }

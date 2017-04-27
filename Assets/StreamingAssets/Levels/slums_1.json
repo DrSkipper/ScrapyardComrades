@@ -30748,21 +30748,25 @@
       "loops": false,
       "height": 0.5,
       "x_position": 0.5,
-      "parallax_ratio": 0.2
+      "parallax_ratio": 0.2,
+      "layer_name": "ParallaxFront"
     },
     {
-      "sprite_name": "cityscape",
+      "sprite_name": "city_hill",
       "depth": 6,
       "loops": true,
-      "height": 0.5,
-      "x_position": 0.5,
-      "parallax_ratio": 0.95
+      "height": 0.199999958,
+      "x_position": 0.399999976,
+      "parallax_ratio": 0.74999994,
+      "layer_name": "ParallaxFront"
     }
   ],
   "props": [],
+  "props_background": [],
   "objects": [],
   "next_object_id": 0,
   "next_prop_id": 0,
+  "next_prop_bg_id": 0,
   "next_light_id": 0,
   "lights": []
 }

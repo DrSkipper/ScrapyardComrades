@@ -10,12 +10,15 @@ public class MapEditorParallaxPanel : MonoBehaviour
     public Text HeightValueText;
     public Text RatioValueText;
     public Text XPosValueText;
+    public Text LayerNameText;
     public GameObject LoopValueObject;
+    public string[] ValidLayerNames;
 
     public void ShowForLayer(MapEditorLayer layer)
     {
         _layer = layer as MapEditorParallaxLayer;
         _currentSpriteIndex = findCurrentSpriteIndex();
+        _currentLayerNameIndex = findCurrentLayerNameIndex();
         updateVisual();
     }
 
@@ -72,6 +75,12 @@ public class MapEditorParallaxPanel : MonoBehaviour
             _layer.ParallaxRatio = Mathf.Min(1.0f, _layer.ParallaxRatio + INCREMENT);
             updateVisual();
         }
+        else if (MapEditorInput.Cancel)
+        {
+            _currentLayerNameIndex = _currentLayerNameIndex >= ValidLayerNames.Length - 1 ? 0 : _currentLayerNameIndex + 1;
+            _layer.LayerName = ValidLayerNames[_currentLayerNameIndex];
+            updateVisual();
+        }
     }
 
     /**
@@ -79,6 +88,7 @@ public class MapEditorParallaxPanel : MonoBehaviour
      */
     private MapEditorParallaxLayer _layer;
     private int _currentSpriteIndex;
+    private int _currentLayerNameIndex;
 
     private const float INCREMENT = 0.05f;
 
@@ -92,6 +102,7 @@ public class MapEditorParallaxPanel : MonoBehaviour
         this.HeightValueText.text = _layer.Height.ToString("0.00");
         this.RatioValueText.text = _layer.ParallaxRatio.ToString("0.00");
         this.XPosValueText.text = _layer.XPosition.ToString("0.00");
+        this.LayerNameText.text = _layer.LayerName;
     }
 
     private int findCurrentSpriteIndex()
@@ -102,5 +113,15 @@ public class MapEditorParallaxPanel : MonoBehaviour
                 return i;
         }
         return -1;
+    }
+
+    private int findCurrentLayerNameIndex()
+    {
+        for (int i = 0; i < ValidLayerNames.Length; ++i)
+        {
+            if (ValidLayerNames[i] == _layer.LayerName)
+                return i;
+        }
+        return 0;
     }
 }

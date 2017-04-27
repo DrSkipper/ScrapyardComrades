@@ -212,6 +212,32 @@ public class NewMapInfo
         public float r;
         public float g;
         public float b;
+        public bool affects_foreground;
+        public bool[] affects_parallax;
+
+        public bool AffectsParallax(int parallaxLayerIndex)
+        {
+            if (affects_parallax == null || affects_parallax.Length <= parallaxLayerIndex)
+                return false;
+            return affects_parallax[parallaxLayerIndex];
+        }
+
+        public void SetAffectsParallax(int parallaxLayerIndex, bool value, int numParallaxLayers)
+        {
+            if (affects_parallax == null)
+                affects_parallax = new bool[numParallaxLayers];
+            else if (affects_parallax.Length < numParallaxLayers)
+            {
+                bool[] newArray = new bool[numParallaxLayers];
+                for (int i = 0; i < numParallaxLayers; ++i)
+                {
+                    newArray[i] = i < affects_parallax.Length ? affects_parallax[i] : false;
+                }
+                affects_parallax = newArray;
+            }
+
+            affects_parallax[parallaxLayerIndex] = value;
+        }
     }
 
     [System.Serializable]
@@ -223,6 +249,8 @@ public class NewMapInfo
         public float height;
         public float x_position;
         public float parallax_ratio;
+        public string layer_name;
+        public const string DEFAULT_LAYER = "ParallaxFront";
 
         public ParallaxLayer(int d)
         {
@@ -232,6 +260,14 @@ public class NewMapInfo
             height = 0.5f;
             x_position = 0.5f;
             parallax_ratio = 0.2f;
+            layer_name = DEFAULT_LAYER;
+        }
+
+        public string GetLayerName()
+        {
+            if (layer_name == null || layer_name == "")
+                return DEFAULT_LAYER;
+            return layer_name;
         }
     }
 }

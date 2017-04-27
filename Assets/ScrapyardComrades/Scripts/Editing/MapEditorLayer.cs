@@ -393,6 +393,7 @@ public class MapEditorParallaxLayer : MapEditorLayer
     public float Height;
     public float XPosition;
     public float ParallaxRatio;
+    public string LayerName;
 
     public MapEditorParallaxLayer(NewMapInfo.ParallaxLayer parallaxLayer, string name)
     {
@@ -404,6 +405,7 @@ public class MapEditorParallaxLayer : MapEditorLayer
         this.Height = parallaxLayer.height;
         this.XPosition = parallaxLayer.x_position;
         this.ParallaxRatio = parallaxLayer.parallax_ratio;
+        this.LayerName = parallaxLayer.GetLayerName();
     }
 
     public override void SaveData(NewMapInfo mapInfo)
@@ -414,6 +416,7 @@ public class MapEditorParallaxLayer : MapEditorLayer
         layer.height = this.Height;
         layer.x_position = this.XPosition;
         layer.parallax_ratio = this.ParallaxRatio;
+        layer.layer_name = this.LayerName;
     }
 }
 
@@ -443,6 +446,7 @@ public class MapEditorLightingLayer : MapEditorLayer
         else
         {
             this.CurrentProperties.light_type = (int)LightType.Point;
+            this.CurrentProperties.affects_foreground = true;
         }
     }
 
@@ -486,6 +490,15 @@ public class MapEditorLightingLayer : MapEditorLayer
         receiver.r = source.r;
         receiver.g = source.g;
         receiver.b = source.b;
+        receiver.affects_foreground = source.affects_foreground;
+
+        int affectsParallaxLength = source.affects_parallax != null ? source.affects_parallax.Length : 0;
+        receiver.affects_parallax = new bool[affectsParallaxLength];
+
+        for (int i = 0; i < affectsParallaxLength; ++i)
+        {
+            receiver.affects_parallax[i] = source.affects_parallax[i];
+        }
     }
 
     public void RemoveObject(GameObject toRemove)

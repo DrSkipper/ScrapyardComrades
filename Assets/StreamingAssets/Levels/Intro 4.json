@@ -12316,7 +12316,8 @@
       "loops": false,
       "height": 0.5,
       "x_position": 0.5,
-      "parallax_ratio": 0.2
+      "parallax_ratio": 0.2,
+      "layer_name": "ParallaxFront"
     },
     {
       "sprite_name": "city_hill",
@@ -12324,7 +12325,8 @@
       "loops": true,
       "height": 0.199999958,
       "x_position": 0.399999976,
-      "parallax_ratio": 0.74999994
+      "parallax_ratio": 0.74999994,
+      "layer_name": "ParallaxFront"
     },
     {
       "sprite_name": "cityscape",
@@ -12332,7 +12334,8 @@
       "loops": true,
       "height": 0.5,
       "x_position": 0.5,
-      "parallax_ratio": 0.95
+      "parallax_ratio": 0.95,
+      "layer_name": "ParallaxFront"
     }
   ],
   "props": [],
@@ -12371,7 +12374,9 @@
       "rot_y": 0.0,
       "r": 0.908836544,
       "g": 0.237132356,
-      "b": 0.9485294
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": null
     },
     {
       "name": "lights_OverlayLight_1",
@@ -12386,7 +12391,9 @@
       "rot_y": 0.0,
       "r": 0.908836544,
       "g": 0.237132356,
-      "b": 0.9485294
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": null
     }
   ]
 }

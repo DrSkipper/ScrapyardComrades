@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ParallaxLayerController : MonoBehaviour
+public class ParallaxLayerController : VoBehavior
 {
     public const string PARALLAX_PATH = "Parallax/";
     public ParallaxQuadGroup CurrentLayerVisual;
@@ -13,11 +13,11 @@ public class ParallaxLayerController : MonoBehaviour
     void Update()
     {
         // Move to position ParallaxRatio between origin and tracker (camera) position
-        Vector2 origin = this.transform.parent.position;
-        Vector2 trackerPos = (Vector2)this.Tracker.transform.position - origin;
-        Vector2 trackerNormalized = trackerPos.normalized;
-        float magnitude = trackerPos.magnitude * this.ParallaxRatio;
-        IntegerVector final = trackerNormalized * magnitude + origin;
+        IntegerVector origin = (Vector2)this.transform.parent.position;
+        IntegerVector trackerPos = ((IntegerVector)(Vector2)this.Tracker.transform.position) - origin;
+        Vector2 trackerNormalized = ((Vector2)trackerPos).normalized;
+        float magnitude = ((Vector2)trackerPos).magnitude * this.ParallaxRatio;
+        IntegerVector final = ((IntegerVector)(trackerNormalized * magnitude)) + origin;
         this.transform.position = new Vector3(final.X, final.Y, this.transform.position.z);
     }
 
@@ -30,8 +30,12 @@ public class ParallaxLayerController : MonoBehaviour
 
         this.PreviousLayerVisual.MeshRenderer.sortingLayerName = this.CurrentLayerVisual.transform.position.z > MapEditorManager.PLATFORMS_LAYER_DEPTH ? MapEditorManager.PARALLAX_BACK_SORT_LAYER : MapEditorManager.PARALLAX_FRONT_SORT_LAYER;
 
+        this.PreviousLayerVisual.gameObject.layer = this.CurrentLayerVisual.gameObject.layer;
+
         if (layer != null)
         {
+            this.CurrentLayerVisual.gameObject.layer = LayerMask.NameToLayer(layer.GetLayerName());
+
             this.ParallaxRatio = layer.parallax_ratio;
             Sprite sprite = Resources.Load<Sprite>(PARALLAX_PATH + layer.sprite_name);
             this.CurrentLayerVisual.CreateMeshForLayer(sprite, layer.loops, layer.height, layer.x_position,  layer.parallax_ratio, quadWidth);

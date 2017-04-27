@@ -198,6 +198,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
                 break;
             case MapEditorLayer.LayerType.Parallax:
                 MapEditorParallaxLayer parallaxLayer = currentLayer as MapEditorParallaxLayer;
+                _parallaxVisuals[this.CurrentLayer].gameObject.layer = LayerMask.NameToLayer(parallaxLayer.LayerName);
                 _parallaxVisuals[this.CurrentLayer].CreateMeshForLayer(findParallaxSprite(parallaxLayer.SpriteName), parallaxLayer.Loops, parallaxLayer.Height, parallaxLayer.XPosition, parallaxLayer.ParallaxRatio, _mapInfo.width * this.Grid.GridSpaceSize);
                 break;
             case MapEditorLayer.LayerType.Lighting:
@@ -684,6 +685,8 @@ public class MapEditorManager : MonoBehaviour, IPausable
         {
             string name = PARALLAX_PREFIX + _mapInfo.parallax_layers[i].depth;
             MapEditorParallaxLayer layer = this.Layers[name] as MapEditorParallaxLayer;
+            int layerIndex = LayerMask.NameToLayer(layer.LayerName);
+            _parallaxVisuals[name].gameObject.layer = layerIndex;
             _parallaxVisuals[name].CreateMeshForLayer(findParallaxSprite(layer.SpriteName), layer.Loops, layer.Height, layer.XPosition, layer.ParallaxRatio, _mapInfo.width * this.Grid.GridSpaceSize);
         }
     }
