@@ -55,6 +55,7 @@ public class TilesetEditorManager : MonoBehaviour
 
         this.TilesetToEdit.ApplySpriteDataDictionary(_spriteData);
         this.MeshRenderer.sharedMaterial.mainTexture = _texture;
+
 #else
         Debug.Log("TilesetEditorManager should not be used at runtime!");
 #endif
