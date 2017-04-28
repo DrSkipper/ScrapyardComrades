@@ -12321,6 +12321,16 @@
       "layer_name": "ParallaxMid"
     },
     {
+      "sprite_name": "fog_gradient",
+      "depth": 10,
+      "loops": true,
+      "lit": false,
+      "height": 0.45,
+      "x_position": 0.5,
+      "parallax_ratio": 0.849999964,
+      "layer_name": "ParallaxBack"
+    },
+    {
       "sprite_name": "cityscape",
       "depth": 10,
       "loops": true,
