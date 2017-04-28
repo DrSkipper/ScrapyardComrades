@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 04397612ba66ef14bab4ad5aba06b966
-timeCreated: 1491352137
+timeCreated: 1493418173
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -270,8 +270,8 @@ TextureImporter:
       name: slums_tileset_6
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
+        x: 176
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -283,8 +283,8 @@ TextureImporter:
       name: slums_tileset_7
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 192
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -296,8 +296,8 @@ TextureImporter:
       name: slums_tileset_8
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
+        x: 208
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -309,7 +309,7 @@ TextureImporter:
       name: slums_tileset_9
       rect:
         serializedVersion: 2
-        x: 64
+        x: 112
         y: 32
         width: 16
         height: 16
@@ -322,7 +322,7 @@ TextureImporter:
       name: slums_tileset_10
       rect:
         serializedVersion: 2
-        x: 80
+        x: 128
         y: 32
         width: 16
         height: 16
@@ -335,8 +335,8 @@ TextureImporter:
       name: slums_tileset_11
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
+        x: 176
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -348,8 +348,8 @@ TextureImporter:
       name: slums_tileset_12
       rect:
         serializedVersion: 2
-        x: 32
-        y: 48
+        x: 192
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -361,8 +361,8 @@ TextureImporter:
       name: slums_tileset_13
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
+        x: 208
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -374,7 +374,7 @@ TextureImporter:
       name: slums_tileset_14
       rect:
         serializedVersion: 2
-        x: 64
+        x: 112
         y: 48
         width: 16
         height: 16
@@ -387,7 +387,7 @@ TextureImporter:
       name: slums_tileset_15
       rect:
         serializedVersion: 2
-        x: 80
+        x: 128
         y: 48
         width: 16
         height: 16
@@ -400,8 +400,8 @@ TextureImporter:
       name: slums_tileset_16
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
+        x: 192
+        y: 192
         width: 16
         height: 16
       alignment: 0
@@ -413,8 +413,8 @@ TextureImporter:
       name: slums_tileset_17
       rect:
         serializedVersion: 2
-        x: 48
-        y: 64
+        x: 208
+        y: 192
         width: 16
         height: 16
       alignment: 0
@@ -426,7 +426,7 @@ TextureImporter:
       name: slums_tileset_18
       rect:
         serializedVersion: 2
-        x: 64
+        x: 112
         y: 64
         width: 16
         height: 16
@@ -439,7 +439,7 @@ TextureImporter:
       name: slums_tileset_19
       rect:
         serializedVersion: 2
-        x: 80
+        x: 128
         y: 64
         width: 16
         height: 16
@@ -452,8 +452,8 @@ TextureImporter:
       name: slums_tileset_20
       rect:
         serializedVersion: 2
-        x: 32
-        y: 80
+        x: 192
+        y: 208
         width: 16
         height: 16
       alignment: 0
@@ -465,8 +465,8 @@ TextureImporter:
       name: slums_tileset_21
       rect:
         serializedVersion: 2
-        x: 48
-        y: 80
+        x: 208
+        y: 208
         width: 16
         height: 16
       alignment: 0
@@ -478,7 +478,7 @@ TextureImporter:
       name: slums_tileset_22
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 80
         width: 16
         height: 16
@@ -491,8 +491,8 @@ TextureImporter:
       name: slums_tileset_23
       rect:
         serializedVersion: 2
-        x: 80
-        y: 80
+        x: 224
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -504,8 +504,8 @@ TextureImporter:
       name: slums_tileset_24
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
+        x: 192
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -517,8 +517,8 @@ TextureImporter:
       name: slums_tileset_25
       rect:
         serializedVersion: 2
-        x: 48
-        y: 96
+        x: 208
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -530,8 +530,8 @@ TextureImporter:
       name: slums_tileset_26
       rect:
         serializedVersion: 2
-        x: 48
-        y: 112
+        x: 208
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -543,8 +543,8 @@ TextureImporter:
       name: slums_tileset_27
       rect:
         serializedVersion: 2
-        x: 32
-        y: 112
+        x: 192
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -556,8 +556,8 @@ TextureImporter:
       name: slums_tileset_28
       rect:
         serializedVersion: 2
-        x: 64
-        y: 112
+        x: 176
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -569,8 +569,8 @@ TextureImporter:
       name: slums_tileset_29
       rect:
         serializedVersion: 2
-        x: 64
-        y: 112
+        x: 256
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -582,8 +582,8 @@ TextureImporter:
       name: slums_tileset_30
       rect:
         serializedVersion: 2
-        x: 96
-        y: 80
+        x: 144
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -595,7 +595,7 @@ TextureImporter:
       name: slums_tileset_31
       rect:
         serializedVersion: 2
-        x: 96
+        x: 224
         y: 64
         width: 16
         height: 16
@@ -608,7 +608,7 @@ TextureImporter:
       name: slums_tileset_32
       rect:
         serializedVersion: 2
-        x: 96
+        x: 224
         y: 48
         width: 16
         height: 16
@@ -621,8 +621,8 @@ TextureImporter:
       name: slums_tileset_33
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
+        x: 144
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -634,7 +634,7 @@ TextureImporter:
       name: slums_tileset_34
       rect:
         serializedVersion: 2
-        x: 112
+        x: 160
         y: 32
         width: 16
         height: 16
@@ -647,7 +647,7 @@ TextureImporter:
       name: slums_tileset_35
       rect:
         serializedVersion: 2
-        x: 112
+        x: 160
         y: 48
         width: 16
         height: 16
@@ -660,7 +660,7 @@ TextureImporter:
       name: slums_tileset_36
       rect:
         serializedVersion: 2
-        x: 112
+        x: 160
         y: 64
         width: 16
         height: 16
@@ -673,7 +673,7 @@ TextureImporter:
       name: slums_tileset_37
       rect:
         serializedVersion: 2
-        x: 112
+        x: 160
         y: 80
         width: 16
         height: 16
@@ -686,8 +686,8 @@ TextureImporter:
       name: slums_tileset_38
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
+        x: 144
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -699,7 +699,7 @@ TextureImporter:
       name: slums_tileset_39
       rect:
         serializedVersion: 2
-        x: 96
+        x: 144
         y: 112
         width: 16
         height: 16
@@ -712,7 +712,7 @@ TextureImporter:
       name: slums_tileset_40
       rect:
         serializedVersion: 2
-        x: 96
+        x: 160
         y: 128
         width: 16
         height: 16
@@ -725,7 +725,7 @@ TextureImporter:
       name: slums_tileset_41
       rect:
         serializedVersion: 2
-        x: 112
+        x: 160
         y: 96
         width: 16
         height: 16
@@ -738,7 +738,7 @@ TextureImporter:
       name: slums_tileset_42
       rect:
         serializedVersion: 2
-        x: 112
+        x: 160
         y: 112
         width: 16
         height: 16
@@ -751,7 +751,7 @@ TextureImporter:
       name: slums_tileset_43
       rect:
         serializedVersion: 2
-        x: 112
+        x: 176
         y: 128
         width: 16
         height: 16
@@ -764,7 +764,7 @@ TextureImporter:
       name: slums_tileset_44
       rect:
         serializedVersion: 2
-        x: 128
+        x: 176
         y: 32
         width: 16
         height: 16
@@ -777,7 +777,7 @@ TextureImporter:
       name: slums_tileset_45
       rect:
         serializedVersion: 2
-        x: 128
+        x: 176
         y: 48
         width: 16
         height: 16
@@ -790,7 +790,7 @@ TextureImporter:
       name: slums_tileset_46
       rect:
         serializedVersion: 2
-        x: 128
+        x: 176
         y: 64
         width: 16
         height: 16
@@ -803,8 +803,8 @@ TextureImporter:
       name: slums_tileset_47
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
+        x: 256
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -816,7 +816,7 @@ TextureImporter:
       name: slums_tileset_48
       rect:
         serializedVersion: 2
-        x: 128
+        x: 176
         y: 80
         width: 16
         height: 16
@@ -829,7 +829,7 @@ TextureImporter:
       name: slums_tileset_49
       rect:
         serializedVersion: 2
-        x: 128
+        x: 176
         y: 96
         width: 16
         height: 16
@@ -842,7 +842,7 @@ TextureImporter:
       name: slums_tileset_50
       rect:
         serializedVersion: 2
-        x: 128
+        x: 176
         y: 112
         width: 16
         height: 16
@@ -855,7 +855,7 @@ TextureImporter:
       name: slums_tileset_51
       rect:
         serializedVersion: 2
-        x: 128
+        x: 192
         y: 128
         width: 16
         height: 16
@@ -868,7 +868,7 @@ TextureImporter:
       name: slums_tileset_52
       rect:
         serializedVersion: 2
-        x: 128
+        x: 192
         y: 144
         width: 16
         height: 16
@@ -881,7 +881,7 @@ TextureImporter:
       name: slums_tileset_53
       rect:
         serializedVersion: 2
-        x: 144
+        x: 208
         y: 144
         width: 16
         height: 16
@@ -894,7 +894,7 @@ TextureImporter:
       name: slums_tileset_54
       rect:
         serializedVersion: 2
-        x: 144
+        x: 208
         y: 128
         width: 16
         height: 16
@@ -907,7 +907,7 @@ TextureImporter:
       name: slums_tileset_55
       rect:
         serializedVersion: 2
-        x: 144
+        x: 192
         y: 112
         width: 16
         height: 16
@@ -920,7 +920,7 @@ TextureImporter:
       name: slums_tileset_56
       rect:
         serializedVersion: 2
-        x: 144
+        x: 192
         y: 96
         width: 16
         height: 16
@@ -933,7 +933,7 @@ TextureImporter:
       name: slums_tileset_57
       rect:
         serializedVersion: 2
-        x: 144
+        x: 192
         y: 80
         width: 16
         height: 16
@@ -946,7 +946,7 @@ TextureImporter:
       name: slums_tileset_58
       rect:
         serializedVersion: 2
-        x: 144
+        x: 192
         y: 64
         width: 16
         height: 16
@@ -959,7 +959,7 @@ TextureImporter:
       name: slums_tileset_59
       rect:
         serializedVersion: 2
-        x: 144
+        x: 192
         y: 48
         width: 16
         height: 16
@@ -972,7 +972,7 @@ TextureImporter:
       name: slums_tileset_60
       rect:
         serializedVersion: 2
-        x: 144
+        x: 192
         y: 32
         width: 16
         height: 16
@@ -985,7 +985,7 @@ TextureImporter:
       name: slums_tileset_61
       rect:
         serializedVersion: 2
-        x: 160
+        x: 208
         y: 32
         width: 16
         height: 16
@@ -998,7 +998,7 @@ TextureImporter:
       name: slums_tileset_62
       rect:
         serializedVersion: 2
-        x: 160
+        x: 208
         y: 48
         width: 16
         height: 16
@@ -1011,7 +1011,7 @@ TextureImporter:
       name: slums_tileset_63
       rect:
         serializedVersion: 2
-        x: 160
+        x: 208
         y: 64
         width: 16
         height: 16
@@ -1024,7 +1024,7 @@ TextureImporter:
       name: slums_tileset_64
       rect:
         serializedVersion: 2
-        x: 160
+        x: 208
         y: 80
         width: 16
         height: 16
@@ -1037,7 +1037,7 @@ TextureImporter:
       name: slums_tileset_65
       rect:
         serializedVersion: 2
-        x: 160
+        x: 208
         y: 96
         width: 16
         height: 16
@@ -1050,7 +1050,7 @@ TextureImporter:
       name: slums_tileset_66
       rect:
         serializedVersion: 2
-        x: 160
+        x: 208
         y: 112
         width: 16
         height: 16
@@ -1063,7 +1063,7 @@ TextureImporter:
       name: slums_tileset_67
       rect:
         serializedVersion: 2
-        x: 176
+        x: 256
         y: 32
         width: 16
         height: 16
@@ -1076,8 +1076,8 @@ TextureImporter:
       name: slums_tileset_68
       rect:
         serializedVersion: 2
-        x: 176
-        y: 48
+        x: 224
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1089,7 +1089,7 @@ TextureImporter:
       name: slums_tileset_69
       rect:
         serializedVersion: 2
-        x: 176
+        x: 240
         y: 64
         width: 16
         height: 16
@@ -1102,7 +1102,7 @@ TextureImporter:
       name: slums_tileset_70
       rect:
         serializedVersion: 2
-        x: 192
+        x: 256
         y: 64
         width: 16
         height: 16
@@ -1115,8 +1115,8 @@ TextureImporter:
       name: slums_tileset_71
       rect:
         serializedVersion: 2
-        x: 192
-        y: 48
+        x: 240
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1128,7 +1128,7 @@ TextureImporter:
       name: slums_tileset_72
       rect:
         serializedVersion: 2
-        x: 192
+        x: 272
         y: 32
         width: 16
         height: 16
@@ -1141,7 +1141,7 @@ TextureImporter:
       name: slums_tileset_73
       rect:
         serializedVersion: 2
-        x: 208
+        x: 288
         y: 32
         width: 16
         height: 16
@@ -1154,7 +1154,7 @@ TextureImporter:
       name: slums_tileset_74
       rect:
         serializedVersion: 2
-        x: 208
+        x: 288
         y: 48
         width: 16
         height: 16
@@ -1167,7 +1167,7 @@ TextureImporter:
       name: slums_tileset_75
       rect:
         serializedVersion: 2
-        x: 208
+        x: 272
         y: 64
         width: 16
         height: 16
@@ -1180,7 +1180,7 @@ TextureImporter:
       name: slums_tileset_76
       rect:
         serializedVersion: 2
-        x: 224
+        x: 288
         y: 64
         width: 16
         height: 16
@@ -1193,7 +1193,7 @@ TextureImporter:
       name: slums_tileset_77
       rect:
         serializedVersion: 2
-        x: 224
+        x: 288
         y: 48
         width: 16
         height: 16
@@ -1206,8 +1206,8 @@ TextureImporter:
       name: slums_tileset_78
       rect:
         serializedVersion: 2
-        x: 224
-        y: 32
+        x: 256
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -1219,7 +1219,7 @@ TextureImporter:
       name: slums_tileset_79
       rect:
         serializedVersion: 2
-        x: 224
+        x: 304
         y: 32
         width: 16
         height: 16
@@ -1362,7 +1362,7 @@ TextureImporter:
       name: slums_tileset_90
       rect:
         serializedVersion: 2
-        x: 80
+        x: 144
         y: 112
         width: 16
         height: 16
@@ -1375,7 +1375,7 @@ TextureImporter:
       name: slums_tileset_91
       rect:
         serializedVersion: 2
-        x: 176
+        x: 240
         y: 80
         width: 16
         height: 16
@@ -1388,8 +1388,8 @@ TextureImporter:
       name: slums_tileset_92
       rect:
         serializedVersion: 2
-        x: 80
-        y: 128
+        x: 128
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -1401,8 +1401,8 @@ TextureImporter:
       name: slums_tileset_93
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
+        x: 144
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -1414,7 +1414,7 @@ TextureImporter:
       name: slums_tileset_94
       rect:
         serializedVersion: 2
-        x: 96
+        x: 160
         y: 144
         width: 16
         height: 16
