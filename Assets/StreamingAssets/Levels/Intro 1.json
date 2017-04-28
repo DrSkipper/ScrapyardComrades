@@ -16407,16 +16407,6 @@
   ],
   "parallax_layers": [
     {
-      "sprite_name": null,
-      "depth": -6,
-      "loops": false,
-      "lit": false,
-      "height": 0.5,
-      "x_position": 0.5,
-      "parallax_ratio": 0.2,
-      "layer_name": "ParallaxFront"
-    },
-    {
       "sprite_name": "city_hill",
       "depth": 8,
       "loops": true,
@@ -16547,7 +16537,7 @@
   "next_object_id": 2,
   "next_prop_id": 7,
   "next_prop_bg_id": 13,
-  "next_light_id": 19,
+  "next_light_id": 28,
   "lights": [
     {
       "name": "lights_OverlayLight_1",
@@ -16564,7 +16554,8 @@
       "g": 0.237132356,
       "b": 0.9485294,
       "affects_foreground": true,
-      "affects_parallax": null
+      "affects_parallax": null,
+      "parallax_ratio": 0.0
     },
     {
       "name": "lights_OverlayLight_2",
@@ -16581,7 +16572,8 @@
       "g": 0.237132356,
       "b": 0.9485294,
       "affects_foreground": true,
-      "affects_parallax": null
+      "affects_parallax": null,
+      "parallax_ratio": 0.0
     },
     {
       "name": "lights_OverlayLight_3",
@@ -16598,7 +16590,8 @@
       "g": 0.237132356,
       "b": 0.9485294,
       "affects_foreground": true,
-      "affects_parallax": null
+      "affects_parallax": null,
+      "parallax_ratio": 0.0
     },
     {
       "name": "lights_OverlayLight_14",
@@ -16615,16 +16608,17 @@
       "g": 0.155817449,
       "b": 0.306164175,
       "affects_foreground": true,
-      "affects_parallax": []
+      "affects_parallax": [],
+      "parallax_ratio": 0.0
     },
     {
-      "name": "lights_OverlayLight_16",
-      "x": 732,
-      "y": 356,
+      "name": "lights_OverlayLight_25",
+      "x": 1540,
+      "y": 492,
       "light_type": 2,
-      "intensity": 3,
-      "range": 600,
-      "distance": 150,
+      "intensity": 2,
+      "range": 620,
+      "distance": 140,
       "spot_angle": 0,
       "rot_x": 0.0,
       "rot_y": 0.0,
@@ -16636,16 +16630,17 @@
         false,
         true,
         false
-      ]
+      ],
+      "parallax_ratio": 0.74999994
     },
     {
-      "name": "lights_OverlayLight_17",
-      "x": 1124,
-      "y": 356,
+      "name": "lights_OverlayLight_26",
+      "x": 1256,
+      "y": 496,
       "light_type": 2,
-      "intensity": 3,
-      "range": 600,
-      "distance": 150,
+      "intensity": 2,
+      "range": 620,
+      "distance": 140,
       "spot_angle": 0,
       "rot_x": 0.0,
       "rot_y": 0.0,
@@ -16657,16 +16652,17 @@
         false,
         true,
         false
-      ]
+      ],
+      "parallax_ratio": 0.74999994
     },
     {
-      "name": "lights_OverlayLight_18",
-      "x": 1448,
-      "y": 356,
+      "name": "lights_OverlayLight_27",
+      "x": 800,
+      "y": 492,
       "light_type": 2,
-      "intensity": 3,
-      "range": 600,
-      "distance": 150,
+      "intensity": 2,
+      "range": 620,
+      "distance": 140,
       "spot_angle": 0,
       "rot_x": 0.0,
       "rot_y": 0.0,
@@ -16678,7 +16674,8 @@
         false,
         true,
         false
-      ]
+      ],
+      "parallax_ratio": 0.74999994
     }
   ]
 }

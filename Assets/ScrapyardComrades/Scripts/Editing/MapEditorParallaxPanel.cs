@@ -15,6 +15,8 @@ public class MapEditorParallaxPanel : MonoBehaviour
     public GameObject LitValueObject;
     public string[] ValidLayerNames;
 
+    public const float INCREMENT = 0.05f;
+
     public void ShowForLayer(MapEditorLayer layer)
     {
         _layer = layer as MapEditorParallaxLayer;
@@ -95,8 +97,6 @@ public class MapEditorParallaxPanel : MonoBehaviour
     private MapEditorParallaxLayer _layer;
     private int _currentSpriteIndex;
     private int _currentLayerNameIndex;
-
-    private const float INCREMENT = 0.05f;
 
     private void updateVisual()
     {

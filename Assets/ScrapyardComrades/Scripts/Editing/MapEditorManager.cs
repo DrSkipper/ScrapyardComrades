@@ -573,6 +573,12 @@ public class MapEditorManager : MonoBehaviour, IPausable
         GameObject newLight = this.LightPrefab.Retain().gameObject;
         newLight.transform.SetPosition(this.ObjectCursor.position.x, this.ObjectCursor.position.y, layer.Depth);
         layer.AddObject(newLight);
+
+        foreach (MonoBehaviour c in newLight.GetComponents<MonoBehaviour>())
+        {
+            if (!(c is PooledObject))
+                c.enabled = false;
+        }
     }
 
     private GameObject findEraseTarget(MapEditorLayer layer)
@@ -635,6 +641,12 @@ public class MapEditorManager : MonoBehaviour, IPausable
             newObject.transform.SetPosition(layer.Lights[i].x, layer.Lights[i].y, layer.Depth);
             newObject.GetComponent<SCLight>().ConfigureLight(layer.Lights[i]);
             layer.LoadedLights.Add(newObject);
+
+            foreach (MonoBehaviour c in newObject.GetComponents<MonoBehaviour>())
+            {
+                if (!(c is PooledObject))
+                    c.enabled = false;
+            }
         }
     }
 

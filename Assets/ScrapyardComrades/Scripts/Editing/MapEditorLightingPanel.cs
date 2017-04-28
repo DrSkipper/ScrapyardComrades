@@ -10,6 +10,7 @@ public class MapEditorLightingPanel : MonoBehaviour
     public Text SpotAngleValueText;
     public Text RotXValueText;
     public Text RotYValueText;
+    public Text ParallaxValueText;
     public GameObject TypeValueObject;
     public GameObject AffectsForegroundObject;
     public GameObject[] AffectsParallaxObjects;
@@ -74,40 +75,50 @@ public class MapEditorLightingPanel : MonoBehaviour
             _layer.CurrentProperties.intensity = Mathf.Min(25, _layer.CurrentProperties.intensity + SMALL_INCREMENT);
             updateVisual();
         }
-        else if (MapEditorInput.ResizeDown)
+        else if (MapEditorInput.ResizeDown && !MapEditorInput.CyclePrevAltHeld)
         {
             _layer.CurrentProperties.range = Mathf.Max(0, _layer.CurrentProperties.range - INCREMENT);
             updateVisual();
         }
-        else if (MapEditorInput.ResizeUp)
+        else if (MapEditorInput.ResizeUp && !MapEditorInput.CyclePrevAltHeld)
         {
             _layer.CurrentProperties.range = Mathf.Min(1000, _layer.CurrentProperties.range + INCREMENT);
             updateVisual();
         }
         else if (MapEditorInput.ResizeLeft)
         {
-            _layer.CurrentProperties.spot_angle = Mathf.Max(-90, _layer.CurrentProperties.spot_angle - MID_INCREMENT);
-            updateVisual();
+            if (MapEditorInput.CyclePrevAltHeld)
+            {
+                _layer.CurrentProperties.parallax_ratio = Mathf.Max(0.0f, _layer.CurrentProperties.parallax_ratio - MapEditorParallaxPanel.INCREMENT);
+                updateVisual();
+            }
+            else
+            {
+                _layer.CurrentProperties.spot_angle = Mathf.Max(-90, _layer.CurrentProperties.spot_angle - MID_INCREMENT);
+                updateVisual();
+            }
         }
         else if (MapEditorInput.ResizeRight)
         {
-            _layer.CurrentProperties.spot_angle = Mathf.Min(90, _layer.CurrentProperties.spot_angle + MID_INCREMENT);
-            updateVisual();
+            if (MapEditorInput.CyclePrevAltHeld)
+            {
+                _layer.CurrentProperties.parallax_ratio = Mathf.Min(1.0f, _layer.CurrentProperties.parallax_ratio + MapEditorParallaxPanel.INCREMENT);
+                updateVisual();
+            }
+            else
+            {
+                _layer.CurrentProperties.spot_angle = Mathf.Min(90, _layer.CurrentProperties.spot_angle + MID_INCREMENT);
+                updateVisual();
+            }
         }
         else if (MapEditorInput.Cancel)
         {
             _layer.CurrentProperties.affects_foreground = !_layer.CurrentProperties.affects_foreground;
             updateVisual();
         }
-        else if (MapEditorInput.CycleNextAlt)
+        else if (MapEditorInput.Confirm)
         {
             _currentAffectParallaxIndex = _currentAffectParallaxIndex < this.AffectsParallaxConfigurations.Length - 1 ? _currentAffectParallaxIndex + 1 : 0;
-            updateAffectsParallax();
-            updateVisual();
-        }
-        else if (MapEditorInput.CyclePrevAlt)
-        {
-            _currentAffectParallaxIndex = _currentAffectParallaxIndex > 0 ? _currentAffectParallaxIndex - 1 : this.AffectsParallaxConfigurations.Length - 1;
             updateAffectsParallax();
             updateVisual();
         }
@@ -156,6 +167,7 @@ public class MapEditorLightingPanel : MonoBehaviour
         this.SpotAngleValueText.text = _layer.CurrentProperties.spot_angle.ToString();
         this.RotXValueText.text = _layer.CurrentProperties.rot_x.ToString("0.0");
         this.RotYValueText.text = _layer.CurrentProperties.rot_y.ToString("0.0");
+        this.ParallaxValueText.text = _layer.CurrentProperties.parallax_ratio.ToString("0.00");
 
         this.AffectsForegroundObject.SetActive(_layer.CurrentProperties.affects_foreground);
         for (int i = 0; i < this.AffectsParallaxObjects.Length; ++i)

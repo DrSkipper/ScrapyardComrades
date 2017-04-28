@@ -109,7 +109,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (_tracker != null)
         {
@@ -266,7 +266,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     {
         // Recenter all objects except those specified to be ignored
         GameObject[] rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
-        Vector2 multipliedOffset = new Vector2(-_recenterOffset.X * this.TileRenderSize, -_recenterOffset.Y * this.TileRenderSize);
+        Vector2 multipliedOffset = _recenterOffset * -this.TileRenderSize;
         for (int i = 0; i < rootObjects.Length; ++i)
         {
             if (!this.IgnoreRecenterObjects.Contains(rootObjects[i]))
@@ -279,7 +279,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         this.EntityTracker.QuadsUnloaded(_targetLoadedQuads, _currentQuad, this.TileRenderSize);
 
         // Send recenter event so lerpers/tweens know to change targets
-        GlobalEvents.Notifier.SendEvent(new WorldRecenterEvent(_recenterOffset * -this.TileRenderSize));
+        GlobalEvents.Notifier.SendEvent(new WorldRecenterEvent(multipliedOffset));
     }
 
     private void updateBoundsCheck()

@@ -214,6 +214,7 @@ public class NewMapInfo
         public float b;
         public bool affects_foreground;
         public bool[] affects_parallax;
+        public float parallax_ratio;
 
         public bool AffectsParallax(int parallaxLayerIndex)
         {

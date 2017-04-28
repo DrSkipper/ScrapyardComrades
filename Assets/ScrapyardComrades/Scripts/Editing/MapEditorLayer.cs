@@ -494,6 +494,7 @@ public class MapEditorLightingLayer : MapEditorLayer
         receiver.g = source.g;
         receiver.b = source.b;
         receiver.affects_foreground = source.affects_foreground;
+        receiver.parallax_ratio = source.parallax_ratio;
 
         int affectsParallaxLength = source.affects_parallax != null ? source.affects_parallax.Length : 0;
         receiver.affects_parallax = new bool[affectsParallaxLength];

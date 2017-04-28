@@ -9,9 +9,15 @@ public class ParallaxManager : VoBehavior
     public Texture2D ParallaxAtlas;
     public CameraController CameraController;
 
+    public static ParallaxManager Instance { get { return _instance; } }
+
     public void Awake()
     {
+        _instance = this;
+        _objects = new Dictionary<int, List<ObjectEntry>>();
+        _origins = new Dictionary<int, IntegerVector>();
         GlobalEvents.Notifier.Listen(PauseEvent.NAME, this, onPause);
+        GlobalEvents.Notifier.Listen(WorldRecenterEvent.NAME, this, onRecenter);
     }
 
     void Start()
@@ -43,11 +49,88 @@ public class ParallaxManager : VoBehavior
         }
     }
 
+    void FixedUpdate()
+    {
+        foreach (int key in _objects.Keys)
+        {
+            float ratio = parallaxKeyToRatio(key);
+            List<ObjectEntry> objects = _objects[key];
+            IntegerVector origin = _origins[key];
+
+            IntegerVector trackerPos = ((IntegerVector)(Vector2)this.CameraController.transform.position) - origin;
+            Vector2 trackerNormalized = ((Vector2)trackerPos).normalized;
+            float magnitude = ((Vector2)trackerPos).magnitude * ratio;
+            IntegerVector final = ((IntegerVector)(trackerNormalized * magnitude)) + origin;
+            
+            for (int i = 0; i < objects.Count; ++i)
+            {
+                IntegerVector pos = final + objects[i].RelativeOrigin;
+                objects[i].Transform.SetLocalPosition2D(pos.X, pos.Y);
+            }
+        }
+    }
+
+    public void AddObject(SCParallaxObject parallaxObject)
+    {
+        int parallaxKey = parallaxRatioToKey(parallaxObject.ParallaxRatio);
+        if (!_objects.ContainsKey(parallaxKey))
+            addParallaxKey(parallaxKey);
+        _objects[parallaxKey].Add(new ObjectEntry(parallaxObject));
+    }
+
+    public void RemoveObject(SCParallaxObject parallaxObject)
+    {
+        int parallaxKey = parallaxRatioToKey(parallaxObject.ParallaxRatio);
+        if (_objects.ContainsKey(parallaxKey))
+        {
+            List<ObjectEntry> objects = _objects[parallaxKey];
+            for (int i = 0; i < objects.Count; ++i)
+            {
+                if (objects[i].Transform == parallaxObject.transform)
+                {
+                    objects.RemoveAt(i);
+                    break;
+                }
+            }
+        }
+    }
+
     /**
      * Private
      */
+    private static ParallaxManager _instance;
     private bool _inTransition;
     private float _transitionTime;
+    private Dictionary<int, List<ObjectEntry>> _objects;
+    private Dictionary<int, IntegerVector> _origins;
+
+    private struct ObjectEntry
+    {
+        public Transform Transform;
+        public IntegerVector RelativeOrigin;
+
+        public ObjectEntry(SCParallaxObject parallaxObject)
+        {
+            this.Transform = parallaxObject.transform;
+            this.RelativeOrigin = (Vector2)this.Transform.position;
+        }
+    }
+
+    private static int parallaxRatioToKey(float parallaxRatio)
+    {
+        return Mathf.RoundToInt(parallaxRatio * 100);
+    }
+
+    private static float parallaxKeyToRatio(int parallaxKey)
+    {
+        return parallaxKey / 100.0f;
+    }
+
+    private void addParallaxKey(int key)
+    {
+        _objects.Add(key, new List<ObjectEntry>());
+        _origins.Add(key, IntegerVector.Zero);
+    }
 
     private void onPause(LocalEventNotifier.Event e)
     {
@@ -55,6 +138,21 @@ public class ParallaxManager : VoBehavior
         if (pauseEvent.PauseGroup == PauseController.PauseGroup.SequencedPause && pauseEvent.Tag == WorldLoadingManager.ROOM_TRANSITION_SEQUENCE)
         {
             loadParallaxForCurrentQuad(true);
+        }
+    }
+
+    private void onRecenter(LocalEventNotifier.Event e)
+    {
+        IntegerVector offset = (e as WorldRecenterEvent).RecenterOffset;
+        foreach (int key in _objects.Keys)
+        {
+            List<ObjectEntry> objects = _objects[key];
+            for (int i = 0; i < objects.Count; ++i)
+            {
+                ObjectEntry entry = objects[i];
+                entry.RelativeOrigin += offset;
+                objects[i] = entry;
+            }
         }
     }
 

@@ -4,6 +4,7 @@ public class SCLight : VoBehavior
 {
     public Light Light;
     public Transform LightTransform;
+    public SCParallaxObject ParallaxHandler;
     public LayerMask ObjectsAndTilesLayers;
     public LayerMask[] ParallaxLayers;
 
@@ -28,6 +29,11 @@ public class SCLight : VoBehavior
         {
             if (lightInfo.AffectsParallax(i))
                 this.Light.cullingMask |= this.ParallaxLayers[i];
+        }
+
+        if (this.ParallaxHandler != null)
+        {
+            this.ParallaxHandler.ParallaxRatio = lightInfo.parallax_ratio;
         }
     }
 }

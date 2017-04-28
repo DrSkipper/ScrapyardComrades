@@ -111,6 +111,7 @@ public class ObjectPlacer : VoBehavior
         spawn.GetComponent<SCLight>().ConfigureLight(light);
         _nonTrackedObjects.Add(spawn);
         spawn.transform.position = spawnPos;
+        spawn.BroadcastMessage(ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
     }
 
     private void spawn()

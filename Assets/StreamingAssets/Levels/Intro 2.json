@@ -12311,31 +12311,34 @@
   ],
   "parallax_layers": [
     {
-      "sprite_name": null,
-      "depth": -6,
-      "loops": false,
-      "height": 0.5,
-      "x_position": 0.5,
-      "parallax_ratio": 0.2,
-      "layer_name": "ParallaxFront"
-    },
-    {
       "sprite_name": "city_hill",
       "depth": 8,
       "loops": true,
+      "lit": true,
       "height": 0.199999958,
       "x_position": 0.399999976,
-      "parallax_ratio": 0.74999994,
-      "layer_name": "ParallaxFront"
+      "parallax_ratio": 0.7500001,
+      "layer_name": "ParallaxMid"
     },
     {
       "sprite_name": "cityscape",
       "depth": 10,
       "loops": true,
+      "lit": false,
       "height": 0.5,
       "x_position": 0.5,
       "parallax_ratio": 0.95,
-      "layer_name": "ParallaxFront"
+      "layer_name": "ParallaxBack"
+    },
+    {
+      "sprite_name": "slums_gradient",
+      "depth": 12,
+      "loops": true,
+      "lit": false,
+      "height": 0.9,
+      "x_position": 0.5,
+      "parallax_ratio": 1.0,
+      "layer_name": "ParallaxBack"
     }
   ],
   "props": [

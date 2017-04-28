@@ -7,7 +7,6 @@ public class ParallaxLayerController : VoBehavior
     public ParallaxQuadGroup PreviousLayerVisual;
     public ParallaxLayerController PreviousLayerController;
     public Transform Tracker;
-    public CameraController CameraController;
     public float ParallaxRatio;
     public Shader LitShader;
     public Shader UnlitShader;
