@@ -62,10 +62,18 @@ public class ParallaxManager : VoBehavior
             float magnitude = ((Vector2)trackerPos).magnitude * ratio;
             IntegerVector final = ((IntegerVector)(trackerNormalized * magnitude)) + origin;
             
+            float t = _inTransition ? Easing.QuadEaseInOut(_transitionTime, 0.0f, 1.0f, this.CameraController.TransitionDuration) : 0.0f;
+
             for (int i = 0; i < objects.Count; ++i)
             {
-                IntegerVector pos = final + objects[i].RelativeOrigin;
-                objects[i].Transform.SetLocalPosition2D(pos.X, pos.Y);
+                IntegerVector target = final + objects[i].RelativeOrigin;
+
+                if (_inTransition)
+                {
+                    target = Vector2.Lerp(objects[i].Transform.position, target, t);
+                }
+
+                objects[i].Transform.SetLocalPosition2D(target.X, target.Y);
             }
         }
     }
@@ -151,6 +159,8 @@ public class ParallaxManager : VoBehavior
             {
                 ObjectEntry entry = objects[i];
                 entry.RelativeOrigin += offset;
+                IntegerVector newPos = (IntegerVector)(Vector2)entry.Transform.position + offset;
+                entry.Transform.SetLocalPosition2D(newPos.X, newPos.Y);
                 objects[i] = entry;
             }
         }
