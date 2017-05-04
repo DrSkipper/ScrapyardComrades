@@ -1,6 +1,0 @@
-
-Current method for correcting tiling:
-1) In "MapLoadingTest" scene in unity, select MapLoader object and set Map Name field to target map, and press "Correct Tiling".
-2) In Tiled, select "Open", navigate to "Assets/StreamingAssets/LevelCorrections" within the project folder, scroll the visibile file types list to ".json", and open <map_name>.json.
-3) Re-link all images, which should be found at "Assets/ScrapyardComrades/Resources".
-4) "Save As" .tmx file in the Levels folder in the project directory.
