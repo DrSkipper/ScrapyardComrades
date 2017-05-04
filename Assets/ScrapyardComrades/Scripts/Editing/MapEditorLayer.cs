@@ -49,7 +49,8 @@ public class MapEditorTilesLayer : MapEditorLayer
         this.Depth = depth;
         this.Tileset = tilesets[mapLayer.tileset_name];
         this.Data = mapLayer.GetDataGrid();
-        this.CurrentSpriteName = NewMapInfo.MapTile.EMPTY_TILE_SPRITE_NAME;
+        _emptySpriteName = this.Tileset.GetEmptySpriteName();
+        this.CurrentSpriteName = _emptySpriteName;
         this.AutoTileEnabled = true;
         this.EraserEnabled = false;
         this.Visual = visual;
@@ -143,8 +144,9 @@ public class MapEditorTilesLayer : MapEditorLayer
     private List<int> _groupXs = new List<int>();
     private List<int> _groupYs = new List<int>();
     private List<string> _groupSpriteNames = new List<string>();
-    public IntegerVector _groupBrushLowerLeft;
-    public IntegerVector _groupBrushUpperRight;
+    private string _emptySpriteName;
+    private IntegerVector _groupBrushLowerLeft;
+    private IntegerVector _groupBrushUpperRight;
 
     private void applyGroupData(int x, int y)
     {
@@ -169,6 +171,8 @@ public class MapEditorTilesLayer : MapEditorLayer
         {
             for (int j = minY; j <= maxY; ++j)
             {
+                if (this.Data[i, j].sprite_name == NewMapInfo.MapTile.EMPTY_TILE_SPRITE_NAME)
+                    this.Data[i, j].sprite_name = _emptySpriteName;
                 this.Visual.SetSpriteIndexForTile(i, j, this.Data[i, j].sprite_name);
             }
         }
@@ -274,6 +278,8 @@ public class MapEditorTilesLayer : MapEditorLayer
             for (int y = 0; y < this.Data.GetLength(1); ++y)
             {
                 this.Data[x, y].is_filled = shouldBeFilled(this.Data[x, y].sprite_name);
+                if (this.Data[x, y].sprite_name == NewMapInfo.MapTile.EMPTY_TILE_SPRITE_NAME)
+                    this.Data[x, y].sprite_name = _emptySpriteName;
             }
         }
     }
@@ -292,7 +298,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
         this.Name = name;
         this.Type = LayerType.Objects;
         this.Depth = depth;
-        this.Objects = objects;
+        this.Objects = objects != null ? objects : new List<NewMapInfo.MapObject>();
         _currentPrefab = 0;
         this.ObjectPrefabs = prefabs;
         this.LoadedObjects = new List<GameObject>();
@@ -329,6 +335,12 @@ public class MapEditorObjectsLayer : MapEditorLayer
         mapObject.z = this.Depth;
         this.Objects.Add(mapObject);
         this.LoadedObjects.Add(gameObject);
+        Renderer r = gameObject.GetComponent<Renderer>();
+        if (r != null)
+        {
+            r.sortingLayerName = this.Name;
+            r.sortingOrder = _nextId - 1;
+        }
     }
 
     public void RemoveObject(GameObject toRemove)
@@ -354,10 +366,15 @@ public class MapEditorObjectsLayer : MapEditorLayer
             mapInfo.objects = this.Objects;
             mapInfo.next_object_id = _nextId;
         }
-        else
+        else if (this.Name == MapEditorManager.PROPS_LAYER)
         {
             mapInfo.props = this.Objects;
             mapInfo.next_prop_id = _nextId;
+        }
+        else
+        {
+            mapInfo.props_background = this.Objects;
+            mapInfo.next_prop_bg_id = _nextId;
         }
     }
 
@@ -373,9 +390,11 @@ public class MapEditorParallaxLayer : MapEditorLayer
 {
     public string SpriteName;
     public bool Loops;
+    public bool Lit;
     public float Height;
     public float XPosition;
     public float ParallaxRatio;
+    public string LayerName;
 
     public MapEditorParallaxLayer(NewMapInfo.ParallaxLayer parallaxLayer, string name)
     {
@@ -384,9 +403,11 @@ public class MapEditorParallaxLayer : MapEditorLayer
         this.Depth = parallaxLayer.depth;
         this.SpriteName = parallaxLayer.sprite_name;
         this.Loops = parallaxLayer.loops;
+        this.Lit = parallaxLayer.lit;
         this.Height = parallaxLayer.height;
         this.XPosition = parallaxLayer.x_position;
         this.ParallaxRatio = parallaxLayer.parallax_ratio;
+        this.LayerName = parallaxLayer.GetLayerName();
     }
 
     public override void SaveData(NewMapInfo mapInfo)
@@ -394,9 +415,11 @@ public class MapEditorParallaxLayer : MapEditorLayer
         NewMapInfo.ParallaxLayer layer = mapInfo.GetParallaxLayer(this.Depth);
         layer.sprite_name = this.SpriteName;
         layer.loops = this.Loops;
+        layer.lit = this.Lit;
         layer.height = this.Height;
         layer.x_position = this.XPosition;
         layer.parallax_ratio = this.ParallaxRatio;
+        layer.layer_name = this.LayerName;
     }
 }
 
@@ -426,6 +449,7 @@ public class MapEditorLightingLayer : MapEditorLayer
         else
         {
             this.CurrentProperties.light_type = (int)LightType.Point;
+            this.CurrentProperties.affects_foreground = true;
         }
     }
 
@@ -469,6 +493,16 @@ public class MapEditorLightingLayer : MapEditorLayer
         receiver.r = source.r;
         receiver.g = source.g;
         receiver.b = source.b;
+        receiver.affects_foreground = source.affects_foreground;
+        receiver.parallax_ratio = source.parallax_ratio;
+
+        int affectsParallaxLength = source.affects_parallax != null ? source.affects_parallax.Length : 0;
+        receiver.affects_parallax = new bool[affectsParallaxLength];
+
+        for (int i = 0; i < affectsParallaxLength; ++i)
+        {
+            receiver.affects_parallax[i] = source.affects_parallax[i];
+        }
     }
 
     public void RemoveObject(GameObject toRemove)

@@ -10,14 +10,19 @@ public class MapEditorLightingPanel : MonoBehaviour
     public Text SpotAngleValueText;
     public Text RotXValueText;
     public Text RotYValueText;
+    public Text ParallaxValueText;
     public GameObject TypeValueObject;
+    public GameObject AffectsForegroundObject;
+    public GameObject[] AffectsParallaxObjects;
     [HideInInspector]
     public Color[] ValidLightColors;
+    public Vector3[] AffectsParallaxConfigurations;
 
     public void ShowForLayer(MapEditorLayer layer)
     {
         _layer = layer as MapEditorLightingLayer;
         _currentColorIndex = findCurrentColorIndex();
+        _currentAffectParallaxIndex = findCurrentAffectParallaxIndex();
         updateVisual();
     }
 
@@ -70,24 +75,51 @@ public class MapEditorLightingPanel : MonoBehaviour
             _layer.CurrentProperties.intensity = Mathf.Min(25, _layer.CurrentProperties.intensity + SMALL_INCREMENT);
             updateVisual();
         }
-        else if (MapEditorInput.ResizeDown)
+        else if (MapEditorInput.ResizeDown && !MapEditorInput.CyclePrevAltHeld)
         {
             _layer.CurrentProperties.range = Mathf.Max(0, _layer.CurrentProperties.range - INCREMENT);
             updateVisual();
         }
-        else if (MapEditorInput.ResizeUp)
+        else if (MapEditorInput.ResizeUp && !MapEditorInput.CyclePrevAltHeld)
         {
             _layer.CurrentProperties.range = Mathf.Min(1000, _layer.CurrentProperties.range + INCREMENT);
             updateVisual();
         }
         else if (MapEditorInput.ResizeLeft)
         {
-            _layer.CurrentProperties.spot_angle = Mathf.Max(-90, _layer.CurrentProperties.spot_angle - MID_INCREMENT);
-            updateVisual();
+            if (MapEditorInput.CyclePrevAltHeld)
+            {
+                _layer.CurrentProperties.parallax_ratio = Mathf.Max(0.0f, _layer.CurrentProperties.parallax_ratio - MapEditorParallaxPanel.INCREMENT);
+                updateVisual();
+            }
+            else
+            {
+                _layer.CurrentProperties.spot_angle = Mathf.Max(-90, _layer.CurrentProperties.spot_angle - MID_INCREMENT);
+                updateVisual();
+            }
         }
         else if (MapEditorInput.ResizeRight)
         {
-            _layer.CurrentProperties.spot_angle = Mathf.Min(90, _layer.CurrentProperties.spot_angle + MID_INCREMENT);
+            if (MapEditorInput.CyclePrevAltHeld)
+            {
+                _layer.CurrentProperties.parallax_ratio = Mathf.Min(1.0f, _layer.CurrentProperties.parallax_ratio + MapEditorParallaxPanel.INCREMENT);
+                updateVisual();
+            }
+            else
+            {
+                _layer.CurrentProperties.spot_angle = Mathf.Min(90, _layer.CurrentProperties.spot_angle + MID_INCREMENT);
+                updateVisual();
+            }
+        }
+        else if (MapEditorInput.Cancel)
+        {
+            _layer.CurrentProperties.affects_foreground = !_layer.CurrentProperties.affects_foreground;
+            updateVisual();
+        }
+        else if (MapEditorInput.Confirm)
+        {
+            _currentAffectParallaxIndex = _currentAffectParallaxIndex < this.AffectsParallaxConfigurations.Length - 1 ? _currentAffectParallaxIndex + 1 : 0;
+            updateAffectsParallax();
             updateVisual();
         }
     }
@@ -97,10 +129,32 @@ public class MapEditorLightingPanel : MonoBehaviour
      */
     private MapEditorLightingLayer _layer;
     private int _currentColorIndex;
+    private int _currentAffectParallaxIndex;
 
     private const int INCREMENT = 10;
     private const int MID_INCREMENT = 5;
     private const int SMALL_INCREMENT = 1;
+
+    private int findCurrentAffectParallaxIndex()
+    {
+        for (int i = 0; i < this.AffectsParallaxConfigurations.Length; ++i)
+        {
+            Vector3 config = this.AffectsParallaxConfigurations[i];
+            if ((Mathf.RoundToInt(config.x) != 0) == _layer.CurrentProperties.AffectsParallax(0) && (Mathf.RoundToInt(config.y) != 0) == _layer.CurrentProperties.AffectsParallax(1) && (Mathf.RoundToInt(config.z) != 0) == _layer.CurrentProperties.AffectsParallax(2))
+            {
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    private void updateAffectsParallax()
+    {
+        Vector3 config = this.AffectsParallaxConfigurations[_currentAffectParallaxIndex];
+        _layer.CurrentProperties.SetAffectsParallax(2, Mathf.RoundToInt(config.z) != 0, 3);
+        _layer.CurrentProperties.SetAffectsParallax(1, Mathf.RoundToInt(config.y) != 0, 3);
+        _layer.CurrentProperties.SetAffectsParallax(0, Mathf.RoundToInt(config.x) != 0, 3);
+    }
 
     private void updateVisual()
     {
@@ -113,6 +167,13 @@ public class MapEditorLightingPanel : MonoBehaviour
         this.SpotAngleValueText.text = _layer.CurrentProperties.spot_angle.ToString();
         this.RotXValueText.text = _layer.CurrentProperties.rot_x.ToString("0.0");
         this.RotYValueText.text = _layer.CurrentProperties.rot_y.ToString("0.0");
+        this.ParallaxValueText.text = _layer.CurrentProperties.parallax_ratio.ToString("0.00");
+
+        this.AffectsForegroundObject.SetActive(_layer.CurrentProperties.affects_foreground);
+        for (int i = 0; i < this.AffectsParallaxObjects.Length; ++i)
+        {
+            this.AffectsParallaxObjects[i].SetActive(_layer.CurrentProperties.AffectsParallax(i));
+        }
     }
 
     private int findCurrentColorIndex()

@@ -16,22 +16,15 @@ public class TileRenderer : VoBehavior
         if (this.Atlas != null)
         {
             this.renderer.sharedMaterial.mainTexture = this.Atlas;
-            _sprites = this.Atlas.GetSprites(TilesetEditorManager.TILESETS_PATH);
+            _sprites = Texture2DExtensions.GetSprites(TilesetData.TILESETS_PATH, this.Atlas.name);
         }
     }
 
     public void SetAtlas(string atlasName)
     {
-        this.Atlas = Resources.Load<Texture2D>(TilesetEditorManager.TILESETS_PATH + atlasName);
+        this.Atlas = IndexedSpriteManager.GetAtlas(TilesetData.TILESETS_PATH, atlasName);
+        _sprites = Texture2DExtensions.GetSprites(TilesetData.TILESETS_PATH, atlasName);
         this.renderer.sharedMaterial.mainTexture = this.Atlas;
-        _sprites = this.Atlas.GetSprites(TilesetEditorManager.TILESETS_PATH);
-    }
-
-    public void SetAtlas(Texture2D atlas)
-    {
-        this.Atlas = atlas;
-        this.renderer.sharedMaterial.mainTexture = this.Atlas;
-        _sprites = this.Atlas.GetSprites(TilesetEditorManager.TILESETS_PATH);
     }
 
     public void CreateEmptyMap(int width, int height)
@@ -65,7 +58,8 @@ public class TileRenderer : VoBehavior
                     int tileIndex = y * _width + x;
                     int startingUVIndex = tileIndex * 4;
 
-                    Vector2[] spriteUVs = _sprites[grid[x, y].sprite_name].uv;
+                    string spriteName = grid[x, y].sprite_name;
+                    Vector2[] spriteUVs = _sprites.ContainsKey(spriteName) ? _sprites[spriteName].uv : EMPTY_UVS;
                     uvs[startingUVIndex] = spriteUVs[0]; // bottom left
                     uvs[startingUVIndex + 1] = spriteUVs[1]; // bottom right
                     uvs[startingUVIndex + 2] = spriteUVs[2]; // top left
@@ -128,6 +122,7 @@ public class TileRenderer : VoBehavior
             {
                 int tileIndex = _width * y + x;
                 int triangleIndex = tileIndex * 2 * 3;
+                string spriteName = grid[x, y].sprite_name;
 
                 // Create 4 verts
                 float smallY = this.FlipVertical ? finalY - y * this.TileRenderSize : originY + y * this.TileRenderSize;
@@ -153,7 +148,6 @@ public class TileRenderer : VoBehavior
                 triangles[triangleIndex + 5] = bottomRightVert;
 
                 // Handle UVs
-                string spriteName = grid[x, y].sprite_name;
                 Vector2[] spriteUVs = _sprites.ContainsKey(spriteName) ? _sprites[spriteName].uv : EMPTY_UVS;
 
                 Vector2 bottomLeftUV = spriteUVs[this.FlipUvsVertical ? 2 : 0];

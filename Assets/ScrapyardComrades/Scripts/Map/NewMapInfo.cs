@@ -10,9 +10,11 @@ public class NewMapInfo
     public List<MapLayer> tile_layers; // Use accessors to add/remove
     public List<ParallaxLayer> parallax_layers; // Use accessors to add/remove
     public List<MapObject> props; // Access directly
+    public List<MapObject> props_background; // Access directly
     public List<MapObject> objects; // Access directly
     public int next_object_id;
     public int next_prop_id;
+    public int next_prop_bg_id;
     public int next_light_id;
 
     public List<MapLight> lights;
@@ -26,9 +28,11 @@ public class NewMapInfo
         tile_layers = new List<MapLayer>();
         parallax_layers = new List<ParallaxLayer>();
         props = new List<MapObject>();
+        props_background = new List<MapObject>();
         objects = new List<MapObject>();
         next_object_id = 0;
         next_prop_id = 0;
+        next_prop_bg_id = 0;
         next_light_id = 0;
     }
 
@@ -208,6 +212,33 @@ public class NewMapInfo
         public float r;
         public float g;
         public float b;
+        public bool affects_foreground;
+        public bool[] affects_parallax;
+        public float parallax_ratio;
+
+        public bool AffectsParallax(int parallaxLayerIndex)
+        {
+            if (affects_parallax == null || affects_parallax.Length <= parallaxLayerIndex)
+                return false;
+            return affects_parallax[parallaxLayerIndex];
+        }
+
+        public void SetAffectsParallax(int parallaxLayerIndex, bool value, int numParallaxLayers)
+        {
+            if (affects_parallax == null)
+                affects_parallax = new bool[numParallaxLayers];
+            else if (affects_parallax.Length < numParallaxLayers)
+            {
+                bool[] newArray = new bool[numParallaxLayers];
+                for (int i = 0; i < numParallaxLayers; ++i)
+                {
+                    newArray[i] = i < affects_parallax.Length ? affects_parallax[i] : false;
+                }
+                affects_parallax = newArray;
+            }
+
+            affects_parallax[parallaxLayerIndex] = value;
+        }
     }
 
     [System.Serializable]
@@ -216,18 +247,30 @@ public class NewMapInfo
         public string sprite_name;
         public int depth;
         public bool loops;
+        public bool lit;
         public float height;
         public float x_position;
         public float parallax_ratio;
+        public string layer_name;
+        public const string DEFAULT_LAYER = "ParallaxFront";
 
         public ParallaxLayer(int d)
         {
             sprite_name = null;
             depth = d;
             loops = false;
+            lit = false;
             height = 0.5f;
             x_position = 0.5f;
             parallax_ratio = 0.2f;
+            layer_name = DEFAULT_LAYER;
+        }
+
+        public string GetLayerName()
+        {
+            if (layer_name == null || layer_name == "")
+                return DEFAULT_LAYER;
+            return layer_name;
         }
     }
 }

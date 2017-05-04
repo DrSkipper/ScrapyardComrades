@@ -26,6 +26,8 @@ public static class MapEditorInput
     public static bool CycleNext { get { return RewiredPlayer.GetButtonDown(CYCLE_NEXT) || RewiredPlayer.GetButtonShortPress(CYCLE_NEXT); } }
     public static bool CyclePrevAlt { get { return RewiredPlayer.GetButtonDown(CYCLE_PREV_ALT) || RewiredPlayer.GetButtonShortPress(CYCLE_PREV_ALT); } }
     public static bool CycleNextAlt { get { return RewiredPlayer.GetButtonDown(CYCLE_NEXT_ALT) || RewiredPlayer.GetButtonShortPress(CYCLE_NEXT_ALT); } }
+    public static bool CyclePrevAltHeld { get { return RewiredPlayer.GetButton(CYCLE_PREV_ALT); } }
+    public static bool CycleNextAltHeld { get { return RewiredPlayer.GetButton(CYCLE_NEXT_ALT); } }
 
     /**
      * Private

@@ -95,7 +95,7 @@ public class CharacterVisualizer : VoBehavior
         {
             if (_characterController.IsGrabbingLedge)
                 return _characterController.DirectionGrabbingLedge == _characterController.CurrentFacing ? LEDGEGRAB_STATE : LEDGEGRABBACK_STATE;
-            if (_characterController.MostRecentInput.JumpHeld && _characterController.Velocity.y > 0.0f)
+            if (_characterController.Velocity.y > 0.0f)
                 return JUMPING_STATE;
             if (_characterController.IsWallSliding)
                 return WALLSLIDE_STATE;

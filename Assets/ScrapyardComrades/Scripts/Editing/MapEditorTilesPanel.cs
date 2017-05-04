@@ -10,16 +10,11 @@ public class MapEditorTilesPanel : MonoBehaviour
     public GameObject AutotileValue;
     public Image SelectionImage;
     public MapEditorGrid Grid;
-    public MapEditorManager Manager;
 
     public void ShowForLayer(MapEditorLayer layer)
     {
         _layer = layer as MapEditorTilesLayer;
-        Texture2D atlas = Manager.GetAtlasForName(_layer.Tileset.AtlasName);
-        this.Grid.InitializeGridForSize(atlas.width / this.Grid.GridSpaceSize, atlas.height / this.Grid.GridSpaceSize);
-        this.AtlasBackdrop.sizeDelta = new Vector2(atlas.width, atlas.height);
-
-        _sprites = atlas.GetSprites(TilesetEditorManager.TILESETS_PATH);
+        _sprites = Texture2DExtensions.GetSprites(TilesetData.TILESETS_PATH, _layer.Tileset.AtlasName);
 
         if (_tileSpriteObjects != null)
         {
@@ -34,6 +29,8 @@ public class MapEditorTilesPanel : MonoBehaviour
         {
             _tileSpriteObjects = new List<PooledObject>();
         }
+        
+        IntegerVector max = IntegerVector.Zero;
 
         foreach (Sprite sprite in _sprites.Values)
         {
@@ -41,11 +38,18 @@ public class MapEditorTilesPanel : MonoBehaviour
             tileSpriteObject.GetComponent<Image>().sprite = sprite;
             tileSpriteObject.transform.SetParent(this.AtlasBackdrop, false);
             ((RectTransform)tileSpriteObject.transform).anchoredPosition = new Vector2(sprite.rect.x, sprite.rect.y);
+            if (sprite.rect.x + this.Grid.GridSpaceSize > max.X)
+                max.X = Mathf.RoundToInt(sprite.rect.x) + this.Grid.GridSpaceSize;
+            if (sprite.rect.y + this.Grid.GridSpaceSize > max.Y)
+                max.Y = Mathf.RoundToInt(sprite.rect.y) + this.Grid.GridSpaceSize;
             tileSpriteObject.transform.localScale = new Vector3(1, 1, 1);
             tileSpriteObject.transform.SetLocalZ(0);
             tileSpriteObject.transform.SetAsFirstSibling();
             _tileSpriteObjects.Add(tileSpriteObject);
         }
+
+        this.Grid.InitializeGridForSize(max.X / this.Grid.GridSpaceSize, max.Y / this.Grid.GridSpaceSize);
+        this.AtlasBackdrop.sizeDelta = new Vector2(max.X, max.Y);
 
         _gridPos = _sprites.ContainsKey(_layer.CurrentSpriteName) ? (IntegerVector)_sprites[_layer.CurrentSpriteName].rect.min / this.Grid.GridSpaceSize: IntegerVector.Zero;
         updateVisual();

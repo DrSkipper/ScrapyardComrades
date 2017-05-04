@@ -4,36 +4,50 @@
   "tile_size": 32,
   "level_quads": [
     {
-      "name": "slums_0",
-      "x": 2,
-      "y": 2,
-      "width": 5,
-      "height": 3
-    },
-    {
-      "name": "slums_1",
-      "x": 7,
-      "y": 2,
-      "width": 5,
-      "height": 3
-    },
-    {
-      "name": "Slums 001",
-      "x": 2,
-      "y": 9,
-      "width": 3,
+      "name": "Intro 1",
+      "x": 1,
+      "y": 7,
+      "width": 4,
       "height": 2
     },
     {
-      "name": "Slums 002",
+      "name": "Intro 2",
       "x": 5,
-      "y": 9,
+      "y": 7,
       "width": 3,
       "height": 2
     },
     {
-      "name": "Slums 003",
+      "name": "Intro 3",
       "x": 8,
+      "y": 7,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Intro 4",
+      "x": 11,
+      "y": 7,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Slums 01",
+      "x": 14,
+      "y": 7,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Slums 02",
+      "x": 17,
+      "y": 7,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Slums 03",
+      "x": 15,
       "y": 9,
       "width": 3,
       "height": 2

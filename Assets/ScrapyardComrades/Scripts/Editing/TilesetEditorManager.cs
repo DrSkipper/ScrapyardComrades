@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+using System.Linq;
+#endif
 
 [ExecuteInEditMode]
 public class TilesetEditorManager : MonoBehaviour
 {
-    public const string TILESETS_PATH = "Tilesets/";
-
     public MeshRenderer MeshRenderer;
     public MeshFilter MeshFilter;
     public RectTransform Cursor;
@@ -25,21 +27,23 @@ public class TilesetEditorManager : MonoBehaviour
 
     public void Reload()
     {
+#if UNITY_EDITOR
         if (this.TilesetToEdit == null)
         {
             Debug.LogWarning("Attempted to load null tileset");
             return;
         }
 
-        Debug.Log("loading tileset " + TILESETS_PATH + this.TilesetToEdit.AtlasName);
-        _texture = Resources.Load<Texture2D>(TILESETS_PATH + this.TilesetToEdit.AtlasName);
+        string tilesetPath = PackedSpriteGroup.INDEXED_TEXTURES_PATH + TilesetData.TILESETS_PATH + this.TilesetToEdit.AtlasName + PackedSpriteGroup.TEXTURE_SUFFIX;
+        Debug.Log("loading tileset " + tilesetPath);
+        _texture = AssetDatabase.LoadAssetAtPath<Texture2D>(tilesetPath);
         if (_texture == null)
         {
             Debug.LogWarning("Could not find tileset named " + this.TilesetToEdit.AtlasName);
             return;
         }
 
-        _sprites = _texture.GetSpritesArray(TILESETS_PATH);
+        _sprites = GetSpritesArrayEditor(tilesetPath);
         _spriteData = this.TilesetToEdit.GetSpriteDataDictionary();
         this.SelectedSprite = null;
 
@@ -51,6 +55,10 @@ public class TilesetEditorManager : MonoBehaviour
 
         this.TilesetToEdit.ApplySpriteDataDictionary(_spriteData);
         this.MeshRenderer.sharedMaterial.mainTexture = _texture;
+
+#else
+        Debug.Log("TilesetEditorManager should not be used at runtime!");
+#endif
     }
 
     public void SelectSpriteAtPixel(IntegerVector pixel)
@@ -86,6 +94,17 @@ public class TilesetEditorManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public static Sprite[] GetSpritesArrayEditor(string path)
+    {
+#if UNITY_EDITOR
+        Sprite[] sprites = AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>().ToArray();
+        //List<Sprite> sprites = new List<Sprite>();
+        return sprites.ToArray();
+#else
+        return null;
+#endif
     }
 
     /**

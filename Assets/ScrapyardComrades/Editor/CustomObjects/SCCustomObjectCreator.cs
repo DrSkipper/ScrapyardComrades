@@ -13,6 +13,7 @@ public static class SCCustomObjectCreator
     private const string TILESET_DATA_PATH = "Tilesets/NewTileset.asset";
     private const string TILESET_COLLECTION_PATH = "TilesetCollections/NewTilesetCollection.asset";
     private const string PREFAB_COLLECTION_PATH = "PrefabCollections/NewPrefabCollection.asset";
+    private const string PACKED_SPRITE_GROUP_PATH = "NewPackedSpriteGroup.asset";
 
     [MenuItem("Custom Objects/Create Sprite Animation")]
     public static void CreateSpriteAnimation()
@@ -66,6 +67,12 @@ public static class SCCustomObjectCreator
     public static void CreatePrefabCollection()
     {
         SaveAsset(PrefabCollection.CreateInstance<PrefabCollection>(), PATH + PREFAB_COLLECTION_PATH);
+    }
+
+    [MenuItem("Custom Objects/Packed Sprite Groups/Create Packed Sprite Group")]
+    public static void CreatePackedSpriteGroup()
+    {
+        SaveAsset(PackedSpriteGroup.CreateInstance<PackedSpriteGroup>(), PATH + PACKED_SPRITE_GROUP_PATH);
     }
 
     public static void SaveAsset(ScriptableObject asset, string path)

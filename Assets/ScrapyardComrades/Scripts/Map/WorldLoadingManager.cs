@@ -59,7 +59,6 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
 
         _activeMapLoaders = new List<MapLoader>(MAX_MAP_LOADERS);
         _tilesets = new Dictionary<string, TilesetData>();
-        _cachedAtlases = new Dictionary<string, Texture2D>();
 
         for (int i = 0; i < this.TilesetCollection.Tilesets.Length; ++i)
         {
@@ -110,7 +109,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (_tracker != null)
         {
@@ -169,7 +168,6 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     private IntegerVector _trackerPosition = IntegerVector.Zero;
     private Dictionary<string, NewMapInfo> _quadData;
     private Dictionary<string, TilesetData> _tilesets;
-    private Dictionary<string, Texture2D> _cachedAtlases;
     private Dictionary<string, PooledObject> _objectPrefabs;
     private Dictionary<string, PooledObject> _propPrefabs;
 
@@ -268,7 +266,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     {
         // Recenter all objects except those specified to be ignored
         GameObject[] rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
-        Vector2 multipliedOffset = new Vector2(-_recenterOffset.X * this.TileRenderSize, -_recenterOffset.Y * this.TileRenderSize);
+        Vector2 multipliedOffset = _recenterOffset * -this.TileRenderSize;
         for (int i = 0; i < rootObjects.Length; ++i)
         {
             if (!this.IgnoreRecenterObjects.Contains(rootObjects[i]))
@@ -281,7 +279,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         this.EntityTracker.QuadsUnloaded(_targetLoadedQuads, _currentQuad, this.TileRenderSize);
 
         // Send recenter event so lerpers/tweens know to change targets
-        GlobalEvents.Notifier.SendEvent(new WorldRecenterEvent(_recenterOffset * -this.TileRenderSize));
+        GlobalEvents.Notifier.SendEvent(new WorldRecenterEvent(multipliedOffset));
     }
 
     private void updateBoundsCheck()
@@ -320,13 +318,6 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         string backgroundTilesetName = mapInfo.GetMapLayer(MapEditorManager.BACKGROUND_LAYER).tileset_name;
         TilesetData platformsTileset = _tilesets[platformsTilesetName];
         TilesetData backgroundTileset = _tilesets[backgroundTilesetName];
-        loader.LoadMap(platformsTileset, backgroundTileset, getAtlas(platformsTileset.AtlasName), getAtlas(backgroundTileset.AtlasName), _objectPrefabs, _propPrefabs, this.LightPrefab);
-    }
-
-    private Texture2D getAtlas(string name)
-    {
-        if (!_cachedAtlases.ContainsKey(name))
-            _cachedAtlases[name] = Resources.Load<Texture2D>(TilesetEditorManager.TILESETS_PATH + name);
-        return _cachedAtlases[name];
+        loader.LoadMap(platformsTileset, backgroundTileset, platformsTileset.AtlasName, backgroundTileset.AtlasName, _objectPrefabs, _propPrefabs, this.LightPrefab);
     }
 }

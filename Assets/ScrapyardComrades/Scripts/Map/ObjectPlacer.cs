@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class ObjectPlacer : VoBehavior
 {
+    public const string ON_SPAWN_METHOD = "OnSpawn";
+
     public TimedCallbacks TimedCallbacks;
     public EntityTracker EntityTracker;
     public PooledObject SpriteObjectPrefab;
@@ -11,7 +13,7 @@ public class ObjectPlacer : VoBehavior
     //public int TileTextureSize = 10;
     public bool FlipVertical = true;
 
-    public void PlaceObjects(List<NewMapInfo.MapObject> mapObjects, Dictionary<string, PooledObject> prefabs, string quadName, bool trackEntities)
+    public void PlaceObjects(List<NewMapInfo.MapObject> mapObjects, Dictionary<string, PooledObject> prefabs, string quadName, bool trackEntities, string sortingLayerName)
     {
         for (int i = 0; i < mapObjects.Count; ++i)
         {
@@ -41,7 +43,7 @@ public class ObjectPlacer : VoBehavior
                     int x = mapObject.x;
                     int y = mapObject.y;
                     Vector3 spawnPos = new Vector3(x + this.transform.position.x, y + this.transform.position.y, mapObject.z);
-                    addSpawn(toSpawn, spawnPos, entity, spriteObject ? mapObject.prefab_name : null);
+                    addSpawn(toSpawn, spawnPos, entity, sortingLayerName, spriteObject ? mapObject.prefab_name : null);
                 }
             }
         }
@@ -64,7 +66,8 @@ public class ObjectPlacer : VoBehavior
         this.TimedCallbacks.RemoveCallbacksForOwner(this);
         for (int i = 0; i < _spawnEntities.Count; ++i)
         {
-            _spawnEntities[i].AttemptingLoad = false;
+            if (_spawnEntities[i] != null)
+                _spawnEntities[i].AttemptingLoad = false;
         }
         for (int i = 0; i < _nonTrackedObjects.Count; ++i)
         {
@@ -75,6 +78,7 @@ public class ObjectPlacer : VoBehavior
         _spawnQueue.Clear();
         _spawnPositions.Clear();
         _spriteNames.Clear();
+        _sortingLayerNames.Clear();
     }
 
     /**
@@ -84,15 +88,20 @@ public class ObjectPlacer : VoBehavior
     private List<Vector3> _spawnPositions = new List<Vector3>();
     private List<EntityTracker.Entity> _spawnEntities = new List<EntityTracker.Entity>();
     private List<string> _spriteNames = new List<string>();
+    private List<string> _sortingLayerNames = new List<string>();
     private List<PooledObject> _nonTrackedObjects = new List<PooledObject>();
     private const int LIGHTING_Z = -4;
+    private static int SORTING_IN_LAYER = MAX_SORTING_ORDER;
+    private const int MIN_SORTING_ORDER = -10000;
+    private const int MAX_SORTING_ORDER = 10000;
 
-    private void addSpawn(PooledObject toSpawn, Vector3 spawnPos, EntityTracker.Entity entity, string spriteName = null)
+    private void addSpawn(PooledObject toSpawn, Vector3 spawnPos, EntityTracker.Entity entity, string sortingLayerName, string spriteName = null)
     {
         _spawnQueue.Add(toSpawn);
         _spawnPositions.Add(spawnPos);
         _spawnEntities.Add(entity);
         _spriteNames.Add(spriteName);
+        _sortingLayerNames.Add(sortingLayerName);
         this.TimedCallbacks.AddCallback(this, spawn, this.SpawnDelay);
     }
 
@@ -102,6 +111,7 @@ public class ObjectPlacer : VoBehavior
         spawn.GetComponent<SCLight>().ConfigureLight(light);
         _nonTrackedObjects.Add(spawn);
         spawn.transform.position = spawnPos;
+        spawn.BroadcastMessage(ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
     }
 
     private void spawn()
@@ -129,23 +139,30 @@ public class ObjectPlacer : VoBehavior
         {
             SpriteRenderer r = spawn.GetComponent<SpriteRenderer>();
             if (r != null)
-                r.sprite = Resources.Load<Sprite>(MapEditorManager.PROPS_FOLDER + SLASH + spriteName);
+            {
+                r.sprite = IndexedSpriteManager.GetSprite(MapEditorManager.PROPS_PATH, spriteName, spriteName);
+                r.sortingLayerName = _sortingLayerNames.Pop();
+                r.sortingOrder = --SORTING_IN_LAYER;
+            }
         }
-
-        ISpawnable[] spawnables = spawn.GetComponents<ISpawnable>();
-
-        for (int i = 0; i < spawnables.Length; ++i)
+        else
         {
-            spawnables[i].OnSpawn();
+            Renderer r = spawn.GetComponent<Renderer>();
+            if (r != null)
+            {
+                r.sortingLayerName = _sortingLayerNames.Pop();
+
+                if (r.sortingOrder == 0)
+                    r.sortingOrder = --SORTING_IN_LAYER;
+            }
         }
 
+        if (SORTING_IN_LAYER <= MIN_SORTING_ORDER)
+            SORTING_IN_LAYER = MAX_SORTING_ORDER;
+        
         spawn.transform.position = spawnLocation;
+        spawn.BroadcastMessage(ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
     }
 
     private const string SLASH = "/";
-}
-
-public interface ISpawnable
-{
-    void OnSpawn();
 }

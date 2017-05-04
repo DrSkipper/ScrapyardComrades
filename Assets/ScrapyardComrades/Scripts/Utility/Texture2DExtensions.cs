@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 public static class Texture2DExtensions
 {
-    public static Dictionary<string, Sprite> GetSprites(this Texture2D self, string path)
+    public static Dictionary<string, Sprite> GetSprites(string path, string atlasName)
     {
         Dictionary<string, Sprite> spriteDictionary = new Dictionary<string, Sprite>();
-        Sprite[] spriteArray = self.GetSpritesArray(path);
+        Sprite[] spriteArray = GetSpritesArray(path, atlasName);
 
         foreach (Sprite sprite in spriteArray)
         {
@@ -16,17 +16,17 @@ public static class Texture2DExtensions
         return spriteDictionary;
     }
 
-    public static Sprite[] GetSpritesArray(this Texture2D self, string path)
+    public static Sprite[] GetSpritesArray(string path, string atlasName)
     {
-        return Resources.LoadAll<Sprite>(path + self.name);
+        return IndexedSpriteManager.GetSprites(path, atlasName);
     }
 
     public static Vector2[] GetUVs(this Sprite self)
     {
-        float minX = self.rect.xMin / self.texture.width;
-        float minY = self.rect.yMin / self.texture.height;
-        float maxX = self.rect.xMax / self.texture.width;
-        float maxY = self.rect.yMax / self.texture.height;
+        float minX = (self.rect.xMin + self.textureRectOffset.x) / self.texture.width;
+        float minY = (self.rect.yMin + self.textureRectOffset.y) / self.texture.height;
+        float maxX = (self.rect.xMax + self.textureRectOffset.x) / self.texture.width;
+        float maxY = (self.rect.yMax + self.textureRectOffset.y) / self.texture.height;
         Vector2[] uvs = new Vector2[4];
         uvs[0] = new Vector2(minX, minY);
         uvs[1] = new Vector2(maxX, minY);

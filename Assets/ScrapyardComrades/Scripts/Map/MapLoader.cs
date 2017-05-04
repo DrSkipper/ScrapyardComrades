@@ -18,7 +18,13 @@ public class MapLoader : MonoBehaviour
 
     public bool Cleared { get { return _cleared; } }
 
-    public void LoadMap(TilesetData platformsTileset, TilesetData bgTileset, Texture2D platformsAtlas, Texture2D bgAtlas, Dictionary<string, PooledObject> objectPrefabs, Dictionary<string, PooledObject> propPrefabs, PooledObject lightPrefab)
+    void Awake()
+    {
+        this.PlatformsRenderer.GetComponent<MeshRenderer>().sortingLayerName = MapEditorManager.PLATFORMS_LAYER;
+        this.BGRenderer.GetComponent<MeshRenderer>().sortingLayerName = MapEditorManager.BACKGROUND_LAYER;
+    }
+
+    public void LoadMap(TilesetData platformsTileset, TilesetData bgTileset, string platformsAtlas, string bgAtlas, Dictionary<string, PooledObject> objectPrefabs, Dictionary<string, PooledObject> propPrefabs, PooledObject lightPrefab)
     {
         this.ClearMap();
         _cleared = false;
@@ -40,8 +46,10 @@ public class MapLoader : MonoBehaviour
         }
         this.GeometryCreator.CreateGeometryForGrid(platformsGrid, platformsTileset.GetSpriteDataDictionary(), false);
         
-        this.ObjectPlacer.PlaceObjects(mapInfo.objects, objectPrefabs, this.MapName, true);
-        this.ObjectPlacer.PlaceObjects(mapInfo.props, propPrefabs, this.MapName, false);
+        this.ObjectPlacer.PlaceObjects(mapInfo.objects, objectPrefabs, this.MapName, true, MapEditorManager.OBJECTS_LAYER);
+        this.ObjectPlacer.PlaceObjects(mapInfo.props, propPrefabs, this.MapName, false, MapEditorManager.PROPS_LAYER);
+        if (mapInfo.props_background != null && mapInfo.props_background.Count > 0)
+            this.ObjectPlacer.PlaceObjects(mapInfo.props_background, propPrefabs, this.MapName, false, MapEditorManager.PROPS_BACK_LAYER);
         this.ObjectPlacer.PlaceLights(mapInfo.lights, lightPrefab);
     }
 
@@ -68,32 +76,8 @@ public class MapLoader : MonoBehaviour
         this.GeometryCreator.AddColliders();
     }
 
-    public static Dictionary<string, Texture2D> CompileTextures(Texture2D[] textures)
-    {
-        Dictionary<string, Texture2D> textDict = new Dictionary<string, Texture2D>();
-        for (int i = 0; i < textures.Length; ++i)
-        {
-            if (!textDict.ContainsKey(textures[i].name))
-                textDict.Add(textures[i].name, textures[i]);
-        }
-        return textDict;
-    }
-
-    public static Dictionary<string, Sprite[]> CompileSprites(Dictionary<string, Texture2D> textures)
-    {
-        Dictionary<string, Sprite[]> sprites = new Dictionary<string, Sprite[]>();
-        foreach (string key in textures.Keys)
-        {
-            sprites.Add(key, textures[key].GetSpritesArray(TilesetEditorManager.TILESETS_PATH));
-        }
-        return sprites;
-    }
-
     public static NewMapInfo GatherMapInfo(string mapName)
     {
-        //TextAsset asset = Resources.Load<TextAsset>(PATH + mapName);
-        //MapInfo mapInfo = JsonConvert.DeserializeObject<MapInfo>(asset.text);
-        
         string path = Application.streamingAssetsPath + LEVELS_PATH + mapName + JSON_SUFFIX;
         if (File.Exists(path))
         {

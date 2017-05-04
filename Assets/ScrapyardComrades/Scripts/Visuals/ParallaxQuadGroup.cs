@@ -8,13 +8,16 @@ public class ParallaxQuadGroup : VoBehavior
     public MeshRenderer MeshRenderer;
     public Sprite MostRecentSprite { get { return _mostRecentSprite; } }
 
-    public void UpdateWithMesh(Mesh mesh, Texture2D texture)
+    public void UpdateWithMesh(Mesh mesh, Texture2D texture, Shader shader)
     {
+        if (shader != null && shader != this.MeshRenderer.material.shader)
+            this.MeshRenderer.material.shader = shader;
+
         this.MeshFilter.mesh = mesh;
         this.MeshRenderer.material.mainTexture = texture;
     }
 
-    public void CreateMeshForLayer(Sprite sprite, bool loops, float height, float xPos, float parallaxRatio, int quadWidth)
+    public void CreateMeshForLayer(Sprite sprite, bool loops, float height, float xPos, float parallaxRatio, int quadWidth, Shader shader)
     {
         if (sprite == null)
         {
@@ -22,6 +25,9 @@ public class ParallaxQuadGroup : VoBehavior
             this.MeshFilter.mesh = null;
             return;
         }
+
+        if (shader != null && shader != this.MeshRenderer.material.shader)
+            this.MeshRenderer.material.shader = shader;
 
         this.transform.SetLocalPosition2D(Mathf.RoundToInt(this.CameraController.CameraViewWidth * xPos - this.CameraController.CameraViewWidth / 2), Mathf.RoundToInt(this.CameraController.CameraViewHeight * height - this.CameraController.CameraViewHeight / 2));
 
