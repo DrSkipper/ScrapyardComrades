@@ -12355,21 +12355,21 @@
   "props_background": [],
   "objects": [
     {
-      "name": "objects_Enemy_LV1_A_1",
-      "prefab_name": "Enemy_LV1_A",
-      "x": 1092,
-      "y": 228,
-      "z": -2
-    },
-    {
       "name": "objects_HeroLV1_2",
       "prefab_name": "HeroLV1",
       "x": 540,
       "y": 228,
       "z": -2
+    },
+    {
+      "name": "objects_Enemy_LV1_C_3",
+      "prefab_name": "Enemy_LV1_C",
+      "x": 1076,
+      "y": 228,
+      "z": -2
     }
   ],
-  "next_object_id": 3,
+  "next_object_id": 4,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 8,
