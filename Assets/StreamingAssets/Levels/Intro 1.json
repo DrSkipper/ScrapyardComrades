@@ -16493,13 +16493,6 @@
   ],
   "props_background": [
     {
-      "name": "props_back_slums_house2_3",
-      "prefab_name": "slums_house2",
-      "x": 1120,
-      "y": 96,
-      "z": 6
-    },
-    {
       "name": "props_back_slums_house1_13",
       "prefab_name": "slums_house1",
       "x": 552,
@@ -16542,10 +16535,94 @@
       "z": 6
     },
     {
-      "name": "props_back_slums_bg_19",
+      "name": "props_back_slum_house10_30",
+      "prefab_name": "slum_house10",
+      "x": 472,
+      "y": 484,
+      "z": 6
+    },
+    {
+      "name": "props_back_slum_house3_32",
+      "prefab_name": "slum_house3",
+      "x": 580,
+      "y": 416,
+      "z": 6
+    },
+    {
+      "name": "props_back_slum_house7_34",
+      "prefab_name": "slum_house7",
+      "x": 756,
+      "y": 424,
+      "z": 6
+    },
+    {
+      "name": "props_back_slum_house6_35",
+      "prefab_name": "slum_house6",
+      "x": 596,
+      "y": 272,
+      "z": 6
+    },
+    {
+      "name": "props_back_slum_house4_41",
+      "prefab_name": "slum_house4",
+      "x": 1944,
+      "y": 524,
+      "z": 6
+    },
+    {
+      "name": "props_back_slums_pole_44",
+      "prefab_name": "slums_pole",
+      "x": 1000,
+      "y": 596,
+      "z": 6
+    },
+    {
+      "name": "props_back_slum_house3_45",
+      "prefab_name": "slum_house3",
+      "x": 1152,
+      "y": 216,
+      "z": 6
+    },
+    {
+      "name": "props_back_slum_house5_46",
+      "prefab_name": "slum_house5",
+      "x": 964,
+      "y": 148,
+      "z": 6
+    },
+    {
+      "name": "props_back_slum_house8_47",
+      "prefab_name": "slum_house8",
+      "x": 968,
+      "y": 296,
+      "z": 6
+    },
+    {
+      "name": "props_back_slum_house9_48",
+      "prefab_name": "slum_house9",
+      "x": 1240,
+      "y": 116,
+      "z": 6
+    },
+    {
+      "name": "props_back_slums_bg_49",
       "prefab_name": "slums_bg",
-      "x": 1436,
-      "y": 244,
+      "x": 1560,
+      "y": 312,
+      "z": 6
+    },
+    {
+      "name": "props_back_slums_car_54",
+      "prefab_name": "slums_car",
+      "x": 1268,
+      "y": 96,
+      "z": 6
+    },
+    {
+      "name": "props_back_slums_plant_55",
+      "prefab_name": "slums_plant",
+      "x": 1744,
+      "y": 448,
       "z": 6
     }
   ],
@@ -16567,7 +16644,7 @@
   ],
   "next_object_id": 2,
   "next_prop_id": 8,
-  "next_prop_bg_id": 20,
+  "next_prop_bg_id": 59,
   "next_light_id": 30,
   "lights": [
     {
