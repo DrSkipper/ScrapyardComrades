@@ -27,7 +27,7 @@ public class NewLevelPanel : VoBehavior
 
     void Update()
     {
-        if (MapEditorInput.Start)
+        if (MapEditorInput.Start && !_nameEntryEnabled)
         {
             string levelName = this.LevelNameField.text;
             string platforms = this.TilesetCollection.Tilesets[_selectedPlatforms].name;
