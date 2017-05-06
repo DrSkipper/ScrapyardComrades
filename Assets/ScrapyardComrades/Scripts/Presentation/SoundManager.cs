@@ -18,6 +18,7 @@ public class SoundManager : MonoBehaviour
         _instance = this;
         _soundEntries = new Dictionary<string, SoundEntry>(this.SoundEntries.Length);
         _cooldowns = new Dictionary<string, int>(this.SoundEntries.Length);
+        _currentCooldowns = new List<string>(this.SoundEntries.Length);
 
         for (int i = 0; i < this.SoundEntries.Length; ++i)
         {
@@ -41,16 +42,22 @@ public class SoundManager : MonoBehaviour
                 SoundEntry sfx = _soundEntries[clipName];
                 source.clip = sfx.Clip;
                 _cooldowns[clipName] = sfx.MinFramesBetweenPlays;
+                if (!_currentCooldowns.Contains(clipName))
+                    _currentCooldowns.Add(clipName);
             }
         }
     }
 
     void FixedUpdate()
     {
-        foreach (string key in _cooldowns.Keys)
+        for (int i = 0; i < _currentCooldowns.Count;)
         {
-            if (_cooldowns[key] > 0)
-                --_cooldowns[key];
+            string key = _currentCooldowns[i];
+            --_cooldowns[key];
+            if (_cooldowns[key] <= 0)
+                _currentCooldowns.RemoveAt(i);
+            else
+                ++i;
         }
     }
 
@@ -60,6 +67,7 @@ public class SoundManager : MonoBehaviour
     private static SoundManager _instance;
     private Dictionary<string, SoundEntry> _soundEntries;
     private Dictionary<string, int> _cooldowns;
+    private List<string> _currentCooldowns;
 
     private AudioSource findAvailableAudioSource()
     {
