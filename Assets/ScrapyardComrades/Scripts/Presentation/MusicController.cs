@@ -16,9 +16,9 @@ public class MusicController : MonoBehaviour
         public AudioClip Clip;
     }
 
-#if UNITY_EDITOR
     void Awake()
     {
+#if UNITY_EDITOR
         if (this.NoMusicInEditor)
         {
             this.AudioSource.Stop();
@@ -26,25 +26,9 @@ public class MusicController : MonoBehaviour
             this.enabled = false;
             return;
         }
-    }
 #endif
-
-    void OnLevelWasLoaded(int i)
-    {
         if (!this.SingleSpawnCheck.MarkedForDestruction)
-        {
-            if (_musicDict == null)
-            {
-                compileMusicDict();
-            }
-
-            string sceneName = SceneManager.GetActiveScene().name;
-            if (_musicDict.ContainsKey(sceneName) && this.AudioSource.clip != _musicDict[sceneName])
-            {
-                this.AudioSource.clip = _musicDict[sceneName];
-                this.AudioSource.Play();
-            }
-        }
+            SceneManager.sceneLoaded += onSceneChanged;
     }
 
     /**
@@ -59,6 +43,24 @@ public class MusicController : MonoBehaviour
         for (int i = 0; i < this.MusicEntries.Length; ++i)
         {
             _musicDict.Add(this.MusicEntries[i].SceneName, this.MusicEntries[i].Clip);
+        }
+    }
+
+    private void onSceneChanged(Scene scene, LoadSceneMode lodeMode)
+    {
+        if (!this.SingleSpawnCheck.MarkedForDestruction)
+        {
+            if (_musicDict == null)
+            {
+                compileMusicDict();
+            }
+
+            string sceneName = SceneManager.GetActiveScene().name;
+            if (_musicDict.ContainsKey(sceneName) && this.AudioSource.clip != _musicDict[sceneName])
+            {
+                this.AudioSource.clip = _musicDict[sceneName];
+                this.AudioSource.Play();
+            }
         }
     }
 }
