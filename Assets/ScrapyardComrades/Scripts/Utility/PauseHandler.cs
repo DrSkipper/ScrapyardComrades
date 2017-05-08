@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using System;
 using System.Collections.Generic;
 
+//TODO: OnSpawn should be replaced with method called by object pools, and remove listeners on OnReturnToPool. Apply this change to BatBarian as well.
 public class PauseHandler : VoBehavior
 {
     public PauseController.PauseGroup PauseGroup;
@@ -16,11 +16,19 @@ public class PauseHandler : VoBehavior
         {
             _pausables.Add(new Pausable(components[i] as MonoBehaviour));
         }
+    }
 
+    void OnSpawn()
+    {
         GlobalEvents.Notifier.Listen(PauseEvent.NAME, this, pause);
         GlobalEvents.Notifier.Listen(ResumeEvent.NAME, this, resume);
     }
 
+    void OnReturnToPool()
+    {
+        GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, PauseEvent.NAME);
+        GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, ResumeEvent.NAME);
+    }
     /**
      * Private
      */
