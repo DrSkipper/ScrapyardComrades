@@ -15,7 +15,7 @@ public class TileRenderer : VoBehavior
     {
         if (this.Atlas != null)
         {
-            this.renderer.sharedMaterial.mainTexture = this.Atlas;
+            this.renderer.material.mainTexture = this.Atlas;
             _sprites = Texture2DExtensions.GetSprites(TilesetData.TILESETS_PATH, this.Atlas.name);
         }
     }
@@ -24,7 +24,7 @@ public class TileRenderer : VoBehavior
     {
         this.Atlas = IndexedSpriteManager.GetAtlas(TilesetData.TILESETS_PATH, atlasName);
         _sprites = Texture2DExtensions.GetSprites(TilesetData.TILESETS_PATH, atlasName);
-        this.renderer.sharedMaterial.mainTexture = this.Atlas;
+        this.renderer.material.mainTexture = this.Atlas;
     }
 
     public void CreateEmptyMap(int width, int height)
