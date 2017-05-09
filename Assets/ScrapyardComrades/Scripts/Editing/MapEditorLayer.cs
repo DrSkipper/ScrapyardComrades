@@ -323,7 +323,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
     public void AddObject(GameObject gameObject)
     {
         string prefabName = this.CurrentPrefab.name;
-        gameObject.name = this.Name + UNDERSCORE + prefabName + UNDERSCORE + _nextId;
+        gameObject.name = this.Name + StringExtensions.UNDERSCORE + prefabName + StringExtensions.UNDERSCORE + _nextId;
         ++_nextId;
         if (_nextId == int.MaxValue)
             _nextId = 0;
@@ -383,7 +383,6 @@ public class MapEditorObjectsLayer : MapEditorLayer
      */
     private int _currentPrefab;
     private int _nextId;
-    public const string UNDERSCORE = "_";
 }
 
 public class MapEditorParallaxLayer : MapEditorLayer
@@ -464,7 +463,7 @@ public class MapEditorLightingLayer : MapEditorLayer
     public void AddObject(GameObject gameObject)
     {
         string prefabName = _prefab.name;
-        gameObject.name = this.Name + MapEditorObjectsLayer.UNDERSCORE + prefabName + MapEditorObjectsLayer.UNDERSCORE + _nextId;
+        gameObject.name = this.Name + StringExtensions.UNDERSCORE + prefabName + StringExtensions.UNDERSCORE + _nextId;
         ++_nextId;
         if (_nextId == int.MaxValue)
             _nextId = 0;

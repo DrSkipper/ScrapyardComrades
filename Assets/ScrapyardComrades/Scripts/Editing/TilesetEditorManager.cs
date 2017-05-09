@@ -34,7 +34,7 @@ public class TilesetEditorManager : MonoBehaviour
             return;
         }
 
-        string tilesetPath = PackedSpriteGroup.INDEXED_TEXTURES_PATH + TilesetData.TILESETS_PATH + this.TilesetToEdit.AtlasName + PackedSpriteGroup.TEXTURE_SUFFIX;
+        string tilesetPath = PackedSpriteGroup.INDEXED_TEXTURES_PATH + TilesetData.TILESETS_PATH + this.TilesetToEdit.AtlasName + StringExtensions.PNG_SUFFIX;
         Debug.Log("loading tileset " + tilesetPath);
         _texture = AssetDatabase.LoadAssetAtPath<Texture2D>(tilesetPath);
         if (_texture == null)

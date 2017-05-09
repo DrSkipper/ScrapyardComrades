@@ -183,7 +183,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
         this.SaveIcon.Run();
         foreach (MapEditorLayer layer in this.Layers.Values)
             layer.SaveData(_mapInfo);
-        File.WriteAllText(Application.streamingAssetsPath + MapLoader.LEVELS_PATH + this.MapName + MapLoader.JSON_SUFFIX, JsonConvert.SerializeObject(_mapInfo, Formatting.Indented));
+        File.WriteAllText(Application.streamingAssetsPath + MapLoader.LEVELS_PATH + this.MapName + StringExtensions.JSON_SUFFIX, JsonConvert.SerializeObject(_mapInfo, Formatting.Indented));
     }
 
     public void HandleReturnFromMenu()

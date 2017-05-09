@@ -139,7 +139,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
 
     public static WorldInfo ReadWorldMapInfo(string worldMapName)
     {
-        string path = Application.streamingAssetsPath + WORLD_INFO_PATH + worldMapName + MapLoader.JSON_SUFFIX;
+        string path = Application.streamingAssetsPath + WORLD_INFO_PATH + worldMapName + StringExtensions.JSON_SUFFIX;
         if (File.Exists(path))
         {
             return JsonConvert.DeserializeObject<WorldInfo>(File.ReadAllText(path));

@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 public class MapLoader : MonoBehaviour
 {
     public const string LEVELS_PATH = "/Levels/";
-    public const string JSON_SUFFIX = ".json";
 
     public string MapName = "GameplayTest";
     public TileRenderer PlatformsRenderer;
@@ -78,7 +77,7 @@ public class MapLoader : MonoBehaviour
 
     public static NewMapInfo GatherMapInfo(string mapName)
     {
-        string path = Application.streamingAssetsPath + LEVELS_PATH + mapName + JSON_SUFFIX;
+        string path = Application.streamingAssetsPath + LEVELS_PATH + mapName + StringExtensions.JSON_SUFFIX;
         if (File.Exists(path))
         {
             return JsonConvert.DeserializeObject<NewMapInfo>(File.ReadAllText(path));

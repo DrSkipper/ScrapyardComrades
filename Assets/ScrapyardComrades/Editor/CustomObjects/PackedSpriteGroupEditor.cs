@@ -20,7 +20,7 @@ public class PackedSpriteGroupEditor : Editor
     public static void AggregateAtlases(PackedSpriteGroup psg)
     {
         string path = AssetDatabase.GetAssetPath(psg);
-        string suffix = psg.name + ".asset";
+        string suffix = psg.name + StringExtensions.ASSET_SUFFIX;
         path = path.Replace(suffix, "");
         Debug.Log("root path = " + path);
         List<string> relativePaths = new List<string>();

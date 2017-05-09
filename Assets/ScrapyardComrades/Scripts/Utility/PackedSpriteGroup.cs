@@ -3,7 +3,6 @@
 public class PackedSpriteGroup : ScriptableObject
 {
     public const string INDEXED_TEXTURES_PATH = "Assets/ScrapyardComrades/Textures/IndexedTextures/";
-    public const string TEXTURE_SUFFIX = ".png";
 
     public AtlasEntry[] Atlases;
 
