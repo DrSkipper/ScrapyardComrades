@@ -19,8 +19,6 @@ public class PlayerReference : MonoBehaviour
     private GameObject _playerObject;
     private Transform _playerTransform;
     private IntegerCollider _playerCollider;
-    private CameraController _cameraController;
-    private Transform _cameraTransform;
 
     private void playerSpawned(LocalEventNotifier.Event e)
     {
