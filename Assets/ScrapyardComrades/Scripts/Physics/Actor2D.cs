@@ -29,9 +29,17 @@ public class Actor2D : VoBehavior, IPausable
 
             if (_collisionsFromMove.Count > 0)
             {
-                GameObject[] collisions = _collisionsFromMove.ToArray();
+                if (_collisionEvent == null)
+                {
+                    _collisionEvent = new CollisionEvent(_collisionsFromMove, Vector2.zero, Vector2.zero);
+                }
+                else
+                {
+                    _collisionEvent.VelocityAtHit = Vector2.zero;
+                    _collisionEvent.VelocityApplied = Vector2.zero;
+                }
+                this.localNotifier.SendEvent(_collisionEvent);
                 _collisionsFromMove.Clear();
-                this.localNotifier.SendEvent(new CollisionEvent(collisions, Vector2.zero, Vector2.zero));
             }
         }
 
@@ -98,13 +106,21 @@ public class Actor2D : VoBehavior, IPausable
 
         if (_collisionsFromMove.Count > 0)
         {
-            GameObject[] collisions = _collisionsFromMove.ToArray();
             _haltX = false;
             _haltY = false;
-            _collisionsFromMove.Clear();
             _horizontalCollisions.Clear();
             _verticalCollisions.Clear();
-            this.localNotifier.SendEvent(new CollisionEvent(collisions, oldVelocity, soFar));
+            if (_collisionEvent == null)
+            {
+                _collisionEvent = new CollisionEvent(_collisionsFromMove, oldVelocity, soFar);
+            }
+            else
+            {
+                _collisionEvent.VelocityAtHit = oldVelocity;
+                _collisionEvent.VelocityApplied = soFar;
+            }
+            this.localNotifier.SendEvent(_collisionEvent);
+            _collisionsFromMove.Clear();
         }
     }
 
@@ -167,6 +183,7 @@ public class Actor2D : VoBehavior, IPausable
     private Dictionary<string, VelocityModifier> _velocityModifiers = new Dictionary<string, VelocityModifier>();
     private bool _haltX;
     private bool _haltY;
+    private CollisionEvent _collisionEvent;
 
     // Returns actual amount applied to movement
     private float moveX(float dx, List<GameObject> collisions, List<GameObject> horizontalCollisions, List<IntegerCollider> potentialCollisions)
