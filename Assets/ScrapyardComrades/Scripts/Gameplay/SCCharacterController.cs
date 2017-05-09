@@ -649,6 +649,7 @@ public class SCCharacterController : Actor2D
         if (!prevGrabbingLedge)
         {
             this.transform.SetY(_ledgeGrabY);
+            this.Move(new IntegerVector((int)direction * 3, 0));
             this.DirectionGrabbingLedge = direction;
         }
         _velocity.x = 0;
