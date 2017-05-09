@@ -49,6 +49,10 @@ public class Damagable : VoBehavior, IPausable
         _hitStunEvent.GravityMultiplier = hitData.HitStunGravityMultiplier;
         _hitStunEvent.AirFrictionMultiplier = hitData.HitStunAirFrictionMultiplier;
 
+        // SFX
+        if (hitData.HitSfx != null && hitData.HitSfx != StringExtensions.EMPTY)
+            SoundManager.Play(hitData.HitSfx);
+
         if (this.Dead)
         {
             this.gameObject.layer = LayerMask.NameToLayer(this.DeathLayer);
