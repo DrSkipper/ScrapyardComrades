@@ -203,6 +203,23 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 this.FadeOut.Run();
             }
         }
+        else if (MapEditorInput.Cancel)
+        {
+            WorldEditorQuadVisual hoveredQuad = hoveredQuadVisual();
+            if (hoveredQuad != null)
+            {
+                NewMapInfo quadInfo = MapLoader.GatherMapInfo(hoveredQuad.QuadName);
+                IntegerVector pos = findBestOpenSpotForNewLevel(hoveredQuad.QuadBounds.Size.X, hoveredQuad.QuadBounds.Size.Y);
+
+                string levelName = findUsableName(quadInfo.name);
+                string oldName = quadInfo.name;
+                quadInfo.name = levelName;
+                File.WriteAllText(Application.streamingAssetsPath + MapLoader.LEVELS_PATH + levelName + StringExtensions.JSON_SUFFIX, JsonConvert.SerializeObject(quadInfo, Formatting.Indented));
+                _worldInfo.AddLevelQuad(levelName, pos.X, pos.Y, hoveredQuad.QuadBounds.Size.X, hoveredQuad.QuadBounds.Size.Y);
+                _quadVisuals.Add(levelName, loadQuad(_worldInfo.GetLevelQuad(levelName)));
+                quadInfo.name = oldName;
+            }
+        }
 
         if (_selectedQuad == null && _cursorPrev != this.Cursor.GridPos)
         {
@@ -247,6 +264,37 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     private IntegerVector _cursorPrev;
     private bool _exiting;
     private bool _paused;
+
+    private IntegerVector findBestOpenSpotForNewLevel(int w, int h)
+    {
+        int searchSize = Mathf.Min(_worldInfo.width, _worldInfo.height);
+        for (int r = 0; r < searchSize; ++r)
+        {
+            for (int x = 0; x <= r; ++x)
+            {
+                if (canCreateLevel(x, r, w, h))
+                    return new IntegerVector(x, r);
+            }
+
+            for (int y = 0; y < r; ++y)
+            {
+                if (canCreateLevel(r, y, w, h))
+                    return new IntegerVector(r, y);
+            }
+        }
+        return this.Cursor.GridPos;
+    }
+
+    private bool canCreateLevel(int x, int y, int w, int h)
+    {
+        IntegerRect bounds = IntegerRect.CreateFromMinMax(new IntegerVector(x, y), new IntegerVector(x + w, y + h));
+        foreach (WorldEditorQuadVisual quad in _quadVisuals.Values)
+        {
+            if (bounds.Overlaps(quad.QuadBounds))
+                return false;
+        }
+        return true;
+    }
 
     private void applyQuadVisualToLevelQuad(WorldEditorQuadVisual quadVisual, WorldInfo.LevelQuad levelQuad)
     {
