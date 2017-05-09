@@ -33,7 +33,7 @@ public class SCSpriteAnimator : VoBehavior, IPausable
         _frame = 0;
         _elapsed = 0;
         _playing = true;
-        this.spriteRenderer.sprite = _currentAnimation.Frames[0];
+        updateVisual();
     }
 
     public void GoToFrame(int frame)
@@ -41,7 +41,7 @@ public class SCSpriteAnimator : VoBehavior, IPausable
         guaranteeCurrentAnimation();
         _frame = Mathf.Clamp(frame, 0, _currentAnimation.Frames.Length - 1);
         _elapsed = Mathf.RoundToInt(_frame * this.GetFrameDuration());
-        this.spriteRenderer.sprite = _currentAnimation.Frames[_frame];
+        updateVisual();
     }
 
     void OnValidate()
@@ -75,7 +75,7 @@ public class SCSpriteAnimator : VoBehavior, IPausable
                     ++_frame;
                 }
 
-                this.spriteRenderer.sprite = _currentAnimation.Frames[_frame];
+                updateVisual();
             }
         }
     }
@@ -96,7 +96,6 @@ public class SCSpriteAnimator : VoBehavior, IPausable
             frameDuration = this.GetFrameDuration();
         _frame = frame;
         _elapsed = Mathf.RoundToInt(frame * frameDuration);
-        //this.localNotifier.SendEvent(new SCSpriteAnimationLoopEvent(_elapsed));
     }
 
     /**
@@ -108,6 +107,13 @@ public class SCSpriteAnimator : VoBehavior, IPausable
     private int _frame;
     private int _elapsed;
     private bool _frozen = false;
+
+    private void updateVisual()
+    {
+        this.spriteRenderer.sprite = _currentAnimation.Frames[_frame];
+        if (_frame == _currentAnimation.SfxFrame && _currentAnimation.Sfx != null)
+            SoundManager.Play(_currentAnimation.Sfx.name);
+    }
 
     private void guaranteeCurrentAnimation()
     {

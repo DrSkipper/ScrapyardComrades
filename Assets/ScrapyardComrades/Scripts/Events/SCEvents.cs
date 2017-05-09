@@ -125,18 +125,6 @@ public class WorldRecenterEvent : LocalEventNotifier.Event
     }
 }
 
-public class SCSpriteAnimationLoopEvent : LocalEventNotifier.Event
-{
-    public const string NAME = "ANIM_LOOP";
-    public int NewElapsed;
-
-    public SCSpriteAnimationLoopEvent(int newElapsed)
-    {
-        this.Name = NAME;
-        this.NewElapsed = newElapsed;
-    }
-}
-
 public class PauseEvent : LocalEventNotifier.Event
 {
     public const string NAME = "PAUSE";

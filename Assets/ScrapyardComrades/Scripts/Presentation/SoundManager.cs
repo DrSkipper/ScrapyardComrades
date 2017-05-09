@@ -41,6 +41,7 @@ public class SoundManager : MonoBehaviour
             {
                 SoundEntry sfx = _soundEntries[clipName];
                 source.clip = sfx.Clip;
+                source.Play();
                 _cooldowns[clipName] = sfx.MinFramesBetweenPlays;
                 if (!_currentCooldowns.Contains(clipName))
                     _currentCooldowns.Add(clipName);
