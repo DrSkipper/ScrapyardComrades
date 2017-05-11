@@ -12369,21 +12369,21 @@
       "z": -2
     },
     {
-      "name": "objects_Enemy_LV1_B_2",
-      "prefab_name": "Enemy_LV1_B",
-      "x": 1092,
-      "y": 100,
+      "name": "objects_Enemy_LV1_C_6",
+      "prefab_name": "Enemy_LV1_C",
+      "x": 1132,
+      "y": 772,
       "z": -2
     },
     {
-      "name": "objects_Enemy_LV1_C_5",
-      "prefab_name": "Enemy_LV1_C",
-      "x": 1104,
-      "y": 772,
+      "name": "objects_Enemy_LV1_B_7",
+      "prefab_name": "Enemy_LV1_B",
+      "x": 1028,
+      "y": 100,
       "z": -2
     }
   ],
-  "next_object_id": 6,
+  "next_object_id": 8,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 8,
