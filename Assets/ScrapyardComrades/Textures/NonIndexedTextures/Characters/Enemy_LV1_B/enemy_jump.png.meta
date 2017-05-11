@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: bf97a768ff66e354c990d44dfccf780b
-timeCreated: 1494295689
+guid: dd9030c33bb4b3841a2beca98591aac2
+timeCreated: 1494483767
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: enemy_sleeveless_laying_0
+    21300000: enemy_jump_0
+    21300002: enemy_jump_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -67,6 +68,14 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   - buildTarget: Android
     maxTextureSize: 2048
     textureFormat: -1
@@ -83,27 +92,32 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: iPhone
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_sleeveless_laying_0
+      name: enemy_jump_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 26
+        y: 24
         width: 35
-        height: 38
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_jump_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 24
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

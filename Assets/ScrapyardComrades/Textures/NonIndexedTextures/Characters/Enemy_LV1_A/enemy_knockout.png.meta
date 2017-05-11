@@ -1,15 +1,18 @@
 fileFormatVersion: 2
-guid: 6b8f6072400bca143850b4c9ba3f0a98
-timeCreated: 1491426005
+guid: ee3cd2df1e178bb49bff5ef2d95592da
+timeCreated: 1494483697
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: enemy_idle_0
-    21300002: enemy_idle_1
-    21300004: enemy_idle_2
-    21300006: enemy_idle_3
-    21300008: enemy_idle_4
-    21300010: enemy_idle_5
+    21300000: enemy_knockout_0
+    21300002: enemy_knockout_1
+    21300004: enemy_knockout_2
+    21300006: enemy_knockout_3
+    21300008: enemy_knockout_4
+    21300010: enemy_knockout_5
+    21300012: enemy_knockout_6
+    21300014: enemy_knockout_7
+    21300016: enemy_knockout_8
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -72,6 +75,14 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   - buildTarget: Android
     maxTextureSize: 2048
     textureFormat: -1
@@ -88,19 +99,11 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: iPhone
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_idle_0
+      name: enemy_knockout_0
       rect:
         serializedVersion: 2
         x: 0
@@ -113,7 +116,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: enemy_idle_1
+      name: enemy_knockout_1
       rect:
         serializedVersion: 2
         x: 35
@@ -126,7 +129,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: enemy_idle_2
+      name: enemy_knockout_2
       rect:
         serializedVersion: 2
         x: 70
@@ -139,7 +142,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: enemy_idle_3
+      name: enemy_knockout_3
       rect:
         serializedVersion: 2
         x: 0
@@ -152,7 +155,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: enemy_idle_4
+      name: enemy_knockout_4
       rect:
         serializedVersion: 2
         x: 35
@@ -165,11 +168,50 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: enemy_idle_5
+      name: enemy_knockout_5
       rect:
         serializedVersion: 2
         x: 70
         y: 48
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_knockout_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_knockout_7
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 8
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_knockout_8
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 8
         width: 35
         height: 40
       alignment: 0

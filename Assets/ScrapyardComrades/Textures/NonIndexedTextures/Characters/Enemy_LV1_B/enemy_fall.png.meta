@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bf97a768ff66e354c990d44dfccf780b
-timeCreated: 1494295689
+guid: 058ab33b5275e5c4793cf12a83bc12b6
+timeCreated: 1494483760
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: enemy_sleeveless_laying_0
+    21300000: enemy_fall_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -67,6 +67,14 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   - buildTarget: Android
     maxTextureSize: 2048
     textureFormat: -1
@@ -83,27 +91,19 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: iPhone
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_sleeveless_laying_0
+      name: enemy_fall_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 26
+        y: 24
         width: 35
-        height: 38
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
