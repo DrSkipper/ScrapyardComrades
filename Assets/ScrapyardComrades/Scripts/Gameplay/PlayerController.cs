@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-
+﻿
 public class PlayerController : SCCharacterController
 {
     public struct PlayerInput : InputWrapper

@@ -37,7 +37,7 @@ public class EntityTracker : MonoBehaviour
         if (this.PlayerObjectNames.Contains(prefabName))
         {
             quadName = PLAYER;
-            entityName = prefabName;
+            entityName = PLAYER;
         }
 
         if (!_trackedEntities.ContainsKey(quadName))

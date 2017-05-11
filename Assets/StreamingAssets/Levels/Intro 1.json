@@ -16628,21 +16628,21 @@
   ],
   "objects": [
     {
-      "name": "objects_HeroLV1_0",
-      "prefab_name": "HeroLV1",
-      "x": 228,
-      "y": 100,
-      "z": -2
-    },
-    {
       "name": "objects_Heart_1",
       "prefab_name": "Heart",
       "x": 1208,
       "y": 96,
       "z": -2
+    },
+    {
+      "name": "objects_HeroLV0_2",
+      "prefab_name": "HeroLV0",
+      "x": 236,
+      "y": 100,
+      "z": -2
     }
   ],
-  "next_object_id": 2,
+  "next_object_id": 3,
   "next_prop_id": 8,
   "next_prop_bg_id": 59,
   "next_light_id": 30,
