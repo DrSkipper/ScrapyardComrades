@@ -55,6 +55,7 @@ public class Damagable : VoBehavior, IPausable
 
         if (this.Dead)
         {
+            //TODO: Need to move the layer that our collider is filed under in the CollisionManager as well
             this.gameObject.layer = LayerMask.NameToLayer(this.DeathLayer);
             _hitStunEvent.GravityMultiplier *= DEATH_GRAV_MULT;
             _hitStunEvent.GravityMultiplier *= DEATH_AIRFRICT_MULT;
