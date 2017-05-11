@@ -91,6 +91,24 @@ public class HitStunEvent : LocalEventNotifier.Event
     }
 }
 
+public class HealEvent : LocalEventNotifier.Event
+{
+    public const string NAME = "HEAL";
+    public int PrevHealth;
+    public int NewHealth;
+    public int PrevMaxHealth;
+    public int NewMaxHealth;
+
+    public HealEvent(int prevHealth, int newHealth, int prevMaxHealth, int newMaxHealth)
+    {
+        this.Name = NAME;
+        this.PrevHealth = prevHealth;
+        this.NewHealth = newHealth;
+        this.PrevMaxHealth = prevMaxHealth;
+        this.NewMaxHealth = newMaxHealth;
+    }
+}
+
 public class PlayerSpawnedEvent : LocalEventNotifier.Event
 {
     public const string NAME = "PLAYER_SPAWNED";
@@ -164,6 +182,18 @@ public class EntityConsumedEvent : LocalEventNotifier.Event
         this.Name = NAME;
         this.QuadName = quadName;
         this.EntityName = entityName;
+    }
+}
+
+public class EntityReplacementEvent : LocalEventNotifier.Event
+{
+    public const string NAME = "ENTITY_REPLACE";
+    public WorldEntity NewEntity;
+
+    public EntityReplacementEvent(WorldEntity newEntity)
+    {
+        this.Name = NAME;
+        this.NewEntity = newEntity;
     }
 }
 

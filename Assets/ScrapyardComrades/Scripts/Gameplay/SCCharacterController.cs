@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System;
-using System.Collections.Generic;
 
 public class SCCharacterController : Actor2D
 {
@@ -117,8 +116,9 @@ public class SCCharacterController : Actor2D
 
     public virtual void OnSpawn()
     {
-        this.HurtboxState = SCAttack.HurtboxState.Normal;
+        this.HurtboxState = SCAttack.HurtboxState.Ducking;
         updateHurtboxForState(this.HurtboxState);
+        attemptHurtboxStateChange(SCAttack.HurtboxState.Normal);
 
         if (_jumpBufferTimer == null)
             _jumpBufferTimer = new Timer(this.JumpBufferFrames);
@@ -151,9 +151,6 @@ public class SCCharacterController : Actor2D
         if (_autoMoveTimer == null)
             _autoMoveTimer = new Timer(1);
         _autoMoveTimer.complete();
-
-        //TODO - Data-drive health
-        this.Damagable.Health = 10;
 
         this.Hurtbox.AddToCollisionPool();
         if (this.AttackController != null)

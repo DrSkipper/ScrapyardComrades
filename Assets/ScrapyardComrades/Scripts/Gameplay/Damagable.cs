@@ -16,12 +16,23 @@ public class Damagable : VoBehavior, IPausable
         _invincibilityTimer = new Timer(1, false, false);
         _freezeFrameEvent = new FreezeFrameEvent(FREEZE_FRAMES);
         _hitStunEvent = new HitStunEvent(1, 1.0f, 1.0f);
+        _healEvent = new HealEvent(this.Health, this.Health, this.MaxHealth, this.MaxHealth);
         _prevLayer = this.gameObject.layer;
     }
 
     public void Heal(int amount)
     {
-        this.Health = Mathf.Min(this.Health + amount, this.MaxHealth);
+        heal(amount);
+        this.localNotifier.SendEvent(_healEvent);
+    }
+
+    public void IncreaseMaxHealth(int increaseAmount, int healAmount)
+    {
+        _healEvent.PrevMaxHealth = this.MaxHealth;
+        this.MaxHealth += increaseAmount;
+        _healEvent.NewMaxHealth = this.MaxHealth;
+        heal(healAmount);
+        this.localNotifier.SendEvent(_healEvent);
     }
 
     public bool Damage(SCAttack.HitData hitData, IntegerVector origin, IntegerVector hitPoint, SCCharacterController.Facing attackerFacing)
@@ -95,10 +106,18 @@ public class Damagable : VoBehavior, IPausable
     private Timer _invincibilityTimer;
     private FreezeFrameEvent _freezeFrameEvent;
     private HitStunEvent _hitStunEvent;
+    private HealEvent _healEvent;
     private int _prevLayer;
 
     private const int DEATH_HITSTUN = 250;
     private const float DEATH_GRAV_MULT = 0.9f;
     private const float DEATH_AIRFRICT_MULT = 0.9f;
     private const float DEATH_KNOCKBACK_ADD = 5.0f;
+
+    private void heal(int amount)
+    {
+        _healEvent.PrevHealth = this.Health;
+        this.Health = Mathf.Min(this.Health + amount, this.MaxHealth);
+        _healEvent.NewHealth = this.Health;
+    }
 }

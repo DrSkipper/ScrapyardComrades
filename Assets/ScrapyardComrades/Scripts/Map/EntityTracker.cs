@@ -29,6 +29,7 @@ public class EntityTracker : MonoBehaviour
     void Awake()
     {
         GlobalEvents.Notifier.Listen(EntityConsumedEvent.NAME, this, entityConsumed);
+        GlobalEvents.Notifier.Listen(EntityReplacementEvent.NAME, this, entityReplaced);
     }
 
     public Entity GetEntity(string quadName, string entityName, string prefabName)
@@ -95,6 +96,19 @@ public class EntityTracker : MonoBehaviour
      */
     private Dictionary<string, Dictionary<string, Entity>> _trackedEntities = new Dictionary<string, Dictionary<string, Entity>>();
     private List<WorldEntity> _loadedEntities = new List<WorldEntity>();
+
+    private void entityReplaced(LocalEventNotifier.Event e)
+    {
+        WorldEntity newEntity = (e as EntityReplacementEvent).NewEntity;
+        for (int i = 0; i < _loadedEntities.Count; ++i)
+        {
+            if (_loadedEntities[i].QuadName == newEntity.QuadName && _loadedEntities[i].EntityName == newEntity.EntityName)
+            {
+                _loadedEntities[i] = newEntity;
+                break;
+            }
+        }
+    }
 
     private void entityConsumed(LocalEventNotifier.Event e)
     {

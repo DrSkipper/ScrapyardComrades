@@ -4,12 +4,15 @@ public class PlayerHealthController : VoBehavior, IPausable
 {
     public Damagable Damagable;
     public int AttritionInterval = 3000;
+    public HeroProgressionData ProgressionData;
+    public int HeroLevel = 0;
 
     public HealthChangedDelegate HealthChangedCallback;
     public delegate void HealthChangedDelegate(int currentHealth, int maxHealth);
 
     void Awake()
     {
+        this.localNotifier.Listen(HealEvent.NAME, this, onHeal);
         this.localNotifier.Listen(HitStunEvent.NAME, this, onHitStun);
     }
 
@@ -44,9 +47,15 @@ public class PlayerHealthController : VoBehavior, IPausable
     private void attrition()
     {
         this.Damagable.Health = Mathf.Max(0, this.Damagable.Health - 1);
+        notifyHealthChange();
+    }
 
-        if (this.HealthChangedCallback != null)
-            this.HealthChangedCallback(this.Damagable.Health, this.Damagable.MaxHealth);
+    private void onHeal(LocalEventNotifier.Event e)
+    {
+        if (this.HeroLevel < this.ProgressionData.MaxHeroLevel && this.Damagable.MaxHealth >= this.ProgressionData.MaxHealthThresholds[this.HeroLevel + 1])
+            levelUp();
+        else
+            notifyHealthChange();
     }
 
     private void onHitStun(LocalEventNotifier.Event e)
@@ -55,9 +64,48 @@ public class PlayerHealthController : VoBehavior, IPausable
         {
             _prevHealth = this.Damagable.Health;
             _prevMaxHealth = this.Damagable.MaxHealth;
-
-            if (this.HealthChangedCallback != null)
-                this.HealthChangedCallback(this.Damagable.Health, this.Damagable.MaxHealth);
+            notifyHealthChange();
         }
+    }
+
+    private void notifyHealthChange()
+    {
+        if (this.HealthChangedCallback != null)
+            this.HealthChangedCallback(this.Damagable.Health, this.Damagable.MaxHealth);
+    }
+
+    private void levelUp()
+    {
+        PooledObject nextLevel = this.ProgressionData.HeroPrefabs[this.HeroLevel + 1].Retain();
+
+        int offsetY = 0;
+        int halfHeight = 0;
+        if (this.integerCollider != null)
+        {
+            offsetY = this.integerCollider.Offset.Y;
+            halfHeight = this.integerCollider.Bounds.Size.Y / 2;
+        }
+
+        IntegerCollider otherCollider = nextLevel.GetComponent<IntegerCollider>();
+        int otherOffsetY = 0;
+        int otherHalfHeight = 0;
+        if (otherCollider != null)
+        {
+            otherOffsetY = otherCollider.Offset.Y;
+            otherHalfHeight = otherCollider.Bounds.Size.Y / 2;
+        }
+
+        WorldEntity entity = this.GetComponent<WorldEntity>();
+        WorldEntity otherEntity = nextLevel.GetComponent<WorldEntity>();
+        otherEntity.EntityName = entity.EntityName;
+        otherEntity.QuadName = entity.QuadName;
+
+        nextLevel.transform.SetPosition2D(this.transform.position.x, this.transform.position.y + offsetY + halfHeight - otherHalfHeight - otherOffsetY);
+
+        nextLevel.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
+
+        GlobalEvents.Notifier.SendEvent(new EntityReplacementEvent(otherEntity));
+        GlobalEvents.Notifier.SendEvent(new InteractionTargetChangeEvent(null));
+        ObjectPools.Release(this.gameObject);
     }
 }

@@ -12,6 +12,15 @@ public class UIBar : MonoBehaviour
         Height
     }
 
+    public void ChangeTargetLength(int newLength)
+    {
+        if (this.TargetLength != newLength)
+        {
+            this.TargetLength = newLength;
+            ((RectTransform)this.transform).sizeDelta = new Vector2(newLength, this.BarTransform.sizeDelta.y);
+        }
+    }
+
     public void UpdateLength(float current, float max)
     {
         this.FillPercent(current / max);

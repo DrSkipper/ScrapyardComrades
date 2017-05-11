@@ -6,6 +6,9 @@ public class EnemyController : SCCharacterController
     {
         base.OnSpawn();
 
+        //TODO - Data-drive health
+        this.Damagable.Health = this.Damagable.MaxHealth;
+
         //TODO: Data-drive which AI to use, as well as parameters
         _ai = new SimpleAI(250, 450, 75, 30);
     }

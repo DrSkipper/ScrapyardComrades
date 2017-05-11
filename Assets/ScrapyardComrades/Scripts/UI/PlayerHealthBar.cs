@@ -10,6 +10,7 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
     public Color StrobeColor;
     public int MinStrobeDuration;
     public int MaxStrobeDuration;
+    public int PixelUnitsPerHealthUnit = 10;
 
     void Awake()
     {
@@ -71,7 +72,7 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
 
     private void playerHealthChanged(int currentHealth, int maxHealth)
     {
-        //TODO: Extend max length of bar based on max health
+        this.Bar.ChangeTargetLength(maxHealth * this.PixelUnitsPerHealthUnit);
         this.Bar.UpdateLength(currentHealth, maxHealth);
 
         _currentDuration = Mathf.RoundToInt(Mathf.Lerp(this.MinStrobeDuration, this.MaxStrobeDuration, (float)currentHealth / (float)maxHealth));

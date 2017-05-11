@@ -26,6 +26,10 @@ public class PlayerController : SCCharacterController
     public override void OnSpawn()
     {
         base.OnSpawn();
+
+        //TODO - Data-drive health
+        this.Damagable.Health = this.Damagable.MaxHealth;
+
         GlobalEvents.Notifier.SendEvent(new PlayerSpawnedEvent(this.gameObject));
     }
 
