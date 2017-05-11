@@ -6,6 +6,8 @@ public class MusicController : MonoBehaviour
 {
     public GuaranteeSingleSpawn SingleSpawnCheck;
     public AudioSource AudioSource;
+    public VolumeFader VolumeFader;
+    public int FadeOutDuration = 48;
     public bool NoMusicInEditor = false;
     public MusicEntry[] MusicEntries;
 
@@ -28,13 +30,22 @@ public class MusicController : MonoBehaviour
         }
 #endif
         if (!this.SingleSpawnCheck.MarkedForDestruction)
+        {
             SceneManager.sceneLoaded += onSceneChanged;
+        }
     }
 
     /**
      * Private
      */
     private Dictionary<string, AudioClip> _musicDict;
+
+    private void beginSceneTransition(LocalEventNotifier.Event e)
+    {
+        string nextSceneName = (e as BeginSceneTransitionEvent).NextSceneName;
+        if (_musicDict.ContainsKey(nextSceneName) && _musicDict[nextSceneName] != this.AudioSource.clip)
+            this.VolumeFader.BeginFade(this.FadeOutDuration, 0.0f);
+    }
 
     private void compileMusicDict()
     {
@@ -54,7 +65,9 @@ public class MusicController : MonoBehaviour
             {
                 compileMusicDict();
             }
+            GlobalEvents.Notifier.Listen(BeginSceneTransitionEvent.NAME, this, beginSceneTransition);
 
+            this.AudioSource.volume = 1.0f;
             string sceneName = SceneManager.GetActiveScene().name;
             if (_musicDict.ContainsKey(sceneName) && this.AudioSource.clip != _musicDict[sceneName])
             {

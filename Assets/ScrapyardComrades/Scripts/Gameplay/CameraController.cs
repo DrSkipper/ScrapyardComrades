@@ -27,6 +27,7 @@ public class CameraController : VoBehavior, IPausable
         this.CameraViewWidth = _attemptedWidth;
         this.CameraViewHeight = _attemptedHeight;
         _easingDelegate = Easing.GetFunction(this.TransitionEasingFunction, this.TransitionEasingFlow);
+        this.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
     }
 
     void Start()

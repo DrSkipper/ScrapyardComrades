@@ -183,6 +183,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 _exiting = true;
                 this.TimedCallbacks.AddCallback(this, loadLevelEditor, this.LevelLoadTime);
                 this.FadeOut.Run();
+                GlobalEvents.Notifier.SendEvent(new BeginSceneTransitionEvent(this.LevelEditorSceneName));
             }
             else
             {
@@ -201,6 +202,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 _exiting = true;
                 this.TimedCallbacks.AddCallback(this, loadTestScene, this.LevelLoadTime);
                 this.FadeOut.Run();
+                GlobalEvents.Notifier.SendEvent(new BeginSceneTransitionEvent(this.TestSceneName));
             }
         }
         else if (MapEditorInput.Cancel)

@@ -178,3 +178,15 @@ public class InteractionTargetChangeEvent : LocalEventNotifier.Event
         this.Target = target;
     }
 }
+
+public class BeginSceneTransitionEvent : LocalEventNotifier.Event
+{
+    public const string NAME = "SCENE_TRANSITION";
+    public string NextSceneName;
+
+    public BeginSceneTransitionEvent(string nextSceneName)
+    {
+        this.Name = NAME;
+        this.NextSceneName = nextSceneName;
+    }
+}
