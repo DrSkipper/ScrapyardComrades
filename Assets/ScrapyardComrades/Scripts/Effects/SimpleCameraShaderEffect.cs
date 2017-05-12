@@ -1,18 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class SimpleCameraShaderEffect : MonoBehaviour
 {
+    public Material Material;
 
-    // Use this for initialization
-    void Start()
+    void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        Graphics.Blit(source, destination, this.Material);
     }
 }

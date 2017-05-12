@@ -8,6 +8,16 @@ public class LocalEventNotifier : MonoBehaviour
     public class Event
     {
         public string Name;
+
+        public Event()
+        {
+            this.Name = StringExtensions.EMPTY;
+        }
+
+        public Event(string name)
+        {
+            this.Name = name;
+        }
     }
 
     public void Listen(string eventName, MonoBehaviour owner, EventCallback callback)

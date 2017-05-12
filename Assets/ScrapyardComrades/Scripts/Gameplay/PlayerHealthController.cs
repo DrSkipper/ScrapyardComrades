@@ -2,6 +2,8 @@
 
 public class PlayerHealthController : VoBehavior, IPausable
 {
+    public const string MUTATE_EVENT = "MUTATE";
+
     public Damagable Damagable;
     public int AttritionInterval = 3000;
     public HeroProgressionData ProgressionData;
@@ -106,6 +108,7 @@ public class PlayerHealthController : VoBehavior, IPausable
 
         GlobalEvents.Notifier.SendEvent(new EntityReplacementEvent(otherEntity));
         GlobalEvents.Notifier.SendEvent(new InteractionTargetChangeEvent(null));
+        GlobalEvents.Notifier.SendEvent(new LocalEventNotifier.Event(MUTATE_EVENT));
         ObjectPools.Release(this.gameObject);
     }
 }
