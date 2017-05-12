@@ -1,5 +1,6 @@
 ﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
+//Credit & More Info: https://forum.unity3d.com/threads/overlay-blend-mode-shader.181134/
 Shader "Custom/OverlayBlend"
 {
     Properties {
