@@ -94,6 +94,9 @@ public class SCCharacterController : Actor2D
     public bool IsGrabbingLedge { get; private set; }
     public Facing DirectionGrabbingLedge { get; private set; }
 
+    public const float DEATH_VELOCITY_MAX = 0.5f;
+    public const string LOOT_DROP_EVENT = "LOOT_DROP";
+
     public virtual InputWrapper GatherInput()
     {
         return EmptyInput.Reference;
@@ -119,6 +122,7 @@ public class SCCharacterController : Actor2D
         this.HurtboxState = SCAttack.HurtboxState.Ducking;
         updateHurtboxForState(this.HurtboxState);
         attemptHurtboxStateChange(SCAttack.HurtboxState.Normal);
+        _hasSpawnedLoot = false;
 
         if (_jumpBufferTimer == null)
             _jumpBufferTimer = new Timer(this.JumpBufferFrames);
@@ -476,6 +480,13 @@ public class SCCharacterController : Actor2D
         if (this.AttackController != null)
             this.AttackController.UpdateHitBoxes(_currentAttack, this.HurtboxState, _facing);
 
+        // Check if need to drop loot
+        if (this.Damagable.Dead && !_hasSpawnedLoot && this.Velocity.x < DEATH_VELOCITY_MAX && this.IsGrounded)
+        {
+            _hasSpawnedLoot = true;
+            this.localNotifier.SendEvent(new LocalEventNotifier.Event(LOOT_DROP_EVENT));
+        }
+
         // Send update finished event (so visual state handling can know to update)
         _updateFinishEvent.CurrentAttack = _currentAttack;
         this.localNotifier.SendEvent(_updateFinishEvent);
@@ -514,6 +525,7 @@ public class SCCharacterController : Actor2D
     private Timer _autoMoveTimer;
     private Vector2 _autoMoveValue;
     private int _ledgeGrabY;
+    private bool _hasSpawnedLoot;
 
     private struct ControlParameters
     {

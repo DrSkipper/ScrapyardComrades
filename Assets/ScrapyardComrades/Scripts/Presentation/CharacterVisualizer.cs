@@ -76,8 +76,6 @@ public class CharacterVisualizer : VoBehavior
     private bool _attackChanged;
     private int _facingModifier = 1;
 
-    private const float DEATH_VELOCITY_MAX = 0.5f;
-
     private string updateGeneric()
     {
         if (_currentAttack != null)
@@ -88,7 +86,7 @@ public class CharacterVisualizer : VoBehavior
         {
             if (_characterController.Damagable.Dead)
             {
-                if (_characterController.OnGround && Mathf.Abs(_characterController.Velocity.x) < DEATH_VELOCITY_MAX)
+                if (_characterController.OnGround && Mathf.Abs(_characterController.Velocity.x) < SCCharacterController.DEATH_VELOCITY_MAX)
                     return DEATH_STATE;
                 return DEATHSTUN_STATE;
             }

@@ -6,9 +6,12 @@ public class Consumable : VoBehavior, Interactable
 
     public void Interact(InteractionController interactor)
     {
-        //TODO: Animate this
         interactor.GetComponent<Damagable>().IncreaseMaxHealth(this.Data.MutateAmount, this.Data.HealAmount);
-        this.GetComponent<WorldEntity>().TriggerConsumption();
+        WorldEntity entity = this.GetComponent<WorldEntity>();
+        if (entity != null && entity.enabled)
+            entity.TriggerConsumption();
+        else
+            ObjectPools.Release(this.gameObject);
     }
 
     public void OnSpawn()
