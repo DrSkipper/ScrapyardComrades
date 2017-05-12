@@ -7,7 +7,7 @@ public class Pickup : VoBehavior, Interactable
     public void Interact(InteractionController interactor)
     {
         InventoryController inventory = interactor.GetComponent<InventoryController>();
-        if (inventory.NumItems < inventory.InventorySize)
+        if (inventory != null && inventory.NumItems < inventory.InventorySize)
         {
             interactor.GetComponent<InventoryController>().PickupItem(this.Data);
             this.GetComponent<WorldEntity>().TriggerConsumption();

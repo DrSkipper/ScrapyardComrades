@@ -46,7 +46,12 @@ public class AIState
 
 public class IdleState : AIState
 {
-
+    public override AIOutput UpdateState(AIInput input)
+    {
+        AIOutput output = new AIOutput();
+        output.Interact = true;
+        return output;
+    }
 }
 
 public class SimpleAttackState : AIState

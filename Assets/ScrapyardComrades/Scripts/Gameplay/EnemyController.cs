@@ -15,7 +15,7 @@ public class EnemyController : SCCharacterController
 
     public override InputWrapper GatherInput()
     {
-        EnemyInput controlInput = new EnemyInput(_ai.RunAI(gatherAiInput(PlayerReference.Collider)), _previousInput);
+        EnemyInput controlInput = new EnemyInput(_ai.RunAI(gatherAiInput(PlayerReference.Collider, PlayerReference.IsAlive)), _previousInput);
         _previousInput = controlInput;
         return controlInput;
     }
@@ -26,10 +26,11 @@ public class EnemyController : SCCharacterController
     private AI _ai;
     private EnemyInput _previousInput;
 
-    private AIInput gatherAiInput(IntegerCollider target)
+    private AIInput gatherAiInput(IntegerCollider target, bool targetAlive)
     {
         AIInput aiInput = new AIInput();
         aiInput.HasTarget = target != null;
+        aiInput.TargetAlive = targetAlive;
         aiInput.OurPosition = (Vector2)this.transform.position;
         aiInput.TargetPosition = target != null ? (Vector2)target.transform.position : Vector2.zero;
         aiInput.OurCollider = this.Hurtbox;
@@ -69,7 +70,7 @@ public class EnemyController : SCCharacterController
             this.AttackStrongBegin = false;
             this.AttackStrongHeld = false;
             this.UseItem = false;
-            this.Interact = false;
+            this.Interact = output.Interact;
             this.PausePressed = false;
         }
     }

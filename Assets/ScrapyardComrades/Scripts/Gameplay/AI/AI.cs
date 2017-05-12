@@ -5,11 +5,13 @@ public struct AIOutput
     public int MovementDirection;
     public bool Jump;
     public bool Attack;
+    public bool Interact;
 }
 
 public struct AIInput
 {
     public bool HasTarget;
+    public bool TargetAlive;
     public IntegerVector OurPosition;
     public IntegerVector TargetPosition;
     public IntegerCollider OurCollider;
@@ -44,9 +46,10 @@ public class SimpleAI : AI
     {
         AIState idleState = new IdleState();
         AIState attackState = new SimpleAttackState(executeAttackRange, attackingPursuitTargetDist);
-        idleState.AddTransition(new TargetWithinRangeTransition(attackState, 0, attackStateRange));
+        idleState.AddTransition(new ANDTransition(new AIStateTransition[] { new TargetAliveTransition(attackState, true), new TargetWithinRangeTransition(attackState, 0, attackStateRange) }));
         attackState.AddTransition(new NoTargetTransition(idleState));
         attackState.AddTransition(new TargetWithinRangeTransition(idleState, pursuitRange));
+        attackState.AddTransition(new ANDTransition(new AIStateTransition[]{ new TargetAliveTransition(idleState, false), new TargetWithinRangeTransition(idleState, 0, executeAttackRange) }));
         this.CurrentState = idleState;
     }
 }

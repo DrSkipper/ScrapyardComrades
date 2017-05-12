@@ -43,3 +43,41 @@ public class NoTargetTransition : AIStateTransition
         return !input.HasTarget;
     }
 }
+
+public class TargetAliveTransition : AIStateTransition
+{
+    public AIState Destination { get; private set; }
+    public bool TrueOnAlive { get; private set; }
+
+    public TargetAliveTransition(AIState destination, bool trueOnAlive)
+    {
+        this.Destination = destination;
+        this.TrueOnAlive = trueOnAlive;
+    }
+
+    public bool ShouldTransition(AIInput input)
+    {
+        return this.TrueOnAlive == input.TargetAlive;
+    }
+}
+
+public class ANDTransition : AIStateTransition
+{
+    public AIState Destination { get { return this.Transitions[0].Destination; } }
+    public AIStateTransition[] Transitions { get; private set; }
+
+    public ANDTransition(AIStateTransition[] transitions)
+    {
+        this.Transitions = transitions;
+    }
+
+    public bool ShouldTransition(AIInput input)
+    {
+        for (int i = 0; i < this.Transitions.Length; ++i)
+        {
+            if (!this.Transitions[i].ShouldTransition(input))
+                return false;
+        }
+        return true;
+    }
+}

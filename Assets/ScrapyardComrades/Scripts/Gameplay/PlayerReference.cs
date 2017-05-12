@@ -31,8 +31,5 @@ public class PlayerReference : MonoBehaviour
     private void playerDied(LocalEventNotifier.Event e)
     {
         _playerAlive = false;
-        _playerObject = null;
-        _playerTransform = null;
-        _playerCollider = null;
     }
 }
