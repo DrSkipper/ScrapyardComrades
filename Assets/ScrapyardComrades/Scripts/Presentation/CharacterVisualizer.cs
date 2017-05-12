@@ -13,6 +13,7 @@ public class CharacterVisualizer : VoBehavior
     public SCSpriteAnimation LedgeGrabBackAnimation;
     public SCSpriteAnimation DuckAnimation;
     public SCSpriteAnimation HitStunAnimation;
+    public SCSpriteAnimation DeathHitStunAnimation;
     public SCSpriteAnimation DeathAnimation;
 
     private const string IDLE_STATE = "idle";
@@ -24,6 +25,7 @@ public class CharacterVisualizer : VoBehavior
     private const string LEDGEGRABBACK_STATE = "ledgegrabback";
     private const string DUCKING_STATE = "duck";
     private const string STUNNED_STATE = "stun";
+    private const string DEATHSTUN_STATE = "deathstun";
     private const string DEATH_STATE = "death";
     private const string ATTACK_STATE = "attack";
 
@@ -41,6 +43,7 @@ public class CharacterVisualizer : VoBehavior
         _stateMachine.AddState(LEDGEGRABBACK_STATE, this.updateGeneric, this.enterLedgeGrabBack, this.exitLedgeGrabBack);
         _stateMachine.AddState(DUCKING_STATE, this.updateGeneric, this.enterDucking);
         _stateMachine.AddState(STUNNED_STATE, this.updateGeneric, this.enterHitStun);
+        _stateMachine.AddState(DEATHSTUN_STATE, this.updateGeneric, this.enterDeathStun);
         _stateMachine.AddState(DEATH_STATE, this.updateDying, this.enterDeath);
         _stateMachine.AddState(ATTACK_STATE, this.updateAttack, this.enterAttack);
         _stateMachine.BeginWithInitialState(IDLE_STATE);
@@ -73,7 +76,7 @@ public class CharacterVisualizer : VoBehavior
     private bool _attackChanged;
     private int _facingModifier = 1;
 
-    private const float DEATH_VELOCITY_MAX = 2.0f;
+    private const float DEATH_VELOCITY_MAX = 0.5f;
 
     private string updateGeneric()
     {
@@ -83,8 +86,12 @@ public class CharacterVisualizer : VoBehavior
         }
         if (_characterController.HitStunned)
         {
-            if (_characterController.Damagable.Dead && _characterController.OnGround && Mathf.Abs(_characterController.Velocity.x) < DEATH_VELOCITY_MAX)
-                return DEATH_STATE;
+            if (_characterController.Damagable.Dead)
+            {
+                if (_characterController.OnGround && Mathf.Abs(_characterController.Velocity.x) < DEATH_VELOCITY_MAX)
+                    return DEATH_STATE;
+                return DEATHSTUN_STATE;
+            }
             return STUNNED_STATE;
         }
         if (_characterController.Ducking)
@@ -110,7 +117,7 @@ public class CharacterVisualizer : VoBehavior
 
     private string updateDying()
     {
-        return _characterController.OnGround ? DEATH_STATE : STUNNED_STATE;
+        return _characterController.OnGround ? DEATH_STATE : DEATHSTUN_STATE;
     }
 
     private string updateAttack()
@@ -179,6 +186,11 @@ public class CharacterVisualizer : VoBehavior
     private void enterHitStun()
     {
         _spriteAnimator.PlayAnimation(this.HitStunAnimation);
+    }
+
+    private void enterDeathStun()
+    {
+        _spriteAnimator.PlayAnimation(this.DeathHitStunAnimation);
     }
 
     private void enterDeath()
