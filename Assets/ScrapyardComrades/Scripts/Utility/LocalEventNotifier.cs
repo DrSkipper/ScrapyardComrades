@@ -64,11 +64,20 @@ public class LocalEventNotifier : MonoBehaviour
 
         if (_listenersByEventName.ContainsKey(localEvent.Name))
         {
-            for (int i = 0; i < _listenersByEventName[localEvent.Name].Count; ++i)
+            List<Listener> listeners = _listenersByEventName[localEvent.Name];
+            for (int i = 0; i < listeners.Count;)
             {
-                Listener listener = _listenersByEventName[localEvent.Name][i];
-                if (listener.Owner.isActiveAndEnabled)
-                    listener.Callback(localEvent);
+                Listener listener = listeners[i];
+                if (listener.Owner == null)
+                {
+                    listeners.RemoveAt(i);
+                }
+                else
+                {
+                    if (listener.Owner.isActiveAndEnabled)
+                        listener.Callback(localEvent);
+                    ++i;
+                }
             }
         }
     }

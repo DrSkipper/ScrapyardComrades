@@ -119,6 +119,7 @@ public class ObjectPools : MonoBehaviour
                 instance.gameObject.SetActive(true);
                 return instance;
             }
+            Debug.LogWarning("No pooled instances for " + prefab.gameObject.name + " when attempting to retain");
         }
 
         return instantiate(prefab);
@@ -156,6 +157,7 @@ public class ObjectPools : MonoBehaviour
             pool.Add(obj);
             return true;
         }
+        Debug.LogWarning("Over pool capacity for " + obj.gameObject.name + " when attempting to return to pool");
         return false;
     }
 

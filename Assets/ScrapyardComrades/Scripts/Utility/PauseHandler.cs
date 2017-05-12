@@ -29,6 +29,7 @@ public class PauseHandler : VoBehavior
         GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, PauseEvent.NAME);
         GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, ResumeEvent.NAME);
     }
+
     /**
      * Private
      */

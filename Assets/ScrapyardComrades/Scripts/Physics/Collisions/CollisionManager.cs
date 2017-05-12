@@ -89,9 +89,16 @@ public class CollisionManager : VoBehavior
             {
                 foreach (IntegerCollider collider in _collidersByLayer[key])
                 {
-                    if ((objectTag == null || collider.tag == objectTag) && collider.enabled &&
-                        collider.Bounds.Overlaps(range))
-                        colliders.Add(collider);
+                    if (collider == null)
+                    {
+                        Debug.LogWarning("Null collider!! key = " + LayerMask.LayerToName(Mathf.RoundToInt(Mathf.Sqrt(key))));
+                    }
+                    else
+                    {
+                        if ((objectTag == null || collider.tag == objectTag) && collider.enabled &&
+                            collider.Bounds.Overlaps(range))
+                            colliders.Add(collider);
+                    }
                 }
             }
         }
