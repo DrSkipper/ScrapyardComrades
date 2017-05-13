@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SCParallaxObject : VoBehavior
+public class SCParallaxObject : VoBehavior, IPausable
 {
     public float ParallaxRatio = 0.0f;
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class ParallaxManager : VoBehavior
+public class ParallaxManager : VoBehavior, IPausable
 {
     public WorldLoadingManager WorldManager;
     public ParallaxLayerController[] CurrentLayerControllers;

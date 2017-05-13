@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ParallaxLayerController : VoBehavior
+public class ParallaxLayerController : VoBehavior, IPausable
 {
     public const string PARALLAX_PATH = "Parallax/";
     public ParallaxQuadGroup CurrentLayerVisual;

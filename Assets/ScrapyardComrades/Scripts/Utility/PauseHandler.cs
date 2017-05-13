@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class PauseHandler : VoBehavior
 {
     public PauseController.PauseGroup PauseGroup;
+    public bool ListenOnAwake = false;
 
     void Awake()
     {
@@ -16,6 +17,9 @@ public class PauseHandler : VoBehavior
         {
             _pausables.Add(new Pausable(components[i] as MonoBehaviour));
         }
+
+        if (this.ListenOnAwake)
+            this.OnSpawn();
     }
 
     void OnSpawn()
