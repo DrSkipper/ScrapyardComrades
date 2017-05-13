@@ -10,6 +10,7 @@
     
         Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" }
         
+        Cull Off
         Lighting Off
         Blend SrcAlpha OneMinusSrcAlpha
         ZWrite Off
@@ -51,7 +52,9 @@
             {
 				// Lerp between texture color and overlay color
                 float4 texColor = tex2D(_MainTex, i.texcoord);
-                return lerp(texColor, _Color, _LerpAmount);
+                fixed4 output = lerp(texColor, _Color, _LerpAmount);
+				output.a = texColor.a * _Color.a;
+				return output;
             }
             ENDCG
         }
