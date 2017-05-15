@@ -220,3 +220,15 @@ public class BeginSceneTransitionEvent : LocalEventNotifier.Event
         this.NextSceneName = nextSceneName;
     }
 }
+
+public class HeartConsumedEvent : LocalEventNotifier.Event
+{
+    public const string NAME = "HEART_CONSUME";
+    public Vector2 Position;
+
+    public HeartConsumedEvent(Vector2 position)
+    {
+        this.Name = NAME;
+        this.Position = position;
+    }
+}
