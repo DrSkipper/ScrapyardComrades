@@ -49,6 +49,7 @@ public class SCCharacterController : Actor2D
     public LayerMask DuckingHaltMovementMask;
     public LayerMask DuckingCollisionMask;
     public LayerMask DeathCollisionMask;
+    public LayerMask BounceMask;
 
     public float Gravity = 100.0f;
     public float MaxFallSpeed = 500.0f;
@@ -75,6 +76,7 @@ public class SCCharacterController : Actor2D
     public float RunAcceleration = 15.0f;
     public float RunDecceleration = 3.0f;
     public float AirRunAcceleration = 0.1f;
+    public float MinBounceVelocity = 1.0f;
 
     public WorldEntity WorldEntity;
     public Damagable Damagable;
@@ -202,7 +204,8 @@ public class SCCharacterController : Actor2D
         _moveAxis = (_currentAttack == null || !_currentAttack.LockMovement) ? input.MovementAxis : 0;
         _velocity = this.Velocity;
         bool prevOnGround = _onGround;
-        _onGround = this.IsGrounded;
+        GameObject groundedAgainst = this.GroundedAgainst;
+        _onGround = groundedAgainst != null;
         this.IsWallSliding = false;
         bool prevGrabbingLedge = this.IsGrabbingLedge;
         this.IsGrabbingLedge = false;
@@ -226,6 +229,13 @@ public class SCCharacterController : Actor2D
                 _jumpGraceTimer.reset(_parameters.JumpGraceFrames);
             if (_jumpGraceTimer.Paused)
                 _jumpGraceTimer.start();
+
+            // Bounce if necessary
+            int groundedLayerMask = 1 << groundedAgainst.layer;
+            if ((groundedLayerMask & this.BounceMask) == groundedLayerMask)
+            {
+                _velocity.y = Mathf.Min(this.MinBounceVelocity, (this.MinBounceVelocity + Mathf.Abs(_velocity.y)) / 2.0f);
+            }
         }
 
         // Otherwise, update our jump grace counter (for stored jumps)
@@ -481,7 +491,7 @@ public class SCCharacterController : Actor2D
             this.AttackController.UpdateHitBoxes(_currentAttack, this.HurtboxState, _facing);
 
         // Check if need to drop loot
-        if (this.Damagable.Dead && !_hasSpawnedLoot && this.Velocity.x < DEATH_VELOCITY_MAX && this.IsGrounded)
+        if (this.Damagable.Dead && !_hasSpawnedLoot && this.Velocity.x < DEATH_VELOCITY_MAX && this.GroundedAgainst != null)
         {
             _hasSpawnedLoot = true;
             this.localNotifier.SendEvent(new LocalEventNotifier.Event(LOOT_DROP_EVENT));
@@ -492,9 +502,9 @@ public class SCCharacterController : Actor2D
         this.localNotifier.SendEvent(_updateFinishEvent);
     }
 
-    public bool IsGrounded
+    public GameObject GroundedAgainst
     {
-        get { return this.integerCollider.CollideFirst(0, -1, this.HaltMovementMask) != null; }
+        get { return this.integerCollider.CollideFirst(0, -1, this.HaltMovementMask); }
     }
 
     /**
