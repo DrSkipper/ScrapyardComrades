@@ -148,10 +148,11 @@ public class ObjectPools : MonoBehaviour
 
     private bool returnObject(List<PooledObject> pool, PooledObject obj, bool broadcastMessage = true)
     {
+        if (broadcastMessage)
+            obj.BroadcastMessage(POOL_RETURN_METHOD, SendMessageOptions.DontRequireReceiver);
+
         if (pool.Count < pool.Capacity)
         {
-            if (broadcastMessage)
-                obj.BroadcastMessage(POOL_RETURN_METHOD, SendMessageOptions.DontRequireReceiver);
             obj.transform.SetParent(null);
             obj.gameObject.SetActive(false);
             pool.Add(obj);
