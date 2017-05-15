@@ -30,6 +30,8 @@ public class HeartConsumedRippleEffect : MonoBehaviour
 
             if (_t > this.Duration)
             {
+                _t = 0.0f;
+                updateVisual(true);
                 _running = false;
                 this.Effect.enabled = false;
             }
@@ -52,11 +54,14 @@ public class HeartConsumedRippleEffect : MonoBehaviour
         updateVisual();
     }
 
-    private void updateVisual()
+    private void updateVisual(bool wipePosition = false)
     {
         Vector2 pos = this.Camera.WorldToScreenPoint(_effectPos);
         pos.x /= Screen.width;
         pos.y /= Screen.height;
+
+        if (wipePosition)
+            pos = Vector2.zero;
 
         float intensity = this.MaxIntensity;
         if (_t >= this.TimeToMaxIntensity)
