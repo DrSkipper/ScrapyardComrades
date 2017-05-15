@@ -9,8 +9,11 @@ public class HealEffect : VoBehavior
 
     void Awake()
     {
-        this.localNotifier.Listen(HealEvent.NAME, this, onHeal);
+        _prevMat = this.spriteRenderer.material;
         _effectTimer = new Timer(this.Duration, false, false, effectFinished);
+
+        this.localNotifier.Listen(HealEvent.NAME, this, onHeal);
+        this.localNotifier.Listen(HitStunEvent.NAME, this, onHeal);
     }
 
     void FixedUpdate()
@@ -28,7 +31,6 @@ public class HealEffect : VoBehavior
     {
         _effectTimer.reset();
         _effectTimer.start();
-        _prevMat = this.spriteRenderer.material;
         this.spriteRenderer.material = this.OverlayMaterialLerper.Material;
         this.OverlayMaterialLerper.BeginLerp();
     }
