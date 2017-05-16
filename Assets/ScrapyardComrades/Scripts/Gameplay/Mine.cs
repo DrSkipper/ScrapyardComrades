@@ -30,6 +30,6 @@ public class Mine : VoBehavior, IPausable
         PooledObject explosion = this.ExplosionEffect.Retain();
         explosion.transform.position = this.ExplosionLocation.position;
         explosion.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
-        ObjectPools.Release(this.gameObject);
+        this.GetComponent<WorldEntity>().TriggerConsumption();
     }
 }
