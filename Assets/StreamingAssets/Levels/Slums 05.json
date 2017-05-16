@@ -12360,9 +12360,23 @@
       "x": 48,
       "y": 740,
       "z": -2
+    },
+    {
+      "name": "objects_Mine_2",
+      "prefab_name": "Mine",
+      "x": 720,
+      "y": 560,
+      "z": -2
+    },
+    {
+      "name": "objects_Mine_3",
+      "prefab_name": "Mine",
+      "x": 656,
+      "y": 272,
+      "z": -2
     }
   ],
-  "next_object_id": 2,
+  "next_object_id": 4,
   "next_prop_id": 3,
   "next_prop_bg_id": 0,
   "next_light_id": 7,

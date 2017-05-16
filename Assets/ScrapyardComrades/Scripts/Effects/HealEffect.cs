@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(MaterialLerper))]
-public class HealEffect : VoBehavior
+public class HealEffect : VoBehavior, IPausable
 {
     public SpriteRenderer SpriteRenderer;
     public MaterialLerper OverlayMaterialLerper;
