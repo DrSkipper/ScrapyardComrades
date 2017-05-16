@@ -12347,9 +12347,16 @@
       "x": 280,
       "y": 484,
       "z": -2
+    },
+    {
+      "name": "objects_TrainSpawner_2",
+      "prefab_name": "TrainSpawner",
+      "x": 136,
+      "y": 364,
+      "z": -2
     }
   ],
-  "next_object_id": 2,
+  "next_object_id": 3,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 3,

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 public class SCCharacterController : Actor2D
 {
@@ -50,6 +51,7 @@ public class SCCharacterController : Actor2D
     public LayerMask DuckingCollisionMask;
     public LayerMask DeathCollisionMask;
     public LayerMask BounceMask;
+    public LayerMask MovingPlatformMask;
 
     public float Gravity = 100.0f;
     public float MaxFallSpeed = 500.0f;
@@ -125,6 +127,10 @@ public class SCCharacterController : Actor2D
         updateHurtboxForState(this.HurtboxState);
         attemptHurtboxStateChange(SCAttack.HurtboxState.Normal);
         _hasSpawnedLoot = false;
+
+        if (_restingVelocityModifier == null)
+            _restingVelocityModifier = new VelocityModifier(Vector2.zero, VelocityModifier.CollisionBehavior.sustain);
+        this.Actor.SetVelocityModifier(RESTING_VELOCITY_KEY, _restingVelocityModifier);
 
         if (_jumpBufferTimer == null)
             _jumpBufferTimer = new Timer(this.JumpBufferFrames);
@@ -211,6 +217,7 @@ public class SCCharacterController : Actor2D
         this.IsGrabbingLedge = false;
         bool allowFaceChange = true;
         _autoMoveTimer.update();
+        _restingVelocityModifier.Modifier = Vector2.zero;
 
         updateControlParameters();
 
@@ -229,9 +236,15 @@ public class SCCharacterController : Actor2D
                 _jumpGraceTimer.reset(_parameters.JumpGraceFrames);
             if (_jumpGraceTimer.Paused)
                 _jumpGraceTimer.start();
+            
+            // Check if we're on a moving platform
+            int groundedLayerMask = 1 << groundedAgainst.layer;
+            if ((groundedLayerMask & this.MovingPlatformMask) == groundedLayerMask)
+            {
+                attemptMovingPlatformAlignment(groundedAgainst);
+            }
 
             // Bounce if necessary
-            int groundedLayerMask = 1 << groundedAgainst.layer;
             if ((groundedLayerMask & this.BounceMask) == groundedLayerMask)
             {
                 _velocity.y = Mathf.Min(this.MinBounceVelocity, (this.MinBounceVelocity + Mathf.Abs(_velocity.y)) / 2.0f);
@@ -536,6 +549,9 @@ public class SCCharacterController : Actor2D
     private Vector2 _autoMoveValue;
     private int _ledgeGrabY;
     private bool _hasSpawnedLoot;
+    private VelocityModifier _restingVelocityModifier;
+
+    private const string RESTING_VELOCITY_KEY = "rest";
 
     private struct ControlParameters
     {
@@ -620,6 +636,28 @@ public class SCCharacterController : Actor2D
     private void onCollide(LocalEventNotifier.Event e)
     {
         _autoMoveTimer.complete();
+
+        List<GameObject> collisions = (e as CollisionEvent).Hits;
+        for (int i = 0; i < collisions.Count; ++i)
+        {
+            int collidedLayer = 1 << collisions[i].layer;
+            if ((collidedLayer & this.MovingPlatformMask) == collidedLayer)
+            {
+                if (attemptMovingPlatformAlignment(collisions[i]))
+                    break;
+            }
+        }
+    }
+
+    private bool attemptMovingPlatformAlignment(GameObject platform)
+    {
+        IMovingPlatform movingPlatform = platform.GetComponent<IMovingPlatform>();
+        if (movingPlatform != null)
+        {
+            _restingVelocityModifier.Modifier = movingPlatform.Velocity;
+            return true;
+        }
+        return false;
     }
 
     private bool checkAgainstWall(Facing direction)
