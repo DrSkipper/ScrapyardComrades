@@ -72,7 +72,7 @@ public class SCAttack : ScriptableObject
                     return Vector2.zero;
                 case KnockbackType.Constant:
                     Vector2 knockback = VectorExtensions.VectorFromDirection16(this.KnockbackDirection) * this.KnockbackPower;
-                    if ((int)attackerFacing == -1)
+                    if (attackerFacing == SCCharacterController.Facing.Left)
                         knockback = new Vector2(knockback.x * -1, knockback.y);
                     return knockback;
                 case KnockbackType.CharacterDiff:
@@ -81,6 +81,12 @@ public class SCAttack : ScriptableObject
                     return (hitPos - attackerPos).Normalized16() * this.KnockbackPower;
                 case KnockbackType.HitPointToDefender:
                     return (defenderPos - hitPos).Normalized16() * this.KnockbackPower;
+                case KnockbackType.AvgConstantAndDiff:
+                    Vector2 constant = VectorExtensions.VectorFromDirection16(this.KnockbackDirection);
+                    if (attackerFacing == SCCharacterController.Facing.Left)
+                        constant = new Vector2(constant.x * -1, constant.y);
+                    Vector2 charDiff = (defenderPos - attackerPos).normalized;
+                    return ((constant + charDiff) / 2.0f).Normalized16() * this.KnockbackPower;
             }
         }
     }
@@ -92,7 +98,8 @@ public class SCAttack : ScriptableObject
         Constant,
         CharacterDiff,
         AttackerToHitPoint,
-        HitPointToDefender
+        HitPointToDefender,
+        AvgConstantAndDiff
     }
 
     [System.Serializable]

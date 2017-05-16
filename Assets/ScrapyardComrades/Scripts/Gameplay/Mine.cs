@@ -15,7 +15,10 @@ public class Mine : VoBehavior, IPausable
             Damagable damagable = collided.GetComponent<Damagable>();
             if (damagable != null)
             {
-                damagable.Damage(this.HitData, (Vector2)this.transform.position, (Vector2)this.transform.position, this.transform.position.x > collided.transform.position.x ? SCCharacterController.Facing.Left : SCCharacterController.Facing.Right);
+                Actor2D actor = damagable.GetComponent<Actor2D>();
+                float vx = actor == null ? 0.0f : actor.Velocity.x;
+
+                damagable.Damage(this.HitData, (Vector2)this.transform.position, (Vector2)this.transform.position, vx > 0.0f ? SCCharacterController.Facing.Left : SCCharacterController.Facing.Right);
 
                 explode();
             }
