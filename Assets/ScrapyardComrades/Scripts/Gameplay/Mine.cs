@@ -4,6 +4,7 @@ public class Mine : VoBehavior, IPausable
 {
     public LayerMask DamagableLayers;
     public SCAttack.HitData HitData;
+    public PooledObject FlashEffect;
     public PooledObject ExplosionEffect;
     public Transform ExplosionLocation;
 
@@ -27,9 +28,14 @@ public class Mine : VoBehavior, IPausable
 
     private void explode()
     {
+        PooledObject flash = this.FlashEffect.Retain();
+        flash.transform.position = this.transform.position;
+        flash.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
+
         PooledObject explosion = this.ExplosionEffect.Retain();
         explosion.transform.position = this.ExplosionLocation.position;
         explosion.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
+
         this.GetComponent<WorldEntity>().TriggerConsumption();
     }
 }
