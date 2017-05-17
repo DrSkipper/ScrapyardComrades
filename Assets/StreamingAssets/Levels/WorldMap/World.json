@@ -61,8 +61,8 @@
     },
     {
       "name": "Subway 01",
-      "x": 28,
-      "y": 5,
+      "x": 26,
+      "y": 7,
       "width": 3,
       "height": 2
     },
@@ -84,6 +84,13 @@
       "name": "Slums 00",
       "x": 7,
       "y": 1,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Slums 06",
+      "x": 23,
+      "y": 7,
       "width": 3,
       "height": 2
     }
