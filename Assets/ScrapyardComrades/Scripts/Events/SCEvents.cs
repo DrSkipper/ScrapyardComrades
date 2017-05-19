@@ -232,3 +232,27 @@ public class HeartConsumedEvent : LocalEventNotifier.Event
         this.Position = position;
     }
 }
+
+public class MainMenuBGSwapEvent : LocalEventNotifier.Event
+{
+    public const string NAME = "MENU_BG";
+    public int FadeDuration;
+
+    public MainMenuBGSwapEvent(int fadeDuration)
+    {
+        this.Name = NAME;
+        this.FadeDuration = fadeDuration;
+    }
+}
+
+public class MainMenuBGFadeEvent : LocalEventNotifier.Event
+{
+    public const string NAME = "MENU_FADE";
+    public int FadeDuration;
+
+    public MainMenuBGFadeEvent(int fadeDuration)
+    {
+        this.Name = NAME;
+        this.FadeDuration = fadeDuration;
+    }
+}

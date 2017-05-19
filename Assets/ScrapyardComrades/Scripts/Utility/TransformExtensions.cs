@@ -13,6 +13,11 @@ public static class TransformExtensions
         self.position = new Vector3(x, y, self.position.z);
     }
 
+    public static void SetPosition2D(this Transform self, Vector2 pos)
+    {
+        self.SetPosition2D(pos.x, pos.y);
+    }
+
     public static void SetLocalPosition(this Transform self, float x, float y, float z)
     {
         self.localPosition = new Vector3(x, y, z);

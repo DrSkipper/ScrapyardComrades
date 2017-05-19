@@ -13,7 +13,6 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     public string WorldMapName = "World";
     public string StartingAreaName = "intro_0";
     public int WorldGridSpaceSize = 16;
-    public int MinTilesToTravelBetweenLoads = 8;
     public int TileRenderSize = 10;
     public int MinDistanceToLoad = 6;
     public bool FlipVertical = true;
