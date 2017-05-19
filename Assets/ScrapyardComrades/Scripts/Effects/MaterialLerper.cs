@@ -10,6 +10,9 @@ public class MaterialLerper : MonoBehaviour, IPausable
     public Easing.Flow EasingFlow;
     public Easing.Function EasingFunction;
     public bool IsLerping = true;
+    public OnCompleteCallback OnComplete;
+
+    public delegate void OnCompleteCallback();
 
     void Awake()
     {
@@ -31,6 +34,9 @@ public class MaterialLerper : MonoBehaviour, IPausable
             {
                 this.Material.SetFloat(this.PropertyName, this.FinalValue);
                 this.IsLerping = false;
+
+                if (this.OnComplete != null)
+                    this.OnComplete();
             }
             else
             {
