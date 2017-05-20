@@ -106,6 +106,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         updateBoundsCheck();
 
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
+        GlobalEvents.Notifier.Listen(ResumeEvent.NAME, this, onResume);
     }
 
     void FixedUpdate()
@@ -169,6 +170,13 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     private Dictionary<string, TilesetData> _tilesets;
     private Dictionary<string, PooledObject> _objectPrefabs;
     private Dictionary<string, PooledObject> _propPrefabs;
+
+    private void onResume(LocalEventNotifier.Event e)
+    {
+        ResumeEvent resumeEvent = e as ResumeEvent;
+        if (resumeEvent.PauseGroup == PauseController.PauseGroup.SequencedPause && resumeEvent.Tag == ROOM_TRANSITION_SEQUENCE)
+            this.EntityTracker.DisableOutOfBounds(_currentQuad, this.TileRenderSize);
+    }
 
     private void gatherWorldMapInfo()
     {

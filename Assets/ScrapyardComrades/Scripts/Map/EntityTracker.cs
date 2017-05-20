@@ -91,6 +91,18 @@ public class EntityTracker : MonoBehaviour
         }
     }
 
+    public void DisableOutOfBounds(WorldLoadingManager.MapQuad centerQuad, int tileRenderSize)
+    {
+        for (int i = 0; i < _loadedEntities.Count; ++i)
+        {
+            WorldEntity entity = _loadedEntities[i];
+            IntegerVector entityPos = ((Vector2)entity.transform.position) / tileRenderSize;
+            PauseHandler pauseHandler = entity.GetComponent<PauseHandler>();
+            if (pauseHandler != null)
+                pauseHandler.ForceEnabledStateIgnoringPauseState(centerQuad.CenteredBounds.Contains(entityPos, 3));
+        }
+    }
+
     /**
      * Private
      */

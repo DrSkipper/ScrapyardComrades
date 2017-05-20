@@ -70,6 +70,13 @@ public struct IntegerRect
         return point.X >= selfMin.X && point.X <= selfMax.X && point.Y >= selfMin.Y && point.Y <= selfMax.Y;
     }
 
+    public bool Contains(IntegerVector point, int expand)
+    {
+        IntegerVector selfMin = this.Min;
+        IntegerVector selfMax = this.Max;
+        return point.X >= (selfMin.X - expand) && point.X <= (selfMax.X + expand) && point.Y >= (selfMin.Y - expand) && point.Y <= (selfMax.Y + expand);
+    }
+
     //http://stackoverflow.com/questions/20453545/how-to-find-the-nearest-point-in-the-perimeter-of-a-rectangle-to-a-given-point
     public IntegerVector ClosestContainedPoint(IntegerVector point)
     {

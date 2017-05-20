@@ -34,6 +34,14 @@ public class PauseHandler : VoBehavior
         GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, ResumeEvent.NAME);
     }
 
+    public void ForceEnabledStateIgnoringPauseState(bool enabled)
+    {
+        for (int i = 0; i < _pausables.Count; ++i)
+        {
+            _pausables[i].Force(enabled);
+        }
+    }
+
     /**
      * Private
      */
@@ -69,6 +77,12 @@ public class PauseHandler : VoBehavior
                 return false;
             this.Behavior.enabled = this.PreviouslyEnabled;
             return true;
+        }
+
+        public void Force(bool enabled)
+        {
+            this.PreviouslyEnabled = enabled;
+            this.Behavior.enabled = enabled;
         }
     }
     
