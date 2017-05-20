@@ -20,7 +20,7 @@ public class PlayerController : SCCharacterController
 
     public override InputWrapper GatherInput()
     {
-        return new PlayerInput();
+        return _input;
     }
 
     public override void OnSpawn()
@@ -43,5 +43,9 @@ public class PlayerController : SCCharacterController
         }
     }
 
+    /**
+     * Private
+     */
     private bool _died;
+    private PlayerInput _input;
 }

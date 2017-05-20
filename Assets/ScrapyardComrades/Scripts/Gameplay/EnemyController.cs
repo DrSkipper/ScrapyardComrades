@@ -15,16 +15,15 @@ public class EnemyController : SCCharacterController
 
     public override InputWrapper GatherInput()
     {
-        EnemyInput controlInput = new EnemyInput(_ai.RunAI(gatherAiInput(PlayerReference.Collider, PlayerReference.IsAlive)), _previousInput);
-        _previousInput = controlInput;
-        return controlInput;
+        _input.ApplyValues(_ai.RunAI(gatherAiInput(PlayerReference.Collider, PlayerReference.IsAlive)));
+        return _input;
     }
 
     /**
      * Private
      */
     private AI _ai;
-    private EnemyInput _previousInput;
+    private EnemyInput _input;
 
     private AIInput gatherAiInput(IntegerCollider target, bool targetAlive)
     {
@@ -57,7 +56,7 @@ public class EnemyController : SCCharacterController
         public bool Interact { get; private set; }
         public bool PausePressed { get; private set; }
 
-        public EnemyInput(AIOutput output, EnemyInput previousInput)
+        public void ApplyValues(AIOutput output)
         {
             this.MovementAxis = output.MovementDirection;
             this.JumpBegin = output.Jump;
