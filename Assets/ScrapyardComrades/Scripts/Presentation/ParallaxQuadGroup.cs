@@ -121,8 +121,8 @@ public class ParallaxQuadGroup : VoBehavior
         mesh.normals = _norms.ToArray();
         mesh.uv = _uvs.ToArray();
         mesh.triangles = _tris.ToArray();
-        this.MeshFilter.mesh = mesh;
         this.MeshRenderer.material.mainTexture = sprite.texture;
+        this.MeshFilter.mesh = mesh;
     }
 
     /**

@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: 36a30c59c7fdfe449be243a7b4bafa4b
-timeCreated: 1493328781
+guid: 2912e3a4058ac9c438c24446d2466a82
+timeCreated: 1495233063
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: cityscape
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +35,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -84,9 +85,26 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: cityscape
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 480
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -240, y: 135}
+        - {x: -240, y: -135}
+        - {x: 240, y: -135}
+        - {x: 240, y: 135}
+      tessellationDetail: 0
     outline: []
-  spritePackingTag: 
+  spritePackingTag: parallax_1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

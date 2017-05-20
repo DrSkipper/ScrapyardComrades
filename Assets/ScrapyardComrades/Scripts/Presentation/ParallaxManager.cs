@@ -171,7 +171,7 @@ public class ParallaxManager : VoBehavior, IPausable
         NewMapInfo currentQuadInfo = this.WorldManager.CurrentMapInfo;
         for (int i = 0; i < this.CurrentLayerControllers.Length; ++i)
         {
-            if (i < currentQuadInfo.parallax_layers.Count)
+            if (currentQuadInfo.parallax_layers != null && i < currentQuadInfo.parallax_layers.Count)
                 this.CurrentLayerControllers[i].TransitionToNewLayer(currentQuadInfo.parallax_layers[i], this.WorldManager.CurrentQuadWidth);
             else
                 this.CurrentLayerControllers[i].TransitionToNewLayer(null, 0);

@@ -33,12 +33,12 @@ public class ParallaxLayerController : VoBehavior, IPausable
 
         this.PreviousLayerVisual.gameObject.layer = this.CurrentLayerVisual.gameObject.layer;
 
-        if (layer != null)
+        if (layer != null && layer.sprite_name != null && layer.sprite_name != StringExtensions.EMPTY)
         {
             this.CurrentLayerVisual.gameObject.layer = LayerMask.NameToLayer(layer.GetLayerName());
 
             this.ParallaxRatio = layer.parallax_ratio;
-            Sprite sprite = Resources.Load<Sprite>(PARALLAX_PATH + layer.sprite_name);
+            Sprite sprite = IndexedSpriteManager.GetSprite(PARALLAX_PATH,  layer.sprite_name, layer.sprite_name);
             this.CurrentLayerVisual.CreateMeshForLayer(sprite, layer.loops, layer.height, layer.x_position,  layer.parallax_ratio, quadWidth, layer.lit ? this.LitShader : this.UnlitShader);
             this.CurrentLayerVisual.transform.SetZ(layer.depth);
 

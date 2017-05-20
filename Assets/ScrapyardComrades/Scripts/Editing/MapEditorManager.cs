@@ -70,12 +70,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
         _previousCursorPos = new IntegerVector(-9999, -9999);
         _parallaxVisuals = new Dictionary<string, ParallaxQuadGroup>();
         compileTilesets();
-        _parallaxSprites = new List<Sprite>();
-        Texture2D[] parallaxTextures = Resources.LoadAll<Texture2D>(ParallaxLayerController.PARALLAX_PATH);
-        for (int i = 0; i < parallaxTextures.Length; ++i)
-        {
-            _parallaxSprites.AddRange(Resources.LoadAll<Sprite>(ParallaxLayerController.PARALLAX_PATH + parallaxTextures[i].name));
-        }
+        _parallaxSprites = IndexedSpriteManager.GetAllSpritesAtPath(ParallaxLayerController.PARALLAX_PATH);
 
         this.ObjectEraseLine.sortingLayerName = LIGHTING_LAYER;
 
