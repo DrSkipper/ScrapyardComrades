@@ -24,6 +24,7 @@ public class PauseHandler : VoBehavior
 
     void OnSpawn()
     {
+        _currentPausedLayers = 0;
         GlobalEvents.Notifier.Listen(PauseEvent.NAME, this, pause);
         GlobalEvents.Notifier.Listen(ResumeEvent.NAME, this, resume);
     }
@@ -90,9 +91,10 @@ public class PauseHandler : VoBehavior
     private void pause(LocalEventNotifier.Event e)
     {
         PauseController.PauseGroup group = (e as PauseEvent).PauseGroup;
-        if (isAffected(group))
+        if (isAffected(group) && (_currentPausedLayers & (uint)group) != (uint)group)
         {
             _currentPausedLayers += (uint)group;
+            
             for (int i = 0; i < _pausables.Count;)
             {
                 if (_pausables[i].Pause())
@@ -111,7 +113,7 @@ public class PauseHandler : VoBehavior
     private void resume(LocalEventNotifier.Event e)
     {
         PauseController.PauseGroup group = (e as ResumeEvent).PauseGroup;
-        if (_currentPausedLayers != 0 && isAffected(group))
+        if (_currentPausedLayers != 0 && isAffected(group) && (_currentPausedLayers & (uint)group) != 0)
         {
             _currentPausedLayers = _currentPausedLayers.Approach(0, (uint)group);
             if (_currentPausedLayers == 0)
@@ -134,6 +136,6 @@ public class PauseHandler : VoBehavior
 
     private bool isAffected(PauseController.PauseGroup group)
     {
-        return ((uint)group & (uint)this.PauseGroup) == (uint)this.PauseGroup;
+        return (uint)group >= (uint)this.PauseGroup;
     }
 }

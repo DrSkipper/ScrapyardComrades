@@ -7,7 +7,7 @@ public static class PauseController
     {
         None = 0, // Don't pause (i.e. pause menu)
         SequencedPause = 2, // Pause during transitions and scripted sequences (gameplay entites, also pauses during User Pause)
-        UserPause = 6 // Pause when user pauses game (pretty much everything except pause menu)
+        UserPause = 4 // Pause when user pauses game (pretty much everything except pause menu)
     }
 
     public static void UserPause()
