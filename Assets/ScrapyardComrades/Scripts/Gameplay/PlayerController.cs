@@ -16,11 +16,13 @@ public class PlayerController : SCCharacterController
         public bool UseItem { get { return GameplayInput.UseItem; } }
         public bool Interact { get { return GameplayInput.Interact; } }
         public bool PausePressed { get { return GameplayInput.PausePressed; } }
+
+        public static PlayerInput Reference = new PlayerInput();
     }
 
     public override InputWrapper GatherInput()
     {
-        return _input;
+        return PlayerInput.Reference;
     }
 
     public override void OnSpawn()
@@ -47,5 +49,4 @@ public class PlayerController : SCCharacterController
      * Private
      */
     private bool _died;
-    private PlayerInput _input;
 }
