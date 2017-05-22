@@ -49,6 +49,7 @@ public class PauseHandler : VoBehavior
     private uint _currentPausedLayers;
 
     //TODO: Will require state saving and continuing code to get Animator class to work properly with this pausing system. As is the animator state will be restarted when returning from pause. GetCurrentAnimatorStateInfo() and GetNextAnimatorStateInfo() may need to be used, and then data from those passed int Play();
+    // Actually can just set the animation speed to 0, but will only work for Animator components, not *Animation* (legacy version) components
     //private Animator _animator;
 
     private struct Pausable

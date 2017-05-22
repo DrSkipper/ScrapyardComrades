@@ -97,9 +97,7 @@ public class EntityTracker : MonoBehaviour
         {
             WorldEntity entity = _loadedEntities[i];
             IntegerVector entityPos = ((Vector2)entity.transform.position) / tileRenderSize;
-            PauseHandler pauseHandler = entity.GetComponent<PauseHandler>();
-            if (pauseHandler != null)
-                pauseHandler.ForceEnabledStateIgnoringPauseState(centerQuad.CenteredBounds.Contains(entityPos, 3));
+            entity.gameObject.SetActive(centerQuad.CenteredBounds.Contains(entityPos, 2));
         }
     }
 
