@@ -79,16 +79,27 @@ public class CollisionManager : VoBehavior
         }
     }
 
-    public List<IntegerCollider> GetCollidersInRange(IntegerRect range, int mask = Physics2D.DefaultRaycastLayers, string objectTag = null)
+    public List<IntegerCollider> GetCollidersInRange(IntegerRect range, int mask = Physics2D.DefaultRaycastLayers, string objectTag = null, List<IntegerCollider> _listRef = null)
     {
-        List<IntegerCollider> colliders = new List<IntegerCollider>();
+        List<IntegerCollider> colliders;
+        if (_listRef != null)
+        {
+            _listRef.Clear();
+            colliders = _listRef;
+        }
+        else
+        {
+            colliders = new List<IntegerCollider>();
+        }
 
         foreach (LayerMask key in _collidersByLayer.Keys)
         {
             if ((key & mask) != 0)
             {
-                foreach (IntegerCollider collider in _collidersByLayer[key])
+                List<IntegerCollider> collidersInLayer = _collidersByLayer[key];
+                for (int i = 0; i < collidersInLayer.Count; ++i)
                 {
+                    IntegerCollider collider = collidersInLayer[i];
                     if (collider == null)
                     {
                         Debug.LogWarning("Null collider!! key = " + LayerMask.LayerToName(Mathf.RoundToInt(Mathf.Sqrt(key))));
@@ -135,8 +146,10 @@ public class CollisionManager : VoBehavior
                 {
                     if (_solids[x, y] != null)
                     {
-                        foreach (IntegerCollider collider in _solids[x, y])
+                        List<IntegerCollider> colliders = _solids[x, y];
+                        for (int i = 0; i < colliders.Count; ++i)
                         {
+                            IntegerCollider collider = colliders[i];
                             if (collider.Contains(point) && collider.enabled)
                                 return collider.gameObject;
                         }
@@ -149,8 +162,10 @@ public class CollisionManager : VoBehavior
         {
             if ((key & mask) != 0)
             {
-                foreach (IntegerCollider collider in _collidersByLayer[key])
+                List<IntegerCollider> colliders = _collidersByLayer[key];
+                for (int i = 0; i < colliders.Count; ++i)
                 {
+                    IntegerCollider collider = colliders[i];
                     if ((objectTag == null || collider.tag == objectTag) && collider.enabled &&
                         collider.Contains(point))
                         return collider.gameObject;
@@ -163,22 +178,25 @@ public class CollisionManager : VoBehavior
 
     public GameObject CollidePointFirst(IntegerVector point, List<IntegerCollider> potentialCollisions)
     {
-        foreach (IntegerCollider collider in potentialCollisions)
+        for (int i = 0; i < potentialCollisions.Count; ++i)
         {
-            if (collider.enabled && collider.Contains(point))
+            IntegerCollider collider = potentialCollisions[i];
+            if (collider != null && collider.enabled && collider.Contains(point))
                 return collider.gameObject;
         }
         return null;
     }
 
-    public RaycastResult RaycastFirst(IntegerVector origin, Vector2 direction, float range = 100000.0f, int mask = Physics2D.DefaultRaycastLayers, string objectTag = null)
+    public RaycastResult RaycastFirst(IntegerVector origin, Vector2 direction, float range = 100000.0f, int mask = Physics2D.DefaultRaycastLayers, string objectTag = null, List<IntegerCollider> possibleCollisions = null)
     {
         Vector2 d = direction * range;
         Vector2 chunkD = range <= this.RaycastChunkSize ? d : direction * this.RaycastChunkSize;
 
         IntegerVector halfwayPoint = new IntegerVector(chunkD / 2.0f) + origin;
         IntegerVector rangeVector = new IntegerVector(Mathf.RoundToInt(Mathf.Abs(chunkD.x) + 2.5f), Mathf.RoundToInt(Mathf.Abs(chunkD.y) + 2.5f));
-        List<IntegerCollider> possibleCollisions = this.GetCollidersInRange(new IntegerRect(halfwayPoint, rangeVector), mask);
+        bool usingGivenPossibles = possibleCollisions != null;
+        if (!usingGivenPossibles)
+            possibleCollisions = this.GetCollidersInRange(new IntegerRect(halfwayPoint, rangeVector), mask);
 
         Vector2 positionModifier = Vector2.zero;
         IntegerVector position = origin;
@@ -207,7 +225,8 @@ public class CollisionManager : VoBehavior
                 // Recalculate chunk
                 halfwayPoint = new IntegerVector(chunkD / 2.0f) + position;
                 rangeVector = new IntegerVector(Mathf.RoundToInt(Mathf.Abs(chunkD.x) + 2.55f), Mathf.RoundToInt(Mathf.Abs(chunkD.y) + 2.55f));
-                possibleCollisions = this.GetCollidersInRange(new IntegerRect(halfwayPoint, rangeVector), mask);
+                if (!usingGivenPossibles)
+                    this.GetCollidersInRange(new IntegerRect(halfwayPoint, rangeVector), mask, null, possibleCollisions);
                 ++chunksSoFar;
             }
 
@@ -337,8 +356,8 @@ public class CollisionManager : VoBehavior
                 halfwayPoint = new IntegerVector(chunkD / 2.0f) + position;
                 rangeVector = new IntegerVector(Mathf.RoundToInt(Mathf.Abs(chunkD.x) + 2.55f), Mathf.RoundToInt(Mathf.Abs(chunkD.y) + 2.55f));
                 possibleCollisions = this.GetCollidersInRange(new IntegerRect(halfwayPoint, rangeVector), mask);
-                foreach (IntegerCollider collider in collided)
-                    possibleCollisions.Remove(collider);
+                for (int i = 0; i < collided.Count; ++i)
+                    possibleCollisions.Remove(collided[i]);
                 ++chunksSoFar;
             }
 
@@ -455,8 +474,8 @@ public class CollisionManager : VoBehavior
                 halfwayPoint = new IntegerVector(chunkD / 2.0f) + position;
                 rangeVector = new IntegerVector(Mathf.RoundToInt(Mathf.Abs(chunkD.x) + 2.55f), Mathf.RoundToInt(Mathf.Abs(chunkD.y) + 2.55f));
                 possibleCollisions = this.GetCollidersInRange(new IntegerRect(halfwayPoint, rangeVector), passThroughMask | haltMask);
-                foreach (IntegerCollider collider in collided)
-                    possibleCollisions.Remove(collider);
+                for (int i = 0; i < collided.Count; ++i)
+                    possibleCollisions.Remove(collided[i]);
                 ++chunksSoFar;
             }
 

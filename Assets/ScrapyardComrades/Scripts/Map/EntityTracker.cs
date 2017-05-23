@@ -91,14 +91,18 @@ public class EntityTracker : MonoBehaviour
         }
     }
 
-    public void DisableOutOfBounds(WorldLoadingManager.MapQuad centerQuad, int tileRenderSize)
+    public void DisableOutOfBounds(WorldLoadingManager.MapQuad centerQuad, int tileRenderSize, WorldLoadingManager.MapQuad prevQuad = null)
     {
         for (int i = 0; i < _loadedEntities.Count; ++i)
         {
             WorldEntity entity = _loadedEntities[i];
             IntegerVector entityPos = ((Vector2)entity.transform.position) / tileRenderSize;
-            entity.gameObject.SetActive(centerQuad.CenteredBounds.Contains(entityPos, 2));
+            bool inBounds = centerQuad.CenteredBounds.Contains(entityPos, 2);
+            if (!inBounds && prevQuad != null)
+                inBounds = prevQuad.GetRelativeBounds(centerQuad).Contains(entityPos, 2);
+            entity.gameObject.SetActive(inBounds);
         }
+        //TODO: Disable untracked sprite objects and lights significanly outside bounds of current room and prev room
     }
 
     /**

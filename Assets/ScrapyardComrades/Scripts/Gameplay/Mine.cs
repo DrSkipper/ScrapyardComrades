@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class Mine : VoBehavior, IPausable
 {
@@ -8,9 +9,25 @@ public class Mine : VoBehavior, IPausable
     public PooledObject ExplosionEffect;
     public Transform ExplosionLocation;
 
+    void Awake()
+    {
+        _nearbyColliders = new List<IntegerCollider>();
+    }
+
+    void OnSpawn()
+    {
+        gatherNearbyColliders();
+        _framesUntilColliderGet = FRAME_OFFSET % FRAMES_BETWEEN_COLLIDER_GET;
+        FRAME_OFFSET = FRAME_OFFSET >= 10000 ? 0 : FRAME_OFFSET + 1;
+    }
+
     void FixedUpdate()
     {
-        GameObject collided = this.integerCollider.CollideFirst(0, 0, this.DamagableLayers);
+        --_framesUntilColliderGet;
+        if (_framesUntilColliderGet < 0)
+            gatherNearbyColliders();
+
+        GameObject collided = this.integerCollider.CollideFirst(0, 0, this.DamagableLayers, null, _nearbyColliders);
         if (collided != null)
         {
             Damagable damagable = collided.GetComponent<Damagable>();
@@ -26,6 +43,16 @@ public class Mine : VoBehavior, IPausable
         }
     }
 
+    /**
+     * Private
+     */
+    private List<IntegerCollider> _nearbyColliders;
+    private int _framesUntilColliderGet;
+
+    private static int FRAME_OFFSET = 0;
+    private const int ENLARGE_AMT = 24;
+    private const int FRAMES_BETWEEN_COLLIDER_GET = 10;
+
     private void explode()
     {
         PooledObject flash = this.FlashEffect.Retain();
@@ -37,5 +64,11 @@ public class Mine : VoBehavior, IPausable
         explosion.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
 
         this.GetComponent<WorldEntity>().TriggerConsumption();
+    }
+
+    private void gatherNearbyColliders()
+    {
+        this.integerCollider.GetPotentialCollisions(0, 0, 0, 0, this.DamagableLayers, _nearbyColliders, ENLARGE_AMT, ENLARGE_AMT);
+        _framesUntilColliderGet = FRAMES_BETWEEN_COLLIDER_GET;
     }
 }

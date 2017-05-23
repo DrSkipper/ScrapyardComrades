@@ -47,20 +47,19 @@ public class Actor2D : VoBehavior, IPausable
             this.ActualPosition.localPosition = new Vector3(_positionModifier.x, _positionModifier.y);
     }
 
-    public void Move(Vector2 d)
+    public void Move(Vector2 d, List<IntegerCollider> potentialCollisions = null)
     {
         float incX = d.x;
         float incY = d.y;
 
-        List<IntegerCollider> potentialCollisions = null;
+        if (potentialCollisions == null)
+            potentialCollisions = this.integerCollider.GetPotentialCollisions(d.x, d.y, 0, 0, this.CollisionMask);
 
         if (Mathf.Abs(incX) > MAX_POSITION_INCREMENT || Mathf.Abs(incY) > MAX_POSITION_INCREMENT)
         {
             Vector2 dNormalized = d.normalized * MAX_POSITION_INCREMENT;
             incX = dNormalized.x;
             incY = dNormalized.y;
-
-            potentialCollisions = this.integerCollider.GetPotentialCollisions(d.x, d.y, 0, 0, this.CollisionMask);
         }
 
         Vector2 soFar = Vector2.zero;

@@ -16,10 +16,12 @@ public class PlayerRestrictedController : PlayerController
         public bool UseItem { get { return false; } }
         public bool Interact { get { return GameplayInput.Interact; } }
         public bool PausePressed { get { return GameplayInput.PausePressed; } }
+
+        public static PlayerRestrictedInput Reference = new PlayerRestrictedInput();
     }
 
     public override InputWrapper GatherInput()
     {
-        return new PlayerRestrictedInput();
+        return PlayerRestrictedInput.Reference;
     }
 }

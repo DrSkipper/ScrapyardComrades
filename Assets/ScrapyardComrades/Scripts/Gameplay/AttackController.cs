@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class AttackController : VoBehavior, IPausable
 {
@@ -9,7 +10,14 @@ public class AttackController : VoBehavior, IPausable
     public LayerMask DamagableLayers;
     public PooledObject HitEffect;
     public HurtboxChangeDelegate HurtboxChangeCallback;
+    public int CollisionGatherEnlargeX = 96;
+    public int CollisionGatherEnlargeY = 96;
     public delegate bool HurtboxChangeDelegate(SCAttack.HurtboxState newState);
+
+    void Awake()
+    {
+        _nearbyColliders = new List<IntegerCollider>();
+    }
 
     public void AddDamageBoxes()
     {
@@ -21,6 +29,7 @@ public class AttackController : VoBehavior, IPausable
 
     void OnReturnToPool()
     {
+        _attacking = false;
         for (int i = 0; i < this.DamageBoxes.Length; ++i)
         {
             this.DamageBoxes[i].RemoveFromCollisionPool();
@@ -31,17 +40,30 @@ public class AttackController : VoBehavior, IPausable
     {
         if (currentAttack == null)
         {
-            for (int i = 0; i < this.DamageBoxes.Length; ++i)
+            if (_attacking)
             {
-                this.DamageBoxes[i].transform.localPosition = Vector2.zero;
-                this.DamageBoxes[i].enabled = false;
-            }
+                _attacking = false;
+                _framesUntilColliderGet = 0;
+                _nearbyColliders.Clear();
 
-            if (this.EffectAnimator != null)
-                this.EffectAnimator.gameObject.SetActive(false);
+                for (int i = 0; i < this.DamageBoxes.Length; ++i)
+                {
+                    this.DamageBoxes[i].transform.localPosition = Vector2.zero;
+                    this.DamageBoxes[i].enabled = false;
+                }
+
+                if (this.EffectAnimator != null)
+                    this.EffectAnimator.gameObject.SetActive(false);
+            }
         }
         else
         {
+            --_framesUntilColliderGet;
+            if (_framesUntilColliderGet < 0)
+                gatherNearbyColliders();
+
+            _attacking = true;
+
             // Activate effect if necessary
             if (this.EffectAnimator != null)
             {
@@ -81,7 +103,7 @@ public class AttackController : VoBehavior, IPausable
 
                         if (collided == null)
                         {
-                            collided = this.DamageBoxes[i].CollideFirst(0, 0, this.DamagableLayers);
+                            collided = this.DamageBoxes[i].CollideFirst(0, 0, this.DamagableLayers, null, _nearbyColliders);
                             if (collided != null)
                                 collider = this.DamageBoxes[i];
                         }
@@ -133,6 +155,11 @@ public class AttackController : VoBehavior, IPausable
      * Private
      */
     private FreezeFrameEvent _freezeFrameEvent;
+    private bool _attacking;
+    private List<IntegerCollider> _nearbyColliders;
+    private int _framesUntilColliderGet;
+    
+    private const int FRAMES_BETWEEN_COLLIDER_GET = 8;
 
     private SCAttack.HitboxKeyframe? getKeyframeForUpdateFrame(SCAttack attack, int updateFrame)
     {
@@ -158,5 +185,11 @@ public class AttackController : VoBehavior, IPausable
             }
         }
         return null;
+    }
+
+    private void gatherNearbyColliders()
+    {
+        this.integerCollider.GetPotentialCollisions(0, 0, 0, 0, this.DamagableLayers, _nearbyColliders, this.CollisionGatherEnlargeX, this.CollisionGatherEnlargeY);
+        _framesUntilColliderGet = FRAMES_BETWEEN_COLLIDER_GET;
     }
 }

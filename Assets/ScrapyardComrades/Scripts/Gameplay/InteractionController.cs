@@ -7,11 +7,23 @@ public class InteractionController : VoBehavior
     public IntegerCollider InteractionBox;
     public LayerMask InteractionMask;
 
-    void Start()
+    void Awake()
     {
         _collisions = new List<GameObject>();
+        _nearbyColliders = new List<IntegerCollider>();
         _targetChangeEvent = new InteractionTargetChangeEvent(null);
+    }
+
+    void Start()
+    {
         this.localNotifier.Listen(CharacterUpdateFinishedEvent.NAME, this, postUpdate);
+    }
+
+    void OnSpawn()
+    {
+        gatherNearbyColliders();
+        _framesUntilColliderGet = FRAME_OFFSET % FRAMES_BETWEEN_COLLIDER_GET;
+        FRAME_OFFSET = FRAME_OFFSET >= 10000 ? 0 : FRAME_OFFSET + 1;
     }
 
     /**
@@ -20,11 +32,21 @@ public class InteractionController : VoBehavior
     private GameObject _highlightedObject;
     private List<GameObject> _collisions;
     private InteractionTargetChangeEvent _targetChangeEvent;
+    private List<IntegerCollider> _nearbyColliders;
+    private int _framesUntilColliderGet;
+
+    private static int FRAME_OFFSET = 0;
+    private const int ENLARGE_AMT = 48;
+    private const int FRAMES_BETWEEN_COLLIDER_GET = 8;
 
     private void postUpdate(LocalEventNotifier.Event e)
     {
+        --_framesUntilColliderGet;
+        if (_framesUntilColliderGet < 0)
+            gatherNearbyColliders();
+
         // Find closest interactable within range
-        this.InteractionBox.Collide(_collisions, 0, 0, this.InteractionMask);
+        this.InteractionBox.Collide(_collisions, 0, 0, this.InteractionMask, null, _nearbyColliders);
         GameObject nextHighlight = null;
         float dist = float.MaxValue;
         for (int i = 0; i < _collisions.Count; ++i)
@@ -50,7 +72,14 @@ public class InteractionController : VoBehavior
         // If interacting, trigger interataction with object
         if (_highlightedObject != null && (e as CharacterUpdateFinishedEvent).CurrentAttack == null && this.CharacterController.MostRecentInput.Interact)
         {
+            _framesUntilColliderGet = 0;
             _highlightedObject.GetComponent<Interactable>().Interact(this);
         }
+    }
+
+    private void gatherNearbyColliders()
+    {
+        this.InteractionBox.GetPotentialCollisions(0, 0, 0, 0, this.InteractionMask, _nearbyColliders, ENLARGE_AMT, ENLARGE_AMT);
+        _framesUntilColliderGet = FRAMES_BETWEEN_COLLIDER_GET;
     }
 }

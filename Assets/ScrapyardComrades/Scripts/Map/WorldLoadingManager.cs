@@ -104,6 +104,8 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         loadQuads();
         _currentLoadedQuads.AddRange(_targetLoadedQuads);
         updateBoundsCheck();
+        //this.EntityTracker.DisableOutOfBounds(_currentQuad, this.TileRenderSize);
+        //TODO: Way to disable out of bounds objects after the initial load (not as easy as calling here since there's a delay before objects are spawned)
 
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
         GlobalEvents.Notifier.Listen(ResumeEvent.NAME, this, onResume);
@@ -127,6 +129,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
                 _currentLoadedQuads.Clear();
                 _currentLoadedQuads.AddRange(_targetLoadedQuads);
                 _positionOfLastLoading = _tracker.transform.position;
+                this.EntityTracker.DisableOutOfBounds(_currentQuad, this.TileRenderSize, _prevQuad);
                 PauseController.BeginSequence(ROOM_TRANSITION_SEQUENCE);
             }
         }
@@ -159,6 +162,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     private const int LOAD_SPACING = 2;
     private List<MapLoader> _activeMapLoaders;
     private MapQuad _currentQuad;
+    private MapQuad _prevQuad;
     private List<MapQuad> _currentLoadedQuads;
     private List<MapQuad> _targetLoadedQuads;
     private Vector2? _positionOfLastLoading = null;
@@ -242,6 +246,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
             IntegerRect otherRect = _targetLoadedQuads[i].GetRelativeBounds(_currentQuad);
             if (otherRect.Contains(_trackerPosition))
             {
+                _prevQuad = _currentQuad;
                 _currentQuad = _targetLoadedQuads[i];
                 _recenterOffset = otherRect.Center;
                 break;
