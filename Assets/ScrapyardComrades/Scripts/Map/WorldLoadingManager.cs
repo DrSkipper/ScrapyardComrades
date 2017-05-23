@@ -104,8 +104,9 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         loadQuads();
         _currentLoadedQuads.AddRange(_targetLoadedQuads);
         updateBoundsCheck();
-        //this.EntityTracker.DisableOutOfBounds(_currentQuad, this.TileRenderSize);
         //TODO: Way to disable out of bounds objects after the initial load (not as easy as calling here since there's a delay before objects are spawned)
+        //this.EntityTracker.DisableOutOfBounds(_currentQuad, this.TileRenderSize);
+        disableNonCenteredQuadVisuals();
 
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
         GlobalEvents.Notifier.Listen(ResumeEvent.NAME, this, onResume);
@@ -130,6 +131,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
                 _currentLoadedQuads.AddRange(_targetLoadedQuads);
                 _positionOfLastLoading = _tracker.transform.position;
                 this.EntityTracker.DisableOutOfBounds(_currentQuad, this.TileRenderSize, _prevQuad);
+                enableAllQuadVisuals();
                 PauseController.BeginSequence(ROOM_TRANSITION_SEQUENCE);
             }
         }
@@ -175,11 +177,30 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     private Dictionary<string, PooledObject> _objectPrefabs;
     private Dictionary<string, PooledObject> _propPrefabs;
 
+    private void enableAllQuadVisuals()
+    {
+        for (int i = 0; i < _activeMapLoaders.Count; ++i)
+        {
+            _activeMapLoaders[i].EnableVisual(true);
+        }
+    }
+
+    private void disableNonCenteredQuadVisuals()
+    {
+        for (int i = 0; i < _activeMapLoaders.Count; ++i)
+        {
+            _activeMapLoaders[i].EnableVisual(_activeMapLoaders[i].MapName == this.CurrentQuadName);
+        }
+    }
+
     private void onResume(LocalEventNotifier.Event e)
     {
         ResumeEvent resumeEvent = e as ResumeEvent;
         if (resumeEvent.PauseGroup == PauseController.PauseGroup.SequencedPause && resumeEvent.Tag == ROOM_TRANSITION_SEQUENCE)
+        {
             this.EntityTracker.DisableOutOfBounds(_currentQuad, this.TileRenderSize);
+            disableNonCenteredQuadVisuals();
+        }
     }
 
     private void gatherWorldMapInfo()
@@ -266,6 +287,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
                 {
                     loader.ClearMap();
                     _activeMapLoaders.Remove(loader);
+                    loader.EnableVisual(true);
                     ObjectPools.Release(loader.gameObject);
                 }
             }

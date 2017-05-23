@@ -75,6 +75,12 @@ public class MapLoader : MonoBehaviour
         this.GeometryCreator.AddColliders();
     }
 
+    public void EnableVisual(bool enable)
+    {
+        this.PlatformsRenderer.renderer.enabled = enable;
+        this.BGRenderer.renderer.enabled = enable;
+    }
+
     public static NewMapInfo GatherMapInfo(string mapName)
     {
         string path = Application.streamingAssetsPath + LEVELS_PATH + mapName + StringExtensions.JSON_SUFFIX;
