@@ -29,9 +29,8 @@ public class TimedCallbacks : VoBehavior, IPausable
     {
         if (_callbackEntries != null)
         {
-            foreach (Object owner in _callbackEntries.Keys)
+            foreach (List<CallbackEntry> entries in _callbackEntries.Values)
             {
-                List<CallbackEntry> entries = _callbackEntries[owner];
                 for (int i = 0; i < entries.Count;)
                 {
                     CallbackEntry entry = entries[i];
