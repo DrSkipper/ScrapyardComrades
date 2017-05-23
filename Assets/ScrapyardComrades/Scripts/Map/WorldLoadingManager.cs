@@ -187,9 +187,18 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
 
     private void disableNonCenteredQuadVisuals()
     {
+        bool found = false;
         for (int i = 0; i < _activeMapLoaders.Count; ++i)
         {
-            _activeMapLoaders[i].EnableVisual(_activeMapLoaders[i].MapName == this.CurrentQuadName);
+            if (!found && _activeMapLoaders[i].MapName == this.CurrentQuadName)
+            {
+                _activeMapLoaders[i].EnableVisual(true);
+                found = true;
+            }
+            else
+            {
+                _activeMapLoaders[i].EnableVisual(false);
+            }
         }
     }
 

@@ -81,6 +81,15 @@ public class ObjectPlacer : VoBehavior
         _sortingLayerNames.Clear();
     }
 
+    public void EnableNonTrackedObjects(bool enabled)
+    {
+        for (int i = 0; i < _nonTrackedObjects.Count; ++i)
+        {
+            if (_nonTrackedObjects[i].GetComponent<SCParallaxObject>() == null)
+                _nonTrackedObjects[i].gameObject.SetActive(enabled);
+        }
+    }
+
     /**
      * Private
      */

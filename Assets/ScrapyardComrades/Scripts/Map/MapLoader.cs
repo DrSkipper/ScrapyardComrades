@@ -79,6 +79,7 @@ public class MapLoader : MonoBehaviour
     {
         this.PlatformsRenderer.renderer.enabled = enable;
         this.BGRenderer.renderer.enabled = enable;
+        this.ObjectPlacer.EnableNonTrackedObjects(enable);
     }
 
     public static NewMapInfo GatherMapInfo(string mapName)
