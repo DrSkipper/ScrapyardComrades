@@ -8,6 +8,7 @@ public class Mine : VoBehavior, IPausable
     public PooledObject FlashEffect;
     public PooledObject ExplosionEffect;
     public Transform ExplosionLocation;
+    public AudioClip ExplosionSound;
 
     void Awake()
     {
@@ -62,6 +63,9 @@ public class Mine : VoBehavior, IPausable
         PooledObject explosion = this.ExplosionEffect.Retain();
         explosion.transform.position = this.ExplosionLocation.position;
         explosion.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
+
+        if (this.ExplosionSound != null)
+            SoundManager.Play(this.ExplosionSound.name);
 
         this.GetComponent<WorldEntity>().TriggerConsumption();
     }

@@ -3,6 +3,7 @@
 public class Consumable : VoBehavior, Interactable
 {
     public SCConsumable Data;
+    public AudioClip ConsumptionSound;
 
     public void Interact(InteractionController interactor)
     {
@@ -23,6 +24,9 @@ public class Consumable : VoBehavior, Interactable
             _heartConsumedEvent.Position = this.transform.position;
 
         GlobalEvents.Notifier.SendEvent(_heartConsumedEvent);
+
+        if (this.ConsumptionSound != null)
+            SoundManager.Play(this.ConsumptionSound.name);
     }
 
     public void OnSpawn()

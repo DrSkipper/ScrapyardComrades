@@ -7,6 +7,7 @@ public class SimpleTransitioner : MonoBehaviour
     public string DestinationScene = "WorldEditor";
     public int Delay = 0;
     public string EventNameToSend = "";
+    public AudioClip ClipToPlay;
 
     void Awake()
     {
@@ -25,6 +26,9 @@ public class SimpleTransitioner : MonoBehaviour
                 GlobalEvents.Notifier.SendEvent(new LocalEventNotifier.Event(this.EventNameToSend));
             _delayTimer.start();
             _began = true;
+
+            if (this.ClipToPlay != null)
+                SoundManager.Play(this.ClipToPlay.name);
         }
     }
 
