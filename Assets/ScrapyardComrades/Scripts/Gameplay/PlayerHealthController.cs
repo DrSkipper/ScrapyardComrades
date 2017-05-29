@@ -102,7 +102,7 @@ public class PlayerHealthController : VoBehavior, IPausable
         otherEntity.EntityName = entity.EntityName;
         otherEntity.QuadName = entity.QuadName;
 
-        nextLevel.transform.SetPosition2D(this.transform.position.x, this.transform.position.y + offsetY + halfHeight - otherHalfHeight - otherOffsetY);
+        nextLevel.transform.SetPosition2D(this.transform.position.x, this.transform.position.y + offsetY - halfHeight + otherHalfHeight - otherOffsetY);
 
         nextLevel.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
 
