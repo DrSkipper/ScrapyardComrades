@@ -111,10 +111,8 @@ public class SCSpriteAnimator : VoBehavior, IPausable
     private void updateVisual()
     {
         this.spriteRenderer.sprite = _currentAnimation.Frames[_frame];
-#if !UNITY_EDITOR
-        if (_frame == _currentAnimation.SfxFrame && _currentAnimation.Sfx != null)
+        if (_frame == _currentAnimation.SfxFrame && _currentAnimation.Sfx != null && Application.isPlaying)
             SoundManager.Play(_currentAnimation.Sfx.name);
-#endif
     }
 
     private void guaranteeCurrentAnimation()
