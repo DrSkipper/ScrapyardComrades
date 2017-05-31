@@ -524,6 +524,12 @@ public class SCCharacterController : Actor2D
         get { return this.integerCollider.CollideFirst(0, -1, this.HaltMovementMask, null, potentialCollisions()); }
     }
 
+    // Use carefully and sparingly, probably only before first update call
+    public void SetFacingDirectly(Facing facing)
+    {
+        _facing = facing;
+    }
+
     /**
      * Private
      */

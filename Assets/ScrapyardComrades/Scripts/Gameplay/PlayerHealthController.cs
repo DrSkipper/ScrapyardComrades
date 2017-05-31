@@ -104,6 +104,22 @@ public class PlayerHealthController : VoBehavior, IPausable
 
         nextLevel.transform.SetPosition2D(this.transform.position.x, this.transform.position.y + offsetY - halfHeight + otherHalfHeight - otherOffsetY);
 
+        // Make sure we're not spawning into ground, since leveled up hitbox will be wider (note that we shouldn't need to check Y here, because players will spawn ducking if they aren't able to stand up, and all duck heights should be less or equal to the standing height of the previous player level
+        SCCharacterController otherActor = otherEntity.GetComponent<SCCharacterController>();
+        int dir = -1;
+        int mag = 0;
+        while (otherCollider.CollideFirst(mag * dir, 0, otherActor.HaltMovementMask) != null)
+        {
+            dir *= -1;
+            if (dir == 1)
+                mag += 1;
+        }
+
+        if (mag > 0)
+            nextLevel.transform.SetX(nextLevel.transform.position.x + (mag * dir));
+
+        otherActor.SetFacingDirectly(this.GetComponent<SCCharacterController>().CurrentFacing);
+
         nextLevel.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
 
         GlobalEvents.Notifier.SendEvent(new EntityReplacementEvent(otherEntity));
