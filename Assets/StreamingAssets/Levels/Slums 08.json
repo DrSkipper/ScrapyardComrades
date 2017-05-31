@@ -12351,8 +12351,59 @@
       "layer_name": "ParallaxBack"
     }
   ],
-  "props": [],
-  "props_background": [],
+  "props": [
+    {
+      "name": "props_SlumsLamp_3",
+      "prefab_name": "SlumsLamp",
+      "x": 1292,
+      "y": 624,
+      "z": 2
+    },
+    {
+      "name": "props_slums_plant_4",
+      "prefab_name": "slums_plant",
+      "x": 524,
+      "y": 764,
+      "z": 2
+    },
+    {
+      "name": "props_slums_car2_5",
+      "prefab_name": "slums_car2",
+      "x": 1488,
+      "y": 660,
+      "z": 2
+    },
+    {
+      "name": "props_slums_neon_6",
+      "prefab_name": "slums_neon",
+      "x": 360,
+      "y": 236,
+      "z": 2
+    }
+  ],
+  "props_background": [
+    {
+      "name": "props_back_slum_house10_0",
+      "prefab_name": "slum_house10",
+      "x": 1296,
+      "y": 756,
+      "z": 6
+    },
+    {
+      "name": "props_back_slum_house7_8",
+      "prefab_name": "slum_house7",
+      "x": 268,
+      "y": 240,
+      "z": 6
+    },
+    {
+      "name": "props_back_slum_house9_11",
+      "prefab_name": "slum_house9",
+      "x": 332,
+      "y": 172,
+      "z": 6
+    }
+  ],
   "objects": [
     {
       "name": "objects_HeroLV2_2",
@@ -12405,9 +12456,9 @@
     }
   ],
   "next_object_id": 11,
-  "next_prop_id": 3,
-  "next_prop_bg_id": 0,
-  "next_light_id": 7,
+  "next_prop_id": 7,
+  "next_prop_bg_id": 12,
+  "next_light_id": 15,
   "lights": [
     {
       "name": "lights_OverlayLight_25",
@@ -12474,6 +12525,160 @@
         false
       ],
       "parallax_ratio": 0.74999994
+    },
+    {
+      "name": "lights_OverlayLight_7",
+      "x": 368,
+      "y": 236,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 620,
+      "distance": 140,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.9632353,
+      "g": 0.155817449,
+      "b": 0.306164175,
+      "affects_foreground": true,
+      "affects_parallax": [
+        false,
+        false,
+        false
+      ],
+      "parallax_ratio": 0.0
+    },
+    {
+      "name": "lights_OverlayLight_8",
+      "x": 60,
+      "y": 664,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 620,
+      "distance": 140,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": [
+        false,
+        false,
+        false
+      ],
+      "parallax_ratio": 0.0
+    },
+    {
+      "name": "lights_OverlayLight_9",
+      "x": 44,
+      "y": 92,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 620,
+      "distance": 140,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": [
+        false,
+        false,
+        false
+      ],
+      "parallax_ratio": 0.0
+    },
+    {
+      "name": "lights_OverlayLight_10",
+      "x": 704,
+      "y": 64,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 620,
+      "distance": 140,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": [
+        false,
+        false,
+        false
+      ],
+      "parallax_ratio": 0.0
+    },
+    {
+      "name": "lights_OverlayLight_12",
+      "x": 916,
+      "y": 692,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 620,
+      "distance": 140,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": [
+        false,
+        false,
+        false
+      ],
+      "parallax_ratio": 0.0
+    },
+    {
+      "name": "lights_OverlayLight_13",
+      "x": 1140,
+      "y": 384,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 620,
+      "distance": 140,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": [
+        false,
+        false,
+        false
+      ],
+      "parallax_ratio": 0.0
+    },
+    {
+      "name": "lights_OverlayLight_14",
+      "x": 672,
+      "y": 304,
+      "light_type": 2,
+      "intensity": 1,
+      "range": 580,
+      "distance": 100,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": [
+        false,
+        false,
+        false
+      ],
+      "parallax_ratio": 0.0
     }
   ]
 }

@@ -18620,13 +18620,6 @@
       "z": -2
     },
     {
-      "name": "objects_Enemy_LV1_C_28",
-      "prefab_name": "Enemy_LV1_C",
-      "x": 692,
-      "y": 228,
-      "z": -2
-    },
-    {
       "name": "objects_Mine_29",
       "prefab_name": "Mine",
       "x": 1428,
@@ -18639,9 +18632,23 @@
       "x": 1280,
       "y": 1028,
       "z": -2
+    },
+    {
+      "name": "objects_Enemy_LV1_B_32",
+      "prefab_name": "Enemy_LV1_B",
+      "x": 540,
+      "y": 484,
+      "z": -2
+    },
+    {
+      "name": "objects_Enemy_LV1_C_33",
+      "prefab_name": "Enemy_LV1_C",
+      "x": 1228,
+      "y": 228,
+      "z": -2
     }
   ],
-  "next_object_id": 32,
+  "next_object_id": 34,
   "next_prop_id": 4,
   "next_prop_bg_id": 15,
   "next_light_id": 15,
