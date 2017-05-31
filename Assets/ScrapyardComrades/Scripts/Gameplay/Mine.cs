@@ -51,8 +51,8 @@ public class Mine : VoBehavior, IPausable
     private int _framesUntilColliderGet;
 
     private static int FRAME_OFFSET = 0;
-    private const int ENLARGE_AMT = 24;
-    private const int FRAMES_BETWEEN_COLLIDER_GET = 10;
+    private const int ENLARGE_AMT = 40;
+    private const int FRAMES_BETWEEN_COLLIDER_GET = 3;
 
     private void explode()
     {
