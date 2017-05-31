@@ -66,8 +66,10 @@ public class Damagable : VoBehavior, IPausable
 
         if (this.Dead)
         {
-            //TODO: Need to move the layer that our collider is filed under in the CollisionManager as well
+            this.integerCollider.RemoveFromCollisionPool();
             this.gameObject.layer = LayerMask.NameToLayer(this.DeathLayer);
+            this.integerCollider.AddToCollisionPool();
+
             _hitStunEvent.GravityMultiplier *= DEATH_GRAV_MULT;
             _hitStunEvent.GravityMultiplier *= DEATH_AIRFRICT_MULT;
             this.Actor.Velocity = this.Actor.Velocity.normalized * (this.Actor.Velocity.magnitude + DEATH_KNOCKBACK_ADD);
