@@ -19128,7 +19128,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_58"
         },
         {
           "is_filled": true,
@@ -19192,7 +19192,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_59"
         },
         {
           "is_filled": true,
@@ -24661,7 +24661,7 @@
   "next_object_id": 20,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
-  "next_light_id": 19,
+  "next_light_id": 21,
   "lights": [
     {
       "name": "lights_OverlayLight_7",
@@ -24857,6 +24857,42 @@
         false,
         false
       ],
+      "parallax_ratio": 0.0
+    },
+    {
+      "name": "lights_OverlayLight_19",
+      "x": 2352,
+      "y": 560,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 600,
+      "distance": 140,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.489932656,
+      "g": 0.786764741,
+      "b": 0.2487565,
+      "affects_foreground": true,
+      "affects_parallax": [],
+      "parallax_ratio": 0.0
+    },
+    {
+      "name": "lights_OverlayLight_20",
+      "x": 2864,
+      "y": 560,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 600,
+      "distance": 140,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.489932656,
+      "g": 0.786764741,
+      "b": 0.2487565,
+      "affects_foreground": true,
+      "affects_parallax": [],
       "parallax_ratio": 0.0
     }
   ]
