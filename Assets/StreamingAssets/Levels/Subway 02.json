@@ -24663,9 +24663,23 @@
       "x": 196,
       "y": 176,
       "z": -2
+    },
+    {
+      "name": "objects_Enemy_LV1_C_16",
+      "prefab_name": "Enemy_LV1_C",
+      "x": 1356,
+      "y": 164,
+      "z": -2
+    },
+    {
+      "name": "objects_Enemy_LV1_B_19",
+      "prefab_name": "Enemy_LV1_B",
+      "x": 868,
+      "y": 164,
+      "z": -2
     }
   ],
-  "next_object_id": 16,
+  "next_object_id": 20,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 16,
