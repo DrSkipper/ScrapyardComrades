@@ -47,6 +47,8 @@ public class ObjectPlacer : VoBehavior
                 }
             }
         }
+
+        this.TimedCallbacks.AddCallback(this, spawnAll, this.SpawnDelay);
     }
 
     public void PlaceLights(List<NewMapInfo.MapLight> lights, PooledObject lightPrefab)
@@ -111,7 +113,6 @@ public class ObjectPlacer : VoBehavior
         _spawnEntities.Add(entity);
         _spriteNames.Add(spriteName);
         _sortingLayerNames.Add(sortingLayerName);
-        this.TimedCallbacks.AddCallback(this, spawn, this.SpawnDelay);
     }
 
     private void addLightSpawn(PooledObject lightPrefab, Vector3 spawnPos, NewMapInfo.MapLight light)
@@ -121,6 +122,12 @@ public class ObjectPlacer : VoBehavior
         _nonTrackedObjects.Add(spawn);
         spawn.transform.position = spawnPos;
         spawn.BroadcastMessage(ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
+    }
+
+    private void spawnAll()
+    {
+        while (_spawnQueue.Count > 0)
+            spawn();
     }
 
     private void spawn()

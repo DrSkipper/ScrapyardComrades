@@ -24623,13 +24623,6 @@
   "props_background": [],
   "objects": [
     {
-      "name": "objects_TrainSpawner_12",
-      "prefab_name": "TrainSpawner",
-      "x": 20,
-      "y": 176,
-      "z": -2
-    },
-    {
       "name": "objects_Enemy_LV1_C_13",
       "prefab_name": "Enemy_LV1_C",
       "x": 1216,
@@ -24649,9 +24642,16 @@
       "x": 116,
       "y": 484,
       "z": -2
+    },
+    {
+      "name": "objects_TrainSpawner_18",
+      "prefab_name": "TrainSpawner",
+      "x": 196,
+      "y": 176,
+      "z": -2
     }
   ],
-  "next_object_id": 16,
+  "next_object_id": 19,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 19,

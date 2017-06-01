@@ -4,6 +4,7 @@ public class TrainSpawner : VoBehavior, IPausable
 {
     public Transform SpawnLocation;
     public IntegerVector SpawnDelayRange;
+    public int FirstSpawnDelay;
     public PooledObject TrainPrefab;
 
     void OnSpawn()
@@ -13,18 +14,19 @@ public class TrainSpawner : VoBehavior, IPausable
 
         if (_spawnTimer == null)
         {
-            _spawnTimer = new Timer(this.SpawnDelayRange.Y, false, true, spawnTrain);
+            _spawnTimer = new Timer(this.FirstSpawnDelay, false, true, spawnTrain);
         }
         else
         {
-            _spawnTimer.reset(this.SpawnDelayRange.Y);
+            _spawnTimer.reset(this.FirstSpawnDelay);
             _spawnTimer.start();
         }
     }
 
     void FixedUpdate()
     {
-        _spawnTimer.update();
+        if (!SubwayTrain.TrainIsRunning)
+            _spawnTimer.update();
     }
 
     /**

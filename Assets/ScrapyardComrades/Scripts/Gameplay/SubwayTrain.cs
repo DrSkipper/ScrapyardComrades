@@ -11,6 +11,8 @@ public class SubwayTrain : VoBehavior, IPausable
 
     public delegate void TrainFinishedDelegate();
 
+    public static bool TrainIsRunning { get; set; }
+
     void OnSpawn()
     {
         if (_freezeFrameTimer == null)
@@ -22,6 +24,8 @@ public class SubwayTrain : VoBehavior, IPausable
             this.CarPlatforms[i].integerCollider.AddToCollisionPool();
             this.CarPlatforms[i].Velocity = this.Velocity;
         }
+
+        TrainIsRunning = true;
     }
 
     void FixedUpdate()
@@ -45,9 +49,8 @@ public class SubwayTrain : VoBehavior, IPausable
                     }
                 }
             }
-
-            //TODO: Figure out best way to check when train has reached end
-            if (this.transform.position.x > 2500)
+            
+            if (this.transform.position.x > TRAIN_END_POSITION)
             {
                 if (this.OnReachedEndCallback != null)
                     this.OnReachedEndCallback();
@@ -66,10 +69,14 @@ public class SubwayTrain : VoBehavior, IPausable
         {
             this.CarPlatforms[i].integerCollider.RemoveFromCollisionPool();
         }
+
+        TrainIsRunning = false;
     }
 
     /**
      * Private
      */
     private Timer _freezeFrameTimer;
+
+    private const int TRAIN_END_POSITION = 2220;
 }

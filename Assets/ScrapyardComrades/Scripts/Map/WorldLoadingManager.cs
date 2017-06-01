@@ -24,6 +24,8 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     public PrefabCollection ObjectPrefabs;
     public PrefabCollection PropPrefabs;
     public PooledObject LightPrefab;
+    public TimedCallbacks InitialTimedCallback;
+    public float InitialDisableDelay = 0.05f;
 
     public IntegerRectCollider CurrentQuadBoundsCheck;
     public IntegerRectCollider GetBounds() { return this.CurrentQuadBoundsCheck; }
@@ -104,12 +106,11 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         loadQuads();
         _currentLoadedQuads.AddRange(_targetLoadedQuads);
         updateBoundsCheck();
-        //TODO: Way to disable out of bounds objects after the initial load (not as easy as calling here since there's a delay before objects are spawned)
-        //this.EntityTracker.DisableOutOfBounds(_currentQuad, this.TileRenderSize);
-        disableNonCenteredQuadVisuals();
+        this.InitialTimedCallback.AddCallback(this, initialDisable, this.InitialDisableDelay);
 
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
         GlobalEvents.Notifier.Listen(ResumeEvent.NAME, this, onResume);
+        SubwayTrain.TrainIsRunning = false;
     }
 
     void FixedUpdate()
@@ -176,6 +177,13 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     private Dictionary<string, TilesetData> _tilesets;
     private Dictionary<string, PooledObject> _objectPrefabs;
     private Dictionary<string, PooledObject> _propPrefabs;
+
+    private void initialDisable()
+    {
+        this.EntityTracker.DisableOutOfBounds(_currentQuad, this.TileRenderSize);
+        disableNonCenteredQuadVisuals();
+        this.InitialTimedCallback.enabled = false;
+    }
 
     private void enableAllQuadVisuals()
     {
