@@ -13,6 +13,9 @@ public class RenderToFile : MonoBehaviour
 
     public const string OUTPUT_PATH = "/Snapshots/";
 
+    /**
+     * NOTE: Need to deactive CameraController script and comment out its Awake method for proper snapshots for main menu. Also if it's a room with parallax, set parallax scale to 2.
+     **/
     void Start()
     {
 #if UNITY_EDITOR
@@ -59,7 +62,7 @@ public class RenderToFile : MonoBehaviour
         this.Camera.aspect = oldAspect;
         this.Camera.backgroundColor = oldSkybox;
         this.Camera.cullingMask = oldCullingMask;
-
+        
         System.IO.File.WriteAllBytes(Application.streamingAssetsPath + OUTPUT_PATH + LoadingManager.CurrentQuadName + StringExtensions.PNG_SUFFIX, virtualPhoto.EncodeToPNG());
         this.gameObject.SetActive(false);
     }
