@@ -1,15 +1,18 @@
 fileFormatVersion: 2
-guid: 327f59b1a867dd44ba60d1c57758c1b2
-timeCreated: 1496438302
+guid: 6167fd7bdfa62a64888cd9ca1da78a08
+timeCreated: 1496438390
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hero3_idle_0
-    21300002: hero3_idle_1
-    21300004: hero3_idle_2
-    21300006: hero3_idle_3
-    21300008: hero3_idle_4
-    21300010: hero3_idle_5
+    21300000: hero3_uppercut_0
+    21300002: hero3_uppercut_1
+    21300004: hero3_uppercut_2
+    21300006: hero3_uppercut_3
+    21300008: hero3_uppercut_4
+    21300010: hero3_uppercut_5
+    21300012: hero3_uppercut_6
+    21300014: hero3_uppercut_7
+    21300016: hero3_uppercut_8
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -76,11 +79,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hero3_idle_0
+      name: hero3_uppercut_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 171
         width: 55
         height: 85
       alignment: 0
@@ -89,11 +92,11 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hero3_idle_1
+      name: hero3_uppercut_1
       rect:
         serializedVersion: 2
         x: 55
-        y: 0
+        y: 171
         width: 55
         height: 85
       alignment: 0
@@ -102,11 +105,11 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hero3_idle_2
+      name: hero3_uppercut_2
       rect:
         serializedVersion: 2
         x: 110
-        y: 0
+        y: 171
         width: 55
         height: 85
       alignment: 0
@@ -115,11 +118,11 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hero3_idle_3
+      name: hero3_uppercut_3
       rect:
         serializedVersion: 2
         x: 165
-        y: 0
+        y: 171
         width: 55
         height: 85
       alignment: 0
@@ -128,11 +131,11 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hero3_idle_4
+      name: hero3_uppercut_4
       rect:
         serializedVersion: 2
-        x: 220
-        y: 0
+        x: 0
+        y: 86
         width: 55
         height: 85
       alignment: 0
@@ -141,11 +144,50 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hero3_idle_5
+      name: hero3_uppercut_5
       rect:
         serializedVersion: 2
-        x: 275
-        y: 0
+        x: 55
+        y: 86
+        width: 55
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero3_uppercut_6
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 86
+        width: 55
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero3_uppercut_7
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 86
+        width: 55
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero3_uppercut_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
         width: 55
         height: 85
       alignment: 0

@@ -1,15 +1,10 @@
 fileFormatVersion: 2
-guid: 327f59b1a867dd44ba60d1c57758c1b2
-timeCreated: 1496438302
+guid: f5642b17c84d7aa48bba19df238affb4
+timeCreated: 1496438359
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hero3_idle_0
-    21300002: hero3_idle_1
-    21300004: hero3_idle_2
-    21300006: hero3_idle_3
-    21300008: hero3_idle_4
-    21300010: hero3_idle_5
+    21300000: hero3_ledgeside_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -76,76 +71,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hero3_idle_0
+      name: hero3_ledgeside_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 55
-        height: 85
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero3_idle_1
-      rect:
-        serializedVersion: 2
-        x: 55
-        y: 0
-        width: 55
-        height: 85
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero3_idle_2
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 0
-        width: 55
-        height: 85
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero3_idle_3
-      rect:
-        serializedVersion: 2
-        x: 165
-        y: 0
-        width: 55
-        height: 85
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero3_idle_4
-      rect:
-        serializedVersion: 2
-        x: 220
-        y: 0
-        width: 55
-        height: 85
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero3_idle_5
-      rect:
-        serializedVersion: 2
-        x: 275
-        y: 0
+        y: 43
         width: 55
         height: 85
       alignment: 0
