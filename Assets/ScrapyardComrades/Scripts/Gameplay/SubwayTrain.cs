@@ -43,6 +43,10 @@ public class SubwayTrain : VoBehavior, IPausable
                     Damagable damagable = collided.GetComponent<Damagable>();
                     if (damagable != null)
                     {
+                        // Move the hit object manually up a bit just in case
+                        if (damagable.Actor != null)
+                            damagable.Actor.Move(new IntegerVector(0, 4));
+
                         damagable.Damage(this.HitData, (Vector2)this.transform.position, (Vector2)this.transform.position, SCCharacterController.Facing.Right);
                         _freezeFrameTimer.reset();
                         _freezeFrameTimer.start();
