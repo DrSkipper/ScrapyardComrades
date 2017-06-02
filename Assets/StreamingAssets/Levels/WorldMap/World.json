@@ -68,8 +68,8 @@
     },
     {
       "name": "Plant 01",
-      "x": 44,
-      "y": 3,
+      "x": 42,
+      "y": 4,
       "width": 3,
       "height": 2
     },
@@ -158,11 +158,25 @@
       "height": 2
     },
     {
-      "name": "Subway 06",
+      "name": "Plant 03",
       "x": 41,
       "y": 5,
       "width": 1,
       "height": 1
+    },
+    {
+      "name": "Plant 00",
+      "x": 10,
+      "y": 1,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Plant 02",
+      "x": 41,
+      "y": 6,
+      "width": 3,
+      "height": 2
     }
   ]
 }
