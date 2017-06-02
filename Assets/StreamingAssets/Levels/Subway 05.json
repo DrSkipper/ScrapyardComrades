@@ -5399,12 +5399,12 @@
           "sprite_name": "subway_tileset_105"
         },
         {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
+          "is_filled": true,
+          "sprite_name": "subway_tileset_25"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_25"
+          "sprite_name": "subway_tileset_30"
         },
         {
           "is_filled": true,
@@ -5715,16 +5715,16 @@
           "sprite_name": "subway_tileset_105"
         },
         {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
           "is_filled": true,
           "sprite_name": "subway_tileset_25"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_18"
+          "sprite_name": "subway_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_20"
         },
         {
           "is_filled": true,
@@ -6015,10 +6015,6 @@
           "sprite_name": "subway_tileset_105"
         },
         {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
           "is_filled": true,
           "sprite_name": "subway_tileset_44"
         },
@@ -6040,7 +6036,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_16"
+          "sprite_name": "subway_tileset_7"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
         },
         {
           "is_filled": true,
@@ -6336,10 +6336,6 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_26"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "subway_tileset_22"
         },
         {
@@ -6361,6 +6357,10 @@
         {
           "is_filled": true,
           "sprite_name": "subway_tileset_16"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_10"
         },
         {
           "is_filled": true,
@@ -6656,10 +6656,6 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_19"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "subway_tileset_22"
         },
         {
@@ -6681,6 +6677,10 @@
         {
           "is_filled": true,
           "sprite_name": "subway_tileset_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_5"
         },
         {
           "is_filled": true,
@@ -6976,11 +6976,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_9"
+          "sprite_name": "subway_tileset_22"
         },
         {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_13"
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
         },
         {
           "is_filled": false,
@@ -7296,11 +7296,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_19"
+          "sprite_name": "subway_tileset_22"
         },
         {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_13"
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
         },
         {
           "is_filled": false,
@@ -7616,11 +7616,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_9"
+          "sprite_name": "subway_tileset_13"
         },
         {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_22"
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
         },
         {
           "is_filled": false,
@@ -7936,11 +7936,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_19"
+          "sprite_name": "subway_tileset_11"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_11"
+          "sprite_name": "subway_tileset_28"
         },
         {
           "is_filled": true,
@@ -15624,11 +15624,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_96"
+          "sprite_name": "subway_tileset_101"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_97"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
@@ -15944,11 +15944,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_87"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_68"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
@@ -16264,11 +16264,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_72"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_64"
         },
         {
           "is_filled": true,
@@ -16588,7 +16588,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
@@ -16908,7 +16908,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
@@ -17228,7 +17228,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_63"
         },
         {
           "is_filled": true,
@@ -17548,7 +17548,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
@@ -17868,7 +17868,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
@@ -18188,7 +18188,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_64"
         },
         {
           "is_filled": true,
@@ -18508,7 +18508,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_71"
         },
         {
           "is_filled": true,
