@@ -10,7 +10,6 @@ public class PauseHandler : VoBehavior
     void Awake()
     {
         _pausables = new List<Pausable>();
-        //_animator = this.GetComponent<Animator>();
 
         IPausable[] components = this.GetComponents<IPausable>();
         for (int i = 0; i < components.Length; ++i)
@@ -48,10 +47,6 @@ public class PauseHandler : VoBehavior
      */
     private List<Pausable> _pausables;
     private uint _currentPausedLayers;
-
-    //TODO: Will require state saving and continuing code to get Animator class to work properly with this pausing system. As is the animator state will be restarted when returning from pause. GetCurrentAnimatorStateInfo() and GetNextAnimatorStateInfo() may need to be used, and then data from those passed int Play();
-    // Actually can just set the animation speed to 0, but will only work for Animator components, not *Animation* (legacy version) components
-    //private Animator _animator;
 
     private struct Pausable
     {
@@ -93,20 +88,19 @@ public class PauseHandler : VoBehavior
         PauseController.PauseGroup group = (e as PauseEvent).PauseGroup;
         if (isAffected(group) && (_currentPausedLayers & (uint)group) != (uint)group)
         {
+            bool prevPaused = _currentPausedLayers != 0;
             _currentPausedLayers += (uint)group;
-            
-            for (int i = 0; i < _pausables.Count;)
-            {
-                if (_pausables[i].Pause())
-                    ++i;
-                else
-                    _pausables.RemoveAt(i);
-            }
 
-            /*
-            if (_animator != null)
-                _animator.GetCurrentAnimatorStateInfo();
-                */
+            if (!prevPaused)
+            {
+                for (int i = 0; i < _pausables.Count;)
+                {
+                    if (_pausables[i].Pause())
+                        ++i;
+                    else
+                        _pausables.RemoveAt(i);
+                }
+            }
         }
     }
 
@@ -126,11 +120,6 @@ public class PauseHandler : VoBehavior
                         _pausables.RemoveAt(i);
                 }
             }
-
-            /*
-            if (_animator != null)
-                _animator.
-                */
         }
     }
 
