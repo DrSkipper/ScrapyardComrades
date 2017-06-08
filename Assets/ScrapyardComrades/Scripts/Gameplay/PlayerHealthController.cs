@@ -8,6 +8,7 @@ public class PlayerHealthController : VoBehavior, IPausable
     public int AttritionInterval = 3000;
     public HeroProgressionData ProgressionData;
     public int HeroLevel = 0;
+    public SCAttack.HitData AttritionDeathHitData;
 
     public HealthChangedDelegate HealthChangedCallback;
     public delegate void HealthChangedDelegate(int currentHealth, int maxHealth);
@@ -48,8 +49,16 @@ public class PlayerHealthController : VoBehavior, IPausable
 
     private void attrition()
     {
-        this.Damagable.Health = Mathf.Max(0, this.Damagable.Health - 1);
-        notifyHealthChange();
+        int health = this.Damagable.Health - 1;
+        if (health > 0)
+        {
+            this.Damagable.Health = health;
+            notifyHealthChange();
+        }
+        else
+        {
+            this.Damagable.Damage(this.AttritionDeathHitData, (Vector2)this.transform.position, (Vector2)this.transform.position, SCCharacterController.Facing.Right);
+        }
     }
 
     private void onHeal(LocalEventNotifier.Event e)

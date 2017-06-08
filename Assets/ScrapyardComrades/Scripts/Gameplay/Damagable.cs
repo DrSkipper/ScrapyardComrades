@@ -65,15 +65,8 @@ public class Damagable : VoBehavior, IPausable
             SoundManager.Play(hitData.HitSfx);
 
         if (this.Dead)
-        {
-            this.integerCollider.RemoveFromCollisionPool();
-            this.gameObject.layer = LayerMask.NameToLayer(this.DeathLayer);
-            this.integerCollider.AddToCollisionPool();
+            die();
 
-            _hitStunEvent.GravityMultiplier *= DEATH_GRAV_MULT;
-            _hitStunEvent.GravityMultiplier *= DEATH_AIRFRICT_MULT;
-            this.Actor.Velocity = this.Actor.Velocity.normalized * (this.Actor.Velocity.magnitude + DEATH_KNOCKBACK_ADD);
-        }
         this.localNotifier.SendEvent(_hitStunEvent);
 
         return true;
@@ -121,5 +114,16 @@ public class Damagable : VoBehavior, IPausable
         _healEvent.PrevHealth = this.Health;
         this.Health = Mathf.Min(this.Health + amount, this.MaxHealth);
         _healEvent.NewHealth = this.Health;
+    }
+
+    private void die()
+    {
+        this.integerCollider.RemoveFromCollisionPool();
+        this.gameObject.layer = LayerMask.NameToLayer(this.DeathLayer);
+        this.integerCollider.AddToCollisionPool();
+
+        _hitStunEvent.GravityMultiplier *= DEATH_GRAV_MULT;
+        _hitStunEvent.GravityMultiplier *= DEATH_AIRFRICT_MULT;
+        this.Actor.Velocity = this.Actor.Velocity.normalized * (this.Actor.Velocity.magnitude + DEATH_KNOCKBACK_ADD);
     }
 }
