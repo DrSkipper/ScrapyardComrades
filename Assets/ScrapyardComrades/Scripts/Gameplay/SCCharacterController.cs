@@ -52,6 +52,7 @@ public class SCCharacterController : Actor2D
     public LayerMask DeathCollisionMask;
     public LayerMask BounceMask;
     public LayerMask MovingPlatformMask;
+    public LayerMask OneWayPlatformMask;
 
     public float Gravity = 100.0f;
     public float MaxFallSpeed = 500.0f;
@@ -233,6 +234,7 @@ public class SCCharacterController : Actor2D
         }
 
         // If we're on ground, do some stuff:
+        bool attemptingDrop = false;
         if (_onGround)
         {
             if (_jumpGraceTimer.Completed || _jumpGraceTimer.FramesRemaining < _parameters.JumpGraceFrames)
@@ -245,6 +247,12 @@ public class SCCharacterController : Actor2D
             if ((groundedLayerMask & this.MovingPlatformMask) == groundedLayerMask)
             {
                 attemptMovingPlatformAlignment(groundedAgainst);
+            }
+
+            // Check if we're on a one way platform
+            else if ((groundedLayerMask & this.OneWayPlatformMask) == groundedLayerMask && GameplayInput.JumpBegin && GameplayInput.Duck)
+            {
+                attemptingDrop = true;
             }
 
             // Bounce if necessary
@@ -339,7 +347,7 @@ public class SCCharacterController : Actor2D
 
         // Determine if wall jumping, normal jumping, or ledge grabbing
         bool wallJumpValid = leftWallJumpValid || rightWallJumpValid;
-        bool attemptingJump = checkForJump(input, _onGround, wallJumpValid);
+        bool attemptingJump = !attemptingDrop && checkForJump(input, _onGround, wallJumpValid);
         bool ledgeGrabbing = false;
         if (!_onGround && !input.Duck && _velocity.y < 0.0f)
         {
@@ -356,9 +364,9 @@ public class SCCharacterController : Actor2D
         if (_currentAttack != null)
         {
             bool interrupted = false;
-            if (attemptingJump && canJumpInterrupt())
+            if ((attemptingJump || attemptingDrop) && canJumpInterrupt())
             {
-                interrupted = true; // Jump or Wall Jump interrupt
+                interrupted = true; // Jump, Wall Jump, or platform drop interrupt
             }
             else if (canMoveInterrupt())
             {
@@ -406,10 +414,14 @@ public class SCCharacterController : Actor2D
                 }
             }
 
-            // Check if it's time to jump
-            else if (interruptingMove == null && attemptingJump)
+            // Check if it's time to jump or drop through a platform
+            else if (interruptingMove == null && (attemptingJump || attemptingDrop))
             {
-                if (wallJumpValid)
+                if (attemptingDrop)
+                {
+                    drop();
+                }
+                else if (wallJumpValid)
                 {
                     if (leftWallJumpValid && checkAgainstWallForWallJump(Facing.Left))
                         wallJump(Facing.Right);
@@ -803,6 +815,18 @@ public class SCCharacterController : Actor2D
         }
 
         _canJumpHold = true;
+    }
+
+    private void drop()
+    {
+        this.HaltMovementMask = this.HaltMovementMask & ~this.OneWayPlatformMask;
+        this.CollisionMask = this.CollisionMask & ~this.OneWayPlatformMask;
+        base.Move(new Vector2(0, -2));
+        this.HaltMovementMask = this.HaltMovementMask | this.OneWayPlatformMask;
+        this.CollisionMask = this.CollisionMask | this.OneWayPlatformMask;
+
+        _jumpBufferTimer.complete();
+        _jumpGraceTimer.complete();
     }
 
     private void wallJump(Facing direction)
