@@ -6,6 +6,9 @@ public class IntegerCircleCollider : IntegerCollider
     public int Diameter { get { return this.Radius * 2; } }
     public override IntegerRect Bounds { get { return new IntegerRect(this.integerPosition + this.Offset, new IntegerVector(this.Diameter, this.Diameter)); } }
 
+    public const int ID = 2;
+    public override int Id { get { return ID; } }
+
     void OnDrawGizmos()//Selected()
     {
         if (this.enabled)
