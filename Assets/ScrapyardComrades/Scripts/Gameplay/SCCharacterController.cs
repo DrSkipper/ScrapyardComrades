@@ -226,11 +226,14 @@ public class SCCharacterController : Actor2D
         updateControlParameters();
 
         // Update jumpBufferCounter, and if input indicates Jump is pressed, set it to JUMP_BUFFER
-        _jumpBufferTimer.update();
         if (input.JumpBegin)
         {
             _jumpBufferTimer.reset();
             _jumpBufferTimer.start();
+        }
+        else
+        {
+            _jumpBufferTimer.update();
         }
 
         // If we're on ground, do some stuff:
