@@ -27,6 +27,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     public TimedCallbacks InitialTimedCallback;
     public float InitialDisableDelay = 0.05f;
     public string OutOfBoundsSceneName = "EndDemoScene";
+    public int LoadEndSceneDelay = 200;
 
     public IntegerRectCollider CurrentQuadBoundsCheck;
     public IntegerRectCollider GetBounds() { return this.CurrentQuadBoundsCheck; }
@@ -110,6 +111,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         this.InitialTimedCallback.AddCallback(this, initialDisable, this.InitialDisableDelay);
 
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
+        GlobalEvents.Notifier.Listen(PlayerDiedEvent.NAME, this, playerDied);
         GlobalEvents.Notifier.Listen(ResumeEvent.NAME, this, onResume);
         SubwayTrain.TrainIsRunning = false;
     }
@@ -137,6 +139,9 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
                 PauseController.BeginSequence(ROOM_TRANSITION_SEQUENCE);
             }
         }
+
+        if (_deathSceneTimer != null)
+            _deathSceneTimer.update();
     }
 
     public NewMapInfo GetMapInfoForQuad(string quadName)
@@ -174,6 +179,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     private Transform _tracker;
     private IntegerVector _recenterOffset = IntegerVector.Zero;
     private IntegerVector _trackerPosition = IntegerVector.Zero;
+    private Timer _deathSceneTimer;
     private Dictionary<string, NewMapInfo> _quadData;
     private Dictionary<string, TilesetData> _tilesets;
     private Dictionary<string, PooledObject> _objectPrefabs;
@@ -244,6 +250,16 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         _tracker = (e as PlayerSpawnedEvent).PlayerObject.transform;
     }
 
+    private void playerDied(LocalEventNotifier.Event e)
+    {
+        _deathSceneTimer = new Timer(this.LoadEndSceneDelay, false, true, goToDeathScene);
+    }
+    
+    private void goToDeathScene()
+    {
+        SceneManager.LoadScene(this.OutOfBoundsSceneName, LoadSceneMode.Single);
+    }
+
     private void gatherTargetLoadedQuads()
     {
         _targetLoadedQuads.Clear();
@@ -297,7 +313,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         // If there is no valid quad to move to, load generic end scene
         if (!found)
         {
-            SceneManager.LoadScene(this.OutOfBoundsSceneName, LoadSceneMode.Single);
+            goToDeathScene();
         }
     }
 
