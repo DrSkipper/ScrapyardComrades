@@ -12351,7 +12351,22 @@
       "layer_name": "ParallaxBack"
     }
   ],
-  "props": [],
+  "props": [
+    {
+      "name": "props_OneWayPlatform_3",
+      "prefab_name": "OneWayPlatform",
+      "x": 656,
+      "y": 124,
+      "z": 2
+    },
+    {
+      "name": "props_OneWayPlatform_4",
+      "prefab_name": "OneWayPlatform",
+      "x": 720,
+      "y": 124,
+      "z": 2
+    }
+  ],
   "props_background": [],
   "objects": [
     {
@@ -12496,7 +12511,7 @@
     }
   ],
   "next_object_id": 36,
-  "next_prop_id": 3,
+  "next_prop_id": 5,
   "next_prop_bg_id": 0,
   "next_light_id": 12,
   "lights": [
