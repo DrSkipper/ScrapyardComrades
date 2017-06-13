@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class TextBlinker : MonoBehaviour
+public class TextBlinker : MonoBehaviour, IPausable
 {
     public Text Text;
     public float MinAlpha;

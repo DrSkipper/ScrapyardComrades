@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MainMenuCameraScroller : VoBehavior
+public class MainMenuCameraScroller : VoBehavior, IPausable
 {
     public float Speed = 4;
     public Transform BottomLeftOuter;
