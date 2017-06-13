@@ -128,4 +128,9 @@ public static class GameplayInput
     {
         return ReInput.players.GetPlayer(PLAYER_ID).GetButtonDown(buttonName);
     }
+
+    public static bool UsingController()
+    {
+        return ReInput.players.GetPlayer(PLAYER_ID).controllers.joystickCount > 0;
+    }
 }
