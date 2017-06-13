@@ -33,6 +33,13 @@ public class PlayerController : SCCharacterController
         this.Damagable.Health = this.Damagable.MaxHealth;
 
         GlobalEvents.Notifier.SendEvent(new PlayerSpawnedEvent(this.gameObject));
+        GlobalEvents.Notifier.Listen(WorldRecenterEvent.NAME, this, onWorldRecenter);
+    }
+
+    public override void OnReturnToPool()
+    {
+        base.OnReturnToPool();
+        GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, WorldRecenterEvent.NAME);
     }
 
     public override void FixedUpdate()
@@ -49,4 +56,11 @@ public class PlayerController : SCCharacterController
      * Private
      */
     private bool _died;
+    private const float SCREEN_TRANSITION_UP_BOOST = 3.0f;
+
+    private void onWorldRecenter(LocalEventNotifier.Event e)
+    {
+        if (this.Velocity.y > 0 && (e as WorldRecenterEvent).RecenterOffset.Y < 0)
+            this.Velocity.y += SCREEN_TRANSITION_UP_BOOST;
+    }
 }

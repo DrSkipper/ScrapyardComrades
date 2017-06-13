@@ -173,7 +173,7 @@ public class SCCharacterController : Actor2D
             this.AttackController.AddDamageBoxes();
     }
 
-    void OnReturnToPool()
+    public virtual void OnReturnToPool()
     {
         this.Hurtbox.RemoveFromCollisionPool();
     }
