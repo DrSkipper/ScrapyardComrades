@@ -26,6 +26,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     public PooledObject LightPrefab;
     public TimedCallbacks InitialTimedCallback;
     public float InitialDisableDelay = 0.05f;
+    public string OutOfBoundsSceneName = "EndDemoScene";
 
     public IntegerRectCollider CurrentQuadBoundsCheck;
     public IntegerRectCollider GetBounds() { return this.CurrentQuadBoundsCheck; }
@@ -279,16 +280,24 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     private void changeCurrentQuad()
     {
         // Change current quad
+        bool found = false;
         for (int i = 0; i < _targetLoadedQuads.Count; ++i)
         {
             IntegerRect otherRect = _targetLoadedQuads[i].GetRelativeBounds(_currentQuad);
             if (otherRect.Contains(_trackerPosition))
             {
+                found = true;
                 _prevQuad = _currentQuad;
                 _currentQuad = _targetLoadedQuads[i];
                 _recenterOffset = otherRect.Center;
                 break;
             }
+        }
+
+        // If there is no valid quad to move to, load generic end scene
+        if (!found)
+        {
+            SceneManager.LoadScene(this.OutOfBoundsSceneName, LoadSceneMode.Single);
         }
     }
 
