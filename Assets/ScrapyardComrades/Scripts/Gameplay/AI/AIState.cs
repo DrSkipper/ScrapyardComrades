@@ -65,7 +65,7 @@ public class SimpleAttackState : AIState
     public override AIOutput UpdateState(AIInput input)
     {
         AIOutput output = new AIOutput();
-        float d = Vector2.Distance(input.OurPosition, input.TargetPosition);
+        float d = Mathf.Abs(input.OurPosition.X - input.TargetPosition.X);
         if (d < _pursuitToDist)
             output.MovementDirection = 0;
         else
