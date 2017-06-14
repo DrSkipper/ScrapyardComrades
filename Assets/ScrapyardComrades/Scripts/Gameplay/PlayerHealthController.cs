@@ -3,6 +3,7 @@
 public class PlayerHealthController : VoBehavior, IPausable
 {
     public const string MUTATE_EVENT = "MUTATE";
+    public const int MUTATE_HEAL_AMT = 1;
 
     public Damagable Damagable;
     public int AttritionInterval = 3000;
@@ -129,6 +130,8 @@ public class PlayerHealthController : VoBehavior, IPausable
 
         otherActor.SetFacingDirectly(this.GetComponent<SCCharacterController>().CurrentFacing);
 
+        otherActor.Damagable.MaxHealth = this.ProgressionData.MaxHealthThresholds[this.HeroLevel + 1];
+        otherActor.Damagable.Health = this.Damagable.Health + MUTATE_HEAL_AMT;
         nextLevel.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
 
         GlobalEvents.Notifier.SendEvent(new EntityReplacementEvent(otherEntity));

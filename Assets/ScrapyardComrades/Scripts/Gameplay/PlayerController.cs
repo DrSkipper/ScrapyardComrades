@@ -29,9 +29,6 @@ public class PlayerController : SCCharacterController
     {
         base.OnSpawn();
 
-        //TODO - Data-drive health
-        this.Damagable.Health = this.Damagable.MaxHealth;
-
         GlobalEvents.Notifier.SendEvent(new PlayerSpawnedEvent(this.gameObject));
         GlobalEvents.Notifier.Listen(WorldRecenterEvent.NAME, this, onWorldRecenter);
     }
