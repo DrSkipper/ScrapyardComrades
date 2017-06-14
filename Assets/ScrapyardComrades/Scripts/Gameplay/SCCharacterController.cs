@@ -58,6 +58,8 @@ public class SCCharacterController : Actor2D
     public float MaxFallSpeed = 500.0f;
     public float FastFallSpeed = 750.0f;
     public float WallSlideSpeed = 100.0f;
+    public float InitialWallSlideSpeed = 1.0f;
+    public float WallSlideAcceleration = 10.0f;
     public float JumpPower = 320.0f;
     public float JumpHorizontalBoost = 50.0f;
     public float MaxSpeedForJumpHorizontalBoost = 50.0f;
@@ -333,7 +335,8 @@ public class SCCharacterController : Actor2D
                 // Check if we're wall sliding
                 if (_currentAttack == null && _velocity.y <= 0.0f && !input.JumpBegin && !input.Duck && againstWall)
                 {
-                    targetFallSpeed = this.WallSlideSpeed;
+                    ++_wallSlideTime;
+                    targetFallSpeed = Mathf.Lerp(this.InitialWallSlideSpeed, this.WallSlideSpeed, (float)_wallSlideTime / (float)this.WallSlideAcceleration);
                     this.IsWallSliding = true;
                 }
 
@@ -341,12 +344,17 @@ public class SCCharacterController : Actor2D
                 else if (input.Duck && Math.Sign(_velocity.y) == -1)
                     targetFallSpeed = _parameters.FastFallSpeed;
 
-                _velocity.y = _velocity.y.Approach(-targetFallSpeed, -gravity);
+                _velocity.y = _velocity.y.Approach(-targetFallSpeed, gravity);
             }
 
             leftWallJumpValid = (againstWall && (Facing)_moveAxis == Facing.Left) || (!againstWall && checkAgainstWall(Facing.Left));
             rightWallJumpValid = !leftWallJumpValid && (againstWall || checkAgainstWall(Facing.Right));
         }
+
+        if (this.IsWallSliding)
+            ++_wallSlideTime;
+        else if (_wallSlideTime > 0)
+            _wallSlideTime = 0;
 
         // Determine if wall jumping, normal jumping, or ledge grabbing
         bool wallJumpValid = leftWallJumpValid || rightWallJumpValid;
@@ -574,11 +582,12 @@ public class SCCharacterController : Actor2D
     private Vector2 _autoMoveValue;
     private int _ledgeGrabY;
     private bool _hasSpawnedLoot;
+    private int _wallSlideTime;
     private VelocityModifier _restingVelocityModifier;
     private List<IntegerCollider> _potentialCollisions;
     private List<IntegerCollider> _potentialWallCollisions;
     private bool _hasGatheredPotentialCollisions;
-    int _wallJumpExpandAmount;
+    private int _wallJumpExpandAmount;
 
     private const string RESTING_VELOCITY_KEY = "rest";
 
