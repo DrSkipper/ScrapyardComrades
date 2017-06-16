@@ -131,6 +131,9 @@ public static class GameplayInput
 
     public static bool UsingController()
     {
+        Controller c = ReInput.players.GetPlayer(PLAYER_ID).controllers.GetLastActiveController();
+        if (c != null)
+            return c.type == ControllerType.Joystick;
         return ReInput.players.GetPlayer(PLAYER_ID).controllers.joystickCount > 0;
     }
 }

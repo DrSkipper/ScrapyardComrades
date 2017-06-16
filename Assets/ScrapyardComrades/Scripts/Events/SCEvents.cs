@@ -256,3 +256,15 @@ public class MainMenuBGFadeEvent : LocalEventNotifier.Event
         this.FadeDuration = fadeDuration;
     }
 }
+
+public class ControlSchemeChangeEvent : LocalEventNotifier.Event
+{
+    public const string NAME = "CONTROL";
+    public bool UsingController;
+
+    public ControlSchemeChangeEvent(bool usingController)
+    {
+        this.Name = NAME;
+        this.UsingController = usingController;
+    }
+}
