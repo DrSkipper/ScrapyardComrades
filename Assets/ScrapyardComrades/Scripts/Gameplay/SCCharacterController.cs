@@ -322,6 +322,7 @@ public class SCCharacterController : Actor2D
         bool againstWall = false;
         bool leftWallJumpValid = false;
         bool rightWallJumpValid = false;
+        Facing dir = prevGrabbingLedge ? this.DirectionGrabbingLedge : (Facing)_moveAxis;
         if (!_onGround)
         {
             againstWall = prevGrabbingLedge || checkAgainstWall((Facing)_moveAxis);
@@ -347,7 +348,7 @@ public class SCCharacterController : Actor2D
                 _velocity.y = _velocity.y.Approach(-targetFallSpeed, gravity);
             }
 
-            leftWallJumpValid = (againstWall && (Facing)_moveAxis == Facing.Left) || (!againstWall && checkAgainstWall(Facing.Left));
+            leftWallJumpValid = (againstWall && dir == Facing.Left) || (!againstWall && checkAgainstWall(Facing.Left));
             rightWallJumpValid = !leftWallJumpValid && (againstWall || checkAgainstWall(Facing.Right));
         }
 
@@ -360,11 +361,11 @@ public class SCCharacterController : Actor2D
         bool wallJumpValid = leftWallJumpValid || rightWallJumpValid;
         bool attemptingJump = !attemptingDrop && checkForJump(input, _onGround, wallJumpValid);
         bool ledgeGrabbing = false;
-        if (!_onGround && !input.Duck && _velocity.y < 0.0f)
+        if (!_onGround && !input.Duck && (_velocity.y < 0.0f || prevGrabbingLedge))
         {
-            if (leftWallJumpValid && (Facing)_moveAxis == Facing.Left)
+            if (leftWallJumpValid && dir == Facing.Left)
                 ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Left, prevGrabbingLedge);
-            else if (rightWallJumpValid && (Facing)_moveAxis == Facing.Right)
+            else if (rightWallJumpValid && dir == Facing.Right)
                 ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Right, prevGrabbingLedge);
             if (ledgeGrabbing)
                 wallJumpValid = false;
