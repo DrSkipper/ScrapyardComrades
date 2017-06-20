@@ -12356,20 +12356,6 @@
       "z": -2
     },
     {
-      "name": "objects_ConveyorBeltRightLeft_4",
-      "prefab_name": "ConveyorBeltRightLeft",
-      "x": 336,
-      "y": 688,
-      "z": -2
-    },
-    {
-      "name": "objects_ConveyorBeltLeftRight_5",
-      "prefab_name": "ConveyorBeltLeftRight",
-      "x": 1424,
-      "y": 592,
-      "z": -2
-    },
-    {
       "name": "objects_ConveyorBeltLeftMid_6",
       "prefab_name": "ConveyorBeltLeftMid",
       "x": 1392,
@@ -12440,20 +12426,6 @@
       "z": -2
     },
     {
-      "name": "objects_ConveyorBeltLeftLeft_16",
-      "prefab_name": "ConveyorBeltLeftLeft",
-      "x": 1072,
-      "y": 592,
-      "z": -2
-    },
-    {
-      "name": "objects_ConveyorBeltRightLeft_17",
-      "prefab_name": "ConveyorBeltRightLeft",
-      "x": 976,
-      "y": 368,
-      "z": -2
-    },
-    {
       "name": "objects_ConveyorBeltRightMid_18",
       "prefab_name": "ConveyorBeltRightMid",
       "x": 1008,
@@ -12496,20 +12468,6 @@
       "z": -2
     },
     {
-      "name": "objects_ConveyorBeltRightRight_24",
-      "prefab_name": "ConveyorBeltRightRight",
-      "x": 1200,
-      "y": 368,
-      "z": -2
-    },
-    {
-      "name": "objects_ConveyorBeltRightLeft_25",
-      "prefab_name": "ConveyorBeltRightLeft",
-      "x": 784,
-      "y": 816,
-      "z": -2
-    },
-    {
       "name": "objects_ConveyorBeltRightMid_26",
       "prefab_name": "ConveyorBeltRightMid",
       "x": 816,
@@ -12524,24 +12482,10 @@
       "z": -2
     },
     {
-      "name": "objects_ConveyorBeltRightRight_28",
-      "prefab_name": "ConveyorBeltRightRight",
-      "x": 880,
-      "y": 816,
-      "z": -2
-    },
-    {
       "name": "objects_HeroLV1_29",
       "prefab_name": "HeroLV1",
       "x": 132,
       "y": 420,
-      "z": -2
-    },
-    {
-      "name": "objects_ConveyorBeltRightRight_30",
-      "prefab_name": "ConveyorBeltRightRight",
-      "x": 496,
-      "y": 688,
       "z": -2
     },
     {
@@ -12550,9 +12494,65 @@
       "x": 464,
       "y": 688,
       "z": -2
+    },
+    {
+      "name": "objects_ConveyorBeltRightMid_32",
+      "prefab_name": "ConveyorBeltRightMid",
+      "x": 976,
+      "y": 368,
+      "z": -2
+    },
+    {
+      "name": "objects_ConveyorBeltRightMid_33",
+      "prefab_name": "ConveyorBeltRightMid",
+      "x": 1200,
+      "y": 368,
+      "z": -2
+    },
+    {
+      "name": "objects_ConveyorBeltLeftMid_35",
+      "prefab_name": "ConveyorBeltLeftMid",
+      "x": 1072,
+      "y": 592,
+      "z": -2
+    },
+    {
+      "name": "objects_ConveyorBeltLeftMid_36",
+      "prefab_name": "ConveyorBeltLeftMid",
+      "x": 1424,
+      "y": 592,
+      "z": -2
+    },
+    {
+      "name": "objects_ConveyorBeltRightMid_37",
+      "prefab_name": "ConveyorBeltRightMid",
+      "x": 880,
+      "y": 816,
+      "z": -2
+    },
+    {
+      "name": "objects_ConveyorBeltRightMid_38",
+      "prefab_name": "ConveyorBeltRightMid",
+      "x": 784,
+      "y": 816,
+      "z": -2
+    },
+    {
+      "name": "objects_ConveyorBeltRightMid_39",
+      "prefab_name": "ConveyorBeltRightMid",
+      "x": 496,
+      "y": 688,
+      "z": -2
+    },
+    {
+      "name": "objects_ConveyorBeltRightMid_40",
+      "prefab_name": "ConveyorBeltRightMid",
+      "x": 336,
+      "y": 688,
+      "z": -2
     }
   ],
-  "next_object_id": 32,
+  "next_object_id": 41,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 3,
