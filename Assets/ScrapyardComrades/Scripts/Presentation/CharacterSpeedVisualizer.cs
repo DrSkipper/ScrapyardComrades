@@ -20,7 +20,7 @@ public class CharacterSpeedVisualizer : VoBehavior
 
     private void FixedUpdate()
     {
-        Vector2 v = this.Actor.Velocity;
+        Vector2 v = this.Actor.TotalVelocity;
         v.y *= this.YFactorMultiplier;
         /*else if (_currentRememberedFrames > 0)
         {

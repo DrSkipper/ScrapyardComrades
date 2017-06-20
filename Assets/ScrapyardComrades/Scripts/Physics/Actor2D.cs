@@ -13,12 +13,20 @@ public class Actor2D : VoBehavior, IPausable
     public const float MAX_POSITION_INCREMENT = 1.0f;
     public const int BOUNCE_DETECTION_RANGE = 1;
 
+    public Vector2 TotalVelocity
+    {
+        get
+        {
+            Vector2 modifiedVelocity = this.Velocity;
+            foreach (VelocityModifier modifier in _velocityModifiers.Values)
+                modifiedVelocity += modifier.Modifier;
+            return modifiedVelocity;
+        }
+    }
+
     public virtual void FixedUpdate()
     {
-        Vector2 modifiedVelocity = this.Velocity;
-        foreach (VelocityModifier modifier in _velocityModifiers.Values)
-            modifiedVelocity += modifier.Modifier;
-
+        Vector2 modifiedVelocity = this.TotalVelocity;
         if (modifiedVelocity.x != 0.0f || modifiedVelocity.y != 0.0f)
         {
             Move(modifiedVelocity);
