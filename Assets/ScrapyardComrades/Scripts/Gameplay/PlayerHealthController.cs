@@ -131,7 +131,7 @@ public class PlayerHealthController : VoBehavior, IPausable
         otherActor.SetFacingDirectly(this.GetComponent<SCCharacterController>().CurrentFacing);
 
         otherActor.Damagable.MaxHealth = this.ProgressionData.MaxHealthThresholds[this.HeroLevel + 1];
-        otherActor.Damagable.Health = this.Damagable.Health + MUTATE_HEAL_AMT;
+        otherActor.Damagable.Health = Mathf.Min(this.Damagable.Health + MUTATE_HEAL_AMT, otherActor.Damagable.MaxHealth);
         nextLevel.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
 
         GlobalEvents.Notifier.SendEvent(new EntityReplacementEvent(otherEntity));
