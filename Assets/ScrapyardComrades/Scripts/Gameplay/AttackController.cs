@@ -10,14 +10,7 @@ public class AttackController : VoBehavior, IPausable
     public LayerMask DamagableLayers;
     public PooledObject HitEffect;
     public HurtboxChangeDelegate HurtboxChangeCallback;
-    public int CollisionGatherEnlargeX = 96;
-    public int CollisionGatherEnlargeY = 96;
     public delegate bool HurtboxChangeDelegate(SCAttack.HurtboxState newState);
-
-    void Awake()
-    {
-        _nearbyColliders = new List<IntegerCollider>();
-    }
 
     public void AddDamageBoxes()
     {
@@ -43,8 +36,6 @@ public class AttackController : VoBehavior, IPausable
             if (_attacking)
             {
                 _attacking = false;
-                _framesUntilColliderGet = 0;
-                _nearbyColliders.Clear();
 
                 for (int i = 0; i < this.DamageBoxes.Length; ++i)
                 {
@@ -58,10 +49,6 @@ public class AttackController : VoBehavior, IPausable
         }
         else
         {
-            --_framesUntilColliderGet;
-            if (_framesUntilColliderGet < 0)
-                gatherNearbyColliders();
-
             _attacking = true;
 
             // Activate effect if necessary
@@ -103,7 +90,7 @@ public class AttackController : VoBehavior, IPausable
 
                         if (collided == null)
                         {
-                            collided = this.DamageBoxes[i].CollideFirst(0, 0, this.DamagableLayers, null, _nearbyColliders);
+                            collided = this.DamageBoxes[i].CollideFirst(0, 0, this.DamagableLayers);
                             if (collided != null)
                                 collider = this.DamageBoxes[i];
                         }
@@ -156,10 +143,8 @@ public class AttackController : VoBehavior, IPausable
      */
     private FreezeFrameEvent _freezeFrameEvent;
     private bool _attacking;
-    private List<IntegerCollider> _nearbyColliders;
-    private int _framesUntilColliderGet;
     
-    private const int FRAMES_BETWEEN_COLLIDER_GET = 8;
+    private const int FRAMES_BETWEEN_COLLIDER_GET = 4;
 
     private SCAttack.HitboxKeyframe? getKeyframeForUpdateFrame(SCAttack attack, int updateFrame)
     {
@@ -185,11 +170,5 @@ public class AttackController : VoBehavior, IPausable
             }
         }
         return null;
-    }
-
-    private void gatherNearbyColliders()
-    {
-        this.integerCollider.GetPotentialCollisions(0, 0, 0, 0, this.DamagableLayers, _nearbyColliders, this.CollisionGatherEnlargeX, this.CollisionGatherEnlargeY);
-        _framesUntilColliderGet = FRAMES_BETWEEN_COLLIDER_GET;
     }
 }
