@@ -178,6 +178,7 @@ public class SCCharacterController : Actor2D
     public virtual void OnReturnToPool()
     {
         this.Hurtbox.RemoveFromCollisionPool();
+        this.Damagable.ResetLayer();
     }
 
     public override void FixedUpdate()

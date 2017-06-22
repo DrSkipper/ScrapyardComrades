@@ -30,6 +30,8 @@ public class PauseHandler : VoBehavior
 
     void OnReturnToPool()
     {
+        resumePausables();
+        _currentPausedLayers = 0;
         GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, PauseEvent.NAME);
         GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, ResumeEvent.NAME);
     }
@@ -112,13 +114,7 @@ public class PauseHandler : VoBehavior
             _currentPausedLayers = _currentPausedLayers.Approach(0, (uint)group);
             if (_currentPausedLayers == 0)
             {
-                for (int i = 0; i < _pausables.Count;)
-                {
-                    if (_pausables[i].Resume())
-                        ++i;
-                    else
-                        _pausables.RemoveAt(i);
-                }
+                resumePausables();
             }
         }
     }
@@ -126,5 +122,16 @@ public class PauseHandler : VoBehavior
     private bool isAffected(PauseController.PauseGroup group)
     {
         return (uint)group >= (uint)this.PauseGroup;
+    }
+
+    private void resumePausables()
+    {
+        for (int i = 0; i < _pausables.Count;)
+        {
+            if (_pausables[i].Resume())
+                ++i;
+            else
+                _pausables.RemoveAt(i);
+        }
     }
 }

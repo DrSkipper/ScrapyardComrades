@@ -20,6 +20,17 @@ public class Damagable : VoBehavior, IPausable
         _prevLayer = this.gameObject.layer;
     }
 
+    void OnSpawn()
+    {
+        _invincibilityTimer.reset();
+        _invincibilityTimer.Paused = true;
+        if (this.gameObject.layer == LayerMask.NameToLayer(this.DeathLayer))
+        {
+            Debug.LogWarning("Damagable found spawning with dying layer");
+            this.ResetLayer();
+        }
+    }
+
     public void Heal(int amount)
     {
         heal(amount);
@@ -76,11 +87,9 @@ public class Damagable : VoBehavior, IPausable
     void FixedUpdate()
     {
         if (_invincibilityTimer.Completed)
-        {
-            _invincibilityTimer.invalidate();
             this.Invincible = false;
-        }
-        _invincibilityTimer.update();
+        else
+            _invincibilityTimer.update();
     }
 
     public void SetInvincible(int numFrames)
@@ -90,7 +99,7 @@ public class Damagable : VoBehavior, IPausable
         _invincibilityTimer.start();
     }
 
-    void OnReturnToPool()
+    public void ResetLayer()
     {
         this.gameObject.layer = _prevLayer;
     }

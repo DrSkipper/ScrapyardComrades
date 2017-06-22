@@ -149,7 +149,13 @@ public class ObjectPools : MonoBehaviour
     private bool returnObject(List<PooledObject> pool, PooledObject obj, bool broadcastMessage = true)
     {
         if (broadcastMessage)
-            obj.BroadcastMessage(POOL_RETURN_METHOD, SendMessageOptions.DontRequireReceiver);
+        {
+            GameObject go = obj.gameObject;
+            bool active = go.activeInHierarchy;
+            go.SetActive(true);
+            go.BroadcastMessage(POOL_RETURN_METHOD, SendMessageOptions.DontRequireReceiver);
+            go.SetActive(active);
+        }
 
         if (pool.Count < pool.Capacity)
         {
