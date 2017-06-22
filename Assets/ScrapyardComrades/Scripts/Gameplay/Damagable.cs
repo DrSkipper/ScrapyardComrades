@@ -22,6 +22,7 @@ public class Damagable : VoBehavior, IPausable
 
     void OnSpawn()
     {
+        this.Invincible = false;
         _invincibilityTimer.reset();
         _invincibilityTimer.Paused = true;
         if (this.gameObject.layer == LayerMask.NameToLayer(this.DeathLayer))
