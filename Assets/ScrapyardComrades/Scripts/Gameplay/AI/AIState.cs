@@ -71,7 +71,7 @@ public class SimpleAttackState : AIState
         else
             output.MovementDirection = Mathf.RoundToInt(Mathf.Sign(input.TargetPosition.X - input.OurPosition.X));
         output.Jump = input.TargetCollider.Bounds.Min.Y > input.OurCollider.Bounds.Max.Y;
-        output.Attack = d <= _executeAttackRange;
+        output.Attack = Vector2.Distance(input.OurPosition, input.TargetPosition) <= _executeAttackRange;
         return output;
     }
 
