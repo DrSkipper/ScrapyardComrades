@@ -12396,9 +12396,16 @@
       "x": 96,
       "y": 108,
       "z": -2
+    },
+    {
+      "name": "objects_rock_7",
+      "prefab_name": "rock",
+      "x": 708,
+      "y": 284,
+      "z": -2
     }
   ],
-  "next_object_id": 7,
+  "next_object_id": 8,
   "next_prop_id": 3,
   "next_prop_bg_id": 1,
   "next_light_id": 13,

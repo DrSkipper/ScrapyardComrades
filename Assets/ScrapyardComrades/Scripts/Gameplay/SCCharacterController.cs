@@ -136,7 +136,7 @@ public class SCCharacterController : Actor2D
 
         if (_restingVelocityModifier == null)
             _restingVelocityModifier = new VelocityModifier(Vector2.zero, VelocityModifier.CollisionBehavior.sustain);
-        this.Actor.SetVelocityModifier(RESTING_VELOCITY_KEY, _restingVelocityModifier);
+        this.SetVelocityModifier(RESTING_VELOCITY_KEY, _restingVelocityModifier);
 
         if (_jumpBufferTimer == null)
             _jumpBufferTimer = new Timer(this.JumpBufferFrames);
