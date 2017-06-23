@@ -39,12 +39,15 @@ public class Actor2D : VoBehavior, IPausable
             {
                 if (_collisionEvent == null)
                 {
-                    _collisionEvent = new CollisionEvent(_collisionsFromMove, Vector2.zero, Vector2.zero);
+                    _collisionEvent = new CollisionEvent(_collisionsFromMove, Vector2.zero, Vector2.zero, false, false, true);
                 }
                 else
                 {
                     _collisionEvent.VelocityAtHit = Vector2.zero;
                     _collisionEvent.VelocityApplied = Vector2.zero;
+                    _collisionEvent.CollideX = false;
+                    _collisionEvent.CollideY = false;
+                    _collisionEvent.MovementHalted = true;
                 }
                 this.localNotifier.SendEvent(_collisionEvent);
                 _collisionsFromMove.Clear();
@@ -74,6 +77,9 @@ public class Actor2D : VoBehavior, IPausable
         Vector2 projected = Vector2.zero;
         Vector2 oldVelocity = this.Velocity;
         float dMagnitude = d.magnitude;
+        int collisionCount = 0;
+        bool collideX = false;
+        bool collideY = false;
 
         while (true)
         {
@@ -82,14 +88,45 @@ public class Actor2D : VoBehavior, IPausable
 
             if (projected.magnitude > dMagnitude)
             {
-                if (!_haltX) moveX(d.x - soFar.x, _collisionsFromMove, _horizontalCollisions, potentialCollisions);
-                if (!_haltY) moveY(d.y - soFar.y, _collisionsFromMove, _verticalCollisions, potentialCollisions);
+                if (!_haltX)
+                {
+                    moveX(d.x - soFar.x, _collisionsFromMove, _horizontalCollisions, potentialCollisions);
+
+                    if (_collisionsFromMove.Count > collisionCount)
+                        collideX = true;
+                    collisionCount = _collisionsFromMove.Count;
+                }
+                if (!_haltY)
+                {
+                    moveY(d.y - soFar.y, _collisionsFromMove, _verticalCollisions, potentialCollisions);
+
+                    if (_collisionsFromMove.Count > collisionCount)
+                        collideY = true;
+                }
+
+                collisionCount = _collisionsFromMove.Count;
                 soFar = d;
                 break;
             }
 
-            if (!_haltX) soFar.x += moveX(incX, _collisionsFromMove, _horizontalCollisions, potentialCollisions);
-            if (!_haltY) soFar.y += moveY(incY, _collisionsFromMove, _verticalCollisions, potentialCollisions);
+            if (!_haltX)
+            {
+                soFar.x += moveX(incX, _collisionsFromMove, _horizontalCollisions, potentialCollisions);
+
+                if (_collisionsFromMove.Count > collisionCount)
+                    collideX = true;
+                collisionCount = _collisionsFromMove.Count;
+            }
+
+            if (!_haltY)
+            {
+                soFar.y += moveY(incY, _collisionsFromMove, _verticalCollisions, potentialCollisions);
+
+                if (_collisionsFromMove.Count > collisionCount)
+                    collideY = true;
+            }
+
+            collisionCount = _collisionsFromMove.Count;
 
             if (_haltX && _haltY)
                 break;
@@ -113,19 +150,23 @@ public class Actor2D : VoBehavior, IPausable
 
         if (_collisionsFromMove.Count > 0)
         {
-            _haltX = false;
-            _haltY = false;
             _horizontalCollisions.Clear();
             _verticalCollisions.Clear();
             if (_collisionEvent == null)
             {
-                _collisionEvent = new CollisionEvent(_collisionsFromMove, oldVelocity, soFar);
+                _collisionEvent = new CollisionEvent(_collisionsFromMove, oldVelocity, soFar, collideX, collideY, _haltX || _haltY);
             }
             else
             {
                 _collisionEvent.VelocityAtHit = oldVelocity;
                 _collisionEvent.VelocityApplied = soFar;
+                _collisionEvent.CollideX = collideX;
+                _collisionEvent.CollideY = collideY;
+                _collisionEvent.MovementHalted = _haltX || _haltY;
             }
+
+            _haltX = false;
+            _haltY = false;
             this.localNotifier.SendEvent(_collisionEvent);
             _collisionsFromMove.Clear();
         }

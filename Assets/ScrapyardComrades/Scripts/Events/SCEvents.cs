@@ -7,13 +7,19 @@ public class CollisionEvent : LocalEventNotifier.Event
     public List<GameObject> Hits;
     public Vector2 VelocityAtHit; // Velocity of actor at time collision was detected, before being multiplied by Time.deltaTime
     public Vector2 VelocityApplied; // How much of the velocity, AFTER Time.deltaTime multiplier, was applied before detecting the collision
+    public bool CollideX;
+    public bool CollideY;
+    public bool MovementHalted;
 
-    public CollisionEvent(List<GameObject> hits, Vector2 velocity, Vector2 velocityApplied)
+    public CollisionEvent(List<GameObject> hits, Vector2 velocity, Vector2 velocityApplied, bool collideX, bool collideY, bool movementHalted)
     {
         this.Name = NAME;
         this.Hits = hits;
         this.VelocityAtHit = velocity;
         this.VelocityApplied = velocityApplied;
+        this.CollideX = collideX;
+        this.CollideY = collideY;
+        this.MovementHalted = movementHalted;
     }
 }
 
