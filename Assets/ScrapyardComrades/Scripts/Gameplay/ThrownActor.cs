@@ -8,6 +8,8 @@ public class ThrownActor : Actor2D
     public float MaxFallSpeed;
     public float BounceMultiplier = 1.0f;
     public LayerMask MovingPlatformMask;
+    public Pickup Pickup;
+    public DamageOnCollision Damager;
 
     void Start()
     {
@@ -16,13 +18,16 @@ public class ThrownActor : Actor2D
 
         _nonHaltBounceCooldown = new Timer(NON_HALTING_BOUNCE_COOLDOWN, false, false);
         _nonHaltBounceCooldown.complete();
+        this.Damager.ConfigureForPickup(this.Pickup.Data);
         this.localNotifier.Listen(CollisionEvent.NAME, this, onCollide);
     }
 
-    public void Throw(Vector2 initialVelocity)
+    public void Throw(Vector2 direction)
     {
-        _vMod = new VelocityModifier(initialVelocity, VelocityModifier.CollisionBehavior.bounce, this.BounceMultiplier);
+        this.spriteRenderer.sprite = this.Pickup.Data.Sprite;
+        _vMod = new VelocityModifier(direction * this.Pickup.Data.ThrowVelocity, VelocityModifier.CollisionBehavior.bounce, this.BounceMultiplier);
         _restingVMod = new VelocityModifier(Vector2.zero, VelocityModifier.CollisionBehavior.sustain);
+        this.Damager.ConfigureForPickup(this.Pickup.Data);
         this.SetVelocityModifier(V_KEY, _vMod);
         this.SetVelocityModifier(RESTING_VELOCITY_KEY, _restingVMod);
     }

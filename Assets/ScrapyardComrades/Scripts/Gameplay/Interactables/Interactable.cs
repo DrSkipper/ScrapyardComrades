@@ -2,5 +2,5 @@
 
 public interface Interactable
 {
-    void Interact(InteractionController interactor);
+    bool Interact(InteractionController interactor);
 }

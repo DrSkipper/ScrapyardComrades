@@ -420,7 +420,7 @@ public class SCCharacterController : Actor2D
                     {
                         //TODO: Throw position marked in character data
                         //TODO: Item thrown up a bit if looking up
-                        actor.Throw(item.GetComponent<Pickup>().Data.ThrowVelocity * new Vector2((int)_facing, 0));
+                        actor.Throw(new Vector2((int)_facing, 0));
                     }
 
                     item.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);

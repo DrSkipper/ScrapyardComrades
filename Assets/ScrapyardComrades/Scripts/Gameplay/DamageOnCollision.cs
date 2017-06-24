@@ -11,6 +11,12 @@ public class DamageOnCollision : VoBehavior
         this.localNotifier.Listen(CollisionEvent.NAME, this, onCollide);
     }
 
+    public void ConfigureForPickup(SCPickup pickup)
+    {
+        this.HitData.Damage = pickup.Damage;
+        this.HitData.HitStunDuration = pickup.StunTime;
+    }
+
     void FixedUpdate()
     {
         _prevPos = this.integerPosition;

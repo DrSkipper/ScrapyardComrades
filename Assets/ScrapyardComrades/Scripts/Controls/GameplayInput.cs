@@ -112,7 +112,7 @@ public static class GameplayInput
     {
         get
         {
-            return ReInput.players.GetPlayer(PLAYER_ID).GetButton(INTERACT);
+            return ReInput.players.GetPlayer(PLAYER_ID).GetButtonDown(INTERACT);
         }
     }
 
