@@ -48,6 +48,7 @@ public class EnemyController : SCCharacterController
         public bool DodgeBegin { get; private set; }
         public bool DodgeHeld { get; private set; }
         public bool Duck { get; private set; }
+        public bool LookUp { get; private set; }
         public bool AttackLightBegin { get; private set; }
         public bool AttackLightHeld { get; private set; }
         public bool AttackStrongBegin { get; private set; }

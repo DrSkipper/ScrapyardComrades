@@ -18,6 +18,7 @@ public class SCCharacterController : Actor2D
         bool DodgeBegin { get; }
         bool DodgeHeld { get; }
         bool Duck { get; }
+        bool LookUp { get; }
         bool AttackLightBegin { get; }
         bool AttackLightHeld { get; }
         bool AttackStrongBegin { get; }
@@ -35,6 +36,7 @@ public class SCCharacterController : Actor2D
         public bool DodgeBegin { get { return false; } }
         public bool DodgeHeld { get { return false; } }
         public bool Duck { get { return false; } }
+        public bool LookUp { get { return false; } }
         public bool AttackLightBegin { get { return false; } }
         public bool AttackLightHeld { get { return false; } }
         public bool AttackStrongBegin { get { return false; } }
@@ -82,6 +84,9 @@ public class SCCharacterController : Actor2D
     public float RunDecceleration = 3.0f;
     public float AirRunAcceleration = 0.1f;
     public float MinBounceVelocity = 1.0f;
+    public float DefaultThrowAngle = 15.0f;
+    public float UpwardThrowAngle = 50.0f;
+    public float DownwardThrowAngle = -30.0f;
 
     public WorldEntity WorldEntity;
     public Damagable Damagable;
@@ -418,9 +423,13 @@ public class SCCharacterController : Actor2D
                     ThrownActor actor = item.GetComponent<ThrownActor>();
                     if (actor != null)
                     {
-                        //TODO: Throw position marked in character data
-                        //TODO: Item thrown up a bit if looking up
-                        actor.Throw(new Vector2((int)_facing, 0));
+                        //TODO: Throw origin position marked in character data
+                        float angle = this.DefaultThrowAngle;
+                        if (input.Duck)
+                            angle = this.DownwardThrowAngle;
+                        else if (input.LookUp)
+                            angle = this.UpwardThrowAngle;
+                        actor.Throw(angle, (int)_facing);
                     }
 
                     item.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);

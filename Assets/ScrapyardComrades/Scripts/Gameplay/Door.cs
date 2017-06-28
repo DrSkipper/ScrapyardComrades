@@ -7,6 +7,7 @@ public class Door : VoBehavior, IPausable
     public IntegerCollider KeyRangeCollider;
     public IntegerCollider DoorCollider;
     public LayerMask KeyMask;
+    public LayerMask BlockDoorMask;
     public Transform OpenTransform;
     public Transform ClosedTransform;
     public Transform VisualTransform;
@@ -58,7 +59,7 @@ public class Door : VoBehavior, IPausable
                 }
 
                 if (!stayOpen)
-                    close();
+                    tryToClose();
             }
             _collisions.Clear();
         }
@@ -82,6 +83,14 @@ public class Door : VoBehavior, IPausable
         _stateTransitionCooldown.reset();
         _stateTransitionCooldown.start();
         this.VisualTransform.SetPosition2D(this.OpenTransform.position);
+    }
+
+    private void tryToClose()
+    {
+        GameObject collided = this.DoorCollider.CollideFirst(Mathf.RoundToInt(this.ClosedTransform.position.x - this.DoorCollider.transform.position.x), Mathf.RoundToInt(this.ClosedTransform.position.y - this.DoorCollider.transform.position.y), this.BlockDoorMask);
+
+        if (collided == null)
+            close();
     }
 
     private void close()

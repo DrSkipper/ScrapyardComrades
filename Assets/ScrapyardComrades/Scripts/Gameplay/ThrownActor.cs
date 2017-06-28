@@ -14,7 +14,7 @@ public class ThrownActor : Actor2D
     void Start()
     {
         if (_vMod == null)
-            this.Throw(Vector2.zero);
+            this.Throw(0.0f, 0);
 
         _nonHaltBounceCooldown = new Timer(NON_HALTING_BOUNCE_COOLDOWN, false, false);
         _nonHaltBounceCooldown.complete();
@@ -22,10 +22,10 @@ public class ThrownActor : Actor2D
         this.localNotifier.Listen(CollisionEvent.NAME, this, onCollide);
     }
 
-    public void Throw(Vector2 direction)
+    public void Throw(float angle, int direction)
     {
         this.spriteRenderer.sprite = this.Pickup.Data.Sprite;
-        _vMod = new VelocityModifier(direction * this.Pickup.Data.ThrowVelocity, VelocityModifier.CollisionBehavior.bounce, this.BounceMultiplier);
+        _vMod = new VelocityModifier(getThrowDirection(angle, direction) * this.Pickup.Data.ThrowVelocity, VelocityModifier.CollisionBehavior.bounce, this.BounceMultiplier);
         _restingVMod = new VelocityModifier(Vector2.zero, VelocityModifier.CollisionBehavior.sustain);
         this.Damager.ConfigureForPickup(this.Pickup.Data);
         this.SetVelocityModifier(V_KEY, _vMod);
@@ -94,4 +94,11 @@ public class ThrownActor : Actor2D
     private Timer _nonHaltBounceCooldown;
     private const string RESTING_VELOCITY_KEY = "rest";
     private const int NON_HALTING_BOUNCE_COOLDOWN = 8;
+
+    private static Vector2 getThrowDirection(float angle, int dir)
+    {
+        Vector2 v = Vector2.right.VectorAtAngle(-angle);
+        v.x *= dir;
+        return v;
+    }
 }

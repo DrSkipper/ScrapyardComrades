@@ -68,6 +68,14 @@ public static class GameplayInput
         }
     }
 
+    public static bool LookUp
+    {
+        get
+        {
+            return ReInput.players.GetPlayer(PLAYER_ID).GetButton(LOOK_UP);
+        }
+    }
+
     public static bool AttackLightBegin
     {
         get

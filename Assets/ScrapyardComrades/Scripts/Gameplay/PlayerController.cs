@@ -9,6 +9,7 @@ public class PlayerController : SCCharacterController
         public bool DodgeBegin { get { return GameplayInput.DodgeBegin; } }
         public bool DodgeHeld { get { return GameplayInput.DodgeHeld; } }
         public bool Duck { get { return GameplayInput.Duck; } }
+        public bool LookUp { get { return GameplayInput.LookUp; } }
         public bool AttackLightBegin { get { return GameplayInput.AttackLightBegin; } }
         public bool AttackLightHeld { get { return GameplayInput.AttackLightHeld; } }
         public bool AttackStrongBegin { get { return GameplayInput.AttackStrongBegin; } }
