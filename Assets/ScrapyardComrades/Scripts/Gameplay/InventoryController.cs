@@ -42,7 +42,9 @@ public class InventoryController : MonoBehaviour, IKey
 
         if (item != null)
         {
-            return this.ItemPrefab.Retain();
+            PooledObject itemObject = this.ItemPrefab.Retain();
+            itemObject.GetComponent<Pickup>().Data = item;
+            return itemObject;
         }
 
         return null;

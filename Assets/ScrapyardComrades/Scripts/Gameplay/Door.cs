@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class Door : VoBehavior
+public class Door : VoBehavior, IPausable
 {
     public SCPickup.KeyType LockType;
     public IntegerCollider KeyRangeCollider;
+    public IntegerCollider DoorCollider;
     public LayerMask KeyMask;
     public Transform OpenTransform;
     public Transform ClosedTransform;
@@ -20,6 +21,12 @@ public class Door : VoBehavior
     {
         close();
         _stateTransitionCooldown.complete();
+        this.DoorCollider.AddToCollisionPool();
+    }
+
+    void OnReturnToPool()
+    {
+        this.DoorCollider.RemoveFromCollisionPool();
     }
 
     void FixedUpdate()
