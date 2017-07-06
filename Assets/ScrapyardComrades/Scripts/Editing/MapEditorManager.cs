@@ -543,6 +543,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
     private void addObjectBrush(MapEditorObjectsLayer layer)
     {
+        //TODO: Currently we don't update the brush to reflect configurer changes
         Object prefab = layer.CurrentPrefab;
         PooledObject brushPooledObject = loadPooledObject(prefab);
         GameObject child = brushPooledObject.gameObject;
@@ -623,6 +624,12 @@ public class MapEditorManager : MonoBehaviour, IPausable
             {
                 r.sortingLayerName = layer.Name;
                 r.sortingOrder = i;
+            }
+
+            ObjectConfigurer configurer = newObject.GetComponent<ObjectConfigurer>();
+            if (configurer != null)
+            {
+                configurer.ConfigureForParams(layer.Objects[i].parameters);
             }
         }
     }

@@ -75,9 +75,12 @@ public class ThrownActor : Actor2D
 
     void OnReturnToPool()
     {
-        _vMod.Modifier = Vector2.zero;
-        _restingVMod.Modifier = Vector2.zero;
-        _nonHaltBounceCooldown.complete();
+        if (_vMod != null)
+            _vMod.Modifier = Vector2.zero;
+        if (_restingVMod != null)
+            _restingVMod.Modifier = Vector2.zero;
+        if (_nonHaltBounceCooldown != null)
+            _nonHaltBounceCooldown.complete();
     }
 
     public GameObject GroundedAgainst

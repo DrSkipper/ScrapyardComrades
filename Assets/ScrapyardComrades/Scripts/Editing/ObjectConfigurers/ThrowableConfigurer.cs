@@ -24,7 +24,7 @@ public class ThrowableConfigurer : ObjectConfigurer
         }
     }
 
-    public override void ConfigureParameter(string parameterName, string option)
+    protected override void ConfigureParameter(string parameterName, string option)
     {
         switch (parameterName)
         {

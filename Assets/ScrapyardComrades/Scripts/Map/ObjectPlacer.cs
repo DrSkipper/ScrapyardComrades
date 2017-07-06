@@ -43,7 +43,7 @@ public class ObjectPlacer : VoBehavior
                     int x = mapObject.x;
                     int y = mapObject.y;
                     Vector3 spawnPos = new Vector3(x + this.transform.position.x, y + this.transform.position.y, mapObject.z);
-                    addSpawn(toSpawn, spawnPos, entity, sortingLayerName, spriteObject ? mapObject.prefab_name : null);
+                    addSpawn(toSpawn, spawnPos, entity, sortingLayerName, mapObject.parameters, spriteObject ? mapObject.prefab_name : null);
                 }
             }
         }
@@ -81,6 +81,7 @@ public class ObjectPlacer : VoBehavior
         _spawnPositions.Clear();
         _spriteNames.Clear();
         _sortingLayerNames.Clear();
+        _spawnParams.Clear();
     }
 
     public void EnableNonTrackedObjects(bool enabled)
@@ -97,6 +98,7 @@ public class ObjectPlacer : VoBehavior
      */
     private List<PooledObject> _spawnQueue = new List<PooledObject>();
     private List<Vector3> _spawnPositions = new List<Vector3>();
+    private List<NewMapInfo.ObjectParam[]> _spawnParams = new List<NewMapInfo.ObjectParam[]>();
     private List<EntityTracker.Entity> _spawnEntities = new List<EntityTracker.Entity>();
     private List<string> _spriteNames = new List<string>();
     private List<string> _sortingLayerNames = new List<string>();
@@ -106,13 +108,14 @@ public class ObjectPlacer : VoBehavior
     private const int MIN_SORTING_ORDER = -10000;
     private const int MAX_SORTING_ORDER = 10000;
 
-    private void addSpawn(PooledObject toSpawn, Vector3 spawnPos, EntityTracker.Entity entity, string sortingLayerName, string spriteName = null)
+    private void addSpawn(PooledObject toSpawn, Vector3 spawnPos, EntityTracker.Entity entity, string sortingLayerName, NewMapInfo.ObjectParam[] spawnParams, string spriteName = null)
     {
         _spawnQueue.Add(toSpawn);
         _spawnPositions.Add(spawnPos);
         _spawnEntities.Add(entity);
         _spriteNames.Add(spriteName);
         _sortingLayerNames.Add(sortingLayerName);
+        _spawnParams.Add(spawnParams);
     }
 
     private void addLightSpawn(PooledObject lightPrefab, Vector3 spawnPos, NewMapInfo.MapLight light)
@@ -137,6 +140,7 @@ public class ObjectPlacer : VoBehavior
         PooledObject spawn = toSpawn.Retain();
         EntityTracker.Entity entity = _spawnEntities.Pop();
         string spriteName = _spriteNames.Pop();
+        NewMapInfo.ObjectParam[] spawnParams = _spawnParams.Pop();
 
         if (entity != null)
         {
@@ -171,6 +175,12 @@ public class ObjectPlacer : VoBehavior
                 if (r.sortingOrder == 0)
                     r.sortingOrder = --SORTING_IN_LAYER;
             }
+        }
+
+        ObjectConfigurer configurer = spawn.GetComponent<ObjectConfigurer>();
+        if (configurer != null)
+        {
+            configurer.ConfigureForParams(spawnParams);
         }
 
         if (SORTING_IN_LAYER <= MIN_SORTING_ORDER)

@@ -292,6 +292,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
     public Object CurrentPrefab { get { return this.ObjectPrefabs[_currentPrefab]; } }
     public List<GameObject> LoadedObjects;
     public bool EraserEnabled;
+    public NewMapInfo.ObjectParam[] CurrentObjectParams;
 
     public MapEditorObjectsLayer(string name, int depth, List<NewMapInfo.MapObject> objects, Object[] prefabs, int nextId)
     {
@@ -304,10 +305,12 @@ public class MapEditorObjectsLayer : MapEditorLayer
         this.LoadedObjects = new List<GameObject>();
         _nextId = nextId;
         this.EraserEnabled = false;
+        this.CurrentObjectParams = null;
     }
 
     public void CyclePrev()
     {
+        this.CurrentObjectParams = null;
         --_currentPrefab;
         if (_currentPrefab < 0)
             _currentPrefab = this.ObjectPrefabs.Length - 1;
@@ -315,6 +318,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
 
     public void CycleNext()
     {
+        this.CurrentObjectParams = null;
         ++_currentPrefab;
         if (_currentPrefab >= this.ObjectPrefabs.Length)
             _currentPrefab = 0;
@@ -340,6 +344,13 @@ public class MapEditorObjectsLayer : MapEditorLayer
         {
             r.sortingLayerName = this.Name;
             r.sortingOrder = _nextId - 1;
+        }
+
+        mapObject.parameters = this.CurrentObjectParams;
+        ObjectConfigurer configurer = gameObject.GetComponent<ObjectConfigurer>();
+        if (configurer != null)
+        {
+            configurer.ConfigureForParams(this.CurrentObjectParams);
         }
     }
 

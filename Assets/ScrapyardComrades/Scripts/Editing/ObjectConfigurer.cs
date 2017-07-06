@@ -17,7 +17,7 @@ public abstract class ObjectConfigurer : MonoBehaviour
     public abstract ObjectParamType[] ParameterTypes { get; }
     public int[] CurrentOptions { get; private set; }
 
-    public abstract void ConfigureParameter(string parameterName, string option);
+    protected abstract void ConfigureParameter(string parameterName, string option);
 
     public void ConfigureForParams(NewMapInfo.ObjectParam[] parameters)
     {
