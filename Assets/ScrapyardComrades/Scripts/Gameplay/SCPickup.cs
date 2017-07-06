@@ -2,7 +2,6 @@
 
 public class SCPickup : ScriptableObject
 {
-    public string Name;
     public Sprite Sprite;
     public int Damage;
     public int StunTime;

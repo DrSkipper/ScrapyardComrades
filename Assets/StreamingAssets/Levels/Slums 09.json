@@ -12358,7 +12358,8 @@
       "prefab_name": "slum_house3",
       "x": 108,
       "y": 244,
-      "z": 6
+      "z": 6,
+      "parameters": null
     }
   ],
   "objects": [
@@ -12367,42 +12368,48 @@
       "prefab_name": "Enemy_LV1_B",
       "x": 844,
       "y": 260,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Enemy_LV1_C_3",
       "prefab_name": "Enemy_LV1_C",
       "x": 652,
       "y": 260,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Enemy_LV1_B_4",
       "prefab_name": "Enemy_LV1_B",
       "x": 1096,
       "y": 388,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Enemy_LV1_C_5",
       "prefab_name": "Enemy_LV1_C",
       "x": 1268,
       "y": 388,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_HeroLV2_6",
       "prefab_name": "HeroLV2",
       "x": 96,
       "y": 108,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_rock_7",
       "prefab_name": "rock",
       "x": 708,
       "y": 284,
-      "z": -2
+      "z": -2,
+      "parameters": null
     }
   ],
   "next_object_id": 8,
