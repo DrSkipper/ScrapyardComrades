@@ -12339,17 +12339,40 @@
       "prefab_name": "DoorRed",
       "x": 1132,
       "y": 160,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_HeroLV2_2",
       "prefab_name": "HeroLV2",
       "x": 244,
       "y": 140,
-      "z": -2
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_rock_5",
+      "prefab_name": "rock",
+      "x": 1224,
+      "y": 248,
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_rock_6",
+      "prefab_name": "rock",
+      "x": 864,
+      "y": 248,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "red"
+        }
+      ]
     }
   ],
-  "next_object_id": 3,
+  "next_object_id": 7,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 3,

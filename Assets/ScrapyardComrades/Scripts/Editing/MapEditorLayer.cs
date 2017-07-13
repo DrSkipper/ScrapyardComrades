@@ -346,7 +346,17 @@ public class MapEditorObjectsLayer : MapEditorLayer
             r.sortingOrder = _nextId - 1;
         }
 
-        mapObject.parameters = this.CurrentObjectParams;
+        if (this.CurrentObjectParams != null)
+        {
+            NewMapInfo.ObjectParam[] p = new NewMapInfo.ObjectParam[this.CurrentObjectParams.Length];
+            this.CurrentObjectParams.CopyTo(p, 0);
+            mapObject.parameters = p;
+        }
+        else
+        {
+            mapObject.parameters = null;
+        }
+
         ObjectConfigurer configurer = gameObject.GetComponent<ObjectConfigurer>();
         if (configurer != null)
         {
