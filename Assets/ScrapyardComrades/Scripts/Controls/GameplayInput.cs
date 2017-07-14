@@ -15,12 +15,16 @@ public static class GameplayInput
     private const int USE_ITEM = 5;
     private const int INTERACT = 6;
     private const int PAUSE = 15;
+    private const float AXIS_DEADZONE = 0.15f;
 
     public static int MovementAxis
     {
         get
         {
-            return Math.Sign(ReInput.players.GetPlayer(PLAYER_ID).GetAxis(MOVE_HORIZONTAL));
+            float axis = ReInput.players.GetPlayer(PLAYER_ID).GetAxis(MOVE_HORIZONTAL);
+            if (Mathf.Abs(axis) < AXIS_DEADZONE)
+                return 0;
+            return Math.Sign(axis);
         }
     }
 
@@ -61,6 +65,14 @@ public static class GameplayInput
         get
         {
             return ReInput.players.GetPlayer(PLAYER_ID).GetButton(DUCK);
+        }
+    }
+
+    public static bool LookUp
+    {
+        get
+        {
+            return ReInput.players.GetPlayer(PLAYER_ID).GetButton(LOOK_UP);
         }
     }
 
@@ -108,7 +120,7 @@ public static class GameplayInput
     {
         get
         {
-            return ReInput.players.GetPlayer(PLAYER_ID).GetButton(INTERACT);
+            return ReInput.players.GetPlayer(PLAYER_ID).GetButtonDown(INTERACT);
         }
     }
 
@@ -123,5 +135,13 @@ public static class GameplayInput
     public static bool ButtonPressed(string buttonName)
     {
         return ReInput.players.GetPlayer(PLAYER_ID).GetButtonDown(buttonName);
+    }
+
+    public static bool UsingController()
+    {
+        Controller c = ReInput.players.GetPlayer(PLAYER_ID).controllers.GetLastActiveController();
+        if (c != null)
+            return c.type == ControllerType.Joystick;
+        return ReInput.players.GetPlayer(PLAYER_ID).controllers.joystickCount > 0;
     }
 }

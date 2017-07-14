@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 
-public class InventoryController : MonoBehaviour
+public class InventoryController : MonoBehaviour, IKey
 {
     public int InventorySize;
-    public PooledObject[] ItemPrefabs;
+    public PooledObject ItemPrefab;
 
     public int NumItems { get { return _currentItemCount; } }
     public SCPickup GetItem(int index) { return _inventory[index]; }
@@ -12,12 +11,6 @@ public class InventoryController : MonoBehaviour
     void Awake()
     {
         _inventory = new SCPickup[this.InventorySize];
-        _itemPrefabs = new Dictionary<string, PooledObject>();
-        for (int i = 0; i < this.ItemPrefabs.Length; ++i)
-        {
-            PooledObject prefab = this.ItemPrefabs[i];
-            _itemPrefabs.Add(prefab.GetComponent<Pickup>().Data.Name, prefab);
-        }
     }
 
     public void PickupItem(SCPickup pickup)
@@ -49,7 +42,9 @@ public class InventoryController : MonoBehaviour
 
         if (item != null)
         {
-            return _itemPrefabs[item.Name].Retain();
+            PooledObject itemObject = this.ItemPrefab.Retain();
+            itemObject.GetComponent<Pickup>().Data = item;
+            return itemObject;
         }
 
         return null;
@@ -62,10 +57,22 @@ public class InventoryController : MonoBehaviour
         _currentItemCount = 0;
     }
 
+    public bool CanOpen(SCPickup.KeyType lockType)
+    {
+        if (lockType != SCPickup.KeyType.None)
+        {
+            for (int i = 0; i < _inventory.Length; ++i)
+            {
+                if (_inventory[i] != null && _inventory[i].Key == lockType)
+                    return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Private
      */
     private int _currentItemCount;
     private SCPickup[] _inventory;
-    private Dictionary<string, PooledObject> _itemPrefabs;
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MainMenuPresenter : MonoBehaviour
+public class MainMenuPresenter : MonoBehaviour, IPausable
 {
     public SpriteRenderer BGRenderer;
     public int LerpDuration;

@@ -8,6 +8,8 @@ public abstract class IntegerCollider : VoBehavior
     public abstract IntegerRect Bounds { get; }
     public Color DebugColor = Color.red;
 
+    public abstract int Id { get; }
+
     void Start()
     {
         if (this.AddOnStart)
@@ -32,6 +34,8 @@ public abstract class IntegerCollider : VoBehavior
             this.CollisionManager.RemoveCollider(this.layerMask, this);
     }
 
+    //TODO - use dynamic keyword to make use of run-time overloading? and have an extensions method place for inter-collider type collisions?
+    //http://stackoverflow.com/questions/13095544/overloaded-method-why-is-base-class-given-precedence#comment25529590_13096565
     public virtual bool Overlaps(IntegerCollider other, int offsetX = 0, int offsetY = 0)
     {
         IntegerRect bounds = this.Bounds;

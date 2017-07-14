@@ -65,13 +65,13 @@ public class SimpleAttackState : AIState
     public override AIOutput UpdateState(AIInput input)
     {
         AIOutput output = new AIOutput();
-        float d = Vector2.Distance(input.OurPosition, input.TargetPosition);
+        float d = Mathf.Abs(input.OurPosition.X - input.TargetPosition.X);
         if (d < _pursuitToDist)
             output.MovementDirection = 0;
         else
             output.MovementDirection = Mathf.RoundToInt(Mathf.Sign(input.TargetPosition.X - input.OurPosition.X));
         output.Jump = input.TargetCollider.Bounds.Min.Y > input.OurCollider.Bounds.Max.Y;
-        output.Attack = d <= _executeAttackRange;
+        output.Attack = Vector2.Distance(input.OurPosition, input.TargetPosition) <= _executeAttackRange;
         return output;
     }
 

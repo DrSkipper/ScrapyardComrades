@@ -15,6 +15,7 @@ public class CharacterVisualizer : VoBehavior
     public SCSpriteAnimation HitStunAnimation;
     public SCSpriteAnimation DeathHitStunAnimation;
     public SCSpriteAnimation DeathAnimation;
+    public float DodgeAlpha = 0.8f;
 
     private const string IDLE_STATE = "idle";
     private const string RUNNING_STATE = "run";
@@ -45,7 +46,7 @@ public class CharacterVisualizer : VoBehavior
         _stateMachine.AddState(STUNNED_STATE, this.updateGeneric, this.enterHitStun);
         _stateMachine.AddState(DEATHSTUN_STATE, this.updateGeneric, this.enterDeathStun);
         _stateMachine.AddState(DEATH_STATE, this.updateDying, this.enterDeath);
-        _stateMachine.AddState(ATTACK_STATE, this.updateAttack, this.enterAttack);
+        _stateMachine.AddState(ATTACK_STATE, this.updateAttack, this.enterAttack, this.exitAttack);
         _stateMachine.BeginWithInitialState(IDLE_STATE);
 
         this.localNotifier.Listen(CharacterUpdateFinishedEvent.NAME, this, this.UpdateVisual);
@@ -124,14 +125,32 @@ public class CharacterVisualizer : VoBehavior
             return updateGeneric();
 
         if (_attackChanged)
+        {
+            Color c = this.spriteRenderer.color;
+            c.a = _currentAttack.Category == SCAttack.MoveCategory.Dodge ? this.DodgeAlpha : 1.0f;
+            this.spriteRenderer.color = c;
             _spriteAnimator.PlayAnimation(_currentAttack.SpriteAnimation);
+        }
 
         return ATTACK_STATE;
     }
 
     private void enterAttack()
     {
+        if (_currentAttack.Category == SCAttack.MoveCategory.Dodge)
+        {
+            Color c = this.spriteRenderer.color;
+            c.a = this.DodgeAlpha;
+            this.spriteRenderer.color = c;
+        }
         _spriteAnimator.PlayAnimation(_currentAttack.SpriteAnimation);
+    }
+
+    private void exitAttack()
+    {
+        Color c = this.spriteRenderer.color;
+        c.a = 1.0f;
+        this.spriteRenderer.color = c;
     }
 
     private void enterIdle()

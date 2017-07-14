@@ -17,4 +17,9 @@ public static class StringExtensions
     public const string JSON_SUFFIX = ".json";
     public const string PNG_SUFFIX = ".png";
     public const string ASSET_SUFFIX = ".asset";
+
+    public static bool IsEmpty(this string self)
+    {
+        return self == null || self == EMPTY;
+    }
 }

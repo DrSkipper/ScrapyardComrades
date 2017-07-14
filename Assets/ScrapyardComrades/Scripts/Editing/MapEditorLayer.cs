@@ -292,6 +292,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
     public Object CurrentPrefab { get { return this.ObjectPrefabs[_currentPrefab]; } }
     public List<GameObject> LoadedObjects;
     public bool EraserEnabled;
+    public NewMapInfo.ObjectParam[] CurrentObjectParams;
 
     public MapEditorObjectsLayer(string name, int depth, List<NewMapInfo.MapObject> objects, Object[] prefabs, int nextId)
     {
@@ -304,10 +305,12 @@ public class MapEditorObjectsLayer : MapEditorLayer
         this.LoadedObjects = new List<GameObject>();
         _nextId = nextId;
         this.EraserEnabled = false;
+        this.CurrentObjectParams = null;
     }
 
     public void CyclePrev()
     {
+        this.CurrentObjectParams = null;
         --_currentPrefab;
         if (_currentPrefab < 0)
             _currentPrefab = this.ObjectPrefabs.Length - 1;
@@ -315,6 +318,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
 
     public void CycleNext()
     {
+        this.CurrentObjectParams = null;
         ++_currentPrefab;
         if (_currentPrefab >= this.ObjectPrefabs.Length)
             _currentPrefab = 0;
@@ -340,6 +344,23 @@ public class MapEditorObjectsLayer : MapEditorLayer
         {
             r.sortingLayerName = this.Name;
             r.sortingOrder = _nextId - 1;
+        }
+
+        if (this.CurrentObjectParams != null)
+        {
+            NewMapInfo.ObjectParam[] p = new NewMapInfo.ObjectParam[this.CurrentObjectParams.Length];
+            this.CurrentObjectParams.CopyTo(p, 0);
+            mapObject.parameters = p;
+        }
+        else
+        {
+            mapObject.parameters = null;
+        }
+
+        ObjectConfigurer configurer = gameObject.GetComponent<ObjectConfigurer>();
+        if (configurer != null)
+        {
+            configurer.ConfigureForParams(this.CurrentObjectParams);
         }
     }
 
@@ -455,9 +476,15 @@ public class MapEditorLightingLayer : MapEditorLayer
     public void ApplyBrush(Transform cursor)
     {
         PooledObject light = _prefab.Retain();
-        light.GetComponent<SCLight>().ConfigureLight(this.CurrentProperties);
-        light.transform.parent = cursor;
-        light.transform.SetLocalPosition(0, 0, 0);
+        _brush = light.GetComponent<SCLight>();
+        _brush.ConfigureLight(this.CurrentProperties);
+        _brush.transform.parent = cursor;
+        _brush.transform.SetLocalPosition(0, 0, 0);
+    }
+
+    public void RemoveBrush()
+    {
+        _brush = null;
     }
 
     public void AddObject(GameObject gameObject)
@@ -478,6 +505,15 @@ public class MapEditorLightingLayer : MapEditorLayer
         gameObject.GetComponent<SCLight>().ConfigureLight(mapLight);
         this.Lights.Add(mapLight);
         this.LoadedLights.Add(gameObject);
+    }
+
+    public void ApplyRotation(int x, int y)
+    {
+        this.CurrentProperties.rot_x += x * ROTATION_INTERVAL;
+        this.CurrentProperties.rot_y += y * ROTATION_INTERVAL;
+
+        if (_brush != null)
+            _brush.ConfigureLight(this.CurrentProperties);
     }
 
     public void CopyValues(NewMapInfo.MapLight receiver, NewMapInfo.MapLight source)
@@ -520,5 +556,7 @@ public class MapEditorLightingLayer : MapEditorLayer
      * Private
      */
     private PooledObject _prefab;
+    private SCLight _brush;
     private int _nextId;
+    private const int ROTATION_INTERVAL = 10;
 }

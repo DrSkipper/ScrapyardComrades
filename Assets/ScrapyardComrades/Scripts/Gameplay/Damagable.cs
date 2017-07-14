@@ -20,6 +20,18 @@ public class Damagable : VoBehavior, IPausable
         _prevLayer = this.gameObject.layer;
     }
 
+    void OnSpawn()
+    {
+        this.Invincible = false;
+        _invincibilityTimer.reset();
+        _invincibilityTimer.Paused = true;
+        if (this.gameObject.layer == LayerMask.NameToLayer(this.DeathLayer))
+        {
+            Debug.LogWarning("Damagable found spawning with dying layer");
+            this.ResetLayer();
+        }
+    }
+
     public void Heal(int amount)
     {
         heal(amount);
@@ -65,13 +77,8 @@ public class Damagable : VoBehavior, IPausable
             SoundManager.Play(hitData.HitSfx);
 
         if (this.Dead)
-        {
-            //TODO: Need to move the layer that our collider is filed under in the CollisionManager as well
-            this.gameObject.layer = LayerMask.NameToLayer(this.DeathLayer);
-            _hitStunEvent.GravityMultiplier *= DEATH_GRAV_MULT;
-            _hitStunEvent.GravityMultiplier *= DEATH_AIRFRICT_MULT;
-            this.Actor.Velocity = this.Actor.Velocity.normalized * (this.Actor.Velocity.magnitude + DEATH_KNOCKBACK_ADD);
-        }
+            die();
+
         this.localNotifier.SendEvent(_hitStunEvent);
 
         return true;
@@ -81,11 +88,9 @@ public class Damagable : VoBehavior, IPausable
     void FixedUpdate()
     {
         if (_invincibilityTimer.Completed)
-        {
-            _invincibilityTimer.invalidate();
             this.Invincible = false;
-        }
-        _invincibilityTimer.update();
+        else
+            _invincibilityTimer.update();
     }
 
     public void SetInvincible(int numFrames)
@@ -95,7 +100,7 @@ public class Damagable : VoBehavior, IPausable
         _invincibilityTimer.start();
     }
 
-    void OnReturnToPool()
+    public void ResetLayer()
     {
         this.gameObject.layer = _prevLayer;
     }
@@ -119,5 +124,16 @@ public class Damagable : VoBehavior, IPausable
         _healEvent.PrevHealth = this.Health;
         this.Health = Mathf.Min(this.Health + amount, this.MaxHealth);
         _healEvent.NewHealth = this.Health;
+    }
+
+    private void die()
+    {
+        this.integerCollider.RemoveFromCollisionPool();
+        this.gameObject.layer = LayerMask.NameToLayer(this.DeathLayer);
+        this.integerCollider.AddToCollisionPool();
+
+        _hitStunEvent.GravityMultiplier *= DEATH_GRAV_MULT;
+        _hitStunEvent.GravityMultiplier *= DEATH_AIRFRICT_MULT;
+        this.Actor.Velocity = this.Actor.Velocity.normalized * (this.Actor.Velocity.magnitude + DEATH_KNOCKBACK_ADD);
     }
 }
