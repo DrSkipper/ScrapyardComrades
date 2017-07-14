@@ -102,7 +102,6 @@ public class EntityTracker : MonoBehaviour
                 inBounds = prevQuad.GetRelativeBounds(centerQuad).Contains(entityPos, 2);
             entity.gameObject.SetActive(inBounds);
         }
-        //TODO: Disable untracked sprite objects and lights significanly outside bounds of current room and prev room
     }
 
     /**

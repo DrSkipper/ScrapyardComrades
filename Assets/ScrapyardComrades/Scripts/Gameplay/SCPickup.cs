@@ -2,9 +2,17 @@
 
 public class SCPickup : ScriptableObject
 {
-    public string Name;
-    public string SpriteName;
+    public Sprite Sprite;
     public int Damage;
-    public float StunTime;
+    public int StunTime;
     public float ThrowVelocity;
+    public KeyType Key;
+
+    public enum KeyType
+    {
+        None,
+        Red,
+        Blue,
+        Yellow
+    }
 }

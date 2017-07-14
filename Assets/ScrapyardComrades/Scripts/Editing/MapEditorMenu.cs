@@ -5,7 +5,7 @@ public class MapEditorMenu : MonoBehaviour
 {
     public MapEditorManager Manager;
     public MapEditorTilesPanel TilesPanel;
-    public GameObject ObjectsPanel;
+    public MapEditorObjectsPanel ObjectsPanel;
     public MapEditorParallaxPanel ParallaxPanel;
     public MapEditorLightingPanel LightingPanel;
 
@@ -24,13 +24,14 @@ public class MapEditorMenu : MonoBehaviour
     {
         MapEditorLayer layer = this.Manager.Layers[this.Manager.CurrentLayer];
         this.TilesPanel.gameObject.SetActive(layer.Type == MapEditorLayer.LayerType.Tiles);
-        this.ObjectsPanel.SetActive(layer.Type == MapEditorLayer.LayerType.Objects);
+        this.ObjectsPanel.gameObject.SetActive(layer.Type == MapEditorLayer.LayerType.Objects);
         this.ParallaxPanel.gameObject.SetActive(layer.Type == MapEditorLayer.LayerType.Parallax);
         this.LightingPanel.gameObject.SetActive(layer.Type == MapEditorLayer.LayerType.Lighting);
         switch (layer.Type)
         {
             default:
             case MapEditorLayer.LayerType.Objects:
+                this.ObjectsPanel.ShowForLayer(layer);
                 break;
             case MapEditorLayer.LayerType.Tiles:
                 this.TilesPanel.ShowForLayer(layer);

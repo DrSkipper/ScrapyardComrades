@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SimpleTransitioner : MonoBehaviour
+public class SimpleTransitioner : MonoBehaviour, IPausable
 {
     public string ButtonToActivate = "Cancel";
     public string DestinationScene = "WorldEditor";
@@ -40,6 +40,9 @@ public class SimpleTransitioner : MonoBehaviour
 
     private void transition()
     {
-        SceneManager.LoadScene(this.DestinationScene);
+        if (this.DestinationScene == null || this.DestinationScene == StringExtensions.EMPTY)
+            Application.Quit();
+        else
+            SceneManager.LoadScene(this.DestinationScene);
     }
 }

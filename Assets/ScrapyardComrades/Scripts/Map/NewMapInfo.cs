@@ -192,8 +192,16 @@ public class NewMapInfo
         public int x; // Position specified in pixel coordinates
         public int y;
         public int z;
+        public ObjectParam[] parameters;
         //public int width;
         //public int height;
+    }
+
+    [System.Serializable]
+    public struct ObjectParam
+    {
+        public string Name;
+        public string CurrentOption;
     }
 
     [System.Serializable]

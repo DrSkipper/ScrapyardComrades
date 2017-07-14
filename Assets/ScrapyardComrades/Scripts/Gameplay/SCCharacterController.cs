@@ -18,6 +18,7 @@ public class SCCharacterController : Actor2D
         bool DodgeBegin { get; }
         bool DodgeHeld { get; }
         bool Duck { get; }
+        bool LookUp { get; }
         bool AttackLightBegin { get; }
         bool AttackLightHeld { get; }
         bool AttackStrongBegin { get; }
@@ -35,6 +36,7 @@ public class SCCharacterController : Actor2D
         public bool DodgeBegin { get { return false; } }
         public bool DodgeHeld { get { return false; } }
         public bool Duck { get { return false; } }
+        public bool LookUp { get { return false; } }
         public bool AttackLightBegin { get { return false; } }
         public bool AttackLightHeld { get { return false; } }
         public bool AttackStrongBegin { get { return false; } }
@@ -52,11 +54,14 @@ public class SCCharacterController : Actor2D
     public LayerMask DeathCollisionMask;
     public LayerMask BounceMask;
     public LayerMask MovingPlatformMask;
+    public LayerMask OneWayPlatformMask;
 
     public float Gravity = 100.0f;
     public float MaxFallSpeed = 500.0f;
     public float FastFallSpeed = 750.0f;
     public float WallSlideSpeed = 100.0f;
+    public float InitialWallSlideSpeed = 1.0f;
+    public float WallSlideAcceleration = 10.0f;
     public float JumpPower = 320.0f;
     public float JumpHorizontalBoost = 50.0f;
     public float MaxSpeedForJumpHorizontalBoost = 50.0f;
@@ -79,6 +84,9 @@ public class SCCharacterController : Actor2D
     public float RunDecceleration = 3.0f;
     public float AirRunAcceleration = 0.1f;
     public float MinBounceVelocity = 1.0f;
+    public float DefaultThrowAngle = 15.0f;
+    public float UpwardThrowAngle = 50.0f;
+    public float DownwardThrowAngle = -30.0f;
 
     public WorldEntity WorldEntity;
     public Damagable Damagable;
@@ -133,7 +141,7 @@ public class SCCharacterController : Actor2D
 
         if (_restingVelocityModifier == null)
             _restingVelocityModifier = new VelocityModifier(Vector2.zero, VelocityModifier.CollisionBehavior.sustain);
-        this.Actor.SetVelocityModifier(RESTING_VELOCITY_KEY, _restingVelocityModifier);
+        this.SetVelocityModifier(RESTING_VELOCITY_KEY, _restingVelocityModifier);
 
         if (_jumpBufferTimer == null)
             _jumpBufferTimer = new Timer(this.JumpBufferFrames);
@@ -172,9 +180,10 @@ public class SCCharacterController : Actor2D
             this.AttackController.AddDamageBoxes();
     }
 
-    void OnReturnToPool()
+    public virtual void OnReturnToPool()
     {
         this.Hurtbox.RemoveFromCollisionPool();
+        this.Damagable.ResetLayer();
     }
 
     public override void FixedUpdate()
@@ -225,14 +234,18 @@ public class SCCharacterController : Actor2D
         updateControlParameters();
 
         // Update jumpBufferCounter, and if input indicates Jump is pressed, set it to JUMP_BUFFER
-        _jumpBufferTimer.update();
         if (input.JumpBegin)
         {
             _jumpBufferTimer.reset();
             _jumpBufferTimer.start();
         }
+        else
+        {
+            _jumpBufferTimer.update();
+        }
 
         // If we're on ground, do some stuff:
+        bool attemptingDrop = false;
         if (_onGround)
         {
             if (_jumpGraceTimer.Completed || _jumpGraceTimer.FramesRemaining < _parameters.JumpGraceFrames)
@@ -245,6 +258,12 @@ public class SCCharacterController : Actor2D
             if ((groundedLayerMask & this.MovingPlatformMask) == groundedLayerMask)
             {
                 attemptMovingPlatformAlignment(groundedAgainst);
+            }
+
+            // Check if we're on a one way platform
+            else if ((groundedLayerMask & this.OneWayPlatformMask) == groundedLayerMask && GameplayInput.JumpBegin && GameplayInput.Duck)
+            {
+                attemptingDrop = true;
             }
 
             // Bounce if necessary
@@ -309,6 +328,7 @@ public class SCCharacterController : Actor2D
         bool againstWall = false;
         bool leftWallJumpValid = false;
         bool rightWallJumpValid = false;
+        Facing dir = prevGrabbingLedge ? this.DirectionGrabbingLedge : (Facing)_moveAxis;
         if (!_onGround)
         {
             againstWall = prevGrabbingLedge || checkAgainstWall((Facing)_moveAxis);
@@ -322,7 +342,8 @@ public class SCCharacterController : Actor2D
                 // Check if we're wall sliding
                 if (_currentAttack == null && _velocity.y <= 0.0f && !input.JumpBegin && !input.Duck && againstWall)
                 {
-                    targetFallSpeed = this.WallSlideSpeed;
+                    ++_wallSlideTime;
+                    targetFallSpeed = Mathf.Lerp(this.InitialWallSlideSpeed, this.WallSlideSpeed, (float)_wallSlideTime / (float)this.WallSlideAcceleration);
                     this.IsWallSliding = true;
                 }
 
@@ -330,22 +351,27 @@ public class SCCharacterController : Actor2D
                 else if (input.Duck && Math.Sign(_velocity.y) == -1)
                     targetFallSpeed = _parameters.FastFallSpeed;
 
-                _velocity.y = _velocity.y.Approach(-targetFallSpeed, -gravity);
+                _velocity.y = _velocity.y.Approach(-targetFallSpeed, gravity);
             }
 
-            leftWallJumpValid = (againstWall && (Facing)_moveAxis == Facing.Left) || (!againstWall && checkAgainstWall(Facing.Left));
+            leftWallJumpValid = (againstWall && dir == Facing.Left) || (!againstWall && checkAgainstWall(Facing.Left));
             rightWallJumpValid = !leftWallJumpValid && (againstWall || checkAgainstWall(Facing.Right));
         }
 
+        if (this.IsWallSliding)
+            ++_wallSlideTime;
+        else if (_wallSlideTime > 0)
+            _wallSlideTime = 0;
+
         // Determine if wall jumping, normal jumping, or ledge grabbing
         bool wallJumpValid = leftWallJumpValid || rightWallJumpValid;
-        bool attemptingJump = checkForJump(input, _onGround, wallJumpValid);
+        bool attemptingJump = !attemptingDrop && checkForJump(input, _onGround, wallJumpValid);
         bool ledgeGrabbing = false;
-        if (!_onGround && !input.Duck && _velocity.y < 0.0f)
+        if (!_onGround && !input.Duck && (_velocity.y < 0.0f || prevGrabbingLedge))
         {
-            if (leftWallJumpValid && (Facing)_moveAxis == Facing.Left)
+            if (leftWallJumpValid && dir == Facing.Left)
                 ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Left, prevGrabbingLedge);
-            else if (rightWallJumpValid && (Facing)_moveAxis == Facing.Right)
+            else if (rightWallJumpValid && dir == Facing.Right)
                 ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Right, prevGrabbingLedge);
             if (ledgeGrabbing)
                 wallJumpValid = false;
@@ -356,9 +382,9 @@ public class SCCharacterController : Actor2D
         if (_currentAttack != null)
         {
             bool interrupted = false;
-            if (attemptingJump && canJumpInterrupt())
+            if ((attemptingJump || attemptingDrop) && canJumpInterrupt())
             {
-                interrupted = true; // Jump or Wall Jump interrupt
+                interrupted = true; // Jump, Wall Jump, or platform drop interrupt
             }
             else if (canMoveInterrupt())
             {
@@ -397,19 +423,27 @@ public class SCCharacterController : Actor2D
                     ThrownActor actor = item.GetComponent<ThrownActor>();
                     if (actor != null)
                     {
-                        //TODO: Throw position marked in character data
-                        //TODO: Item thrown up a bit if looking up
-                        actor.Throw(item.GetComponent<Pickup>().Data.ThrowVelocity * new Vector2((int)_facing, 0));
+                        //TODO: Throw origin position marked in character data
+                        float angle = this.DefaultThrowAngle;
+                        if (input.Duck)
+                            angle = this.DownwardThrowAngle;
+                        else if (input.LookUp)
+                            angle = this.UpwardThrowAngle;
+                        actor.Throw(angle, (int)_facing);
                     }
 
                     item.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
                 }
             }
 
-            // Check if it's time to jump
-            else if (interruptingMove == null && attemptingJump)
+            // Check if it's time to jump or drop through a platform
+            else if (interruptingMove == null && (attemptingJump || attemptingDrop))
             {
-                if (wallJumpValid)
+                if (attemptingDrop)
+                {
+                    drop();
+                }
+                else if (wallJumpValid)
                 {
                     if (leftWallJumpValid && checkAgainstWallForWallJump(Facing.Left))
                         wallJump(Facing.Right);
@@ -524,6 +558,12 @@ public class SCCharacterController : Actor2D
         get { return this.integerCollider.CollideFirst(0, -1, this.HaltMovementMask, null, potentialCollisions()); }
     }
 
+    // Use carefully and sparingly, probably only before first update call
+    public void SetFacingDirectly(Facing facing)
+    {
+        _facing = facing;
+    }
+
     /**
      * Private
      */
@@ -553,11 +593,12 @@ public class SCCharacterController : Actor2D
     private Vector2 _autoMoveValue;
     private int _ledgeGrabY;
     private bool _hasSpawnedLoot;
+    private int _wallSlideTime;
     private VelocityModifier _restingVelocityModifier;
     private List<IntegerCollider> _potentialCollisions;
     private List<IntegerCollider> _potentialWallCollisions;
     private bool _hasGatheredPotentialCollisions;
-    int _wallJumpExpandAmount;
+    private int _wallJumpExpandAmount;
 
     private const string RESTING_VELOCITY_KEY = "rest";
 
@@ -797,6 +838,18 @@ public class SCCharacterController : Actor2D
         }
 
         _canJumpHold = true;
+    }
+
+    private void drop()
+    {
+        this.HaltMovementMask = this.HaltMovementMask & ~this.OneWayPlatformMask;
+        this.CollisionMask = this.CollisionMask & ~this.OneWayPlatformMask;
+        base.Move(new Vector2(0, -2));
+        this.HaltMovementMask = this.HaltMovementMask | this.OneWayPlatformMask;
+        this.CollisionMask = this.CollisionMask | this.OneWayPlatformMask;
+
+        _jumpBufferTimer.complete();
+        _jumpGraceTimer.complete();
     }
 
     private void wallJump(Facing direction)

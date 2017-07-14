@@ -9,6 +9,7 @@ public class PlayerController : SCCharacterController
         public bool DodgeBegin { get { return GameplayInput.DodgeBegin; } }
         public bool DodgeHeld { get { return GameplayInput.DodgeHeld; } }
         public bool Duck { get { return GameplayInput.Duck; } }
+        public bool LookUp { get { return GameplayInput.LookUp; } }
         public bool AttackLightBegin { get { return GameplayInput.AttackLightBegin; } }
         public bool AttackLightHeld { get { return GameplayInput.AttackLightHeld; } }
         public bool AttackStrongBegin { get { return GameplayInput.AttackStrongBegin; } }
@@ -29,10 +30,14 @@ public class PlayerController : SCCharacterController
     {
         base.OnSpawn();
 
-        //TODO - Data-drive health
-        this.Damagable.Health = this.Damagable.MaxHealth;
-
         GlobalEvents.Notifier.SendEvent(new PlayerSpawnedEvent(this.gameObject));
+        GlobalEvents.Notifier.Listen(WorldRecenterEvent.NAME, this, onWorldRecenter);
+    }
+
+    public override void OnReturnToPool()
+    {
+        base.OnReturnToPool();
+        GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, WorldRecenterEvent.NAME);
     }
 
     public override void FixedUpdate()
@@ -49,4 +54,11 @@ public class PlayerController : SCCharacterController
      * Private
      */
     private bool _died;
+    private const float SCREEN_TRANSITION_UP_BOOST = 3.0f;
+
+    private void onWorldRecenter(LocalEventNotifier.Event e)
+    {
+        if (this.Velocity.y > 0 && (e as WorldRecenterEvent).RecenterOffset.Y < 0)
+            this.Velocity.y += SCREEN_TRANSITION_UP_BOOST;
+    }
 }

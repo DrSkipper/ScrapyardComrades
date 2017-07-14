@@ -4,8 +4,9 @@ public class Talkable : MonoBehaviour, Interactable
 {
     public SCDialog Data;
 
-    public void Interact(InteractionController interactor)
+    public bool Interact(InteractionController interactor)
     {
         //TODO
+        return false;
     }
 }

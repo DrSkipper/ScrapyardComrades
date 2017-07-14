@@ -24,6 +24,10 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     public PrefabCollection ObjectPrefabs;
     public PrefabCollection PropPrefabs;
     public PooledObject LightPrefab;
+    public TimedCallbacks InitialTimedCallback;
+    public float InitialDisableDelay = 0.05f;
+    public string OutOfBoundsSceneName = "EndDemoScene";
+    public int LoadEndSceneDelay = 200;
 
     public IntegerRectCollider CurrentQuadBoundsCheck;
     public IntegerRectCollider GetBounds() { return this.CurrentQuadBoundsCheck; }
@@ -104,12 +108,12 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         loadQuads();
         _currentLoadedQuads.AddRange(_targetLoadedQuads);
         updateBoundsCheck();
-        //TODO: Way to disable out of bounds objects after the initial load (not as easy as calling here since there's a delay before objects are spawned)
-        //this.EntityTracker.DisableOutOfBounds(_currentQuad, this.TileRenderSize);
-        disableNonCenteredQuadVisuals();
+        this.InitialTimedCallback.AddCallback(this, initialDisable, this.InitialDisableDelay);
 
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
+        GlobalEvents.Notifier.Listen(PlayerDiedEvent.NAME, this, playerDied);
         GlobalEvents.Notifier.Listen(ResumeEvent.NAME, this, onResume);
+        SubwayTrain.TrainIsRunning = false;
     }
 
     void FixedUpdate()
@@ -135,6 +139,9 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
                 PauseController.BeginSequence(ROOM_TRANSITION_SEQUENCE);
             }
         }
+
+        if (_deathSceneTimer != null)
+            _deathSceneTimer.update();
     }
 
     public NewMapInfo GetMapInfoForQuad(string quadName)
@@ -172,10 +179,18 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     private Transform _tracker;
     private IntegerVector _recenterOffset = IntegerVector.Zero;
     private IntegerVector _trackerPosition = IntegerVector.Zero;
+    private Timer _deathSceneTimer;
     private Dictionary<string, NewMapInfo> _quadData;
     private Dictionary<string, TilesetData> _tilesets;
     private Dictionary<string, PooledObject> _objectPrefabs;
     private Dictionary<string, PooledObject> _propPrefabs;
+
+    private void initialDisable()
+    {
+        this.EntityTracker.DisableOutOfBounds(_currentQuad, this.TileRenderSize);
+        disableNonCenteredQuadVisuals();
+        this.InitialTimedCallback.enabled = false;
+    }
 
     private void enableAllQuadVisuals()
     {
@@ -235,6 +250,16 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         _tracker = (e as PlayerSpawnedEvent).PlayerObject.transform;
     }
 
+    private void playerDied(LocalEventNotifier.Event e)
+    {
+        _deathSceneTimer = new Timer(this.LoadEndSceneDelay, false, true, goToDeathScene);
+    }
+    
+    private void goToDeathScene()
+    {
+        SceneManager.LoadScene(this.OutOfBoundsSceneName, LoadSceneMode.Single);
+    }
+
     private void gatherTargetLoadedQuads()
     {
         _targetLoadedQuads.Clear();
@@ -271,16 +296,24 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     private void changeCurrentQuad()
     {
         // Change current quad
+        bool found = false;
         for (int i = 0; i < _targetLoadedQuads.Count; ++i)
         {
             IntegerRect otherRect = _targetLoadedQuads[i].GetRelativeBounds(_currentQuad);
             if (otherRect.Contains(_trackerPosition))
             {
+                found = true;
                 _prevQuad = _currentQuad;
                 _currentQuad = _targetLoadedQuads[i];
                 _recenterOffset = otherRect.Center;
                 break;
             }
+        }
+
+        // If there is no valid quad to move to, load generic end scene
+        if (!found)
+        {
+            goToDeathScene();
         }
     }
 

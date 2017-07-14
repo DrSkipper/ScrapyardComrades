@@ -72,8 +72,8 @@ public class InteractionController : VoBehavior
         // If interacting, trigger interataction with object
         if (_highlightedObject != null && (e as CharacterUpdateFinishedEvent).CurrentAttack == null && this.CharacterController.MostRecentInput.Interact)
         {
-            _framesUntilColliderGet = 0;
-            _highlightedObject.GetComponent<Interactable>().Interact(this);
+            if (_highlightedObject.GetComponent<Interactable>().Interact(this))
+                _framesUntilColliderGet = 0;
         }
     }
 

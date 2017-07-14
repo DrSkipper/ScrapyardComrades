@@ -5,7 +5,7 @@ public class Consumable : VoBehavior, Interactable
     public SCConsumable Data;
     public AudioClip ConsumptionSound;
 
-    public void Interact(InteractionController interactor)
+    public bool Interact(InteractionController interactor)
     {
         int mutate = this.Data.MutateAmount;
         int heal = this.Data.HealAmount;
@@ -27,6 +27,7 @@ public class Consumable : VoBehavior, Interactable
 
         if (this.ConsumptionSound != null)
             SoundManager.Play(this.ConsumptionSound.name);
+        return true;
     }
 
     public void OnSpawn()

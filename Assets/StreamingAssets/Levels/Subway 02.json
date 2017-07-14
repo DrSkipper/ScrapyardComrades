@@ -2851,8 +2851,8 @@
           "sprite_name": "subway_tileset_105"
         },
         {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_44"
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
         },
         {
           "is_filled": false,
@@ -3236,7 +3236,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_38"
+          "sprite_name": "subway_tileset_44"
         },
         {
           "is_filled": false,
@@ -7475,12 +7475,12 @@
           "sprite_name": "subway_tileset_22"
         },
         {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
+          "is_filled": true,
+          "sprite_name": "subway_tileset_95"
         },
         {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
+          "is_filled": true,
+          "sprite_name": "subway_tileset_96"
         },
         {
           "is_filled": true,
@@ -10228,395 +10228,395 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_16"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_31"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_7"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_8"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_8"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_8"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_8"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_9"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_9"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_17"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_17"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_9"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_8"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_9"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_17"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_17"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_17"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_17"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_17"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_17"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_22"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_7"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_9"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_8"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_9"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_17"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_9"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_9"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_17"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_8"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_8"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_9"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_8"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_8"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_17"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_19"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_9"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_9"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_17"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_9"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_22"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "subway_tileset_0"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_6"
+          "sprite_name": "subway_tileset_36"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_7"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_8"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_8"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_8"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_8"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_9"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_9"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_17"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_17"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_9"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_8"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_9"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_17"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_17"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_17"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_17"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_17"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_17"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_22"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_7"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_9"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_8"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_9"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_17"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_9"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_9"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_17"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_8"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_8"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_9"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_8"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_8"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_17"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_19"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_18"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_9"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_9"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_17"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_9"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_22"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
         },
         {
           "is_filled": false,
@@ -15972,7 +15972,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_81"
+          "sprite_name": "subway_tileset_83"
         },
         {
           "is_filled": true,
@@ -16012,6 +16012,54 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "subway_tileset_103"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_81"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_81"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_82"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_81"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_81"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_83"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_81"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_81"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_82"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_80"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_81"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "subway_tileset_82"
         },
         {
@@ -16040,55 +16088,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_81"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_81"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_82"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_81"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_81"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_82"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_81"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_81"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_82"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_81"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_81"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_82"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_81"
+          "sprite_name": "subway_tileset_80"
         },
         {
           "is_filled": true,
@@ -16304,27 +16304,27 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_47"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_46"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_47"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_46"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_54"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_55"
         },
         {
           "is_filled": true,
@@ -16356,7 +16356,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_68"
         },
         {
           "is_filled": true,
@@ -16396,7 +16396,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_90"
         },
         {
           "is_filled": true,
@@ -16420,23 +16420,23 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_87"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_64"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_65"
         },
         {
           "is_filled": true,
@@ -16472,7 +16472,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_88"
         },
         {
           "is_filled": true,
@@ -16656,19 +16656,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_84"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_69"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_82"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_83"
         },
         {
           "is_filled": true,
@@ -16688,35 +16688,35 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_95"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_96"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_99"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_95"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_96"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_99"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_100"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_101"
         },
         {
           "is_filled": true,
@@ -16740,7 +16740,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_72"
         },
         {
           "is_filled": true,
@@ -16780,7 +16780,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_75"
         },
         {
           "is_filled": true,
@@ -16804,47 +16804,23 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_72"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_57"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_57"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_57"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_73"
         },
         {
           "is_filled": true,
@@ -16856,7 +16832,31 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_86"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_57"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_57"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_57"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_70"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_57"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_65"
         },
         {
           "is_filled": true,
@@ -17052,7 +17052,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_68"
         },
         {
           "is_filled": true,
@@ -17100,7 +17100,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_87"
         },
         {
           "is_filled": true,
@@ -17124,7 +17124,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_87"
         },
         {
           "is_filled": true,
@@ -17188,71 +17188,43 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_87"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_65"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_73"
         },
         {
           "is_filled": true,
           "sprite_name": "subway_tileset_57"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_57"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_57"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_85"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_71"
         },
         {
           "is_filled": true,
@@ -17268,23 +17240,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_71"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_65"
         },
         {
           "is_filled": true,
@@ -17292,7 +17248,51 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_87"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_88"
         },
         {
           "is_filled": true,
@@ -17436,7 +17436,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_87"
         },
         {
           "is_filled": true,
@@ -17484,7 +17484,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_72"
         },
         {
           "is_filled": true,
@@ -17508,7 +17508,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_68"
         },
         {
           "is_filled": true,
@@ -17572,35 +17572,35 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_72"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_94"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_100"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_96"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_99"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_98"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_95"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_98"
         },
         {
           "is_filled": true,
@@ -17624,55 +17624,55 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_94"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_99"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_98"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_99"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_99"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_98"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_103"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_98"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_96"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_99"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_96"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_99"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_98"
         },
         {
           "is_filled": true,
@@ -17796,7 +17796,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_103"
         },
         {
           "is_filled": true,
@@ -17820,7 +17820,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_72"
         },
         {
           "is_filled": true,
@@ -17848,15 +17848,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_84"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_82"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_69"
         },
         {
           "is_filled": true,
@@ -17868,7 +17868,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_87"
         },
         {
           "is_filled": true,
@@ -17892,7 +17892,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_72"
         },
         {
           "is_filled": true,
@@ -17972,7 +17972,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_89"
         },
         {
           "is_filled": true,
@@ -17992,23 +17992,23 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_82"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_69"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_81"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_84"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_65"
         },
         {
           "is_filled": true,
@@ -18032,7 +18032,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_90"
         },
         {
           "is_filled": true,
@@ -18180,7 +18180,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_90"
         },
         {
           "is_filled": true,
@@ -18204,7 +18204,63 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "subway_tileset_68"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_92"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_93"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_92"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_93"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_88"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_71"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_71"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_86"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_57"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_86"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_86"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_72"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "subway_tileset_70"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_66"
         },
         {
           "is_filled": true,
@@ -18216,67 +18272,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_71"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_71"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_71"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_57"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_57"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "subway_tileset_66"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_68"
         },
         {
           "is_filled": true,
@@ -18356,7 +18356,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_74"
         },
         {
           "is_filled": true,
@@ -18392,7 +18392,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_73"
         },
         {
           "is_filled": true,
@@ -18416,7 +18416,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_75"
         },
         {
           "is_filled": true,
@@ -18564,7 +18564,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_75"
         },
         {
           "is_filled": true,
@@ -18588,27 +18588,27 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_87"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_73"
         },
         {
           "is_filled": true,
@@ -18660,27 +18660,27 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_72"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_45"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_46"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_53"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_47"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_55"
         },
         {
           "is_filled": true,
@@ -18696,7 +18696,39 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_54"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_55"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_48"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_47"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_46"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_55"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_70"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_83"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_67"
         },
         {
           "is_filled": true,
@@ -18704,38 +18736,6 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_71"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "subway_tileset_85"
         },
         {
@@ -18776,7 +18776,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_88"
         },
         {
           "is_filled": true,
@@ -18972,11 +18972,31 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_68"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_64"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_64"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_88"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_86"
         },
         {
           "is_filled": true,
@@ -18988,26 +19008,6 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_85"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_71"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "subway_tileset_71"
         },
         {
@@ -19028,7 +19028,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_89"
         },
         {
           "is_filled": true,
@@ -19044,71 +19044,71 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_87"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_94"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_96"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_95"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_99"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_100"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_103"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_96"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_100"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_99"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_96"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_101"
         },
         {
           "is_filled": true,
@@ -19356,35 +19356,23 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_87"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
@@ -19400,59 +19388,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_55"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_54"
         },
         {
           "is_filled": true,
           "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_71"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
         },
         {
           "is_filled": true,
@@ -19464,7 +19408,59 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_67"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_74"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_66"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_66"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_67"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_72"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_78"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_79"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_78"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_79"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_78"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_73"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_86"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_71"
         },
         {
           "is_filled": true,
@@ -19472,7 +19468,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_70"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_90"
         },
         {
           "is_filled": true,
@@ -19492,7 +19492,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_87"
         },
         {
           "is_filled": true,
@@ -19501,30 +19501,6 @@
         {
           "is_filled": true,
           "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_57"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_85"
         },
         {
           "is_filled": true,
@@ -19532,6 +19508,30 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "subway_tileset_67"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_66"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_70"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_67"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_85"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_57"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "subway_tileset_71"
         },
         {
@@ -19544,7 +19544,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_73"
         },
         {
           "is_filled": true,
@@ -19672,19 +19672,67 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "subway_tileset_83"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_71"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_86"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_67"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_66"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_70"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_71"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_85"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_66"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_67"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_67"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_70"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_67"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_57"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "subway_tileset_82"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_69"
         },
         {
           "is_filled": true,
@@ -19692,71 +19740,23 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_72"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_57"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_57"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_85"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_85"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_71"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
@@ -19812,31 +19812,31 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_72"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_63"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_64"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_63"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_64"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_63"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_65"
         },
         {
           "is_filled": true,
@@ -19856,7 +19856,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_75"
         },
         {
           "is_filled": true,
@@ -19928,7 +19928,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_65"
         },
         {
           "is_filled": true,
@@ -20056,7 +20056,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_68"
         },
         {
           "is_filled": true,
@@ -20128,19 +20128,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_64"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_63"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_64"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_63"
         },
         {
           "is_filled": true,
@@ -20160,67 +20160,67 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_86"
         },
         {
           "is_filled": true,
           "sprite_name": "subway_tileset_67"
         },
         {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_87"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_71"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_85"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_88"
         },
         {
           "is_filled": true,
@@ -20440,19 +20440,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_68"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
@@ -20512,19 +20512,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
@@ -20548,63 +20548,63 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_102"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_103"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_96"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_96"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_96"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_98"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_98"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_99"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_101"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_73"
         },
         {
           "is_filled": true,
@@ -20828,15 +20828,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
@@ -20896,19 +20896,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
@@ -20932,79 +20932,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_73"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_57"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_85"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_71"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_71"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_90"
         },
         {
           "is_filled": true,
@@ -21016,11 +20948,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_86"
         },
         {
           "is_filled": true,
@@ -21036,11 +20964,83 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "subway_tileset_87"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_64"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_64"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_64"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_46"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_47"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_54"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_55"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_47"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_67"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "subway_tileset_86"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_87"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
         },
         {
           "is_filled": true,
@@ -21216,30 +21216,30 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "subway_tileset_64"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_64"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_64"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_63"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "subway_tileset_65"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_85"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_85"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "subway_tileset_71"
         },
         {
@@ -21264,7 +21264,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_89"
         },
         {
           "is_filled": true,
@@ -21280,19 +21280,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_63"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_64"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_63"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_64"
         },
         {
           "is_filled": true,
@@ -21316,11 +21316,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_88"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_75"
         },
         {
           "is_filled": true,
@@ -21348,79 +21348,79 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_72"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_94"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_96"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_100"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_99"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_95"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_99"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_100"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_103"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_96"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_100"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_99"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_95"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_87"
+          "sprite_name": "subway_tileset_101"
         },
         {
           "is_filled": false,
@@ -21648,7 +21648,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_74"
         },
         {
           "is_filled": true,
@@ -21664,23 +21664,23 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_67"
         },
         {
           "is_filled": true,
@@ -21732,31 +21732,31 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_87"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_65"
         },
         {
           "is_filled": true,
@@ -21784,7 +21784,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_90"
         },
         {
           "is_filled": true,
@@ -22048,19 +22048,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
@@ -22116,31 +22116,31 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_72"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_64"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_64"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_63"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_64"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_63"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_65"
         },
         {
           "is_filled": true,
@@ -22168,7 +22168,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_75"
         },
         {
           "is_filled": true,
@@ -22432,19 +22432,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_57"
+          "sprite_name": "subway_tileset_64"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_85"
+          "sprite_name": "subway_tileset_63"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_64"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_70"
+          "sprite_name": "subway_tileset_63"
         },
         {
           "is_filled": true,
@@ -22503,28 +22503,28 @@
           "sprite_name": "subway_tileset_72"
         },
         {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
+          "is_filled": true,
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_73"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_93"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_65"
         },
         {
           "is_filled": true,
@@ -22892,23 +22892,23 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_73"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_67"
+          "sprite_name": "subway_tileset_78"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_79"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_65"
         },
         {
           "is_filled": true,
@@ -23276,23 +23276,23 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "subway_tileset_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_64"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_63"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_64"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "subway_tileset_88"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_70"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_67"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_71"
         },
         {
           "is_filled": true,
@@ -23657,6 +23657,22 @@
         {
           "is_filled": false,
           "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_93"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_92"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_93"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_92"
         },
         {
           "is_filled": true,
@@ -23664,22 +23680,6 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_86"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_66"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_57"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_85"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "subway_tileset_57"
         },
         {
@@ -23720,7 +23720,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_71"
+          "sprite_name": "subway_tileset_89"
         },
         {
           "is_filled": true,
@@ -24059,8 +24059,8 @@
           "sprite_name": "subway_tileset_105"
         },
         {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
+          "is_filled": true,
+          "sprite_name": "subway_tileset_65"
         },
         {
           "is_filled": false,
@@ -24104,7 +24104,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_66"
+          "sprite_name": "subway_tileset_74"
         },
         {
           "is_filled": true,
@@ -24658,17 +24658,31 @@
       "z": -2
     },
     {
-      "name": "objects_TrainSpawner_12",
+      "name": "objects_TrainSpawner_15",
       "prefab_name": "TrainSpawner",
-      "x": 20,
+      "x": 196,
       "y": 176,
+      "z": -2
+    },
+    {
+      "name": "objects_Enemy_LV1_C_16",
+      "prefab_name": "Enemy_LV1_C",
+      "x": 1356,
+      "y": 164,
+      "z": -2
+    },
+    {
+      "name": "objects_Enemy_LV1_B_19",
+      "prefab_name": "Enemy_LV1_B",
+      "x": 868,
+      "y": 164,
       "z": -2
     }
   ],
-  "next_object_id": 13,
+  "next_object_id": 20,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
-  "next_light_id": 15,
+  "next_light_id": 16,
   "lights": [
     {
       "name": "lights_OverlayLight_4",
@@ -24854,6 +24868,24 @@
       "name": "lights_OverlayLight_14",
       "x": 2448,
       "y": 496,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 580,
+      "distance": 120,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.778270841,
+      "g": 0.875,
+      "b": 0.173713237,
+      "affects_foreground": true,
+      "affects_parallax": [],
+      "parallax_ratio": 0.0
+    },
+    {
+      "name": "lights_OverlayLight_15",
+      "x": 1476,
+      "y": 916,
       "light_type": 2,
       "intensity": 2,
       "range": 580,

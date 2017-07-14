@@ -3,11 +3,13 @@
 public class PlayerHealthController : VoBehavior, IPausable
 {
     public const string MUTATE_EVENT = "MUTATE";
+    public const int MUTATE_HEAL_AMT = 1;
 
     public Damagable Damagable;
     public int AttritionInterval = 3000;
     public HeroProgressionData ProgressionData;
     public int HeroLevel = 0;
+    public SCAttack.HitData AttritionDeathHitData;
 
     public HealthChangedDelegate HealthChangedCallback;
     public delegate void HealthChangedDelegate(int currentHealth, int maxHealth);
@@ -48,8 +50,16 @@ public class PlayerHealthController : VoBehavior, IPausable
 
     private void attrition()
     {
-        this.Damagable.Health = Mathf.Max(0, this.Damagable.Health - 1);
-        notifyHealthChange();
+        int health = this.Damagable.Health - 1;
+        if (health > 0)
+        {
+            this.Damagable.Health = health;
+            notifyHealthChange();
+        }
+        else
+        {
+            this.Damagable.Damage(this.AttritionDeathHitData, (Vector2)this.transform.position, (Vector2)this.transform.position, SCCharacterController.Facing.Right);
+        }
     }
 
     private void onHeal(LocalEventNotifier.Event e)
@@ -102,8 +112,26 @@ public class PlayerHealthController : VoBehavior, IPausable
         otherEntity.EntityName = entity.EntityName;
         otherEntity.QuadName = entity.QuadName;
 
-        nextLevel.transform.SetPosition2D(this.transform.position.x, this.transform.position.y + offsetY + halfHeight - otherHalfHeight - otherOffsetY);
+        nextLevel.transform.SetPosition2D(this.transform.position.x, this.transform.position.y + offsetY - halfHeight + otherHalfHeight - otherOffsetY);
 
+        // Make sure we're not spawning into ground, since leveled up hitbox will be wider (note that we shouldn't need to check Y here, because players will spawn ducking if they aren't able to stand up, and all duck heights should be less or equal to the standing height of the previous player level
+        SCCharacterController otherActor = otherEntity.GetComponent<SCCharacterController>();
+        int dir = -1;
+        int mag = 0;
+        while (otherCollider.CollideFirst(mag * dir, 0, otherActor.HaltMovementMask) != null)
+        {
+            dir *= -1;
+            if (dir == 1)
+                mag += 1;
+        }
+
+        if (mag > 0)
+            nextLevel.transform.SetX(nextLevel.transform.position.x + (mag * dir));
+
+        otherActor.SetFacingDirectly(this.GetComponent<SCCharacterController>().CurrentFacing);
+
+        otherActor.Damagable.MaxHealth = this.ProgressionData.MaxHealthThresholds[this.HeroLevel + 1];
+        otherActor.Damagable.Health = Mathf.Min(this.Damagable.Health + MUTATE_HEAL_AMT, otherActor.Damagable.MaxHealth);
         nextLevel.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
 
         GlobalEvents.Notifier.SendEvent(new EntityReplacementEvent(otherEntity));
