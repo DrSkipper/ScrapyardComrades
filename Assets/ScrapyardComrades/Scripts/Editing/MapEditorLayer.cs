@@ -476,9 +476,15 @@ public class MapEditorLightingLayer : MapEditorLayer
     public void ApplyBrush(Transform cursor)
     {
         PooledObject light = _prefab.Retain();
-        light.GetComponent<SCLight>().ConfigureLight(this.CurrentProperties);
-        light.transform.parent = cursor;
-        light.transform.SetLocalPosition(0, 0, 0);
+        _brush = light.GetComponent<SCLight>();
+        _brush.ConfigureLight(this.CurrentProperties);
+        _brush.transform.parent = cursor;
+        _brush.transform.SetLocalPosition(0, 0, 0);
+    }
+
+    public void RemoveBrush()
+    {
+        _brush = null;
     }
 
     public void AddObject(GameObject gameObject)
@@ -499,6 +505,15 @@ public class MapEditorLightingLayer : MapEditorLayer
         gameObject.GetComponent<SCLight>().ConfigureLight(mapLight);
         this.Lights.Add(mapLight);
         this.LoadedLights.Add(gameObject);
+    }
+
+    public void ApplyRotation(int x, int y)
+    {
+        this.CurrentProperties.rot_x += x * ROTATION_INTERVAL;
+        this.CurrentProperties.rot_y += y * ROTATION_INTERVAL;
+
+        if (_brush != null)
+            _brush.ConfigureLight(this.CurrentProperties);
     }
 
     public void CopyValues(NewMapInfo.MapLight receiver, NewMapInfo.MapLight source)
@@ -541,5 +556,7 @@ public class MapEditorLightingLayer : MapEditorLayer
      * Private
      */
     private PooledObject _prefab;
+    private SCLight _brush;
     private int _nextId;
+    private const int ROTATION_INTERVAL = 10;
 }

@@ -435,6 +435,22 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
             this.ObjectCursor.gameObject.SetActive(!_objectEraserEnabled);
         }
+        else if (MapEditorInput.ResizeDown)
+        {
+            layer.ApplyRotation(1, 0);
+        }
+        else if (MapEditorInput.ResizeUp)
+        {
+            layer.ApplyRotation(-1, 0);
+        }
+        else if (MapEditorInput.ResizeLeft)
+        {
+            layer.ApplyRotation(0, -1);
+        }
+        else if (MapEditorInput.ResizeRight)
+        {
+            layer.ApplyRotation(0, 1);
+        }
         else
         {
             updateObjectMovement();
@@ -505,6 +521,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     {
         this.ObjectEraseLine.enabled = false;
         layer.EraserEnabled = false;
+        layer.RemoveBrush();
         removeObjectBrush();
         this.ObjectCursor.gameObject.SetActive(true);
     }
