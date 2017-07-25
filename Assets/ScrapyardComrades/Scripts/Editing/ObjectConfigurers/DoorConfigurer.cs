@@ -52,18 +52,22 @@ public class DoorConfigurer : ObjectConfigurer
         {
             default:
                 LogInvalidParameter(NAME, DOOR_TYPE, option);
+                this.DoorScript.LockType = SCPickup.KeyType.None;
                 break;
             case RED_DOOR:
                 this.DoorScript.OpenAnimation = this.RedOpenAnimation;
                 this.DoorScript.CloseAnimation = this.RedCloseAnimation;
+                this.DoorScript.LockType = SCPickup.KeyType.Red;
                 break;
             case PURP_DOOR:
                 this.DoorScript.OpenAnimation = this.PurpOpenAnimation;
                 this.DoorScript.CloseAnimation = this.PurpCloseAnimation;
+                this.DoorScript.LockType = SCPickup.KeyType.Purple;
                 break;
             case BLUE_DOOR:
                 this.DoorScript.OpenAnimation = this.BlueOpenAnimation;
                 this.DoorScript.CloseAnimation = this.BlueCloseAnimation;
+                this.DoorScript.LockType = SCPickup.KeyType.Blue;
                 break;
         }
     }

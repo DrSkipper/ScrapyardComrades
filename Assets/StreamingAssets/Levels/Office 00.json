@@ -4212,23 +4212,23 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_50"
+          "sprite_name": "office_tileset_53"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_51"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_52"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_52"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_36"
+          "sprite_name": "office_tileset_34"
         },
         {
           "is_filled": true,
@@ -12367,9 +12367,69 @@
           "CurrentOption": "red"
         }
       ]
+    },
+    {
+      "name": "objects_DoorHorizontal_5",
+      "prefab_name": "DoorHorizontal",
+      "x": 1424,
+      "y": 692,
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_DoorHorizontal_6",
+      "prefab_name": "DoorHorizontal",
+      "x": 1424,
+      "y": 788,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "purp"
+        }
+      ]
+    },
+    {
+      "name": "objects_DoorHorizontal_7",
+      "prefab_name": "DoorHorizontal",
+      "x": 1424,
+      "y": 876,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "blue"
+        }
+      ]
+    },
+    {
+      "name": "objects_DoorVertical_8",
+      "prefab_name": "DoorVertical",
+      "x": 1008,
+      "y": 748,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "purp"
+        }
+      ]
+    },
+    {
+      "name": "objects_DoorVertical_9",
+      "prefab_name": "DoorVertical",
+      "x": 980,
+      "y": 748,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "blue"
+        }
+      ]
     }
   ],
-  "next_object_id": 5,
+  "next_object_id": 10,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 6,

@@ -12,7 +12,7 @@ public class SCPickup : ScriptableObject
     {
         None,
         Red,
-        Blue,
-        Yellow
+        Purple,
+        Blue
     }
 }
