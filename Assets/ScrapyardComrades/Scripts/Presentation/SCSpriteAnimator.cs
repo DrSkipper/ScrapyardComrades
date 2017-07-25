@@ -98,6 +98,11 @@ public class SCSpriteAnimator : VoBehavior, IPausable
         _elapsed = Mathf.RoundToInt(frame * frameDuration);
     }
 
+    public void Stop()
+    {
+        _playing = false;
+    }
+
     /**
      * Private
      */

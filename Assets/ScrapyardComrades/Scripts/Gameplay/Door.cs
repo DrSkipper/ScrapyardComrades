@@ -8,9 +8,9 @@ public class Door : VoBehavior, IPausable
     public IntegerCollider DoorCollider;
     public LayerMask KeyMask;
     public LayerMask BlockDoorMask;
-    public Transform OpenTransform;
-    public Transform ClosedTransform;
-    public Transform VisualTransform;
+    public SCSpriteAnimator Animator;
+    public SCSpriteAnimation OpenAnimation;
+    public SCSpriteAnimation CloseAnimation;
 
     void Awake()
     {
@@ -23,6 +23,8 @@ public class Door : VoBehavior, IPausable
         close();
         _stateTransitionCooldown.complete();
         this.DoorCollider.AddToCollisionPool();
+        this.Animator.PlayAnimation(this.OpenAnimation);
+        this.Animator.Stop();
     }
 
     void OnReturnToPool()
@@ -82,12 +84,13 @@ public class Door : VoBehavior, IPausable
         _open = true;
         _stateTransitionCooldown.reset();
         _stateTransitionCooldown.start();
-        this.VisualTransform.SetPosition2D(this.OpenTransform.position);
+        this.DoorCollider.enabled = false;
+        this.Animator.PlayAnimation(this.OpenAnimation);
     }
 
     private void tryToClose()
     {
-        GameObject collided = this.DoorCollider.CollideFirst(Mathf.RoundToInt(this.ClosedTransform.position.x - this.DoorCollider.transform.position.x), Mathf.RoundToInt(this.ClosedTransform.position.y - this.DoorCollider.transform.position.y), this.BlockDoorMask);
+        GameObject collided = this.DoorCollider.CollideFirst(0, 0, this.BlockDoorMask);
 
         if (collided == null)
             close();
@@ -98,6 +101,7 @@ public class Door : VoBehavior, IPausable
         _open = false;
         _stateTransitionCooldown.reset();
         _stateTransitionCooldown.start();
-        this.VisualTransform.SetPosition2D(this.ClosedTransform.position);
+        this.DoorCollider.enabled = true;
+        this.Animator.PlayAnimation(this.CloseAnimation);
     }
 }
