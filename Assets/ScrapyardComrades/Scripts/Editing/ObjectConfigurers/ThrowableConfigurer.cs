@@ -6,9 +6,13 @@ public class ThrowableConfigurer : ObjectConfigurer
     private const string PICKUP_TYPE = "type";
     private const string ROCK = "rock";
     private const string RED_KEY = "red";
+    private const string PURPLE_KEY = "purp";
+    private const string BLUE_KEY = "blue";
 
     public SCPickup RockPickup;
     public SCPickup RedKeyPickup;
+    public SCPickup PurpleKeyPickup;
+    public SCPickup BlueKeyPickup;
     public Pickup PickupScript;
 
     public override ObjectParamType[] ParameterTypes
@@ -18,7 +22,9 @@ public class ThrowableConfigurer : ObjectConfigurer
             return new ObjectParamType[] {
                 new ObjectParamType(PICKUP_TYPE, new string[] {
                     ROCK,
-                    RED_KEY
+                    RED_KEY,
+                    PURPLE_KEY,
+                    BLUE_KEY
                 })
             };
         }
@@ -52,6 +58,12 @@ public class ThrowableConfigurer : ObjectConfigurer
                 break;
             case RED_KEY:
                 this.PickupScript.Data = this.RedKeyPickup;
+                break;
+            case PURPLE_KEY:
+                this.PickupScript.Data = this.PurpleKeyPickup;
+                break;
+            case BLUE_KEY:
+                this.PickupScript.Data = this.BlueKeyPickup;
                 break;
         }
     }
