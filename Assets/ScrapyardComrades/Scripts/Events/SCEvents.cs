@@ -274,3 +274,15 @@ public class ControlSchemeChangeEvent : LocalEventNotifier.Event
         this.UsingController = usingController;
     }
 }
+
+public class CheckpointSetEvent : LocalEventNotifier.Event
+{
+    public const string NAME = "CHECKPOINT";
+    public string QuadName;
+
+    public CheckpointSetEvent(string quadName)
+    {
+        this.Name = NAME;
+        this.QuadName = quadName;
+    }
+}

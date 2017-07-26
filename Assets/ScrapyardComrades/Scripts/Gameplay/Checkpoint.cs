@@ -2,6 +2,9 @@
 
 public class Checkpoint : VoBehavior, IPausable
 {
+    public const string CHECKPOINT_STATE = "checkpoint";
+
+    public WorldEntity WorldEntity;
     public LayerMask ActivatorMask;
     public IntegerCollider RangeCollider;
     public IntegerCollider TopCollider;
@@ -20,8 +23,12 @@ public class Checkpoint : VoBehavior, IPausable
         this.LightsOff.sortingOrder = this.spriteRenderer.sortingOrder;
         this.LightsOn.sortingOrder = this.spriteRenderer.sortingOrder;
 
-        //TODO: data-driven
-        deactivate();
+        // If the saved checkpoint is in this quad, activate
+        bool active = (EntityTracker.Instance.CheckGlobalState(CHECKPOINT_STATE, this.WorldEntity.QuadName));
+        setActive(active);
+        this.Animator.PlayAnimation(active ? this.ActiveIdleAnim : this.InactiveIdleAnim);
+
+        GlobalEvents.Notifier.Listen(CheckpointSetEvent.NAME, this, onCheckpointSet);
     }
 
     void Update()
@@ -41,6 +48,7 @@ public class Checkpoint : VoBehavior, IPausable
     void OnReturnToPool()
     {
         this.TopCollider.RemoveFromCollisionPool();
+        GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, CheckpointSetEvent.NAME);
     }
 
     /**
@@ -51,19 +59,24 @@ public class Checkpoint : VoBehavior, IPausable
 
     private void activate()
     {
-        _active = true;
+        EntityTracker.Instance.SetGlobalState(CHECKPOINT_STATE, this.WorldEntity.QuadName);
+        GlobalEvents.Notifier.SendEvent(new CheckpointSetEvent(this.WorldEntity.QuadName), true);
+        setActive(true);
         this.Animator.PlayAnimation(this.ActivateAnim);
-        this.LightsOff.gameObject.SetActive(false);
-        this.LightsOn.gameObject.SetActive(true);
     }
 
     private void deactivate()
     {
-        _active = false;
-        _activeCycles = 0;
+        setActive(false);
         this.Animator.PlayAnimation(this.InactiveIdleAnim);
-        this.LightsOff.gameObject.SetActive(true);
-        this.LightsOn.gameObject.SetActive(false);
+    }
+
+    private void setActive(bool active)
+    {
+        _active = active;
+        _activeCycles = 0;
+        this.LightsOff.gameObject.SetActive(!active);
+        this.LightsOn.gameObject.SetActive(active);
     }
 
     private void incrementActivatedCycle()
@@ -76,5 +89,11 @@ public class Checkpoint : VoBehavior, IPausable
             this.Animator.PlayAnimation(this.ActiveIdleAnim);
 
         ++_activeCycles;
+    }
+
+    private void onCheckpointSet(LocalEventNotifier.Event e)
+    {
+        if ((e as CheckpointSetEvent).QuadName != this.WorldEntity.QuadName)
+            deactivate();
     }
 }

@@ -12357,21 +12357,24 @@
       "prefab_name": "slums_plant",
       "x": 332,
       "y": 128,
-      "z": 2
+      "z": 2,
+      "parameters": null
     },
     {
       "name": "props_slums_plant_1",
       "prefab_name": "slums_plant",
       "x": 1064,
       "y": 952,
-      "z": 2
+      "z": 2,
+      "parameters": null
     },
     {
       "name": "props_slums_plant_2",
       "prefab_name": "slums_plant",
       "x": 1200,
       "y": 252,
-      "z": 2
+      "z": 2,
+      "parameters": null
     }
   ],
   "props_background": [],
@@ -12381,10 +12384,19 @@
       "prefab_name": "HeroLV1",
       "x": 140,
       "y": 228,
-      "z": -2
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_Checkpoint_1",
+      "prefab_name": "Checkpoint",
+      "x": 784,
+      "y": 396,
+      "z": -2,
+      "parameters": null
     }
   ],
-  "next_object_id": 1,
+  "next_object_id": 2,
   "next_prop_id": 3,
   "next_prop_bg_id": 0,
   "next_light_id": 7,

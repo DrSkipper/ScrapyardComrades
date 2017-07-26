@@ -5,6 +5,18 @@ public class WorldEntity : VoBehavior
     public string QuadName;
     public string EntityName;
 
+    public string StateTag
+    {
+        get
+        {
+            return EntityTracker.Instance.GetEntityStateTag(this.QuadName, this.EntityName);
+        }
+        set
+        {
+            EntityTracker.Instance.SetEntityStateTag(this.QuadName, this.EntityName, value);
+        }
+    }
+
     void Awake()
     {
         _entityConsumedEvent = new EntityConsumedEvent(this.QuadName, this.EntityName);

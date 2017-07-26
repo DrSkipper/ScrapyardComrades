@@ -5,11 +5,13 @@ public class EntityTracker : MonoBehaviour
 {
     public const string PLAYER = "player";
     public List<string> PlayerObjectNames;
+    public static EntityTracker Instance { get; private set; }
 
     public class Entity
     {
         public string QuadName;
         public string EntityName;
+        public string StateTag;
         public bool Consumed;
         //TODO - Health remaining, other persistent variables
         public bool AttemptingLoad;
@@ -23,11 +25,13 @@ public class EntityTracker : MonoBehaviour
             this.Consumed = false;
             this.Loaded = false;
             this.AttemptingLoad = false;
+            this.StateTag = null;
         }
     }
 
     void Awake()
     {
+        Instance = this;
         GlobalEvents.Notifier.Listen(EntityConsumedEvent.NAME, this, entityConsumed);
         GlobalEvents.Notifier.Listen(EntityReplacementEvent.NAME, this, entityReplaced);
     }
@@ -104,11 +108,35 @@ public class EntityTracker : MonoBehaviour
         }
     }
 
+    public string GetEntityStateTag(string quadName, string entityName)
+    {
+        return _trackedEntities[quadName][entityName].StateTag;
+    }
+
+    public void SetEntityStateTag(string quadName, string entityName, string stateTag)
+    {
+        _trackedEntities[quadName][entityName].StateTag = stateTag;
+    }
+
+    public bool CheckGlobalState(string stateName, string checkStateTag)
+    {
+        return _globalStates.ContainsKey(stateName) ? (_globalStates[stateName] == checkStateTag) : false;
+    }
+
+    public void SetGlobalState(string stateName, string stateTag)
+    {
+        if (!_globalStates.ContainsKey(stateName))
+            _globalStates.Add(stateName, stateTag);
+        else
+            _globalStates[stateName] = stateTag;
+    }
+
     /**
      * Private
      */
     private Dictionary<string, Dictionary<string, Entity>> _trackedEntities = new Dictionary<string, Dictionary<string, Entity>>();
     private List<WorldEntity> _loadedEntities = new List<WorldEntity>();
+    private Dictionary<string, string> _globalStates = new Dictionary<string, string>();
 
     private void entityReplaced(LocalEventNotifier.Event e)
     {

@@ -57,7 +57,7 @@ public class LocalEventNotifier : MonoBehaviour
         _listenersByEventName[eventName].RemoveAll(listener => listener.Owner == owner);
     }
 
-    public void SendEvent(Event localEvent)
+    public void SendEvent(Event localEvent, bool force = false)
     {
         if (_listenersByEventName == null)
             return;
@@ -74,7 +74,7 @@ public class LocalEventNotifier : MonoBehaviour
                 }
                 else
                 {
-                    if (listener.Owner.isActiveAndEnabled)
+                    if (force || listener.Owner.isActiveAndEnabled)
                         listener.Callback(localEvent);
                     ++i;
                 }
