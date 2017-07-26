@@ -19,6 +19,9 @@ public class PauseMenu : MonoBehaviour
         if ((e as PauseEvent).PauseGroup == this.PauseGroup)
         {
             this.PausePanel.SetActive(true);
+            MenuController controller = this.PausePanel.GetComponent<MenuController>();
+            if (controller != null)
+                controller.Show();
         }
     }
 
@@ -27,6 +30,15 @@ public class PauseMenu : MonoBehaviour
         if ((e as ResumeEvent).PauseGroup == this.PauseGroup)
         {
             this.PausePanel.SetActive(false);
+            MenuController controller = this.PausePanel.GetComponent<MenuController>();
+            if (controller != null)
+                controller.Hide();
         }
     }
+}
+
+public interface MenuController
+{
+    void Show();
+    void Hide();
 }

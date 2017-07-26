@@ -121,6 +121,7 @@ public static class SaveData
         DiskDataHandler.Erase(DATA_PATH + slotName + FILE_SUFFIX);
     }
 
+    [System.Serializable]
     public class DiskData
     {
         public string SaveSlotName;
