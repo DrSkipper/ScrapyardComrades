@@ -11,7 +11,6 @@ public class SaveSlotList : MonoBehaviour, IPausable
     public string GameplayScene;
     public ConfirmationPanel EraseConfirmationPanel;
 
-    public const int MAX_SLOTS = 3;
     public const string ERASE_TAG = "erase";
 
     void Start()
@@ -33,7 +32,7 @@ public class SaveSlotList : MonoBehaviour, IPausable
             }
             else
             {
-                SaveData.LoadFromDisk(SaveSlotData.CreateNameForSlotIndex(_current));
+                SaveData.LoadFromDisk(SaveSlotData.CreateNewSlotName(_slotSummaries));
             }
 
             if (!StringExtensions.IsEmpty(SaveData.LastSaveRoom))
@@ -76,7 +75,7 @@ public class SaveSlotList : MonoBehaviour, IPausable
     private void loadSaveSlotData()
     {
         _slotSummaries = SaveSlotData.GetAllSlots();
-        _entries = new List<RectTransform>(Mathf.Min(_slotSummaries.Length + 1, MAX_SLOTS));
+        _entries = new List<RectTransform>(Mathf.Min(_slotSummaries.Length + 1, SaveSlotData.MAX_SLOTS));
 
         for (int i = 0; i < _slotSummaries.Length; ++i)
         {
@@ -87,7 +86,7 @@ public class SaveSlotList : MonoBehaviour, IPausable
             _entries.Add(entry.transform as RectTransform);
         }
 
-        if (_entries.Count < MAX_SLOTS)
+        if (_entries.Count < SaveSlotData.MAX_SLOTS)
         {
             SaveSlotEntry entry = Instantiate<SaveSlotEntry>(SaveSlotPrefab);
             entry.transform.SetParent(this.ListParent, false);

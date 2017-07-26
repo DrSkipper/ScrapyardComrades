@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public static class SaveSlotData
 {
+    public const int MAX_SLOTS = 3;
+
     public struct SlotSummary
     {
         public string Name;
@@ -20,27 +23,56 @@ public static class SaveSlotData
         }
     }
 
-    public static string CreateNameForSlotIndex(int index)
+    public static string CreateNewSlotName(SlotSummary[] slots)
     {
-        return SLOT_PREFIX + index;
+        string name = SaveData.DEBUG_SLOT_NAME;
+        for (int i = 0; i < MAX_SLOTS; ++i)
+        {
+            string n = SLOT_PREFIX + i;
+            bool found = false;
+            for (int j = 0; j < slots.Length; ++j)
+            {
+                if (slots[j].Name == n)
+                {
+                    found = true;
+                }
+            }
+            if (!found)
+            {
+                name = n;
+                break;
+            }
+
+        }
+        return name;
     }
 
     public static SlotSummary[] GetAllSlots()
     {
         string[] saveSlotNames = DiskDataHandler.GetAllFilesAtPath(SaveData.DATA_PATH);
 
-        SlotSummary[] slots = new SlotSummary[saveSlotNames.Length];
+        List<SlotSummary> slots = new List<SlotSummary>(saveSlotNames.Length);
         for (int i = 0; i < saveSlotNames.Length; ++i)
         {
-            slots[i] = slotSummaryForSlotName(saveSlotNames[i]);
+            slots.Add(slotSummaryForSlotName(saveSlotNames[i]));
         }
-        return slots;
+        slots.Sort(compareSlots);
+        return slots.ToArray();
     }
 
     /**
      * Private
      */
     private const string SLOT_PREFIX = "SLOT_";
+
+    private static int compareSlots(SlotSummary a, SlotSummary b)
+    {
+        if (b.TimestampTicks < a.TimestampTicks)
+            return -1;
+        if (b.TimestampTicks > a.TimestampTicks)
+            return 1;
+        return 0;
+    }
 
     private static SlotSummary slotSummaryForSlotName(string slotName)
     {
