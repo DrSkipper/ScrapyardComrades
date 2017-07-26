@@ -10,6 +10,8 @@ public class Damagable : VoBehavior, IPausable
     public bool Invincible { get; private set; }
     public bool Dead { get { return this.Health <= 0; } }
     public string DeathLayer = "Dying";
+    public delegate void OnDeathDelegate();
+    public OnDeathDelegate OnDeathCallback;
 
     void Awake()
     {
@@ -135,5 +137,8 @@ public class Damagable : VoBehavior, IPausable
         _hitStunEvent.GravityMultiplier *= DEATH_GRAV_MULT;
         _hitStunEvent.GravityMultiplier *= DEATH_AIRFRICT_MULT;
         this.Actor.Velocity = this.Actor.Velocity.normalized * (this.Actor.Velocity.magnitude + DEATH_KNOCKBACK_ADD);
+
+        if (this.OnDeathCallback != null)
+            this.OnDeathCallback();
     }
 }

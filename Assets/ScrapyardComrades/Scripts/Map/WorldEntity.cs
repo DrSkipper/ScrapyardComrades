@@ -22,12 +22,14 @@ public class WorldEntity : VoBehavior
         _entityConsumedEvent = new EntityConsumedEvent(this.QuadName, this.EntityName);
     }
 
-    public void TriggerConsumption()
+    public void TriggerConsumption(bool releaseObject = true)
     {
         _entityConsumedEvent.QuadName = this.QuadName;
         _entityConsumedEvent.EntityName = this.EntityName;
         GlobalEvents.Notifier.SendEvent(_entityConsumedEvent);
-        ObjectPools.Release(this.gameObject);
+
+        if (releaseObject)
+            ObjectPools.Release(this.gameObject);
     }
 
     /**

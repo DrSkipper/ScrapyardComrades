@@ -130,6 +130,7 @@ public class SCCharacterController : Actor2D
         _potentialCollisions = new List<IntegerCollider>();
         _potentialWallCollisions = new List<IntegerCollider>();
         _wallJumpExpandAmount = Mathf.Max(Mathf.Max(Mathf.Abs(this.AgainstWallCheckOffset), Mathf.Abs(this.WallJumpCheckOffset)), Mathf.Max(Mathf.Abs(this.LedgeGrabCheckDistance), Mathf.Abs(this.LedgeGrabPeekDistance))) * 2;
+        this.Damagable.OnDeathCallback += onDeath;
     }
 
     public virtual void OnSpawn()
@@ -211,7 +212,7 @@ public class SCCharacterController : Actor2D
 
                 if (_hitStunTimer.Completed)
                 {
-                    this.WorldEntity.TriggerConsumption();
+                    ObjectPools.Release(this.gameObject);
                     return;
                 }
             }
@@ -938,5 +939,10 @@ public class SCCharacterController : Actor2D
                 break;
         }
         return boost.x == 0.0f;
+    }
+
+    private void onDeath()
+    {
+        this.WorldEntity.TriggerConsumption(false);
     }
 }
