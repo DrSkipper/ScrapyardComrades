@@ -6,16 +6,17 @@ public static class SaveSlotData
     {
         public string Name;
         public long TimestampTicks;
-        //public int PlayerLevel;
-        //public string QuadName;
+        public long GameplayTicks;
+        public int PlayerLevel;
+        public string LastSaveRoom;
 
         public SlotSummary(SaveData.DiskData data)
         {
             this.Name = data.SaveSlotName;
             this.TimestampTicks = data.TimestampTicks;
-            //this.NumHearts = data.HeroData.NumHearts;
-            //this.Gold = data.HeroData.Gold;
-            //this.Age = data.HeroData.Age;
+            this.GameplayTicks = data.GametimeTicks;
+            this.PlayerLevel = data.PlayerStats.Level;
+            this.LastSaveRoom = data.LastSaveRoom;
         }
     }
 

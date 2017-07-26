@@ -61,6 +61,7 @@ public class Checkpoint : VoBehavior, IPausable
     {
         SaveData.SetGlobalState(CHECKPOINT_STATE, this.WorldEntity.QuadName);
         GlobalEvents.Notifier.SendEvent(new CheckpointSetEvent(this.WorldEntity.QuadName), true);
+        SaveData.SaveToDisk(); //TODO: Probably want to save to disk if you pass by this checkpoint even when it's already activated
         setActive(true);
         this.Animator.PlayAnimation(this.ActivateAnim);
     }
