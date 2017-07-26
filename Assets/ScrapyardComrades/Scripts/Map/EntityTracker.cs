@@ -7,6 +7,7 @@ public class EntityTracker : MonoBehaviour
     public List<string> PlayerObjectNames;
     public static EntityTracker Instance { get; private set; }
 
+    [System.Serializable]
     public class Entity
     {
         public string QuadName;
