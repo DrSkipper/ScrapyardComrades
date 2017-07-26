@@ -146,8 +146,8 @@ public class ObjectPlacer : VoBehavior
         {
             entity.AttemptingLoad = false;
             WorldEntity worldEntity = spawn.GetComponent<WorldEntity>();
-            worldEntity.QuadName = entity.QuadName;
-            worldEntity.EntityName = entity.EntityName;
+            worldEntity.QuadName = entity.EntityData.QuadName;
+            worldEntity.EntityName = entity.EntityData.EntityName;
             this.EntityTracker.TrackLoadedEntity(worldEntity);
         }
         else

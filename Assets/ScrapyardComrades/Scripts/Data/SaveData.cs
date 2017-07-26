@@ -9,16 +9,70 @@ public static class SaveData
 
     public static bool DataLoaded { get { return _loadedDiskData != null; } }
     public static string LoadedSaveSlotName { get { return _loadedDiskData.SaveSlotName; } }
-    public static PlayerStats PlayerData { get { return _loadedDiskData.PlayerData; } }
-    public static Dictionary<string, Dictionary<string, EntityTracker.Entity>> TrackedEntities { get { return _loadedDiskData.TrackedEntities; } }
-    public static Dictionary<string, string> GlobalStates { get { return _loadedDiskData.GlobalStates; } }
+    public static PlayerStatsModel PlayerStats { get { return _loadedDiskData.PlayerStats; } }
+
+    public static EntityModel GetTrackedEntity(string quadName, string entityName)
+    {
+        Dictionary<string, EntityModel> quadEntities;
+        if (!_loadedDiskData.TrackedEntities.ContainsKey(quadName))
+        {
+            quadEntities = new Dictionary<string, EntityModel>();
+            _loadedDiskData.TrackedEntities.Add(quadName, quadEntities);
+        }
+        else
+        {
+            quadEntities = _loadedDiskData.TrackedEntities[quadName];
+        }
+
+        EntityModel entity;
+        if (!quadEntities.ContainsKey(entityName))
+        {
+            entity = new EntityModel(quadName, entityName);
+            quadEntities.Add(entityName, entity);
+        }
+        else
+        {
+            entity = quadEntities[entityName];
+        }
+        return entity;
+    }
     
+    public static bool CheckGlobalState(string stateName, string checkStateTag)
+    {
+        return _loadedDiskData.GlobalStates.ContainsKey(stateName) ? (_loadedDiskData.GlobalStates[stateName] == checkStateTag) : false;
+    }
+
+    public static void SetGlobalState(string stateName, string stateTag)
+    {
+        if (!_loadedDiskData.GlobalStates.ContainsKey(stateName))
+            _loadedDiskData.GlobalStates.Add(stateName, stateTag);
+        else
+            _loadedDiskData.GlobalStates[stateName] = stateTag;
+    }
+
     [System.Serializable]
-    public class PlayerStats
+    public class PlayerStatsModel
     {
         public int Level;
         public int MaxHealth;
         public int CurrentHealth;
+    }
+
+    [System.Serializable]
+    public class EntityModel
+    {
+        public string QuadName;
+        public string EntityName;
+        public string StateTag;
+        public bool Consumed;
+
+        public EntityModel(string quadName, string entityName)
+        {
+            this.QuadName = quadName;
+            this.EntityName = entityName;
+            this.StateTag = null;
+            this.Consumed = false;
+        }
     }
     
     public static void LoadFromDisk(string slotName)
@@ -60,8 +114,8 @@ public static class SaveData
     {
         public string SaveSlotName;
         public long TimestampTicks;
-        public PlayerStats PlayerData;
-        public Dictionary<string, Dictionary<string, EntityTracker.Entity>> TrackedEntities;
+        public PlayerStatsModel PlayerStats;
+        public Dictionary<string, Dictionary<string, EntityModel>> TrackedEntities;
         public Dictionary<string, string> GlobalStates;
     }
 
@@ -73,8 +127,8 @@ public static class SaveData
     private static DiskData loadInitialSaveData()
     {
         DiskData data = new DiskData();
-        data.PlayerData = new PlayerStats();
-        data.TrackedEntities = new Dictionary<string, Dictionary<string, EntityTracker.Entity>>();
+        data.PlayerStats = new PlayerStatsModel();
+        data.TrackedEntities = new Dictionary<string, Dictionary<string, EntityModel>>();
         data.GlobalStates = new Dictionary<string, string>();
         return data;
     }

@@ -24,7 +24,7 @@ public class Checkpoint : VoBehavior, IPausable
         this.LightsOn.sortingOrder = this.spriteRenderer.sortingOrder;
 
         // If the saved checkpoint is in this quad, activate
-        bool active = (EntityTracker.Instance.CheckGlobalState(CHECKPOINT_STATE, this.WorldEntity.QuadName));
+        bool active = (SaveData.CheckGlobalState(CHECKPOINT_STATE, this.WorldEntity.QuadName));
         setActive(active);
         this.Animator.PlayAnimation(active ? this.ActiveIdleAnim : this.InactiveIdleAnim);
 
@@ -59,7 +59,7 @@ public class Checkpoint : VoBehavior, IPausable
 
     private void activate()
     {
-        EntityTracker.Instance.SetGlobalState(CHECKPOINT_STATE, this.WorldEntity.QuadName);
+        SaveData.SetGlobalState(CHECKPOINT_STATE, this.WorldEntity.QuadName);
         GlobalEvents.Notifier.SendEvent(new CheckpointSetEvent(this.WorldEntity.QuadName), true);
         setActive(true);
         this.Animator.PlayAnimation(this.ActivateAnim);

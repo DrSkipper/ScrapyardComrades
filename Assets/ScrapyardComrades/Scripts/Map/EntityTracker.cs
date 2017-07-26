@@ -10,29 +10,24 @@ public class EntityTracker : MonoBehaviour
     [System.Serializable]
     public class Entity
     {
-        public string QuadName;
-        public string EntityName;
-        public string StateTag;
-        public bool Consumed;
-        //TODO - Health remaining, other persistent variables
+        public SaveData.EntityModel EntityData;
         public bool AttemptingLoad;
         public bool Loaded;
-        public bool CanLoad { get { return !this.Consumed && !this.Loaded && !this.AttemptingLoad; } }
+        public bool CanLoad { get { return !this.EntityData.Consumed && !this.Loaded && !this.AttemptingLoad; } }
 
-        public Entity(string quadName, string entityName)
+        public Entity(SaveData.EntityModel entityData)
         {
-            this.QuadName = quadName;
-            this.EntityName = entityName;
-            this.Consumed = false;
+            this.EntityData = entityData;
             this.Loaded = false;
             this.AttemptingLoad = false;
-            this.StateTag = null;
         }
     }
 
     void Awake()
     {
         Instance = this;
+        if (!SaveData.DataLoaded)
+            SaveData.LoadFromDisk(SaveData.DEBUG_SLOT_NAME);
         GlobalEvents.Notifier.Listen(EntityConsumedEvent.NAME, this, entityConsumed);
         GlobalEvents.Notifier.Listen(EntityReplacementEvent.NAME, this, entityReplaced);
     }
@@ -46,17 +41,30 @@ public class EntityTracker : MonoBehaviour
             entityName = PLAYER;
         }
 
+        Dictionary<string, Entity> quadEntities;
         if (!_trackedEntities.ContainsKey(quadName))
         {
-            _trackedEntities.Add(quadName, new Dictionary<string, Entity>());
+            quadEntities = new Dictionary<string, Entity>();
+            _trackedEntities.Add(quadName, quadEntities);
         }
-
-        if (!_trackedEntities[quadName].ContainsKey(entityName))
+        else
         {
-            _trackedEntities[quadName].Add(entityName, new Entity(quadName, entityName));
+            quadEntities = _trackedEntities[quadName];
         }
 
-        return _trackedEntities[quadName][entityName];
+        Entity entity;
+        if (!quadEntities.ContainsKey(entityName))
+        {
+            SaveData.EntityModel entityData = SaveData.GetTrackedEntity(quadName, entityName);
+            entity = new Entity(entityData);
+            quadEntities.Add(entityName, entity);
+        }
+        else
+        {
+            entity = quadEntities[entityName];
+        }
+
+        return entity;
     }
 
     public void TrackLoadedEntity(WorldEntity entity)
@@ -111,25 +119,12 @@ public class EntityTracker : MonoBehaviour
 
     public string GetEntityStateTag(string quadName, string entityName)
     {
-        return _trackedEntities[quadName][entityName].StateTag;
+        return _trackedEntities[quadName][entityName].EntityData.StateTag;
     }
 
     public void SetEntityStateTag(string quadName, string entityName, string stateTag)
     {
-        _trackedEntities[quadName][entityName].StateTag = stateTag;
-    }
-
-    public bool CheckGlobalState(string stateName, string checkStateTag)
-    {
-        return _globalStates.ContainsKey(stateName) ? (_globalStates[stateName] == checkStateTag) : false;
-    }
-
-    public void SetGlobalState(string stateName, string stateTag)
-    {
-        if (!_globalStates.ContainsKey(stateName))
-            _globalStates.Add(stateName, stateTag);
-        else
-            _globalStates[stateName] = stateTag;
+        _trackedEntities[quadName][entityName].EntityData.StateTag = stateTag;
     }
 
     /**
@@ -137,7 +132,6 @@ public class EntityTracker : MonoBehaviour
      */
     private Dictionary<string, Dictionary<string, Entity>> _trackedEntities = new Dictionary<string, Dictionary<string, Entity>>();
     private List<WorldEntity> _loadedEntities = new List<WorldEntity>();
-    private Dictionary<string, string> _globalStates = new Dictionary<string, string>();
 
     private void entityReplaced(LocalEventNotifier.Event e)
     {
@@ -166,7 +160,7 @@ public class EntityTracker : MonoBehaviour
         }
         else
         {
-            _trackedEntities[consumedEvent.QuadName][consumedEvent.EntityName].Consumed = true;
+            _trackedEntities[consumedEvent.QuadName][consumedEvent.EntityName].EntityData.Consumed = true;
             for (int i = 0; i < _loadedEntities.Count; ++i)
             {
                 if (_loadedEntities[i].QuadName == consumedEvent.QuadName && _loadedEntities[i].EntityName == consumedEvent.EntityName)
