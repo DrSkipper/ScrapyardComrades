@@ -23,20 +23,25 @@ public class PlayerHealthController : VoBehavior, IPausable
     void OnSpawn()
     {
         int level = SaveData.PlayerStats.Level;
-        if (level > 0 && level != this.HeroLevel)
+        if (level > 0)
         {
-            loadLevel(level, SaveData.PlayerStats.CurrentHealth, SaveData.PlayerStats.MaxHealth);
-        }
-        else
-        {
-            if (_attritionTimer == null)
-                _attritionTimer = new Timer(this.AttritionInterval, true, true, attrition);
-            else
-                _attritionTimer.reset(this.AttritionInterval);
+            if (level != this.HeroLevel)
+            {
+                loadLevel(level, SaveData.PlayerStats.CurrentHealth, SaveData.PlayerStats.MaxHealth);
+                return;
+            }
 
-            _prevHealth = this.Damagable.Health;
-            _prevMaxHealth = this.Damagable.MaxHealth;
+            this.Damagable.MaxHealth = SaveData.PlayerStats.MaxHealth;
+            this.Damagable.Health = SaveData.PlayerStats.CurrentHealth;
         }
+
+        if (_attritionTimer == null)
+            _attritionTimer = new Timer(this.AttritionInterval, true, true, attrition);
+        else
+            _attritionTimer.reset(this.AttritionInterval);
+
+        _prevHealth = this.Damagable.Health;
+        _prevMaxHealth = this.Damagable.MaxHealth;
     }
 
     private void FixedUpdate()
@@ -97,6 +102,7 @@ public class PlayerHealthController : VoBehavior, IPausable
     private void levelUp()
     {
         GlobalEvents.Notifier.SendEvent(new LocalEventNotifier.Event(MUTATE_EVENT));
+        SaveData.PlayerStats.Level = this.HeroLevel + 1;
         loadLevel(this.HeroLevel + 1, this.Damagable.Health, this.ProgressionData.MaxHealthThresholds[this.HeroLevel + 1]);
     }
 
@@ -144,8 +150,8 @@ public class PlayerHealthController : VoBehavior, IPausable
 
         otherActor.SetFacingDirectly(this.GetComponent<SCCharacterController>().CurrentFacing);
 
-        otherActor.Damagable.MaxHealth = maxHealth;
-        otherActor.Damagable.Health = Mathf.Min(health + MUTATE_HEAL_AMT, otherActor.Damagable.MaxHealth);
+        SaveData.PlayerStats.MaxHealth = maxHealth;
+        SaveData.PlayerStats.CurrentHealth = Mathf.Min(health + MUTATE_HEAL_AMT, otherActor.Damagable.MaxHealth);
         nextLevel.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
 
         GlobalEvents.Notifier.SendEvent(new EntityReplacementEvent(otherEntity));
