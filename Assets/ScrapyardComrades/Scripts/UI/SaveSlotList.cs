@@ -10,6 +10,7 @@ public class SaveSlotList : MonoBehaviour, IPausable
     public int SaveSlotEntryHeight = 50;
     public string GameplayScene;
     public ConfirmationPanel EraseConfirmationPanel;
+    public bool InfiniteRetries = false;
 
     public const string ERASE_TAG = "erase";
 
@@ -26,22 +27,37 @@ public class SaveSlotList : MonoBehaviour, IPausable
     {
         if (MapEditorInput.Confirm)
         {
+            bool loaded = false;
             if (_current < _slotSummaries.Length)
             {
-                SaveData.LoadFromDisk(_slotSummaries[_current].Name);
+                if (!this.InfiniteRetries && _slotSummaries[_current].UnsafeSave)
+                {
+                    //TODO: put message on screen that this save cannot be loaded
+                }
+                else
+                {
+                    SaveData.LoadFromDisk(_slotSummaries[_current].Name);
+                    SaveData.UnsafeSave = true;
+                    SaveData.SaveToDisk();
+                    loaded = true;
+                }
             }
             else
             {
                 SaveData.LoadFromDisk(SaveSlotData.CreateNewSlotName(_slotSummaries));
+                loaded = true;
             }
 
-            if (!StringExtensions.IsEmpty(SaveData.LastSaveRoom))
+            if (loaded)
             {
-                ScenePersistentLoading.BeginLoading(SaveData.LastSaveRoom);
-            }
+                if (!StringExtensions.IsEmpty(SaveData.LastSaveRoom))
+                {
+                    ScenePersistentLoading.BeginLoading(SaveData.LastSaveRoom);
+                }
 
-            MapEditorInput.RewiredPlayer.controllers.maps.SetMapsEnabled(false, "Menu");
-            SceneManager.LoadScene(this.GameplayScene, LoadSceneMode.Single);
+                MapEditorInput.RewiredPlayer.controllers.maps.SetMapsEnabled(false, "Menu");
+                SceneManager.LoadScene(this.GameplayScene, LoadSceneMode.Single);
+            }
         }
         else
         {

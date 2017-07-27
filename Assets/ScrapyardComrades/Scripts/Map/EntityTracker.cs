@@ -6,6 +6,7 @@ public class EntityTracker : MonoBehaviour
     public const string PLAYER = "player";
     public List<string> PlayerObjectNames;
     public static EntityTracker Instance { get; private set; }
+    public bool IsInitialLoad { get; private set; }
     
     public class Entity
     {
@@ -124,6 +125,16 @@ public class EntityTracker : MonoBehaviour
     public void SetEntityStateTag(string quadName, string entityName, string stateTag)
     {
         _trackedEntities[quadName][entityName].EntityData.StateTag = stateTag;
+    }
+
+    public void BeginInitialLoad()
+    {
+        this.IsInitialLoad = true;
+    }
+
+    public void EndInitialLoad()
+    {
+        this.IsInitialLoad = false;
     }
 
     /**

@@ -99,6 +99,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
             }
         }
 
+        EntityTracker.Instance.BeginInitialLoad();
         this.CollisionManager.RemoveAllSolids();
         _targetLoadedQuads = new List<MapQuad>();
         _currentLoadedQuads = new List<MapQuad>();
@@ -190,6 +191,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         this.EntityTracker.DisableOutOfBounds(_currentQuad, this.TileRenderSize);
         disableNonCenteredQuadVisuals();
         this.InitialTimedCallback.enabled = false;
+        EntityTracker.Instance.EndInitialLoad();
     }
 
     private void enableAllQuadVisuals()

@@ -11,6 +11,7 @@ public static class SaveData
     public static string LoadedSaveSlotName { get { return _loadedDiskData.SaveSlotName; } }
     public static PlayerStatsModel PlayerStats { get { return _loadedDiskData.PlayerStats; } }
     public static string LastSaveRoom { get { return _loadedDiskData.LastSaveRoom; } }
+    public static bool UnsafeSave { get { return _loadedDiskData.UnsafeSave; } set { _loadedDiskData.UnsafeSave = value; } }
 
     public static EntityModel GetTrackedEntity(string quadName, string entityName)
     {
@@ -125,6 +126,7 @@ public static class SaveData
     public class DiskData
     {
         public string SaveSlotName;
+        public bool UnsafeSave;
         public long TimestampTicks;
         public long GametimeTicks;
         public PlayerStatsModel PlayerStats;

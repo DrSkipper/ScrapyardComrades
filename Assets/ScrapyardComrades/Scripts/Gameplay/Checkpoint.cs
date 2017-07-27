@@ -3,6 +3,7 @@
 public class Checkpoint : VoBehavior, IPausable
 {
     public const string CHECKPOINT_STATE = "checkpoint";
+    public const string BROKEN_STATE = "broken";
 
     public WorldEntity WorldEntity;
     public LayerMask ActivatorMask;
@@ -16,39 +17,65 @@ public class Checkpoint : VoBehavior, IPausable
     public SCSpriteAnimation FirstActiveAnim;
     public SCSpriteAnimation SecondActiveAnim;
     public SCSpriteAnimation ActiveIdleAnim;
+    public SCSpriteAnimation BrokenIdleAnim;
 
     void OnSpawn()
     {
         this.TopCollider.AddToCollisionPool();
         this.LightsOff.sortingOrder = this.spriteRenderer.sortingOrder;
         this.LightsOn.sortingOrder = this.spriteRenderer.sortingOrder;
-
-        // If the saved checkpoint is in this quad, activate
+        
         bool active = (SaveData.CheckGlobalState(CHECKPOINT_STATE, this.WorldEntity.QuadName));
-        setActive(active);
-        this.Animator.PlayAnimation(active ? this.ActiveIdleAnim : this.InactiveIdleAnim);
 
-        GlobalEvents.Notifier.Listen(CheckpointSetEvent.NAME, this, onCheckpointSet);
+        if (active && EntityTracker.Instance.IsInitialLoad)
+        {
+            _broken = true;
+            this.WorldEntity.StateTag = BROKEN_STATE;
+        }
+        else
+        {
+            _broken = this.WorldEntity.StateTag == BROKEN_STATE;
+        }
+
+        // If this checkpoint is broken, break it
+        if (_broken)
+        {
+            this.Animator.PlayAnimation(this.BrokenIdleAnim);
+        }
+        else
+        {
+            // If the saved checkpoint is in this quad, activate
+            setActive(active);
+            this.Animator.PlayAnimation(active ? this.ActiveIdleAnim : this.InactiveIdleAnim);
+
+            GlobalEvents.Notifier.Listen(CheckpointSetEvent.NAME, this, onCheckpointSet);
+        }
     }
 
     void Update()
     {
-        if (!_active)
+        if (!_broken)
         {
-            //TODO: Probably want to save to disk if you pass by this checkpoint even when it's already activated
-            GameObject collided = this.RangeCollider.CollideFirst(0, 0, this.ActivatorMask);
-            if (collided != null)
-                activate(collided.GetComponent<Damagable>());
-        }
-        else if (_activeCycles < 3)
-        {
-            if (!this.Animator.IsPlaying)
-                incrementActivatedCycle();
+            if (!_active)
+            {
+                //TODO: Probably want to save to disk if you pass by this checkpoint even when it's already activated
+                GameObject collided = this.RangeCollider.CollideFirst(0, 0, this.ActivatorMask);
+                if (collided != null)
+                    activate(collided.GetComponent<Damagable>());
+            }
+            else if (_activeCycles < 3)
+            {
+                if (!this.Animator.IsPlaying)
+                    incrementActivatedCycle();
+            }
+
         }
     }
 
     void OnReturnToPool()
     {
+        _broken = false;
+        _active = false;
         this.TopCollider.RemoveFromCollisionPool();
         GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, CheckpointSetEvent.NAME);
     }
@@ -56,6 +83,7 @@ public class Checkpoint : VoBehavior, IPausable
     /**
      * Private
      */
+    private bool _broken;
     private bool _active;
     private int _activeCycles;
 
@@ -64,6 +92,7 @@ public class Checkpoint : VoBehavior, IPausable
         SaveData.PlayerStats.CurrentHealth = collided.Health;
         SaveData.PlayerStats.MaxHealth = collided.MaxHealth;
         SaveData.PlayerStats.Level = collided.GetComponent<PlayerHealthController>().HeroLevel;
+        SaveData.UnsafeSave = false;
         SaveData.SetGlobalState(CHECKPOINT_STATE, this.WorldEntity.QuadName);
         GlobalEvents.Notifier.SendEvent(new CheckpointSetEvent(this.WorldEntity.QuadName), true);
         SaveData.SaveToDisk();

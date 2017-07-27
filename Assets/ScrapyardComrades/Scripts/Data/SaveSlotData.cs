@@ -8,6 +8,7 @@ public static class SaveSlotData
     public struct SlotSummary
     {
         public string Name;
+        public bool UnsafeSave;
         public long TimestampTicks;
         public long GameplayTicks;
         public int PlayerLevel;
@@ -16,6 +17,7 @@ public static class SaveSlotData
         public SlotSummary(SaveData.DiskData data)
         {
             this.Name = data.SaveSlotName;
+            this.UnsafeSave = data.UnsafeSave;
             this.TimestampTicks = data.TimestampTicks;
             this.GameplayTicks = data.GametimeTicks;
             this.PlayerLevel = data.PlayerStats.Level;
