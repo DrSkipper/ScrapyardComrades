@@ -35,8 +35,10 @@ public class Checkpoint : VoBehavior, IPausable
     {
         if (!_active)
         {
-            if (this.RangeCollider.CollideFirst(0, 0, this.ActivatorMask) != null)
-                activate();
+            //TODO: Probably want to save to disk if you pass by this checkpoint even when it's already activated
+            GameObject collided = this.RangeCollider.CollideFirst(0, 0, this.ActivatorMask);
+            if (collided != null)
+                activate(collided.GetComponent<Damagable>());
         }
         else if (_activeCycles < 3)
         {
@@ -57,11 +59,14 @@ public class Checkpoint : VoBehavior, IPausable
     private bool _active;
     private int _activeCycles;
 
-    private void activate()
+    private void activate(Damagable collided)
     {
+        SaveData.PlayerStats.CurrentHealth = collided.Health;
+        SaveData.PlayerStats.MaxHealth = collided.MaxHealth;
+        SaveData.PlayerStats.Level = collided.GetComponent<PlayerHealthController>().HeroLevel;
         SaveData.SetGlobalState(CHECKPOINT_STATE, this.WorldEntity.QuadName);
         GlobalEvents.Notifier.SendEvent(new CheckpointSetEvent(this.WorldEntity.QuadName), true);
-        SaveData.SaveToDisk(); //TODO: Probably want to save to disk if you pass by this checkpoint even when it's already activated
+        SaveData.SaveToDisk();
         setActive(true);
         this.Animator.PlayAnimation(this.ActivateAnim);
     }
