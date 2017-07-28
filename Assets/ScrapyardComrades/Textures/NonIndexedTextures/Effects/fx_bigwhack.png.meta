@@ -1,12 +1,16 @@
 fileFormatVersion: 2
-guid: b39d90dab5edb484eabc384a48280239
-timeCreated: 1501196459
+guid: e3d505ed450710b4e8a4c8b6611f7757
+timeCreated: 1501200947
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: turret_position1_0
-    21300002: turret_position1_1
-    21300004: turret_position1_2
+    21300000: fx_bigwhack_0
+    21300002: fx_bigwhack_1
+    21300004: fx_bigwhack_2
+    21300006: fx_bigwhack_3
+    21300008: fx_bigwhack_4
+    21300010: fx_bigwhack_5
+    21300012: fx_bigwhack_6
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -89,41 +93,93 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: turret_position1_0
+      name: fx_bigwhack_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 40
-        width: 32
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 80
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.7, y: 0.52}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: turret_position1_1
+      name: fx_bigwhack_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 40
-        width: 32
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 48
+        y: 80
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.7, y: 0.52}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: turret_position1_2
+      name: fx_bigwhack_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 80
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.7, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fx_bigwhack_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 80
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.7, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fx_bigwhack_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 80
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.7, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fx_bigwhack_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 32
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 32
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.7, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fx_bigwhack_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.7, y: 0.52}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

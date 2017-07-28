@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: b99b0f15f3ebc0a4983a693e80b5ed74
-timeCreated: 1501196970
+guid: b39d90dab5edb484eabc384a48280239
+timeCreated: 1501196459
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: turret_position5_0
-    21300002: turret_position5_1
-    21300004: turret_position5_2
+    21300000: turret_position1_0
+    21300002: turret_position1_1
+    21300004: turret_position1_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -89,7 +89,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: turret_position5_0
+      name: turret_position1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -102,7 +102,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: turret_position5_1
+      name: turret_position1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -115,7 +115,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: turret_position5_2
+      name: turret_position1_2
       rect:
         serializedVersion: 2
         x: 0
@@ -128,7 +128,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     outline: []
-  spritePackingTag: lvl_1
+  spritePackingTag: obj_1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
