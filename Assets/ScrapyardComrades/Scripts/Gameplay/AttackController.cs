@@ -125,7 +125,7 @@ public class AttackController : VoBehavior, IPausable
 
                             PooledObject hitEffect = this.HitEffect.Retain();
                             hitEffect.transform.position = (Vector2)hitPoint;
-                            hitEffect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(freezeFrames);
+                            hitEffect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(freezeFrames, currentAttack.HitParameters.HitAnimation, (int)facing);
                         }
                     }
                 }

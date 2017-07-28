@@ -62,6 +62,7 @@ public class SCAttack : ScriptableObject
         public float HitStunGravityMultiplier;
         public float HitStunAirFrictionMultiplier;
         public string HitSfx;
+        public SCSpriteAnimation HitAnimation;
 
         public Vector2 GetKnockback(Vector2 attackerPos, Vector2 defenderPos, Vector2 hitPos, SCCharacterController.Facing attackerFacing)
         {

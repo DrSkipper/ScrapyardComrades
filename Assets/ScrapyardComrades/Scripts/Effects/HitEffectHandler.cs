@@ -4,12 +4,19 @@ public class HitEffectHandler : MonoBehaviour, IPausable
 {
     public SCSpriteAnimator Animator;
 
-    public void InitializeWithFreezeFrames(int freezeFrames)
+    public void InitializeWithFreezeFrames(int freezeFrames, SCSpriteAnimation animation, int dir)
     {
         _animStarted = false;
         this.Animator.PlayAnimation(this.Animator.DefaultAnimation);
         this.Animator.Stop();
         _freezeTimer = new Timer(freezeFrames, false, true);
+
+        if (dir == 0)
+            dir = Random.Range(0, 2) == 0 ? -1 : 1;
+        else
+            dir = Mathf.Clamp(dir, -1, 1);
+
+        this.transform.localScale = new Vector3(dir * Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
     }
 
     void FixedUpdate()
