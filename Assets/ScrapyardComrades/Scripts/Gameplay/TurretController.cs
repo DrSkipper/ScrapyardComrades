@@ -75,34 +75,44 @@ public class TurretController : VoBehavior
         }
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(this.transform.position, this.transform.position + (Vector3)_normal * 80);
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(this.transform.position, this.transform.position + (Vector3)_lastAimDir * 80);
+    }
+
     /**
      * Private
      */
     private List<GameObject> _inRange;
     private Timer _cooldownTimer;
     private Vector2 _normal;
-
-    private const float NUM_POS = 5.0f;
+    private Vector2 _lastAimDir;
+    
     private const float COVERAGE_PER_POS = 22.5f;
     private const float COVERAGE_PER_POS_HALF = 11.25f;
     private const float COVERAGE_TOTAL = 202.5f;
     private const float COVERAGE_HALF = 101.25f;
+    private const float MIN_AMT_FOR_TURN = 5.0f;
 
     private void aimAtTarget(Transform target)
     {
         Vector2 targetDir = this.transform.DirectionTo2D(target);
-        float targetAngle = Vector2.Angle(_normal, targetDir);
-        float absTargetAngle = Mathf.Abs(targetAngle);
+        _lastAimDir = targetDir;
+        float absTargetAngle = Vector2.Angle(_normal, targetDir);
+        float targetAngle = absTargetAngle * getSign(target.transform.position);
+
         if (absTargetAngle > COVERAGE_HALF)
         {
             this.Animator.PlayAnimation(this.EAnimation);
         }
         else
         {
-            int count = Mathf.RoundToInt(absTargetAngle / NUM_POS);
+            int count = Mathf.RoundToInt(absTargetAngle / COVERAGE_PER_POS);
             switch (count)
             {
-                default:
                 case 0:
                     this.Animator.PlayAnimation(this.NAnimation);
                     break;
@@ -115,13 +125,14 @@ public class TurretController : VoBehavior
                 case 3:
                     this.Animator.PlayAnimation(this.NEEAnimation);
                     break;
+                default:
                 case 4:
                     this.Animator.PlayAnimation(this.EAnimation);
                     break;
             }
         }
 
-        if (absTargetAngle >= COVERAGE_PER_POS_HALF)
+        if (absTargetAngle >= MIN_AMT_FOR_TURN)
             this.spriteRenderer.flipX = Mathf.Sign(targetAngle) > 0 ? true : false;
         this.Animator.Stop();
     }
@@ -129,5 +140,21 @@ public class TurretController : VoBehavior
     private void attemptFire(Transform target)
     {
 
+    }
+
+    private int getSign(Vector2 target)
+    {
+        switch (this.AttachedAt)
+        {
+            default:
+            case AttachDir.Down:
+                return target.x < this.transform.position.x ? -1 : 1;
+            case AttachDir.Up:
+                return target.x > this.transform.position.x ? -1 : 1;
+            case AttachDir.Left:
+                return target.y < this.transform.position.x ? -1 : 1;
+            case AttachDir.Right:
+                return target.y > this.transform.position.x ? -1 : 1;
+        }
     }
 }

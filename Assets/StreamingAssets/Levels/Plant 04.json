@@ -12362,9 +12362,17 @@
           "CurrentOption": "red"
         }
       ]
+    },
+    {
+      "name": "objects_Turret_8",
+      "prefab_name": "Turret",
+      "x": 576,
+      "y": 120,
+      "z": -2,
+      "parameters": null
     }
   ],
-  "next_object_id": 8,
+  "next_object_id": 9,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 3,
