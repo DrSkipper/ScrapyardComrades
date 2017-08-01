@@ -57,4 +57,14 @@ public static class TransformExtensions
     {
         self.localPosition = new Vector3(self.localPosition.x, self.localPosition.y, z);
     }
+
+    public static float Distance2D(this Transform self, Transform other)
+    {
+        return Vector2.Distance(self.position, other.position);
+    }
+
+    public static Vector2 DirectionTo2D(this Transform self, Transform other)
+    {
+        return ((Vector2)(other.position - self.position)).normalized;
+    }
 }
