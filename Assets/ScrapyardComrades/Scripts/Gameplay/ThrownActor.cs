@@ -10,6 +10,7 @@ public class ThrownActor : Actor2D
     public LayerMask MovingPlatformMask;
     public Pickup Pickup;
     public DamageOnCollision Damager;
+    public VelocityModifier.CollisionBehavior CollisionBehavior = VelocityModifier.CollisionBehavior.bounce;
 
     void Start()
     {
@@ -24,8 +25,13 @@ public class ThrownActor : Actor2D
 
     public void Throw(float angle, int direction)
     {
+        this.Throw(getThrowDirection(angle, direction));
+    }
+
+    public void Throw(Vector2 direction)
+    {
         this.spriteRenderer.sprite = this.Pickup.Data.Sprite;
-        _vMod = new VelocityModifier(getThrowDirection(angle, direction) * this.Pickup.Data.ThrowVelocity, VelocityModifier.CollisionBehavior.bounce, this.BounceMultiplier);
+        _vMod = new VelocityModifier(direction * this.Pickup.Data.ThrowVelocity, this.CollisionBehavior, this.BounceMultiplier);
         _restingVMod = new VelocityModifier(Vector2.zero, VelocityModifier.CollisionBehavior.sustain);
         this.Damager.ConfigureForPickup(this.Pickup.Data);
         this.SetVelocityModifier(V_KEY, _vMod);

@@ -2,6 +2,7 @@
 
 public class VelocityModifier
 {
+    [System.Serializable]
     public enum CollisionBehavior
     {
         nullify,

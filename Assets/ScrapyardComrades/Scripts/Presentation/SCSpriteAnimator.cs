@@ -103,6 +103,14 @@ public class SCSpriteAnimator : VoBehavior, IPausable
         _playing = false;
     }
 
+    public void Play()
+    {
+        if (_currentAnimation == null)
+            this.PlayAnimation(this.DefaultAnimation);
+        else
+            this.PlayAnimation(_currentAnimation);
+    }
+
     /**
      * Private
      */

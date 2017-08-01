@@ -7,6 +7,7 @@ public class Timer
 	public bool Loops;
 	public bool Completed { get; private set; }
     public int FramesRemaining { get { return _framesRemaining; } }
+    public bool IsRunning { get { return !this.Completed && !this.Paused; } }
 
 	public Timer(int numFrames, bool loops = false, bool startsImmediately = true, TimerCallback callback = null)
 	{

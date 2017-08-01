@@ -67,4 +67,13 @@ public static class TransformExtensions
     {
         return ((Vector2)(other.position - self.position)).normalized;
     }
+
+    public static void LookAt2D(this Transform self, Vector2 other, float rotOffset = 0.0f)
+    {
+        Vector2 diff = other - (Vector2)self.position;
+        diff.Normalize();
+
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        self.rotation = Quaternion.Euler(0.0f, 0.0f, rot_z - 90.0f + rotOffset);
+    }
 }
