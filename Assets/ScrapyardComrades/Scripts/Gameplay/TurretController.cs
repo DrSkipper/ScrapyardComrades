@@ -14,6 +14,7 @@ public class TurretController : VoBehavior, IPausable
     public SCSpriteAnimation TurnAnimation;
     public AttachDir AttachedAt = AttachDir.Down;
     public PooledObject MissilePrefab;
+    public SCSpriteAnimator EffectAnimator;
     public int Cooldown = 30;
     public int ShotDelay = 3;
     public int ShotStartDistance = 24;
@@ -38,6 +39,7 @@ public class TurretController : VoBehavior, IPausable
     void OnSpawn()
     {
         _cooldownTimer.complete();
+        this.EffectAnimator.gameObject.SetActive(false);
 
         switch (this.AttachedAt)
         {
@@ -104,6 +106,9 @@ public class TurretController : VoBehavior, IPausable
                 spriteRenderer.flipX = _turnTo;
             }
         }
+
+        if (!this.EffectAnimator.IsPlaying && this.EffectAnimator.gameObject.activeInHierarchy)
+            this.EffectAnimator.gameObject.SetActive(false);
     }
 
     private void OnDrawGizmosSelected()
@@ -130,6 +135,7 @@ public class TurretController : VoBehavior, IPausable
     private Vector2 _normal;
     private Vector2 _lastAimDir;
     private bool _isFiring;
+    private bool _firableDirection;
     private Vector2 _shotTarget;
     private Vector2 _shotDir;
     private bool _turning;
@@ -141,13 +147,23 @@ public class TurretController : VoBehavior, IPausable
     private const float COVERAGE_TOTAL = 202.5f;
     private const float COVERAGE_HALF = 101.25f;
     private const float MIN_AMT_FOR_TURN = 5.0f;
+    private const float EFFECT_X_MULT = 1.6f;
 
     private void aimAtTarget(Transform target, Vector2 targetDir)
     {
         _lastAimDir = targetDir;
         float absTargetAngle = Vector2.Angle(_normal, targetDir);
         float targetAngle = absTargetAngle * getSign(target.transform.position);
-        _currentPos = absTargetAngle > COVERAGE_HALF ? 5 : Mathf.RoundToInt(absTargetAngle / COVERAGE_PER_POS);
+        if (absTargetAngle > COVERAGE_HALF)
+        {
+            _firableDirection = false;
+            _currentPos = 5;
+        }
+        else
+        {
+            _firableDirection = true;
+            _currentPos = Mathf.RoundToInt(absTargetAngle / COVERAGE_PER_POS);
+        }
         
         if (!_turning && absTargetAngle >= MIN_AMT_FOR_TURN)
         {
@@ -166,10 +182,15 @@ public class TurretController : VoBehavior, IPausable
 
     private void attemptFire(Transform target, Vector2 targetDir)
     {
-        if (_cooldownTimer.Completed)
+        if (_cooldownTimer.Completed && _firableDirection)
         {
+            if (_turning)
+            {
+                _turning = false;
+                this.spriteRenderer.flipX = _turnTo;
+            }
+
             _isFiring = true;
-            _turning = false;
             _cooldownTimer.reset();
             _cooldownTimer.start();
             playAnimForCurrentPos(true);
@@ -183,11 +204,18 @@ public class TurretController : VoBehavior, IPausable
 
     private void shoot()
     {
+        IntegerVector pos = (IntegerVector)(Vector2)this.transform.position + (IntegerVector)(_shotDir * this.ShotStartDistance);
         PooledObject missile = this.MissilePrefab.Retain();
-        missile.transform.SetPosition2D((IntegerVector)(Vector2)this.transform.position + (IntegerVector)(_shotDir * this.ShotStartDistance));
+        missile.transform.SetPosition2D(pos);
         missile.transform.LookAt2D(_shotTarget, this.MissileRotationOffset);
         missile.GetComponent<ThrownActor>().Throw(_shotDir);
         missile.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
+
+        this.EffectAnimator.gameObject.SetActive(true);
+        this.EffectAnimator.transform.SetPosition2D(pos);
+        this.EffectAnimator.transform.SetLocalX(Mathf.Round(this.EffectAnimator.transform.localPosition.x * EFFECT_X_MULT));
+        this.EffectAnimator.spriteRenderer.flipX = this.spriteRenderer.flipX;
+        this.EffectAnimator.Play();
     }
 
     private int getSign(Vector2 target)
