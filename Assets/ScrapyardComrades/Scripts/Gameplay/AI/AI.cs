@@ -6,6 +6,7 @@ public struct AIOutput
     public bool Jump;
     public bool Attack;
     public bool AttackStrong;
+    public bool Dodge;
     public bool Interact;
 }
 
@@ -43,10 +44,10 @@ public class AI
 
 public class SimpleAI : AI
 {
-    public SimpleAI(float attackStateRange, float pursuitRange, float executeAttackRange, float attackingPursuitTargetDist)
+    public SimpleAI(float attackStateRange, float pursuitRange, float executeAttackRange, float attackingPursuitTargetDist, int attackStateCooldown)
     {
         AIState idleState = new IdleState();
-        AIState attackState = new SimpleAttackState(executeAttackRange, attackingPursuitTargetDist);
+        AIState attackState = new SimpleAttackState(executeAttackRange, attackingPursuitTargetDist, attackStateCooldown);
         idleState.AddTransition(new ANDTransition(new AIStateTransition[] { new TargetAliveTransition(attackState, true), new TargetWithinRangeTransition(attackState, 0, attackStateRange) }));
         attackState.AddTransition(new NoTargetTransition(idleState));
         attackState.AddTransition(new TargetWithinRangeTransition(idleState, pursuitRange));
@@ -57,10 +58,10 @@ public class SimpleAI : AI
 
 public class GuardAI : AI
 {
-    public GuardAI(float attackStateRange, float pursuitRange, float executeAttackRange, float attackingPursuitTargetDist)
+    public GuardAI(float attackStateRange, float pursuitRange, float executeChargeRange, float executeAttackRange, float attackingPursuitTargetDist, int attackStateCooldown)
     {
         AIState idleState = new IdleState();
-        AIState attackState = new GuardAttackState(executeAttackRange, attackingPursuitTargetDist);
+        AIState attackState = new GuardAttackState(executeChargeRange, executeAttackRange, attackingPursuitTargetDist, attackStateCooldown);
 
         idleState.AddTransition(new ANDTransition(new AIStateTransition[] { new TargetAliveTransition(attackState, true), new TargetWithinRangeTransition(attackState, 0, attackStateRange) }));
         attackState.AddTransition(new NoTargetTransition(idleState));

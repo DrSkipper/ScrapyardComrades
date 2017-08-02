@@ -23,10 +23,10 @@ public class EnemyController : SCCharacterController
         {
             default:
             case AIType.Simple:
-                _ai = new SimpleAI(250, 450, 75, 30);
+                _ai = new SimpleAI(250, 450, 75, 30, 15);
                 break;
             case AIType.Guard:
-                _ai = new GuardAI(260, 450, 90, 35);
+                _ai = new GuardAI(260, 450, 140, 90, 35, 15);
                 break;
         }
     }
@@ -80,8 +80,8 @@ public class EnemyController : SCCharacterController
             this.MovementAxis = output.MovementDirection;
             this.JumpBegin = output.Jump;
             this.JumpHeld = output.Jump;
-            this.DodgeBegin = false;
-            this.DodgeHeld = false;
+            this.DodgeBegin = output.Dodge;
+            this.DodgeHeld = output.Dodge;
             this.Duck = false;
             this.AttackLightBegin = output.Attack;
             this.AttackLightHeld = output.Attack;
