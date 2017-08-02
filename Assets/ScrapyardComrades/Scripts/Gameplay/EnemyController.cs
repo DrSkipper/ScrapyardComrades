@@ -2,15 +2,33 @@
 
 public class EnemyController : SCCharacterController
 {
+    public AIType AI = AIType.Simple;
+
+    [System.Serializable]
+    public enum AIType
+    {
+        Simple,
+        Guard
+    }
+
     public override void OnSpawn()
     {
         base.OnSpawn();
 
-        //TODO - Data-drive health
+        //TODO: Data-drive health
         this.Damagable.Health = this.Damagable.MaxHealth;
 
         //TODO: Data-drive which AI to use, as well as parameters
-        _ai = new SimpleAI(250, 450, 75, 30);
+        switch (this.AI)
+        {
+            default:
+            case AIType.Simple:
+                _ai = new SimpleAI(250, 450, 75, 30);
+                break;
+            case AIType.Guard:
+                _ai = new GuardAI(260, 450, 90, 35);
+                break;
+        }
     }
 
     public override InputWrapper GatherInput()
@@ -67,8 +85,8 @@ public class EnemyController : SCCharacterController
             this.Duck = false;
             this.AttackLightBegin = output.Attack;
             this.AttackLightHeld = output.Attack;
-            this.AttackStrongBegin = false;
-            this.AttackStrongHeld = false;
+            this.AttackStrongBegin = output.AttackStrong;
+            this.AttackStrongHeld = output.AttackStrong;
             this.UseItem = false;
             this.Interact = output.Interact;
             this.PausePressed = false;

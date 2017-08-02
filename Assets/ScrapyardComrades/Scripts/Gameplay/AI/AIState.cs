@@ -79,3 +79,30 @@ public class SimpleAttackState : AIState
     private float _pursuitToDist;
 }
 
+public class GuardAttackState : AIState
+{
+    public GuardAttackState(float executeAttackRange, float pursuitToDist)
+    {
+        _executeAttackRange = executeAttackRange;
+        _pursuitToDist = pursuitToDist;
+    }
+
+    public override AIOutput UpdateState(AIInput input)
+    {
+        AIOutput output = new AIOutput();
+        float d = Mathf.Abs(input.OurPosition.X - input.TargetPosition.X);
+        if (d < _pursuitToDist)
+            output.MovementDirection = 0;
+        else
+            output.MovementDirection = Mathf.RoundToInt(Mathf.Sign(input.TargetPosition.X - input.OurPosition.X));
+        if (input.OnGround && Vector2.Distance(input.OurPosition, input.TargetPosition) <= _executeAttackRange)
+        {
+            output.Attack = input.TargetPosition.Y <= input.OurPosition.Y;
+            output.AttackStrong = !output.Attack;
+        }
+        return output;
+    }
+
+    private float _executeAttackRange;
+    private float _pursuitToDist;
+}

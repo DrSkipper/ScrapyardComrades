@@ -5,6 +5,7 @@ public struct AIOutput
     public int MovementDirection;
     public bool Jump;
     public bool Attack;
+    public bool AttackStrong;
     public bool Interact;
 }
 
@@ -50,6 +51,21 @@ public class SimpleAI : AI
         attackState.AddTransition(new NoTargetTransition(idleState));
         attackState.AddTransition(new TargetWithinRangeTransition(idleState, pursuitRange));
         attackState.AddTransition(new ANDTransition(new AIStateTransition[]{ new TargetAliveTransition(idleState, false), new TargetWithinRangeTransition(idleState, 0, executeAttackRange) }));
+        this.CurrentState = idleState;
+    }
+}
+
+public class GuardAI : AI
+{
+    public GuardAI(float attackStateRange, float pursuitRange, float executeAttackRange, float attackingPursuitTargetDist)
+    {
+        AIState idleState = new IdleState();
+        AIState attackState = new GuardAttackState(executeAttackRange, attackingPursuitTargetDist);
+
+        idleState.AddTransition(new ANDTransition(new AIStateTransition[] { new TargetAliveTransition(attackState, true), new TargetWithinRangeTransition(attackState, 0, attackStateRange) }));
+        attackState.AddTransition(new NoTargetTransition(idleState));
+        attackState.AddTransition(new TargetWithinRangeTransition(idleState, pursuitRange));
+        attackState.AddTransition(new ANDTransition(new AIStateTransition[] { new TargetAliveTransition(idleState, false), new TargetWithinRangeTransition(idleState, 0, executeAttackRange) }));
         this.CurrentState = idleState;
     }
 }
