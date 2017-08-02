@@ -20,6 +20,7 @@ public struct AIInput
     public IntegerCollider TargetCollider;
     public bool OnGround;
     public bool ExecutingMove;
+    public bool InMoveCooldown;
     public bool HitStunned;
 }
 

@@ -14,7 +14,6 @@ public class AIState
 
     public virtual void ExitState()
     {
-        Debug.Log("exited state");
     }
 
     public AIState CheckTransitions(AIInput input)
@@ -85,7 +84,8 @@ public class SimpleAttackState : AIState
             if (Vector2.Distance(input.OurPosition, input.TargetPosition) <= _executeAttackRange)
             {
                 output.Attack = true;
-                _cooldown = _cooldownAmt;
+                if (!input.InMoveCooldown && !input.ExecutingMove)
+                    _cooldown = _cooldownAmt;
             }
         }
         else if (!input.ExecutingMove)
@@ -127,9 +127,9 @@ public class GuardAttackState : AIState
             else
                 output.MovementDirection = Mathf.RoundToInt(Mathf.Sign(input.TargetPosition.X - input.OurPosition.X));
 
-            if (input.OnGround)
+            if (input.OnGround && !input.InMoveCooldown && !input.ExecutingMove)
             {
-                d = Vector2.Distance(input.OurPosition, input.TargetPosition);
+                //d = Vector2.Distance(input.OurPosition, input.TargetPosition);
                 if (d <= _executeAttackRange)
                 {
                     output.Attack = input.TargetPosition.Y <= input.OurPosition.Y;

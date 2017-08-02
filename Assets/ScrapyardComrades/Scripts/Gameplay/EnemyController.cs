@@ -23,10 +23,10 @@ public class EnemyController : SCCharacterController
         {
             default:
             case AIType.Simple:
-                _ai = new SimpleAI(250, 450, 75, 30, 15);
+                _ai = new SimpleAI(250, 425, 75, 48, 4);
                 break;
             case AIType.Guard:
-                _ai = new GuardAI(260, 450, 140, 90, 35, 15);
+                _ai = new GuardAI(275, 400, 156, 114, 128, 8);
                 break;
         }
     }
@@ -54,6 +54,7 @@ public class EnemyController : SCCharacterController
         aiInput.TargetCollider = target;
         aiInput.OnGround = this.OnGround;
         aiInput.ExecutingMove = this.ExecutingMove;
+        aiInput.InMoveCooldown = this.InMoveCooldown;
         aiInput.HitStunned = this.HitStunned;
         return aiInput;
     }
