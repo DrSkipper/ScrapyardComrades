@@ -11,6 +11,7 @@ public class TurretController : VoBehavior, IPausable
     public SCSpriteAnimation NEAnimation;
     public SCSpriteAnimation NNEAnimation;
     public SCSpriteAnimation NAnimation;
+    public SCSpriteAnimation TurnAnimation;
     public AttachDir AttachedAt = AttachDir.Down;
     public PooledObject MissilePrefab;
     public int Cooldown = 30;
@@ -90,6 +91,19 @@ public class TurretController : VoBehavior, IPausable
         {
             _isFiring = false;
         }
+
+        if (_turning)
+        {
+            if (!this.Animator.IsPlaying)
+            {
+                _turning = false;
+                spriteRenderer.flipX = _turnTo;
+            }
+            else if (this.Animator.Elapsed >= this.TurnAnimation.LengthInFrames / 2)
+            {
+                spriteRenderer.flipX = _turnTo;
+            }
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -118,6 +132,9 @@ public class TurretController : VoBehavior, IPausable
     private bool _isFiring;
     private Vector2 _shotTarget;
     private Vector2 _shotDir;
+    private bool _turning;
+    private bool _turnTo;
+    private int _currentPos;
     
     private const float COVERAGE_PER_POS = 22.5f;
     private const float COVERAGE_PER_POS_HALF = 11.25f;
@@ -130,38 +147,21 @@ public class TurretController : VoBehavior, IPausable
         _lastAimDir = targetDir;
         float absTargetAngle = Vector2.Angle(_normal, targetDir);
         float targetAngle = absTargetAngle * getSign(target.transform.position);
-
-        if (absTargetAngle > COVERAGE_HALF)
+        _currentPos = absTargetAngle > COVERAGE_HALF ? 5 : Mathf.RoundToInt(absTargetAngle / COVERAGE_PER_POS);
+        
+        if (!_turning && absTargetAngle >= MIN_AMT_FOR_TURN)
         {
-            this.Animator.PlayAnimation(this.EAnimation);
-        }
-        else
-        {
-            int count = Mathf.RoundToInt(absTargetAngle / COVERAGE_PER_POS);
-            switch (count)
+            bool flip = Mathf.Sign(targetAngle) > 0 ? true : false;
+            if (flip != this.spriteRenderer.flipX)
             {
-                case 0:
-                    this.Animator.PlayAnimation(this.NAnimation);
-                    break;
-                case 1:
-                    this.Animator.PlayAnimation(this.NNEAnimation);
-                    break;
-                case 2:
-                    this.Animator.PlayAnimation(this.NEAnimation);
-                    break;
-                case 3:
-                    this.Animator.PlayAnimation(this.NEEAnimation);
-                    break;
-                default:
-                case 4:
-                    this.Animator.PlayAnimation(this.EAnimation);
-                    break;
+                this.Animator.PlayAnimation(this.TurnAnimation);
+                _turning = true;
+                _turnTo = flip;
             }
         }
 
-        if (absTargetAngle >= MIN_AMT_FOR_TURN)
-            this.spriteRenderer.flipX = Mathf.Sign(targetAngle) > 0 ? true : false;
-        this.Animator.Stop();
+        if (!_turning)
+            playAnimForCurrentPos(false);
     }
 
     private void attemptFire(Transform target, Vector2 targetDir)
@@ -169,9 +169,10 @@ public class TurretController : VoBehavior, IPausable
         if (_cooldownTimer.Completed)
         {
             _isFiring = true;
+            _turning = false;
             _cooldownTimer.reset();
             _cooldownTimer.start();
-            this.Animator.Play();
+            playAnimForCurrentPos(true);
 
             _shotTarget = target.transform.position;
             _shotDir = targetDir;
@@ -203,5 +204,31 @@ public class TurretController : VoBehavior, IPausable
             case AttachDir.Right:
                 return target.y > this.transform.position.x ? -1 : 1;
         }
+    }
+
+    private void playAnimForCurrentPos(bool fire)
+    {
+        switch (_currentPos)
+        {
+            case 0:
+                this.Animator.PlayAnimation(this.NAnimation);
+                break;
+            case 1:
+                this.Animator.PlayAnimation(this.NNEAnimation);
+                break;
+            case 2:
+                this.Animator.PlayAnimation(this.NEAnimation);
+                break;
+            case 3:
+                this.Animator.PlayAnimation(this.NEEAnimation);
+                break;
+            default:
+            case 4:
+                this.Animator.PlayAnimation(this.EAnimation);
+                break;
+        }
+
+        if (!fire)
+            this.Animator.Stop();
     }
 }

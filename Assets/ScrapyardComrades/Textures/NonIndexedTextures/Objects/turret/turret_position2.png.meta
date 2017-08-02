@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ea1d09e4824fd304fb4f34fa252a1f7e
-timeCreated: 1501196940
+timeCreated: 1501713739
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -93,11 +93,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 40
-        width: 32
-        height: 24
+        y: 26
+        width: 38
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -105,12 +105,12 @@ TextureImporter:
       name: turret_position2_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 40
-        width: 32
-        height: 24
+        x: 38
+        y: 26
+        width: 38
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -118,12 +118,12 @@ TextureImporter:
       name: turret_position2_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 32
-        height: 24
+        x: 76
+        y: 26
+        width: 38
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

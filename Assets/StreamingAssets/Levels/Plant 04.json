@@ -12364,23 +12364,23 @@
       ]
     },
     {
-      "name": "objects_Turret_8",
-      "prefab_name": "Turret",
-      "x": 576,
-      "y": 120,
-      "z": -2,
-      "parameters": null
-    },
-    {
       "name": "objects_EnemyGuard_10",
       "prefab_name": "EnemyGuard",
       "x": 1100,
       "y": 160,
       "z": -2,
       "parameters": null
+    },
+    {
+      "name": "objects_Turret_11",
+      "prefab_name": "Turret",
+      "x": 564,
+      "y": 128,
+      "z": -2,
+      "parameters": null
     }
   ],
-  "next_object_id": 11,
+  "next_object_id": 12,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 3,
