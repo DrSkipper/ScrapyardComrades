@@ -32,6 +32,7 @@ public class AttackController : VoBehavior, IPausable
         else
         {
             _attacking = true;
+            this.EffectAnimator.freezeFrameEnded(null);
 
             // Activate effect if necessary
             if (this.EffectAnimator != null)
@@ -108,6 +109,9 @@ public class AttackController : VoBehavior, IPausable
                             PooledObject hitEffect = this.HitEffect.Retain();
                             hitEffect.transform.position = (Vector2)hitPoint;
                             hitEffect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(freezeFrames, currentAttack.HitParameters.HitAnimation, (int)facing);
+
+                            if (this.EffectAnimator != null && this.EffectAnimator.IsPlaying)
+                                this.EffectAnimator.freezeFrame(null);
                         }
                     }
                 }

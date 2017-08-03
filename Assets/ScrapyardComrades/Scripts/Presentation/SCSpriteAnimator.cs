@@ -134,12 +134,12 @@ public class SCSpriteAnimator : VoBehavior, IPausable
             this.PlayAnimation(this.DefaultAnimation);
     }
 
-    private void freezeFrame(LocalEventNotifier.Event e)
+    public void freezeFrame(LocalEventNotifier.Event e)
     {
         _frozen = true;
     }
 
-    private void freezeFrameEnded(LocalEventNotifier.Event e)
+    public void freezeFrameEnded(LocalEventNotifier.Event e)
     {
         _frozen = false;
     }

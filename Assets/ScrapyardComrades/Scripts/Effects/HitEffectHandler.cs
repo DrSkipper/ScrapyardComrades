@@ -7,7 +7,7 @@ public class HitEffectHandler : MonoBehaviour, IPausable
     public void InitializeWithFreezeFrames(int freezeFrames, SCSpriteAnimation animation, int dir)
     {
         _animStarted = false;
-        this.Animator.PlayAnimation(this.Animator.DefaultAnimation);
+        this.Animator.PlayAnimation(animation);
         this.Animator.Stop();
         _freezeTimer = new Timer(freezeFrames, false, true);
 
