@@ -41,7 +41,8 @@ public class Door : VoBehavior, IPausable
             {
                 for (int i = 0; i < _collisions.Count; ++i)
                 {
-                    if (_collisions[i].GetComponent<IKey>().CanOpen(this.LockType))
+                    IKey key = _collisions[i].GetComponent<IKey>();
+                    if (key != null && key.CanOpen(this.LockType))
                     {
                         open();
                         break;
@@ -53,7 +54,8 @@ public class Door : VoBehavior, IPausable
                 bool stayOpen = false;
                 for (int i = 0; i < _collisions.Count; ++i)
                 {
-                    if (_collisions[i].GetComponent<IKey>().CanOpen(this.LockType))
+                    IKey key = _collisions[i].GetComponent<IKey>();
+                    if (key != null && key.CanOpen(this.LockType))
                     {
                         stayOpen = true;
                         break;

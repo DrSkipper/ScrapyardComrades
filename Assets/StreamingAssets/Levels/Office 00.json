@@ -12435,9 +12435,74 @@
       "y": 748,
       "z": -2,
       "parameters": null
+    },
+    {
+      "name": "objects_EnemyOffice_11",
+      "prefab_name": "EnemyOffice",
+      "x": 736,
+      "y": 748,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "B"
+        }
+      ]
+    },
+    {
+      "name": "objects_EnemyOffice_12",
+      "prefab_name": "EnemyOffice",
+      "x": 1004,
+      "y": 844,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "C"
+        }
+      ]
+    },
+    {
+      "name": "objects_EnemyOffice_13",
+      "prefab_name": "EnemyOffice",
+      "x": 1116,
+      "y": 748,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "D"
+        }
+      ]
+    },
+    {
+      "name": "objects_EnemyOffice_14",
+      "prefab_name": "EnemyOffice",
+      "x": 1240,
+      "y": 748,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "E"
+        }
+      ]
+    },
+    {
+      "name": "objects_EnemyOffice_15",
+      "prefab_name": "EnemyOffice",
+      "x": 1424,
+      "y": 748,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "F"
+        }
+      ]
     }
   ],
-  "next_object_id": 11,
+  "next_object_id": 16,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 6,
