@@ -7,6 +7,7 @@ public class AttackController : VoBehavior, IPausable
     public SCSpriteAnimator EffectAnimator;
     public Damagable Damagable;
     public LayerMask DamagableLayers;
+    public LayerMask BlockableLayers;
     public PooledObject HitEffect;
     public HurtboxChangeDelegate HurtboxChangeCallback;
     public delegate bool HurtboxChangeDelegate(SCAttack.HurtboxState newState);
@@ -16,40 +17,12 @@ public class AttackController : VoBehavior, IPausable
         if (currentAttack == null)
         {
             if (_attacking)
-            {
-                _attacking = false;
-
-                for (int i = 0; i < this.DamageBoxes.Length; ++i)
-                {
-                    this.DamageBoxes[i].transform.localPosition = Vector2.zero;
-                    this.DamageBoxes[i].enabled = false;
-                }
-
-                if (this.EffectAnimator != null)
-                    this.EffectAnimator.gameObject.SetActive(false);
-            }
+                clear();
         }
         else
         {
             _attacking = true;
-            if (this.EffectAnimator != null)
-                this.EffectAnimator.freezeFrameEnded(null);
-
-            // Activate effect if necessary
-            if (this.EffectAnimator != null)
-            {
-                SCAttack.Effect? effect = getEffectForUpdateFrame(currentAttack, this.Animator.Elapsed);
-                if (effect.HasValue)
-                {
-                    this.EffectAnimator.gameObject.SetActive(true);
-                    this.EffectAnimator.transform.SetLocalPosition2D(effect.Value.Position.X, effect.Value.Position.Y);
-                    this.EffectAnimator.PlayAnimation(effect.Value.Animation, false);
-                }
-                else if (!this.EffectAnimator.IsPlaying)
-                {
-                    this.EffectAnimator.gameObject.SetActive(false);
-                }
-            }
+            activateEffectIfNecessary(currentAttack);
 
             // Update hitboxes
             SCAttack.HitboxKeyframe? keyframe = getKeyframeForUpdateFrame(currentAttack, this.Animator.Elapsed);
@@ -64,29 +37,53 @@ public class AttackController : VoBehavior, IPausable
 
                 GameObject collided = null;
                 IntegerRectCollider collider = null;
+                bool blocked = false;
                 for (int i = 0; i < this.DamageBoxes.Length; ++i)
                 {
                     if (i < keyframe.Value.HitboxCount)
                     {
-                        this.DamageBoxes[i].enabled = true;
-                        this.DamageBoxes[i].transform.localPosition = (Vector2)keyframe.Value.HitboxPositions[i];
-                        this.DamageBoxes[i].Size = keyframe.Value.HitboxSizes[i];
+                        IntegerRectCollider box = this.DamageBoxes[i];
+                        box.enabled = true;
+                        box.transform.localPosition = (Vector2)keyframe.Value.HitboxPositions[i];
+                        box.Size = keyframe.Value.HitboxSizes[i];
 
                         if (collided == null)
                         {
-                            collided = this.DamageBoxes[i].CollideFirst(0, 0, this.DamagableLayers);
+                            // Check if we hit a damagable with this hitbox
+                            collided = box.CollideFirst(0, 0, this.DamagableLayers);
                             if (collided != null)
-                                collider = this.DamageBoxes[i];
+                            {
+                                collider = box;
+
+                                // Check if the attack was blocked
+                                CollisionManager.RaycastResult result = this.CollisionManager.Raycast(this.integerPosition, this.transform.DirectionTo2D(collided.transform), this.transform.Distance2D(collided.transform), (this.BlockableLayers | this.DamagableLayers));
+                                if (result.Collided && this.BlockableLayers.ContainsLayer(result.Collisions[0].CollidedObject.layer))
+                                {
+                                    blocked = true;
+                                }
+                            }
                         }
                     }
                     else
                     {
+                        // Make sure to disable unused hitboxes
                         this.DamageBoxes[i].enabled = false;
                     }
                 }
+                
+                // If blocked, freeze-frame then cancel attack
+                if (blocked)
+                {
+                    notifyFreezeFrames(Damagable.FREEZE_FRAMES);
+                    notifyOtherBlocker(collided, Damagable.FREEZE_FRAMES);
+
+                    if (_cancelAttackEvent == null)
+                        _cancelAttackEvent = new CancelAttackEvent();
+                    this.localNotifier.SendEvent(_cancelAttackEvent);
+                }
 
                 // Apply damage if we hit
-                if (collided != null)
+                else if (collided != null)
                 {
                     Damagable otherDamagable = collided.GetComponent<Damagable>();
                     if (otherDamagable != null)
@@ -98,14 +95,7 @@ public class AttackController : VoBehavior, IPausable
                         {
                             int freezeFrames = otherDamagable.Dead ? Damagable.DEATH_FREEZE_FRAMES : Damagable.FREEZE_FRAMES;
 
-                            if (_freezeFrameEvent == null)
-                                _freezeFrameEvent = new FreezeFrameEvent(freezeFrames);
-                            else
-                                _freezeFrameEvent.NumFrames = freezeFrames;
-                            this.localNotifier.SendEvent(_freezeFrameEvent);
-
-                            if (this.Damagable != null)
-                                this.Damagable.SetInvincible(freezeFrames);
+                            notifyFreezeFrames(freezeFrames);
 
                             PooledObject hitEffect = this.HitEffect.Retain();
                             hitEffect.transform.position = (Vector2)hitPoint;
@@ -129,6 +119,7 @@ public class AttackController : VoBehavior, IPausable
      * Private
      */
     private FreezeFrameEvent _freezeFrameEvent;
+    private CancelAttackEvent _cancelAttackEvent;
     private bool _attacking;
     
     private const int FRAMES_BETWEEN_COLLIDER_GET = 4;
@@ -157,5 +148,71 @@ public class AttackController : VoBehavior, IPausable
             }
         }
         return null;
+    }
+    
+    private void notifyFreezeFrames(int freezeFrames)
+    {
+        if (_freezeFrameEvent == null)
+            _freezeFrameEvent = new FreezeFrameEvent(freezeFrames);
+        else
+            _freezeFrameEvent.NumFrames = freezeFrames;
+
+        this.localNotifier.SendEvent(_freezeFrameEvent);
+
+        if (this.Damagable != null)
+            this.Damagable.SetInvincible(freezeFrames);
+    }
+
+    private void notifyOtherBlocker(GameObject collided, int freezeFrames)
+    {
+        BlockHandler blocker = collided.GetComponent<BlockHandler>();
+        if (blocker != null)
+            blocker.HandleBlock(freezeFrames);
+    }
+
+    private void activateEffectIfNecessary(SCAttack currentAttack)
+    {
+        if (this.EffectAnimator != null)
+        {
+            // Make sure effect animator isn't staying frozen
+            this.EffectAnimator.freezeFrameEnded(null);
+
+            // Activate effect if necessary
+            SCAttack.Effect? effect = getEffectForUpdateFrame(currentAttack, this.Animator.Elapsed);
+
+            if (effect.HasValue)
+            {
+                this.EffectAnimator.gameObject.SetActive(true);
+                this.EffectAnimator.transform.SetLocalPosition2D(effect.Value.Position.X, effect.Value.Position.Y);
+                this.EffectAnimator.PlayAnimation(effect.Value.Animation, false);
+            }
+            else if (!this.EffectAnimator.IsPlaying)
+            {
+                this.EffectAnimator.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void clear()
+    {
+        _attacking = false;
+        for (int i = 0; i < this.DamageBoxes.Length; ++i)
+        {
+            this.DamageBoxes[i].transform.localPosition = Vector2.zero;
+            this.DamageBoxes[i].enabled = false;
+        }
+
+        if (this.EffectAnimator != null)
+            this.EffectAnimator.gameObject.SetActive(false);
+    }
+}
+
+public class CancelAttackEvent : LocalEventNotifier.Event
+{
+    public const string NAME = "ATK_CANCEL";
+
+    public CancelAttackEvent()
+    {
+        this.Name = NAME;
     }
 }

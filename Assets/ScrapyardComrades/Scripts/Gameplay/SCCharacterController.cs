@@ -92,6 +92,7 @@ public class SCCharacterController : Actor2D
     public Damagable Damagable;
     public AttackController AttackController;
     public IntegerRectCollider Hurtbox;
+    public IntegerCollider BlockBox;
     public InventoryController InventoryController;
     public SCMoveSet MoveSet;
     public Facing CurrentFacing { get { return _facing; } }
@@ -122,6 +123,7 @@ public class SCCharacterController : Actor2D
         this.localNotifier.Listen(FreezeFrameEvent.NAME, this, freezeFrame);
         this.localNotifier.Listen(HitStunEvent.NAME, this, hitStun);
         this.localNotifier.Listen(CollisionEvent.NAME, this, onCollide);
+        this.localNotifier.Listen(CancelAttackEvent.NAME, this, onCancelAttack);
 
         if (this.AttackController != null)
             this.AttackController.HurtboxChangeCallback = attemptHurtboxStateChange;
@@ -178,11 +180,15 @@ public class SCCharacterController : Actor2D
         _autoMoveTimer.complete();
 
         this.Hurtbox.AddToCollisionPool();
+        if (this.BlockBox != null)
+            this.BlockBox.AddToCollisionPool();
     }
 
     public virtual void OnReturnToPool()
     {
         this.Hurtbox.RemoveFromCollisionPool();
+        if (this.BlockBox != null)
+            this.BlockBox.RemoveFromCollisionPool();
         this.Damagable.ResetLayer();
     }
 
@@ -416,24 +422,7 @@ public class SCCharacterController : Actor2D
             // Check if we're using an item
             if (interruptingMove == null && input.UseItem && this.InventoryController.NumItems > 0)
             {
-                PooledObject item = this.InventoryController.UseItem(0);
-                if (item != null)
-                {
-                    item.transform.SetPosition2D(this.transform.position.x, this.transform.position.y);
-                    ThrownActor actor = item.GetComponent<ThrownActor>();
-                    if (actor != null)
-                    {
-                        //TODO: Throw origin position marked in character data
-                        float angle = this.DefaultThrowAngle;
-                        if (input.Duck)
-                            angle = this.DownwardThrowAngle;
-                        else if (input.LookUp)
-                            angle = this.UpwardThrowAngle;
-                        actor.Throw(angle, (int)_facing);
-                    }
-
-                    item.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
-                }
+                useItem(input);
             }
 
             // Check if it's time to jump or drop through a platform
@@ -547,6 +536,11 @@ public class SCCharacterController : Actor2D
         _updateFinishEvent.CurrentAttack = _currentAttack;
         this.localNotifier.SendEvent(_updateFinishEvent);
         _hasGatheredPotentialCollisions = false;
+
+        // Update block box (only blocking when not attacking, on ground, and not hitstunned
+        //TODO: Also dependent on block input, which guard AI should just always have on
+        if (this.BlockBox != null)
+            this.BlockBox.enabled = _currentAttack == null && _onGround && _hitStunTimer.Completed;
 
         // Update Move hitboxes
         if (this.AttackController != null)
@@ -938,6 +932,33 @@ public class SCCharacterController : Actor2D
                 break;
         }
         return boost.x == 0.0f;
+    }
+    
+    private void useItem(InputWrapper input)
+    {
+        PooledObject item = this.InventoryController.UseItem(0);
+        if (item != null)
+        {
+            item.transform.SetPosition2D(this.transform.position.x, this.transform.position.y);
+            ThrownActor actor = item.GetComponent<ThrownActor>();
+            if (actor != null)
+            {
+                //TODO: Throw origin position marked in character data
+                float angle = this.DefaultThrowAngle;
+                if (input.Duck)
+                    angle = this.DownwardThrowAngle;
+                else if (input.LookUp)
+                    angle = this.UpwardThrowAngle;
+                actor.Throw(angle, (int)_facing);
+            }
+
+            item.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
+        }
+    }
+
+    private void onCancelAttack(LocalEventNotifier.Event e)
+    {
+        endMove();
     }
 
     private void onDeath()
