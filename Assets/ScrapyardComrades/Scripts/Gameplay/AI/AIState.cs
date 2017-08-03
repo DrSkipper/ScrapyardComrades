@@ -163,3 +163,37 @@ public class GuardAttackState : AIState
     private int _cooldown;
     private int _cooldownAmt;
 }
+
+public class OfficeAttackState : SimpleAttackState
+{
+    public OfficeAttackState(float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeAttackRange, float pursuitToDist, int cooldown) : base(executeAttackRange, pursuitToDist, cooldown)
+    {
+        _jumpAtRangeFar = jumpAtRangeFar;
+        _jumpAtRangeNear = jumpAtRangeNear;
+        _executeAirAttackRange = executeAttackRange;
+    }
+
+    public override AIOutput UpdateState(AIInput input)
+    {
+        AIOutput output = base.UpdateState(input);
+        float d = Mathf.Abs(input.OurPosition.X - input.TargetPosition.X);
+
+        if (input.OnGround)
+        {
+            if (!output.Jump && d < _jumpAtRangeFar && d > _jumpAtRangeNear)
+                output.Jump = true;
+        }
+
+        else if (!output.Attack)
+        {
+            if (d < _executeAirAttackRange)
+                output.Attack = true;
+        }
+
+        return output;
+    }
+
+    private float _jumpAtRangeFar;
+    private float _jumpAtRangeNear;
+    private float _executeAirAttackRange;
+}

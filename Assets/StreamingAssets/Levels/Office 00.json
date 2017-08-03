@@ -12427,9 +12427,17 @@
           "CurrentOption": "blue"
         }
       ]
+    },
+    {
+      "name": "objects_EnemyOffice_10",
+      "prefab_name": "EnemyOffice",
+      "x": 908,
+      "y": 748,
+      "z": -2,
+      "parameters": null
     }
   ],
-  "next_object_id": 10,
+  "next_object_id": 11,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 6,

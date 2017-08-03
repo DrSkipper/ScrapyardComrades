@@ -8,7 +8,8 @@ public class EnemyController : SCCharacterController
     public enum AIType
     {
         Simple,
-        Guard
+        Guard,
+        Office
     }
 
     public override void OnSpawn()
@@ -27,6 +28,9 @@ public class EnemyController : SCCharacterController
                 break;
             case AIType.Guard:
                 _ai = new GuardAI(275, 400, 156, 114, 128, 8);
+                break;
+            case AIType.Office:
+                _ai = new OfficeAI(280, 425, 200, 145, 180, 100, 60, 4);
                 break;
         }
     }

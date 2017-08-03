@@ -71,3 +71,17 @@ public class GuardAI : AI
         this.CurrentState = idleState;
     }
 }
+
+public class OfficeAI : AI
+{
+    public OfficeAI(float attackStateRange, float pursuitRange, float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeAttackRange, float attackingPursuitTargetDist, int attackStateCooldown)
+    {
+        AIState idleState = new IdleState();
+        AIState attackState = new OfficeAttackState(jumpAtRangeFar, jumpAtRangeNear, executeAirAttackRange, executeAttackRange, attackingPursuitTargetDist, attackStateCooldown);
+        idleState.AddTransition(new ANDTransition(new AIStateTransition[] { new TargetAliveTransition(attackState, true), new TargetWithinRangeTransition(attackState, 0, attackStateRange) }));
+        attackState.AddTransition(new NoTargetTransition(idleState));
+        attackState.AddTransition(new TargetWithinRangeTransition(idleState, pursuitRange));
+        attackState.AddTransition(new ANDTransition(new AIStateTransition[] { new TargetAliveTransition(idleState, false), new TargetWithinRangeTransition(idleState, 0, executeAttackRange) }));
+        this.CurrentState = idleState;
+    }
+}
