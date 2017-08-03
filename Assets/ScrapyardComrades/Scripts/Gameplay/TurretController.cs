@@ -5,6 +5,7 @@ public class TurretController : VoBehavior, IPausable
 {
     public IntegerCollider DetectionRange;
     public LayerMask DetectionMask;
+    public LayerMask BlockMask;
     public SCSpriteAnimator Animator;
     public SCSpriteAnimation EAnimation;
     public SCSpriteAnimation NEEAnimation;
@@ -67,26 +68,45 @@ public class TurretController : VoBehavior, IPausable
         if (!_isFiring && !_shotDelayTimer.IsRunning)
         {
             this.DetectionRange.Collide(_inRange, 0, 0, this.DetectionMask);
+            bool found = false;
             if (_inRange.Count > 0)
             {
                 float dist = float.MaxValue;
                 Transform target = null;
+                Vector2 targetDir = Vector2.zero;
+
                 for (int i = 0; i < _inRange.Count; ++i)
                 {
                     Transform other = _inRange[i].transform;
                     float d = this.transform.Distance2D(other);
                     if (d < dist)
                     {
-                        d = dist;
-                        target = other;
+                        Vector2 dir = this.transform.DirectionTo2D(other);
+                        CollisionManager.RaycastResult result = CollisionManager.RaycastFirst(this.integerPosition, dir, this.transform.Distance2D(other), this.BlockMask);
+
+                        if (!result.Collided || result.Collisions[0].CollidedObject == other.gameObject)
+                        {
+                            found = true;
+                            d = dist;
+                            target = other;
+                            targetDir = dir;
+                        }
                     }
                 }
 
                 _inRange.Clear();
-                
-                Vector2 targetDir = this.transform.DirectionTo2D(target);
-                aimAtTarget(target, targetDir);
-                attemptFire(target, targetDir);
+
+                if (found)
+                {
+                    aimAtTarget(target, targetDir);
+                    attemptFire(target, targetDir);
+                }
+            }
+
+            if (!found)
+            {
+                _cooldownTimer.reset();
+                _cooldownTimer.start();
             }
         }
         else if (!this.Animator.IsPlaying || _cooldownTimer.Completed)
