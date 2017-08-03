@@ -32,7 +32,8 @@ public class AttackController : VoBehavior, IPausable
         else
         {
             _attacking = true;
-            this.EffectAnimator.freezeFrameEnded(null);
+            if (this.EffectAnimator != null)
+                this.EffectAnimator.freezeFrameEnded(null);
 
             // Activate effect if necessary
             if (this.EffectAnimator != null)
