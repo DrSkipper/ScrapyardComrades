@@ -27,7 +27,7 @@ public class HitEffectHandler : MonoBehaviour, IPausable
             if (_freezeTimer.Completed)
             {
                 _animStarted = true;
-                this.Animator.PlayAnimation(this.Animator.DefaultAnimation);
+                this.Animator.Play();
             }
         }
         else
