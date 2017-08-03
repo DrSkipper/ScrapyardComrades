@@ -16,6 +16,7 @@ public class TurretController : VoBehavior, IPausable
     public AttachDir AttachedAt = AttachDir.Down;
     public PooledObject MissilePrefab;
     public SCSpriteAnimator EffectAnimator;
+    public Transform LaunchOrigin;
     public int Cooldown = 30;
     public int ShotDelay = 3;
     public int ShotStartDistance = 24;
@@ -47,15 +48,19 @@ public class TurretController : VoBehavior, IPausable
             default:
             case AttachDir.Down:
                 _normal = Vector2.up;
+                this.transform.rotation = Quaternion.Euler(0, 0, 0);
                 break;
             case AttachDir.Up:
                 _normal = Vector2.down;
+                this.transform.rotation = Quaternion.Euler(0, 0, 180);
                 break;
             case AttachDir.Left:
                 _normal = Vector2.right;
+                this.transform.rotation = Quaternion.Euler(0, 0, -90);
                 break;
             case AttachDir.Right:
                 _normal = Vector2.left;
+                this.transform.rotation = Quaternion.Euler(0, 0, 90);
                 break;
         }
     }
@@ -78,11 +83,11 @@ public class TurretController : VoBehavior, IPausable
                 for (int i = 0; i < _inRange.Count; ++i)
                 {
                     Transform other = _inRange[i].transform;
-                    float d = this.transform.Distance2D(other);
+                    float d = this.LaunchOrigin.Distance2D(other);
                     if (d < dist)
                     {
-                        Vector2 dir = this.transform.DirectionTo2D(other);
-                        CollisionManager.RaycastResult result = CollisionManager.RaycastFirst(this.integerPosition, dir, this.transform.Distance2D(other), this.BlockMask);
+                        Vector2 dir = this.LaunchOrigin.DirectionTo2D(other);
+                        CollisionManager.RaycastResult result = CollisionManager.RaycastFirst((Vector2)this.LaunchOrigin.transform.position, dir, this.LaunchOrigin.Distance2D(other), this.BlockMask);
 
                         if (!result.Collided || result.Collisions[0].CollidedObject == other.gameObject)
                         {
@@ -131,7 +136,7 @@ public class TurretController : VoBehavior, IPausable
             this.EffectAnimator.gameObject.SetActive(false);
     }
 
-    private void OnDrawGizmosSelected()
+    void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawLine(this.transform.position, this.transform.position + (Vector3)_normal * 80);
@@ -185,7 +190,7 @@ public class TurretController : VoBehavior, IPausable
             _currentPos = Mathf.RoundToInt(absTargetAngle / COVERAGE_PER_POS);
         }
         
-        if (!_turning && absTargetAngle >= MIN_AMT_FOR_TURN)
+        if (!_turning && _firableDirection && absTargetAngle >= MIN_AMT_FOR_TURN)
         {
             bool flip = Mathf.Sign(targetAngle) > 0 ? true : false;
             if (flip != this.spriteRenderer.flipX)
@@ -224,7 +229,7 @@ public class TurretController : VoBehavior, IPausable
 
     private void shoot()
     {
-        IntegerVector pos = (IntegerVector)(Vector2)this.transform.position + (IntegerVector)(_shotDir * this.ShotStartDistance);
+        IntegerVector pos = (IntegerVector)(Vector2)this.LaunchOrigin.position + (IntegerVector)(_shotDir * this.ShotStartDistance);
         PooledObject missile = this.MissilePrefab.Retain();
         missile.transform.SetPosition2D(pos);
         missile.transform.LookAt2D(_shotTarget, this.MissileRotationOffset);
@@ -248,9 +253,9 @@ public class TurretController : VoBehavior, IPausable
             case AttachDir.Up:
                 return target.x > this.transform.position.x ? -1 : 1;
             case AttachDir.Left:
-                return target.y < this.transform.position.x ? -1 : 1;
+                return target.y > this.transform.position.y ? -1 : 1;
             case AttachDir.Right:
-                return target.y > this.transform.position.x ? -1 : 1;
+                return target.y < this.transform.position.y ? -1 : 1;
         }
     }
 
