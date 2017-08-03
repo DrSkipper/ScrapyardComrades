@@ -178,8 +178,6 @@ public class SCCharacterController : Actor2D
         _autoMoveTimer.complete();
 
         this.Hurtbox.AddToCollisionPool();
-        if (this.AttackController != null)
-            this.AttackController.AddDamageBoxes();
     }
 
     public virtual void OnReturnToPool()

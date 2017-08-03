@@ -11,23 +11,6 @@ public class AttackController : VoBehavior, IPausable
     public HurtboxChangeDelegate HurtboxChangeCallback;
     public delegate bool HurtboxChangeDelegate(SCAttack.HurtboxState newState);
 
-    public void AddDamageBoxes()
-    {
-        for (int i = 0; i < this.DamageBoxes.Length; ++i)
-        {
-            this.DamageBoxes[i].AddToCollisionPool();
-        }
-    }
-
-    void OnReturnToPool()
-    {
-        _attacking = false;
-        for (int i = 0; i < this.DamageBoxes.Length; ++i)
-        {
-            this.DamageBoxes[i].RemoveFromCollisionPool();
-        }
-    }
-
     public void UpdateHitBoxes(SCAttack currentAttack, SCAttack.HurtboxState hurtboxState, SCCharacterController.Facing facing)
     {
         if (currentAttack == null)
