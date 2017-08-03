@@ -536,10 +536,6 @@ public class SCCharacterController : Actor2D
         this.Velocity = _velocity;
         base.FixedUpdate();
 
-        // Update Move hitboxes
-        if (this.AttackController != null)
-            this.AttackController.UpdateHitBoxes(_currentAttack, this.HurtboxState, _facing);
-
         // Check if need to drop loot
         if (this.Damagable.Dead && !_hasSpawnedLoot && this.Velocity.x < DEATH_VELOCITY_MAX && this.GroundedAgainst != null)
         {
@@ -551,6 +547,10 @@ public class SCCharacterController : Actor2D
         _updateFinishEvent.CurrentAttack = _currentAttack;
         this.localNotifier.SendEvent(_updateFinishEvent);
         _hasGatheredPotentialCollisions = false;
+
+        // Update Move hitboxes
+        if (this.AttackController != null)
+            this.AttackController.UpdateHitBoxes(_currentAttack, this.HurtboxState, _facing);
     }
 
     public GameObject GroundedAgainst
