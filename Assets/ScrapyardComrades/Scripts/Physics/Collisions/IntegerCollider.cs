@@ -18,14 +18,15 @@ public abstract class IntegerCollider : VoBehavior
 
     public override void OnDestroy()
     {
-        if (this.CollisionManager)
+        if (this.CollisionManager != null)
             this.CollisionManager.RemoveCollider(this.layerMask, this);
         base.OnDestroy();
     }
 
     public void AddToCollisionPool()
     {
-        this.CollisionManager.AddCollider(this.layerMask, this);
+        if (this.CollisionManager != null)
+            this.CollisionManager.AddCollider(this.layerMask, this);
     }
 
     public void RemoveFromCollisionPool()
@@ -99,6 +100,9 @@ public abstract class IntegerCollider : VoBehavior
 
     public List<IntegerCollider> GetPotentialCollisions(float vx, float vy, int offsetX = 0, int offsetY = 0, int mask = Physics2D.DefaultRaycastLayers, List<IntegerCollider> _listRef = null, int enlargeX = 0, int enlargeY = 0)
     {
+        if (this.CollisionManager == null)
+            return new List<IntegerCollider>();
+
         IntegerRect bounds = this.Bounds;
         IntegerRect range = new IntegerRect(bounds.Center.X + offsetX, bounds.Center.Y + offsetY, this.Bounds.Size.X + Mathf.RoundToInt(Mathf.Abs(vx * 2) + 1.55f) + enlargeX, this.Bounds.Size.Y + (Mathf.RoundToInt(Mathf.Abs(vy * 2) + 1.55f)) + enlargeY);
         return this.CollisionManager.GetCollidersInRange(range, mask, null, _listRef);

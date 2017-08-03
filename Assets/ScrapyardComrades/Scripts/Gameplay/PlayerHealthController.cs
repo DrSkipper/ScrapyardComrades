@@ -22,7 +22,8 @@ public class PlayerHealthController : VoBehavior, IPausable
 
     void OnSpawn()
     {
-        int level = SaveData.PlayerStats.Level;
+        int level = SaveData.DataLoaded ? SaveData.PlayerStats.Level : -1;
+
         if (level > 0)
         {
             if (level != this.HeroLevel)

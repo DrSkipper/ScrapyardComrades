@@ -189,6 +189,17 @@ public class MapEditorManager : MonoBehaviour, IPausable
         {
             default:
             case MapEditorLayer.LayerType.Objects:
+                if (this.ObjectCursor.childCount > 0)
+                {
+                    Transform brush = this.ObjectCursor.GetChild(0);
+
+                    ObjectConfigurer configurer = brush.GetComponent<ObjectConfigurer>();
+                    if (configurer != null)
+                    {
+                        configurer.ConfigureForParams((currentLayer as MapEditorObjectsLayer).CurrentObjectParams);
+                        brush.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
+                    }
+                }
                 break;
             case MapEditorLayer.LayerType.Tiles:
                 ((MapEditorTilesLayer)currentLayer).PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
@@ -647,6 +658,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
             if (configurer != null)
             {
                 configurer.ConfigureForParams(layer.Objects[i].parameters);
+                newObject.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
             }
         }
     }

@@ -361,6 +361,7 @@ public class MapEditorObjectsLayer : MapEditorLayer
         if (configurer != null)
         {
             configurer.ConfigureForParams(this.CurrentObjectParams);
+            gameObject.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
         }
     }
 

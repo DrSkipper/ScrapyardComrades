@@ -12380,10 +12380,10 @@
       "parameters": null
     },
     {
-      "name": "objects_Turret_12",
+      "name": "objects_Turret_13",
       "prefab_name": "Turret",
-      "x": 120,
-      "y": 300,
+      "x": 128,
+      "y": 164,
       "z": -2,
       "parameters": [
         {
@@ -12393,7 +12393,7 @@
       ]
     }
   ],
-  "next_object_id": 13,
+  "next_object_id": 14,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 3,
