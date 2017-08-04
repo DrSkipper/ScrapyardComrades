@@ -276,6 +276,7 @@ public class SCCharacterController : Actor2D
             if ((groundedLayerMask & this.BounceMask) == groundedLayerMask)
             {
                 _velocity.y = Mathf.Min(this.MinBounceVelocity, (this.MinBounceVelocity + Mathf.Abs(_velocity.y)) / 2.0f);
+                _velocity.x += (int)_facing * this.MinBounceVelocity * HORIZ_BOUNCE_FACTOR;
             }
         }
 
@@ -595,6 +596,7 @@ public class SCCharacterController : Actor2D
     private int _wallJumpExpandAmount;
 
     private const string RESTING_VELOCITY_KEY = "rest";
+    private const float HORIZ_BOUNCE_FACTOR = 0.8f;
 
     private struct ControlParameters
     {
