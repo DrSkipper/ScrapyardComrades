@@ -20,6 +20,10 @@ public class SCMoveSet : ScriptableObject
     public SCAttack AirStrong;
     public SCAttack AirDodge;
 
+    public SCAttack ExtraRefA;
+    public SCAttack ExtraRefB;
+    public SCAttack ExtraRefC;
+
     //TODO: Expand as more attack options, etc are added
     // Also need to update SCMoveSetEditingEditor when more moves are added
     public SCAttack GetAttackForInput(SCCharacterController.InputWrapper input, SCCharacterController character, int categoryConstraints = int.MaxValue)

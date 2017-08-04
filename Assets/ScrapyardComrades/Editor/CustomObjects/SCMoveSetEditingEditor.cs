@@ -35,8 +35,9 @@ public class SCMoveSetEditingEditor : Editor
                 _moveOptions.Add("Air Neutral");
                 _moveOptions.Add("Air Strong");
                 _moveOptions.Add("Air Dodge");
-                _moveOptions.Add("Combo 1");
-                _moveOptions.Add("Combo 2");
+                _moveOptions.Add("Extra Ref A");
+                _moveOptions.Add("Extra Ref B");
+                _moveOptions.Add("Extra Ref C");
 
                 /*if (behavior.AttackObject.Combos != null)
                 {
@@ -66,12 +67,12 @@ public class SCMoveSetEditingEditor : Editor
                     behavior.AttackObject = behavior.MoveSet.AirStrong;
                 else if (behavior.MoveIndex == 5)
                     behavior.AttackObject = behavior.MoveSet.AirDodge;
-                else
-                {
-                    int comboIndex = behavior.MoveIndex - 6;
-                    if (comboIndex < behavior.AttackObject.Combos.Length)
-                        behavior.AttackObject = behavior.AttackObject.Combos[comboIndex].ComboMove;
-                }
+                else if (behavior.MoveIndex == 6)
+                    behavior.AttackObject = behavior.MoveSet.ExtraRefA;
+                else if (behavior.MoveIndex == 7)
+                    behavior.AttackObject = behavior.MoveSet.ExtraRefB;
+                else if (behavior.MoveIndex == 8)
+                    behavior.AttackObject = behavior.MoveSet.ExtraRefC;
                 behavior.CurrentIndex = 0;
                 behavior.Frame = 0;
             }
