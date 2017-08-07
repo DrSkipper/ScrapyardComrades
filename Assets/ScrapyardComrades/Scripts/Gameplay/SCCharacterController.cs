@@ -408,6 +408,13 @@ public class SCCharacterController : Actor2D
                     ledgeGrabbing = false;
             }
 
+            if (!interrupted && _onGround && _currentAttack.GroundedEffect != SCAttack.OnGroundEffect.None)
+            {
+                interrupted = true; // Interrupt into grounded combo for this move
+                if (_currentAttack.GroundedEffect == SCAttack.OnGroundEffect.Combo)
+                    interruptingMove = _currentAttack.GroundedCombo;
+            }
+
             if (interrupted)
             {
                 _attackTimer.complete();
@@ -960,6 +967,7 @@ public class SCCharacterController : Actor2D
 
     private void onCancelAttack(LocalEventNotifier.Event e)
     {
+        _attackTimer.complete();
         endMove();
     }
 

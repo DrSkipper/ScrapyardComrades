@@ -131,6 +131,16 @@ public class SCAttack : ScriptableObject
     public int ComboWindow;
     public int ComboBuffer;
 
+    [System.Serializable]
+    public enum OnGroundEffect
+    {
+        None,
+        Stop,
+        Combo
+    }
+
+    public OnGroundEffect GroundedEffect;
+    public SCAttack GroundedCombo;
     public Combo[] Combos;
     public HitData HitParameters;
     public Effect[] Effects;
