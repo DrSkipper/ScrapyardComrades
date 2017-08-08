@@ -17,7 +17,7 @@ public class Damagable : VoBehavior, IPausable
     {
         _invincibilityTimer = new Timer(1, false, false);
         _freezeFrameEvent = new FreezeFrameEvent(FREEZE_FRAMES);
-        _hitStunEvent = new HitStunEvent(1, 1.0f, 1.0f);
+        _hitStunEvent = new HitStunEvent(1, 1.0f, 1.0f, false);
         _healEvent = new HealEvent(this.Health, this.Health, this.MaxHealth, this.MaxHealth);
         _prevLayer = this.gameObject.layer;
     }
@@ -73,6 +73,7 @@ public class Damagable : VoBehavior, IPausable
         _hitStunEvent.NumFrames = !this.Dead ? hitData.HitStunDuration + FREEZE_FRAMES : invinciblityDuration;
         _hitStunEvent.GravityMultiplier = hitData.HitStunGravityMultiplier;
         _hitStunEvent.AirFrictionMultiplier = hitData.HitStunAirFrictionMultiplier;
+        _hitStunEvent.Blocked = false;
 
         // SFX
         if (hitData.HitSfx != null && hitData.HitSfx != StringExtensions.EMPTY)
@@ -105,6 +106,23 @@ public class Damagable : VoBehavior, IPausable
     public void ResetLayer()
     {
         this.gameObject.layer = _prevLayer;
+    }
+
+    public void Block(int freezeFrames, SCAttack.HitData hitData)
+    {
+        _freezeFrameEvent.NumFrames = freezeFrames;
+        this.localNotifier.SendEvent(_freezeFrameEvent);
+
+        //TODO: Play block sfx
+
+        int stunFrames = hitData.HitStunDuration + freezeFrames;
+        _hitStunEvent.NumFrames = stunFrames;
+        _hitStunEvent.GravityMultiplier = 1.0f;
+        _hitStunEvent.AirFrictionMultiplier = 1.0f;
+        _hitStunEvent.Blocked = true;
+        this.localNotifier.SendEvent(_hitStunEvent);
+
+        this.SetInvincible(stunFrames);
     }
 
     /**

@@ -87,13 +87,15 @@ public class HitStunEvent : LocalEventNotifier.Event
     public int NumFrames;
     public float GravityMultiplier;
     public float AirFrictionMultiplier;
+    public bool Blocked;
 
-    public HitStunEvent(int numFrames, float gravityMultiplier, float airFrictionMultiplier)
+    public HitStunEvent(int numFrames, float gravityMultiplier, float airFrictionMultiplier, bool blocked)
     {
         this.Name = NAME;
         this.NumFrames = numFrames;
         this.GravityMultiplier = gravityMultiplier;
         this.AirFrictionMultiplier = airFrictionMultiplier;
+        this.Blocked = blocked;
     }
 }
 

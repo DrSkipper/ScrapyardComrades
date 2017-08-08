@@ -16,6 +16,7 @@ public class CharacterVisualizer : VoBehavior
     public SCSpriteAnimation DeathHitStunAnimation;
     public SCSpriteAnimation DeathAnimation;
     public SCSpriteAnimation StandupAnimation;
+    public SCSpriteAnimation BlockAnimation;
     public float DodgeAlpha = 0.8f;
 
     private const string IDLE_STATE = "idle";
@@ -31,6 +32,7 @@ public class CharacterVisualizer : VoBehavior
     private const string DEATH_STATE = "death";
     private const string ATTACK_STATE = "attack";
     private const string STANDUP_STATE = "stand";
+    private const string BLOCKED_STATE = "block";
 
     void Awake()
     {
@@ -50,6 +52,7 @@ public class CharacterVisualizer : VoBehavior
         _stateMachine.AddState(DEATH_STATE, this.updateDying, this.enterDeath);
         _stateMachine.AddState(ATTACK_STATE, this.updateAttack, this.enterAttack, this.exitAttack);
         _stateMachine.AddState(STANDUP_STATE, this.updateStandup, this.enterStandup);
+        _stateMachine.AddState(BLOCKED_STATE, this.updateGeneric, this.enterBlocked);
         _stateMachine.BeginWithInitialState(IDLE_STATE);
 
         this.localNotifier.Listen(CharacterUpdateFinishedEvent.NAME, this, this.UpdateVisual);
@@ -99,7 +102,8 @@ public class CharacterVisualizer : VoBehavior
                     return DEATH_STATE;
                 return DEATHSTUN_STATE;
             }
-            return STUNNED_STATE;
+
+            return _characterController.Blocked ? BLOCKED_STATE : STUNNED_STATE;
         }
         if (_characterController.Ducking)
         {
@@ -148,11 +152,6 @@ public class CharacterVisualizer : VoBehavior
         return _characterController.HitStunned ? STANDUP_STATE : IDLE_STATE;
     }
 
-    private void enterStandup()
-    {
-        _spriteAnimator.PlayAnimation(this.StandupAnimation);
-    }
-
     private void enterAttack()
     {
         if (_currentAttack.Category == SCAttack.MoveCategory.Dodge)
@@ -173,7 +172,6 @@ public class CharacterVisualizer : VoBehavior
 
     private void enterIdle()
     {
-        //TODO - Handle transitions from Previous State
         _spriteAnimator.PlayAnimation(this.IdleAnimation);
     }
 
@@ -231,5 +229,15 @@ public class CharacterVisualizer : VoBehavior
     private void enterDeath()
     {
         _spriteAnimator.PlayAnimation(this.DeathAnimation);
+    }
+
+    private void enterStandup()
+    {
+        _spriteAnimator.PlayAnimation(this.StandupAnimation);
+    }
+
+    private void enterBlocked()
+    {
+        _spriteAnimator.PlayAnimation(this.BlockAnimation);
     }
 }

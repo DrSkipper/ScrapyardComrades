@@ -2,26 +2,10 @@
 
 public class BlockHandler : MonoBehaviour
 {
-    public LocalEventNotifier Notifier;
     public Damagable Damagable;
 
-    public void HandleBlock(int freezeFrames)
+    public void HandleBlock(int freezeFrames, SCAttack.HitData hitData)
     {
-        //TODO: Trigger block-stun state & animation
-
-        if (_freezeFrameEvent == null)
-            _freezeFrameEvent = new FreezeFrameEvent(freezeFrames);
-        else
-            _freezeFrameEvent.NumFrames = freezeFrames;
-
-        this.Notifier.SendEvent(_freezeFrameEvent);
-
-        if (this.Damagable != null)
-            this.Damagable.SetInvincible(freezeFrames);
+        this.Damagable.Block(freezeFrames, hitData);
     }
-
-    /**
-     * Private
-     */
-    private FreezeFrameEvent _freezeFrameEvent;
 }

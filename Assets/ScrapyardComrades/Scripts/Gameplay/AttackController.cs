@@ -58,9 +58,14 @@ public class AttackController : VoBehavior, IPausable
 
                                 // Check if the attack was blocked
                                 CollisionManager.RaycastResult result = this.CollisionManager.Raycast(this.integerPosition, this.transform.DirectionTo2D(collided.transform), this.transform.Distance2D(collided.transform), (this.BlockableLayers | this.DamagableLayers));
-                                if (result.Collided && this.BlockableLayers.ContainsLayer(result.Collisions[0].CollidedObject.layer))
+                                if (result.Collided)
                                 {
-                                    blocked = true;
+                                    GameObject potentialBlocker = result.Collisions[0].CollidedObject;
+                                    if (this.BlockableLayers.ContainsLayer(potentialBlocker.layer))
+                                    {
+                                        collided = potentialBlocker;
+                                        blocked = true;
+                                    }
                                 }
                             }
                         }
@@ -76,7 +81,7 @@ public class AttackController : VoBehavior, IPausable
                 if (blocked)
                 {
                     notifyFreezeFrames(Damagable.FREEZE_FRAMES);
-                    notifyOtherBlocker(collided, Damagable.FREEZE_FRAMES);
+                    notifyOtherBlocker(collided, Damagable.FREEZE_FRAMES, currentAttack.HitParameters);
 
                     IntegerVector hitPoint = collided.GetComponent<IntegerCollider>().ClosestContainedPoint((Vector2)collider.transform.position);
                     createHitEffect(this.BlockEffectAnim, hitPoint, Damagable.FREEZE_FRAMES, facing);
@@ -164,11 +169,11 @@ public class AttackController : VoBehavior, IPausable
             this.Damagable.SetInvincible(freezeFrames);
     }
 
-    private void notifyOtherBlocker(GameObject collided, int freezeFrames)
+    private void notifyOtherBlocker(GameObject collided, int freezeFrames, SCAttack.HitData hitData)
     {
         BlockHandler blocker = collided.GetComponent<BlockHandler>();
         if (blocker != null)
-            blocker.HandleBlock(freezeFrames);
+            blocker.HandleBlock(freezeFrames, hitData);
     }
 
     private void activateEffectIfNecessary(SCAttack currentAttack)

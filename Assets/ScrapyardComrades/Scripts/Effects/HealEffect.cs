@@ -13,7 +13,7 @@ public class HealEffect : VoBehavior, IPausable
         _effectTimer = new Timer(this.Duration, false, false, effectFinished);
 
         this.localNotifier.Listen(HealEvent.NAME, this, onHeal);
-        this.localNotifier.Listen(HitStunEvent.NAME, this, onHeal);
+        this.localNotifier.Listen(HitStunEvent.NAME, this, onHitStun);
     }
 
     void FixedUpdate()
@@ -28,6 +28,17 @@ public class HealEffect : VoBehavior, IPausable
     private Material _prevMat;
 
     private void onHeal(LocalEventNotifier.Event e)
+    {
+        beginEffect();
+    }
+
+    private void onHitStun(LocalEventNotifier.Event e)
+    {
+        if (!(e as HitStunEvent).Blocked)
+            beginEffect();
+    }
+
+    private void beginEffect()
     {
         _effectTimer.reset();
         _effectTimer.start();
