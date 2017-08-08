@@ -15,6 +15,7 @@ public class CharacterVisualizer : VoBehavior
     public SCSpriteAnimation HitStunAnimation;
     public SCSpriteAnimation DeathHitStunAnimation;
     public SCSpriteAnimation DeathAnimation;
+    public SCSpriteAnimation StandupAnimation;
     public float DodgeAlpha = 0.8f;
 
     private const string IDLE_STATE = "idle";
@@ -29,6 +30,7 @@ public class CharacterVisualizer : VoBehavior
     private const string DEATHSTUN_STATE = "deathstun";
     private const string DEATH_STATE = "death";
     private const string ATTACK_STATE = "attack";
+    private const string STANDUP_STATE = "stand";
 
     void Awake()
     {
@@ -47,9 +49,15 @@ public class CharacterVisualizer : VoBehavior
         _stateMachine.AddState(DEATHSTUN_STATE, this.updateGeneric, this.enterDeathStun);
         _stateMachine.AddState(DEATH_STATE, this.updateDying, this.enterDeath);
         _stateMachine.AddState(ATTACK_STATE, this.updateAttack, this.enterAttack, this.exitAttack);
+        _stateMachine.AddState(STANDUP_STATE, this.updateStandup, this.enterStandup);
         _stateMachine.BeginWithInitialState(IDLE_STATE);
 
         this.localNotifier.Listen(CharacterUpdateFinishedEvent.NAME, this, this.UpdateVisual);
+    }
+
+    void OnSpawn()
+    {
+        _stateMachine.CurrentState = _characterController.StandupOnSpawn ? STANDUP_STATE : IDLE_STATE;
     }
 
     void OnReturnToPool()
@@ -133,6 +141,16 @@ public class CharacterVisualizer : VoBehavior
         }
 
         return ATTACK_STATE;
+    }
+
+    private string updateStandup()
+    {
+        return _characterController.HitStunned ? STANDUP_STATE : IDLE_STATE;
+    }
+
+    private void enterStandup()
+    {
+        _spriteAnimator.PlayAnimation(this.StandupAnimation);
     }
 
     private void enterAttack()

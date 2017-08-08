@@ -7,6 +7,7 @@ public class SCSpriteAnimator : VoBehavior, IPausable
     public SCSpriteAnimation CurrentAnimation { get { guaranteeCurrentAnimation(); return _currentAnimation; } }
     public int Elapsed { get { return _elapsed; } }
     public bool IsPlaying { get { return _playing; } }
+    public bool PlayDefaultOnSpawn = true;
 
     void Awake()
     {
@@ -18,7 +19,8 @@ public class SCSpriteAnimator : VoBehavior, IPausable
 
     void OnSpawn()
     {
-        this.PlayAnimation(this.DefaultAnimation);
+        if (this.PlayDefaultOnSpawn)
+            this.PlayAnimation(this.DefaultAnimation);
     }
 
     public void PlayAnimation(SCSpriteAnimation animation)

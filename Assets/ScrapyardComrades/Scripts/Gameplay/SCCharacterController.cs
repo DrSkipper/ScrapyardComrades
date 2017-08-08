@@ -87,6 +87,8 @@ public class SCCharacterController : Actor2D
     public float DefaultThrowAngle = 15.0f;
     public float UpwardThrowAngle = 50.0f;
     public float DownwardThrowAngle = -30.0f;
+    public bool StandupOnSpawn = false;
+    public int StandupFrames = 50;
 
     public WorldEntity WorldEntity;
     public Damagable Damagable;
@@ -178,6 +180,12 @@ public class SCCharacterController : Actor2D
         if (_autoMoveTimer == null)
             _autoMoveTimer = new Timer(1);
         _autoMoveTimer.complete();
+
+        if (this.StandupOnSpawn)
+        {
+            _hitStunTimer.reset(this.StandupFrames);
+            _hitStunTimer.start();
+        }
 
         this.Hurtbox.AddToCollisionPool();
         if (this.BlockBox != null)
