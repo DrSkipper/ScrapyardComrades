@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1cbce5c0ffa32e24d974195c3e675080
-timeCreated: 1496098043
+timeCreated: 1502239705
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -76,7 +76,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 50
+        y: 14
         width: 38
         height: 50
       alignment: 0
@@ -88,8 +88,8 @@ TextureImporter:
       name: hero2_wallslide_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 45
+        y: 14
         width: 38
         height: 50
       alignment: 0
