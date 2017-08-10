@@ -5,10 +5,14 @@ public class HealEffect : VoBehavior, IPausable
 {
     public SpriteRenderer SpriteRenderer;
     public MaterialLerper OverlayMaterialLerper;
+    public Material BlockMaterial;
+    public float HealthStartAlpha = 0.9f;
+    public float BlockStartAlpha = 0.7f;
     public int Duration;
 
     void Awake()
     {
+        _healthMaterial = this.OverlayMaterialLerper.Material;
         _prevMat = this.spriteRenderer.material;
         _effectTimer = new Timer(this.Duration, false, false, effectFinished);
 
@@ -26,6 +30,7 @@ public class HealEffect : VoBehavior, IPausable
      */
     private Timer _effectTimer;
     private Material _prevMat;
+    private Material _healthMaterial;
 
     private void onHeal(LocalEventNotifier.Event e)
     {
@@ -34,8 +39,17 @@ public class HealEffect : VoBehavior, IPausable
 
     private void onHitStun(LocalEventNotifier.Event e)
     {
-        if (!(e as HitStunEvent).Blocked)
-            beginEffect();
+        if ((e as HitStunEvent).Blocked && this.BlockMaterial != null)
+        {
+            this.OverlayMaterialLerper.Material = this.BlockMaterial;
+            this.OverlayMaterialLerper.InitialValue = this.BlockStartAlpha;
+        }
+        else
+        {
+            this.OverlayMaterialLerper.Material = _healthMaterial;
+            this.OverlayMaterialLerper.InitialValue = this.HealthStartAlpha;
+        }
+        beginEffect();
     }
 
     private void beginEffect()

@@ -121,6 +121,23 @@ public class AttackController : VoBehavior, IPausable
         return currentAttack.GetVelocityBoostForFrame(this.Animator.Elapsed);
     }
 
+    public bool CanBlock(SCAttack currentAttack)
+    {
+        if (currentAttack == null)
+            return true;
+        if (currentAttack.BlockActiveRanges != null && currentAttack.BlockActiveRanges.Length > 0)
+        {
+            int elapsed = this.Animator.Elapsed;
+            for (int i = 0; i < currentAttack.BlockActiveRanges.Length; ++i)
+            {
+                IntegerVector range = currentAttack.BlockActiveRanges[i];
+                if (elapsed >= range.X && elapsed <= range.Y)
+                    return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Private
      */

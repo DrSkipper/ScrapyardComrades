@@ -144,6 +144,7 @@ public class SCAttack : ScriptableObject
     public Combo[] Combos;
     public HitData HitParameters;
     public Effect[] Effects;
+    public IntegerVector[] BlockActiveRanges;
 
     public float GravityMultiplier = 1.0f;
     public float JumpPowerMultiplier = 1.0f;
