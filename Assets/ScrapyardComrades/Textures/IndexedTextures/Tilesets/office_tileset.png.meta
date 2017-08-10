@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9e63b5b6ab043ee47b828defb3ab7ce7
-timeCreated: 1499994674
+timeCreated: 1502406531
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -164,6 +164,11 @@ TextureImporter:
     21300314: office_tileset_157
     21300316: office_tileset_158
     21300318: office_tileset_159
+    21300320: office_tileset_160
+    21300322: office_tileset_161
+    21300324: office_tileset_162
+    21300326: office_tileset_163
+    21300328: office_tileset_164
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -2302,6 +2307,71 @@ TextureImporter:
         serializedVersion: 2
         x: 112
         y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: office_tileset_160
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: office_tileset_161
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: office_tileset_162
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: office_tileset_163
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: office_tileset_164
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 144
         width: 16
         height: 16
       alignment: 0
