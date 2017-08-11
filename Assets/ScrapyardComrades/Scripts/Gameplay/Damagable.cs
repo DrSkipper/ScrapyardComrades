@@ -134,7 +134,7 @@ public class Damagable : VoBehavior, IPausable
     private HealEvent _healEvent;
     private int _prevLayer;
 
-    private const int DEATH_HITSTUN = 250;
+    private const int DEATH_HITSTUN = 1000;
     private const float DEATH_GRAV_MULT = 0.9f;
     private const float DEATH_AIRFRICT_MULT = 0.9f;
     private const float DEATH_KNOCKBACK_ADD = 5.0f;
