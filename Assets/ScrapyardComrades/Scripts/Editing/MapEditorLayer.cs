@@ -541,9 +541,30 @@ public class MapEditorLightingLayer : MapEditorLayer
         }
     }
 
-    public void RemoveObject(GameObject toRemove)
+    public void CopyValuesFromObject(GameObject go)
     {
-        this.Lights.RemoveAll(o => o.name == toRemove.name);
+        for (int i = 0; i < this.Lights.Count; ++i)
+        {
+            if (this.Lights[i].name == go.name)
+            {
+                this.CopyValues(this.CurrentProperties, this.Lights[i]);
+                break;
+            }
+        }
+    }
+
+    public void RemoveObject(GameObject toRemove, bool copyValues)
+    {
+        for (int i = 0; i < this.Lights.Count; ++i)
+        {
+            if (this.Lights[i].name == toRemove.name)
+            {
+                if (copyValues)
+                    this.CopyValues(this.CurrentProperties, this.Lights[i]);
+                this.Lights.RemoveAt(i);
+                break;
+            }
+        }
         this.LoadedLights.Remove(toRemove);
     }
 

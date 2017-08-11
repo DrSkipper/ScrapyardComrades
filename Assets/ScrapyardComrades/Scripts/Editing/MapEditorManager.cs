@@ -437,7 +437,16 @@ public class MapEditorManager : MonoBehaviour, IPausable
             if (!layer.EraserEnabled)
                 addLight(layer);
             else
-                eraseObject(layer, toErase);
+                eraseObject(layer, toErase, false);
+        }
+        else if (MapEditorInput.Action)
+        {
+            removeObjectBrush();
+            if (!layer.EraserEnabled)
+                layer.CopyValuesFromObject(findEraseTarget(layer));
+            else
+                eraseObject(layer, toErase, true);
+            layer.ApplyBrush(this.ObjectCursor);
         }
         else if (MapEditorInput.Cancel)
         {
@@ -626,14 +635,14 @@ public class MapEditorManager : MonoBehaviour, IPausable
         return find;
     }
 
-    private void eraseObject(MapEditorLayer layer, GameObject toErase)
+    private void eraseObject(MapEditorLayer layer, GameObject toErase, bool copyValues = false)
     {
         if (toErase != null)
         {
             if (layer.Type == MapEditorLayer.LayerType.Objects)
                 (layer as MapEditorObjectsLayer).RemoveObject(toErase);
             else if (layer.Type == MapEditorLayer.LayerType.Lighting)
-                (layer as MapEditorLightingLayer).RemoveObject(toErase);
+                (layer as MapEditorLightingLayer).RemoveObject(toErase, copyValues);
             ObjectPools.Release(toErase);
         }
     }
