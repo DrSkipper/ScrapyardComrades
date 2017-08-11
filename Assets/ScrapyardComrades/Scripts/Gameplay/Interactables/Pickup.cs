@@ -3,7 +3,13 @@
 public class Pickup : VoBehavior, Interactable, IKey
 {
     public SCPickup Data;
+    public LayerMask KeyStopperMask;
     public float MaxVelocityToCatch = 3.0f;
+
+    void Awake()
+    {
+        this.localNotifier.Listen(CollisionEvent.NAME, this, onCollide);
+    }
 
     public bool Interact(InteractionController interactor)
     {
@@ -33,5 +39,29 @@ public class Pickup : VoBehavior, Interactable, IKey
     public bool CanOpen(SCPickup.KeyType lockType)
     {
         return this.Data.Key != SCPickup.KeyType.None && lockType == this.Data.Key;
+    }
+
+    /**
+     * Private
+     */
+    private void onCollide(LocalEventNotifier.Event e)
+    {
+        if (this.Data.Key == SCPickup.KeyType.None)
+            return;
+
+        CollisionEvent collisionEvent = e as CollisionEvent;
+        for (int i = 0; i < collisionEvent.Hits.Count; ++i)
+        {
+            GameObject hit = collisionEvent.Hits[i];
+            if (this.KeyStopperMask.ContainsLayer(hit.layer))
+            {
+                KeyStopper stopper = hit.GetComponent<KeyStopper>();
+                if (stopper != null && this.CanOpen(stopper.Door.LockType))
+                {
+                    this.Actor.Velocity = Vector2.zero;
+                    stopper.HandleStop();
+                }
+            }
+        }
     }
 }
