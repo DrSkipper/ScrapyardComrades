@@ -16605,15 +16605,23 @@
       "parameters": null
     },
     {
-      "name": "objects_HeroLV0_2",
+      "name": "objects_Ambulance_3",
+      "prefab_name": "Ambulance",
+      "x": 380,
+      "y": 118,
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_HeroLV0_5",
       "prefab_name": "HeroLV0",
-      "x": 236,
+      "x": 480,
       "y": 100,
       "z": -2,
       "parameters": null
     }
   ],
-  "next_object_id": 3,
+  "next_object_id": 6,
   "next_prop_id": 8,
   "next_prop_bg_id": 74,
   "next_light_id": 30,

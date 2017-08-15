@@ -97,7 +97,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
         // Setup Grid
         this.Grid.InitializeGridForSize(_mapInfo.width, _mapInfo.height);
-        _objectPrecisionIncrement = Mathf.Clamp(Mathf.RoundToInt(this.Grid.GridSpaceSize / OBJECT_PRECISION_PER_TILE), 1, this.Grid.GridSpaceSize);
+        _objectPrecisionIncrement = 2; // Mathf.Clamp(Mathf.RoundToInt(this.Grid.GridSpaceSize / OBJECT_PRECISION_PER_TILE), 1, this.Grid.GridSpaceSize);
         this.ObjectCursor.SetPosition2D(_mapInfo.width * this.Grid.GridSpaceSize / 2, _mapInfo.height * this.Grid.GridSpaceSize / 2);
 
         // Setup Object Layers
@@ -842,7 +842,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
     private const int DEFAULT_LEVEL_SIZE = 32;
     private const int LAYER_DEPTH_INCREMENT = 2;
-    private const int OBJECT_PRECISION_PER_TILE = 8;
+    //private const int OBJECT_PRECISION_PER_TILE = 16;
     private const string PARALLAX_PREFIX = "parallax_";
     private const string DEFAULT_PLATFORMS_TILESET = "GenericPlatforms";
     private const string DEFAULT_BACKGROUND_TILESET = "GenericBackground";
