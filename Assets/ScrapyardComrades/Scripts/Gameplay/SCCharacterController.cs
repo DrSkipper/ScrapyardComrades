@@ -558,7 +558,7 @@ public class SCCharacterController : Actor2D
         // Update block box (only blocking when not attacking, on ground, and not hitstunned
         //TODO: Also dependent on block input, which guard AI should just always have on
         if (this.BlockBox != null)
-            this.BlockBox.enabled = _onGround && _hitStunTimer.Completed && (this.AttackController == null || this.AttackController.CanBlock(_currentAttack));
+            this.BlockBox.enabled = _onGround && (_hitStunTimer.Completed || this.Blocked) && (this.AttackController == null || this.AttackController.CanBlock(_currentAttack));
 
         // Update Move hitboxes
         if (this.AttackController != null)
