@@ -36,12 +36,13 @@ public class Timer
 
     public void complete()
     {
+        _framesRemaining = 0;
         if (this.Callback != null)
             this.Callback();
 
         if (this.Loops)
             _framesRemaining = _numFrames;
-        else
+        else if (_framesRemaining == 0)
             this.Completed = true;
     }
 
