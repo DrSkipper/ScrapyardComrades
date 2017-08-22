@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
     public struct SoundEntry
     {
         public AudioClip Clip;
+        public float Volume;
         public int MinFramesBetweenPlays;
     }
 
@@ -41,6 +42,7 @@ public class SoundManager : MonoBehaviour
             {
                 SoundEntry sfx = _soundEntries[clipName];
                 source.clip = sfx.Clip;
+                source.volume = sfx.Volume;
                 source.Play();
                 _cooldowns[clipName] = sfx.MinFramesBetweenPlays;
                 if (!_currentCooldowns.Contains(clipName))
