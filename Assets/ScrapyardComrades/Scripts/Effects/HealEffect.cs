@@ -24,6 +24,14 @@ public class HealEffect : VoBehavior, IPausable
     {
         _effectTimer.update();
     }
+    
+    public void BeginEffect()
+    {
+        _effectTimer.reset();
+        _effectTimer.start();
+        this.spriteRenderer.material = this.OverlayMaterialLerper.Material;
+        this.OverlayMaterialLerper.BeginLerp();
+    }
 
     /**
      * Private
@@ -34,7 +42,7 @@ public class HealEffect : VoBehavior, IPausable
 
     private void onHeal(LocalEventNotifier.Event e)
     {
-        beginEffect();
+        this.BeginEffect();
     }
 
     private void onHitStun(LocalEventNotifier.Event e)
@@ -49,15 +57,8 @@ public class HealEffect : VoBehavior, IPausable
             this.OverlayMaterialLerper.Material = _healthMaterial;
             this.OverlayMaterialLerper.InitialValue = this.HealthStartAlpha;
         }
-        beginEffect();
-    }
 
-    private void beginEffect()
-    {
-        _effectTimer.reset();
-        _effectTimer.start();
-        this.spriteRenderer.material = this.OverlayMaterialLerper.Material;
-        this.OverlayMaterialLerper.BeginLerp();
+        this.BeginEffect();
     }
 
     private void effectFinished()

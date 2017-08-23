@@ -12,10 +12,11 @@ public class PlayerHealthController : VoBehavior, IPausable
     public SCAttack.HitData AttritionDeathHitData;
 
     public HealthChangedDelegate HealthChangedCallback;
-    public delegate void HealthChangedDelegate(int currentHealth, int maxHealth);
+    public delegate void HealthChangedDelegate(int currentHealth, int maxHealth, bool animate = true);
 
     void Awake()
     {
+        _healEffect = this.GetComponent<HealEffect>();
         this.localNotifier.Listen(HealEvent.NAME, this, onHeal);
         this.localNotifier.Listen(HitStunEvent.NAME, this, onHitStun);
     }
@@ -43,6 +44,7 @@ public class PlayerHealthController : VoBehavior, IPausable
 
         _prevHealth = this.Damagable.Health;
         _prevMaxHealth = this.Damagable.MaxHealth;
+        notifyHealthChange(false);
     }
 
     private void FixedUpdate()
@@ -61,6 +63,7 @@ public class PlayerHealthController : VoBehavior, IPausable
     private Timer _attritionTimer;
     private int _prevHealth;
     private int _prevMaxHealth;
+    private HealEffect _healEffect;
 
     private void attrition()
     {
@@ -69,6 +72,9 @@ public class PlayerHealthController : VoBehavior, IPausable
         {
             this.Damagable.Health = health;
             notifyHealthChange();
+
+            if (_healEffect != null)
+                _healEffect.BeginEffect();
         }
         else
         {
@@ -94,10 +100,10 @@ public class PlayerHealthController : VoBehavior, IPausable
         }
     }
 
-    private void notifyHealthChange()
+    private void notifyHealthChange(bool animate = true)
     {
         if (this.HealthChangedCallback != null)
-            this.HealthChangedCallback(this.Damagable.Health, this.Damagable.MaxHealth);
+            this.HealthChangedCallback(this.Damagable.Health, this.Damagable.MaxHealth, animate);
     }
 
     private void levelUp()
