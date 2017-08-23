@@ -24627,56 +24627,64 @@
       "prefab_name": "HeroLV1",
       "x": 464,
       "y": 988,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Enemy_LV1_B_8",
       "prefab_name": "Enemy_LV1_B",
       "x": 2404,
       "y": 452,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Enemy_LV1_C_9",
       "prefab_name": "Enemy_LV1_C",
       "x": 2916,
       "y": 452,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Enemy_LV1_C_10",
       "prefab_name": "Enemy_LV1_C",
       "x": 912,
       "y": 772,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Enemy_LV1_B_11",
       "prefab_name": "Enemy_LV1_B",
       "x": 1508,
       "y": 708,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_TrainSpawner_15",
       "prefab_name": "TrainSpawner",
       "x": 196,
       "y": 176,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Enemy_LV1_C_16",
       "prefab_name": "Enemy_LV1_C",
       "x": 1356,
       "y": 164,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Enemy_LV1_B_19",
       "prefab_name": "Enemy_LV1_B",
       "x": 868,
       "y": 164,
-      "z": -2
+      "z": -2,
+      "parameters": null
     }
   ],
   "next_object_id": 20,

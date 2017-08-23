@@ -12339,80 +12339,125 @@
       "prefab_name": "HeroLV1",
       "x": 464,
       "y": 968,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_ConveyorBeltLeftMid_3",
       "prefab_name": "ConveyorBeltLeftMid",
       "x": 800,
       "y": 528,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_ConveyorBeltLeftMid_4",
       "prefab_name": "ConveyorBeltLeftMid",
       "x": 832,
       "y": 528,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_ConveyorBeltLeftMid_5",
       "prefab_name": "ConveyorBeltLeftMid",
       "x": 864,
       "y": 528,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_ConveyorBeltRightMid_8",
       "prefab_name": "ConveyorBeltRightMid",
       "x": 972,
       "y": 528,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_ConveyorBeltRightMid_9",
       "prefab_name": "ConveyorBeltRightMid",
       "x": 1004,
       "y": 528,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_ConveyorBeltRightMid_10",
       "prefab_name": "ConveyorBeltRightMid",
       "x": 1036,
       "y": 528,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_ConveyorBeltLeftMid_13",
       "prefab_name": "ConveyorBeltLeftMid",
       "x": 768,
       "y": 528,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_ConveyorBeltLeftMid_14",
       "prefab_name": "ConveyorBeltLeftMid",
       "x": 896,
       "y": 528,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_ConveyorBeltRightMid_15",
       "prefab_name": "ConveyorBeltRightMid",
       "x": 940,
       "y": 528,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_ConveyorBeltRightMid_16",
       "prefab_name": "ConveyorBeltRightMid",
       "x": 1068,
       "y": 528,
-      "z": -2
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_EnemyGuard_17",
+      "prefab_name": "EnemyGuard",
+      "x": 898,
+      "y": 692,
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_Turret_18",
+      "prefab_name": "Turret",
+      "x": 576,
+      "y": 640,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "u"
+        }
+      ]
+    },
+    {
+      "name": "objects_Turret_19",
+      "prefab_name": "Turret",
+      "x": 124,
+      "y": 564,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "l"
+        }
+      ]
     }
   ],
-  "next_object_id": 17,
+  "next_object_id": 20,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 7,

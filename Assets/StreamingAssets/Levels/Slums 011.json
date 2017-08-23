@@ -12357,21 +12357,24 @@
       "prefab_name": "SlumsLamp",
       "x": 1456,
       "y": 560,
-      "z": 2
+      "z": 2,
+      "parameters": null
     },
     {
       "name": "props_slums_car2_5",
       "prefab_name": "slums_car2",
       "x": 1488,
       "y": 468,
-      "z": 2
+      "z": 2,
+      "parameters": null
     },
     {
       "name": "props_slums_plant_6",
       "prefab_name": "slums_plant",
       "x": 112,
       "y": 220,
-      "z": 2
+      "z": 2,
+      "parameters": null
     }
   ],
   "props_background": [
@@ -12380,35 +12383,40 @@
       "prefab_name": "slum_house5",
       "x": 1096,
       "y": 192,
-      "z": 6
+      "z": 6,
+      "parameters": null
     },
     {
       "name": "props_back_slum_house6_1",
       "prefab_name": "slum_house6",
       "x": 532,
       "y": 192,
-      "z": 6
+      "z": 6,
+      "parameters": null
     },
     {
       "name": "props_back_slum_house9_3",
       "prefab_name": "slum_house9",
       "x": 1396,
       "y": 372,
-      "z": 6
+      "z": 6,
+      "parameters": null
     },
     {
       "name": "props_back_slums_pole_5",
       "prefab_name": "slums_pole",
       "x": 788,
       "y": 756,
-      "z": 6
+      "z": 6,
+      "parameters": null
     },
     {
       "name": "props_back_slum_house4_6",
       "prefab_name": "slum_house4",
       "x": 728,
       "y": 352,
-      "z": 6
+      "z": 6,
+      "parameters": null
     }
   ],
   "objects": [
@@ -12417,59 +12425,51 @@
       "prefab_name": "HeroLV2",
       "x": 40,
       "y": 524,
-      "z": -2
-    },
-    {
-      "name": "objects_Enemy_LV1_B_3",
-      "prefab_name": "Enemy_LV1_B",
-      "x": 920,
-      "y": 132,
-      "z": -2
-    },
-    {
-      "name": "objects_Enemy_LV1_C_4",
-      "prefab_name": "Enemy_LV1_C",
-      "x": 628,
-      "y": 132,
-      "z": -2
-    },
-    {
-      "name": "objects_Enemy_LV1_A_5",
-      "prefab_name": "Enemy_LV1_A",
-      "x": 800,
-      "y": 132,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_6",
       "prefab_name": "Mine",
       "x": 368,
       "y": 208,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_7",
       "prefab_name": "Mine",
       "x": 436,
       "y": 112,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_8",
       "prefab_name": "Mine",
       "x": 1200,
       "y": 240,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_9",
       "prefab_name": "Mine",
       "x": 1104,
       "y": 112,
-      "z": -2
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_EnemyGuard_11",
+      "prefab_name": "EnemyGuard",
+      "x": 836,
+      "y": 158,
+      "z": -2,
+      "parameters": null
     }
   ],
-  "next_object_id": 10,
+  "next_object_id": 12,
   "next_prop_id": 7,
   "next_prop_bg_id": 7,
   "next_light_id": 14,

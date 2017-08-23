@@ -12357,42 +12357,48 @@
       "prefab_name": "SlumsLamp",
       "x": 1416,
       "y": 560,
-      "z": 2
+      "z": 2,
+      "parameters": null
     },
     {
       "name": "props_slums_debris_4",
       "prefab_name": "slums_debris",
       "x": 296,
       "y": 476,
-      "z": 2
+      "z": 2,
+      "parameters": null
     },
     {
       "name": "props_slums_car2_5",
       "prefab_name": "slums_car2",
       "x": 756,
       "y": 84,
-      "z": 2
+      "z": 2,
+      "parameters": null
     },
     {
       "name": "props_slums_plant_6",
       "prefab_name": "slums_plant",
       "x": 144,
       "y": 448,
-      "z": 2
+      "z": 2,
+      "parameters": null
     },
     {
       "name": "props_slums_plant_7",
       "prefab_name": "slums_plant",
       "x": 244,
       "y": 216,
-      "z": 2
+      "z": 2,
+      "parameters": null
     },
     {
       "name": "props_slums_plant_8",
       "prefab_name": "slums_plant",
       "x": 556,
       "y": 896,
-      "z": 2
+      "z": 2,
+      "parameters": null
     }
   ],
   "props_background": [
@@ -12401,7 +12407,8 @@
       "prefab_name": "slum_house5",
       "x": 1424,
       "y": 548,
-      "z": 6
+      "z": 6,
+      "parameters": null
     }
   ],
   "objects": [
@@ -12410,31 +12417,43 @@
       "prefab_name": "HeroLV1",
       "x": 48,
       "y": 740,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_2",
       "prefab_name": "Mine",
       "x": 720,
       "y": 560,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_3",
       "prefab_name": "Mine",
       "x": 656,
       "y": 272,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_4",
       "prefab_name": "Mine",
       "x": 1232,
       "y": 464,
-      "z": -2
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_Checkpoint_5",
+      "prefab_name": "Checkpoint",
+      "x": 418,
+      "y": 746,
+      "z": -2,
+      "parameters": null
     }
   ],
-  "next_object_id": 5,
+  "next_object_id": 6,
   "next_prop_id": 9,
   "next_prop_bg_id": 1,
   "next_light_id": 13,

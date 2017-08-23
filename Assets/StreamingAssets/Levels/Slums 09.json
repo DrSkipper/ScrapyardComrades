@@ -6551,20 +6551,20 @@
           "sprite_name": "slums_tileset_142"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_142"
+          "is_filled": true,
+          "sprite_name": "slums_tileset_139"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_tileset_137"
         },
         {
           "is_filled": false,
           "sprite_name": "slums_tileset_142"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_142"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_142"
+          "is_filled": true,
+          "sprite_name": "slums_tileset_138"
         },
         {
           "is_filled": false,
@@ -12364,42 +12364,10 @@
   ],
   "objects": [
     {
-      "name": "objects_Enemy_LV1_B_2",
-      "prefab_name": "Enemy_LV1_B",
-      "x": 844,
-      "y": 260,
-      "z": -2,
-      "parameters": null
-    },
-    {
       "name": "objects_Enemy_LV1_C_3",
       "prefab_name": "Enemy_LV1_C",
       "x": 652,
       "y": 260,
-      "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Enemy_LV1_B_4",
-      "prefab_name": "Enemy_LV1_B",
-      "x": 1096,
-      "y": 388,
-      "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Enemy_LV1_C_5",
-      "prefab_name": "Enemy_LV1_C",
-      "x": 1268,
-      "y": 388,
-      "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_HeroLV2_6",
-      "prefab_name": "HeroLV2",
-      "x": 96,
-      "y": 108,
       "z": -2,
       "parameters": null
     },
@@ -12410,9 +12378,51 @@
       "y": 284,
       "z": -2,
       "parameters": null
+    },
+    {
+      "name": "objects_Checkpoint_8",
+      "prefab_name": "Checkpoint",
+      "x": 96,
+      "y": 108,
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_HeroLV2_9",
+      "prefab_name": "HeroLV2",
+      "x": 96,
+      "y": 108,
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_EnemyOffice_11",
+      "prefab_name": "EnemyOffice",
+      "x": 832,
+      "y": 266,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "B"
+        }
+      ]
+    },
+    {
+      "name": "objects_EnemyOffice_13",
+      "prefab_name": "EnemyOffice",
+      "x": 1210,
+      "y": 394,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "E"
+        }
+      ]
     }
   ],
-  "next_object_id": 8,
+  "next_object_id": 14,
   "next_prop_id": 3,
   "next_prop_bg_id": 1,
   "next_light_id": 13,

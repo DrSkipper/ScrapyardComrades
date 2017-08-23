@@ -110,7 +110,7 @@ public class TurretController : VoBehavior, IPausable
 
             if (!found)
             {
-                _cooldownTimer.reset();
+                _cooldownTimer.reset(this.Cooldown / 2);
                 _cooldownTimer.start();
             }
         }
@@ -146,7 +146,7 @@ public class TurretController : VoBehavior, IPausable
 
     void OnReturnToPool()
     {
-        _cooldownTimer.reset();
+        _cooldownTimer.reset(this.Cooldown);
         _shotDelayTimer.reset();
         _shotDelayTimer.Paused = true;
     }
@@ -216,7 +216,7 @@ public class TurretController : VoBehavior, IPausable
             }
 
             _isFiring = true;
-            _cooldownTimer.reset();
+            _cooldownTimer.reset(this.Cooldown);
             _cooldownTimer.start();
             playAnimForCurrentPos(true);
 

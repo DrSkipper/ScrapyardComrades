@@ -12357,14 +12357,16 @@
       "prefab_name": "OneWayPlatform",
       "x": 656,
       "y": 124,
-      "z": 2
+      "z": 2,
+      "parameters": null
     },
     {
       "name": "props_OneWayPlatform_4",
       "prefab_name": "OneWayPlatform",
       "x": 720,
       "y": 124,
-      "z": 2
+      "z": 2,
+      "parameters": null
     }
   ],
   "props_background": [],
@@ -12374,143 +12376,147 @@
       "prefab_name": "HeroLV2",
       "x": 44,
       "y": 684,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_16",
       "prefab_name": "Mine",
       "x": 272,
       "y": 592,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_17",
       "prefab_name": "Mine",
       "x": 368,
       "y": 592,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_18",
       "prefab_name": "Mine",
       "x": 144,
       "y": 528,
-      "z": -2
-    },
-    {
-      "name": "objects_Mine_19",
-      "prefab_name": "Mine",
-      "x": 304,
-      "y": 368,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_20",
       "prefab_name": "Mine",
       "x": 496,
       "y": 496,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_21",
       "prefab_name": "Mine",
       "x": 656,
       "y": 560,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_22",
       "prefab_name": "Mine",
       "x": 592,
       "y": 656,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_23",
       "prefab_name": "Mine",
       "x": 496,
       "y": 656,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_25",
       "prefab_name": "Mine",
       "x": 844,
       "y": 464,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_26",
       "prefab_name": "Mine",
       "x": 804,
       "y": 464,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_27",
       "prefab_name": "Mine",
       "x": 764,
       "y": 464,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_28",
       "prefab_name": "Mine",
       "x": 724,
       "y": 464,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_29",
       "prefab_name": "Mine",
       "x": 624,
       "y": 176,
-      "z": -2
-    },
-    {
-      "name": "objects_Mine_30",
-      "prefab_name": "Mine",
-      "x": 1104,
-      "y": 368,
-      "z": -2
-    },
-    {
-      "name": "objects_Enemy_LV1_B_31",
-      "prefab_name": "Enemy_LV1_B",
-      "x": 1268,
-      "y": 356,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_32",
       "prefab_name": "Mine",
       "x": 784,
       "y": 688,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_33",
       "prefab_name": "Mine",
       "x": 892,
       "y": 688,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_34",
       "prefab_name": "Mine",
       "x": 328,
       "y": 752,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_35",
       "prefab_name": "Mine",
       "x": 216,
       "y": 752,
-      "z": -2
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_EnemyOffice_36",
+      "prefab_name": "EnemyOffice",
+      "x": 1338,
+      "y": 362,
+      "z": -2,
+      "parameters": null
     }
   ],
-  "next_object_id": 36,
+  "next_object_id": 37,
   "next_prop_id": 5,
   "next_prop_bg_id": 0,
   "next_light_id": 12,
