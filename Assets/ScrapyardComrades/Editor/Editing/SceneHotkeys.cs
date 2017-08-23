@@ -4,31 +4,31 @@ using UnityEditor.SceneManagement;
 
 public static class SceneHotkeys
 {
-    [MenuItem("Scenes/Load Main Menu _F1")]
+    [MenuItem("Scenes/Load Main Menu %1")]
     public static void LoadMainMenu() { openScene(MAIN_MENU); }
 
-    [MenuItem("Scenes/Load World Editor _F2")]
+    [MenuItem("Scenes/Load World Editor %2")]
     public static void LoadWorldEditor() { openScene(WORLD_EDITOR); }
 
-    [MenuItem("Scenes/Load Level Editor _F3")]
+    [MenuItem("Scenes/Load Level Editor %3")]
     public static void LoadLevelEditor() { openScene(LEVEL_EDITOR); }
 
-    [MenuItem("Scenes/Load Gameplay _F4")]
+    [MenuItem("Scenes/Load Gameplay %4")]
     public static void LoadGameplay() { openScene(GAMEPLAY); }
 
-    [MenuItem("Scenes/Load Intro _F5")]
+    [MenuItem("Scenes/Load Intro %5")]
     public static void LoadIntro() { openScene(INTRO_SCENE); }
 
-    [MenuItem("Scenes/Load Save Slots _F6")]
+    [MenuItem("Scenes/Load Save Slots %6")]
     public static void LoadSaveSlots() { openScene(SAVE_SLOTS); }
 
-    [MenuItem("Scenes/Load Character Editor _F7")]
+    [MenuItem("Scenes/Load Character Editor %7")]
     public static void LoadCharacterEditor() { openScene(CHARACTER_EDITOR); }
 
-    [MenuItem("Scenes/Load TilesetEditor _F8")]
+    [MenuItem("Scenes/Load TilesetEditor %8")]
     public static void LoadTilesetEditor() { openScene(TILESET_EDITOR); }
 
-    [MenuItem("Scenes/Load End Demo Screen _F9")]
+    [MenuItem("Scenes/Load End Demo Screen %9")]
     public static void LoadEndDemoScreen() { openScene(END_DEMO); }
 
 
@@ -49,6 +49,7 @@ public static class SceneHotkeys
 
     private static void openScene(string scene)
     {
-        EditorSceneManager.OpenScene(PATH + scene + SCENE_SUFFIX, OpenSceneMode.Single);
+        if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+            EditorSceneManager.OpenScene(PATH + scene + SCENE_SUFFIX, OpenSceneMode.Single);
     }
 }
