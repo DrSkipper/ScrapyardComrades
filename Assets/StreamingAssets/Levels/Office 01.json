@@ -4220,19 +4220,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_27"
+          "sprite_name": "office_tileset_4"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_12"
+          "sprite_name": "office_tileset_3"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_23"
+          "sprite_name": "office_tileset_1"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_13"
+          "sprite_name": "office_tileset_2"
         },
         {
           "is_filled": true,
@@ -4411,20 +4411,20 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_10"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
           "is_filled": true,
@@ -4603,20 +4603,20 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_10"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
           "is_filled": true,
@@ -4795,20 +4795,20 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_10"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
           "is_filled": true,
@@ -4987,20 +4987,20 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_10"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
           "is_filled": true,
@@ -5180,19 +5180,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_10"
+          "sprite_name": "office_tileset_34"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_25"
+          "sprite_name": "office_tileset_38"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_13"
+          "sprite_name": "office_tileset_37"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_11"
+          "sprite_name": "office_tileset_39"
         },
         {
           "is_filled": true,
@@ -12331,7 +12331,24 @@
       "layer_name": "ParallaxBack"
     }
   ],
-  "props": [],
+  "props": [
+    {
+      "name": "props_OneWayPlatform_0",
+      "prefab_name": "OneWayPlatform",
+      "x": 720,
+      "y": 696,
+      "z": 2,
+      "parameters": null
+    },
+    {
+      "name": "props_OneWayPlatform_1",
+      "prefab_name": "OneWayPlatform",
+      "x": 784,
+      "y": 696,
+      "z": 2,
+      "parameters": null
+    }
+  ],
   "props_background": [],
   "objects": [
     {
@@ -12396,10 +12413,117 @@
           "CurrentOption": "blue"
         }
       ]
+    },
+    {
+      "name": "objects_EnemyOffice_27",
+      "prefab_name": "EnemyOffice",
+      "x": 442,
+      "y": 364,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "D"
+        }
+      ]
+    },
+    {
+      "name": "objects_EnemyOffice_28",
+      "prefab_name": "EnemyOffice",
+      "x": 524,
+      "y": 364,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "E"
+        }
+      ]
+    },
+    {
+      "name": "objects_Turret_29",
+      "prefab_name": "Turret",
+      "x": 832,
+      "y": 576,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "u"
+        }
+      ]
+    },
+    {
+      "name": "objects_Turret_30",
+      "prefab_name": "Turret",
+      "x": 64,
+      "y": 844,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "l"
+        }
+      ]
+    },
+    {
+      "name": "objects_Checkpoint_31",
+      "prefab_name": "Checkpoint",
+      "x": 70,
+      "y": 360,
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_rock_32",
+      "prefab_name": "rock",
+      "x": 132,
+      "y": 718,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "purp"
+        }
+      ]
+    },
+    {
+      "name": "objects_EnemyGuard_33",
+      "prefab_name": "EnemyGuard",
+      "x": 410,
+      "y": 766,
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_Turret_35",
+      "prefab_name": "Turret",
+      "x": 1216,
+      "y": 828,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "l"
+        }
+      ]
+    },
+    {
+      "name": "objects_DoorVertical_36",
+      "prefab_name": "DoorVertical",
+      "x": 1168,
+      "y": 752,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "purp"
+        }
+      ]
     }
   ],
-  "next_object_id": 24,
-  "next_prop_id": 0,
+  "next_object_id": 37,
+  "next_prop_id": 2,
   "next_prop_bg_id": 0,
   "next_light_id": 28,
   "lights": [
