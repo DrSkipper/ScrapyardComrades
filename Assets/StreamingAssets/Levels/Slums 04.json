@@ -228,11 +228,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_18"
+          "sprite_name": "slums_platforms_9"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_2"
+          "sprite_name": "slums_platforms_18"
         },
         {
           "is_filled": true,
@@ -417,6 +417,10 @@
         {
           "is_filled": true,
           "sprite_name": "slums_platforms_15"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_9"
         },
         {
           "is_filled": true,
@@ -499,10 +503,6 @@
           "sprite_name": "slums_platforms_40"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
-        },
-        {
           "is_filled": true,
           "sprite_name": "slums_platforms_14"
         },
@@ -612,11 +612,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_13"
+          "sprite_name": "slums_platforms_16"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_13"
         },
         {
           "is_filled": false,
@@ -784,31 +784,31 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_9"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_9"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "slums_platforms_10"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_10"
+          "sprite_name": "slums_platforms_16"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_10"
+          "sprite_name": "slums_platforms_15"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_13"
+          "sprite_name": "slums_platforms_18"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_2"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_4"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_6"
         },
         {
           "is_filled": false,
@@ -980,11 +980,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_4"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_5"
+          "sprite_name": "slums_platforms_3"
         },
         {
           "is_filled": true,
@@ -992,11 +988,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_3"
+          "sprite_name": "slums_platforms_6"
         },
         {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_6"
+          "is_filled": false,
+          "sprite_name": "slums_platforms_40"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_platforms_40"
         },
         {
           "is_filled": false,
@@ -1795,12 +1795,12 @@
           "sprite_name": "slums_platforms_40"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_21"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_21"
+          "sprite_name": "slums_platforms_24"
         },
         {
           "is_filled": true,
@@ -1812,11 +1812,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_27"
+          "sprite_name": "slums_platforms_23"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_27"
         },
         {
           "is_filled": false,
@@ -1983,24 +1983,8 @@
           "sprite_name": "slums_platforms_40"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
-        },
-        {
           "is_filled": true,
-          "sprite_name": "slums_platforms_14"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_18"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_3"
+          "sprite_name": "slums_platforms_28"
         },
         {
           "is_filled": true,
@@ -2008,15 +1992,31 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_30"
+          "sprite_name": "slums_platforms_19"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_30"
+          "sprite_name": "slums_platforms_8"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_25"
+          "sprite_name": "slums_platforms_9"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_26"
         },
         {
           "is_filled": true,
@@ -2188,27 +2188,27 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_6"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "sprite_name": "slums_platforms_8"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_7"
+          "sprite_name": "slums_platforms_17"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_9"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_8"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_15"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_17"
         },
         {
           "is_filled": true,
@@ -2376,31 +2376,31 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_33"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "sprite_name": "slums_platforms_0"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_7"
+          "sprite_name": "slums_platforms_4"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_3"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_4"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_3"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_5"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_19"
         },
         {
           "is_filled": true,
@@ -3551,20 +3551,16 @@
           "sprite_name": "slums_platforms_40"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_21"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_26"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_27"
         },
         {
           "is_filled": false,
@@ -3748,11 +3744,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_37"
+          "sprite_name": "slums_platforms_0"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_5"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_6"
         },
         {
           "is_filled": false,
@@ -12367,14 +12367,6 @@
       "y": 384,
       "z": 2,
       "parameters": null
-    },
-    {
-      "name": "props_OneWayPlatform_7",
-      "prefab_name": "OneWayPlatform",
-      "x": 448,
-      "y": 320,
-      "z": 2,
-      "parameters": null
     }
   ],
   "props_background": [
@@ -12437,17 +12429,17 @@
       "parameters": null
     },
     {
-      "name": "objects_Enemy_LV1_B_1",
+      "name": "objects_Enemy_LV1_B_3",
       "prefab_name": "Enemy_LV1_B",
-      "x": 624,
-      "y": 388,
+      "x": 636,
+      "y": 452,
       "z": -2,
       "parameters": null
     }
   ],
-  "next_object_id": 2,
+  "next_object_id": 4,
   "next_prop_id": 8,
-  "next_prop_bg_id": 8,
+  "next_prop_bg_id": 9,
   "next_light_id": 4,
   "lights": [
     {

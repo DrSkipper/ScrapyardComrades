@@ -18501,7 +18501,8 @@
       "prefab_name": "SlumsLamp",
       "x": 1164,
       "y": 1136,
-      "z": 2
+      "z": 2,
+      "parameters": null
     }
   ],
   "props_background": [
@@ -18510,49 +18511,56 @@
       "prefab_name": "slum_house3",
       "x": 96,
       "y": 892,
-      "z": 6
+      "z": 6,
+      "parameters": null
     },
     {
       "name": "props_back_slum_house5_7",
       "prefab_name": "slum_house5",
       "x": 96,
       "y": 612,
-      "z": 6
+      "z": 6,
+      "parameters": null
     },
     {
       "name": "props_back_slum_house4_8",
       "prefab_name": "slum_house4",
       "x": 468,
       "y": 632,
-      "z": 6
+      "z": 6,
+      "parameters": null
     },
     {
       "name": "props_back_slum_house10_11",
       "prefab_name": "slum_house10",
       "x": 396,
       "y": 768,
-      "z": 6
+      "z": 6,
+      "parameters": null
     },
     {
       "name": "props_back_slum_house9_12",
       "prefab_name": "slum_house9",
       "x": 976,
       "y": 244,
-      "z": 6
+      "z": 6,
+      "parameters": null
     },
     {
       "name": "props_back_slum_house5_13",
       "prefab_name": "slum_house5",
       "x": 1248,
       "y": 1092,
-      "z": 6
+      "z": 6,
+      "parameters": null
     },
     {
       "name": "props_back_slums_pole_14",
       "prefab_name": "slums_pole",
       "x": 1356,
       "y": 1424,
-      "z": 6
+      "z": 6,
+      "parameters": null
     }
   ],
   "objects": [
@@ -18561,91 +18569,104 @@
       "prefab_name": "Mine",
       "x": 304,
       "y": 752,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_HeroLV1_4",
       "prefab_name": "HeroLV1",
       "x": 28,
       "y": 548,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_9",
       "prefab_name": "Mine",
       "x": 624,
       "y": 656,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_19",
       "prefab_name": "Mine",
       "x": 664,
       "y": 368,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_20",
       "prefab_name": "Mine",
       "x": 744,
       "y": 368,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_21",
       "prefab_name": "Mine",
       "x": 704,
       "y": 368,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_23",
       "prefab_name": "Mine",
       "x": 784,
       "y": 400,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_24",
       "prefab_name": "Mine",
       "x": 832,
       "y": 400,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_27",
       "prefab_name": "Mine",
       "x": 904,
       "y": 208,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Mine_29",
       "prefab_name": "Mine",
       "x": 1428,
       "y": 208,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Enemy_LV1_B_31",
       "prefab_name": "Enemy_LV1_B",
       "x": 1280,
       "y": 1028,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Enemy_LV1_B_32",
       "prefab_name": "Enemy_LV1_B",
       "x": 540,
       "y": 484,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Enemy_LV1_C_33",
       "prefab_name": "Enemy_LV1_C",
       "x": 1228,
       "y": 228,
-      "z": -2
+      "z": -2,
+      "parameters": null
     }
   ],
   "next_object_id": 34,
