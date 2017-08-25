@@ -798,7 +798,7 @@ public class SCCharacterController : Actor2D
         CollisionManager.RaycastResult result = this.CollisionManager.RaycastFirst(rayOrigin, Vector2.down, this.Hurtbox.Bounds.Size.Y - this.LedgeGrabCheckDistance + 2, this.WallJumpLedgeGrabMask, null, potentialWallCollisions());
         IntegerVector ledgeTop = result.FarthestPointReached;
         _ledgeGrabY = ledgeTop.Y - this.Hurtbox.Offset.Y - this.Hurtbox.Size.Y / 2 + this.LedgeGrabPeekDistance;
-        bool retVal = this.Hurtbox.CollideFirst(0, _ledgeGrabY - Mathf.RoundToInt(this.transform.position.y), this.HaltMovementMask, null, potentialCollisions()) == null;
+        bool retVal = this.Hurtbox.CollideFirst(0, _ledgeGrabY - Mathf.RoundToInt(this.transform.position.y), this.HaltMovementMask, null, null) == null;
 
         //Debug
         Debug.DrawLine(new Vector3(rayOrigin.X, rayOrigin.Y, -5), new Vector3(rayOrigin.X, rayOrigin.Y - (this.Hurtbox.Bounds.Size.Y - this.LedgeGrabCheckDistance + 2), -5), retVal ? Color.blue : Color.red, 10.0f);
@@ -811,7 +811,7 @@ public class SCCharacterController : Actor2D
         if (!prevGrabbingLedge)
         {
             this.transform.SetY(_ledgeGrabY);
-            this.Move(new IntegerVector((int)direction * 2, 0), potentialCollisions());
+            this.Move(new IntegerVector((int)direction * 2, 0), null);
             this.DirectionGrabbingLedge = direction;
         }
         _velocity.x = 0;
