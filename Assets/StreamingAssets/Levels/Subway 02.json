@@ -9459,20 +9459,20 @@
           "sprite_name": "subway_tileset_105"
         },
         {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
+          "is_filled": true,
+          "sprite_name": "subway_tileset_25"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_44"
+          "sprite_name": "subway_tileset_30"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_31"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
         },
         {
           "is_filled": false,
@@ -9844,19 +9844,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_44"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "subway_tileset_105"
+          "sprite_name": "subway_tileset_0"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_37"
+          "sprite_name": "subway_tileset_2"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "subway_tileset_6"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
         },
         {
           "is_filled": false,
@@ -10227,12 +10227,12 @@
           "sprite_name": "subway_tileset_105"
         },
         {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_0"
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
         },
         {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_36"
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
         },
         {
           "is_filled": false,
