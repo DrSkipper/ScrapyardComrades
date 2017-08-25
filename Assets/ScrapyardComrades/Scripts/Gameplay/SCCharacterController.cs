@@ -72,6 +72,7 @@ public class SCCharacterController : Actor2D
     public float JumpHoldAllowance = 1.0f;
     public int JumpBufferFrames = 6;
     public int JumpGraceFrames = 6;
+    public int WallJumpGraceFrames = 4;
     public int AgainstWallCheckOffset = 0;
     public int WallJumpCheckOffset = 0;
     public int LedgeGrabCheckDistance = 6;
@@ -215,7 +216,7 @@ public class SCCharacterController : Actor2D
 
         _cooldownTimer.update();
         _comboTimer.update();
-        
+
         if (!_hitStunTimer.Completed)
         {
             _hitStunTimer.update();
@@ -264,11 +265,12 @@ public class SCCharacterController : Actor2D
         bool attemptingDrop = false;
         if (_onGround)
         {
+            _wallJumpGraceDir = 0;
             if (_jumpGraceTimer.Completed || _jumpGraceTimer.FramesRemaining < _parameters.JumpGraceFrames)
                 _jumpGraceTimer.reset(_parameters.JumpGraceFrames);
             if (_jumpGraceTimer.Paused)
                 _jumpGraceTimer.start();
-            
+
             // Check if we're on a moving platform
             int groundedLayerMask = 1 << groundedAgainst.layer;
             if ((groundedLayerMask & this.MovingPlatformMask) == groundedLayerMask)
@@ -295,7 +297,7 @@ public class SCCharacterController : Actor2D
         {
             _jumpGraceTimer.update();
         }
-        
+
         // If we're auto-moving, do that
         if (!_autoMoveTimer.Completed)
         {
@@ -382,6 +384,22 @@ public class SCCharacterController : Actor2D
 
         // Determine if wall jumping, normal jumping, or ledge grabbing
         bool wallJumpValid = leftWallJumpValid || rightWallJumpValid;
+        if (wallJumpValid)
+        {
+            _jumpGraceTimer.reset(this.WallJumpGraceFrames);
+            _jumpGraceTimer.start();
+            _wallJumpGraceDir = leftWallJumpValid ? -1 : 1;
+        }
+        else
+        {
+            wallJumpValid = _wallJumpGraceDir != 0 && !_jumpGraceTimer.Completed;
+            if (wallJumpValid)
+            {
+                leftWallJumpValid = _wallJumpGraceDir == -1;
+                rightWallJumpValid = !leftWallJumpValid;
+            }
+        }
+
         bool attemptingJump = !attemptingDrop && checkForJump(input, _onGround, wallJumpValid);
         bool ledgeGrabbing = false;
         if (!_onGround && !input.Duck && (_velocity.y < 0.0f || prevGrabbingLedge))
@@ -611,6 +629,7 @@ public class SCCharacterController : Actor2D
     private List<IntegerCollider> _potentialWallCollisions;
     private bool _hasGatheredPotentialCollisions;
     private int _wallJumpExpandAmount;
+    private int _wallJumpGraceDir;
 
     private const string RESTING_VELOCITY_KEY = "rest";
     private const float HORIZ_BOUNCE_FACTOR = 0.8f;
@@ -756,6 +775,9 @@ public class SCCharacterController : Actor2D
     private bool checkAgainstWallForWallJump(Facing direction)
     {
         if (this.WallJumpCheckOffset == this.AgainstWallCheckOffset)
+            return true;
+
+        if (_wallJumpGraceDir == (int)direction && !_jumpGraceTimer.Completed)
             return true;
 
         IntegerVector checkPoint = new Vector2(this.transform.position.x + ((int)direction) * (this.Hurtbox.Offset.X + this.Hurtbox.Bounds.Size.X / 2 + 1), this.transform.position.y + 1 + this.Hurtbox.Offset.Y - this.Hurtbox.Bounds.Size.Y / 2 - this.WallJumpCheckOffset);
