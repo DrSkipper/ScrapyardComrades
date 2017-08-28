@@ -296,6 +296,8 @@ public class SCCharacterController : Actor2D
         else
         {
             _jumpGraceTimer.update();
+            if (_wallJumpGraceDir != 0 && _jumpGraceTimer.Completed)
+                _wallJumpGraceDir = 0;
         }
 
         // If we're auto-moving, do that
