@@ -10,9 +10,11 @@ public class PlayerHealthController : VoBehavior, IPausable
     public HeroProgressionData ProgressionData;
     public int HeroLevel = 0;
     public SCAttack.HitData AttritionDeathHitData;
+    public float PercentToAnimateAttrtion = 0.2f;
 
     public HealthChangedDelegate HealthChangedCallback;
-    public delegate void HealthChangedDelegate(int currentHealth, int maxHealth, bool animate = true);
+    public delegate void HealthChangedDelegate(int currentHealth, int maxHealth, bool animate = true, bool highlight = true);
+    public int AttritionTimeLeft { get { return _attritionTimer == null ? this.AttritionInterval : _attritionTimer.FramesRemaining; } }
 
     void Awake()
     {
@@ -36,6 +38,11 @@ public class PlayerHealthController : VoBehavior, IPausable
             this.Damagable.MaxHealth = SaveData.PlayerStats.MaxHealth;
             this.Damagable.Health = SaveData.PlayerStats.CurrentHealth;
         }
+        else
+        {
+            this.Damagable.MaxHealth = this.ProgressionData.LevelData[this.HeroLevel].MaxHealthThreshold;
+            this.Damagable.Health = this.Damagable.MaxHealth;
+        }
 
         if (_attritionTimer == null)
             _attritionTimer = new Timer(this.AttritionInterval, true, true, attrition);
@@ -44,7 +51,7 @@ public class PlayerHealthController : VoBehavior, IPausable
 
         _prevHealth = this.Damagable.Health;
         _prevMaxHealth = this.Damagable.MaxHealth;
-        notifyHealthChange(false);
+        notifyHealthChange(false, false);
     }
 
     private void FixedUpdate()
@@ -67,24 +74,26 @@ public class PlayerHealthController : VoBehavior, IPausable
 
     private void attrition()
     {
-        int health = this.Damagable.Health - 1;
+        int attrition = this.ProgressionData.LevelData[this.HeroLevel].HealthLostPerAttrition;
+        int health = this.Damagable.Health - attrition;
         if (health > 0)
         {
             this.Damagable.Health = health;
-            notifyHealthChange();
+            notifyHealthChange(true, health <= 0);
 
-            if (_healEffect != null)
+            if (_healEffect != null && (float)health / this.Damagable.MaxHealth < this.PercentToAnimateAttrtion)
                 _healEffect.BeginEffect();
         }
         else
         {
+            this.AttritionDeathHitData.Damage = attrition;
             this.Damagable.Damage(this.AttritionDeathHitData, (Vector2)this.transform.position, (Vector2)this.transform.position, SCCharacterController.Facing.Right);
         }
     }
 
     private void onHeal(LocalEventNotifier.Event e)
     {
-        if (this.HeroLevel < this.ProgressionData.MaxHeroLevel && this.Damagable.MaxHealth >= this.ProgressionData.MaxHealthThresholds[this.HeroLevel + 1])
+        if (this.HeroLevel < this.ProgressionData.MaxHeroLevel && this.Damagable.MaxHealth >= this.ProgressionData.LevelData[this.HeroLevel + 1].MaxHealthThreshold)
             levelUp();
         else
             notifyHealthChange();
@@ -100,17 +109,17 @@ public class PlayerHealthController : VoBehavior, IPausable
         }
     }
 
-    private void notifyHealthChange(bool animate = true)
+    private void notifyHealthChange(bool animate = true, bool highlight = true)
     {
         if (this.HealthChangedCallback != null)
-            this.HealthChangedCallback(this.Damagable.Health, this.Damagable.MaxHealth, animate);
+            this.HealthChangedCallback(this.Damagable.Health, this.Damagable.MaxHealth, animate, highlight);
     }
 
     private void levelUp()
     {
         GlobalEvents.Notifier.SendEvent(new LocalEventNotifier.Event(MUTATE_EVENT));
         SaveData.PlayerStats.Level = this.HeroLevel + 1;
-        loadLevel(this.HeroLevel + 1, this.Damagable.Health, this.ProgressionData.MaxHealthThresholds[this.HeroLevel + 1]);
+        loadLevel(this.HeroLevel + 1, this.Damagable.Health, this.ProgressionData.LevelData[this.HeroLevel + 1].MaxHealthThreshold);
     }
 
     private void loadLevel(int level, int health, int maxHealth)
@@ -158,7 +167,7 @@ public class PlayerHealthController : VoBehavior, IPausable
         otherActor.SetFacingDirectly(this.GetComponent<SCCharacterController>().CurrentFacing);
 
         SaveData.PlayerStats.MaxHealth = maxHealth;
-        SaveData.PlayerStats.CurrentHealth = Mathf.Min(health + MUTATE_HEAL_AMT, otherActor.Damagable.MaxHealth);
+        SaveData.PlayerStats.CurrentHealth = Mathf.Min(health + MUTATE_HEAL_AMT, maxHealth);
         nextLevel.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
 
         GlobalEvents.Notifier.SendEvent(new EntityReplacementEvent(otherEntity));

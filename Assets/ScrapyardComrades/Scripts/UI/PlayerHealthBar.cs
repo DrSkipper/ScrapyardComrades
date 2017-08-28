@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(UIBar))]
 public class PlayerHealthBar : MonoBehaviour, IPausable
 {
     public UIBar Bar;
@@ -104,7 +103,7 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
         }
     }
 
-    private void playerHealthChanged(int currentHealth, int maxHealth, bool animate = true)
+    private void playerHealthChanged(int currentHealth, int maxHealth, bool animate = true, bool highlight = true)
     {
         this.Bar.ChangeTargetLength(maxHealth * this.PixelUnitsPerHealthUnit);
         this.Bar.UpdateLength(currentHealth, maxHealth);
@@ -119,16 +118,19 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
                 if (currentHealth < _prevHealth)
                     this.LostHealthChunk.TriggerHealthLostAnimation(currentHealth, _prevHealth, maxHealth, this.Bar.TargetLength);
 
-                if (_scaleT <= 0)
+                if (highlight)
                 {
-                    _scaleT = this.ScaleDuration;
-                }
-                else if (_scaleT < this.ScaleDuration * 2 / 3)
-                {
-                    if (_scaleT < this.ScaleDuration / 3)
-                        _scaleT = this.ScaleDuration - _scaleT;
-                    else
-                        _scaleT = this.ScaleDuration * 2 / 3;
+                    if (_scaleT <= 0)
+                    {
+                        _scaleT = this.ScaleDuration;
+                    }
+                    else if (_scaleT < this.ScaleDuration * 2 / 3)
+                    {
+                        if (_scaleT < this.ScaleDuration / 3)
+                            _scaleT = this.ScaleDuration - _scaleT;
+                        else
+                            _scaleT = this.ScaleDuration * 2 / 3;
+                    }
                 }
             }
             _prevHealth = currentHealth;
