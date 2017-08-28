@@ -30,9 +30,14 @@ public class LostHealthBarChunk : MonoBehaviour
         this.BarImage.color = c;
         this.Bar.TargetLength = totalBarLength;
         this.Bar.UpdateLength(_prevHealth - currentHealth, maxHealth);
-        this.Bar.BarTransform.anchoredPosition = new Vector2(Mathf.RoundToInt(totalBarLength * ((float)currentHealth / (float)maxHealth)), _y);
+        //this.UpdateTransform(currentHealth, maxHealth, totalBarLength);
         _timer.reset();
         _timer.start();
+    }
+
+    public void UpdateTransform(int currentHealth, int maxHealth, int totalBarLength)
+    {
+        this.Bar.BarTransform.anchoredPosition = new Vector2(Mathf.RoundToInt(totalBarLength * ((float)currentHealth / (float)maxHealth)), _y);
     }
 
     /**

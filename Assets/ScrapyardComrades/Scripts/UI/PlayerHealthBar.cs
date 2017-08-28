@@ -135,5 +135,7 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
             }
             _prevHealth = currentHealth;
         }
+
+        this.LostHealthChunk.UpdateTransform(currentHealth, maxHealth, this.Bar.TargetLength);
     }
 }
