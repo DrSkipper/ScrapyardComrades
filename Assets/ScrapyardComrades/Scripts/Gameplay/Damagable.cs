@@ -58,7 +58,8 @@ public class Damagable : VoBehavior, IPausable
         this.Health = Mathf.Max(0, this.Health - hitData.Damage);
         
         // Handle knockback
-        this.Actor.Velocity = hitData.GetKnockback(origin, this.transform.position, hitPoint, attackerFacing);
+        if (this.Actor != null)
+            this.Actor.Velocity = hitData.GetKnockback(origin, this.transform.position, hitPoint, attackerFacing);
 
         // Handle invincibility and freeze frames
         this.Invincible = true;
@@ -76,7 +77,7 @@ public class Damagable : VoBehavior, IPausable
         _hitStunEvent.Blocked = false;
 
         // SFX
-        if (hitData.HitSfx != null && hitData.HitSfx != StringExtensions.EMPTY)
+        if (!hitData.HitSfx.IsEmpty())
             SoundManager.Play(hitData.HitSfx);
 
         if (this.Dead)
@@ -148,13 +149,18 @@ public class Damagable : VoBehavior, IPausable
 
     private void die()
     {
-        this.integerCollider.RemoveFromCollisionPool();
-        this.gameObject.layer = LayerMask.NameToLayer(this.DeathLayer);
-        this.integerCollider.AddToCollisionPool();
+        if (!this.DeathLayer.IsEmpty())
+        {
+            this.integerCollider.RemoveFromCollisionPool();
+            this.gameObject.layer = LayerMask.NameToLayer(this.DeathLayer);
+            this.integerCollider.AddToCollisionPool();
+        }
 
         _hitStunEvent.GravityMultiplier *= DEATH_GRAV_MULT;
         _hitStunEvent.GravityMultiplier *= DEATH_AIRFRICT_MULT;
-        this.Actor.Velocity = this.Actor.Velocity.normalized * (this.Actor.Velocity.magnitude + DEATH_KNOCKBACK_ADD);
+
+        if (this.Actor != null)
+            this.Actor.Velocity = this.Actor.Velocity.normalized * (this.Actor.Velocity.magnitude + DEATH_KNOCKBACK_ADD);
 
         if (this.OnDeathCallback != null)
             this.OnDeathCallback();

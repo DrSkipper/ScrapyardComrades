@@ -5,6 +5,7 @@ public class Mine : VoBehavior, IPausable
 {
     public LayerMask DamagableLayers;
     public SCAttack.HitData HitData;
+    public Damagable Damagable;
     public PooledObject FlashEffect;
     public PooledObject ExplosionEffect;
     public Transform ExplosionLocation;
@@ -13,10 +14,12 @@ public class Mine : VoBehavior, IPausable
     void Awake()
     {
         _nearbyColliders = new List<IntegerCollider>();
+        this.localNotifier.Listen(HitStunEvent.NAME, this, onHit);
     }
 
     void OnSpawn()
     {
+        this.integerCollider.AddToCollisionPool();
         gatherNearbyColliders();
         _framesUntilColliderGet = FRAME_OFFSET % FRAMES_BETWEEN_COLLIDER_GET;
         FRAME_OFFSET = FRAME_OFFSET >= 10000 ? 0 : FRAME_OFFSET + 1;
@@ -42,6 +45,11 @@ public class Mine : VoBehavior, IPausable
                 explode();
             }
         }
+    }
+
+    void OnReturnToPool()
+    {
+        this.integerCollider.RemoveFromCollisionPool();
     }
 
     /**
@@ -70,9 +78,25 @@ public class Mine : VoBehavior, IPausable
         this.GetComponent<WorldEntity>().TriggerConsumption();
     }
 
+    private void onHit(LocalEventNotifier.Event e)
+    {
+        if (this.Damagable.Dead)
+        {
+            explode();
+        }
+    }
+
     private void gatherNearbyColliders()
     {
         this.integerCollider.GetPotentialCollisions(0, 0, 0, 0, this.DamagableLayers, _nearbyColliders, ENLARGE_AMT, ENLARGE_AMT);
+        for (int i = 0; i < _nearbyColliders.Count; ++i)
+        {
+            if (_nearbyColliders[i] == this.integerCollider)
+            {
+                _nearbyColliders.RemoveAt(i);
+                break;
+            }
+        }
         _framesUntilColliderGet = FRAMES_BETWEEN_COLLIDER_GET;
     }
 }
