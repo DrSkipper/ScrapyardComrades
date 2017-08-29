@@ -65,8 +65,12 @@ public class Mine : VoBehavior, IPausable
     private void explode()
     {
         PooledObject flash = this.FlashEffect.Retain();
+        Explosion exp = flash.GetComponent<Explosion>();
+        if (exp != null)
+            exp.HitData = this.HitData;
         flash.transform.position = this.transform.position;
         flash.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
+
 
         PooledObject explosion = this.ExplosionEffect.Retain();
         explosion.transform.position = this.ExplosionLocation.position;
