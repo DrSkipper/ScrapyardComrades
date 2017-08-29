@@ -7,6 +7,7 @@ public class SimpleParticleEmitter : MonoBehaviour, IPausable
     public SimpleParticle[] PooledParticles;
     public SCSpriteAnimation[] ParticleAnimations;
     public IntegerVector SpawnIntervalRange;
+    public int MaxParticlesToSpawn = -1;
 
     void Awake()
     {
@@ -17,6 +18,7 @@ public class SimpleParticleEmitter : MonoBehaviour, IPausable
     void OnSpawn()
     {
         _t = Random.Range(this.SpawnIntervalRange.X, this.SpawnIntervalRange.Y + 1);
+        _count = 0;
         _used.Clear();
         _unused.Clear();
 
@@ -29,22 +31,26 @@ public class SimpleParticleEmitter : MonoBehaviour, IPausable
 
     void FixedUpdate()
     {
-        if (_t <= 0)
+        if (this.MaxParticlesToSpawn < 0 || _count < this.MaxParticlesToSpawn)
         {
-            _unused.Shuffle();
-            SimpleParticle particle = _unused.Pop();
-
-            if (particle != null)
+            if (_t <= 0)
             {
-                _t = Random.Range(this.SpawnIntervalRange.X, this.SpawnIntervalRange.Y + 1);
+                _unused.Shuffle();
+                SimpleParticle particle = _unused.Pop();
 
-                IntegerVector pos = new IntegerVector(Random.Range(this.EmmissionRange.Bounds.Min.X, this.EmmissionRange.Bounds.Max.X), Random.Range(this.EmmissionRange.Bounds.Min.Y, this.EmmissionRange.Bounds.Max.Y));
-                emitParticle(particle, pos);
+                if (particle != null)
+                {
+                    ++_count;
+                    _t = Random.Range(this.SpawnIntervalRange.X, this.SpawnIntervalRange.Y + 1);
+
+                    IntegerVector pos = new IntegerVector(Random.Range(this.EmmissionRange.Bounds.Min.X, this.EmmissionRange.Bounds.Max.X), Random.Range(this.EmmissionRange.Bounds.Min.Y, this.EmmissionRange.Bounds.Max.Y));
+                    emitParticle(particle, pos);
+                }
             }
-        }
-        else
-        {
-            _t -= 1;
+            else
+            {
+                _t -= 1;
+            }
         }
     }
 
@@ -54,6 +60,7 @@ public class SimpleParticleEmitter : MonoBehaviour, IPausable
     private List<SimpleParticle> _used;
     private List<SimpleParticle> _unused;
     private int _t;
+    private int _count;
 
     private void emitParticle(SimpleParticle particle, IntegerVector pos)
     {
