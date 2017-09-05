@@ -12353,20 +12353,56 @@
   ],
   "props": [
     {
-      "name": "props_OneWayPlatform_5",
+      "name": "props_OneWayPlatform_8",
       "prefab_name": "OneWayPlatform",
-      "x": 384,
-      "y": 384,
+      "x": 368,
+      "y": 382,
       "z": 2,
-      "parameters": null
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "B"
+        }
+      ]
     },
     {
-      "name": "props_OneWayPlatform_6",
+      "name": "props_OneWayPlatform_9",
       "prefab_name": "OneWayPlatform",
-      "x": 448,
-      "y": 384,
+      "x": 400,
+      "y": 382,
       "z": 2,
-      "parameters": null
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "C"
+        }
+      ]
+    },
+    {
+      "name": "props_OneWayPlatform_10",
+      "prefab_name": "OneWayPlatform",
+      "x": 432,
+      "y": 382,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "B"
+        }
+      ]
+    },
+    {
+      "name": "props_OneWayPlatform_11",
+      "prefab_name": "OneWayPlatform",
+      "x": 464,
+      "y": 382,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "C"
+        }
+      ]
     }
   ],
   "props_background": [
@@ -12438,7 +12474,7 @@
     }
   ],
   "next_object_id": 4,
-  "next_prop_id": 8,
+  "next_prop_id": 12,
   "next_prop_bg_id": 9,
   "next_light_id": 4,
   "lights": [

@@ -702,18 +702,23 @@ public class MapEditorManager : MonoBehaviour, IPausable
         {
             newPooledObject = prefab is GameObject ? (prefab as GameObject).GetComponent<PooledObject>().Retain() : (prefab as PooledObject).Retain();
 
-            foreach (MonoBehaviour c in newPooledObject.GetComponents<MonoBehaviour>())
-            {
-                if (!(c is PooledObject))
-                    c.enabled = false;
-            }
-
-            for (int i = 0; i < newPooledObject.transform.childCount; ++i)
-            {
-                newPooledObject.transform.GetChild(i).gameObject.SetActive(false);
-            }
+            disableBehavior(newPooledObject.gameObject);
         }
         return newPooledObject;
+    }
+
+    private void disableBehavior(GameObject obj)
+    {
+        foreach (MonoBehaviour c in obj.GetComponents<MonoBehaviour>())
+        {
+            if (!(c is PooledObject))
+                c.enabled = false;
+        }
+
+        for (int i = 0; i < obj.transform.childCount; ++i)
+        {
+            disableBehavior(obj.transform.GetChild(i).gameObject);
+        }
     }
 
     private void updateVisuals()
