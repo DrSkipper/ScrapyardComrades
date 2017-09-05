@@ -707,6 +707,11 @@ public class MapEditorManager : MonoBehaviour, IPausable
                 if (!(c is PooledObject))
                     c.enabled = false;
             }
+
+            for (int i = 0; i < newPooledObject.transform.childCount; ++i)
+            {
+                newPooledObject.transform.GetChild(i).gameObject.SetActive(false);
+            }
         }
         return newPooledObject;
     }

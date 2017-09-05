@@ -16495,6 +16495,46 @@
       "y": 268,
       "z": 2,
       "parameters": null
+    },
+    {
+      "name": "props_Bird_8",
+      "prefab_name": "Bird",
+      "x": 1176,
+      "y": 80,
+      "z": 2,
+      "parameters": null
+    },
+    {
+      "name": "props_Bird_9",
+      "prefab_name": "Bird",
+      "x": 1186,
+      "y": 80,
+      "z": 2,
+      "parameters": null
+    },
+    {
+      "name": "props_Bird_10",
+      "prefab_name": "Bird",
+      "x": 1136,
+      "y": 80,
+      "z": 2,
+      "parameters": null
+    },
+    {
+      "name": "props_Bird_11",
+      "prefab_name": "Bird",
+      "x": 1120,
+      "y": 80,
+      "z": 2,
+      "parameters": null
+    },
+    {
+      "name": "props_Bird_12",
+      "prefab_name": "Bird",
+      "x": 1146,
+      "y": 80,
+      "z": 2,
+      "parameters": null
     }
   ],
   "props_background": [
@@ -16621,8 +16661,8 @@
       "parameters": null
     }
   ],
-  "next_object_id": 6,
-  "next_prop_id": 8,
+  "next_object_id": 12,
+  "next_prop_id": 13,
   "next_prop_bg_id": 74,
   "next_light_id": 30,
   "lights": [
