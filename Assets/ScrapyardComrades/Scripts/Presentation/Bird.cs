@@ -69,9 +69,7 @@ public class Bird : MonoBehaviour, IPausable
         }
         else
         {
-            if (_timer.Completed)
-                ObjectPools.Release(this.gameObject);
-            else
+            if (!_timer.Completed)
                 this.transform.SetPosition2D((IntegerVector)((Vector2)this.transform.position + (Vector2)this.FlyAwayVelocity));
         }
     }
