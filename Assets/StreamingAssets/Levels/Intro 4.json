@@ -12351,7 +12351,42 @@
       "layer_name": "ParallaxBack"
     }
   ],
-  "props": [],
+  "props": [
+    {
+      "name": "props_Poster_0",
+      "prefab_name": "Poster",
+      "x": 654,
+      "y": 238,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "bg",
+          "CurrentOption": "B"
+        },
+        {
+          "Name": "input",
+          "CurrentOption": "l_attack"
+        }
+      ]
+    },
+    {
+      "name": "props_Poster_1",
+      "prefab_name": "Poster",
+      "x": 732,
+      "y": 236,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "bg",
+          "CurrentOption": "A"
+        },
+        {
+          "Name": "input",
+          "CurrentOption": "s_attack"
+        }
+      ]
+    }
+  ],
   "props_background": [],
   "objects": [
     {
@@ -12380,7 +12415,7 @@
     }
   ],
   "next_object_id": 5,
-  "next_prop_id": 0,
+  "next_prop_id": 2,
   "next_prop_bg_id": 0,
   "next_light_id": 8,
   "lights": [

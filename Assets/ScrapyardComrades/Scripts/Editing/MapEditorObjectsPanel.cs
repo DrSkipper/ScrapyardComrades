@@ -46,7 +46,14 @@ public class MapEditorObjectsPanel : MonoBehaviour
         if (_parameters != null && _parameters.Length > 0)
         {
             this.NoParametersPanel.SetActive(false);
-            selectPanel(_selectedPanel);
+
+            for (int i = 0; i < _parameters.Length; ++i)
+            {
+                if (_selectedPanel == i)
+                    selectPanel(i);
+                else
+                    deselectPanel(i);
+            }
         }
         else
         {

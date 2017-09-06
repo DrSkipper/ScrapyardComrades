@@ -16537,12 +16537,21 @@
       "parameters": null
     },
     {
-      "name": "props_Poster_14",
+      "name": "props_Poster_15",
       "prefab_name": "Poster",
-      "x": 1748,
-      "y": 150,
+      "x": 1750,
+      "y": 140,
       "z": 2,
-      "parameters": null
+      "parameters": [
+        {
+          "Name": "bg",
+          "CurrentOption": "B"
+        },
+        {
+          "Name": "input",
+          "CurrentOption": "jump"
+        }
+      ]
     }
   ],
   "props_background": [
@@ -16670,7 +16679,7 @@
     }
   ],
   "next_object_id": 12,
-  "next_prop_id": 15,
+  "next_prop_id": 16,
   "next_prop_bg_id": 74,
   "next_light_id": 30,
   "lights": [
