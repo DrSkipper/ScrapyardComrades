@@ -19,6 +19,7 @@ public struct AIInput
     public IntegerCollider OurCollider;
     public IntegerCollider TargetCollider;
     public bool OnGround;
+    public bool TargetOnGround;
     public bool ExecutingMove;
     public bool InMoveCooldown;
     public bool HitStunned;
@@ -49,7 +50,7 @@ public class SimpleAI : AI
     {
         AIState idleState = new IdleState();
         AIState attackState = new SimpleAttackState(executeAttackRange, attackingPursuitTargetDist, attackStateCooldown);
-        idleState.AddTransition(new ANDTransition(new AIStateTransition[] { new TargetAliveTransition(attackState, true), new TargetWithinRangeTransition(attackState, 0, attackStateRange) }));
+        idleState.AddTransition(new ANDTransition(new AIStateTransition[] { new TargetAliveTransition(attackState, true), new TargetWithinRangeTransition(attackState, 0, attackStateRange, true) }));
         attackState.AddTransition(new NoTargetTransition(idleState));
         attackState.AddTransition(new TargetWithinRangeTransition(idleState, pursuitRange));
         attackState.AddTransition(new ANDTransition(new AIStateTransition[]{ new TargetAliveTransition(idleState, false), new TargetWithinRangeTransition(idleState, 0, executeAttackRange) }));

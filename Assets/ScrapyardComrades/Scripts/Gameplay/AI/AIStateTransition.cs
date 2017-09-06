@@ -11,12 +11,15 @@ public class TargetWithinRangeTransition : AIStateTransition
     public AIState Destination { get; private set; }
     public float MinDistanceForTransition { get; private set; }
     public float MaxDistanceForTransition { get; private set; }
+    public bool RequiresLineOfSight { get; private set; }
+    private const int LineOfSightBlocker = 8;
 
-    public TargetWithinRangeTransition(AIState destination, float minDistanceForTransition, float maxDistanceForTransition = -1)
+    public TargetWithinRangeTransition(AIState destination, float minDistanceForTransition, float maxDistanceForTransition = -1, bool requiresLineOfSight = false)
     {
         this.Destination = destination;
         this.MinDistanceForTransition = minDistanceForTransition;
         this.MaxDistanceForTransition = maxDistanceForTransition;
+        this.RequiresLineOfSight = requiresLineOfSight;
     }
 
     public bool ShouldTransition(AIInput input)
@@ -25,7 +28,13 @@ public class TargetWithinRangeTransition : AIStateTransition
             return false;
 
         float d = Vector2.Distance(input.OurPosition, input.TargetPosition);
-        return (this.MaxDistanceForTransition < 0.0f || d <= this.MaxDistanceForTransition) && d >= MinDistanceForTransition;
+        bool close = (this.MaxDistanceForTransition < 0.0f || d <= this.MaxDistanceForTransition) && d >= MinDistanceForTransition;
+
+        if (!close || !this.RequiresLineOfSight)
+            return close;
+
+        IntegerVector diff = input.TargetPosition -  new IntegerVector(input.OurPosition.X, input.OurCollider.Bounds.Max.Y);
+        return CollisionManager.Instance.RaycastFirst(input.OurPosition, ((Vector2)diff).normalized, ((Vector2)diff).magnitude, 1 << LineOfSightBlocker).Collided == false;
     }
 }
 

@@ -60,6 +60,16 @@ public class EnemyController : SCCharacterController
         aiInput.ExecutingMove = this.ExecutingMove;
         aiInput.InMoveCooldown = this.InMoveCooldown;
         aiInput.HitStunned = this.HitStunned;
+
+        if (targetAlive)
+        {
+            SCCharacterController targetController = target.GetComponent<SCCharacterController>();
+            aiInput.TargetOnGround = targetController.OnGround && Mathf.RoundToInt(targetController.Velocity.y) <= 0;
+        }
+        else
+        {
+            aiInput.TargetOnGround = false;
+        }
         return aiInput;
     }
     

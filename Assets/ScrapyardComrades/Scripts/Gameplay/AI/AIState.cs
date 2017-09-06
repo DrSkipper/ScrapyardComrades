@@ -74,9 +74,9 @@ public class SimpleAttackState : AIState
         if (_cooldown <= 0)
         {
             bool attack = false;
-            output.Jump = input.TargetCollider.Bounds.Min.Y > input.OurCollider.Bounds.Max.Y;
+            output.Jump = input.TargetOnGround && input.TargetCollider.Bounds.Min.Y > input.OurCollider.Bounds.Min.Y + 8;
 
-            if (Vector2.Distance(input.OurPosition, input.TargetPosition) <= _executeAttackRange)
+            if (input.OnGround && Vector2.Distance(input.OurPosition, input.TargetPosition) <= _executeAttackRange)
             {
                 output.Attack = true;
                 if (!input.InMoveCooldown && !input.ExecutingMove)
