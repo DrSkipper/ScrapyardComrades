@@ -8,6 +8,7 @@ public class SimpleTransitioner : MonoBehaviour, IPausable
     public int Delay = 0;
     public string EventNameToSend = "";
     public AudioClip ClipToPlay;
+    public bool EventOnly = false;
 
     void Awake()
     {
@@ -40,9 +41,12 @@ public class SimpleTransitioner : MonoBehaviour, IPausable
 
     private void transition()
     {
-        if (this.DestinationScene == null || this.DestinationScene == StringExtensions.EMPTY)
-            Application.Quit();
-        else
-            SceneManager.LoadScene(this.DestinationScene);
+        if (!this.EventOnly)
+        {
+            if (this.DestinationScene == null || this.DestinationScene == StringExtensions.EMPTY)
+                Application.Quit();
+            else
+                SceneManager.LoadScene(this.DestinationScene);
+        }
     }
 }

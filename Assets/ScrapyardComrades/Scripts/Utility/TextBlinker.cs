@@ -69,6 +69,11 @@ public class TextBlinker : MonoBehaviour, IPausable
             _stateTimer.complete();
     }
 
+    public void Hide()
+    {
+        this.gameObject.SetActive(false);
+    }
+
     /**
      * Private
      */
