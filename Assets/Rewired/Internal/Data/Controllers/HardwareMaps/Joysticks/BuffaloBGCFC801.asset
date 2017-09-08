@@ -92,7 +92,7 @@ MonoBehaviour:
       productName:
       - BUFFALO BGC-FC801 USB Gamepad
       productGUID:
-      - 00c60411-0000-0000-0000-504944564944
+      - 00c60411
       productId: c6000000
       deviceType: 20
     elements:
@@ -490,7 +490,7 @@ MonoBehaviour:
       systemName:
       - BUFFALO INC. BUFFALO BGC-FC801 USB Gamepad
       productGUID:
-      - 00c60411-0000-0000-0000-504944564944
+      - 00c60411
     elements:
       compoundElements: []
       axes: []
@@ -663,7 +663,7 @@ MonoBehaviour:
       productName:
       - BUFFALO BGC-FC801 USB Gamepad
       productGUID:
-      - 00c60411-0000-0000-0000-504944564944
+      - 00c60411
     elements:
       compoundElements: []
       axes: []

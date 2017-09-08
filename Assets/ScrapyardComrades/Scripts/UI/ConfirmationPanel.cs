@@ -61,23 +61,23 @@ public class ConfirmationPanel : MonoBehaviour, MenuController
     {
         if (this.ActionCallback != null)
         {
-            if (MapEditorInput.Cancel || MapEditorInput.Exit)
+            if (MenuInput.Cancel || MenuInput.Exit)
                 this.ActionCallback(false);
-            else if (MapEditorInput.Confirm)
+            else if (MenuInput.Confirm)
                 this.ActionCallback(true);
         }
     }
 
     private void updateNavigational()
     {
-        if (this.ActionCallback != null && MapEditorInput.Confirm)
+        if (this.ActionCallback != null && MenuInput.Confirm)
         {
             this.ActionCallback(true);
         }
         else
         {
-            bool up = MapEditorInput.NavUp || MapEditorInput.ResizeUp;
-            bool down = MapEditorInput.NavDown || MapEditorInput.ResizeDown;
+            bool up = MenuInput.NavUp || MenuInput.ResizeUp;
+            bool down = MenuInput.NavDown || MenuInput.ResizeDown;
             if (up || down)
             {
                 this.NavigationElements[_navigationIndex].GetComponent<SelectionIndicator>().Stop();

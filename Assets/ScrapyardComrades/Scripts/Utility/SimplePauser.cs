@@ -39,7 +39,7 @@ public class SimplePauser : MonoBehaviour
 
     private bool editorInputCheck()
     {
-        return MapEditorInput.SwapModes;
+        return MenuInput.SwapModes;
     }
 
     private bool mainMenuInputCheck()

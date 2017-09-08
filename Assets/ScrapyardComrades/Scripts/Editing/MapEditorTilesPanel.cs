@@ -57,30 +57,30 @@ public class MapEditorTilesPanel : MonoBehaviour
 
     void Update()
     {
-        if (MapEditorInput.Action)
+        if (MenuInput.Action)
         {
             _layer.AutoTileEnabled = !_layer.AutoTileEnabled;
             updateVisual();
         }
-        else if (MapEditorInput.NavLeft)
+        else if (MenuInput.NavLeft)
         {
             _gridPos = this.Grid.MoveLeft(_gridPos);
             updateSelection();
             updateVisual();
         }
-        else if (MapEditorInput.NavRight)
+        else if (MenuInput.NavRight)
         {
             _gridPos = this.Grid.MoveRight(_gridPos);
             updateSelection();
             updateVisual();
         }
-        else if (MapEditorInput.NavDown)
+        else if (MenuInput.NavDown)
         {
             _gridPos = this.Grid.MoveDown(_gridPos);
             updateSelection();
             updateVisual();
         }
-        else if (MapEditorInput.NavUp)
+        else if (MenuInput.NavUp)
         {
             _gridPos = this.Grid.MoveUp(_gridPos);
             updateSelection();

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class UIMenuManager : MonoBehaviour
 {
@@ -14,15 +15,18 @@ public class UIMenuManager : MonoBehaviour
 
     public void Initialize()
     {
-        MapEditorInput.EnableMenuInput();
-        _previousMenu = null;
+        MenuInput.EnableMenuInput();
+        if (_pastMenuStack == null)
+            _pastMenuStack = new List<string>();
+        else
+            _pastMenuStack.Clear();
         configureForState(this.InitialStateName);
         _initialized = true;
     }
 
     public void Hide()
     {
-        MapEditorInput.DisableMenuInput();
+        MenuInput.DisableMenuInput();
         _initialized = false;
         configureForEmptyState();
     }
@@ -35,23 +39,23 @@ public class UIMenuManager : MonoBehaviour
         }
         else if (_initialized && ! this.MenuBounds.Running)
         {
-            if (MapEditorInput.NavDown)
+            if (MenuInput.NavDown)
             {
                 _currentMenu.HighlightNext();
                 highlight();
             }
-            else if (MapEditorInput.NavUp)
+            else if (MenuInput.NavUp)
             {
                 _currentMenu.HighlightPrev();
                 highlight();
             }
-            else if (MapEditorInput.Confirm)
+            else if (MenuInput.Confirm)
             {
                 handleAction(_currentMenu.SelectCurrent());
             }
-            else if (MapEditorInput.Cancel && !_previousMenu.IsEmpty())
+            else if (MenuInput.Cancel && _pastMenuStack.Count > 0)
             {
-                configureForState(_previousMenu);
+                configureForState(_pastMenuStack.Pop());
             }
         }
     }
@@ -61,7 +65,7 @@ public class UIMenuManager : MonoBehaviour
      */
     private bool _initialized;
     private Menu _currentMenu;
-    private string _previousMenu;
+    private List<string> _pastMenuStack;
     private int _currentHighlight;
     private Timer _sceneChangeTimer;
     private string _sceneDestination;
@@ -103,7 +107,7 @@ public class UIMenuManager : MonoBehaviour
             case Menu.ActionType.None:
                 break;
             case Menu.ActionType.OpenMenu:
-                _previousMenu = _currentMenu.Name;
+                _pastMenuStack.Add(_currentMenu.Name);
                 configureForState(action.Param);
                 break;
             case Menu.ActionType.SceneTransition:

@@ -31,6 +31,22 @@
 
 
 <div class="container">
+
+    <div class="google-search-bar">
+        <script>
+          (function() {
+            var cx = '007961148920562332911:oocvtwz5jce';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+
   <div class="content">
 	
 	
@@ -52,6 +68,7 @@
               <li><a href="QuickStart.html">Quick Start</a></li>
               <li><a href="BasicUsage.html">Basic Usage</a></li>
               <li><a href="Deployment.html">Deployment</a></li>
+              <li><a href="BestPractices.html">Best Practices</a></li>
               <li><a href="RewiredEditor.html">Rewired Editor</a></li>
               <li><a href="http://guavaman.com/projects/rewired/docs/api-reference" target="_blank">API Reference</a></li>
             </ol>
@@ -70,23 +87,30 @@
             <strong>Extras:</strong>
             <ul>
               <li><a href="ControlMapper.html" title="Control Mapper">Control Mapper</a></li>
+	          <li><a href="TouchControls.html" title="Touch Controls">Touch Controls</a></li>
               <li><a href="RewiredStandaloneInputModule.html">Rewired Standalone Input Module</a></li>
-	          <li><a href="UserDataStore.html" title="User Data Store">User Data Store</a></li>
 	          <li><a href="UnityInputOverride.html" title="Unity Input Override">Unity Input Override</a></li>
             </ul>
-            <strong>How To's</strong>
+            <strong>Misc:</strong>
+            <ul>
+	          <li><a href="ComponentControls.html" title="Component Controls">Component Controls</a></li>
+	          <li><a href="InputMapper.html" title="Input Mapper">Input Mapper</a></li>
+	          <li><a href="UserDataStore.html" title="User Data Store">User Data Store</a></li>
+            </ul>
+            <strong>How To's:</strong>
             <ul>
             	<li><a href="HowTos.html">See all topics...</a></li>
             </ul>
             <strong>Help:</strong>
             <ul>
               <li><a href="SupportedControllers.html" title="Supported Controllers">Supported Controllers</a></li>
+              <li><a href="Overview.html#tested-platforms" title="Tested Platforms">Tested Platforms</a></li>
+              <li><a href="Troubleshooting.html" title="Troubleshooting">Troubleshooting</a></li>
+              <li><a href="KnownIssues.html">Known Issues</a></li>
               <li><a href="SpecialPlatformSupport.html" title="Special Platform Support">Special Platform Support</a></li>
 	          <li><a href="Examples.html" title="Examples">Examples</a></li>
               <li><a href="Integration.html">Integrations</a></li>
 	          <li><a href="Updating.html" title="Updating Rewired">Updating Rewired</a></li>
-	          <li><a href="Troubleshooting.html" title="Troubleshooting">Troubleshooting</a></li>
-              <li><a href="KnownIssues.html">Known Issues</a></li>
             </ul>
             <strong>FAQ</strong>
             <ul>
@@ -114,7 +138,7 @@
       <!-- InstanceEndEditable -->
             </h1>
             
-			<!-- InstanceBeginEditable name="MainBody" -->
+		  <!-- InstanceBeginEditable name="MainBody" -->
 
     <p><strong>Packages:</strong></p>
     <ul>
@@ -129,6 +153,12 @@
       <li><a href="#GAC">GAC (Great Animation Combos) System</a></li>
       <li><a href="#InventoryPro">Inventory Pro</a></li>
       <li><a href="#UFS">uFS - Flight Simulation Engine</a></li>
+      <li><a href="#RealisticFPS">Realistic FPS Prefab</a></li>
+      <li><a href="#Deftly">Deftly: Top Down Shooter Framework</a></li>
+      <li><a href="#ORKFramework">ORK Framework - RPG Engine</a></li>
+      <li><a href="#RealisticTankController">Realistic Tank Controller</a></li>
+      <li><a href="#uSimAirModule">uSim Air Module</a></li>
+      <li><a href="#CorgiEngine">Corgi Engine - 2D + 2.5D Platformer</a></li>
       <li><a href="#others">Others</a></li>
     </ul>
     <p>&nbsp;</p>
@@ -138,7 +168,7 @@
     <p>&nbsp;</p>
 <hr />
     <h3><a name="UFPS" id="UFPS"></a><img src="files/images/works-with-ufps.png" width="250" height="132" alt="Works with UFPS" style="float:right; margin-left: 2em; margin-bottom: 1em" />UFPS</h3>
-    <p>Rewired can be used to provide input for <a href="http://opsive.com/assets/UFPS/" target="_blank">UFPS</a>, a popular first person shooter kit by <a href="http://opsive.com" target="_blank">Opsive</a>. Rewired comes pre-packaged with an integration kit that was designed to work with UFPS 1.4.9+.</p>
+    <p>Rewired can be used to provide input for <a href="https://www.assetstore.unity3d.com/en/#!/content/2943" target="_blank">UFPS</a> by Opsive, a popular first person shooter kit. Rewired comes pre-packaged with an integration kit that was designed to work with UFPS 1.4.9+.</p>
 <p>To install the UFPS Integration Pack, do the following:</p>
 <ol>
   <li>Ensure that you are running Unity 4.5 or greater.</li>
@@ -176,7 +206,7 @@
 <p></p>
 <hr />
 <h3><a name="PlayMaker" id="UFPS2"></a>PlayMaker</h3>
-<p><a href="http://hutonggames.com" target="_blank"><img src="files/images/playmaker-logo.png" alt="PlayMaker" width="160" height="160" class="right" /></a>Rewired can be used with <a href="http://www.hutonggames.com/" target="_blank">Hutong Games PlayMaker</a>, a popular visual scripting tool for Unity.</p>
+<p><a href="http://hutonggames.com" target="_blank"><img src="files/images/playmaker-logo.png" alt="PlayMaker" width="160" height="160" class="right" /></a>Rewired can be used with <a href="https://www.assetstore.unity3d.com/en/#!/content/368" target="_blank">PlayMaker</a> by Hutong Games, a popular visual scripting tool for Unity.</p>
 <p>To install the PlayMaker Integration Pack, do the following:</p>
 <ol>
   <li>Install Rewired and PlayMaker first. If PlayMaker is not installed, you will get errors when the integration pack is installed.</li>
@@ -191,7 +221,7 @@
 <p>&nbsp;</p>
 <hr />
 <h3><a name="BehaviorDesigner" id="UFPS3"></a>Behavior Designer</h3>
-<p><a href="http://www.opsive.com/assets/BehaviorDesigner/" target="_blank"><img src="files/images/behavior-designer-logo.png" alt="PlayMaker" width="160" height="160" class="right" /></a>Rewired can be used with <a href="http://www.opsive.com/assets/BehaviorDesigner/" target="_blank">Opsive Behavior Designer</a>, a popular visual scripting and behavior tree tool for Unity.</p>
+<p><a href="http://www.opsive.com/assets/BehaviorDesigner/" target="_blank"><img src="files/images/behavior-designer-logo.png" alt="PlayMaker" width="160" height="160" class="right" /></a>Rewired can be used with <a href="https://www.assetstore.unity3d.com/en/#!/content/15277" target="_blank">Behavior Designer</a> by Opsive, a popular visual scripting and behavior tree tool for Unity.</p>
 <p>To install the Behavior Designer Integration Pack, do the following:</p>
 <ol>
   <li>Install Rewired and Behavior Designer first. If Behavior Designer is not installed, you will get errors when the integration pack is installed.</li>
@@ -206,37 +236,37 @@
 <p>&nbsp;</p>
 <hr />
 <h3><a name="ThirdPersonController" id="ThirdPersonController"></a>Third Person Controller</h3>
-<p>Rewired can be used with <a href="http://opsive.com/assets/ThirdPersonController/" target="_blank">Opsive Third Person Controller</a>, a popular third-person game kit. The integration pack can  be <a href="http://opsive.com/assets/ThirdPersonController/integrations.php" target="_blank">downloaded from Opsive's site here</a>.</p>
+<p>Rewired can be used with <a href="https://www.assetstore.unity3d.com/en/#!/content/27438" target="_blank">Third Person Controller</a> by Opsive, a popular third-person game kit. The integration pack can  be <a href="http://opsive.com/assets/ThirdPersonController/integrations.php" target="_blank">downloaded from Opsive's site here</a>.</p>
 <p>Note: This integration is a 3rd party integration package and not maintained or supported by Guavaman Enterprises.</p>
 <p>&nbsp;</p>
 <hr />
 <h3><a name="MotionController" id="ThirdPersonController2"></a>Motion Controller</h3>
-<p><a href="https://www.assetstore.unity3d.com/en/#!/content/15672" target="_blank">Motion Controller by ootii</a> is an animation framework and character controller for any character and any game. You can download the intregration from <a href="http://www.ootii.com/UnityMotionVault.cshtml" target="_blank">ootii's Vault</a>. (Search the page for Rewired.)</p>
+<p><a href="https://www.assetstore.unity3d.com/en/#!/content/15672" target="_blank">Motion Controller</a> by ootii is an animation framework and character controller for any character and any game. You can download the intregration from <a href="http://www.ootii.com/UnityMotionVault.cshtml" target="_blank">ootii's Vault</a>. (Search the page for Rewired.)</p>
 <p>Note: This integration is a 3rd party integration package and not maintained or supported by Guavaman Enterprises.</p>
 <p>&nbsp;</p>
 <hr />
 <h3><a name="iRDS" id="ThirdPersonController7"></a>iRDS - Intelligent Race Driver System</h3>
-<p><a href="https://www.assetstore.unity3d.com/en/#!/content/15672" target="_blank">iRDS - Intelligent Race Driver System by Jose Garrido</a> is a racing game toolkit that  helps you to develop  Racing Games. Please see the iRDS documentation for details.</p>
+<p><a href="https://www.assetstore.unity3d.com/en/#!/content/15672" target="_blank">iRDS - Intelligent Race Driver System</a> by Jose Garrido is a racing game toolkit that  helps you to develop  Racing Games. Please see the iRDS documentation for details.</p>
 <p>Note: This integration is a 3rd party integration package and not maintained or supported by Guavaman Enterprises.</p>
 <p>&nbsp;</p>
 <hr />
 <h3><a name="RacingGameStarterKit" id="ThirdPersonController3"></a>Racing Game Starter Kit</h3>
-<p><a href="https://www.assetstore.unity3d.com/en/#!/content/22615" target="_blank">Racing Game Starter Kit by Intense Games</a> is an easy to use asset for creating racing games. The integration is included in the package. Please see the Racing Game Starter Kit documentation for details.</p>
+<p><a href="https://www.assetstore.unity3d.com/en/#!/content/22615" target="_blank">Racing Game Starter Kit</a> by Intense Games is an easy to use asset for creating racing games. The integration is included in the package. Please see the Racing Game Starter Kit documentation for details.</p>
 <p>Note: This integration is a 3rd party integration package and not maintained or supported by Guavaman Enterprises.</p>
 <p>&nbsp;</p>
 <hr />
 <h3><a name="GAC" id="ThirdPersonController4"></a>GAC (Great Animation Combos) System</h3>
-<p><a href="https://www.assetstore.unity3d.com/en/#!/content/15812" target="_blank">GAC (Great Animation Combos) System by Eric Turgott</a> is an asset that allows you to implement combos for any action game. The integration is included in the package. Please see the GAC documentation for details.</p>
+<p><a href="https://www.assetstore.unity3d.com/en/#!/content/15812" target="_blank">GAC (Great Animation Combos) System</a> by Eric Turgott is an asset that allows you to implement combos for any action game. The integration is included in the package. Please see the GAC documentation for details.</p>
 <p>Note: This integration is a 3rd party integration package and not maintained or supported by Guavaman Enterprises.</p>
 <p>&nbsp;</p>
 <hr />
 <h3><a name="InventoryPro" id="ThirdPersonController5"></a>Inventory Pro</h3>
-<p><a href="http://devdog.io/unity-assets/inventory-pro/" target="_blank">Inventory Pro by Devdog</a>  is a highly flexible inventory system for Unity. Inventory Pro can be used for RPG, RTS, FPS, and other game types. The integration is included in the package. Please see the Inventory Pro documentation for details.</p>
+<p><a href="https://www.assetstore.unity3d.com/en/#!/content/66801" target="_blank">Inventory Pro</a> by Devdog  is a highly flexible inventory system for Unity. Inventory Pro can be used for RPG, RTS, FPS, and other game types. The integration is included in the package. Please see the Inventory Pro documentation for details.</p>
 <p>Note: This integration is a 3rd party integration package and not maintained or supported by Guavaman Enterprises.</p>
 <p>&nbsp;</p>
 <hr />
 <h3><a name="UFS" id="ThirdPersonController6"></a>uFS - Flight Simulation Engine</h3>
-<p><a href="https://www.assetstore.unity3d.com/en/#!/content/11321" target="_blank">uFS - Flight Simulation Engine by REMEX Software Ltd</a> delivers previously unseen Flight Simulation accuracy to the Unity Asset Store.</p>
+<p><a href="https://www.assetstore.unity3d.com/en/#!/content/11321" target="_blank">uFS - Flight Simulation Engine</a> by REMEX Software Ltd delivers previously unseen Flight Simulation accuracy to the Unity Asset Store.</p>
 <p>Rewired includes an integration pack for uFS which can be installed from the menu:<br />
   <strong>Rewired -&gt; Integration -&gt; uFS -&gt; Install Integration Pack</strong></p>
 <p>In addition to the integration pack, <a href="UnityInputOverride.html">Unity Input Override</a> must be installed.</p>
@@ -248,8 +278,69 @@
 <ol>
   <li>Delete the Rewired/Integration/UFS folder.</li>
   <li>Optionally uninstall <a href="UnityInputOverride.html">Unity Input Override</a>.</li>
-</ol>
+  </ol>
 <p>&nbsp;</p>
+<hr />
+<h3><a name="RealisticFPS" id="RealisticFPS"></a>Realistic FPS Prefab</h3>
+<p><a href="https://www.assetstore.unity3d.com/en/#!/content/7739" target="_blank">Realistic FPS Prefab</a> by Azuline Studios is a first-person shooter complete project.</p>
+<p><a href="https://forum.unity3d.com/threads/realistic-fps-prefab-released.176985/page-69#post-2921727">This forum post by longroadhwy shows how to do the integration by modifying a bit of source code.</a></p>
+<p>Note: This integration is a 3rd party integration and not maintained or supported by Guavaman Enterprises.</p>
+<p>&nbsp;</p>
+<hr />
+<h3><a name="Deftly" id="Deftly"></a>Deftly: Top Down Shooter Framework</h3>
+<p><a href="https://www.assetstore.unity3d.com/en/#!/content/34177" target="_blank">Deftly: Top Down Shooter Framework</a> by Cleverous aims to deliver flexibility and ease of use into a stable top down shooter environment with AAA quality. </p>
+<p>The Rewired integration is included in the package. Please see the Deftly documentation for details.</p>
+<p>Note: This integration is a 3rd party integration package and not maintained or supported by Guavaman Enterprises.</p>
+<p>&nbsp;</p>
+<hr />
+<h3><a name="ORKFramework"></a>ORK Framework - RPG Engine</h3>
+<p><a href="https://www.assetstore.unity3d.com/en/#!/content/14419" target="_blank">ORK Framework - RPG Engine</a> is a highly flexible system that allows you to create your own role-playing game without any coding.</p>
+<p>Rewired can be used with ORK Framework by following <a href="http://forum.orkframework.com/discussion/3214/using-custom-input-with-rewired-tutorial" target="_blank">braytendo's tutorial here</a>. Or you can use <a href="UnityInputOverride.html">Unity Input Override</a> instead.</p>
+<p>Note: This integration is a 3rd party integration package and not maintained or supported by Guavaman Enterprises.</p>
+<p>&nbsp;</p>
+<hr />
+<h3><a name="RealisticTankController" id="RealisticTankController"></a>Realistic Tank Controller</h3>
+<p><a href="https://www.assetstore.unity3d.com/en/#!/content/18036" target="_blank">Realistic Tank Controller</a> by <a href="http://www.bonecrackergames.com/" target="_blank">Bonecracker Games</a> allows you to build highly customizable battle tanks for your project. </p>
+<p>The Rewired integration is included in the package. Please see the package documentation for details.</p>
+<p>Note: This integration is a 3rd party integration package and not maintained or supported by Guavaman Enterprises.</p>
+<p>&nbsp;</p>
+<hr />
+<h3><a name="uSimAirModule" id="uSimAirModule"></a>uSim Air Module</h3>
+<p><a href="https://www.assetstore.unity3d.com/en/#!/content/15674" target="_blank">uSim Air Module</a> by <a href="http://softdimensiongames.com/" target="_blank">Softdimension Games</a>  helps you build flight models for any aircraft. Smooth and realistic results. </p>
+<p>The Rewired integration is included in the package. Please see the package documentation for details.</p>
+<p>Note: This integration is a 3rd party integration package and not maintained or supported by Guavaman Enterprises.</p>
+<p>&nbsp;</p>
+<hr />
+<h3><a name="CorgiEngine" id="CorgiEngine"></a>Corgi Engine - 2D + 2.5D Platformer</h3>
+<p><a href="https://assetstore.unity.com/packages/templates/systems/corgi-engine-2d-2-5d-platformer-26617" target="_blank">Corgi Engine</a> by <a href="http://moremountains.com/" target="_blank">More Mountains</a>  is a popular 2D + 2.5D platformer template for Unity.</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+  <li> Corgi Engine v4.0+</li>
+  <li> Unity 5.6.1f1+</li>
+</ul>
+<p><strong>To install the Corgi Engine Integration Pack, do the following:</strong></p>
+<ol>
+  <li>Install Corgi Engine first before you install Rewired. If you installed Rewired before Corgi Engine, be sure to re-launch the Rewired installer after Corgi Engine finishes installing and allow it to install the Unity input manager entries again because installing Corgi Engine will have replaced Rewired's entries. To re-launch the installer from the menu:<br />
+    <strong>Window -&gt; Rewired -&gt; Setup -&gt; Run Installer</strong></li>
+  <li>When installing Rewired, install the Touch Controls pack when prompted. If you skipped installation, you can install the Touch Controls from the menu:<br />
+    <strong>Window -&gt; Rewired -&gt; Extras -&gt; Touch Controls -&gt; Install</strong></li>
+  <li>To install the Corgi Engine integration pack, run the following menu item in the Unity editor:<br />
+    <strong>Window -&gt; Rewired -&gt; Integration -&gt; Corgi Engine -&gt; Install Integration Pack</strong></li>
+  <li>After the pack is installed, you may need to run the setup script which will set the Script Execution Order on the Corgi Engine input manager script:<br />
+    <strong>Window -&gt; Rewired -&gt; Integration -&gt; Corgi Engine -&gt; Setup -&gt; Run Setup</strong></li>
+</ol>
+<p><strong>To Uninstall:</strong></p>
+<ol>
+  <li>Delete the Rewired/Integration/CorgiEngine folder</li>
+  </ol>
+<p><strong>Usage:</strong></p>
+<p>Add a Rewired Input Manager to the scene. You can add a pre-configured Rewired Input Manager for Corgi Engine to the scene from the menu:<br />
+  <strong>Window -&gt; Rewired -&gt; Integration -&gt; Corgi Engine -&gt; Create -&gt; Rewired Input Manager</strong></p>
+<p>Anywhere where you use the Corgi Engine InputManager component, replace it with the RewiredCorgiEngineInputManager component. You can add the component through the menu:<br />
+  <strong>Component -&gt; Corgi Engine -&gt; Manager -&gt; Rewired Input Manager</strong></p>
+<p><strong>Touch Controls:</strong></p>
+<p>A default Touch Controller prefab is included in the Rewired/Integration/CorgiEngine/Prefabs folder. You can use this Touch Controller in place of the one that comes with CorgiEngine. To to replace the existing Touch Controller in the demos, you need to add the Touch Controller prefab into the scene underneath the UICamera. Next, find the GUIManager component and replace the references in the fields &quot;Buttons&quot;, &quot;Arrows&quot;, and &quot;Joystick&quot; with references to the new Touch Controller elements. Specifically hook the main Touch Controller object to the &quot;Buttons&quot; field, then hook the Arrows sub-object to the &quot;Arrows&quot; field, then the Joystick sub-object to the &quot;Joystick&quot; field. These steps are just so you can use the same CorgiEngine InputManager options to display the touch controls and are not mandatory if you'd rather manage their display yourself. You can look at the demo scene Mesa1 located in Rewired/Integration/CorgiEngine/Demos to see the Touch Controls in use. For general information on Rewired's Touch Controls, <a href="TouchControls.html">see the documentation on Touch Controls</a>.</p>
+<p></p>
 <hr />
 <h3><a name="others" id="others"></a>Others</h3>
 <p>Most Unity Asset Store assets can be used with Rewired by using the <a href="UnityInputOverride.html">Unity Input Override</a> system. <a href="UnityInputOverride.html">Please see Unity Input Override for details</a>.</p>

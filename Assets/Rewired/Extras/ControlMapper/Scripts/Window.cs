@@ -33,6 +33,7 @@ namespace Rewired.UI.ControlMapper {
         private Timer _timer;
         private CanvasGroup _canvasGroup;
         public UnityAction cancelCallback;
+        private GameObject lastUISelection;
 
         // Properties
 
@@ -80,6 +81,7 @@ namespace Rewired.UI.ControlMapper {
         protected virtual void Update() {
             if(!_initialized) return;
             if(!hasFocus) return;
+            CheckUISelection();
             if(_updateCallback != null) _updateCallback(_id);
         }
 
@@ -263,6 +265,26 @@ namespace Rewired.UI.ControlMapper {
             else EventSystem.current.SetSelectedGameObject(null); // deselect
         }
 
+        private void CheckUISelection() {
+            if(!hasFocus) return;
+            if(EventSystem.current == null) return;
+            if(EventSystem.current.currentSelectedGameObject == null) RestoreDefaultOrLastUISelection(); // nothing is selected, restore default or last selection
+            lastUISelection = EventSystem.current.currentSelectedGameObject; // store current selection as last
+        }
+
+        private void RestoreDefaultOrLastUISelection() {
+            if(!hasFocus) return;
+            if(lastUISelection == null || !lastUISelection.activeInHierarchy) {
+                SetUISelection(_defaultUIElement);
+                return;
+            }
+            SetUISelection(lastUISelection);
+        }
+
+        private void SetUISelection(GameObject selection) {
+            if(EventSystem.current == null) return;
+            EventSystem.current.SetSelectedGameObject(selection);
+        }
 
         public class Timer {
 

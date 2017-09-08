@@ -31,6 +31,22 @@
 
 
 <div class="container">
+
+    <div class="google-search-bar">
+        <script>
+          (function() {
+            var cx = '007961148920562332911:oocvtwz5jce';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+
   <div class="content">
 	
 	
@@ -52,6 +68,7 @@
               <li><a href="QuickStart.html">Quick Start</a></li>
               <li><a href="BasicUsage.html">Basic Usage</a></li>
               <li><a href="Deployment.html">Deployment</a></li>
+              <li><a href="BestPractices.html">Best Practices</a></li>
               <li><a href="RewiredEditor.html">Rewired Editor</a></li>
               <li><a href="http://guavaman.com/projects/rewired/docs/api-reference" target="_blank">API Reference</a></li>
             </ol>
@@ -70,23 +87,30 @@
             <strong>Extras:</strong>
             <ul>
               <li><a href="ControlMapper.html" title="Control Mapper">Control Mapper</a></li>
+	          <li><a href="TouchControls.html" title="Touch Controls">Touch Controls</a></li>
               <li><a href="RewiredStandaloneInputModule.html">Rewired Standalone Input Module</a></li>
-	          <li><a href="UserDataStore.html" title="User Data Store">User Data Store</a></li>
 	          <li><a href="UnityInputOverride.html" title="Unity Input Override">Unity Input Override</a></li>
             </ul>
-            <strong>How To's</strong>
+            <strong>Misc:</strong>
+            <ul>
+	          <li><a href="ComponentControls.html" title="Component Controls">Component Controls</a></li>
+	          <li><a href="InputMapper.html" title="Input Mapper">Input Mapper</a></li>
+	          <li><a href="UserDataStore.html" title="User Data Store">User Data Store</a></li>
+            </ul>
+            <strong>How To's:</strong>
             <ul>
             	<li><a href="HowTos.html">See all topics...</a></li>
             </ul>
             <strong>Help:</strong>
             <ul>
               <li><a href="SupportedControllers.html" title="Supported Controllers">Supported Controllers</a></li>
+              <li><a href="Overview.html#tested-platforms" title="Tested Platforms">Tested Platforms</a></li>
+              <li><a href="Troubleshooting.html" title="Troubleshooting">Troubleshooting</a></li>
+              <li><a href="KnownIssues.html">Known Issues</a></li>
               <li><a href="SpecialPlatformSupport.html" title="Special Platform Support">Special Platform Support</a></li>
 	          <li><a href="Examples.html" title="Examples">Examples</a></li>
               <li><a href="Integration.html">Integrations</a></li>
 	          <li><a href="Updating.html" title="Updating Rewired">Updating Rewired</a></li>
-	          <li><a href="Troubleshooting.html" title="Troubleshooting">Troubleshooting</a></li>
-              <li><a href="KnownIssues.html">Known Issues</a></li>
             </ul>
             <strong>FAQ</strong>
             <ul>
@@ -109,7 +133,7 @@
     	<div class="main-body">
 	        <div class="logo"><a href="http://guavaman.com/projects/rewired" title="Rewired"><img src="files/images/rewired-logo.png" width="173" height="139" alt="Rewired" /></a></div>
                      
-          <h1>
+            <h1>
             <!-- InstanceBeginEditable name="PageHeader" -->Known Issues
       <!-- InstanceEndEditable -->
             </h1>
@@ -118,6 +142,8 @@
 
     <p><strong>Topics:</strong></p>
     <ul>
+      <li><a href="#unity-2011-dot-net-46-editor-errors">Editor corruption in Unity 2017.1 when using .NET 4.6 experimental backend</a></li>
+      <li><a href="#oculus-touch-editor-crash">Editor crash in Unity 5.6+ with Oculus Touch</a></li>
       <li><a href="#running-in-a-sandbox">Running in a Sandbox</a></li>
       <li><a href="#windows-app-store-u5">Windows App Store support not working in Unity 5.0.0, fixed in 5.0.1</a></li>
       <li><a href="#android-remotes">Android remotes are not detected (Nexus Player, Amazon Fire TV, Razer Forge TV, etc.)</a></li>
@@ -128,11 +154,11 @@
       <li><a href="#sdl2-osx-editor-haptic-feedback-not-supported">SDL2: OSX - Editor does not support haptic feedback</a></li>
       <li><a href="#sdl2-osx-xbox-360-controller-no-vibration">SDL2: OSX - Xbox 360 Controller does not support vibration</a></li>
       <li><a href="#sdl2-windows-xbox-360-vibration-motors">SDL2: Windows - XBox 360 Controller does not allow independent control of vibration motors</a></li>
-      <li><a href="#steam-streaming-windows">Steam Streaming / Steam Link: Windows Standalone</a></li>
       <li><a href="#apple-tv-gyro">Apple TV Siri Remote gyroscope does not work</a></li>
       <li><a href="#xinput-device-name">Windows Platforms: XInput devices on Windows appear as &quot;XInput Gamepad&quot;</a></li>
       <li><a href="#windows-xinput-devices-use-x360-map">Windows Platforms: All XInput devices use the Xbox 360 Controller map when &quot;Use XInput&quot; is enabled</a></li>
       <li><a href="#more-than-4-xbox-controllers">More than 4 XBox controllers cannot be used at the same time</a></li>
+      <li><a href="#win-10-insider-preview-xinput-crash">Windows Standalone (Use XInput enabled, Windows 10 Insider Preview): Game crashes when using or plugging in an XInput-compatible controller.</a></li>
       <li><a href="#windows-10-fallback-xbox-one-mapping-issues">Windows Standalone (Unity Fallback, Windows 10): Xbox One Controller L/R and D-Pad mapping problems</a></li>
       <li><a href="#windows-10-xbox-one-crash">Windows Standalone (Raw Input, Windows 10): XBox One controller causes system crash when removed when using Raw Input on Windows 10</a></li>
       <li><a href="#direct-input-windows-10-multiple-xbox-one-controllers-hang">Windows Standalone (Direct Input, Windows 10): Using two or more XBox One controllers  will cause Unity to hang when using Direct Input on Windows 10</a></li>
@@ -140,13 +166,31 @@
       <li><a href="#windows-xbox-one-controller-game-center-popup-bug">Windows Standalone (Windows 10): Game Center popup keeps appearing when pressing keyboard keys</a></li>
       <li><a href="#windows-fallback-xbox-one-controller-mapping">Windows Standalone (Unity Fallback, Windows 10): XBox One controller has incorrect mapping</a></li>
       <li><a href="#windows-nvidia-shield-controller-problems">Windows Standalone: Nvidia Shield Controller problems on Raw Input and Direct Input</a></li>
+      <li><a href="#uwp-gamepads-appear-twice">Windows 10 Universal: Certain gamepads appear twice  when HID device support is enabled</a> </li>
       <li><a href="#uwp-il2cpp-controller-disconnect-crash">Windows 10 Universal IL2CPP: Crash when disconnecting controllers</a></li>
+      <li><a href="#uwp-net-550-reference-rewriter-error">Windows 10 Universal .NET: UnityException: Failed to run reference rewriter error on Unity 5.5.0, 5.5.1</a></li>
       <li><a href="#windows-ri-hid-error">Windows Editor: &lt;RI.Hid&gt; Failed to create device file: 2 The system cannot find the file specified.</a></li>
+      <li><a href="#stuck-button-right-click-window-title-bar">Keyboard and mouse keys get stuck on when holding a key, right-clicking on the window's title bar, and then releasing the key</a></li>
+      <li><a href="#android-unity-joystick-bugs-v5_5">Android: Joysticks do not sent connect/disconnect events, multiple joysticks appear when the same joystick is unplugged and re-plugged</a></li>
       <li><a href="#ouya-sdk-unity-input-joysticks-do-not-work">Ouya SDK:  Unity input  joysticks do not work when the Ouya SDK is installed</a></li>
-      <li><a href="ouya-sdk-4-controller-limit">Ouya SDK: Cannot use more than 4 controllers</a></li>
+      <li><a href="#ouya-sdk-4-controller-limit">Ouya SDK: Cannot use more than 4 controllers</a></li>
       <li><a href="#serialized-data-corruption-after-import">Serialized data corruption after importing Rewired</a></li>
       <li><a href="#serialized-data-corruption-after-upgrading-unity">Serialized data corruption after upgrading Unity</a></li>
     </ul>
+    <hr />
+    <h3><a name="unity-2011-dot-net-46-editor-errors" id="unity-2011-dot-net-46-editor-errors"></a>Editor corruption in Unity 2017.1 when using .NET 4.6 experimental backend</h3>
+    <p>The .NET 4.6 experimental backend contains a major bug that affects Rewired's ability to run in the editor. The 2nd time you press Play in the editor, it will throw thousands of exceptions and cause the editor to become corrupt until quit and restart. This bug has been reported to Unity and they have acknowledged it. Until this bug is fixed, Rewired is not compatible with the .NET 4.6 experimental backend. See the following forum posts for more details about the issue.</p>
+    <ul>
+      <li><a href="https://forum.unity3d.com/threads/rewired-advanced-input-for-unity.270693/page-66#post-3116639" title="https://forum.unity3d.com/threads/rewired-advanced-input-for-unity.270693/page-66#post-3116639" target="_blank">https://forum.unity3d.com/threads/rewired-advanced-input-for-unity.270693/page-66#post-3116639</a></li>
+      <li><a href="https://forum.unity3d.com/threads/rewired-advanced-input-for-unity.270693/page-66#post-3116993" title="https://forum.unity3d.com/threads/rewired-advanced-input-for-unity.270693/page-66#post-3116993" target="_blank">https://forum.unity3d.com/threads/rewired-advanced-input-for-unity.270693/page-66#post-3116993</a></li>
+      </ul>
+    <p>The only workaround is to disable native input by setting the input source for the editor platform to Unity in the Rewired Input Manager -&gt; Settings page. By doing this, you will lose access to all the special features and benefits native input provides.</p>
+<p>&nbsp;</p>
+<hr />
+    <h3><a name="oculus-touch-editor-crash" id="oculus-touch-editor-crash"></a>Editor crash in Unity 5.6+ with Oculus Touch</h3>
+    <p>There have been multiple reports of  crashes in Unity 5.6+ on Windows when using Unity input as the input source with Oculus Touch controllers attached. This crash is not due to Rewired but is a Unity issue. It can be reproduced without Rewired involved by calling GetAxis and GetButton on the Oculus Touch controllers through UnityEngine.Input. It seems to occur most frequently immediately when pressing Play in the editor. It may be related to calling UnityEngine.Input on the Oculus Touch devices in Awake or on the first Update frame. It can reportedly be avoided by disabling the Rewired Input Manager in the inspector, then enabling it after Play mode has been entered. The effect this has is to defer making calls to UnityEngine.Input until after the first frame or two of Play mode.</p>
+    <p><br />
+  </p>
     <hr />
     <h3><a name="running-in-a-sandbox" id="running-in-a-sandbox"></a>Running in a Sandbox</h3>
 <p><strong>Windows (tested with Sandboxie):</strong></p>
@@ -299,12 +343,6 @@ public class RewiredCustomController_AndroidRemote : MonoBehaviour {
 <p>Note: This issue only applies if SDL2 is selected as the input source for Windows Standalone builds.</p>
 <p>&nbsp;</p>
 <hr />
-<h3><a name="steam-streaming-windows" id="steam-streaming-windows"></a>Steam Streaming / Steam Link: Windows Standalone</h3>
-<p>Steam Streaming and the Steam Link only work with XInput compatible devices (XBox 360, XBox One, Logitech F310, etc.) and the Steam Controller and only if Use XInput is enabled in the <a href="RewiredEditor.html#Settings">Rewired Editor - Settings page</a>. It is not possible to use Raw Input or Direct Input devices with Steam Streaming. This is not a limitation of Rewired -- it is a limitation of Steam.</p>
-<p>Also, when using XInput devices with XInput enabled, Windows is limited to a maximum of 4 devices. Again, this is a limitation of XInput, not Rewired. <a href="#more-than-4-xbox-controllers">See this for information on supporting more than 4 XInput devices</a>.</p>
-<p>&nbsp;</p>
-
-<hr />
 <h3><a name="apple-tv-gyro" id="apple-tv-gyro"></a>Apple TV Siri Remote gyroscope does not work</h3>
 <p>The Apple TV SDK does not expose the raw gyroscope data and thus it is unavailable. The only data that is avalilable is the gravity vector and user acceleration.</p>
 <p>&nbsp;</p>
@@ -345,6 +383,12 @@ public class RewiredCustomController_AndroidRemote : MonoBehaviour {
   XBox 360 controllers on OSX require <a href="https://github.com/360Controller/360Controller/releases" target="_blank"> this XBox 360 driver</a>. This driver also imposes the 4-device limit just like XInput. It is currently not possible to use more than 4 XInput devices simultaneously on OSX. Again, you can mix and match non-XInput controllers to achieve a total count greater than 4. Because the driver is required for the controller to be detected, there is no way to disable the use of this driver and get around this issue.</p>
 <p>&nbsp;</p>
 <hr />
+<h3><a name="win-10-insider-preview-xinput-crash" id="win-10-insider-preview-xinput-crash"></a>Windows Standalone (Use XInput enabled, Windows 10 Insider Preview): Game crashes when using or plugging in an XInput-compatible controller.</h3>
+<p>There have been reports of crashes when using XInput on one or more versions of Windows 10 Insider Preview. The crash can occur either on the start of the application (if an XInput-compatible device is attached) or when any XInput-compatible device is first attached. This issue is not an issue with Rewired but an issue with Windows 10 Insider Preview. I have been unable to reproduce any issue in Windows 10 Insider Preview.</p>
+<p>The only possible workaround is to disable Use XInput in the Rewired Input Manager -&gt; Settings -&gt; Windows tab.</p>
+<p>Rewired is 100% compliant with Microsoft's published guidelines for using XInput. Rewired works with all versions of XInput from Windows XP - Windows 10 without issue. If you or your customers experience this crash in Windows 10 Insider Preview, please report this error to Microsoft so they can fix it before rolling out the public release.</p>
+<p>&nbsp;</p>
+<hr />
 <h3><a name="windows-10-fallback-xbox-one-mapping-issues" id="windows-10-xbox-one-crash2"></a>Windows Standalone (Unity Fallback, Windows 10): Xbox One Controller L/R and D-Pad mapping problems</h3>
 <p>Due to Microsoft driver issues, on versions of Windows 10 before the Windows 10 Anniversary Update, the L/R triggers and D-Pad on the Xbox One Controller may be mapped incorrectly and non-functional when using Unity Fallback input. Microsoft made Xbox One Controller driver changes in an early version of Windows 10 that caused the controller mappings to change when retrieving values through the HID driver. This change did not affect XInput. Unity uses a combination of direct HID device access and XInput to get input from XInput compatible devices. This caused the standardized mappings in Unity's input system to break, cross-mapping the D-Pad and the triggers. Microsoft acknowledged this as a mistake and finally rolled back this driver change in the Windows 10 Anniversary Update rolled out on August 2, 2016. After this update, the mappings reverted to the normal mappings consistent with Windows 7. Only users using Windows 10 pre-Anniversary update are affected. This does not affect Rewired if using the native input options instead of Unity fallback input.</p>
 <p>&nbsp;</p>
@@ -379,11 +423,29 @@ public class RewiredCustomController_AndroidRemote : MonoBehaviour {
 <p>With newer firmware versions, the Nvidia Shield Controller has major problems on Raw Input and Direct Input  which cause massive slowdowns making the controller essentially unusable. The only way to support the controller on Windows is to enable Use XInput which is not subject to the same issues. The Nvidia Shield Controller can no longer be safely used on Windows Standalone without Use XInput enabled until Nvidia fixes the firmware problems. If the controller is used without Use XInput enabled, the frame rate will drop to an extremely low level. There is no possible workaround to this issue.</p>
 <p>&nbsp;</p>
 <hr />
+<h3><a name="uwp-gamepads-appear-twice" id="uwp-gamepads-appear-twice"></a>Windows 10 Universal: Certain gamepads appear twice when HID device support is enabled</h3>
+<p>Microsoft has apparently started mapping non-Xbox gamepads like the Sony DualShock 4 to make them appear as XInput devices through their UWP Windows.Gaming.Input system. This has the side effect that, if you enable the application to allow the use of HID input devices in the Package.appxmanifest, the DualShock 4 will show up as 2 devices at the same time -- an XInput gamepad and the HID DualShock 4 gamepad. While true XInput gamepads provide a way to identify them as such through the HID system, Microsoft has provided no way to determine that these pseudo-XInput devices (HID devices are being  treated as XInput devices) are being handled by XInput, so there is no way to programatically filter out these duplicate devices. The only workaround is to disable HID device support. You can either do this by removing HID support from the package manifest in the Visual Studio build project or by disabling the <a href="RewiredEditor.html#settings-uwp">&quot;Support HID Devices&quot; option in the Rewired Input Manager -&gt; Settings -&gt; Windows UWP page</a>. This allows you to choose to support the Gamepad (XInput) system and/or the HID system for input devices. This is still not ideal, but it at least gives you the option to disable XInput to allow for wider device support without risking duplicate devices, though disabling XInput will also disable support for controller vibration. There is no perfect solution because Microsoft simply has not provided the ability to get the necessary information to allow devices to be filtered properly.</p>
+<p>&nbsp;</p>
+<hr />
 <h3><a name="uwp-il2cpp-controller-disconnect-crash" id="uwp-il2cpp-controller-disconnect-crash"></a>Windows 10 Universal IL2CPP: Crash when disconnecting controllers</h3>
 <p><strong>Update:</strong> This bug has been fixed as of Unity 5.3.5p1.</p>
 <p>Note: This issue appears to affect builds running in Visual Studio only. It does not appear to affect Master builds that have been deployed.</p>
 <p>As of Unity 5.3.4f1, after enabling support for standard HID joysticks in the Package.appxmanifest, Unity may crash when disconnecting a non-XInput controller. This is a bug in Unity, not Rewired and there is no possible workaround if you want to support any controllers besides XInput controllers. (To disable support for non-XInput controllers, remove the <a href="SpecialPlatformSupport.html#uwp-enabling-hid-joystick-support">tags added to the Package.appxmanifest mentioned here</a>.) This bug has been reported to Unity, but so far no fix has been announced.</p>
 <p>This issue does not affect Windows 10 Universal builds when using the .NET scripting backend.</p>
+<p>&nbsp;</p>
+<hr />
+<h3><a name="uwp-net-550-reference-rewriter-error" id="uwp-net-550-reference-rewriter-error"></a>Windows 10 Universal .NET: UnityException: Failed to run reference rewriter error on Unity 5.5.0, 5.5.1</h3>
+<p>You may receve an error similar to below when building to Windows 10 Universal on .NET on Unity 5.5.0 and 5.5.1:</p>
+<pre class="code">UnityException: Failed to run reference rewriter with command --target="Temp\StagingArea\Rewired_Core.dll" --additionalreferences="Temp\StagingArea","C:\Program Files (x86)\Windows Kits\10\UnionMetadata\Facade","C:\Program Files (x86)\Windows Kits\10\References\Windows.ApplicationModel.Calls.CallsVoipContract\1.0.0.0","C:\Program Files (x86)\Windows 
+
+...
+
+Catastrophic failure while running rrw: Mono.Cecil.AssemblyResolutionException: Failed to resolve assembly: 'Windows.Foundation.UniversalApiContract, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'</pre>
+<p>This error occurs when you have the Windows 10 &quot;Creator's Update&quot; SDK installed (10.0.15063.0) or later, but do not also have older versions of the SDK also installed. This is presumably due Unity not searching the correct location for the SDK libraries in this version of the Windows 10 SDK. The issue was fixed in 5.5.1. There are two possible solutions to this issue. Do one of the following:</p>
+<ol>
+  <li> Install Unity 5.5.2 or later.</li>
+  <li>Install an <a href="https://developer.microsoft.com/en-us/windows/downloads/sdk-archive" target="_blank">older version of the Windows 10 SDK</a> also.</li>
+</ol>
 <p>&nbsp;</p>
 <hr />
 <h3><a name="windows-ri-hid-error" id="windows-ri-hid-error"></a>Windows Editor: &lt;RI.Hid&gt; Failed to create device file: 2 The system cannot find the file specified.</h3>
@@ -392,6 +454,16 @@ public class RewiredCustomController_AndroidRemote : MonoBehaviour {
   <li>&lt;RI.Hid&gt; Failed to create device file: 2 The system cannot find the file specified.</li>
 </ul>
 <p>This error is logged by Unity itself and is not created by Rewired, nor is it related to Rewired in any way. It cannot be silenced or fixed. <a href="http://forum.unity3d.com/threads/ri-hid-failed-to-create-device-file.202934/" target="_blank">There is a forum thread detailing the issue here</a>.</p>
+<p>&nbsp;</p>
+<hr />
+<h3><a name="stuck-button-right-click-window-title-bar" id="stuck-button-right-click-window-title-bar"></a>Keyboard and mouse keys get stuck on when holding a key, right-clicking on the window's title bar, and then releasing the key</h3>
+<p>This  bug affects the Unity Editor and builds running in windowed mode on Windows, OSX, and (possibly) Linux.</p>
+<p>This is due to a bug in UnityEngine.Input which is used as the source of all keyboard input in Rewired at the present time. Mouse buttons will also get stuck on in this same scenario of UnityEngine.Input is being used as the mouse input source (OSX, Linux, or if Native Mouse Handling is disabled on Windows.)</p>
+<p>Unfortunately, there is no workaround possible for this issue at this time. The bug has been reported to Unity.</p>
+<p>&nbsp;</p>
+<hr />
+<h3><a name="android-unity-joystick-bugs-v5_5" id="android-unity-joystick-bugs-v5_5"></a>Android: Joysticks do not sent connect/disconnect events, multiple joysticks appear when the same joystick is unplugged and re-plugged</h3>
+<p>Unity introduced new bugs in Unity 5.5.0 that cause joysticks to not disappear on disconnect and create new additional joysticks every re-connect. This bug was fixed in 5.5.2p2 and 5.6.0b6. Upgrade to any Unity version after those and the issue will not be present.</p>
 <p>&nbsp;</p>
 <hr />
 <h3><a name="ouya-sdk-unity-input-joysticks-do-not-work" id="ouya-4-controller-limit2"></a>Ouya SDK: Unity input joysticks do not work when the Ouya SDK is installed</h3>

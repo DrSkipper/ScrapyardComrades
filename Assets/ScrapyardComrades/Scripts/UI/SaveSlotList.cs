@@ -16,7 +16,7 @@ public class SaveSlotList : MonoBehaviour, IPausable
 
     void Start()
     {
-        MapEditorInput.RewiredPlayer.controllers.maps.SetMapsEnabled(true, "Menu");
+        MenuInput.RewiredPlayer.controllers.maps.SetMapsEnabled(true, "Menu");
         this.EraseConfirmationPanel.ActionCallback += onEraseCallback;
         loadSaveSlotData();
         _current = 0;
@@ -25,7 +25,7 @@ public class SaveSlotList : MonoBehaviour, IPausable
 
     void Update()
     {
-        if (MapEditorInput.Confirm)
+        if (MenuInput.Confirm)
         {
             bool loaded = false;
             if (_current < _slotSummaries.Length)
@@ -55,21 +55,21 @@ public class SaveSlotList : MonoBehaviour, IPausable
                     ScenePersistentLoading.BeginLoading(SaveData.LastSaveRoom);
                 }
 
-                MapEditorInput.RewiredPlayer.controllers.maps.SetMapsEnabled(false, "Menu");
+                MenuInput.RewiredPlayer.controllers.maps.SetMapsEnabled(false, "Menu");
                 SceneManager.LoadScene(this.GameplayScene, LoadSceneMode.Single);
             }
         }
         else
         {
-            bool up = MapEditorInput.NavUp || MapEditorInput.ResizeUp;
-            bool down = MapEditorInput.NavDown || MapEditorInput.ResizeDown;
+            bool up = MenuInput.NavUp || MenuInput.ResizeUp;
+            bool down = MenuInput.NavDown || MenuInput.ResizeDown;
 
             if (up || down)
             {
                 _current = Mathf.Clamp(_current + (up ? -1 : 1), 0, _entries.Count - 1);
                 selectCurrent();
             }
-            else if (_current < _slotSummaries.Length && MapEditorInput.Exit)
+            else if (_current < _slotSummaries.Length && MenuInput.Exit)
             {
                 PauseController.UserPause();
             }

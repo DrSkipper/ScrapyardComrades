@@ -27,7 +27,7 @@ public class NewLevelPanel : VoBehavior
 
     void Update()
     {
-        if (MapEditorInput.Start && !_nameEntryEnabled)
+        if (MenuInput.Start && !_nameEntryEnabled)
         {
             string levelName = this.LevelNameField.text;
             string platforms = this.TilesetCollection.Tilesets[_selectedPlatforms].name;
@@ -37,7 +37,7 @@ public class NewLevelPanel : VoBehavior
             this.CompletionCallback(levelName, platforms, background);
             this.gameObject.SetActive(false);
         }
-        else if (MapEditorInput.Confirm && _selection == NAME_ENTRY)
+        else if (MenuInput.Confirm && _selection == NAME_ENTRY)
         {
             if (_nameEntryEnabled)
             {
@@ -52,10 +52,10 @@ public class NewLevelPanel : VoBehavior
                 this.LevelNameField.ActivateInputField();
             }
         }
-        else if (!_nameEntryEnabled && (MapEditorInput.NavDown || MapEditorInput.NavUp))
+        else if (!_nameEntryEnabled && (MenuInput.NavDown || MenuInput.NavUp))
         {
             
-            if (MapEditorInput.NavDown)
+            if (MenuInput.NavDown)
             {
                 ++_selection;
                 if (_selection > BACKGROUND)
@@ -82,7 +82,7 @@ public class NewLevelPanel : VoBehavior
                     break;
             }
         }
-        else if (MapEditorInput.NavLeft)
+        else if (MenuInput.NavLeft)
         {
             if (_selection == PLATFORMS)
             {
@@ -97,7 +97,7 @@ public class NewLevelPanel : VoBehavior
                 this.BackgroundPanel.CycleLeft();
             }
         }
-        else if (MapEditorInput.NavRight)
+        else if (MenuInput.NavRight)
         {
             if (_selection == PLATFORMS)
             {

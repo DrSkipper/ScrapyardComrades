@@ -45,7 +45,7 @@ MonoBehaviour:
       productName:
       - 3DRudder
       productGUID:
-      - f23f04d8-0000-0000-0000-504944564944
+      - f23f04d8
       productId: 3ff20000
       deviceType: 24
     elements:
@@ -124,7 +124,7 @@ MonoBehaviour:
       productName:
       - 3DRudder
       productGUID:
-      - f23f04d8-0000-0000-0000-504944564944
+      - f23f04d8
       productId: 3ff20000
       deviceType: 21
     elements:
@@ -311,7 +311,7 @@ MonoBehaviour:
       - 3DRudder
       systemName: []
       productGUID:
-      - f23f04d8-0000-0000-0000-504944564944
+      - f23f04d8
     elements:
       compoundElements: []
       axes:
@@ -390,7 +390,7 @@ MonoBehaviour:
       productName:
       - 3DRudder
       productGUID:
-      - f23f04d8-0000-0000-0000-504944564944
+      - f23f04d8
     elements:
       compoundElements: []
       axes:

@@ -31,6 +31,22 @@
 
 
 <div class="container">
+
+    <div class="google-search-bar">
+        <script>
+          (function() {
+            var cx = '007961148920562332911:oocvtwz5jce';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+
   <div class="content">
 	
 	
@@ -52,6 +68,7 @@
               <li><a href="QuickStart.html">Quick Start</a></li>
               <li><a href="BasicUsage.html">Basic Usage</a></li>
               <li><a href="Deployment.html">Deployment</a></li>
+              <li><a href="BestPractices.html">Best Practices</a></li>
               <li><a href="RewiredEditor.html">Rewired Editor</a></li>
               <li><a href="http://guavaman.com/projects/rewired/docs/api-reference" target="_blank">API Reference</a></li>
             </ol>
@@ -70,23 +87,30 @@
             <strong>Extras:</strong>
             <ul>
               <li><a href="ControlMapper.html" title="Control Mapper">Control Mapper</a></li>
+	          <li><a href="TouchControls.html" title="Touch Controls">Touch Controls</a></li>
               <li><a href="RewiredStandaloneInputModule.html">Rewired Standalone Input Module</a></li>
-	          <li><a href="UserDataStore.html" title="User Data Store">User Data Store</a></li>
 	          <li><a href="UnityInputOverride.html" title="Unity Input Override">Unity Input Override</a></li>
             </ul>
-            <strong>How To's</strong>
+            <strong>Misc:</strong>
+            <ul>
+	          <li><a href="ComponentControls.html" title="Component Controls">Component Controls</a></li>
+	          <li><a href="InputMapper.html" title="Input Mapper">Input Mapper</a></li>
+	          <li><a href="UserDataStore.html" title="User Data Store">User Data Store</a></li>
+            </ul>
+            <strong>How To's:</strong>
             <ul>
             	<li><a href="HowTos.html">See all topics...</a></li>
             </ul>
             <strong>Help:</strong>
             <ul>
               <li><a href="SupportedControllers.html" title="Supported Controllers">Supported Controllers</a></li>
+              <li><a href="Overview.html#tested-platforms" title="Tested Platforms">Tested Platforms</a></li>
+              <li><a href="Troubleshooting.html" title="Troubleshooting">Troubleshooting</a></li>
+              <li><a href="KnownIssues.html">Known Issues</a></li>
               <li><a href="SpecialPlatformSupport.html" title="Special Platform Support">Special Platform Support</a></li>
 	          <li><a href="Examples.html" title="Examples">Examples</a></li>
               <li><a href="Integration.html">Integrations</a></li>
 	          <li><a href="Updating.html" title="Updating Rewired">Updating Rewired</a></li>
-	          <li><a href="Troubleshooting.html" title="Troubleshooting">Troubleshooting</a></li>
-              <li><a href="KnownIssues.html">Known Issues</a></li>
             </ul>
             <strong>FAQ</strong>
             <ul>
@@ -128,7 +152,7 @@
       <li>Disable the StandaloneInputModule component on the EventSystem object.</li>
       <li>Add the RewiredStandaloneInputModule component to the EventSystem object.</li>
       <li>Customize the settings on the RewiredStandaloneInputModule if desired.</li>
-      <li>Open the <a href="RewiredEditor.html">Rewired Editor</a> and create an Action for each of the controls listed in the RewiredStandaloneInputModule. By default, these are &quot;Horizontal&quot;, &quot;Vertical&quot;, &quot;Submit&quot;, and &quot;Cancel.&quot; The names you create in the Rewired Editor must match exactly those in the RewiredStandaloneInputModule's inspector. If you'd like to change the names of these Actions, you may do so, but they must match between the Rewired Editor and the RewiredStandaloneInputModule.</li>
+      <li>Open the <a href="RewiredEditor.html">Rewired Editor</a> and create an Action for each of the controls listed in the RewiredStandaloneInputModule. By default, these are &quot;UIHorizontal&quot;, &quot;UIVertical&quot;, &quot;UISubmit&quot;, and &quot;UICancel.&quot; The names you create in the Rewired Editor must match exactly those in the RewiredStandaloneInputModule's inspector. If you'd like to change the names of these Actions, you may do so, but they must match between the Rewired Editor and the RewiredStandaloneInputModule.</li>
       <li>Create one or more Joystick, Keyboard, or CustomController maps with the Actions you created above assigned to elements.</li>
       <li>Assign the controller maps map(s) to one or more Player.</li>
       <li>Adjust the settings in the RewiredStandaloneInputModule to change which Player(s) input is drawn from and other options.</li>
@@ -184,7 +208,7 @@
     <p><strong>Problem: Receiving duplicate mouse clicks when clicking on a UI button</strong></p>
     <p>Do not assign UI Submit or Cancel Actions to Mouse Left Button or Mouse Right Button or you will receive double-clicks evey time the mouse button is pressed over a button. The mouse button click on a UI element is based on mouse cursor position and does not use the Action system.</p>
 <p></p>
-    <p><strong>Problem: Unity UI navigation with joystick or keyboard doesn't work</strong></p>
+    <p><strong><a name="troubleshooting-joystick-keyboard-doesnt-work" id="troubleshooting-joystick-keyboard-doesnt-work"></a>Problem: Unity UI navigation with joystick or keyboard doesn't work</strong></p>
     <p>While this is a general Unity UI usage issue and not a Rewired issue in any way,  because I've received so many support requests where this ends up being the answer, I've decided to post it here.</p>
     <ul>
       <li><em>Unity UI cannot be controlled by keyboard or joystick unless you specify a current or starting Selectable GameObject in the Unity UI EventSystem.</em></li>
@@ -206,6 +230,22 @@ void SetSelected(GameObject selectableObject) {
     <p>If the Unity StandaloneInputModule doesn't do it, neither does the RewiredStandaloneInputModule.</p>
     <p>The RewiredStandaloneInputModule is just a modified version of Unity's open-source StandaloneInputModule. The only changes to it are to make it work with Rewired as the input source. No enhancements have been made to this module.</p>
     <p>Please refer to the <a href="http://docs.unity3d.com/Manual/script-StandaloneInputModule.html">Unity documentation on the StandaloneInputModule</a> for usage.</p>
+    <p class="question">Does it support multi-player UIs?</p>
+    <p>No. Rewired isn't a UI system. It includes the 
+      Rewired Standalone Input Module   to interface with Unity's UI system so you 
+      can control it using Rewired as   the input source. While it includes a few 
+      little tweaks to give you a bit   more control over the UI than the Standalone 
+      Input Module, it is largely a   straight port of Unity's Standalone Input 
+      Module.</p>
+    <p>The issue here is Unity's   UI and Event System do not support more 
+      than one simultaneous &quot;selected&quot;   component. Their entire system is designed 
+      around the concept of one single   user and one selection. To create something 
+      that supports multiple   simultaneous selectables would require a complete 
+      rewrite of Unity's UI   components and event system. This is beyond the 
+      scope of Rewired. Other   users have done it in a simpler way by having 
+      players control individual   cursors, but it still requires implementing 
+      their own UI controls to   handle hover, highlight, etc.<br />
+    </p>
 <div class="bottom-pager clearfix">
   <a class="back-button" href="Actions.html" title="Actions"><span class="button-img"></span></a><a class="back-button" href="Documentation.html" title="Actions">Documentation</a></div>
 <!-- InstanceEndEditable -->

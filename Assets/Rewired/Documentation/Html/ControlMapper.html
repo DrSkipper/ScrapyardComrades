@@ -31,6 +31,22 @@
 
 
 <div class="container">
+
+    <div class="google-search-bar">
+        <script>
+          (function() {
+            var cx = '007961148920562332911:oocvtwz5jce';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+
   <div class="content">
 	
 	
@@ -52,6 +68,7 @@
               <li><a href="QuickStart.html">Quick Start</a></li>
               <li><a href="BasicUsage.html">Basic Usage</a></li>
               <li><a href="Deployment.html">Deployment</a></li>
+              <li><a href="BestPractices.html">Best Practices</a></li>
               <li><a href="RewiredEditor.html">Rewired Editor</a></li>
               <li><a href="http://guavaman.com/projects/rewired/docs/api-reference" target="_blank">API Reference</a></li>
             </ol>
@@ -70,23 +87,30 @@
             <strong>Extras:</strong>
             <ul>
               <li><a href="ControlMapper.html" title="Control Mapper">Control Mapper</a></li>
+	          <li><a href="TouchControls.html" title="Touch Controls">Touch Controls</a></li>
               <li><a href="RewiredStandaloneInputModule.html">Rewired Standalone Input Module</a></li>
-	          <li><a href="UserDataStore.html" title="User Data Store">User Data Store</a></li>
 	          <li><a href="UnityInputOverride.html" title="Unity Input Override">Unity Input Override</a></li>
             </ul>
-            <strong>How To's</strong>
+            <strong>Misc:</strong>
+            <ul>
+	          <li><a href="ComponentControls.html" title="Component Controls">Component Controls</a></li>
+	          <li><a href="InputMapper.html" title="Input Mapper">Input Mapper</a></li>
+	          <li><a href="UserDataStore.html" title="User Data Store">User Data Store</a></li>
+            </ul>
+            <strong>How To's:</strong>
             <ul>
             	<li><a href="HowTos.html">See all topics...</a></li>
             </ul>
             <strong>Help:</strong>
             <ul>
               <li><a href="SupportedControllers.html" title="Supported Controllers">Supported Controllers</a></li>
+              <li><a href="Overview.html#tested-platforms" title="Tested Platforms">Tested Platforms</a></li>
+              <li><a href="Troubleshooting.html" title="Troubleshooting">Troubleshooting</a></li>
+              <li><a href="KnownIssues.html">Known Issues</a></li>
               <li><a href="SpecialPlatformSupport.html" title="Special Platform Support">Special Platform Support</a></li>
 	          <li><a href="Examples.html" title="Examples">Examples</a></li>
               <li><a href="Integration.html">Integrations</a></li>
 	          <li><a href="Updating.html" title="Updating Rewired">Updating Rewired</a></li>
-	          <li><a href="Troubleshooting.html" title="Troubleshooting">Troubleshooting</a></li>
-              <li><a href="KnownIssues.html">Known Issues</a></li>
             </ul>
             <strong>FAQ</strong>
             <ul>
@@ -109,7 +133,7 @@
     	<div class="main-body">
 	        <div class="logo"><a href="http://guavaman.com/projects/rewired" title="Rewired"><img src="files/images/rewired-logo.png" width="173" height="139" alt="Rewired" /></a></div>
                      
-          <h1>
+            <h1>
             <!-- InstanceBeginEditable name="PageHeader" -->Control Mapper
       <!-- InstanceEndEditable -->
             </h1>
@@ -231,9 +255,12 @@
     </ul>
     <p>If you are using multiple different Rewired Input Managers in different scenes, they all must have a UserDataStore_PlayerPrefs component and the &quot;Player Prefs Key Prefix&quot; must match in order for the same save data to be loaded by each Rewired Input Manager.</p>
     <p>If you don't want to use PlayerPrefs, you can create your own data storage system using UserDataStore. See <a href="UserDataStore.html">User Data Store</a> for more information.</p>
-<h3 style="background-color:#FF6"><a name="clear-xml-data" id="clear-xml-data"></a>***IMPORTANT***:</h3>
-    <p> When doing testing, if you open and close the Control Mapper screen or unplug a joystick while the Control Mapper screen is open, you are causing it to save XML data in the registry even if you didn't change any mappings or settings. The next time you start the game (provided the Rewired Input Manager with the UserDataStore_PlayerPrefs component is present in the scene), it will load that saved XML data from the registry, NOT the default settings stored in the Rewired Input Manager. While doing testing, you will most likely want to clear this saved data so the default settings in the Rewired Input Manager are loaded instead of the saved data. This can be done by clearing Player Prefs by opening the &quot;Debug Options&quot; foldout on the Rewired Input Manager inspector.</p>
-    <p>If you are confused by your input configuration not matching what you defined in the Rewired Input Manager, or you are seeing different behaviors in the Unity Editor versus a game build, you most likely are loading XML data that you are unaware that you saved. Clear Player Prefs and everything will reset to the defaults.</p>
+    <p><strong>IMPORTANT: Saved XML data is not updated when you make changes to the Rewired Input Manager</strong></p>
+    <p>Control Mapper does not manage changes between the Rewired Input Manager and data that is already saved to XML. If you make changes to the Rewired Input Manager settings such as adding new controls to a Joystick Map, these new changes will not be preserved when loading saved XML data. The only automated solutions would be to either clear the save data by clearing Player Prefs so that the Rewired Input Manager defaults are used instead or load the default maps in the Player for the any controllers that changed and save those to XML overwriting the existing saved mappings.</p>
+    <p>Management of saved user data is up to the developer. If you have special needs beyond the basic use cases, you should extend and replace the <a href="UserDataStore.html#playerprefs">UserDataStore_PlayerPrefs</a> component with a new UserDataStore component that meets your specific needs.</p>
+    <h3 style="background-color:#FF6"><a name="clear-xml-data" id="clear-xml-data"></a>***IMPORTANT***:</h3>
+    <p>When doing testing, if you open and close the Control Mapper screen or unplug a joystick while the Control Mapper screen is open, you are causing it to save XML data in the registry even if you didn't change any mappings or settings. The next time you start the game (provided the Rewired Input Manager with the UserDataStore_PlayerPrefs component is present in the scene), it will load that saved XML data from the registry, NOT the default settings stored in the Rewired Input Manager. While doing testing, you will most likely want to clear this saved data so the default settings in the Rewired Input Manager are loaded instead of the saved data. This can be done by clearing Player Prefs by opening the &quot;Debug Options&quot; foldout on the Rewired Input Manager inspector.</p>
+<p>If you are confused by your input configuration not matching what you defined in the Rewired Input Manager, or you are seeing different behaviors in the Unity Editor versus a game build, you most likely are loading XML data that you are unaware that you saved. Clear Player Prefs and everything will reset to the defaults.</p>
     <p>&nbsp;</p>
 <hr />
     <h2><a name="conflict-checking" id="conflict-checking"></a>Conflict Checking</h2>
@@ -325,7 +352,12 @@ Even if your game doesn't use analog input, your players may still use physical 
     <p>&nbsp;</p>
     <p><strong>Rewired Input Manager</strong></p>
     <p><img src="files/images/controlmapper_inspector_rewired-input-manager.png" width="676" height="47" /></p>
-    <p>You must link a Rewired Input Manager to this field in the inspector. All input data will be read from the Rewired Input Manager linked here.</p>
+    <p>You must link a Rewired Input Manager to this field in the inspector. All input data will be read from the Rewired Input Manager linked here.    </p>
+    <p>&nbsp;</p>
+    <hr />
+    <p><strong>Don't Destroy On Load</strong></p>
+    <p>Set to True to prevent the Game Object from being destroyed when a new scene is loaded.</p>
+    <p>NOTE: Changing this value from True to False at runtime will have no effect because Object.DontDestroyOnLoad cannot be undone once set.</p>
     <p>&nbsp;</p>
     <hr />
     <p><strong>Screen Options</strong></p>

@@ -31,6 +31,22 @@
 
 
 <div class="container">
+
+    <div class="google-search-bar">
+        <script>
+          (function() {
+            var cx = '007961148920562332911:oocvtwz5jce';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+
   <div class="content">
 	
 	
@@ -52,6 +68,7 @@
               <li><a href="QuickStart.html">Quick Start</a></li>
               <li><a href="BasicUsage.html">Basic Usage</a></li>
               <li><a href="Deployment.html">Deployment</a></li>
+              <li><a href="BestPractices.html">Best Practices</a></li>
               <li><a href="RewiredEditor.html">Rewired Editor</a></li>
               <li><a href="http://guavaman.com/projects/rewired/docs/api-reference" target="_blank">API Reference</a></li>
             </ol>
@@ -70,23 +87,30 @@
             <strong>Extras:</strong>
             <ul>
               <li><a href="ControlMapper.html" title="Control Mapper">Control Mapper</a></li>
+	          <li><a href="TouchControls.html" title="Touch Controls">Touch Controls</a></li>
               <li><a href="RewiredStandaloneInputModule.html">Rewired Standalone Input Module</a></li>
-	          <li><a href="UserDataStore.html" title="User Data Store">User Data Store</a></li>
 	          <li><a href="UnityInputOverride.html" title="Unity Input Override">Unity Input Override</a></li>
             </ul>
-            <strong>How To's</strong>
+            <strong>Misc:</strong>
+            <ul>
+	          <li><a href="ComponentControls.html" title="Component Controls">Component Controls</a></li>
+	          <li><a href="InputMapper.html" title="Input Mapper">Input Mapper</a></li>
+	          <li><a href="UserDataStore.html" title="User Data Store">User Data Store</a></li>
+            </ul>
+            <strong>How To's:</strong>
             <ul>
             	<li><a href="HowTos.html">See all topics...</a></li>
             </ul>
             <strong>Help:</strong>
             <ul>
               <li><a href="SupportedControllers.html" title="Supported Controllers">Supported Controllers</a></li>
+              <li><a href="Overview.html#tested-platforms" title="Tested Platforms">Tested Platforms</a></li>
+              <li><a href="Troubleshooting.html" title="Troubleshooting">Troubleshooting</a></li>
+              <li><a href="KnownIssues.html">Known Issues</a></li>
               <li><a href="SpecialPlatformSupport.html" title="Special Platform Support">Special Platform Support</a></li>
 	          <li><a href="Examples.html" title="Examples">Examples</a></li>
               <li><a href="Integration.html">Integrations</a></li>
 	          <li><a href="Updating.html" title="Updating Rewired">Updating Rewired</a></li>
-	          <li><a href="Troubleshooting.html" title="Troubleshooting">Troubleshooting</a></li>
-              <li><a href="KnownIssues.html">Known Issues</a></li>
             </ul>
             <strong>FAQ</strong>
             <ul>
@@ -123,8 +147,7 @@
       XInput_1_3.dll<br />
       XInput_1_2.dll<br />
       XInput_1_1.dll<br />
-      XInput_9_1_0.dll</p>
-    <p>The preferred version is XInput_1_3.dll, which is included in the DirectX Runtimes above.</p>
+      XInput_9_1_0.dll    </p>
     <p>Windows Vista, Windows 7, Windows 8, and Windows 10 all come with a version of XInput pre-installed.</p>
     <p><strong>SDL2</strong></p>
     <p>If you are using SDL2 as the input source (optional) on any platforms, you must include the appropriate SDL2 libraries in your build package, unless you know the target operating system already provides this library (eg: SteamOS). The library you include and the location in your package in which to place it depends on the target platform and architecture. Failure to include the SDL2 libraries will result in an error being logged and input falling back to Unity input as the source.</p>
@@ -140,7 +163,7 @@
     <p>NOTE: Unity 4.x free does not officially allow you to include native libraries while Unity 5+ does. There are workarounds available for Unity 4.x that involve placing the library in the root folder of your editor project and manually copying the library to your final game build. The exact procedure depends on your target platform. There are resources available by searching the Unity forums. Or <a href="http://guavaman.com/rewired#support">contact support</a> for more information.</p>
     <div class="bottom-pager clearfix">
       <a class="back-button" href="BasicUsage.html" title="Basic Usage"><span class="button-img"></span>Basic Usage</a>
-      <a class="forward-button" href="RewiredEditor.html" title="Rewired Editor"><span class="button-img"></span>Rewired Editor</a>
+      <a class="forward-button" href="BestPractices.html" title="Best Practices"><span class="button-img"></span>Best Practices</a>
 </div>
 
 <!-- InstanceEndEditable -->

@@ -1,4 +1,52 @@
-﻿// Copyright (c) 2015 Augie R. Maddox, Guavaman Enterprises. All rights reserved.
+﻿#if UNITY_6 || UNITY_7 || UNITY_8 || UNITY_9 || UNITY_10 || UNITY_2017 || UNITY_2018 || UNITY_2019 || UNITY_2020
+#define UNITY_6_PLUS
+#endif
+
+#if UNITY_5 || UNITY_6_PLUS
+#define UNITY_5_PLUS
+#endif
+
+#if UNITY_5_1 || UNITY_5_2 || UNITY_5_3_OR_NEWER || UNITY_6_PLUS
+#define UNITY_5_1_PLUS
+#endif
+
+#if UNITY_5_2 || UNITY_5_3_OR_NEWER || UNITY_6_PLUS
+#define UNITY_5_2_PLUS
+#endif
+
+#if UNITY_5_3_OR_NEWER || UNITY_6_PLUS
+#define UNITY_5_3_PLUS
+#endif
+
+#if UNITY_5_4_OR_NEWER || UNITY_6_PLUS
+#define UNITY_5_4_PLUS
+#endif
+
+#if UNITY_5_5_OR_NEWER || UNITY_6_PLUS
+#define UNITY_5_5_PLUS
+#endif
+
+#if UNITY_5_6_OR_NEWER || UNITY_6_PLUS
+#define UNITY_5_6_PLUS
+#endif
+
+#if UNITY_5_7_OR_NEWER || UNITY_6_PLUS
+#define UNITY_5_7_PLUS
+#endif
+
+#if UNITY_5_8_OR_NEWER || UNITY_6_PLUS
+#define UNITY_5_8_PLUS
+#endif
+
+#if UNITY_5_9_OR_NEWER || UNITY_6_PLUS
+#define UNITY_5_9_PLUS
+#endif
+
+#if UNITY_4_6 || UNITY_4_7 || UNITY_5_PLUS
+#define SUPPORTS_UNITY_UI
+#endif
+
+// Copyright (c) 2015 Augie R. Maddox, Guavaman Enterprises. All rights reserved.
 #pragma warning disable 0219
 #pragma warning disable 0618
 #pragma warning disable 0649
@@ -8,14 +56,23 @@ namespace Rewired.Utils {
 
     using UnityEngine;
     using System.Collections;
+    using System.Collections.Generic;
     using Rewired.Utils.Interfaces;
 
     /// <exclude></exclude>
     [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
     public class ExternalTools : IExternalTools {
 
+        public object GetPlatformInitializer() {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            return Rewired.Utils.Platforms.WebGL.Main.GetPlatformInitializer();
+#else
+            return null;
+#endif
+        }
+
         // Linux Tools
-#if UNITY_5 && UNITY_STANDALONE_LINUX
+#if UNITY_5_PLUS && UNITY_STANDALONE_LINUX
         public bool LinuxInput_IsJoystickPreconfigured(string name) {
             return UnityEngine.Input.IsJoystickPreconfigured(name);
         }
@@ -284,5 +341,78 @@ namespace Rewired.Utils {
 
         public System.IntPtr PS4Input_MoveGetControllerInputForTracking() { return System.IntPtr.Zero; }
 #endif
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+
+        const int SDK_VERSION_HONEYCOMB = 9;
+        const int SDK_VERSION_KITKAT = 19;
+
+        public void GetDeviceVIDPIDs(out List<int> vids, out List<int> pids) {
+
+            vids = new List<int>();
+            pids = new List<int>();
+
+            try {
+                // Get the Android SDK version
+                int androidSDKVersion = SDK_VERSION_HONEYCOMB;
+                using(var version = new AndroidJavaClass("android.os.Build$VERSION")) {
+                    androidSDKVersion = version.GetStatic<int>("SDK_INT");
+                }
+                if(androidSDKVersion < SDK_VERSION_KITKAT) return;
+
+                AndroidJavaClass android_view_InputDevice = new AndroidJavaClass("android.view.InputDevice");
+
+                int[] ids = null;
+                using(AndroidJavaObject jniArray = android_view_InputDevice.CallStatic<AndroidJavaObject>("getDeviceIds")) {
+                    if(jniArray != null) {
+                        ids = AndroidJNIHelper.ConvertFromJNIArray<int[]>(jniArray.GetRawObject());
+                    }
+                }
+
+                if(ids == null) return;
+                for(int i = 0; i < ids.Length; i++) {
+                    try {
+                        using(AndroidJavaObject jo = android_view_InputDevice.CallStatic<AndroidJavaObject>("getDevice", ids[i])) {
+                            if(jo == null) continue;
+                            vids.Add(jo.Call<int>("getVendorId"));
+                            pids.Add(jo.Call<int>("getProductId"));
+                        }
+                    } catch {
+                    }
+                }
+            } catch {
+            }
+        }
+#else
+        public void GetDeviceVIDPIDs(out List<int> vids, out List<int> pids) {
+            vids = new List<int>();
+            pids = new List<int>();
+        }
+#endif
+        #region Unity UI
+
+
+#if SUPPORTS_UNITY_UI
+
+        public bool UnityUI_Graphic_GetRaycastTarget(object graphic) {
+            if(graphic as UnityEngine.UI.Graphic == null) return false;
+#if UNITY_5_2_PLUS
+            return (graphic as UnityEngine.UI.Graphic).raycastTarget;
+#else
+            return true;
+#endif
+        }
+        public void UnityUI_Graphic_SetRaycastTarget(object graphic, bool value) {
+            if(graphic as UnityEngine.UI.Graphic == null) return;
+#if UNITY_5_2_PLUS
+            (graphic as UnityEngine.UI.Graphic).raycastTarget = value;
+#endif
+        }
+#else
+        public bool UnityUI_Graphic_GetRaycastTarget(object graphic) { return true; }
+        public void UnityUI_Graphic_SetRaycastTarget(object graphic, bool value) { }
+#endif
+
+        #endregion
     }
 }

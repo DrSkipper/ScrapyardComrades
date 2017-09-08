@@ -32,7 +32,7 @@ MonoBehaviour:
       productName:
       - Saitek Pro Flight Cessna Trim Wheel
       productGUID:
-      - 0bd406a3-0000-0000-0000-504944564944
+      - 0bd406a3
       productId: d40b0000
       deviceType: 28
     elements:
@@ -64,7 +64,7 @@ MonoBehaviour:
       productName:
       - Pro Flight Cessna Trim Wheel
       productGUID:
-      - 0bd406a3-0000-0000-0000-504944564944
+      - 0bd406a3
       productId: d40b0000
       deviceType: 20
     elements:
@@ -145,7 +145,7 @@ MonoBehaviour:
       - Pro Flight Cessna Trim Wheel
       systemName: []
       productGUID:
-      - 0bd406a3-0000-0000-0000-504944564944
+      - 0bd406a3
     elements:
       compoundElements: []
       axes:
@@ -177,7 +177,7 @@ MonoBehaviour:
       productName:
       - Pro Flight Cessna Trim Wheel
       productGUID:
-      - 0bd406a3-0000-0000-0000-504944564944
+      - 0bd406a3
     elements:
       compoundElements: []
       axes:

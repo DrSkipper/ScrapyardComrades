@@ -31,6 +31,22 @@
 
 
 <div class="container">
+
+    <div class="google-search-bar">
+        <script>
+          (function() {
+            var cx = '007961148920562332911:oocvtwz5jce';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+
   <div class="content">
 	
 	
@@ -52,6 +68,7 @@
               <li><a href="QuickStart.html">Quick Start</a></li>
               <li><a href="BasicUsage.html">Basic Usage</a></li>
               <li><a href="Deployment.html">Deployment</a></li>
+              <li><a href="BestPractices.html">Best Practices</a></li>
               <li><a href="RewiredEditor.html">Rewired Editor</a></li>
               <li><a href="http://guavaman.com/projects/rewired/docs/api-reference" target="_blank">API Reference</a></li>
             </ol>
@@ -70,23 +87,30 @@
             <strong>Extras:</strong>
             <ul>
               <li><a href="ControlMapper.html" title="Control Mapper">Control Mapper</a></li>
+	          <li><a href="TouchControls.html" title="Touch Controls">Touch Controls</a></li>
               <li><a href="RewiredStandaloneInputModule.html">Rewired Standalone Input Module</a></li>
-	          <li><a href="UserDataStore.html" title="User Data Store">User Data Store</a></li>
 	          <li><a href="UnityInputOverride.html" title="Unity Input Override">Unity Input Override</a></li>
             </ul>
-            <strong>How To's</strong>
+            <strong>Misc:</strong>
+            <ul>
+	          <li><a href="ComponentControls.html" title="Component Controls">Component Controls</a></li>
+	          <li><a href="InputMapper.html" title="Input Mapper">Input Mapper</a></li>
+	          <li><a href="UserDataStore.html" title="User Data Store">User Data Store</a></li>
+            </ul>
+            <strong>How To's:</strong>
             <ul>
             	<li><a href="HowTos.html">See all topics...</a></li>
             </ul>
             <strong>Help:</strong>
             <ul>
               <li><a href="SupportedControllers.html" title="Supported Controllers">Supported Controllers</a></li>
+              <li><a href="Overview.html#tested-platforms" title="Tested Platforms">Tested Platforms</a></li>
+              <li><a href="Troubleshooting.html" title="Troubleshooting">Troubleshooting</a></li>
+              <li><a href="KnownIssues.html">Known Issues</a></li>
               <li><a href="SpecialPlatformSupport.html" title="Special Platform Support">Special Platform Support</a></li>
 	          <li><a href="Examples.html" title="Examples">Examples</a></li>
               <li><a href="Integration.html">Integrations</a></li>
 	          <li><a href="Updating.html" title="Updating Rewired">Updating Rewired</a></li>
-	          <li><a href="Troubleshooting.html" title="Troubleshooting">Troubleshooting</a></li>
-              <li><a href="KnownIssues.html">Known Issues</a></li>
             </ul>
             <strong>FAQ</strong>
             <ul>
@@ -122,7 +146,7 @@
     <ul>
       <li>Works in Unity free and Pro.</li>
       <li>Player-centric input system.</li>
-      <li>Full hot-plugging support on Windows, OSX, Linux, Windows 8 Store, Windows 10 Universal, Ouya, Xbox One, and PS4. (Other platforms depend on Unity's input system's support for hot-plugging on that platform.)</li>
+      <li>Full hot-plugging support on Windows, OSX, Linux, Windows 8 Store, Windows 10 Universal, Ouya, WebGL, Xbox One, PS4, and Switch. (Other platforms depend on Unity's input system's support for hot-plugging on that platform.)</li>
       <li>Extended native input support on several platforms.</li>
       <li>Optional XInput support for Windows (mandatory for Windows 8 Store).</li>
       <li>Fallback on Unity input for all other platforms. Most features still work.</li>
@@ -133,6 +157,7 @@
       <li>Included Control Mapper system using Unity GUI allows your players to rebind controls at runtime.</li>
       <li>Unlimited mapping layouts per controller.</li>
       <li>Controller Templates (see Controllers section).</li>
+      <li>Included on-screen touch controls for mobile platforms. (Unity 5.0+)</li>
       <li>Editor GUI for creating Actions, Input Behaviors, Joystick/Keyboard/Mouse maps, categories, etc.</li>
       <li>Editor GUI for creating and editing Joystick Hardware Maps (for adding new fully-supported joysticks).</li>
       <li>Editor GUI for creating and editing Controller Templates (for adding new templates or adding new joysticks to a template).</li>
@@ -236,7 +261,9 @@
     </ul>
     <h4>Requirements:</h4>
     <ul>
-	    <li><a href="http://unity3d.com" target="_blank">Unity 4.3</a> or later, Free or Pro</li>
+	    <li><a href="http://unity3d.com" target="_blank">Unity 4.3</a> or later, Free or Pro.</li>
+        <li><a href="http://unity3d.com" target="_blank">Unity 4.6</a> or later required for Control Mapper.</li>
+        <li><a href="http://unity3d.com" target="_blank">Unity 5.0</a> or later required for WebGL native input and Touch Controls.</li>
 	    <li>OSX 10.5 or later is required for the OSX Unity editor and OSX Standalone builds.</li>
 	    </ul>
     <h4><a name="tested-platforms" id="tested-platforms"></a>Tested Platforms:</h4>
@@ -245,15 +272,18 @@
       <li>Windows Standalone 32-bit/64-bit*</li>
       <li>Windows Webplayer</li>
       <li>Windows 8 Store*</li>
+      <li>Windows 8.1 Universal*</li>
       <li>Windows 10 Universal 32-bit/64-bit (.NET and IL2CPP)*</li>
       <li>OSX Standalone 32-bit/64-bit/Universal*</li>
       <li>OSX Webplayer</li>
+      <li>WebGL*</li>
       <li>Android</li>
       <li>iOS</li>
       <li>Linux*</li>
       <li>Sony PSM (Sony PlayStation Vita)</li>
       <li>Sony PlayStation 4* <span style="vertical-align: super; font-size: 65%">[<a href="#clarifications">2</a>]</span></li>
       <li>Microsoft XBox One* <span style="vertical-align: super; font-size: 65%">[<a href="#clarifications">2</a>]</span></li>
+      <li>Nintendo Switch*</li>
       <li>Ouya*</li>
       <li>Apple TV (tvOS)</li>
       <li>Amazon Fire TV</li>

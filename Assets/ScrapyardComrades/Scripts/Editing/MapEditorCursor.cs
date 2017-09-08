@@ -13,20 +13,20 @@ public class MapEditorCursor : VoBehavior, IPausable
 
     void Start()
     {
-        ReInput.players.GetPlayer(0).controllers.maps.SetMapsEnabled(true, "Menu");
+        MenuInput.EnableMenuInput();
     }
 
     void FixedUpdate()
     {
         if (!_hidden)
         {
-            if (MapEditorInput.NavLeft)
+            if (MenuInput.NavLeft)
                 this.GridPos = this.Grid.MoveLeft(this.GridPos);
-            else if (MapEditorInput.NavRight)
+            else if (MenuInput.NavRight)
                 this.GridPos = this.Grid.MoveRight(this.GridPos);
-            else if (MapEditorInput.NavDown)
+            else if (MenuInput.NavDown)
                 this.GridPos = this.Grid.MoveDown(this.GridPos);
-            else if (MapEditorInput.NavUp)
+            else if (MenuInput.NavUp)
                 this.GridPos = this.Grid.MoveUp(this.GridPos);
 
             this.MoveToGridPos();

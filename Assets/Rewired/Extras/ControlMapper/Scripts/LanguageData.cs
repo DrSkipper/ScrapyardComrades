@@ -147,7 +147,7 @@ namespace Rewired.UI.ControlMapper {
         // Public Methods / Properties
         
         public void Initialize() {
-            if(!_initialized) return;
+            if(_initialized) return;
             customDict = CustomEntry.ToDictionary(_customEntries);
             _initialized = true;
         }

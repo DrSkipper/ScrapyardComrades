@@ -74,6 +74,10 @@ MonoBehaviour:
     _name: Touchpad Stick
     _elementType: 100
     _compoundElementType: 0
+  compoundElements:
+  - type: 0
+    elementIdentifier: 5
+    componentElementIdentifiers: 0000000001000000
   directInput:
     description: 
     matchingCriteria:

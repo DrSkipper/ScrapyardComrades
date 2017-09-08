@@ -53,7 +53,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         if (_exiting || _paused)
             return;
 
-        if (MapEditorInput.Confirm)
+        if (MenuInput.Confirm)
         {
             if (_selectedQuad == null)
             {
@@ -77,7 +77,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         }
         else if (_selectedQuad != null)
         {
-            if (MapEditorInput.NavLeft && canMoveLeft(_selectedQuad))
+            if (MenuInput.NavLeft && canMoveLeft(_selectedQuad))
             {
                 IntegerVector newPos = _selectedQuad.QuadBounds.Center;
                 --newPos.X;
@@ -86,7 +86,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 this.Cursor.MoveToGridPos();
                 _selectedQuad.MoveToGridPos(this.Grid);
             }
-            else if (MapEditorInput.NavRight && canMoveRight(_selectedQuad))
+            else if (MenuInput.NavRight && canMoveRight(_selectedQuad))
             {
                 IntegerVector newPos = _selectedQuad.QuadBounds.Center;
                 ++newPos.X;
@@ -95,7 +95,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 this.Cursor.MoveToGridPos();
                 _selectedQuad.MoveToGridPos(this.Grid);
             }
-            else if (MapEditorInput.NavDown && canMoveDown(_selectedQuad))
+            else if (MenuInput.NavDown && canMoveDown(_selectedQuad))
             {
                 IntegerVector newPos = _selectedQuad.QuadBounds.Center;
                 --newPos.Y;
@@ -104,7 +104,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 this.Cursor.MoveToGridPos();
                 _selectedQuad.MoveToGridPos(this.Grid);
             }
-            else if (MapEditorInput.NavUp && canMoveUp(_selectedQuad))
+            else if (MenuInput.NavUp && canMoveUp(_selectedQuad))
             {
                 IntegerVector newPos = _selectedQuad.QuadBounds.Center;
                 ++newPos.Y;
@@ -113,7 +113,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 this.Cursor.MoveToGridPos();
                 _selectedQuad.MoveToGridPos(this.Grid);
             }
-            else if (MapEditorInput.Exit)
+            else if (MenuInput.Exit)
             {
                 _worldInfo.RemoveLevelQuad(_selectedQuad.QuadName);
                 _quadVisuals.Remove(_selectedQuad.QuadName);
@@ -125,7 +125,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 this.Cursor.UnHide();
                 this.Save();
             }
-            else if (MapEditorInput.ResizeLeft && _selectedQuad.QuadBounds.Size.X > 1)
+            else if (MenuInput.ResizeLeft && _selectedQuad.QuadBounds.Size.X > 1)
             {
                 WorldInfo.LevelQuad levelQuad = _worldInfo.GetLevelQuad(_selectedQuad.QuadName);
                 applyQuadVisualToLevelQuad(_selectedQuad, levelQuad);
@@ -134,7 +134,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 quadInfo.ResizeWidth(levelQuad.width * this.WorldGridSpaceSize);
                 saveQuadResize(levelQuad, quadInfo);
             }
-            else if (MapEditorInput.ResizeRight && canMoveRight(_selectedQuad))
+            else if (MenuInput.ResizeRight && canMoveRight(_selectedQuad))
             {
                 WorldInfo.LevelQuad levelQuad = _worldInfo.GetLevelQuad(_selectedQuad.QuadName);
                 applyQuadVisualToLevelQuad(_selectedQuad, levelQuad);
@@ -146,7 +146,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                     saveQuadResize(levelQuad, quadInfo);
                 }
             }
-            else if (MapEditorInput.ResizeDown && _selectedQuad.QuadBounds.Size.Y > 1)
+            else if (MenuInput.ResizeDown && _selectedQuad.QuadBounds.Size.Y > 1)
             {
                 WorldInfo.LevelQuad levelQuad = _worldInfo.GetLevelQuad(_selectedQuad.QuadName);
                 applyQuadVisualToLevelQuad(_selectedQuad, levelQuad);
@@ -155,7 +155,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 quadInfo.ResizeHeight(levelQuad.height * this.WorldGridSpaceSize);
                 saveQuadResize(levelQuad, quadInfo);
             }
-            else if (MapEditorInput.ResizeUp && canMoveUp(_selectedQuad))
+            else if (MenuInput.ResizeUp && canMoveUp(_selectedQuad))
             {
                 WorldInfo.LevelQuad levelQuad = _worldInfo.GetLevelQuad(_selectedQuad.QuadName);
                 applyQuadVisualToLevelQuad(_selectedQuad, levelQuad);
@@ -168,11 +168,11 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 }
             }
         }
-        else if (MapEditorInput.Start)
+        else if (MenuInput.Start)
         {
             this.Save();
         }
-        else if (MapEditorInput.Action)
+        else if (MenuInput.Action)
         {
             WorldEditorQuadVisual hoveredQuad = hoveredQuadVisual();
             if (hoveredQuad != null)
@@ -191,7 +191,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 this.NewLevelPanel.Show();
             }
         }
-        else if (MapEditorInput.SwapModes)
+        else if (MenuInput.SwapModes)
         {
             WorldEditorQuadVisual hoveredQuad = hoveredQuadVisual();
             if (hoveredQuad != null)
@@ -205,7 +205,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
                 GlobalEvents.Notifier.SendEvent(new BeginSceneTransitionEvent(this.TestSceneName));
             }
         }
-        else if (MapEditorInput.Cancel)
+        else if (MenuInput.Cancel)
         {
             WorldEditorQuadVisual hoveredQuad = hoveredQuadVisual();
             if (hoveredQuad != null)

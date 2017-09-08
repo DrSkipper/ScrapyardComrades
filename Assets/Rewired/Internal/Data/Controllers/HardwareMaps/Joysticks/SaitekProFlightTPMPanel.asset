@@ -91,7 +91,7 @@ MonoBehaviour:
       productName:
       - Pro Flight TPM System
       productGUID:
-      - 0b4d06a3-0000-0000-0000-504944564944
+      - 0b4d06a3
       productId: 4d0b0000
       deviceType: 20
     elements:
@@ -499,7 +499,7 @@ MonoBehaviour:
       - Pro Flight TPM System
       systemName: []
       productGUID:
-      - 0b4d06a3-0000-0000-0000-504944564944
+      - 0b4d06a3
     elements:
       compoundElements: []
       axes:
@@ -678,7 +678,7 @@ MonoBehaviour:
       productName:
       - Pro Flight TPM System
       productGUID:
-      - 0b4d06a3-0000-0000-0000-504944564944
+      - 0b4d06a3
     elements:
       compoundElements: []
       axes:

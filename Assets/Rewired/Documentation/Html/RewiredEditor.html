@@ -31,6 +31,22 @@
 
 
 <div class="container">
+
+    <div class="google-search-bar">
+        <script>
+          (function() {
+            var cx = '007961148920562332911:oocvtwz5jce';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+
   <div class="content">
 	
 	
@@ -52,6 +68,7 @@
               <li><a href="QuickStart.html">Quick Start</a></li>
               <li><a href="BasicUsage.html">Basic Usage</a></li>
               <li><a href="Deployment.html">Deployment</a></li>
+              <li><a href="BestPractices.html">Best Practices</a></li>
               <li><a href="RewiredEditor.html">Rewired Editor</a></li>
               <li><a href="http://guavaman.com/projects/rewired/docs/api-reference" target="_blank">API Reference</a></li>
             </ol>
@@ -70,23 +87,30 @@
             <strong>Extras:</strong>
             <ul>
               <li><a href="ControlMapper.html" title="Control Mapper">Control Mapper</a></li>
+	          <li><a href="TouchControls.html" title="Touch Controls">Touch Controls</a></li>
               <li><a href="RewiredStandaloneInputModule.html">Rewired Standalone Input Module</a></li>
-	          <li><a href="UserDataStore.html" title="User Data Store">User Data Store</a></li>
 	          <li><a href="UnityInputOverride.html" title="Unity Input Override">Unity Input Override</a></li>
             </ul>
-            <strong>How To's</strong>
+            <strong>Misc:</strong>
+            <ul>
+	          <li><a href="ComponentControls.html" title="Component Controls">Component Controls</a></li>
+	          <li><a href="InputMapper.html" title="Input Mapper">Input Mapper</a></li>
+	          <li><a href="UserDataStore.html" title="User Data Store">User Data Store</a></li>
+            </ul>
+            <strong>How To's:</strong>
             <ul>
             	<li><a href="HowTos.html">See all topics...</a></li>
             </ul>
             <strong>Help:</strong>
             <ul>
               <li><a href="SupportedControllers.html" title="Supported Controllers">Supported Controllers</a></li>
+              <li><a href="Overview.html#tested-platforms" title="Tested Platforms">Tested Platforms</a></li>
+              <li><a href="Troubleshooting.html" title="Troubleshooting">Troubleshooting</a></li>
+              <li><a href="KnownIssues.html">Known Issues</a></li>
               <li><a href="SpecialPlatformSupport.html" title="Special Platform Support">Special Platform Support</a></li>
 	          <li><a href="Examples.html" title="Examples">Examples</a></li>
               <li><a href="Integration.html">Integrations</a></li>
 	          <li><a href="Updating.html" title="Updating Rewired">Updating Rewired</a></li>
-	          <li><a href="Troubleshooting.html" title="Troubleshooting">Troubleshooting</a></li>
-              <li><a href="KnownIssues.html">Known Issues</a></li>
             </ul>
             <strong>FAQ</strong>
             <ul>
@@ -121,6 +145,7 @@
     <h4>Pages:</h4>
     <ul>
       <li><a href="#Settings">Settings</a></li>
+      <li><a href="#Tools">Tools</a></li>
       <li><a href="#Players">Players</a></li>
       <li><a href="#Actions">Actions</a></li>
       <li><a href="#InputBehaviors">Input Behaviors</a></li>
@@ -138,7 +163,7 @@
     </ul>
     <hr />
     <h3><a name="Settings" id="Settings"></a>Settings</h3>
-<p><img src="files/images/rewirededitor_settings.png" alt="Settings" /></p>
+<p><img src="files/images/rewirededitor_settings.png" alt="Settings" width="770" height="708" /></p>
 <p>The Settings page allows you change the options for the current Input Manager. The options available are as follows:</p>
  <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
@@ -182,32 +207,42 @@
     <td valign="top">Disable keyboard input on all platforms? Disabling this can improve performance slightly.</td>
   </tr>
   <tr>
+    <td valign="top">Ignore Input When App Not In Focus</td>
+    <td valign="top"><p>Ignores input if the application is not in focus. This setting has no effect on some platforms.</p>
+      <p>NOTE: Disabling this does not guarantee that input will be processed when the application is out of focus. Whether input is received by the application or not is dependent on A) the input device type B) the current platform C) the input source(s) being used.</p></td>
+  </tr>
+  <tr>
     <td valign="top"><strong>Windows:</strong></td>
     <td valign="top">&nbsp;</td>
   </tr>
   <tr>
-    <td valign="top">Input Source</td>
+    <td valign="top"><a name="settings-windows-input-source" id="settings-windows-input-source"></a>Input Source</td>
     <td valign="top"><p>The primary input source for the Windows Standalone platform.</p>
       <p>Raw Input - Use Raw Input for the input source. Note: Raw Input carries significant advantages over Direct Input such as better Bluetooth controller support, support for more elements on certain controllers, better controller recognition, etc.  Does not require any extra libraries. Windows Control Panel joystick calibration does not affect joystick axes.</p>
+      <p>XInput - Use XInput for the input source. This will use XInput only. All non-XInput compatible controllers will be non-functional. To support both XInput and non-XInput controllers, use Raw Input or Direct Input instead and enable the Use XInput option. Installation of DirectX end-user runtimes is required on Windows XP.</p>
       <p> Direct Input - Use Direct Input for the input source. Installation of DirectX end-user runtimes may be required for Direct Input support. Windows Control Panel joystick calibration settings affect joystick axes.</p>
-<p> SDL2 - Use SDL2 for the input source. This option requires the SDL2 runtime library to be installed. Note: SDL2 does not support as many devices as other native input sources.</p></td>
+<p> SDL2 - Use SDL2 for the input source. This option requires the SDL2 runtime library to be installed. Note: SDL2 does not support as many devices as other native input sources.</p>
+<p>Unity Input - Use Unity fallback input.</p></td>
   </tr>
   <tr>
     <td valign="top">Use XInput</td>
-    <td valign="top">On Windows, use XInput for compatible devices. Otherwise fall back to Raw Input or Direct Input. Installation of DirectX end-user runtimes may be required for XInput support. (Windows Vista+ include XInput support without the need for additional drivers.) Required for XBox 360 vibration support.</td>
-  </tr>
-  <tr>
-    <td valign="top">Steam Raw Input Fix</td>
-    <td valign="top"><p>Force Raw Input controllers to appear in list when using a Steam Controller along with other controllers. This is a workaround for an issue caused by Steam when a Steam Controller is used in conjunction with other Raw Input controllers that causes said Raw Input controllers to disappear once a Steam Controller is attached.</p>
-      <p>Note: When using Steam Streaming, this workaround will cause all Raw Input controllers connected to the host machine to appear to the client.</p></td>
+    <td valign="top"><p>On Windows, use XInput for compatible devices. Otherwise fall back to Raw Input or Direct Input. Installation of DirectX end-user runtimes may be required for XInput support. (Windows Vista+ include XInput support without the need for additional drivers.) Required for XBox 360 vibration support.</p>
+      <p>(Only available when  Input Source is set to Raw Input or Direct Input.)</p></td>
   </tr>
   <tr>
     <td valign="top"> Native Mouse Handling</td>
-    <td valign="top"><p>Use native libraries to handle the mouse. Enabling this will eliminate certain bugs associated with Unity's mouse handling.</p></td>
+    <td valign="top"><p>Use native libraries to handle the mouse. Enabling this will eliminate certain bugs associated with Unity's mouse handling.</p>
+      <p>(Only available when  Input Source is set to Raw Input or Direct Input.)</p></td>
+  </tr>
+  <tr>
+    <td valign="top">Native Keyboard Handling</td>
+    <td valign="top"><p>Use native libraries to handle keyboard input.</p>
+      <p>(Only available when Input Source is set to Raw Input or Direct Input.)</p></td>
   </tr>
   <tr>
     <td valign="top">Enhanced Device Support</td>
-    <td valign="top">Enable low-level enhanced support for certain devices. If enhanced support is available for a particular device, this will enable device-specific features such as vibration / force feedback, lights, gyroscopes, accelerometers, touchpads, etc.</td>
+    <td valign="top"><p>Enable low-level enhanced support for certain devices. If enhanced support is available for a particular device, this will enable device-specific features such as vibration / force feedback, lights, gyroscopes, accelerometers, touchpads, etc.</p>
+      <p>(Only available when Input Source is set to Raw Input.)</p></td>
   </tr>
   <tr>
     <td valign="top"><strong>OSX:</strong></td>
@@ -217,12 +252,13 @@
     <td valign="top">Input Source</td>
     <td valign="top"><p>The primary input source for the OSX Standalone platform.</p>
       <p>Native - Use native input for the input source. This provides the best device support.</p>
-      <p>SDL2 - Use SDL2 for the input source. This option requires the SDL2 runtime library to be installed.         Note: SDL2 does not support as many devices as other native input sources.</p>
+      <p>SDL2 - Use SDL2 for the input source. May be required for Steam Streaming and Steam Controller support in OSX. This option requires the SDL2 runtime library to be installed. Note: SDL2 does not support as many devices as other native input sources.</p>
       <p>Unity Input - Use Unity fallback input. </p></td>
   </tr>
   <tr>
     <td valign="top">Enhanced Device Support</td>
-    <td valign="top">Enable low-level enhanced support for certain devices. If enhanced support is available for a particular device, this will enable device-specific features such as vibration / force feedback, lights, gyroscopes, accelerometers, touchpads, etc.</td>
+    <td valign="top"><p>Enable low-level enhanced support for certain devices. If enhanced support is available for a particular device, this will enable device-specific features such as vibration / force feedback, lights, gyroscopes, accelerometers, touchpads, etc.</p>
+      <p>(Only available when Input Source is set to Native.)</p></td>
   </tr>
   <tr>
     <td valign="top"><strong>Linux:</strong></td>
@@ -232,11 +268,11 @@
     <td valign="top">Input Source</td>
     <td valign="top"><p>The primary input source for the Linux Standalone platform.</p>
       <p>Native - Use native input for the input source. This provides the best device support.</p>
-      <p> SDL2 - Use SDL2 for the input source. May be required for Steam Streaming support in Linux. This option requires the SDL2 runtime library to be installed. Note: SDL2 does not support as many devices as other native input sources.</p>
+      <p> SDL2 - Use SDL2 for the input source. May be required for Steam Streaming and Steam Controller support in Linux. This option requires the SDL2 runtime library to be installed. Note: SDL2 does not support as many devices as other native input sources.</p>
       <p>Unity Input - Use Unity fallback input. </p></td>
   </tr>
   <tr>
-    <td valign="top"><strong>Windows UWP:</strong></td>
+    <td valign="top"><strong><a name="settings-uwp" id="settings-uwp"></a>Windows UWP:</strong></td>
     <td valign="top">&nbsp;</td>
   </tr>
   <tr>
@@ -244,6 +280,16 @@
     <td valign="top"><p>The primary input source for the Windows 10 Universal platform.</p>
       <p>Native - Use native input for the input source. This provides the best device support.</p>
       <p>Unity Input - Use Unity fallback input.</p></td>
+  </tr>
+  <tr>
+    <td valign="top">Use XInput</td>
+    <td valign="top"><p>Use XInput for compatible devices. Also enables special features for XInput devices such as vibration.</p>
+      <p>(Only available when Input Source is set to Native.)</p></td>
+  </tr>
+  <tr>
+    <td valign="top">Support HID Devices</td>
+    <td valign="top"><p>This allows support for older gamepads, gamepads made for Android, flight controllers, racing wheels, etc. In order to use this feature, you must add support for HID gamepads and joysticks to the app manifest file. Please see the Special Platform Support  -&gt; Windows 10 Universal documentation for details.</p>
+      <p>(Only available when Input Source is set to Native.)</p></td>
   </tr>
   <tr>
     <td valign="top"><strong><a name="settings-android" id="settings-android"></a>Android:</strong></td>
@@ -288,6 +334,11 @@
     <td valign="top">Disable keyboard input on this platform? Disabling this can improve performance slightly.</td>
   </tr>
   <tr>
+    <td valign="top">Ignore Input When App Not In Focus</td>
+    <td valign="top"><p>Ignores input if the application is not in focus. This setting has no effect on some platforms.</p>
+      <p>NOTE: Disabling this does not guarantee that input will be processed when the application is out of focus. Whether input is received by the application or not is dependent on A) the input device type B) the current platform C) the input source(s) being used.</p></td>
+  </tr>
+  <tr>
     <td valign="top">&nbsp;</td>
     <td valign="top">&nbsp;</td>
   </tr>
@@ -302,6 +353,10 @@
         Axial: X and Y axes are calculated independently.<br />
         </p>
   <p>This setting only applies to joysticks on recognized controllers.</p></td>
+  </tr>
+  <tr>
+    <td valign="top">Force 4-Way Hats</td>
+    <td valign="top">Force all 8-way hats on recognized joysticks to be treated as 4-way hats. If enabled, the corner directions on all hats will activate the adjacent 2 cardinal direction buttons instead of the corner button. This is useful if you need joystick hats to behave like D-Pads instead of 8-way hats.</td>
   </tr>
   <tr>
     <td valign="top">&nbsp;</td>
@@ -334,6 +389,97 @@
 </table>
 <p>&nbsp;</p>
 <hr />
+<h3><a name="Tools" id="Settings2"></a>Tools</h3>
+<p><img src="files/images/rewirededitor_tools.png" alt="Tools" /></p>
+<p><strong>Export Constants:</strong></p>
+<p>Allows you to export a list of constants for all Rewired Actions, Map Categories, and Layouts. These constants can be used in place of strings when interacting with the Rewired API. Clicking &quot;Export&quot; will create a CS file which must be saved somewhere in your project.</p>
+<p>Note: The exported consts will only be valid for this Rewired Input Manager. Also, if you add or delete items from the Rewired Input Manager, this list must be exported again.</p>
+<p> (See <a href="HowTos.html#exporting-constants">How To's - Exporting constants for use in scripting</a> for more information.)</p>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top">All Caps Constant Names</td>
+    <td valign="top">Constant names will be written in all capital letters.</td>
+  </tr>
+  <tr>
+    <td width="19%" valign="top">Use Namespace</td>
+    <td width="81%" valign="top">Wrap all the exported classes in a namespace.</td>
+  </tr>
+  <tr>
+    <td valign="top">Namespace</td>
+    <td valign="top">The namespace. Only valid C# namespace characters are allowed.</td>
+  </tr>
+  <tr>
+    <td valign="top">Use Parent Class</td>
+    <td valign="top">Wrap all the exported classes in a single parent class for better organization.</td>
+  </tr>
+  <tr>
+    <td valign="top">Parent Class Name</td>
+    <td valign="top">Name of the parent class. Only valid C# class name characters are allowed. This class name must be unique.</td>
+  </tr>
+  <tr>
+    <td valign="top">Export Players</td>
+    <td valign="top">Export Players to a class of constants.</td>
+  </tr>
+  <tr>
+    <td valign="top">Players Class Name</td>
+    <td valign="top">Name of the class that will contain the Player constants.  Only valid C# class name characters are allowed. This class name must be unique.</td>
+  </tr>
+  <tr>
+    <td valign="top">Export Actions</td>
+    <td valign="top">Export Actions to a class of constants.</td>
+  </tr>
+  <tr>
+    <td valign="top">Actions Class Name</td>
+    <td valign="top">Name of the class that will contain the Action constants. Only valid C# class name characters are allowed. This class name must be unique.</td>
+  </tr>
+  <tr>
+    <td valign="top">Include Action Category</td>
+    <td valign="top"><p>Includes the Action Category name in the Actions list.</p></td>
+  </tr>
+  <tr>
+    <td valign="top">Create Action Category Classes</td>
+    <td valign="top"><p>If enabled, a separate class will be created for each Action Category and Action constants will be generated inside these classes.</p>
+      <p>If disabled, includes the Action Category in the name of each constant. The Action Category name will preceed the Action name for the final const name.<br />
+  </p>
+      <p>Example: public const int Default_Jump = 1;</p>
+      <p>Otherwise, the Action name alone will be used.<br />
+        </p>
+      <p>Example: public const int Jump = 1;</p></td>
+  </tr>
+  <tr>
+    <td valign="top">Export Map Categories</td>
+    <td valign="top">Export Map Categories to a class of constants.</td>
+  </tr>
+  <tr>
+    <td valign="top">Map Categories Class Name</td>
+    <td valign="top">Name of the class that will contain the Map Category constants. Only valid C# class name characters are allowed. This class name must be unique.</td>
+  </tr>
+  <tr>
+    <td valign="top">Export Layouts</td>
+    <td valign="top">Export Layouts to a class of constants.</td>
+  </tr>
+  <tr>
+    <td valign="top">Layouts Class Name</td>
+    <td valign="top">Name of the class that will contain the Layout constants. Only valid C# class name characters are allowed. This class name must be unique. Layout constants will be wrapped in an additional class named for the Layout type.</td>
+  </tr>
+  <tr>
+    <td valign="top">Export Custom Controllers</td>
+    <td valign="top">Export Custom Controllers to a class of constants.</td>
+  </tr>
+  <tr>
+    <td valign="top">CC Class Name</td>
+    <td valign="top">Name of the class that will contain the Custom Controller constants.  Only valid C# class name characters are allowed. This class name must be unique.</td>
+  </tr>
+  <tr>
+    <td valign="top">CC Axes Class Name</td>
+    <td valign="top"> Name of the class that will contain the Axis constants. Only valid C# class name characters are allowed. This class name must be unique.</td>
+  </tr>
+  <tr>
+    <td valign="top">CC Buttons Class Name</td>
+    <td valign="top"> Name of the class that will contain the Button constants. Only valid C# class name characters are allowed. This class name must be unique.</td>
+  </tr>
+</table>
+<hr />
 <h3><a name="Players" id="Players"></a>Players</h3>
 <p><img src="files/images/rewirededitor_players.png" alt="Players" /></p>
 <p>The Players page allows you to create and edit Players.</p>
@@ -343,7 +489,7 @@
  <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
     <td width="19%" valign="top">Player Id</td>
-    <td width="81%" valign="top">The id of the player. This can be used to get the player via scripting. (Read-only)</td>
+    <td width="81%" valign="top">The id of the Player. This can be used to get the player via scripting. (Read-only)</td>
   </tr>
   <tr>
     <td valign="top">Name</td>
@@ -355,15 +501,19 @@
   </tr>
   <tr>
     <td valign="top">Is Playing on Start</td>
-    <td valign="top">Does this player start with isPlaying = true? This affects controller auto-assignment if you're using that option.</td>
+    <td valign="top">Does this Player start with isPlaying = true? This affects controller auto-assignment if you're using that option.</td>
   </tr>
   <tr>
     <td valign="top">Assign Mouse on Start</td>
-    <td valign="top">Assign the mouse to this player on start.</td>
+    <td valign="top">Assign the Mouse to this Player on start.</td>
+  </tr>
+  <tr>
+    <td valign="top">Assign Keyboard on Start</td>
+    <td valign="top">Assign the Keyboard to this Player on start.</td>
   </tr>
   <tr>
     <td valign="top">Exclude Joy Auto-Assign</td>
-    <td valign="top">Determines whether joysticks can be auto-assigned to this Player.</td>
+    <td valign="top">Determines whether Joysticks can be auto-assigned to this Player.</td>
   </tr>
  </table>
 <p></p>
@@ -413,8 +563,6 @@
 <p><strong>Category Box:</strong><br />
   Select a category to see the Actions in this category.<br />
   Click &quot;Edit Categories&quot; to add or edit Action Categories.</p>
-<p><strong>Exporting Actions to Consts:</strong><br />
-  Click &quot;Export Actions to Consts&quot; to export all Actions. (See <a href="HowTos.html#exporting-actions">How To's - Exporting Actions as constants for use in scripting</a> for more information.)</p>
 <p><strong>Action Box:</strong><br />
   Select an Action to modify its properties.</p>
 <p><strong>Action Properties:</strong></p>
@@ -546,6 +694,14 @@
     <td valign="top">Button Long Press Expires In</td>
     <td valign="top"><p>Time in seconds after a long press is registered after which it will expire and no longer return true for any button events. For example: If you want the press to expire 2 seconds after the press first registers true, set this value to 2.</p>
       <p>[0 = Never expires]</p></td>
+  </tr>
+  <tr>
+    <td valign="top">Button Repeat Rate</td>
+    <td valign="top">The number of times per second the button state will be True when queried with GetButtonRepeating or the equivalent event.</td>
+  </tr>
+  <tr>
+    <td valign="top">Button Repeat Delay</td>
+    <td valign="top">The duration in seconds before repeating will begin after the initial press when queried with GetButtonRepeating or the equivalent event. [0 = No delay]</td>
   </tr>
   <tr>
     <td valign="top">Button Dead Zone</td>
@@ -1042,7 +1198,7 @@
 </table>
 <p></p>
     <div class="bottom-pager clearfix">
-	    <a class="back-button" href="Deployment.html" title="Deployment"><span class="button-img"></span>Deployment</a>
+	    <a class="back-button" href="BestPractices.html" title="Best Practices"><span class="button-img"></span>Best Practices</a>
     	<a class="forward-button" href="http://guavaman.com/projects/rewired/docs/api-reference" title="API Reference" target="_blank"><span class="button-img"></span>API Reference</a>
 	</div>
 

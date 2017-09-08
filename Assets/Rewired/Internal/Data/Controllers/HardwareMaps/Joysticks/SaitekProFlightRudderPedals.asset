@@ -62,9 +62,9 @@ MonoBehaviour:
       - "Mad Catz Pro Flight Cessna Rudder Pedals\r\nMad Catz Pro Flight Cessna Rudder
         Pedals"
       productGUID:
-      - 076306a3-0000-0000-0000-504944564944
-      - 076406a3-0000-0000-0000-504944564944
-      - 076506a3-0000-0000-0000-504944564944
+      - 076306a3
+      - 076406a3
+      - 076506a3
       productId: 63070000
       deviceType: 20
     elements:
@@ -221,9 +221,9 @@ MonoBehaviour:
       - "Mad Catz Pro Flight Cessna Rudder Pedals\r"
       systemName: []
       productGUID:
-      - 076306a3-0000-0000-0000-504944564944
-      - 076406a3-0000-0000-0000-504944564944
-      - 076506a3-0000-0000-0000-504944564944
+      - 076306a3
+      - 076406a3
+      - 076506a3
     elements:
       compoundElements: []
       axes:
@@ -289,9 +289,9 @@ MonoBehaviour:
       - Saitek Pro Flight Combat Rudder Pedals
       - "Mad Catz Pro Flight Cessna Rudder Pedals\r"
       productGUID:
-      - 076306a3-0000-0000-0000-504944564944
-      - 076406a3-0000-0000-0000-504944564944
-      - 076506a3-0000-0000-0000-504944564944
+      - 076306a3
+      - 076406a3
+      - 076506a3
     elements:
       compoundElements: []
       axes:

@@ -27,7 +27,7 @@ public class MapEditorParallaxPanel : MonoBehaviour
 
     void Update()
     {
-        if (MapEditorInput.CyclePrev)
+        if (MenuInput.CyclePrev)
         {
             --_currentSpriteIndex;
             if (_currentSpriteIndex < -1)
@@ -35,7 +35,7 @@ public class MapEditorParallaxPanel : MonoBehaviour
             _layer.SpriteName = _currentSpriteIndex == -1 ? null : this.ValidSprites[_currentSpriteIndex].name;
             updateVisual();
         }
-        else if (MapEditorInput.CycleNext)
+        else if (MenuInput.CycleNext)
         {
             ++_currentSpriteIndex;
             if (_currentSpriteIndex >= this.ValidSprites.Count)
@@ -43,48 +43,48 @@ public class MapEditorParallaxPanel : MonoBehaviour
             _layer.SpriteName = _currentSpriteIndex == -1 ? null : this.ValidSprites[_currentSpriteIndex].name;
             updateVisual();
         }
-        else if (MapEditorInput.Action)
+        else if (MenuInput.Action)
         {
             _layer.Loops = !_layer.Loops;
             updateVisual();
         }
-        else if (MapEditorInput.NavDown)
+        else if (MenuInput.NavDown)
         {
             _layer.Height = Mathf.Max(0.0f, _layer.Height - INCREMENT);
             updateVisual();
         }
-        else if (MapEditorInput.NavUp)
+        else if (MenuInput.NavUp)
         {
             _layer.Height = Mathf.Min(1.0f, _layer.Height + INCREMENT);
             updateVisual();
         }
-        else if (MapEditorInput.NavLeft)
+        else if (MenuInput.NavLeft)
         {
             _layer.XPosition = Mathf.Max(0.0f, _layer.XPosition - INCREMENT);
             updateVisual();
         }
-        else if (MapEditorInput.NavRight)
+        else if (MenuInput.NavRight)
         {
             _layer.XPosition = Mathf.Min(1.0f, _layer.XPosition + INCREMENT);
             updateVisual();
         }
-        else if (MapEditorInput.ResizeLeft || MapEditorInput.ResizeDown)
+        else if (MenuInput.ResizeLeft || MenuInput.ResizeDown)
         {
             _layer.ParallaxRatio = Mathf.Max(0.0f, _layer.ParallaxRatio - INCREMENT);
             updateVisual();
         }
-        else if (MapEditorInput.ResizeRight || MapEditorInput.ResizeUp)
+        else if (MenuInput.ResizeRight || MenuInput.ResizeUp)
         {
             _layer.ParallaxRatio = Mathf.Min(1.0f, _layer.ParallaxRatio + INCREMENT);
             updateVisual();
         }
-        else if (MapEditorInput.Cancel)
+        else if (MenuInput.Cancel)
         {
             _currentLayerNameIndex = _currentLayerNameIndex >= ValidLayerNames.Length - 1 ? 0 : _currentLayerNameIndex + 1;
             _layer.LayerName = ValidLayerNames[_currentLayerNameIndex];
             updateVisual();
         }
-        else if (MapEditorInput.Confirm)
+        else if (MenuInput.Confirm)
         {
             _layer.Lit = !_layer.Lit;
             updateVisual();

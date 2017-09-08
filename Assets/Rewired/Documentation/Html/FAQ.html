@@ -31,6 +31,22 @@
 
 
 <div class="container">
+
+    <div class="google-search-bar">
+        <script>
+          (function() {
+            var cx = '007961148920562332911:oocvtwz5jce';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+
   <div class="content">
 	
 	
@@ -52,6 +68,7 @@
               <li><a href="QuickStart.html">Quick Start</a></li>
               <li><a href="BasicUsage.html">Basic Usage</a></li>
               <li><a href="Deployment.html">Deployment</a></li>
+              <li><a href="BestPractices.html">Best Practices</a></li>
               <li><a href="RewiredEditor.html">Rewired Editor</a></li>
               <li><a href="http://guavaman.com/projects/rewired/docs/api-reference" target="_blank">API Reference</a></li>
             </ol>
@@ -70,23 +87,30 @@
             <strong>Extras:</strong>
             <ul>
               <li><a href="ControlMapper.html" title="Control Mapper">Control Mapper</a></li>
+	          <li><a href="TouchControls.html" title="Touch Controls">Touch Controls</a></li>
               <li><a href="RewiredStandaloneInputModule.html">Rewired Standalone Input Module</a></li>
-	          <li><a href="UserDataStore.html" title="User Data Store">User Data Store</a></li>
 	          <li><a href="UnityInputOverride.html" title="Unity Input Override">Unity Input Override</a></li>
             </ul>
-            <strong>How To's</strong>
+            <strong>Misc:</strong>
+            <ul>
+	          <li><a href="ComponentControls.html" title="Component Controls">Component Controls</a></li>
+	          <li><a href="InputMapper.html" title="Input Mapper">Input Mapper</a></li>
+	          <li><a href="UserDataStore.html" title="User Data Store">User Data Store</a></li>
+            </ul>
+            <strong>How To's:</strong>
             <ul>
             	<li><a href="HowTos.html">See all topics...</a></li>
             </ul>
             <strong>Help:</strong>
             <ul>
               <li><a href="SupportedControllers.html" title="Supported Controllers">Supported Controllers</a></li>
+              <li><a href="Overview.html#tested-platforms" title="Tested Platforms">Tested Platforms</a></li>
+              <li><a href="Troubleshooting.html" title="Troubleshooting">Troubleshooting</a></li>
+              <li><a href="KnownIssues.html">Known Issues</a></li>
               <li><a href="SpecialPlatformSupport.html" title="Special Platform Support">Special Platform Support</a></li>
 	          <li><a href="Examples.html" title="Examples">Examples</a></li>
               <li><a href="Integration.html">Integrations</a></li>
 	          <li><a href="Updating.html" title="Updating Rewired">Updating Rewired</a></li>
-	          <li><a href="Troubleshooting.html" title="Troubleshooting">Troubleshooting</a></li>
-              <li><a href="KnownIssues.html">Known Issues</a></li>
             </ul>
             <strong>FAQ</strong>
             <ul>
@@ -109,7 +133,7 @@
     	<div class="main-body">
 	        <div class="logo"><a href="http://guavaman.com/projects/rewired" title="Rewired"><img src="files/images/rewired-logo.png" width="173" height="139" alt="Rewired" /></a></div>
                      
-          <h1>
+            <h1>
             <!-- InstanceBeginEditable name="PageHeader" -->Frequently Asked Questions<!-- InstanceEndEditable -->
             </h1>
             
@@ -122,29 +146,36 @@
       <li><a href="#addding-controller-definitions">Can you/I add support for this controller?</a></li>
       <li><a href="#supported-platforms">What platforms does Rewired support?</a></li>
       <li><a href="#wiiu-support">Does Rewired support WiiU?</a></li>
-      <li><a href="#webgl-joystick-recognition">Can you add joystick auto-recognition  for WebGL?</a></li>
+      <li><a href="#switch-support">Does Rewired support Nintendo Switch?</a></li>
+      <li><a href="#webgl-support">Does Rewired support WebGL?</a></li>
       <li><a href="#touch-gyro-accelerometer">Does Rewired support touch and gyro/accelerometer input?</a></li>
       <li><a href="#force-feedback">Does Rewired support force feedback?</a></li>
       <li><a href="#framerate-independent-input">Does Rewired support framerate-independent input?</a></li>
       <li><a href="#multiple-mice-and-keyboards">Does Rewired support multiple independent mice and keyboards?</a></li>
       <li><a href="#where-is-data-saved">Where is Rewired's input configuration data saved?</a></li>
+      <li><a href="#copy-input-config">How can I copy my input configuration to another project?</a></li>
       <li><a href="#consume-input">How do you consume/use an input?</a></li>
       <li><a href="#default-dead-zone">My joystick's dead zone is too large/small. How do I change it?</a></li>
-      <li><a href="#control-remapping">Can you give me a quick and simple example of how to handle control remapping?</a></li>
       <li><a href="#gesture-bindings">How can I bind an Action to a button short-press  and another Action to a long-press?</a></li>
       <li><a href="#source-code">Can I get the Rewired source code?</a></li>
       <li><a href="#seat-license">What does &quot;this extension requires one licence per seat&quot; mean?</a></li>
+      <li><a href="#discounts">Do you offer educational or bulk license discounts?</a></li>
     </ul>
     <p>&nbsp;</p>
     <hr />
 
     <h3><a name="does-rewired-support-vr-controllers" id="does-rewired-support-vr-controllers"></a>Does Rewired support Oculus Touch, HTC Vive, etc?
     </h3>
-    <p>See <a href="#does-rewired-support-x-controller">Does Rewired support this controller?</a></p>
+    <p>Rewired has limited support for Oculus Touch and HTC Vive controllers. Please see the following sections for more information:</p>
+    <ul>
+      <li><a href="SupportedControllers.html#oculus-touch">Oculus Touch</a></li>
+      <li><a href="SupportedControllers.html#openvr-controller">HTC Vive / OpenVR</a></li>
+    </ul>
+    <p>Also, see <a href="#does-rewired-support-x-controller">Does Rewired support this controller?</a></p>
     <p>&nbsp;</p>
     <hr />
     <h3><a name="does-rewired-support-x-controller" id="does-rewired-support-x-controller"></a>Does Rewired support this controller?</h3>
-    <p>Usually, this question is asked about exotic controllers such as 3Dconnexion Space Mouse,  Arduino, Oculus Touch and Remote, HTC Vive, exotic VR controllers, or some other special-purpose controller that requires its own SDK to use. Rewired does not support such controllers directly. Any use of such controller would require you set up the company's SDK and use a <a href="CustomControllers.html">Custom Controller</a> to add support for the device. Even this may not work for all devices.</p>
+    <p>Usually, this question is asked about exotic controllers such as 3Dconnexion Space Mouse,  Arduino, Oculus Touch and Remote, HTC Vive, exotic VR controllers, or some other special-purpose controller that requires its own SDK to use. Rewired does not support such controllers directly. Any use of such controller would require you set up the company's SDK and use a <a href="CustomControllers.html">Custom Controller</a> to add support for the device. Even this may not work for all devices. (See <a href="#does-rewired-support-vr-controllers">this topic for information</a> on limited support for Oculus Touch and HTC Vive / OpenVR.)</p>
 <p>Rewired is not a general-purpose, low-level API for working with any and all HID devices.</p>
 <p>See <a href="SupportedControllers.html">Supported Controllers</a> for more information.</p>
 <p>&nbsp;</p>
@@ -163,21 +194,31 @@
 <p>WiiU is not a directly supported platform. In addition, WiiU controllers do not work through UnityEngine.Input so the default fallback mode doesn't work. However, it is possible to support WiiU through the use of <a href="CustomControllers.html">Custom Controllers</a>.</p>
 <p>&nbsp;</p>
 <hr />
-<h3><a name="webgl-joystick-recognition" id="default-dead-zone6"></a>Can you add joystick auto-recognition for WebGL?</h3>
-<p>At this time, joysticks on WebGL are only supported via manual user mapping of controls at runtime through the use of a system like <a href="ControlMapper.html">Control Mapper</a>.</p>
-<p>WebGL controller support is very poor at this time with a huge number of cross-browser bugs and inconsistencies. These inconsistencies even vary across different versions of the same browser on one OS, and across the same versions of the same browser across different OS's. This makes it highly impractical to provide controller auto-recognition for WebGL because it would require code to detect OS, browser, and browser version and require potentially dozens more controller definitions for each controller Rewired supports. Even then, there are many bugs that cannot be fixed which simply make the use of joysticks sub-optimal and would result in a frustrating user experience.</p>
+<h3><a name="switch-support" id="switch-support"></a>Does Rewired support Nintendo Switch?</h3>
+<p>Yes, but it requires installation of a separate plugin and is only available to licensed Nintendo developers. Please visit the <a href="https://developer.nintendo.com" target="_blank">Nintendo Developer Portal</a> for more information on how to obtain the plugin.</p>
+<p>&nbsp;</p>
+<hr />
+<h3><a name="webgl-support" id="default-dead-zone6"></a> Does Rewired support WebGL?</h3>
+<p>Rewired does run on WebGL and includes a native library for WebGL (Unity 5.0+) allowing it to get input directly from the web browser avoid many issues with Unity's input system on WebGL. <a href="SupportedControllers.html#webgl">With the exception of a few of the most common gamepads</a>,  most controllers on WebGL will not be recognized automatically are only supported via manual user mapping of controls at runtime through the use of a system like <a href="ControlMapper.html">Control Mapper</a>.</p>
+<p>Even with a native input librarly, controller support on WebGL is problematic at best. Rewired does its best to make things work when possible, but there are many bugs and issues that vary by web browser, version of the browser,  operating system, version of the operating system, and drivers in use which simply cannot be fixed by any layer above the web browser itself.</p>
+<p>A few issues / limitations:</p>
+<ul>
+  <li>Some controllers do not work properly or at all on some platforms in some web browsers.</li>
+  <li>Individual elements on certain controllers may not work properly or at all such as many D-Pads not working, buttons being stuck on permanently, etc.</li>
+  <li>There  is a limit on the number of controllers simultaneously supported that varies depending on the browser in use.</li>
+  <li>As a security measure by the browser, controllers do not appear to the system until a button is pressed on a controller.</li>
+  <li>Vibration is not supported. (Support for gamepad vibration in browsers is at the very early experimental stages.)</li>
+</ul>
 <p>&nbsp;</p>
 <hr />
 <h3><a name="touch-gyro-accelerometer" id="touch-gyro-accelerometer"></a>Does Rewired support touch and gyro/accelerometer control?</h3>
   <p><strong>On-screen touch joysticks</strong><br />
-    Rewired does not come with pre-built touch controls or GUI components. For   touch-based joysticks, you use the <a href="CustomControllers.html">Custom Controller</a> system to pipe in data from a touch joystick control which you can   either build or download from the Asset Store or elsewhere. There is a simple <a href="http://guavaman.com/projects/rewired/docs/Examples.html">on-screen touch joystick example</a> included with Rewired showing the concept.</p>
+    Rewired comes with set of pre-built <a href="TouchControls.html">touch controls</a> for use directly in your games. For   other special needs, you can use the <a href="CustomControllers.html">Custom Controller</a> system to pipe in data from any kind of control which you can   either build or download from the <a href="https://www.assetstore.unity3d.com/en/" target="_blank">Unity Asset Store</a> or elsewhere. There is a simple <a href="http://guavaman.com/projects/rewired/docs/Examples.html#touch-controls-1">on-screen touch joystick example</a> included with Rewired showing the concept.</p>
 
 <p><strong>Touch swipes and gestures</strong><br />
-  Rewired does not include any handling of swipe or gesture recognition. For   gestures, if it makes sense to map them to input Actions, you can also use the   <a href="CustomControllers.html">Custom Controller</a> system coupled with a gesture recognizer script/asset and pipe   the gestures in as button values in a <a href="CustomControllers.html">Custom Controller</a> and then map those buttons to Actions.</p>
+  Rewired does not include any handling of swipe or gesture recognition. For   gestures, if it makes sense to map them to input <a href="Actions.html">Actions</a>, you can  use the <a href="CustomControllers.html">Custom Controller</a> system coupled with a gesture recognizer script/asset and pipe   the gestures in as button values in a <a href="CustomControllers.html">Custom Controller</a> and then map those buttons to Actions.</p>
 <p><strong>Gyro and accelerometer input</strong><br />
-  Rewired does not directly implement motion or tilt control (except <a href="HowTos.html#appletv-siri-remote">tilt and rotate on the Siri Remote on tvOS</a>, and the <a href="HowTos.html#dualshock-4-special-features">gyro on the Sony Dual Shock 4</a>). To use cell phone motion or tilt control with Rewired, you use UnityEngine.Input to get the motion data and then use that information to feed into a <a href="CustomControllers.html">Custom Controller</a> to map certain types of motion to Actions. Rewired comes with a simple tilt control  <a href="http://guavaman.com/projects/rewired/docs/Examples.html">example</a>.</p>
-<p><strong>Touch-only games</strong><br />
-  If you are  making a touch-and-tilt-only game and do not need joystick, mouse, or keyboard support, Rewired is not the ideal   input package for your project. There are other systems that specialize in touch-based input such as <a href="https://www.assetstore.unity3d.com/en/#!/content/3322" target="_blank">Easy Touch 5,</a> which can also be used with Rewired to provide the input data for <a href="CustomControllers.html">Custom Controllers</a>.</p>
+  Rewired comes with a <a href="ComponentControls.html#tilt-control">Tilt Control</a> component which can be used for basic tilt input. It also supports <a href="HowTos.html#appletv-siri-remote">tilt and rotate on the Siri Remote on tvOS</a>, and the <a href="HowTos.html#dualshock-4-special-features">gyro on the Sony Dual Shock 4</a> and Nintendo Joy-Cons (Switch platform only). For any other tilt/motion needs,  you can use UnityEngine.Input to get the motion data, process it, and then use that information to feed into a <a href="CustomControllers.html">Custom Controller</a> to map certain types of motion to Actions. Rewired also comes with a simple tilt control  <a href="http://guavaman.com/projects/rewired/docs/Examples.html">example</a>.</p>
 <p>&nbsp;</p>
 <hr />
 <h3><a name="force-feedback" id="default-dead-zone5"></a>Does Rewired support force feedback?</h3>
@@ -189,10 +230,11 @@
     <td align="center"><strong>Windows</strong></td>
     <td align="center"><strong>OSX</strong></td>
     <td align="center"><strong>Linux</strong></td>
-    <td align="center"><strong>Windows 8  Store</strong></td>
+    <td align="center"><strong>Windows 8.0 &amp; 8.1 Store</strong></td>
     <td align="center"><strong>Windows 10 Universal</strong></td>
     <td align="center"><strong>XBox One</strong></td>
     <td align="center"><strong>PlayStation 4</strong></td>
+    <td align="center"><strong>Nintendo Switch</strong></td>
   </tr>
   <tr>
     <td valign="top">Xbox 360 Controller</td>
@@ -208,6 +250,7 @@
     </ul></td>
     <td align="center" valign="top">Native</td>
     <td align="center" valign="top">Native</td>
+    <td align="center" valign="top">&mdash;</td>
     <td align="center" valign="top">&mdash;</td>
     <td align="center" valign="top">&mdash;</td>
   </tr>
@@ -229,6 +272,7 @@
     <td align="center" valign="top">Native<br />
       <span class="note">(All 4 motors supported)</span></td>
     <td align="center" valign="top">&mdash;</td>
+    <td align="center" valign="top">&mdash;</td>
   </tr>
   <tr>
     <td valign="top">Xbox One S Controller</td>
@@ -245,6 +289,7 @@
     <td align="center" valign="top">Native<br />
       <span class="note">(All 4 motors supported)</span></td>
     <td align="center" valign="top">&mdash;</td>
+    <td align="center" valign="top">&mdash;</td>
   </tr>
   <tr>
     <td valign="top">Sony DualShock 4</td>
@@ -257,6 +302,19 @@
     <td align="center" valign="top">&mdash;</td>
     <td align="center" valign="top">&mdash;</td>
     <td align="center" valign="top">Native</td>
+    <td align="center" valign="top">&mdash;</td>
+  </tr>
+  <tr>
+    <td valign="top">Nintendo Joy-Cons</td>
+    <td align="center" valign="top">&mdash;</td>
+    <td align="center" valign="top">&mdash;</td>
+    <td align="center" valign="top">&mdash;</td>
+    <td align="center" valign="top">&mdash;</td>
+    <td align="center" valign="top">&mdash;</td>
+    <td align="center" valign="top">&mdash;</td>
+    <td align="center" valign="top">&mdash;</td>
+    <td align="center" valign="top">Native<br />
+      <span class="note">(All motors and features supported)</span></td>
   </tr>
 </table>
 <p>&nbsp;</p>
@@ -273,6 +331,10 @@
 <hr />
     <h3><a name="where-is-data-saved" id="default-dead-zone2"></a>Where is Rewired's input configuration data saved?</h3>
     <p>In each Rewired Input Manager game object as serialized data. See <a href="InputManager.html">Input Manager</a> for more details.</p>
+    <p>&nbsp;</p>
+    <hr />
+    <h3><a name="copy-input-config" id="copy-input-config"></a>How can I copy my input configuration to another project?</h3>
+<p><a href="HowTos.html#copying-input-config">See How To's - Copying input configuration to another project</a>.</p>
 <p>&nbsp;</p>
 <hr />
     <h3><a name="consume-input" id="does-rewired-support-x-controller2"></a>How do you consume/use an input?</h3>
@@ -311,10 +373,6 @@
   calibrate their controllers.</p>
 <p>&nbsp;</p>
 <hr />
-<h3><a name="control-remapping" id="control-remapping"></a>Can you give me a quick and simple example of how to handle control remapping?</h3>
-<p>Remapping controls in Rewired is very complex because of Rewired's Controller Map and Player systems. It is a very powerful system that allows you to do things that simple static input configuration systems could never do, but it comes at the price of making tasks like this very complex. That is why I have provided both a <a href="Examples.html#controller-remapping-1">complete working example</a> that is intended for experienced programmers to read and learn the process from and a <a href="ControlMapper.html">complete working UI</a> that those without advanced programming skills  can use directly in their games. I simply cannot make this topic simple and easy, so I choose not to attempt to write what would end up being an extremely long and complex volume on the process. <a href="HowTos.html#controller-mapping-screen">Documentation on the topic can be found here</a>.</p>
-<p>&nbsp;</p>
-<hr />
 <h3><a name="gesture-bindings" id="gesture-bindings"></a>How can I bind one Action to a button short-press  and another Action to a long-press?</h3>
 <p>That would require the ability to bind an Action to a gesture, a gesture being an event triggered when some element value changes over time matching some pre-defined pattern. Rewired does not support this at the present time.</p>
 <p>There are dozens of potential gestures that one could possibly want to handle for every type of controller element (axes especially). Rewired does not provide any binding of Actions to gestures. Action bindings are only to controller elements. That Action can then be queried for axis value, button on, button off, button just pressed, button just released, button double clicked, button short pressed, and button long pressed events. The Action bindings are not bound to gestures but to the button/axis element, and the Action can then be queried for those events listed above.<br />
@@ -331,6 +389,10 @@
 <h3><a name="seat-license" id="seat-license"></a>What does &quot;this extension requires one licence per seat&quot; mean?</h3>
 <p>The EULA terms are defined by the <a href="https://unity3d.com/legal/as_terms">Unity Asset Store EULA</a>. See Appendix I for information on assets purchased through the Unity Asset Store. Specifically Appendix I, section 2.4 outlines terms for all editor extension assets.</p>
 <p>Rewired is only sold on the Unity Asset Store and the license is bound by these terms as created and defined by Unity. I do not have legal authority to interpret these terms in any other way except as written and defined by the <a href="https://unity3d.com/legal/as_terms">Unity Asset Store EULA</a>. I cannot provide further clarification of or exceptions to these terms.</p>
+<p>&nbsp;</p>
+<hr />
+<h3><a name="discounts" id="discounts"></a>Do you offer educational or bulk license discounts?</h3>
+<p>Rewired is sold only through the Unity Asset Store, therefore there are no other licensing options but what is available through the Unity Asset Store.</p>
 <p>&nbsp;</p>
 <div class="bottom-pager clearfix">
   <a class="back-button" href="Documentation.html" title="Documentation"><span class="button-img"></span>Documentation</a>

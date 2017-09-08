@@ -119,22 +119,34 @@ namespace Rewired {
             platform = Platform.WiiU;
 #endif
 
+#if UNITY_N3DS
+            platform = Platform.N3DS;
+#endif
+
+#if UNITY_SWITCH
+            platform = Platform.Switch;
+#endif
+
 #if UNITY_FLASH
             platform = Platform.Flash;
 #endif
 
-#if UNITY_METRO || UNITY_WSA || UNITY_WSA_8_0 || UNITY_WSA_8_1
+#if UNITY_METRO || UNITY_WSA || UNITY_WSA_8_0
             platform = Platform.WindowsAppStore;
+#endif
+
+#if UNITY_WSA_8_1
+            platform = Platform.Windows81Store;
+#endif
+
+            // Windows 8.1 Universal
+#if UNITY_WINRT_8_1 && !UNITY_WSA_8_1 // this seems to be the only way to detect this
+    platform = Platform.Windows81Store;
 #endif
 
             // Windows Phone overrides Windows Store -- this is not set when doing Universal 8.1 builds
 #if UNITY_WP8 || UNITY_WP8_1 || UNITY_WP_8 || UNITY_WP_8_1 // documentation error on format of WP8 defines, so include both
             platform = Platform.WindowsPhone8;
-#endif
-
-            // Windows 8.1 Universal
-#if UNITY_WINRT_8_1 && !UNITY_WSA_8_1 // this seems to be the only way to detect this
-            
 #endif
 
 #if UNITY_WSA_10_0

@@ -153,15 +153,15 @@ public class MapEditorManager : MonoBehaviour, IPausable
         if (_exiting)
             return;
 
-        if (MapEditorInput.CycleNextAlt || MapEditorInput.CyclePrevAlt)
+        if (MenuInput.CycleNextAlt || MenuInput.CyclePrevAlt)
         {
-            cycleLayers(MapEditorInput.CycleNextAlt);
+            cycleLayers(MenuInput.CycleNextAlt);
         }
-        else if (MapEditorInput.Start)
+        else if (MenuInput.Start)
         {
             this.Save();
         }
-        else if (MapEditorInput.Exit)
+        else if (MenuInput.Exit)
         {
             _exiting = true;
             this.FadeOut.Run();
@@ -307,25 +307,25 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
         if (layer.CurrentBrushState != MapEditorTilesLayer.BrushState.GroupSet)
         {
-            if (layer.CurrentBrushState == MapEditorTilesLayer.BrushState.GroupPaint && MapEditorInput.CyclePrev)
+            if (layer.CurrentBrushState == MapEditorTilesLayer.BrushState.GroupPaint && MenuInput.CyclePrev)
             {
                 layer.ApplyData(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
                 layer.CurrentBrushState = MapEditorTilesLayer.BrushState.SinglePaint;
                 layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
                 this.SelectionBorder.gameObject.SetActive(false);
             }
-            else if (MapEditorInput.Confirm || (newPos && MapEditorInput.ConfirmHeld))
+            else if (MenuInput.Confirm || (newPos && MenuInput.ConfirmHeld))
             {
                 layer.ApplyBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
             }
-            else if (MapEditorInput.Cancel && layer.CurrentBrushState == MapEditorTilesLayer.BrushState.SinglePaint)
+            else if (MenuInput.Cancel && layer.CurrentBrushState == MapEditorTilesLayer.BrushState.SinglePaint)
             {
                 _tileEraserEnabled = !_tileEraserEnabled;
                 this.Cursor.EnableEraser(_tileEraserEnabled);
                 layer.EraserEnabled = _tileEraserEnabled;
                 layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
             }
-            else if (MapEditorInput.CycleNext)
+            else if (MenuInput.CycleNext)
             {
                 layer.ApplyData(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
                 layer.BeginGroupSet(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
@@ -342,7 +342,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
         }
         else
         {
-            if (MapEditorInput.CyclePrev)
+            if (MenuInput.CyclePrev)
             {
                 layer.CurrentBrushState = MapEditorTilesLayer.BrushState.SinglePaint;
                 layer.PreviewBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
@@ -353,7 +353,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
                 layer.UpdateGroupSet(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
                 this.SelectionBorder.SetMinMax(layer.GroupBrushLowerLeft, layer.GroupBrushUpperRight);
             }
-            else if (MapEditorInput.CycleNext)
+            else if (MenuInput.CycleNext)
             {
                 this.Cursor.GridPos = layer.EndGroupSet(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
                 this.Cursor.MoveToGridPos();
@@ -381,14 +381,14 @@ public class MapEditorManager : MonoBehaviour, IPausable
             this.ObjectEraseLine.enabled = false;
         }
 
-        if (MapEditorInput.Confirm)
+        if (MenuInput.Confirm)
         {
             if (!layer.EraserEnabled)
                 addObject(layer);
             else
                 eraseObject(layer, toErase);
         }
-        else if (MapEditorInput.Cancel)
+        else if (MenuInput.Cancel)
         {
             _objectEraserEnabled = !_objectEraserEnabled;
             layer.EraserEnabled = _objectEraserEnabled;
@@ -399,13 +399,13 @@ public class MapEditorManager : MonoBehaviour, IPausable
         {
             updateObjectMovement();
 
-            if (MapEditorInput.CyclePrev)
+            if (MenuInput.CyclePrev)
             {
                 removeObjectBrush();
                 layer.CyclePrev();
                 addObjectBrush(layer);
             }
-            else if (MapEditorInput.CycleNext)
+            else if (MenuInput.CycleNext)
             {
                 removeObjectBrush();
                 layer.CycleNext();
@@ -432,14 +432,14 @@ public class MapEditorManager : MonoBehaviour, IPausable
             this.ObjectEraseLine.enabled = false;
         }
 
-        if (MapEditorInput.Confirm)
+        if (MenuInput.Confirm)
         {
             if (!layer.EraserEnabled)
                 addLight(layer);
             else
                 eraseObject(layer, toErase, false);
         }
-        else if (MapEditorInput.Action)
+        else if (MenuInput.Action)
         {
             removeObjectBrush();
             if (!layer.EraserEnabled)
@@ -448,26 +448,26 @@ public class MapEditorManager : MonoBehaviour, IPausable
                 eraseObject(layer, toErase, true);
             layer.ApplyBrush(this.ObjectCursor);
         }
-        else if (MapEditorInput.Cancel)
+        else if (MenuInput.Cancel)
         {
             _objectEraserEnabled = !_objectEraserEnabled;
             layer.EraserEnabled = _objectEraserEnabled;
 
             this.ObjectCursor.gameObject.SetActive(!_objectEraserEnabled);
         }
-        else if (MapEditorInput.ResizeDown)
+        else if (MenuInput.ResizeDown)
         {
             layer.ApplyRotation(1, 0);
         }
-        else if (MapEditorInput.ResizeUp)
+        else if (MenuInput.ResizeUp)
         {
             layer.ApplyRotation(-1, 0);
         }
-        else if (MapEditorInput.ResizeLeft)
+        else if (MenuInput.ResizeLeft)
         {
             layer.ApplyRotation(0, -1);
         }
-        else if (MapEditorInput.ResizeRight)
+        else if (MenuInput.ResizeRight)
         {
             layer.ApplyRotation(0, 1);
         }
@@ -479,25 +479,25 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
     private void updateObjectMovement()
     {
-        if (MapEditorInput.NavLeft)
+        if (MenuInput.NavLeft)
         {
             this.ObjectCursor.SetX(this.ObjectCursor.position.x - _objectPrecisionIncrement);
             if (this.ObjectCursor.position.x < _objectPrecisionIncrement)
                 this.ObjectCursor.SetX(_mapInfo.width * this.Grid.GridSpaceSize - _objectPrecisionIncrement);
         }
-        else if (MapEditorInput.NavRight)
+        else if (MenuInput.NavRight)
         {
             this.ObjectCursor.SetX(this.ObjectCursor.position.x + _objectPrecisionIncrement);
             if (this.ObjectCursor.position.x > _mapInfo.width * this.Grid.GridSpaceSize - _objectPrecisionIncrement)
                 this.ObjectCursor.SetX(_objectPrecisionIncrement);
         }
-        else if (MapEditorInput.NavDown)
+        else if (MenuInput.NavDown)
         {
             this.ObjectCursor.SetY(this.ObjectCursor.position.y - _objectPrecisionIncrement);
             if (this.ObjectCursor.position.y < _objectPrecisionIncrement)
                 this.ObjectCursor.SetY(_mapInfo.height * this.Grid.GridSpaceSize - _objectPrecisionIncrement);
         }
-        else if (MapEditorInput.NavUp)
+        else if (MenuInput.NavUp)
         {
             this.ObjectCursor.SetY(this.ObjectCursor.position.y + _objectPrecisionIncrement);
             if (this.ObjectCursor.position.y > _mapInfo.height * this.Grid.GridSpaceSize - _objectPrecisionIncrement)
@@ -507,13 +507,13 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
     private void updateParallaxLayer(MapEditorParallaxLayer layer)
     {
-        if (MapEditorInput.Action)
+        if (MenuInput.Action)
         {
             addParallaxLayer(layer.Depth <= 0);
             _sortedLayers = this.DepthSortedLayers;
             this.LayerListPanel.ConfigureForLayers(_sortedLayers, this.CurrentLayer);
         }
-        if (MapEditorInput.Cancel)
+        if (MenuInput.Cancel)
         {
             removeParallaxLayer(layer);
             _sortedLayers = this.DepthSortedLayers;

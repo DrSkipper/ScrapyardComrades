@@ -69,10 +69,10 @@ public class MapEditorObjectsPanel : MonoBehaviour
     {
         if (_parameters != null)
         {
-            bool down = MapEditorInput.NavDown;
-            bool up = MapEditorInput.NavUp;
-            bool left = MapEditorInput.NavLeft;
-            bool right = MapEditorInput.NavRight;
+            bool down = MenuInput.NavDown;
+            bool up = MenuInput.NavUp;
+            bool left = MenuInput.NavLeft;
+            bool right = MenuInput.NavRight;
 
             if (_parameters.Length > 1 && (up || down))
             {

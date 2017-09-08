@@ -115,7 +115,7 @@ MonoBehaviour:
       productName:
       - CH THROTTLE QUADRANT
       productGUID:
-      - 00fa068e-0000-0000-0000-504944564944
+      - 00fa068e
       productId: fa000000
       deviceType: 20
     elements:
@@ -709,7 +709,7 @@ MonoBehaviour:
       - CH THROTTLE QUADRANT
       systemName: []
       productGUID:
-      - 00fa068e-0000-0000-0000-504944564944
+      - 00fa068e
     elements:
       compoundElements: []
       axes:
@@ -972,7 +972,7 @@ MonoBehaviour:
       productName:
       - CH THROTTLE QUADRANT
       productGUID:
-      - 00fa068e-0000-0000-0000-504944564944
+      - 00fa068e
     elements:
       compoundElements: []
       axes:

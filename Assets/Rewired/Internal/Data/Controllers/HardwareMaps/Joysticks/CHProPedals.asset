@@ -42,7 +42,7 @@ MonoBehaviour:
       productName:
       - 'CH PRO PEDALS USB '
       productGUID:
-      - 00f2068e-0000-0000-0000-504944564944
+      - 00f2068e
       productId: f2000000
       deviceType: 20
     elements:
@@ -209,7 +209,7 @@ MonoBehaviour:
       - 'CH PRO PEDALS USB '
       systemName: []
       productGUID:
-      - 00f2068e-0000-0000-0000-504944564944
+      - 00f2068e
     elements:
       compoundElements: []
       axes:
@@ -273,7 +273,7 @@ MonoBehaviour:
       productName:
       - 'CH PRO PEDALS USB '
       productGUID:
-      - 00f2068e-0000-0000-0000-504944564944
+      - 00f2068e
     elements:
       compoundElements: []
       axes:

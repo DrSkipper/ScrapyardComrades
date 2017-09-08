@@ -31,6 +31,7 @@ MonoBehaviour:
     _name: Clutch
     _elementType: 0
     _compoundElementType: 0
+  compoundElements: []
   directInput:
     description: 
     matchingCriteria:
@@ -61,13 +62,15 @@ MonoBehaviour:
       productName:
       - T-Pedals
       productGUID:
-      - b678044f-0000-0000-0000-504944564944
+      - b678044f
       productId: 78b60000
       deviceType: 0
     elements:
       compoundElements: []
       axes:
-      - elementIdentifier: 0
+      - customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        elementIdentifier: 0
         sourceType: 1
         sourceAxis: 3
         sourceAxisRange: 0
@@ -79,13 +82,16 @@ MonoBehaviour:
         axisMax: 1
         axisInfo:
           _dataFormat: 0
+          _excludeFromPolling: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
         sourceHatDirection: 0
         sourceHatRange: 0
         sourceOtherAxis: 0
-      - elementIdentifier: 1
+      - customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        elementIdentifier: 1
         sourceType: 1
         sourceAxis: 6
         sourceAxisRange: 0
@@ -97,13 +103,16 @@ MonoBehaviour:
         axisMax: 1
         axisInfo:
           _dataFormat: 0
+          _excludeFromPolling: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
         sourceHatDirection: 0
         sourceHatRange: 0
         sourceOtherAxis: 0
-      - elementIdentifier: 2
+      - customCalculation: {fileID: 0}
+        customCalculationSourceData: []
+        elementIdentifier: 2
         sourceType: 1
         sourceAxis: 7
         sourceAxisRange: 0
@@ -115,6 +124,7 @@ MonoBehaviour:
         axisMax: 1
         axisInfo:
           _dataFormat: 0
+          _excludeFromPolling: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -168,6 +178,7 @@ MonoBehaviour:
         axisMax: 1
         axisInfo:
           _dataFormat: 0
+          _excludeFromPolling: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -187,6 +198,7 @@ MonoBehaviour:
         axisMax: 1
         axisInfo:
           _dataFormat: 0
+          _excludeFromPolling: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -206,6 +218,7 @@ MonoBehaviour:
         axisMax: 1
         axisInfo:
           _dataFormat: 0
+          _excludeFromPolling: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -246,6 +259,7 @@ MonoBehaviour:
         axisMax: 1
         axisInfo:
           _dataFormat: 0
+          _excludeFromPolling: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -263,6 +277,7 @@ MonoBehaviour:
         axisMax: 1
         axisInfo:
           _dataFormat: 0
+          _excludeFromPolling: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -280,6 +295,7 @@ MonoBehaviour:
         axisMax: 1
         axisInfo:
           _dataFormat: 0
+          _excludeFromPolling: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -317,6 +333,7 @@ MonoBehaviour:
         axisMax: 1
         axisInfo:
           _dataFormat: 0
+          _excludeFromPolling: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -334,6 +351,7 @@ MonoBehaviour:
         axisMax: 1
         axisInfo:
           _dataFormat: 0
+          _excludeFromPolling: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0
@@ -351,6 +369,7 @@ MonoBehaviour:
         axisMax: 1
         axisInfo:
           _dataFormat: 0
+          _excludeFromPolling: 0
         sourceButton: 0
         buttonAxisContribution: 0
         sourceHat: 0

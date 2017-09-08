@@ -28,7 +28,7 @@ public class MapEditorLightingPanel : MonoBehaviour
 
     void Update()
     {
-        if (MapEditorInput.CyclePrev)
+        if (MenuInput.CyclePrev)
         {
             --_currentColorIndex;
             if (_currentColorIndex < 0)
@@ -39,7 +39,7 @@ public class MapEditorLightingPanel : MonoBehaviour
             _layer.CurrentProperties.b = c.b;
             updateVisual();
         }
-        else if (MapEditorInput.CycleNext)
+        else if (MenuInput.CycleNext)
         {
             ++_currentColorIndex;
             if (_currentColorIndex >= this.ValidLightColors.Length)
@@ -50,44 +50,44 @@ public class MapEditorLightingPanel : MonoBehaviour
             _layer.CurrentProperties.b = c.b;
             updateVisual();
         }
-        else if (MapEditorInput.Action)
+        else if (MenuInput.Action)
         {
             _layer.CurrentProperties.light_type = _layer.CurrentProperties.light_type == (int)LightType.Spot ? (int)LightType.Point : (int)LightType.Spot;
             updateVisual();
         }
-        else if (MapEditorInput.NavDown)
+        else if (MenuInput.NavDown)
         {
             _layer.CurrentProperties.distance = Mathf.Max(0, _layer.CurrentProperties.distance - INCREMENT);
             updateVisual();
         }
-        else if (MapEditorInput.NavUp)
+        else if (MenuInput.NavUp)
         {
             _layer.CurrentProperties.distance = Mathf.Min(500, _layer.CurrentProperties.distance + INCREMENT);
             updateVisual();
         }
-        else if (MapEditorInput.NavLeft)
+        else if (MenuInput.NavLeft)
         {
             _layer.CurrentProperties.intensity = Mathf.Max(0, _layer.CurrentProperties.intensity - SMALL_INCREMENT);
             updateVisual();
         }
-        else if (MapEditorInput.NavRight)
+        else if (MenuInput.NavRight)
         {
             _layer.CurrentProperties.intensity = Mathf.Min(25, _layer.CurrentProperties.intensity + SMALL_INCREMENT);
             updateVisual();
         }
-        else if (MapEditorInput.ResizeDown && !MapEditorInput.CyclePrevAltHeld)
+        else if (MenuInput.ResizeDown && !MenuInput.CyclePrevAltHeld)
         {
             _layer.CurrentProperties.range = Mathf.Max(0, _layer.CurrentProperties.range - INCREMENT);
             updateVisual();
         }
-        else if (MapEditorInput.ResizeUp && !MapEditorInput.CyclePrevAltHeld)
+        else if (MenuInput.ResizeUp && !MenuInput.CyclePrevAltHeld)
         {
             _layer.CurrentProperties.range = Mathf.Min(1000, _layer.CurrentProperties.range + INCREMENT);
             updateVisual();
         }
-        else if (MapEditorInput.ResizeLeft)
+        else if (MenuInput.ResizeLeft)
         {
-            if (MapEditorInput.CyclePrevAltHeld)
+            if (MenuInput.CyclePrevAltHeld)
             {
                 _layer.CurrentProperties.parallax_ratio = Mathf.Max(0.0f, _layer.CurrentProperties.parallax_ratio - MapEditorParallaxPanel.INCREMENT);
                 updateVisual();
@@ -98,9 +98,9 @@ public class MapEditorLightingPanel : MonoBehaviour
                 updateVisual();
             }
         }
-        else if (MapEditorInput.ResizeRight)
+        else if (MenuInput.ResizeRight)
         {
-            if (MapEditorInput.CyclePrevAltHeld)
+            if (MenuInput.CyclePrevAltHeld)
             {
                 _layer.CurrentProperties.parallax_ratio = Mathf.Min(1.0f, _layer.CurrentProperties.parallax_ratio + MapEditorParallaxPanel.INCREMENT);
                 updateVisual();
@@ -111,12 +111,12 @@ public class MapEditorLightingPanel : MonoBehaviour
                 updateVisual();
             }
         }
-        else if (MapEditorInput.Cancel)
+        else if (MenuInput.Cancel)
         {
             _layer.CurrentProperties.affects_foreground = !_layer.CurrentProperties.affects_foreground;
             updateVisual();
         }
-        else if (MapEditorInput.Confirm)
+        else if (MenuInput.Confirm)
         {
             _currentAffectParallaxIndex = _currentAffectParallaxIndex < this.AffectsParallaxConfigurations.Length - 1 ? _currentAffectParallaxIndex + 1 : 0;
             updateAffectsParallax();
