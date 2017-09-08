@@ -8,9 +8,11 @@ public class PositionLerper : MonoBehaviour
     public int Duration;
     public int Delay;
     public bool OnlyX = false;
+    public bool OnlyY = false;
     public bool LerpSize = false;
     public bool Loops;
     public bool RunOnStart;
+    public bool Running { get { return _running; } }
 
     void Start()
     {
@@ -58,7 +60,7 @@ public class PositionLerper : MonoBehaviour
             {
                 if (_t < this.Duration)
                 {
-                    float x = _easingDelegate(_t, _startingPos.x, _dist.x, this.Duration);
+                    float x = !this.OnlyY ? _easingDelegate(_t, _startingPos.x, _dist.x, this.Duration) : 0;
                     float y = !this.OnlyX ? _easingDelegate(_t, _startingPos.y, _dist.y, this.Duration) : 0;
                     setPos(new Vector2(x, y));
 
@@ -110,17 +112,21 @@ public class PositionLerper : MonoBehaviour
     {
         if (_ourRectTransform != null)
         {
-            if (!this.OnlyX)
-                _ourRectTransform.anchoredPosition = pos;
-            else
+            if (this.OnlyX)
                 _ourRectTransform.anchoredPosition = new Vector2(pos.x, _ourRectTransform.anchoredPosition.y);
+            else if (this.OnlyY)
+                _ourRectTransform.anchoredPosition = new Vector2(_ourRectTransform.anchoredPosition.x, pos.y);
+            else
+                _ourRectTransform.anchoredPosition = pos;
         }
         else
         {
-            if (!this.OnlyX)
-                this.transform.SetPosition2D(pos);
-            else
+            if (this.OnlyX)
                 this.transform.SetX(pos.x);
+            else if (this.OnlyY)
+                this.transform.SetY(pos.y);
+            else
+                this.transform.SetPosition2D(pos);
         }
     }
 

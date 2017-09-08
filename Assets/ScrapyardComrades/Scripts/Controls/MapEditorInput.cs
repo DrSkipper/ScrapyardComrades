@@ -4,6 +4,16 @@ public static class MapEditorInput
 {
     public static Player RewiredPlayer { get { if (_p == null) _p = ReInput.players.GetPlayer(PLAYER_INDEX); return _p; } }
 
+    public static void EnableMenuInput()
+    {
+        RewiredPlayer.controllers.maps.SetMapsEnabled(true, MENU_CONTROLS_MAP);
+    }
+
+    public static void DisableMenuInput()
+    {
+        RewiredPlayer.controllers.maps.SetMapsEnabled(false, MENU_CONTROLS_MAP);
+    }
+
     public static bool Start { get { return RewiredPlayer.GetButtonDown(START); } }
     public static bool Confirm { get { return RewiredPlayer.GetButtonDown(CONFIRM); } }
     public static bool ConfirmHeld { get { return RewiredPlayer.GetButton(CONFIRM); } }
@@ -33,6 +43,7 @@ public static class MapEditorInput
      * Private
      */
     private static int PLAYER_INDEX = 0;
+    private static string MENU_CONTROLS_MAP = "Menu";
     private static string START = "Start";
     private static string CONFIRM = "Confirm";
     private static string ACTION = "Action";
