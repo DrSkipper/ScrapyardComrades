@@ -9,7 +9,6 @@ public class UIMenuManager : MonoBehaviour
     public UIMenuElement[] ElementVisuals;
     public PositionLerper HighlightIndicator;
     public string InitialStateName;
-    public int Border = 4;
     public int SceneTransitionDelay = 50;
     public string EndSceneEvent = "SCENE_END";
 
