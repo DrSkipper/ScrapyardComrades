@@ -7,6 +7,7 @@ public class UISaveSlotElement : UIMenuElementSpec
     public Image Image;
     public Color UnsafeSlotColor = Color.red;
     public string GameplayScene = "Gameplay";
+    public string IntroScene = "IntroScene";
 
     public override void Configure(Menu menu, Menu.MenuElement element)
     {
@@ -37,8 +38,11 @@ public class UISaveSlotElement : UIMenuElementSpec
 
     public override Menu.Action HandleCustomAction(Menu.Action action)
     {
+        string scene = this.GameplayScene;
+
         if (action.Param == UISaveSlotMenu.EMPTY_SLOT)
         {
+            scene = this.IntroScene;
             _saveSlotMenu.CreateNewSlot();
         }
         else if (!_slotSummary.UnsafeSave && !StringExtensions.IsEmpty(_slotSummary.Name))
@@ -55,7 +59,7 @@ public class UISaveSlotElement : UIMenuElementSpec
 
         Menu.Action retVal = new Menu.Action();
         retVal.Type = Menu.ActionType.SceneTransition;
-        retVal.Param = this.GameplayScene;
+        retVal.Param = scene;
         return retVal;
     }
 
