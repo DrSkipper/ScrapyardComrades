@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class UISaveSlotElement : UIMenuElementSpec
 {
     public Text SlotNameText;
-    public Image Image;
     public Color UnsafeSlotColor = Color.red;
     public string GameplayScene = "Gameplay";
     public string IntroScene = "IntroScene";
@@ -22,7 +21,7 @@ public class UISaveSlotElement : UIMenuElementSpec
             _slotSummary = _saveSlotMenu.SaveSlotForName(element.Action.Param);
             this.SlotNameText.text = StringExtensions.IsEmpty(_slotSummary.Name) ? "_MISSING_SLOT_" : _slotSummary.Name;
             if (_slotSummary.UnsafeSave)
-                this.Image.color = this.UnsafeSlotColor;
+                this.SlotNameText.color = this.UnsafeSlotColor;
         }
     }
 
