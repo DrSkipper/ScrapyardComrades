@@ -14,7 +14,9 @@ public class Menu : MonoBehaviour
         OpenMenu,
         SceneTransition,
         UnPause,
-        ChangeValue
+        ChangeValue,
+        CloseMenuWithEvent,
+        Custom
     }
 
     [System.Serializable]

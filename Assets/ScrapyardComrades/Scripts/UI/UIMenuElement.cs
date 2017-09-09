@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.UI.Extensions;
 
-public class UIMenuElement : MonoBehaviour
+public class UIMenuElement : UIMenuElementSpec
 {
     public Text Text;
     public NicerOutline Outline;
@@ -26,7 +26,7 @@ public class UIMenuElement : MonoBehaviour
         _highlightedOutlineV = v;
     }
 
-    public void Configure(Menu.MenuElement element)
+    public override void Configure(Menu menu, Menu.MenuElement element)
     {
         this.Text.text = element.Text;
         _t = 0;
@@ -34,12 +34,12 @@ public class UIMenuElement : MonoBehaviour
         updateColor();
     }
 
-    public void Highlight()
+    public override void Highlight()
     {
         _highlighted = true;
     }
 
-    public void UnHighlight()
+    public override void UnHighlight()
     {
         _highlighted = false;
     }
@@ -62,6 +62,11 @@ public class UIMenuElement : MonoBehaviour
                 updateColor();
             }
         }
+    }
+
+    public override Menu.Action HandleCustomAction(Menu.Action action)
+    {
+        return new Menu.Action();
     }
 
     /**

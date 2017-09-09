@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public static class SaveSlotData
 {
-    public const int MAX_SLOTS = 3;
+    public const int MAX_SLOTS = 5;
 
     public struct SlotSummary
     {

@@ -7,11 +7,13 @@ public class UIMenuManager : MonoBehaviour
     public Menu[] MenuStates;
     public Transform EmptyState;
     public PositionLerper MenuBounds;
-    public UIMenuElement[] ElementVisuals;
+    public UIMenuElementSpec[] ElementVisuals;
     public PositionLerper HighlightIndicator;
     public string InitialStateName;
     public int SceneTransitionDelay = 50;
+    public int EventSendDelay = 25;
     public string EndSceneEvent = "SCENE_END";
+    public Menu.Action CancelAction;
 
     public void Initialize()
     {
@@ -33,9 +35,9 @@ public class UIMenuManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (_sceneChangeTimer != null)
+        if (_actionTimer != null)
         {
-            _sceneChangeTimer.update();
+            _actionTimer.update();
         }
         else if (_initialized && ! this.MenuBounds.Running)
         {
@@ -51,11 +53,18 @@ public class UIMenuManager : MonoBehaviour
             }
             else if (MenuInput.Confirm)
             {
-                handleAction(_currentMenu.SelectCurrent());
+                Menu.Action action = _currentMenu.SelectCurrent();
+                if (action.Type == Menu.ActionType.Custom)
+                    handleAction(this.ElementVisuals[_currentHighlight].HandleCustomAction(action));
+                else
+                    handleAction(action);
             }
-            else if (MenuInput.Cancel && _pastMenuStack.Count > 0)
+            else if (MenuInput.Cancel)
             {
-                configureForState(_pastMenuStack.Pop());
+                if (_pastMenuStack.Count > 0)
+                    configureForState(_pastMenuStack.Pop());
+                else
+                    handleAction(this.CancelAction);
             }
         }
     }
@@ -67,8 +76,9 @@ public class UIMenuManager : MonoBehaviour
     private Menu _currentMenu;
     private List<string> _pastMenuStack;
     private int _currentHighlight;
-    private Timer _sceneChangeTimer;
-    private string _sceneDestination;
+    private Timer _actionTimer;
+    private string _timerParam;
+    private bool _changingScene;
 
     private void configureForState(string state)
     {
@@ -79,7 +89,7 @@ public class UIMenuManager : MonoBehaviour
             if (i < menu.NumElements)
             {
                 this.ElementVisuals[i].gameObject.SetActive(true);
-                this.ElementVisuals[i].Configure(menu.Elements[i]);
+                this.ElementVisuals[i].Configure(menu, menu.Elements[i]);
             }
             else
             {
@@ -112,22 +122,40 @@ public class UIMenuManager : MonoBehaviour
                 break;
             case Menu.ActionType.SceneTransition:
                 this.Hide();
-                _sceneChangeTimer = new Timer(this.SceneTransitionDelay, false, true, onSceneChange);
-                _sceneDestination = action.Param;
+                _actionTimer = new Timer(this.SceneTransitionDelay, false, true, onDelayedAction);
+                _timerParam = action.Param;
+                _changingScene = true;
 
                 LocalEventNotifier.Event e = new LocalEventNotifier.Event();
                 e.Name = this.EndSceneEvent;
                 GlobalEvents.Notifier.SendEvent(e);
                 break;
+            case Menu.ActionType.CloseMenuWithEvent:
+                this.Hide();
+                _actionTimer = new Timer(this.EventSendDelay, false, true, onDelayedAction);
+                _timerParam = action.Param;
+                break;
         }
     }
 
-    private void onSceneChange()
+    private void onDelayedAction()
     {
-        if (_sceneDestination.IsEmpty())
-            Application.Quit();
+        _actionTimer = null;
+
+        if (_changingScene)
+        {
+            if (_timerParam.IsEmpty())
+                Application.Quit();
+            else
+                SceneManager.LoadScene(_timerParam, LoadSceneMode.Single);
+        }
         else
-            SceneManager.LoadScene(_sceneDestination, LoadSceneMode.Single);
+        {
+            LocalEventNotifier.Event e = new LocalEventNotifier.Event();
+            e.Name = _timerParam;
+            GlobalEvents.Notifier.SendEvent(e);
+            _timerParam = null;
+        }
     }
 
     private Menu menuByStateName(string stateName)
