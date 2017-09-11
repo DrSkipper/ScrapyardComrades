@@ -149,6 +149,14 @@ public class UIMenuManager : MonoBehaviour
                 OptionsValues.ChangeValue(action.Param, 1);
                 refreshState();
                 break;
+            case Menu.ActionType.Reload:
+                for (int i = 0; i < _pastMenuStack.Count; ++i)
+                {
+                    menuByStateName(_pastMenuStack[i]).Reload();
+                }
+                _currentMenu.Reload();
+                refreshState();
+                break;
         }
     }
 

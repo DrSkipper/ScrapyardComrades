@@ -16,7 +16,8 @@ public class Menu : MonoBehaviour
         UnPause,
         ChangeValue,
         CloseMenuWithEvent,
-        Custom
+        Custom,
+        Reload
     }
 
     [System.Serializable]
@@ -24,6 +25,10 @@ public class Menu : MonoBehaviour
     {
         public ActionType Type;
         public string Param;
+    }
+
+    public virtual void Reload()
+    {
     }
 
     public int HighlightNext()

@@ -5,6 +5,7 @@ public class UISaveSlotElement : UIMenuElementSpec
 {
     public Text SlotNameText;
     public Color UnsafeSlotColor = Color.red;
+    public Color SafeSlotColor = Color.white;
     public string GameplayScene = "Gameplay";
     public string IntroScene = "IntroScene";
 
@@ -12,9 +13,10 @@ public class UISaveSlotElement : UIMenuElementSpec
     {
         _saveSlotMenu = menu as UISaveSlotMenu;
 
-        if (element.Action.Param == UISaveSlotMenu.EMPTY_SLOT)
+        if (element.Action.Param == UISaveSlotMenu.EMPTY_SLOT || element.Action.Param == UISaveSlotMenu.ERASE)
         {
             this.SlotNameText.text = element.Text;
+            this.SlotNameText.color = this.SafeSlotColor;
         }
         else
         {
@@ -22,6 +24,8 @@ public class UISaveSlotElement : UIMenuElementSpec
             this.SlotNameText.text = StringExtensions.IsEmpty(_slotSummary.Name) ? "_MISSING_SLOT_" : _slotSummary.Name;
             if (_slotSummary.UnsafeSave)
                 this.SlotNameText.color = this.UnsafeSlotColor;
+            else
+                this.SlotNameText.color = this.SafeSlotColor;
         }
     }
 
@@ -37,28 +41,52 @@ public class UISaveSlotElement : UIMenuElementSpec
 
     public override Menu.Action HandleCustomAction(Menu.Action action)
     {
-        string scene = this.GameplayScene;
+        Menu.ActionType actionType = Menu.ActionType.SceneTransition;
+        string actionParam = this.GameplayScene;
 
         if (action.Param == UISaveSlotMenu.EMPTY_SLOT)
         {
-            scene = this.IntroScene;
-            _saveSlotMenu.CreateNewSlot();
+            if (_saveSlotMenu.Mode == UISaveSlotMenu.MenuMode.Loading)
+            {
+                actionParam = this.IntroScene;
+                _saveSlotMenu.CreateNewSlot();
+            }
+            else
+            {
+                return new Menu.Action();
+            }
         }
-        else if (!_slotSummary.UnsafeSave && !StringExtensions.IsEmpty(_slotSummary.Name))
+        else if (action.Param == UISaveSlotMenu.ERASE)
         {
-            SaveData.LoadFromDisk(_slotSummary.Name);
-            SaveData.UnsafeSave = true;
-            SaveData.SaveToDisk();
+            actionType = Menu.ActionType.OpenMenu;
+            actionParam = _saveSlotMenu.EraseMenu;
         }
         else
         {
-            //TODO: Allow user to erase this slot
-            return new Menu.Action();
+            if (_saveSlotMenu.Mode == UISaveSlotMenu.MenuMode.Loading)
+            {
+                if (!_slotSummary.UnsafeSave)
+                {
+                    SaveData.LoadFromDisk(_slotSummary.Name);
+                    SaveData.UnsafeSave = true;
+                    SaveData.SaveToDisk();
+                }
+                else
+                {
+                    return new Menu.Action();
+                }
+            }
+            else // Erasing
+            {
+                SaveSlotData.EraseSlot(_slotSummary.Name);
+                actionType = Menu.ActionType.Reload;
+                actionParam = StringExtensions.EMPTY;
+            }
         }
 
         Menu.Action retVal = new Menu.Action();
-        retVal.Type = Menu.ActionType.SceneTransition;
-        retVal.Param = scene;
+        retVal.Type = actionType;
+        retVal.Param = actionParam;
         return retVal;
     }
 

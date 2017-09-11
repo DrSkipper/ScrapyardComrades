@@ -62,6 +62,11 @@ public static class SaveSlotData
         return slots.ToArray();
     }
 
+    public static void EraseSlot(string slotName)
+    {
+        DiskDataHandler.Erase(SaveData.DATA_PATH + slotName + SaveData.FILE_SUFFIX);
+    }
+
     /**
      * Private
      */
