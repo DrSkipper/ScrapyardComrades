@@ -31,6 +31,13 @@ public static class SceneHotkeys
     [MenuItem("Scenes/Load End Demo Screen %9")]
     public static void LoadEndDemoScreen() { openScene(END_DEMO); }
 
+    [MenuItem("Custom Objects/Wipe Player Prefs")]
+    public static void WipePlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+    }
+
 
     /**
      * Private

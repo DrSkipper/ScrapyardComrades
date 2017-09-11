@@ -2,6 +2,9 @@
 
 public static class VersionNumber
 {
+    /**
+     * Did you remember to turn off DeleteAllOnStart on OptionsInitializer??
+     */
     public const string VERSION_TITLE = "Alpha";
     public const int MAJOR_VERSION = 0;
     public const int MINOR_VERSION = 1;

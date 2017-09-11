@@ -28,7 +28,10 @@ public class UIMenuElement : UIMenuElementSpec
 
     public override void Configure(Menu menu, Menu.MenuElement element)
     {
-        this.Text.text = element.Text;
+        if (element.Action.Type == Menu.ActionType.ChangeValue)
+            this.Text.text = element.Text + StringExtensions.SPACE + OptionsValues.GetDisplaySuffix(element.Action.Param);
+        else
+            this.Text.text = element.Text;
         _t = 0;
         _highlighted = false;
         updateColor();

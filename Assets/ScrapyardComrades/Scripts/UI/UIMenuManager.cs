@@ -103,6 +103,16 @@ public class UIMenuManager : MonoBehaviour
         highlight();
     }
 
+    private void refreshState()
+    {
+        this.ElementVisuals[_currentMenu.HighlightedElement].UnHighlight();
+        for (int i = 0; i < this.ElementVisuals.Length && i < _currentMenu.NumElements; ++i)
+        {
+            this.ElementVisuals[i].Configure(_currentMenu, _currentMenu.Elements[i]);
+        }
+        this.ElementVisuals[_currentMenu.HighlightedElement].Highlight();
+    }
+
     private void configureForEmptyState()
     {
         this.MenuBounds.Destination = this.EmptyState;
@@ -134,6 +144,10 @@ public class UIMenuManager : MonoBehaviour
                 this.Hide();
                 _actionTimer = new Timer(this.EventSendDelay, false, true, onDelayedAction);
                 _timerParam = action.Param;
+                break;
+            case Menu.ActionType.ChangeValue:
+                OptionsValues.ChangeValue(action.Param, 1);
+                refreshState();
                 break;
         }
     }
