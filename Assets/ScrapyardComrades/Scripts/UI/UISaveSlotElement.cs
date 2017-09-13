@@ -4,13 +4,16 @@ using UnityEngine.UI;
 public class UISaveSlotElement : UIMenuElementSpec
 {
     public Text SlotNameText;
+    public Image SlotImage;
     public Color UnsafeSlotColor = Color.red;
     public Color SafeSlotColor = Color.white;
     public Color EmptySlotColor = Color.white;
     public Color EraseSlotColor = Color.yellow;
     public string GameplayScene = "Gameplay";
     public string IntroScene = "IntroScene";
-
+    public Sprite EmptySlotSprite;
+    public Sprite SafeSlotSprite;
+    public Sprite UnsafeSlotSprite;
 
     public override void Configure(Menu menu, Menu.MenuElement element)
     {
@@ -20,26 +23,32 @@ public class UISaveSlotElement : UIMenuElementSpec
         {
             this.SlotNameText.text = element.Text;
             this.SlotNameText.color = element.Action.Param == UISaveSlotMenu.ERASE ? this.EraseSlotColor : this.EmptySlotColor;
+            if (element.Action.Param == UISaveSlotMenu.EMPTY_SLOT)
+                this.SlotImage.sprite = this.EmptySlotSprite;
         }
         else
         {
             _slotSummary = _saveSlotMenu.SaveSlotForName(element.Action.Param);
             this.SlotNameText.text = element.Text;
             if (_slotSummary.UnsafeSave)
+            {
                 this.SlotNameText.color = this.UnsafeSlotColor;
+                this.SlotImage.sprite = this.UnsafeSlotSprite;
+            }
             else
+            {
                 this.SlotNameText.color = this.SafeSlotColor;
+                this.SlotImage.sprite = this.SafeSlotSprite;
+            }
         }
     }
 
     public override void Highlight()
     {
-
     }
 
     public override void UnHighlight()
     {
-
     }
 
     public override Menu.Action HandleCustomAction(Menu.Action action)

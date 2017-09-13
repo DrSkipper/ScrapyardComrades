@@ -14,6 +14,14 @@ public class UIMenuManager : MonoBehaviour
     public int EventSendDelay = 25;
     public string EndSceneEvent = "SCENE_END";
     public Menu.Action CancelAction;
+    public MenuOrientation Orientation = MenuOrientation.Vertical;
+
+    [System.Serializable]
+    public enum MenuOrientation
+    {
+        Vertical,
+        Horizontal
+    }
 
     public void Initialize()
     {
@@ -41,12 +49,12 @@ public class UIMenuManager : MonoBehaviour
         }
         else if (_initialized && ! this.MenuBounds.Running)
         {
-            if (MenuInput.NavDown)
+            if (next())
             {
                 _currentMenu.HighlightNext();
                 highlight();
             }
-            else if (MenuInput.NavUp)
+            else if (prev())
             {
                 _currentMenu.HighlightPrev();
                 highlight();
@@ -199,5 +207,29 @@ public class UIMenuManager : MonoBehaviour
 
         this.HighlightIndicator.Destination = this.ElementVisuals[_currentMenu.HighlightedElement].transform;
         this.HighlightIndicator.BeginLerp();
+    }
+
+    private bool prev()
+    {
+        switch (this.Orientation)
+        {
+            default:
+            case MenuOrientation.Vertical:
+                return MenuInput.NavUp;
+            case MenuOrientation.Horizontal:
+                return MenuInput.NavLeft;
+        }
+    }
+
+    private bool next()
+    {
+        switch (this.Orientation)
+        {
+            default:
+            case MenuOrientation.Vertical:
+                return MenuInput.NavDown;
+            case MenuOrientation.Horizontal:
+                return MenuInput.NavRight;
+        }
     }
 }
