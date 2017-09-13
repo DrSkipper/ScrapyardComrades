@@ -9,6 +9,7 @@ public static class StringExtensions
     public const string UNDERSCORE = "_";
     public const string PERIOD = ".";
     public const string COMMA = ",";
+    public const string COLON = ":";
     public const string LIST_SEPARATOR = ", ";
     public const string LEFT_PAREN = "(";
     public const string RIGHT_PAREN = ")";

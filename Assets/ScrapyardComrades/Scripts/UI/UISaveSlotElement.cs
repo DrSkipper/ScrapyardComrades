@@ -6,8 +6,11 @@ public class UISaveSlotElement : UIMenuElementSpec
     public Text SlotNameText;
     public Color UnsafeSlotColor = Color.red;
     public Color SafeSlotColor = Color.white;
+    public Color EmptySlotColor = Color.white;
+    public Color EraseSlotColor = Color.yellow;
     public string GameplayScene = "Gameplay";
     public string IntroScene = "IntroScene";
+
 
     public override void Configure(Menu menu, Menu.MenuElement element)
     {
@@ -16,12 +19,12 @@ public class UISaveSlotElement : UIMenuElementSpec
         if (element.Action.Param == UISaveSlotMenu.EMPTY_SLOT || element.Action.Param == UISaveSlotMenu.ERASE)
         {
             this.SlotNameText.text = element.Text;
-            this.SlotNameText.color = this.SafeSlotColor;
+            this.SlotNameText.color = element.Action.Param == UISaveSlotMenu.ERASE ? this.EraseSlotColor : this.EmptySlotColor;
         }
         else
         {
             _slotSummary = _saveSlotMenu.SaveSlotForName(element.Action.Param);
-            this.SlotNameText.text = StringExtensions.IsEmpty(_slotSummary.Name) ? "_MISSING_SLOT_" : _slotSummary.Name;
+            this.SlotNameText.text = element.Text;
             if (_slotSummary.UnsafeSave)
                 this.SlotNameText.color = this.UnsafeSlotColor;
             else

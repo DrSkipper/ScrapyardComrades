@@ -9,6 +9,10 @@ public class UISaveSlotMenu : Menu
     public MenuMode Mode;
     public string EraseMenu = "EraseMenu";
 
+    private const string LVL = "Lv. ";
+    private const string OVER = " (Chamber Broken)";
+    private const string MISSING = "_MISSING_SLOT_";
+
     [System.Serializable]
     public enum MenuMode
     {
@@ -35,7 +39,7 @@ public class UISaveSlotMenu : Menu
         }
 
         this.Elements = new MenuElement[SaveSlotData.MAX_SLOTS + (this.Mode == MenuMode.Loading ? 1 : 0)];
-        string prefix = this.Mode == MenuMode.Loading ? StringExtensions.EMPTY : "Erase ";
+        string prefix = this.Mode == MenuMode.Loading ? StringExtensions.EMPTY : "Erase: ";
         string emptyName = this.Mode == MenuMode.Loading ? EMPTY_SLOT_NAME : "Empty Slot";
 
         for (int i = 0; i < SaveSlotData.MAX_SLOTS; ++i)
@@ -46,7 +50,7 @@ public class UISaveSlotMenu : Menu
 
             if (i < _slotsArray.Length)
             {
-                element.Text = prefix + _slotsArray[i].Name;
+                element.Text = prefix + gameplaySummaryString(_slotsArray[i]);
                 action.Param = _slotsArray[i].Name;
             }
             else
@@ -79,6 +83,19 @@ public class UISaveSlotMenu : Menu
     public void CreateNewSlot()
     {
         SaveData.LoadFromDisk(SaveSlotData.CreateNewSlotName(_slotsArray));
+    }
+
+    private string gameplaySummaryString(SaveSlotData.SlotSummary slot)
+    {
+        if (StringExtensions.IsEmpty(slot.Name))
+            return MISSING;
+
+        System.TimeSpan time = new System.TimeSpan(slot.GameplayTicks);
+        string timeString = string.Format("{0:D2}:{1:D2}:{2:D2}.{3:D2}", time.Hours, time.Minutes, time.Seconds, time.Milliseconds);
+
+        if (slot.UnsafeSave)
+            return timeString + OVER;
+        return timeString + StringExtensions.SPACE + StringExtensions.LEFT_PAREN + LVL + slot.PlayerLevel + StringExtensions.RIGHT_PAREN;
     }
 
     /**
