@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 04397612ba66ef14bab4ad5aba06b966
-timeCreated: 1504653637
+timeCreated: 1505349194
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -164,6 +164,8 @@ TextureImporter:
     21300314: slums_tileset_16
     21300316: slums_tileset_22
     21300318: slums_tileset_23
+    21300320: slums_tileset_24
+    21300322: slums_tileset_25
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -2326,6 +2328,32 @@ TextureImporter:
         serializedVersion: 2
         x: 304
         y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: slums_tileset_24
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: slums_tileset_25
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 144
         width: 16
         height: 16
       alignment: 0
