@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenuController : MonoBehaviour
 {
     public const string MENU_CLOSED = "PAUSE_CLOSED";
     public UIMenuManager Menu;
+    public Image BGImage;
     public int ResumeDelay = 2;
 
     void Awake()
@@ -22,6 +24,7 @@ public class PauseMenuController : MonoBehaviour
             {
                 _paused = true;
                 GlobalEvents.Notifier.SendEvent(_pauseEvent);
+                this.BGImage.enabled = true;
                 this.Menu.gameObject.SetActive(true);
                 this.Menu.Initialize();
             }
@@ -48,6 +51,7 @@ public class PauseMenuController : MonoBehaviour
 
     private void onResume()
     {
+        this.BGImage.enabled = false;
         this.Menu.gameObject.SetActive(false);
         GlobalEvents.Notifier.SendEvent(_resumeEvent);
         _paused = false;

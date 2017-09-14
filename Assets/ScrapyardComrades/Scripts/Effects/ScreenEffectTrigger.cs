@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MutatationEffect : MonoBehaviour
+public class ScreenEffectTrigger : MonoBehaviour
 {
     public MaterialLerper MaterialLerper;
     public string EventName = "MUTATE";
