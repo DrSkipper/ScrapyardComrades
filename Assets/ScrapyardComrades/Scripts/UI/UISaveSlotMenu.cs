@@ -93,9 +93,10 @@ public class UISaveSlotMenu : Menu
         System.TimeSpan time = new System.TimeSpan(slot.GameplayTicks);
         string timeString = string.Format("{0:D2}:{1:D2}:{2:D2}.{3:D2}", time.Hours, time.Minutes, time.Seconds, time.Milliseconds);
 
-        if (slot.UnsafeSave)
+        return timeString;
+        /*if (slot.UnsafeSave)
             return timeString + OVER;
-        return timeString + StringExtensions.SPACE + StringExtensions.LEFT_PAREN + LVL + slot.PlayerLevel + StringExtensions.RIGHT_PAREN;
+        return timeString + StringExtensions.SPACE + StringExtensions.LEFT_PAREN + LVL + slot.PlayerLevel + StringExtensions.RIGHT_PAREN;*/
     }
 
     /**

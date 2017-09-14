@@ -5,6 +5,7 @@ public class UISaveSlotElement : UIMenuElementSpec
 {
     public Text SlotNameText;
     public Image SlotImage;
+    public Image PortraitImage;
     public Color UnsafeSlotColor = Color.red;
     public Color SafeSlotColor = Color.white;
     public Color EmptySlotColor = Color.white;
@@ -14,6 +15,7 @@ public class UISaveSlotElement : UIMenuElementSpec
     public Sprite EmptySlotSprite;
     public Sprite SafeSlotSprite;
     public Sprite UnsafeSlotSprite;
+    public Sprite[] Portraits;
 
     public override void Configure(Menu menu, Menu.MenuElement element)
     {
@@ -24,7 +26,11 @@ public class UISaveSlotElement : UIMenuElementSpec
             this.SlotNameText.text = element.Text;
             this.SlotNameText.color = element.Action.Param == UISaveSlotMenu.ERASE ? this.EraseSlotColor : this.EmptySlotColor;
             if (element.Action.Param == UISaveSlotMenu.EMPTY_SLOT)
+            {
                 this.SlotImage.sprite = this.EmptySlotSprite;
+                this.PortraitImage.sprite = null;
+                this.PortraitImage.color = Color.clear;
+            }
         }
         else
         {
@@ -39,6 +45,17 @@ public class UISaveSlotElement : UIMenuElementSpec
             {
                 this.SlotNameText.color = this.SafeSlotColor;
                 this.SlotImage.sprite = this.SafeSlotSprite;
+            }
+
+            if (_slotSummary.PlayerLevel >= 0 && _slotSummary.PlayerLevel < this.Portraits.Length)
+            {
+                this.PortraitImage.sprite = this.Portraits[_slotSummary.PlayerLevel];
+                this.PortraitImage.color = Color.white;
+            }
+            else
+            {
+                this.PortraitImage.sprite = null;
+                this.PortraitImage.color = Color.clear;
             }
         }
     }
@@ -82,6 +99,7 @@ public class UISaveSlotElement : UIMenuElementSpec
                     SaveData.LoadFromDisk(_slotSummary.Name);
                     SaveData.UnsafeSave = true;
                     SaveData.SaveToDisk();
+                    ScenePersistentLoading.BeginLoading(_slotSummary.LastSaveRoom);
                 }
                 else
                 {
