@@ -17,6 +17,10 @@ public class PosterConfigurer : ObjectConfigurer
     public Sprite KeyboardLightAttackButton;
     public Sprite ControllerStrongAttackButton;
     public Sprite KeyboardStrongAttackButton;
+    public float KeyboardJumpScale = 0.25f;
+    public float KeyboardSlideScale = 0.5f;
+    public float KeyboardLightAttackScale = 1.0f;
+    public float KeyboardStrongAttackScale = 1.0f;
 
     private const string NAME = "Poster";
     private const string BG_TYPE = "bg";
@@ -94,22 +98,27 @@ public class PosterConfigurer : ObjectConfigurer
                 LogInvalidParameter(NAME, INPUT_TYPE, option);
                 this.ButtonRenderer.ControllerSprite = this.ControllerJumpButton;
                 this.ButtonRenderer.KeyboardSprite = this.KeyboardJumpButton;
+                this.ButtonRenderer.KeyboardScale = this.KeyboardJumpScale;
                 break;
             case INPUT_JUMP:
                 this.ButtonRenderer.ControllerSprite = this.ControllerJumpButton;
                 this.ButtonRenderer.KeyboardSprite = this.KeyboardJumpButton;
+                this.ButtonRenderer.KeyboardScale = this.KeyboardJumpScale;
                 break;
             case INPUT_SLIDE:
                 this.ButtonRenderer.ControllerSprite = this.ControllerSlideButton;
                 this.ButtonRenderer.KeyboardSprite = this.KeyboardSlideButton;
+                this.ButtonRenderer.KeyboardScale = this.KeyboardSlideScale;
                 break;
             case INPUT_LIGHTATTACK:
                 this.ButtonRenderer.ControllerSprite = this.ControllerLightAttackButton;
                 this.ButtonRenderer.KeyboardSprite = this.KeyboardLightAttackButton;
+                this.ButtonRenderer.KeyboardScale = this.KeyboardLightAttackScale;
                 break;
             case INPUT_STRONGATTACK:
                 this.ButtonRenderer.ControllerSprite = this.ControllerStrongAttackButton;
                 this.ButtonRenderer.KeyboardSprite = this.KeyboardStrongAttackButton;
+                this.ButtonRenderer.KeyboardScale = this.KeyboardStrongAttackScale;
                 break;
         }
 
