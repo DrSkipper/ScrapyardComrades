@@ -19,16 +19,13 @@ public static class SceneHotkeys
     [MenuItem("Scenes/Load Intro %5")]
     public static void LoadIntro() { openScene(INTRO_SCENE); }
 
-    [MenuItem("Scenes/Load Save Slots %6")]
-    public static void LoadSaveSlots() { openScene(SAVE_SLOTS); }
-
-    [MenuItem("Scenes/Load Character Editor %7")]
+    [MenuItem("Scenes/Load Character Editor %6")]
     public static void LoadCharacterEditor() { openScene(CHARACTER_EDITOR); }
 
-    [MenuItem("Scenes/Load TilesetEditor %8")]
+    [MenuItem("Scenes/Load TilesetEditor %7")]
     public static void LoadTilesetEditor() { openScene(TILESET_EDITOR); }
 
-    [MenuItem("Scenes/Load End Demo Screen %9")]
+    [MenuItem("Scenes/Load End Demo Screen %8")]
     public static void LoadEndDemoScreen() { openScene(END_DEMO); }
 
     [MenuItem("Custom Objects/Wipe Player Prefs")]
