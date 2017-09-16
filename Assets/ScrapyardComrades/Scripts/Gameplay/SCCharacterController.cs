@@ -143,6 +143,7 @@ public class SCCharacterController : Actor2D
     public virtual void OnSpawn()
     {
         _hasSpawnedLoot = false;
+        _groundedFrames = 0;
         this.Blocked = false;
         this.HurtboxState = SCAttack.HurtboxState.Ducking;
         updateHurtboxForState(this.HurtboxState);
@@ -240,7 +241,16 @@ public class SCCharacterController : Actor2D
         _velocity = this.Velocity;
         bool prevOnGround = _onGround;
         GameObject groundedAgainst = this.GroundedAgainst;
-        _onGround = groundedAgainst != null;
+        if (groundedAgainst != null)
+        {
+            _onGround = true;
+            ++_groundedFrames;
+        }
+        else
+        {
+            _onGround = false;
+            _groundedFrames = 0;
+        }
         this.IsWallSliding = false;
         bool prevGrabbingLedge = this.IsGrabbingLedge;
         this.IsGrabbingLedge = false;
@@ -438,7 +448,7 @@ public class SCCharacterController : Actor2D
                     ledgeGrabbing = false;
             }
 
-            if (!interrupted && _onGround && _currentAttack.GroundedEffect != SCAttack.OnGroundEffect.None)
+            if (!interrupted && _onGround && _currentAttack.GroundedEffect != SCAttack.OnGroundEffect.None && _groundedFrames >= _currentAttack.GroundedFramesForEffect)
             {
                 interrupted = true; // Interrupt into grounded combo for this move
                 if (_currentAttack.GroundedEffect == SCAttack.OnGroundEffect.Combo)
@@ -632,6 +642,7 @@ public class SCCharacterController : Actor2D
     private bool _hasGatheredPotentialCollisions;
     private int _wallJumpExpandAmount;
     private int _wallJumpGraceDir;
+    private int _groundedFrames;
 
     private const string RESTING_VELOCITY_KEY = "rest";
     private const float HORIZ_BOUNCE_FACTOR = 0.8f;
@@ -973,6 +984,9 @@ public class SCCharacterController : Actor2D
                 break;
             case SCAttack.VelocityBoost.BoostType.Absolute:
                 _velocity = boost;
+                break;
+            case SCAttack.VelocityBoost.BoostType.AverageXOnly:
+                _velocity.x = (boost.x + _velocity.x) / 2.0f;
                 break;
         }
         return boost.x == 0.0f;

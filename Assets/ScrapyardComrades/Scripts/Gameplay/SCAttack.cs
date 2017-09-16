@@ -46,7 +46,8 @@ public class SCAttack : ScriptableObject
             None,
             Additive,
             Average,
-            Absolute
+            Absolute,
+            AverageXOnly
         }
     }
 
@@ -141,6 +142,7 @@ public class SCAttack : ScriptableObject
 
     public OnGroundEffect GroundedEffect;
     public SCAttack GroundedCombo;
+    public int GroundedFramesForEffect;
     public Combo[] Combos;
     public HitData HitParameters;
     public Effect[] Effects;
