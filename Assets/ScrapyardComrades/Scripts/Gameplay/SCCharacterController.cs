@@ -98,6 +98,10 @@ public class SCCharacterController : Actor2D
     public IntegerCollider BlockBox;
     public InventoryController InventoryController;
     public SCMoveSet MoveSet;
+    public Transform JumpOriginTransform;
+    public Transform NormalJumpOrigin;
+    public Transform WallJumpOrigin;
+    public Transform LedgeJumpOrigin;
     public Facing CurrentFacing { get { return _facing; } }
     public bool OnGround { get { return _onGround; } }
     public int MoveAxis { get { return _moveAxis; } }
@@ -111,6 +115,7 @@ public class SCCharacterController : Actor2D
     public bool IsGrabbingLedge { get; private set; }
     public Facing DirectionGrabbingLedge { get; private set; }
     public bool Blocked { get; private set; }
+    public bool DidJump { get; private set; }
 
     public const float DEATH_VELOCITY_MAX = 0.5f;
     public const string LOOT_DROP_EVENT = "LOOT_DROP";
@@ -251,6 +256,7 @@ public class SCCharacterController : Actor2D
             _onGround = false;
             _groundedFrames = 0;
         }
+        this.DidJump = false;
         this.IsWallSliding = false;
         bool prevGrabbingLedge = this.IsGrabbingLedge;
         this.IsGrabbingLedge = false;
@@ -297,6 +303,10 @@ public class SCCharacterController : Actor2D
             // Bounce if necessary
             if ((groundedLayerMask & this.BounceMask) == groundedLayerMask)
             {
+                this.DidJump = true;
+                if (this.JumpOriginTransform != null)
+                    this.JumpOriginTransform.SetLocalPosition2D(this.NormalJumpOrigin.localPosition);
+
                 _velocity.y = Mathf.Min(this.MinBounceVelocity, (this.MinBounceVelocity + Mathf.Abs(_velocity.y)) / 2.0f);
                 _velocity.x += (int)_facing * this.MinBounceVelocity * HORIZ_BOUNCE_FACTOR;
             }
@@ -489,6 +499,8 @@ public class SCCharacterController : Actor2D
                 }
                 else
                 {
+                    if (this.JumpOriginTransform != null)
+                            this.JumpOriginTransform.SetLocalPosition2D(prevGrabbingLedge ? this.LedgeJumpOrigin.localPosition : this.NormalJumpOrigin.localPosition);
                     jump();
                 }
             }
@@ -868,6 +880,7 @@ public class SCCharacterController : Actor2D
 
     private void jump()
     {
+        this.DidJump = true;
         _jumpBufferTimer.complete();
         _jumpGraceTimer.complete();
 
@@ -902,6 +915,10 @@ public class SCCharacterController : Actor2D
 
     private void wallJump(Facing direction)
     {
+        this.DidJump = true;
+        if (this.JumpOriginTransform != null)
+            this.JumpOriginTransform.SetLocalPosition2D(this.WallJumpOrigin.localPosition);
+
         _jumpBufferTimer.complete();
         _jumpGraceTimer.complete();
 

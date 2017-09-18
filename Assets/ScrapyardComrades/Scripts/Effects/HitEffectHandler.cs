@@ -4,9 +4,12 @@ public class HitEffectHandler : MonoBehaviour, IPausable
 {
     public SCSpriteAnimator Animator;
 
-    public void InitializeWithFreezeFrames(int freezeFrames, SCSpriteAnimation animation, int dir)
+    public void InitializeWithFreezeFrames(int freezeFrames, SCSpriteAnimation animation, int dir, float alpha = 1.0f)
     {
         _animStarted = false;
+        Color c = this.Animator.spriteRenderer.color;
+        c.a = alpha;
+        this.Animator.spriteRenderer.color = c;
         this.Animator.PlayAnimation(animation);
         this.Animator.Stop();
         _freezeTimer = new Timer(freezeFrames, false, true);

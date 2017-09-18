@@ -17,7 +17,11 @@ public class CharacterVisualizer : VoBehavior
     public SCSpriteAnimation DeathAnimation;
     public SCSpriteAnimation StandupAnimation;
     public SCSpriteAnimation BlockAnimation;
+    public Transform JumpEffectLocation;
+    public PooledObject JumpEffectPrefab;
+    public SCSpriteAnimation JumpEffect;
     public float DodgeAlpha = 0.8f;
+    public float JumpEffectAlpha = 0.8f;
 
     private const string IDLE_STATE = "idle";
     private const string RUNNING_STATE = "run";
@@ -73,6 +77,13 @@ public class CharacterVisualizer : VoBehavior
         SCAttack attack = ((CharacterUpdateFinishedEvent)localEvent).CurrentAttack;
         _attackChanged = _currentAttack != null && _currentAttack != attack;
         _currentAttack = attack;
+
+        if (_characterController.DidJump && this.JumpEffectLocation != null)
+        {
+            PooledObject effect = this.JumpEffectPrefab.Retain();
+            effect.transform.SetPosition2D(this.JumpEffectLocation.position);
+            effect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(0, this.JumpEffect, (int)_characterController.CurrentFacing, this.JumpEffectAlpha);
+        }
 
         _stateMachine.Update();
         this.transform.localScale = new Vector3(_facingModifier * (_characterController.CurrentFacing == SCCharacterController.Facing.Left ? -1 : 1) * Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
