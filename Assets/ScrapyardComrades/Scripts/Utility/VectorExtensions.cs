@@ -43,6 +43,12 @@ public static class VectorExtensions
         return Vector2.MoveTowards(self, destination, newDistance);
     }
 
+    public static Vector2 Approach(this Vector2 self, float dist, Vector2 target)
+    {
+        Vector2 targetDir = target != Vector2.zero ? target : self;
+        return targetDir.normalized * self.magnitude.Approach(target.magnitude, dist);
+    }
+
     public static Vector2 Normalized16(this Vector2 self)
     {
         int xFactor = 1;

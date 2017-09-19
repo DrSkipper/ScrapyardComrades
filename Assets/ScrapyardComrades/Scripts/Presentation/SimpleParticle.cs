@@ -3,22 +3,21 @@
 public class SimpleParticle : VoBehavior
 {
     public SCSpriteAnimator Animator;
-    public delegate void OnCompleteDelegate(SimpleParticle particle);
 
-    public void Emit(SCSpriteAnimation animation, OnCompleteDelegate onComplete)
+    public void Emit(SCSpriteAnimation animation, AbstractParticleEmitter.OnCompleteDelegate onComplete)
     {
         this.Animator.PlayAnimation(animation);
         _onComplete = onComplete;
     }
 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (!this.Animator.IsPlaying)
-            _onComplete(this);
+            _onComplete(this.gameObject);
     }
 
     /**
      * Private
      */
-    private OnCompleteDelegate _onComplete;
+    private AbstractParticleEmitter.OnCompleteDelegate _onComplete;
 }
