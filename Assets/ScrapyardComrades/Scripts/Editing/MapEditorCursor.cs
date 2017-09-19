@@ -21,13 +21,45 @@ public class MapEditorCursor : VoBehavior, IPausable
         if (!_hidden)
         {
             if (MenuInput.NavLeft)
+            {
                 this.GridPos = this.Grid.MoveLeft(this.GridPos);
+
+                if (MenuInput.ExtrMoveHeld)
+                {
+                    for (int i = 0; i < 3; ++i)
+                        this.GridPos = this.Grid.MoveLeft(this.GridPos);
+                }
+            }
             else if (MenuInput.NavRight)
+            {
                 this.GridPos = this.Grid.MoveRight(this.GridPos);
+
+                if (MenuInput.ExtrMoveHeld)
+                {
+                    for (int i = 0; i < 3; ++i)
+                        this.GridPos = this.Grid.MoveRight(this.GridPos);
+                }
+            }
             else if (MenuInput.NavDown)
+            {
                 this.GridPos = this.Grid.MoveDown(this.GridPos);
+
+                if (MenuInput.ExtrMoveHeld)
+                {
+                    for (int i = 0; i < 3; ++i)
+                        this.GridPos = this.Grid.MoveDown(this.GridPos);
+                }
+            }
             else if (MenuInput.NavUp)
+            {
                 this.GridPos = this.Grid.MoveUp(this.GridPos);
+
+                if (MenuInput.ExtrMoveHeld)
+                {
+                    for (int i = 0; i < 3; ++i)
+                        this.GridPos = this.Grid.MoveUp(this.GridPos);
+                }
+            }
 
             this.MoveToGridPos();
         }

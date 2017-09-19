@@ -39,6 +39,8 @@ public static class MenuInput
     public static bool CyclePrevAltHeld { get { return RewiredPlayer.GetButton(CYCLE_PREV_ALT); } }
     public static bool CycleNextAltHeld { get { return RewiredPlayer.GetButton(CYCLE_NEXT_ALT); } }
 
+    public static bool ExtrMoveHeld { get { return RewiredPlayer.GetButton(EXTRA_MOVE); } }
+
     /**
      * Private
      */
@@ -62,5 +64,6 @@ public static class MenuInput
     private static string CYCLE_NEXT = "CycleNext";
     private static string CYCLE_PREV_ALT = "CyclePrev2";
     private static string CYCLE_NEXT_ALT = "CycleNext2";
+    private static string EXTRA_MOVE = "ExtraMove";
     private static Player _p;
 }
