@@ -12349,9 +12349,22 @@
       "y": 92,
       "z": -2,
       "parameters": null
+    },
+    {
+      "name": "objects_FloorFan_2",
+      "prefab_name": "FloorFan",
+      "x": 1446,
+      "y": 128,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "r"
+        }
+      ]
     }
   ],
-  "next_object_id": 2,
+  "next_object_id": 3,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 3,
