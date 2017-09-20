@@ -24,7 +24,7 @@ public class HealEffect : VoBehavior, IPausable
     {
         _effectTimer.update();
     }
-    
+
     public void BeginEffect()
     {
         _effectTimer.reset();
@@ -47,7 +47,14 @@ public class HealEffect : VoBehavior, IPausable
 
     private void onHitStun(LocalEventNotifier.Event e)
     {
-        if ((e as HitStunEvent).Blocked && this.BlockMaterial != null)
+        HitStunEvent stunEvent = e as HitStunEvent;
+        if (stunEvent.Raging)
+        {
+            effectFinished();
+            return;
+        }
+
+        if (stunEvent.Blocked && this.BlockMaterial != null)
         {
             this.OverlayMaterialLerper.Material = this.BlockMaterial;
             this.OverlayMaterialLerper.InitialValue = this.BlockStartAlpha;

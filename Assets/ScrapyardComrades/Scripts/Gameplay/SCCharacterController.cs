@@ -938,12 +938,15 @@ public class SCCharacterController : Actor2D
     private void hitStun(LocalEventNotifier.Event e)
     {
         HitStunEvent stunEvent = e as HitStunEvent;
-        _currentAttack = null;
-        this.Blocked = stunEvent.Blocked;
-        _attackTimer.complete();
-        _hitStunGravityMultiplier = stunEvent.GravityMultiplier;
-        _hitStunAirFrictionMultiplier = stunEvent.AirFrictionMultiplier;
-        _hitStunTimer.reset(stunEvent.NumFrames);
+        if (!stunEvent.Raging)
+        {
+            _currentAttack = null;
+            this.Blocked = stunEvent.Blocked;
+            _attackTimer.complete();
+            _hitStunGravityMultiplier = stunEvent.GravityMultiplier;
+            _hitStunAirFrictionMultiplier = stunEvent.AirFrictionMultiplier;
+            _hitStunTimer.reset(stunEvent.NumFrames);
+        }
     }
 
     private bool attemptHurtboxStateChange(SCAttack.HurtboxState newState)

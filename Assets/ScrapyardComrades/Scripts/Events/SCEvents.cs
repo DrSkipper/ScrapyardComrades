@@ -88,14 +88,16 @@ public class HitStunEvent : LocalEventNotifier.Event
     public float GravityMultiplier;
     public float AirFrictionMultiplier;
     public bool Blocked;
+    public bool Raging;
 
-    public HitStunEvent(int numFrames, float gravityMultiplier, float airFrictionMultiplier, bool blocked)
+    public HitStunEvent(int numFrames, float gravityMultiplier, float airFrictionMultiplier, bool blocked, bool raging)
     {
         this.Name = NAME;
         this.NumFrames = numFrames;
         this.GravityMultiplier = gravityMultiplier;
         this.AirFrictionMultiplier = airFrictionMultiplier;
         this.Blocked = blocked;
+        this.Raging = raging;
     }
 }
 
@@ -286,5 +288,17 @@ public class CheckpointSetEvent : LocalEventNotifier.Event
     {
         this.Name = NAME;
         this.QuadName = quadName;
+    }
+}
+
+public class RageEvent : LocalEventNotifier.Event
+{
+    public const string NAME = "RAGE";
+    public bool Raging;
+
+    public RageEvent(bool raging)
+    {
+        this.Name = NAME;
+        this.Raging = raging;
     }
 }

@@ -34,10 +34,10 @@ public class Timer
         this.reset();
     }
 
-    public void complete()
+    public void complete(bool callback = true)
     {
         _framesRemaining = 0;
-        if (this.Callback != null)
+        if (callback && this.Callback != null)
             this.Callback();
 
         if (this.Loops)
