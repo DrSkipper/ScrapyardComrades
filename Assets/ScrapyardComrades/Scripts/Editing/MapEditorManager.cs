@@ -318,6 +318,10 @@ public class MapEditorManager : MonoBehaviour, IPausable
             {
                 layer.ApplyBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
             }
+            else if (MenuInput.Action)
+            {
+                layer.ReplaceFill(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
+            }
             else if (MenuInput.Cancel && layer.CurrentBrushState == MapEditorTilesLayer.BrushState.SinglePaint)
             {
                 _tileEraserEnabled = !_tileEraserEnabled;
@@ -481,25 +485,25 @@ public class MapEditorManager : MonoBehaviour, IPausable
     {
         if (MenuInput.NavLeft)
         {
-            this.ObjectCursor.SetX(this.ObjectCursor.position.x - _objectPrecisionIncrement * (MenuInput.ExtrMoveHeld ? 4 : 1));
+            this.ObjectCursor.SetX(this.ObjectCursor.position.x - _objectPrecisionIncrement * (MenuInput.ExtrMoveHeld ? 8 : 1));
             if (this.ObjectCursor.position.x < _objectPrecisionIncrement)
                 this.ObjectCursor.SetX(_mapInfo.width * this.Grid.GridSpaceSize - _objectPrecisionIncrement);
         }
         else if (MenuInput.NavRight)
         {
-            this.ObjectCursor.SetX(this.ObjectCursor.position.x + _objectPrecisionIncrement * (MenuInput.ExtrMoveHeld ? 4 : 1));
+            this.ObjectCursor.SetX(this.ObjectCursor.position.x + _objectPrecisionIncrement * (MenuInput.ExtrMoveHeld ? 8 : 1));
             if (this.ObjectCursor.position.x > _mapInfo.width * this.Grid.GridSpaceSize - _objectPrecisionIncrement)
                 this.ObjectCursor.SetX(_objectPrecisionIncrement);
         }
         else if (MenuInput.NavDown)
         {
-            this.ObjectCursor.SetY(this.ObjectCursor.position.y - _objectPrecisionIncrement * (MenuInput.ExtrMoveHeld ? 4 : 1));
+            this.ObjectCursor.SetY(this.ObjectCursor.position.y - _objectPrecisionIncrement * (MenuInput.ExtrMoveHeld ? 8 : 1));
             if (this.ObjectCursor.position.y < _objectPrecisionIncrement)
                 this.ObjectCursor.SetY(_mapInfo.height * this.Grid.GridSpaceSize - _objectPrecisionIncrement);
         }
         else if (MenuInput.NavUp)
         {
-            this.ObjectCursor.SetY(this.ObjectCursor.position.y + _objectPrecisionIncrement * (MenuInput.ExtrMoveHeld ? 4 : 1));
+            this.ObjectCursor.SetY(this.ObjectCursor.position.y + _objectPrecisionIncrement * (MenuInput.ExtrMoveHeld ? 8 : 1));
             if (this.ObjectCursor.position.y > _mapInfo.height * this.Grid.GridSpaceSize - _objectPrecisionIncrement)
                 this.ObjectCursor.SetY(_objectPrecisionIncrement);
         }

@@ -129,6 +129,24 @@ public class MapEditorTilesLayer : MapEditorLayer
             applyIndividualData(x, y);
     }
 
+    public void ReplaceFill(int currentX, int currentY)
+    {
+        NewMapInfo.MapTile tile = this.Data[currentX, currentY];
+        string name = tile.sprite_name;
+
+        for (int x = 0; x < this.Data.GetLength(0); ++x)
+        {
+            for (int y = 0; y < this.Data.GetLength(1); ++y)
+            {
+                if (this.Data[x, y].sprite_name == name)
+                {
+                    this.Data[x, y].sprite_name = getBrushSprite(x, y);
+                    applyIndividualData(x, y);
+                }
+            }
+        }
+    }
+
     public override void SaveData(NewMapInfo mapInfo)
     {
         guaranteeFillFlags();
