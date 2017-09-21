@@ -84,7 +84,7 @@ public class AttackController : VoBehavior, IPausable
                     notifyOtherBlocker(collided, Damagable.FREEZE_FRAMES, currentAttack.HitParameters);
 
                     IntegerVector hitPoint = collided.GetComponent<IntegerCollider>().ClosestContainedPoint((Vector2)collider.transform.position);
-                    createHitEffect(this.BlockEffectAnim, hitPoint, Damagable.FREEZE_FRAMES, facing);
+                    CreateHitEffect(this.HitEffect, this.BlockEffectAnim, hitPoint, Damagable.FREEZE_FRAMES, facing);
 
                     if (_cancelAttackEvent == null)
                         _cancelAttackEvent = new CancelAttackEvent();
@@ -105,7 +105,7 @@ public class AttackController : VoBehavior, IPausable
                             int freezeFrames = otherDamagable.Dead ? Damagable.DEATH_FREEZE_FRAMES : Damagable.FREEZE_FRAMES;
 
                             notifyFreezeFrames(freezeFrames);
-                            createHitEffect(currentAttack.HitParameters.HitAnimation, hitPoint, freezeFrames, facing);
+                            CreateHitEffect(this.HitEffect, currentAttack.HitParameters.HitAnimation, hitPoint, freezeFrames, facing);
 
                             if (this.EffectAnimator != null && this.EffectAnimator.IsPlaying)
                                 this.EffectAnimator.freezeFrame(null);
@@ -136,6 +136,13 @@ public class AttackController : VoBehavior, IPausable
             }
         }
         return false;
+    }
+    
+    public static void CreateHitEffect(PooledObject hitEffectPrefab, SCSpriteAnimation anim, Vector2 hitPoint, int freezeFrames, SCCharacterController.Facing facing)
+    {
+        PooledObject hitEffect = hitEffectPrefab.Retain();
+        hitEffect.transform.SetPosition2D(hitPoint);
+        hitEffect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(freezeFrames, anim, (int)facing);
     }
 
     /**
@@ -214,13 +221,6 @@ public class AttackController : VoBehavior, IPausable
                 this.EffectAnimator.gameObject.SetActive(false);
             }
         }
-    }
-
-    private void createHitEffect(SCSpriteAnimation anim, Vector2 hitPoint, int freezeFrames, SCCharacterController.Facing facing)
-    {
-        PooledObject hitEffect = this.HitEffect.Retain();
-        hitEffect.transform.SetPosition2D(hitPoint);
-        hitEffect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(freezeFrames, anim, (int)facing);
     }
 
     private void clear()
