@@ -432,19 +432,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_1"
+          "sprite_name": "plant_tileset_25"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_1"
+          "sprite_name": "plant_tileset_12"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_4"
+          "sprite_name": "plant_tileset_10"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_5"
+          "sprite_name": "plant_tileset_24"
         },
         {
           "is_filled": true,
@@ -623,20 +623,20 @@
           "sprite_name": "plant_tileset_178"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_20"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_21"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_11"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_15"
         },
         {
           "is_filled": false,
@@ -815,20 +815,20 @@
           "sprite_name": "plant_tileset_178"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_9"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_23"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_21"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_26"
         },
         {
           "is_filled": false,
@@ -1007,20 +1007,20 @@
           "sprite_name": "plant_tileset_178"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_20"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_22"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_21"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_26"
         },
         {
           "is_filled": false,
@@ -1199,20 +1199,20 @@
           "sprite_name": "plant_tileset_178"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_9"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_10"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_22"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_26"
         },
         {
           "is_filled": false,
@@ -1391,20 +1391,20 @@
           "sprite_name": "plant_tileset_178"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_0"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_3"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_1"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_6"
         },
         {
           "is_filled": false,
@@ -18532,15 +18532,47 @@
       "parameters": null
     },
     {
-      "name": "objects_Boulder_6",
+      "name": "objects_Boulder_7",
       "prefab_name": "Boulder",
-      "x": 354,
-      "y": 214,
+      "x": 348,
+      "y": 324,
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_Mine_8",
+      "prefab_name": "Mine",
+      "x": 268,
+      "y": 112,
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_Mine_9",
+      "prefab_name": "Mine",
+      "x": 234,
+      "y": 112,
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_Mine_10",
+      "prefab_name": "Mine",
+      "x": 200,
+      "y": 112,
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_Mine_11",
+      "prefab_name": "Mine",
+      "x": 166,
+      "y": 112,
       "z": -2,
       "parameters": null
     }
   ],
-  "next_object_id": 7,
+  "next_object_id": 12,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 3,

@@ -86,15 +86,18 @@ public class Boulder : VoBehavior, IPausable
         GameObject collided = collider.CollideFirst(0, 0, this.DamagableLayers, null, _nearbyDamagables);
         if (collided != null)
         {
+            IntegerCollider otherCollider = collided.GetComponent<IntegerCollider>();
             IntegerVector colliderPos = new IntegerVector(Mathf.RoundToInt(collider.transform.position.x) + collider.Offset.X, Mathf.RoundToInt(collider.transform.position.y) + collider.Offset.Y);
-            int dirX = Mathf.RoundToInt(Mathf.Sign(collided.transform.position.x - colliderPos.X));
-            int dirY = Mathf.RoundToInt(Mathf.Sign(collided.transform.position.y - colliderPos.Y));
+            IntegerVector otherPos = new IntegerVector(Mathf.RoundToInt(otherCollider.transform.position.x) + otherCollider.Offset.X, Mathf.RoundToInt(otherCollider.transform.position.y) + otherCollider.Offset.Y);
+
+            int dirX = Mathf.RoundToInt(Mathf.Sign(otherPos.X - colliderPos.X));
+            int dirY = Mathf.RoundToInt(Mathf.Sign(otherPos.Y - colliderPos.Y));
             if ((targetDirX == 0 || targetDirX == dirX) && (targetDirY == 0 || targetDirY == dirY))
             {
                 Damagable damagable = collided.GetComponent<Damagable>();
                 if (damagable != null)
                 {
-                    IntegerVector between = ((Vector2)collided.transform.position + (Vector2)colliderPos) / 2.0f; 
+                    IntegerVector between = (otherPos + colliderPos) / 2; 
                     SCCharacterController.Facing facing = dirX == 1 ? SCCharacterController.Facing.Right : SCCharacterController.Facing.Left;
                     bool landedHit = damagable.Damage(this.HitParameters, (Vector2)this.transform.position, between, facing);
 
