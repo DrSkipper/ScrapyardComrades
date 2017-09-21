@@ -18645,31 +18645,46 @@
       "parameters": null
     },
     {
-      "name": "objects_Enemy_LV1_B_31",
-      "prefab_name": "Enemy_LV1_B",
+      "name": "objects_Enemy_LV1_34",
+      "prefab_name": "Enemy_LV1",
+      "x": 564,
+      "y": 484,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "F"
+        }
+      ]
+    },
+    {
+      "name": "objects_Enemy_LV1_35",
+      "prefab_name": "Enemy_LV1",
       "x": 1280,
       "y": 1028,
       "z": -2,
-      "parameters": null
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "C"
+        }
+      ]
     },
     {
-      "name": "objects_Enemy_LV1_B_32",
-      "prefab_name": "Enemy_LV1_B",
-      "x": 540,
-      "y": 484,
-      "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Enemy_LV1_C_33",
-      "prefab_name": "Enemy_LV1_C",
-      "x": 1228,
+      "name": "objects_Enemy_LV1_36",
+      "prefab_name": "Enemy_LV1",
+      "x": 1232,
       "y": 228,
       "z": -2,
-      "parameters": null
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "D"
+        }
+      ]
     }
   ],
-  "next_object_id": 34,
+  "next_object_id": 37,
   "next_prop_id": 4,
   "next_prop_bg_id": 15,
   "next_light_id": 15,

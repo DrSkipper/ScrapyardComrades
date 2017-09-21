@@ -24623,15 +24623,15 @@
   "props_background": [],
   "objects": [
     {
-      "name": "objects_Enemy_LV1_C_13",
-      "prefab_name": "Enemy_LV1_C",
+      "name": "objects_Enemy_LV1_13",
+      "prefab_name": "Enemy_LV1",
       "x": 1216,
       "y": 452,
       "z": -2
     },
     {
-      "name": "objects_Enemy_LV1_B_14",
-      "prefab_name": "Enemy_LV1_B",
+      "name": "objects_Enemy_LV1_14",
+      "prefab_name": "Enemy_LV1",
       "x": 688,
       "y": 484,
       "z": -2
@@ -24651,8 +24651,8 @@
       "z": -2
     },
     {
-      "name": "objects_Enemy_LV1_B_19",
-      "prefab_name": "Enemy_LV1_B",
+      "name": "objects_Enemy_LV1_19",
+      "prefab_name": "Enemy_LV1",
       "x": 1672,
       "y": 164,
       "z": -2

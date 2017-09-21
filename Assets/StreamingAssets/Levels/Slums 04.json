@@ -12465,15 +12465,20 @@
       "parameters": null
     },
     {
-      "name": "objects_Enemy_LV1_B_3",
-      "prefab_name": "Enemy_LV1_B",
+      "name": "objects_Enemy_LV1_4",
+      "prefab_name": "Enemy_LV1",
       "x": 636,
       "y": 452,
       "z": -2,
-      "parameters": null
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "B"
+        }
+      ]
     }
   ],
-  "next_object_id": 4,
+  "next_object_id": 5,
   "next_prop_id": 12,
   "next_prop_bg_id": 9,
   "next_light_id": 4,

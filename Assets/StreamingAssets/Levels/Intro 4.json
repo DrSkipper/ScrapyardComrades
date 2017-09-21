@@ -12398,23 +12398,28 @@
       "parameters": null
     },
     {
-      "name": "objects_Enemy_LV1_C_3",
-      "prefab_name": "Enemy_LV1_C",
-      "x": 1076,
-      "y": 228,
-      "z": -2,
-      "parameters": null
-    },
-    {
       "name": "objects_Checkpoint_4",
       "prefab_name": "Checkpoint",
       "x": 304,
       "y": 300,
       "z": -2,
       "parameters": null
+    },
+    {
+      "name": "objects_Enemy_LV1_6",
+      "prefab_name": "Enemy_LV1",
+      "x": 1076,
+      "y": 228,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "C"
+        }
+      ]
     }
   ],
-  "next_object_id": 5,
+  "next_object_id": 7,
   "next_prop_id": 2,
   "next_prop_bg_id": 0,
   "next_light_id": 8,
