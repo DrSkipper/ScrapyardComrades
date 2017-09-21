@@ -258,7 +258,7 @@ public class SCCharacterController : Actor2D
         }
         this.DidJump = false;
         this.IsWallSliding = false;
-        bool prevGrabbingLedge = this.IsGrabbingLedge;
+        bool prevGrabbingLedge = this.IsGrabbingLedge && this.TotalVelocity.magnitude < VERY_SMALL_VELOCITY;
         this.IsGrabbingLedge = false;
         bool allowFaceChange = true;
         _autoMoveTimer.update();
@@ -658,6 +658,7 @@ public class SCCharacterController : Actor2D
 
     private const string RESTING_VELOCITY_KEY = "rest";
     private const float HORIZ_BOUNCE_FACTOR = 0.8f;
+    private const float VERY_SMALL_VELOCITY = 0.02f;
 
     private struct ControlParameters
     {
