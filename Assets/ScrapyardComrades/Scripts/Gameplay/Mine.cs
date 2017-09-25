@@ -10,6 +10,7 @@ public class Mine : VoBehavior, IPausable
     public PooledObject ExplosionEffect;
     public Transform ExplosionLocation;
     public AudioClip ExplosionSound;
+    public bool TriggerOnCollision = true;
 
     void Awake()
     {
@@ -20,29 +21,36 @@ public class Mine : VoBehavior, IPausable
     void OnSpawn()
     {
         this.integerCollider.AddToCollisionPool();
-        gatherNearbyColliders();
-        _framesUntilColliderGet = FRAME_OFFSET % FRAMES_BETWEEN_COLLIDER_GET;
-        FRAME_OFFSET = FRAME_OFFSET >= 10000 ? 0 : FRAME_OFFSET + 1;
+
+        if (this.TriggerOnCollision)
+        {
+            gatherNearbyColliders();
+            _framesUntilColliderGet = FRAME_OFFSET % FRAMES_BETWEEN_COLLIDER_GET;
+            FRAME_OFFSET = FRAME_OFFSET >= 10000 ? 0 : FRAME_OFFSET + 1;
+        }
     }
 
     void FixedUpdate()
     {
-        --_framesUntilColliderGet;
-        if (_framesUntilColliderGet < 0)
-            gatherNearbyColliders();
-
-        GameObject collided = this.integerCollider.CollideFirst(0, 0, this.DamagableLayers, null, _nearbyColliders);
-        if (collided != null)
+        if (this.TriggerOnCollision)
         {
-            Damagable damagable = collided.GetComponent<Damagable>();
-            if (damagable != null)
+            --_framesUntilColliderGet;
+            if (_framesUntilColliderGet < 0)
+                gatherNearbyColliders();
+
+            GameObject collided = this.integerCollider.CollideFirst(0, 0, this.DamagableLayers, null, _nearbyColliders);
+            if (collided != null)
             {
-                Actor2D actor = damagable.GetComponent<Actor2D>();
-                float vx = actor == null ? 0.0f : actor.Velocity.x;
+                Damagable damagable = collided.GetComponent<Damagable>();
+                if (damagable != null)
+                {
+                    Actor2D actor = damagable.GetComponent<Actor2D>();
+                    float vx = actor == null ? 0.0f : actor.Velocity.x;
 
-                damagable.Damage(this.HitData, (Vector2)this.transform.position, (Vector2)this.transform.position, vx > 0.0f ? SCCharacterController.Facing.Left : SCCharacterController.Facing.Right);
+                    damagable.Damage(this.HitData, (Vector2)this.transform.position, (Vector2)this.transform.position, vx > 0.0f ? SCCharacterController.Facing.Left : SCCharacterController.Facing.Right);
 
-                explode();
+                    explode();
+                }
             }
         }
     }
