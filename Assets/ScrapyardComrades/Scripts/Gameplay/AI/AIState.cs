@@ -75,7 +75,10 @@ public class WalkTowardState : AIState
         {
             output.MovementDirection = 0;
             if (_t <= 0)
+            {
+                _t = _interactDelay;
                 output.Interact = true;
+            }
             else
                 --_t;
         }

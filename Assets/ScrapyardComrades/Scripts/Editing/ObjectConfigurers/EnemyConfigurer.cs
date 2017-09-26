@@ -5,6 +5,9 @@ public class EnemyConfigurer : ObjectConfigurer
 {
     private const string NAME = "Enemy";
     private const string VARIANT_TYPE = "variant";
+    private const string TARGET_TYPE = "target";
+    private const string TARGETS_PLAYER = "player";
+    private const string TARGETS_ALL = "all";
 
     [System.Serializable]
     public struct Variant
@@ -25,9 +28,13 @@ public class EnemyConfigurer : ObjectConfigurer
     }
 
     public Variant[] Variants;
-    public SCCharacterController CharacterController;
+    public EnemyController CharacterController;
+    public AttackController AttackController;
     public CharacterVisualizer CharacterVisualizer;
     public SCSpriteAnimator SpriteAnimator;
+    public LayerMask AllTargetMask;
+    public LayerMask PlayerDamagableMask;
+    public LayerMask AllDamagableMask;
 
     public override ObjectParamType[] ParameterTypes
     {
@@ -37,13 +44,17 @@ public class EnemyConfigurer : ObjectConfigurer
             if (this.Variants != null)
             {
                 for (int i = 0; i < this.Variants.Length; ++i)
-                {
                     variantNames.Add(this.Variants[i].Name);
-                }
             }
 
             return new ObjectParamType[] {
-                new ObjectParamType(VARIANT_TYPE, variantNames.ToArray())
+                new ObjectParamType(VARIANT_TYPE,
+                    variantNames.ToArray()
+                ),
+                new ObjectParamType(TARGET_TYPE, new string[] {
+                    TARGETS_PLAYER,
+                    TARGETS_ALL
+                })
             };
         }
     }
@@ -57,6 +68,9 @@ public class EnemyConfigurer : ObjectConfigurer
                 break;
             case VARIANT_TYPE:
                 configureVariantType(option);
+                break;
+            case TARGET_TYPE:
+                configureTargetType(option);
                 break;
         }
     }
@@ -95,5 +109,28 @@ public class EnemyConfigurer : ObjectConfigurer
 
         if (!found)
             LogInvalidParameter(NAME, VARIANT_TYPE, option);
+    }
+
+    private void configureTargetType(string option)
+    {
+        switch (option)
+        {
+            default:
+                LogInvalidParameter(NAME, TARGET_TYPE, option);
+                this.CharacterController.Targets = EnemyController.TargetType.Player;
+                this.CharacterController.TargetLayers = 0;
+                this.AttackController.DamagableLayers = this.PlayerDamagableMask;
+                break;
+            case TARGETS_PLAYER:
+                this.CharacterController.Targets = EnemyController.TargetType.Player;
+                this.CharacterController.TargetLayers = 0;
+                this.AttackController.DamagableLayers = this.PlayerDamagableMask;
+                break;
+            case TARGETS_ALL:
+                this.CharacterController.Targets = EnemyController.TargetType.SpecifiedLayers;
+                this.CharacterController.TargetLayers = this.AllTargetMask;
+                this.AttackController.DamagableLayers = this.AllDamagableMask;
+                break;
+        }
     }
 }

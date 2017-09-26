@@ -18578,9 +18578,60 @@
       "y": 132,
       "z": -2,
       "parameters": null
+    },
+    {
+      "name": "objects_EnemyGuard_14",
+      "prefab_name": "EnemyGuard",
+      "x": 1144,
+      "y": 160,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "A"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "all"
+        }
+      ]
+    },
+    {
+      "name": "objects_Enemy_LV1_16",
+      "prefab_name": "Enemy_LV1",
+      "x": 1272,
+      "y": 136,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "G"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "all"
+        }
+      ]
+    },
+    {
+      "name": "objects_EnemyOffice_17",
+      "prefab_name": "EnemyOffice",
+      "x": 1006,
+      "y": 142,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "D"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "all"
+        }
+      ]
     }
   ],
-  "next_object_id": 14,
+  "next_object_id": 18,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 3,
