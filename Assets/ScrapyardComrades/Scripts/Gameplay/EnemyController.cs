@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class EnemyController : SCCharacterController
 {
     public AIType AI = AIType.Simple;
+    public TargetType Targets = TargetType.Player;
+    public LayerMask TargetLayers;
+    public LayerMask SecondaryTargetLayers;
+    public string SecondaryTargetTag = "Heart";
 
     [System.Serializable]
     public enum AIType
@@ -12,33 +17,80 @@ public class EnemyController : SCCharacterController
         Office
     }
 
+    [System.Serializable]
+    public enum TargetType
+    {
+        Player,
+        SpecifiedLayers
+    }
+
     public override void OnSpawn()
     {
         base.OnSpawn();
-
-        //TODO: Data-drive health
         this.Damagable.Health = this.Damagable.MaxHealth;
 
-        //TODO: Data-drive which AI to use, as well as parameters
-        switch (this.AI)
+        if (_ai == null)
         {
-            default:
-            case AIType.Simple:
-                _ai = new SimpleAI(250, 425, 75, 48, 4);
-                break;
-            case AIType.Guard:
-                _ai = new GuardAI(275, 400, 156, 114, 128, 8);
-                break;
-            case AIType.Office:
-                _ai = new OfficeAI(280, 425, 200, 145, 180, 100, 60, 4);
-                break;
+            switch (this.AI)
+            {
+                default:
+                case AIType.Simple:
+                    _attackStateRange = SIMPLE_ATTACK_RANGE;
+                    _ai = new SimpleAI(SIMPLE_ATTACK_RANGE, 425, 75, 48, 4, WALK_TO_TARGET_DIST, INTERACT_DELAY);
+                    break;
+                case AIType.Guard:
+                    _attackStateRange = GUARD_ATTACK_RANGE;
+                    _ai = new GuardAI(GUARD_ATTACK_RANGE, 400, 156, 114, 128, 8, WALK_TO_TARGET_DIST, INTERACT_DELAY);
+                    break;
+                case AIType.Office:
+                    _attackStateRange = OFFICE_ATTACK_RANGE;
+                    _ai = new OfficeAI(OFFICE_ATTACK_RANGE, 425, 200, 145, 180, 100, 60, 4, WALK_TO_TARGET_DIST, INTERACT_DELAY);
+                    break;
+            }
+        }
+        else
+        {
+            _ai.ResetAI();
         }
     }
 
     public override InputWrapper GatherInput()
     {
-        _input.ApplyValues(_ai.RunAI(gatherAiInput(PlayerReference.Collider, PlayerReference.IsAlive)));
+        IntegerCollider target = null;
+        bool targetAlive = false;
+
+        switch (this.Targets)
+        {
+            default:
+            case TargetType.Player:
+                target = PlayerReference.Collider;
+                targetAlive = PlayerReference.IsAlive;
+                break;
+            case TargetType.SpecifiedLayers:
+                _targetsInRange = CollisionManager.Instance.GetCollidersInRange(new IntegerRect(this.integerPosition, new IntegerVector(_attackStateRange * 2, _attackStateRange * 2)), this.TargetLayers, null, _targetsInRange);
+
+                _targetsInRange.Remove(this.Hurtbox);
+                target = findClosest();
+                if (target != null)
+                    targetAlive = true;
+                break;
+        }
+
+        if (target == null)
+        {
+            _targetsInRange = CollisionManager.Instance.GetCollidersInRange(new IntegerRect(this.integerPosition, new IntegerVector(_attackStateRange * 2, _attackStateRange * 2)), this.SecondaryTargetLayers, this.SecondaryTargetTag, _targetsInRange);
+            target = findClosest(); // Secondary targets are considered Not Alive
+        }
+
+        _input.ApplyValues(_ai.RunAI(gatherAiInput(target, targetAlive)));
         return _input;
+    }
+
+    public override void OnReturnToPool()
+    {
+        base.OnReturnToPool();
+        if (_targetsInRange != null)
+            _targetsInRange.Clear();
     }
 
     /**
@@ -46,6 +98,14 @@ public class EnemyController : SCCharacterController
      */
     private AI _ai;
     private EnemyInput _input;
+    private int _attackStateRange;
+    private List<IntegerCollider> _targetsInRange;
+
+    private const int SIMPLE_ATTACK_RANGE = 250;
+    private const int GUARD_ATTACK_RANGE = 275;
+    private const int OFFICE_ATTACK_RANGE = 280;
+    private const float WALK_TO_TARGET_DIST = 16;
+    private const int INTERACT_DELAY = 25;
 
     private AIInput gatherAiInput(IntegerCollider target, bool targetAlive)
     {
@@ -106,5 +166,21 @@ public class EnemyController : SCCharacterController
             this.Interact = output.Interact;
             this.PausePressed = false;
         }
+    }
+
+    private IntegerCollider findClosest()
+    {
+        IntegerCollider target = null;
+        int dist = int.MaxValue;
+        for (int i = 0; i < _targetsInRange.Count; ++i)
+        {
+            int d = Mathf.RoundToInt(Vector2.Distance(_targetsInRange[i].transform.position, this.transform.position));
+            if (target == null || d < dist)
+            {
+                dist = d;
+                target = _targetsInRange[i];
+            }
+        }
+        return target;
     }
 }

@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class AttackController : VoBehavior, IPausable
 {
     public IntegerRectCollider[] DamageBoxes;
+    public IntegerCollider Hurtbox;
     public SCSpriteAnimator Animator;
     public SCSpriteAnimator EffectAnimator;
     public Damagable Damagable;
@@ -12,6 +14,11 @@ public class AttackController : VoBehavior, IPausable
     public SCSpriteAnimation BlockEffectAnim;
     public HurtboxChangeDelegate HurtboxChangeCallback;
     public delegate bool HurtboxChangeDelegate(SCAttack.HurtboxState newState);
+
+    void Awake()
+    {
+        _potentialCollisions = new List<IntegerCollider>();
+    }
 
     public void UpdateHitBoxes(SCAttack currentAttack, SCAttack.HurtboxState hurtboxState, SCCharacterController.Facing facing)
     {
@@ -51,7 +58,11 @@ public class AttackController : VoBehavior, IPausable
                         if (collided == null)
                         {
                             // Check if we hit a damagable with this hitbox
-                            collided = box.CollideFirst(0, 0, this.DamagableLayers);
+                            box.GetPotentialCollisions(0, 0, 0, 0, this.DamagableLayers, _potentialCollisions);
+                            if (this.DamagableLayers.ContainsLayer(this.gameObject.layer))
+                                _potentialCollisions.Remove(this.Hurtbox);
+                            collided = box.CollideFirst(0, 0, this.DamagableLayers, null, _potentialCollisions);
+
                             if (collided != null)
                             {
                                 collider = box;
@@ -60,8 +71,16 @@ public class AttackController : VoBehavior, IPausable
                                 CollisionManager.RaycastResult result = this.CollisionManager.Raycast(this.integerPosition, this.transform.DirectionTo2D(collided.transform), this.transform.Distance2D(collided.transform), (this.BlockableLayers | this.DamagableLayers));
                                 if (result.Collided)
                                 {
-                                    GameObject potentialBlocker = result.Collisions[0].CollidedObject;
-                                    if (this.BlockableLayers.ContainsLayer(potentialBlocker.layer))
+                                    GameObject potentialBlocker = null;
+                                    for (int j = 0; j < result.Collisions.Length; ++j)
+                                    {
+                                        if (result.Collisions[j].CollidedObject != this.gameObject)
+                                        {
+                                            potentialBlocker = result.Collisions[j].CollidedObject;
+                                            break;
+                                        }
+                                    }
+                                    if (potentialBlocker != null && this.BlockableLayers.ContainsLayer(potentialBlocker.layer))
                                     {
                                         collided = potentialBlocker;
                                         blocked = true;
@@ -151,8 +170,9 @@ public class AttackController : VoBehavior, IPausable
     private FreezeFrameEvent _freezeFrameEvent;
     private CancelAttackEvent _cancelAttackEvent;
     private bool _attacking;
+    private List<IntegerCollider> _potentialCollisions;
     
-    private const int FRAMES_BETWEEN_COLLIDER_GET = 4;
+    //private const int FRAMES_BETWEEN_COLLIDER_GET = 4;
 
     private SCAttack.HitboxKeyframe? getKeyframeForUpdateFrame(SCAttack attack, int updateFrame)
     {

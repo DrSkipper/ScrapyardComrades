@@ -54,6 +54,43 @@ public class IdleState : AIState
     }
 }
 
+public class WalkTowardState : AIState
+{
+    public WalkTowardState(float pursuitToDist, int interactDelay)
+    {
+        _pursuitToDist = pursuitToDist;
+        _interactDelay = interactDelay;
+        _t = _interactDelay;
+    }
+
+    public override void EnterState()
+    {
+        _t = _interactDelay;
+    }
+
+    public override AIOutput UpdateState(AIInput input)
+    {
+        AIOutput output = new AIOutput();
+        if (Mathf.Abs(input.OurPosition.X - input.TargetPosition.X) < _pursuitToDist)
+        {
+            output.MovementDirection = 0;
+            if (_t <= 0)
+                output.Interact = true;
+            else
+                --_t;
+        }
+        else
+        {
+            output.MovementDirection = Mathf.RoundToInt(Mathf.Sign(input.TargetPosition.X - input.OurPosition.X));
+        }
+        return output;
+    }
+
+    private float _pursuitToDist;
+    private int _interactDelay;
+    private int _t;
+}
+
 public class SimpleAttackState : AIState
 {
     public SimpleAttackState(float executeAttackRange, float pursuitToDist, int cooldown)
