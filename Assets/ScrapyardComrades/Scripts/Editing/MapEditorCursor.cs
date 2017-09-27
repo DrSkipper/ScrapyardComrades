@@ -20,7 +20,7 @@ public class MapEditorCursor : VoBehavior, IPausable
     {
         if (!_hidden)
         {
-            if (MenuInput.NavLeft)
+            if (MenuInput.NavLeftFast)
             {
                 this.GridPos = this.Grid.MoveLeft(this.GridPos);
 
@@ -30,7 +30,7 @@ public class MapEditorCursor : VoBehavior, IPausable
                         this.GridPos = this.Grid.MoveLeft(this.GridPos);
                 }
             }
-            else if (MenuInput.NavRight)
+            else if (MenuInput.NavRightFast)
             {
                 this.GridPos = this.Grid.MoveRight(this.GridPos);
 
@@ -40,7 +40,7 @@ public class MapEditorCursor : VoBehavior, IPausable
                         this.GridPos = this.Grid.MoveRight(this.GridPos);
                 }
             }
-            else if (MenuInput.NavDown)
+            else if (MenuInput.NavDownFast)
             {
                 this.GridPos = this.Grid.MoveDown(this.GridPos);
 
@@ -50,7 +50,7 @@ public class MapEditorCursor : VoBehavior, IPausable
                         this.GridPos = this.Grid.MoveDown(this.GridPos);
                 }
             }
-            else if (MenuInput.NavUp)
+            else if (MenuInput.NavUpFast)
             {
                 this.GridPos = this.Grid.MoveUp(this.GridPos);
 

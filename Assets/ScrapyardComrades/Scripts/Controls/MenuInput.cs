@@ -27,6 +27,11 @@ public static class MenuInput
     public static bool NavDown { get { return RewiredPlayer.GetButtonDown(NAV_DOWN) || RewiredPlayer.GetButtonRepeating(NAV_DOWN); } }
     public static bool NavUp { get { return RewiredPlayer.GetButtonDown(NAV_UP) || RewiredPlayer.GetButtonRepeating(NAV_UP); } }
 
+    public static bool NavLeftFast { get { return NavLeft || RewiredPlayer.GetButtonLongPress(NAV_LEFT); } }
+    public static bool NavRightFast { get { return NavRight || RewiredPlayer.GetButtonLongPress(NAV_RIGHT); } }
+    public static bool NavDownFast { get { return NavDown || RewiredPlayer.GetButtonLongPress(NAV_DOWN); } }
+    public static bool NavUpFast { get { return NavUp || RewiredPlayer.GetButtonLongPress(NAV_UP); } }
+
     public static bool ResizeLeft { get { return RewiredPlayer.GetButtonDown(RESIZE_LEFT) || RewiredPlayer.GetButtonRepeating(RESIZE_LEFT); } }
     public static bool ResizeRight { get { return RewiredPlayer.GetButtonDown(RESIZE_RIGHT) || RewiredPlayer.GetButtonRepeating(RESIZE_RIGHT); } }
     public static bool ResizeDown { get { return RewiredPlayer.GetButtonDown(RESIZE_DOWN) || RewiredPlayer.GetButtonRepeating(RESIZE_DOWN); } }
