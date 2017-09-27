@@ -12,7 +12,7 @@ public class TargetWithinRangeTransition : AIStateTransition
     public float MinDistanceForTransition { get; private set; }
     public float MaxDistanceForTransition { get; private set; }
     public bool RequiresLineOfSight { get; private set; }
-    private const int LineOfSightBlocker = 8;
+    public const int LineOfSightBlocker = 8;
 
     public TargetWithinRangeTransition(AIState destination, float minDistanceForTransition, float maxDistanceForTransition = -1, bool requiresLineOfSight = false)
     {
@@ -50,6 +50,40 @@ public class NoTargetTransition : AIStateTransition
     public bool ShouldTransition(AIInput input)
     {
         return !input.HasTarget;
+    }
+}
+
+public class NoLineOfSightTransition : AIStateTransition
+{
+    public AIState Destination { get; private set; }
+
+    public NoLineOfSightTransition(AIState destination)
+    {
+        this.Destination = destination;
+    }
+
+    public bool ShouldTransition(AIInput input)
+    {
+        if (!input.HasTarget)
+            return true;
+
+        IntegerVector diff = input.TargetPosition - new IntegerVector(input.OurPosition.X, input.OurCollider.Bounds.Max.Y);
+        return CollisionManager.Instance.RaycastFirst(input.OurPosition, ((Vector2)diff).normalized, ((Vector2)diff).magnitude, 1 << TargetWithinRangeTransition.LineOfSightBlocker).Collided;
+    }
+}
+
+public class TargetChangedTransition : AIStateTransition
+{
+    public AIState Destination { get; private set; }
+
+    public TargetChangedTransition(AIState destination)
+    {
+        this.Destination = destination;
+    }
+
+    public bool ShouldTransition(AIInput input)
+    {
+        return input.ChangedTarget;
     }
 }
 

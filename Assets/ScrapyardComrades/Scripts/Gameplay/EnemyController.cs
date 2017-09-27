@@ -76,10 +76,28 @@ public class EnemyController : SCCharacterController
                 break;
         }
 
+        // Also check for secondary target
+        _targetsInRange = CollisionManager.Instance.GetCollidersInRange(new IntegerRect(this.integerPosition, new IntegerVector(_attackStateRange * 2, _attackStateRange * 2)), this.SecondaryTargetLayers, this.SecondaryTargetTag, _targetsInRange);
+        IntegerCollider secondaryTarget = findClosest();
+
         if (target == null)
         {
-            _targetsInRange = CollisionManager.Instance.GetCollidersInRange(new IntegerRect(this.integerPosition, new IntegerVector(_attackStateRange * 2, _attackStateRange * 2)), this.SecondaryTargetLayers, this.SecondaryTargetTag, _targetsInRange);
-            target = findClosest(); // Secondary targets are considered Not Alive
+            target = secondaryTarget;
+        }
+
+        // If both regular target and secondary target exist, see if we have line of sight to regular target
+        else if (secondaryTarget != null)
+        {
+            IntegerVector targetPosition = (Vector2)target.transform.position;
+            IntegerVector ourPosition = this.integerPosition;
+            IntegerVector diff = targetPosition - new IntegerVector(ourPosition.X, this.Hurtbox.Bounds.Max.Y);
+            if (CollisionManager.Instance.RaycastFirst(ourPosition, ((Vector2)diff).normalized, ((Vector2)diff).magnitude, 1 << TargetWithinRangeTransition.LineOfSightBlocker).Collided)
+            {
+                // Secondary targets are considered Not Alive
+                target = secondaryTarget;
+                targetAlive = false;
+            }
+            
         }
 
         _input.ApplyValues(_ai.RunAI(gatherAiInput(target, targetAlive)));
@@ -100,6 +118,7 @@ public class EnemyController : SCCharacterController
     private EnemyInput _input;
     private int _attackStateRange;
     private List<IntegerCollider> _targetsInRange;
+    private IntegerCollider _prevTarget;
 
     private const int SIMPLE_ATTACK_RANGE = 250;
     private const int GUARD_ATTACK_RANGE = 275;
@@ -112,6 +131,8 @@ public class EnemyController : SCCharacterController
         AIInput aiInput = new AIInput();
         aiInput.HasTarget = target != null;
         aiInput.TargetAlive = targetAlive;
+        aiInput.ChangedTarget = target != _prevTarget;
+        _prevTarget = target;
         aiInput.OurPosition = (Vector2)this.transform.position;
         aiInput.TargetPosition = target != null ? (Vector2)target.transform.position : Vector2.zero;
         aiInput.OurCollider = this.Hurtbox;
