@@ -12,6 +12,7 @@ public static class SaveData
     public static PlayerStatsModel PlayerStats { get { return _loadedDiskData.PlayerStats; } }
     public static string LastSaveRoom { get { return _loadedDiskData.LastSaveRoom; } }
     public static bool UnsafeSave { get { return _loadedDiskData.UnsafeSave; } set { _loadedDiskData.UnsafeSave = value; } }
+    
 
     public static EntityModel GetTrackedEntity(string quadName, string entityName)
     {
@@ -42,6 +43,11 @@ public static class SaveData
     public static bool CheckGlobalState(string stateName, string checkStateTag)
     {
         return _loadedDiskData.GlobalStates.ContainsKey(stateName) ? (_loadedDiskData.GlobalStates[stateName] == checkStateTag) : false;
+    }
+
+    public static string GetGlobalState(string stateName, string defaultValue)
+    {
+        return _loadedDiskData.GlobalStates.ContainsKey(stateName) ? _loadedDiskData.GlobalStates[stateName] : defaultValue;
     }
 
     public static void SetGlobalState(string stateName, string stateTag)

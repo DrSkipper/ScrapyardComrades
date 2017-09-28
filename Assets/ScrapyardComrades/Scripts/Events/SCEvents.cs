@@ -302,3 +302,16 @@ public class RageEvent : LocalEventNotifier.Event
         this.Raging = raging;
     }
 }
+
+public class SwitchStateChangedEvent : LocalEventNotifier.Event
+{
+    public const string NAME = "SWITCH";
+    public string SwitchName;
+    public Switch.SwitchState State;
+
+    public SwitchStateChangedEvent(string switchName, Switch.SwitchState state)
+    {
+        this.SwitchName = switchName;
+        this.State = state;
+    }
+}
