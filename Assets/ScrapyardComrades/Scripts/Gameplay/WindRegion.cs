@@ -7,6 +7,7 @@ public class WindRegion : VoBehavior, IPausable
     public Vector2 TargetVelocity;
     public float Acceleration = 3.0f;
     public float Deceleration = 2.0f;
+    public bool Activated = true;
 
     void Awake()
     {
@@ -24,9 +25,10 @@ public class WindRegion : VoBehavior, IPausable
     void FixedUpdate()
     {
         _collisions.Clear();
-        this.integerCollider.Collide(_collisions, 0, 0, this.AffectedMask);
+        if (this.Activated)
+            this.integerCollider.Collide(_collisions, 0, 0, this.AffectedMask);
+        
         int i = 0;
-
         // Check if affected actors have left region
         while (i < _currentAffected.Count)
         {

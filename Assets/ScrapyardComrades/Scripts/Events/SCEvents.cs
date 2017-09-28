@@ -311,6 +311,7 @@ public class SwitchStateChangedEvent : LocalEventNotifier.Event
 
     public SwitchStateChangedEvent(string switchName, Switch.SwitchState state)
     {
+        this.Name = NAME;
         this.SwitchName = switchName;
         this.State = state;
     }

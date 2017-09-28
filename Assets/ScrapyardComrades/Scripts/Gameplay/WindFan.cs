@@ -7,6 +7,7 @@ public class WindFan : MonoBehaviour
     public IntegerRectCollider WindRegionCollider;
     public IntegerRectCollider ParticleSpawnRect;
     public MoveAndFadeParticleEmitter Particles;
+    public SwitchListener SwitchListener;
 
     public TurretController.AttachDir AttachedAt = TurretController.AttachDir.Down;
 
@@ -18,6 +19,9 @@ public class WindFan : MonoBehaviour
         _defaultParticleSpawnSize = this.ParticleSpawnRect.Size;
         _defaultParticleVelocity = this.Particles.PooledParticles[0].GetComponent<MoveAndFadeParticle>().VelocityDir;
         _defaultTargetVelocity = this.WindRegionScript.TargetVelocity;
+
+        if (this.SwitchListener != null)
+            this.SwitchListener.StateChangeCallback += onSwitchStateChange;
     }
 
     void OnSpawn()
@@ -79,4 +83,20 @@ public class WindFan : MonoBehaviour
     private IntegerVector _defaultParticleSpawnSize;
     private IntegerVector _defaultParticleVelocity;
     private Vector2 _defaultTargetVelocity;
+
+    private void onSwitchStateChange(Switch.SwitchState state)
+    {
+        switch (state)
+        {
+            default:
+            case Switch.SwitchState.OFF:
+                this.WindRegionScript.Activated = false;
+                this.Particles.Paused = true;
+                break;
+            case Switch.SwitchState.ON:
+                this.WindRegionScript.Activated = true;
+                this.Particles.Paused = false;
+                break;
+        }
+    }
 }

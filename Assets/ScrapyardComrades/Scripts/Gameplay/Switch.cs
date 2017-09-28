@@ -35,7 +35,8 @@ public class Switch : MonoBehaviour
 
     void OnSpawn()
     {
-        this.CurrentState = readState();
+        if (SaveData.DataLoaded)
+            this.CurrentState = readState();
     }
 
     public void ToggleSwitch()

@@ -18629,9 +18629,17 @@
           "CurrentOption": "all"
         }
       ]
+    },
+    {
+      "name": "objects_Switch_18",
+      "prefab_name": "Switch",
+      "x": 578,
+      "y": 102,
+      "z": -2,
+      "parameters": null
     }
   ],
-  "next_object_id": 18,
+  "next_object_id": 19,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 3,

@@ -8,6 +8,7 @@ public abstract class AbstractParticleEmitter : MonoBehaviour
     public IntegerVector SpawnIntervalRange;
     public int MaxParticlesToSpawn = -1;
     public bool StartOnAwake = false;
+    public bool Paused = false;
     public delegate void OnCompleteDelegate(GameObject particle);
 
     void Awake()
@@ -35,7 +36,7 @@ public abstract class AbstractParticleEmitter : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (this.MaxParticlesToSpawn < 0 || _count < this.MaxParticlesToSpawn)
+        if (!this.Paused && (this.MaxParticlesToSpawn < 0 || _count < this.MaxParticlesToSpawn))
         {
             if (_t <= 0)
             {
