@@ -23,6 +23,10 @@ public class FanConfigurer : ObjectConfigurer
                     ATTACH_LEFT,
                     ATTACH_RIGHT
                 }),
+                new ObjectParamType(SwitchConfigurer.INVERSE_SWITCH, new string[] {
+                    SwitchConfigurer.FALSE,
+                    SwitchConfigurer.TRUE
+                }),
                 new ObjectParamType(SwitchConfigurer.SWITCH_NAME, new string[] {
                     SwitchConfigurer.SWITCH_A,
                     SwitchConfigurer.SWITCH_B,
@@ -30,6 +34,10 @@ public class FanConfigurer : ObjectConfigurer
                     SwitchConfigurer.SWITCH_D,
                     SwitchConfigurer.SWITCH_E,
                     SwitchConfigurer.SWITCH_F
+                }),
+                new ObjectParamType(SwitchConfigurer.DEFAULT_STATE, new string[] {
+                    Switch.OFF,
+                    Switch.ON
                 })
             };
         }
@@ -47,6 +55,12 @@ public class FanConfigurer : ObjectConfigurer
                 break;
             case SwitchConfigurer.SWITCH_NAME:
                 configureSwitchName(option);
+                break;
+            case SwitchConfigurer.INVERSE_SWITCH:
+                configureInverseSwitch(option);
+                break;
+            case SwitchConfigurer.DEFAULT_STATE:
+                configureDefaultState(option);
                 break;
         }
     }
@@ -79,5 +93,39 @@ public class FanConfigurer : ObjectConfigurer
     private void configureSwitchName(string option)
     {
         this.SwitchListenerScript.SwitchName = option;
+    }
+
+    private void configureInverseSwitch(string option)
+    {
+        switch (option)
+        {
+            default:
+                LogInvalidParameter(NAME, SwitchConfigurer.INVERSE_SWITCH, option);
+                this.SwitchListenerScript.InversedSwitch = false;
+                break;
+            case SwitchConfigurer.TRUE:
+                this.SwitchListenerScript.InversedSwitch = true;
+                break;
+            case SwitchConfigurer.FALSE:
+                this.SwitchListenerScript.InversedSwitch = false;
+                break;
+        }
+    }
+
+    private void configureDefaultState(string option)
+    {
+        switch (option)
+        {
+            default:
+                LogInvalidParameter(NAME, SwitchConfigurer.DEFAULT_STATE, option);
+                this.SwitchListenerScript.DefaultState = Switch.SwitchState.OFF;
+                break;
+            case Switch.ON:
+                this.SwitchListenerScript.DefaultState = Switch.SwitchState.ON;
+                break;
+            case Switch.OFF:
+                this.SwitchListenerScript.DefaultState = Switch.SwitchState.OFF;
+                break;
+        }
     }
 }

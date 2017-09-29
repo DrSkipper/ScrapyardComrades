@@ -6,6 +6,7 @@ public class Switch : MonoBehaviour
     public const string ON = "ON";
 
     public SwitchState DefaultState = SwitchState.OFF;
+    public bool InversedSwitch = false;
     public string SwitchName = "switch";
     public StateChangeDelegate StateChangeCallback;
     public delegate void StateChangeDelegate(SwitchState state);
@@ -35,9 +36,10 @@ public class Switch : MonoBehaviour
 
     void OnSpawn()
     {
+        GlobalEvents.Notifier.Listen(SwitchStateChangedEvent.NAME, this, onSwitchStateChange);
         _switchStateEvent.SwitchName = this.SwitchName;
         if (SaveData.DataLoaded)
-            this.CurrentState = readState();
+            this.CurrentState = configureForState(readState());
     }
 
     public void ToggleSwitch()
@@ -70,12 +72,26 @@ public class Switch : MonoBehaviour
         }
     }
 
+    void OnReturnToPool()
+    {
+        GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, SwitchStateChangedEvent.NAME);
+    }
+
     /**
      * Private
      */
     private SwitchState _currentState;
     private SwitchStateChangedEvent _switchStateEvent;
     private bool _sentEvent;
+
+    private Switch.SwitchState configureForState(Switch.SwitchState state)
+    {
+        if (this.InversedSwitch)
+        {
+            state = (state == Switch.SwitchState.OFF) ? Switch.SwitchState.ON : Switch.SwitchState.OFF;
+        }
+        return state;
+    }
 
     private SwitchState readState()
     {
@@ -85,9 +101,9 @@ public class Switch : MonoBehaviour
     private void saveState()
     {
         _sentEvent = true;
-        _switchStateEvent.State = this.CurrentState;
+        _switchStateEvent.State = configureForState(this.CurrentState);
         GlobalEvents.Notifier.SendEvent(_switchStateEvent);
-        SaveData.SetGlobalState(this.SwitchName, SwitchKeyFromState(this.CurrentState));
+        SaveData.SetGlobalState(this.SwitchName, SwitchKeyFromState(_switchStateEvent.State));
         _sentEvent = false;
     }
 
@@ -99,7 +115,7 @@ public class Switch : MonoBehaviour
         SwitchStateChangedEvent switchEvent = e as SwitchStateChangedEvent;
         if (switchEvent.SwitchName == this.SwitchName)
         {
-            this.CurrentState = switchEvent.State;
+            this.CurrentState = configureForState(switchEvent.State);
         }
     }
 }
