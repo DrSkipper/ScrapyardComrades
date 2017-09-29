@@ -10,6 +10,7 @@ public class FanConfigurer : ObjectConfigurer
     private const string ATTACH_RIGHT = "r";
 
     public WindFan FanScript;
+    public SwitchListener SwitchListenerScript;
 
     public override ObjectParamType[] ParameterTypes
     {
@@ -21,6 +22,14 @@ public class FanConfigurer : ObjectConfigurer
                     ATTACH_UP,
                     ATTACH_LEFT,
                     ATTACH_RIGHT
+                }),
+                new ObjectParamType(SwitchConfigurer.SWITCH_NAME, new string[] {
+                    SwitchConfigurer.SWITCH_A,
+                    SwitchConfigurer.SWITCH_B,
+                    SwitchConfigurer.SWITCH_C,
+                    SwitchConfigurer.SWITCH_D,
+                    SwitchConfigurer.SWITCH_E,
+                    SwitchConfigurer.SWITCH_F
                 })
             };
         }
@@ -35,6 +44,9 @@ public class FanConfigurer : ObjectConfigurer
                 break;
             case ATTACH_DIR_TYPE:
                 configureAttachType(option);
+                break;
+            case SwitchConfigurer.SWITCH_NAME:
+                configureSwitchName(option);
                 break;
         }
     }
@@ -62,5 +74,10 @@ public class FanConfigurer : ObjectConfigurer
                 this.FanScript.AttachedAt = TurretController.AttachDir.Right;
                 break;
         }
+    }
+
+    private void configureSwitchName(string option)
+    {
+        this.SwitchListenerScript.SwitchName = option;
     }
 }

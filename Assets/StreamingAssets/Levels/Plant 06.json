@@ -18637,9 +18637,39 @@
       "y": 102,
       "z": -2,
       "parameters": null
+    },
+    {
+      "name": "objects_Switch_19",
+      "prefab_name": "Switch",
+      "x": 1272,
+      "y": 102,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "switch_name",
+          "CurrentOption": "B_switch"
+        }
+      ]
+    },
+    {
+      "name": "objects_FloorFan_20",
+      "prefab_name": "FloorFan",
+      "x": 1356,
+      "y": 92,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "d"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "B_switch"
+        }
+      ]
     }
   ],
-  "next_object_id": 19,
+  "next_object_id": 21,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 3,

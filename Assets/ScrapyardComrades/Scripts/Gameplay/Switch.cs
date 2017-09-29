@@ -35,6 +35,7 @@ public class Switch : MonoBehaviour
 
     void OnSpawn()
     {
+        _switchStateEvent.SwitchName = this.SwitchName;
         if (SaveData.DataLoaded)
             this.CurrentState = readState();
     }
