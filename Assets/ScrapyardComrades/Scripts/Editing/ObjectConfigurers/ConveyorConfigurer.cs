@@ -1,28 +1,50 @@
 ﻿using UnityEngine;
 
-public class FanConfigurer : ObjectConfigurer
+public class ConveyorConfigurer : ObjectConfigurer
 {
-    public const string NAME = "Fan";
-    private const string ATTACH_DIR_TYPE = "attach";
-    private const string ATTACH_DOWN = "d";
-    private const string ATTACH_UP = "u";
-    private const string ATTACH_LEFT = "l";
-    private const string ATTACH_RIGHT = "r";
-    public const string IGNORE_EVENTS = "ignore_events";
+    public const string NAME = "Conveyor";
+    public const string DIRECTION = "direction";
+    public const string LEFT = "left";
+    public const string RIGHT = "right";
+    private const string POSITION = "position";
+    private const string MID = "mid";
+    private const string SWITCH_MODE = "switch_mode";
+    private const string ENABLE_DISABLE = "enable_disable";
+    private const string TOGGLE_DIRECTION = "toggle_direction";
 
-    public WindFan FanScript;
+    public ConveyorBelt ConveyorScript;
     public SwitchListener SwitchListenerScript;
+    public PositionType Position;
+
+    public SCSpriteAnimation LeftMidAnimation;
+    public SCSpriteAnimation LeftLeftAnimation;
+    public SCSpriteAnimation LeftRightAnimation;
+
+    public SCSpriteAnimation RightMidAnimation;
+    public SCSpriteAnimation RightLeftAnimation;
+    public SCSpriteAnimation RightRightAnimation;
+
+    [System.Serializable]
+    public enum PositionType
+    {
+        Mid,
+        Left,
+        Right
+    }
 
     public override ObjectParamType[] ParameterTypes
     {
         get
         {
             return new ObjectParamType[] {
-                new ObjectParamType(ATTACH_DIR_TYPE, new string[] {
-                    ATTACH_DOWN,
-                    ATTACH_UP,
-                    ATTACH_LEFT,
-                    ATTACH_RIGHT
+                new ObjectParamType(DIRECTION, new string[] {
+                    LEFT,
+                    RIGHT
+                }),
+                new ObjectParamType(POSITION, new string[] {
+                    MID,
+                    RIGHT,
+                    LEFT
                 }),
                 new ObjectParamType(SwitchConfigurer.INVERSE_SWITCH, new string[] {
                     SwitchConfigurer.FALSE,
@@ -40,9 +62,13 @@ public class FanConfigurer : ObjectConfigurer
                     Switch.OFF,
                     Switch.ON
                 }),
-                new ObjectParamType(IGNORE_EVENTS, new string[] {
+                new ObjectParamType(FanConfigurer.IGNORE_EVENTS, new string[] {
                     SwitchConfigurer.FALSE,
                     SwitchConfigurer.TRUE
+                }),
+                new ObjectParamType(SWITCH_MODE, new string[] {
+                    ENABLE_DISABLE,
+                    TOGGLE_DIRECTION
                 })
             };
         }
@@ -55,8 +81,11 @@ public class FanConfigurer : ObjectConfigurer
             default:
                 LogInvalidParameter(NAME, parameterName, option);
                 break;
-            case ATTACH_DIR_TYPE:
-                configureAttachType(option);
+            case DIRECTION:
+                configureDirection(option);
+                break;
+            case POSITION:
+                configurePosition(option);
                 break;
             case SwitchConfigurer.SWITCH_NAME:
                 configureSwitchName(option);
@@ -67,8 +96,11 @@ public class FanConfigurer : ObjectConfigurer
             case SwitchConfigurer.DEFAULT_STATE:
                 configureDefaultState(option);
                 break;
-            case IGNORE_EVENTS:
+            case FanConfigurer.IGNORE_EVENTS:
                 configureIgnoreEvents(option);
+                break;
+            case SWITCH_MODE:
+                //TODO:
                 break;
         }
     }
@@ -76,24 +108,42 @@ public class FanConfigurer : ObjectConfigurer
     /**
      * Private
      */
-    private void configureAttachType(string option)
+    private void configureDirection(string option)
     {
         switch (option)
         {
             default:
-                LogInvalidParameter(NAME, ATTACH_DIR_TYPE, option);
+                LogInvalidParameter(NAME, DIRECTION, option);
                 break;
-            case ATTACH_DOWN:
-                this.FanScript.AttachedAt = TurretController.AttachDir.Down;
+            case LEFT:
+                this.ConveyorScript.DefaultDirection = SCCharacterController.Facing.Left;
                 break;
-            case ATTACH_UP:
-                this.FanScript.AttachedAt = TurretController.AttachDir.Up;
+            case RIGHT:
+                this.ConveyorScript.DefaultDirection = SCCharacterController.Facing.Right;
                 break;
-            case ATTACH_LEFT:
-                this.FanScript.AttachedAt = TurretController.AttachDir.Left;
+        }
+    }
+
+    private void configurePosition(string option)
+    {
+        switch (option)
+        {
+            default:
+                LogInvalidParameter(NAME, POSITION, option);
+                this.ConveyorScript.LeftAnimation = LeftMidAnimation;
+                this.ConveyorScript.RightAnimation = RightMidAnimation;
                 break;
-            case ATTACH_RIGHT:
-                this.FanScript.AttachedAt = TurretController.AttachDir.Right;
+            case MID:
+                this.ConveyorScript.LeftAnimation = LeftMidAnimation;
+                this.ConveyorScript.RightAnimation = RightMidAnimation;
+                break;
+            case LEFT:
+                this.ConveyorScript.LeftAnimation = LeftLeftAnimation;
+                this.ConveyorScript.RightAnimation = RightLeftAnimation;
+                break;
+            case RIGHT:
+                this.ConveyorScript.LeftAnimation = LeftRightAnimation;
+                this.ConveyorScript.RightAnimation = RightRightAnimation;
                 break;
         }
     }
@@ -142,7 +192,7 @@ public class FanConfigurer : ObjectConfigurer
         switch (option)
         {
             default:
-                LogInvalidParameter(NAME, IGNORE_EVENTS, option);
+                LogInvalidParameter(NAME, FanConfigurer.IGNORE_EVENTS, option);
                 this.SwitchListenerScript.IgnoreEvents = false;
                 break;
             case SwitchConfigurer.TRUE:

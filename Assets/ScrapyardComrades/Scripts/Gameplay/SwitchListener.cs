@@ -4,6 +4,7 @@ public class SwitchListener : MonoBehaviour
 {
     public Switch.SwitchState DefaultState = Switch.SwitchState.OFF;
     public bool InversedSwitch = false;
+    public bool IgnoreEvents = false;
     public string SwitchName = "switch";
     public Switch.StateChangeDelegate StateChangeCallback;
     
@@ -20,14 +21,22 @@ public class SwitchListener : MonoBehaviour
 
     void OnSpawn()
     {
-        GlobalEvents.Notifier.Listen(SwitchStateChangedEvent.NAME, this, onSwitchStateChange);
-        if (SaveData.DataLoaded)
-            configureForState(readState());
+        if (!this.IgnoreEvents)
+        {
+            GlobalEvents.Notifier.Listen(SwitchStateChangedEvent.NAME, this, onSwitchStateChange);
+            if (SaveData.DataLoaded)
+                configureForState(readState());
+        }
+        else
+        {
+            configureForState(this.DefaultState);
+        }
     }
 
     void OnReturnToPool()
     {
-        GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, SwitchStateChangedEvent.NAME);
+        if (!this.IgnoreEvents)
+            GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, SwitchStateChangedEvent.NAME);
     }
 
     /**
