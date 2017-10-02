@@ -100,7 +100,7 @@ public class ConveyorConfigurer : ObjectConfigurer
                 configureIgnoreEvents(option);
                 break;
             case SWITCH_MODE:
-                //TODO:
+                configureSwitchMode(option);
                 break;
         }
     }
@@ -200,6 +200,23 @@ public class ConveyorConfigurer : ObjectConfigurer
                 break;
             case SwitchConfigurer.FALSE:
                 this.SwitchListenerScript.IgnoreEvents = false;
+                break;
+        }
+    }
+
+    private void configureSwitchMode(string option)
+    {
+        switch (option)
+        {
+            default:
+                LogInvalidParameter(NAME, SWITCH_MODE, option);
+                this.ConveyorScript.OnSwitchAction = ConveyorBelt.SwitchBehavior.EnableDisable;
+                break;
+            case ENABLE_DISABLE:
+                this.ConveyorScript.OnSwitchAction = ConveyorBelt.SwitchBehavior.EnableDisable;
+                break;
+            case TOGGLE_DIRECTION:
+                this.ConveyorScript.OnSwitchAction = ConveyorBelt.SwitchBehavior.DirectionToggle;
                 break;
         }
     }
