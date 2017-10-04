@@ -107,7 +107,7 @@ public class Switch : MonoBehaviour
     {
         _sentEvent = true;
         _switchStateEvent.State = configureForState(this.CurrentState);
-        GlobalEvents.Notifier.SendEvent(_switchStateEvent);
+        GlobalEvents.Notifier.SendEvent(_switchStateEvent, true);
         SaveData.SetGlobalState(this.SwitchName, SwitchKeyFromState(_switchStateEvent.State));
         _sentEvent = false;
     }

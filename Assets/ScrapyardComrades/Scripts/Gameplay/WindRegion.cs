@@ -20,6 +20,8 @@ public class WindRegion : VoBehavior, IPausable
     {
         _currentAffected.Clear();
         _windingDown.Clear();
+
+        GlobalEvents.Notifier.Listen(WorldRecenterEvent.NAME, this, onRecenter);
     }
 
     void FixedUpdate()
@@ -105,6 +107,24 @@ public class WindRegion : VoBehavior, IPausable
         }
     }
 
+    void OnReturnToPool()
+    {
+        GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, WorldRecenterEvent.NAME);
+    }
+
+    public void StopTrackingWindingDowns()
+    {
+        int i;
+        while (_windingDown.Count > 0)
+        {
+            i = _windingDown.Count - 1;
+            Actor2D actor = _windingDown[i];
+            if (actor != null)
+                actor.RemoveVelocityModifier(WIND_BOOST);
+            _windingDown.RemoveAt(i);
+        }
+    }
+
     /**
      * Private
      */
@@ -112,4 +132,9 @@ public class WindRegion : VoBehavior, IPausable
     private List<Actor2D> _currentAffected;
     private List<Actor2D> _windingDown;
     private const string WIND_BOOST = "WIND";
+
+    private void onRecenter(LocalEventNotifier.Event e)
+    {
+        this.StopTrackingWindingDowns();
+    }
 }
