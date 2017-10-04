@@ -39,7 +39,12 @@ public class Switch : MonoBehaviour
         GlobalEvents.Notifier.Listen(SwitchStateChangedEvent.NAME, this, onSwitchStateChange);
         _switchStateEvent.SwitchName = this.SwitchName;
         if (SaveData.DataLoaded)
+        {
+            bool hasState = SaveData.HasGlobalState(this.SwitchName);
             this.CurrentState = configureForState(readState());
+            if (!hasState)
+                saveState();
+        }
     }
 
     public void ToggleSwitch()

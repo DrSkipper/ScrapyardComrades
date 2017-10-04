@@ -58,6 +58,11 @@ public static class SaveData
             _loadedDiskData.GlobalStates[stateName] = stateTag;
     }
 
+    public static bool HasGlobalState(string stateName)
+    {
+        return _loadedDiskData.GlobalStates.ContainsKey(stateName);
+    }
+
     [System.Serializable]
     public class PlayerStatsModel
     {
