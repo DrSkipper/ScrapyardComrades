@@ -12457,9 +12457,34 @@
           "CurrentOption": "false"
         }
       ]
+    },
+    {
+      "name": "objects_Switch_8",
+      "prefab_name": "Switch",
+      "x": 796,
+      "y": 166,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "switch_name",
+          "CurrentOption": "A_switch"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "one_way",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        }
+      ]
     }
   ],
-  "next_object_id": 8,
+  "next_object_id": 9,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 3,

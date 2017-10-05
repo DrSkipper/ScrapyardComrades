@@ -6,10 +6,26 @@ public class AreaSwitch : MonoBehaviour
     public Switch SwitchScript;
     public LayerMask DetectionLayers;
     public bool OneWay = false;
+    public int TwoWayResetDuration = 0;
+
+    void OnSpawn()
+    {
+        if (!this.OneWay)
+        {
+            if (_twoWayTimer == null)
+                _twoWayTimer = new Timer(this.TwoWayResetDuration, false, false);
+            else
+                _twoWayTimer.reset(this.TwoWayResetDuration);
+            _twoWayTimer.complete();
+        }
+    }
 
     void FixedUpdate()
     {
         GameObject collided = this.DetectionCollider.CollideFirst(0, 0, this.DetectionLayers, null);
+
+        if (!this.OneWay)
+            _twoWayTimer.update();
 
         if (!_beingPressed)
         {
@@ -17,7 +33,15 @@ public class AreaSwitch : MonoBehaviour
             {
                 _beingPressed = true;
                 if (canSwitch())
+                {
                     this.SwitchScript.ToggleSwitch();
+
+                    if (!this.OneWay)
+                    {
+                        _twoWayTimer.reset();
+                        _twoWayTimer.start();
+                    }
+                }
             }
         }
         else
@@ -35,9 +59,12 @@ public class AreaSwitch : MonoBehaviour
      * Private
      */
     private bool _beingPressed;
+    private Timer _twoWayTimer;
 
     private bool canSwitch()
     {
-        return !this.OneWay || this.SwitchScript.CurrentState == this.SwitchScript.DefaultState;
+        if (!this.OneWay)
+            return _twoWayTimer.Completed;
+        return this.SwitchScript.CurrentState == this.SwitchScript.DefaultState;
     }
 }
