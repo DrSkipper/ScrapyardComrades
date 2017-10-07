@@ -119,6 +119,7 @@ public class SCCharacterController : Actor2D
 
     public const float DEATH_VELOCITY_MAX = 0.5f;
     public const string LOOT_DROP_EVENT = "LOOT_DROP";
+    public const string RESTING_VELOCITY_KEY = "rest";
 
     public virtual InputWrapper GatherInput()
     {
@@ -156,6 +157,8 @@ public class SCCharacterController : Actor2D
 
         if (_restingVelocityModifier == null)
             _restingVelocityModifier = new VelocityModifier(Vector2.zero, VelocityModifier.CollisionBehavior.sustain);
+        else
+            _restingVelocityModifier.Modifier = Vector2.zero;
         this.SetVelocityModifier(RESTING_VELOCITY_KEY, _restingVelocityModifier);
 
         if (_jumpBufferTimer == null)
@@ -656,7 +659,6 @@ public class SCCharacterController : Actor2D
     private int _wallJumpGraceDir;
     private int _groundedFrames;
 
-    private const string RESTING_VELOCITY_KEY = "rest";
     private const float HORIZ_BOUNCE_FACTOR = 0.8f;
     private const float VERY_SMALL_VELOCITY = 0.02f;
 

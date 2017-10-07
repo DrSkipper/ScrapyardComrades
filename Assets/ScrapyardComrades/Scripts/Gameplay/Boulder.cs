@@ -9,6 +9,7 @@ public class Boulder : VoBehavior, IPausable
     public float AirFriction = 5;
     public float MinSpeedToDamage = 5;
     public float MinSpeedToDamageDown = 2;
+    public LayerMask MovingPlatformMask;
     public LayerMask DamagableLayers;
     public SCAttack.HitData HitParameters;
     public IntegerCollider DownDamageBox;
@@ -27,6 +28,12 @@ public class Boulder : VoBehavior, IPausable
     void OnSpawn()
     {
         this.integerCollider.AddToCollisionPool();
+
+        if (_restingVelocityModifier == null)
+            _restingVelocityModifier = new VelocityModifier(Vector2.zero, VelocityModifier.CollisionBehavior.sustain);
+        else
+            _restingVelocityModifier.Modifier = Vector2.zero;
+        this.Actor.SetVelocityModifier(SCCharacterController.RESTING_VELOCITY_KEY, _restingVelocityModifier);
     }
 
     void OnReturnToPool()
@@ -37,15 +44,28 @@ public class Boulder : VoBehavior, IPausable
     void FixedUpdate()
     {
         Vector2 velocity = this.Actor.Velocity;
+        GameObject groundedAgainst = this.GroundedAgainst;
+
+        // Check if we're on a moving platform
+        _restingVelocityModifier.Modifier = Vector2.zero;
+        if (groundedAgainst != null)
+        {
+            int groundedLayerMask = 1 << groundedAgainst.layer;
+            if ((groundedLayerMask & this.MovingPlatformMask) == groundedLayerMask)
+            {
+                attemptMovingPlatformAlignment(groundedAgainst);
+            }
+        }
+
+        velocity.x = velocity.x.Approach(0.0f, groundedAgainst != null ? this.Friction : this.AirFriction);
+        velocity.y = velocity.y.Approach(-this.MaxFallSpeed, this.Gravity);
+        this.Actor.Velocity = velocity;
+
+        velocity = this.Actor.TotalVelocity;
         bool movingDown = velocity.y < -this.MinSpeedToDamageDown;
         bool movingUp = !movingDown && velocity.y >= this.MinSpeedToDamage;
         bool movingLeft = velocity.x <= -this.MinSpeedToDamage;
         bool movingRight = !movingLeft && velocity.x >= this.MinSpeedToDamage;
-
-        GameObject groundedAgainst = this.GroundedAgainst;
-        velocity.x = velocity.x.Approach(0.0f, groundedAgainst != null ? this.Friction : this.AirFriction);
-        velocity.y = velocity.y.Approach(-this.MaxFallSpeed, this.Gravity);
-        this.Actor.Velocity = velocity;
 
         if (movingDown || movingUp || movingLeft || movingRight)
         {
@@ -80,6 +100,7 @@ public class Boulder : VoBehavior, IPausable
      */
     private IntegerRect _damageRange;
     private List<IntegerCollider> _nearbyDamagables;
+    private VelocityModifier _restingVelocityModifier;
 
     private void damage(IntegerCollider collider, int targetDirX, int targetDirY)
     {
@@ -108,5 +129,16 @@ public class Boulder : VoBehavior, IPausable
                 }
             }
         }
+    }
+
+    private bool attemptMovingPlatformAlignment(GameObject platform)
+    {
+        IMovingPlatform movingPlatform = platform.GetComponent<IMovingPlatform>();
+        if (movingPlatform != null)
+        {
+            _restingVelocityModifier.Modifier = movingPlatform.Velocity;
+            return true;
+        }
+        return false;
     }
 }
