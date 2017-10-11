@@ -2180,11 +2180,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_33"
+          "sprite_name": "plant_tileset_52"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_34"
+          "sprite_name": "plant_tileset_53"
         },
         {
           "is_filled": true,
@@ -2371,20 +2371,20 @@
           "sprite_name": "plant_tileset_178"
         },
         {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_20"
+          "is_filled": false,
+          "sprite_name": "plant_tileset_178"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "plant_tileset_178"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_12"
+          "sprite_name": "plant_tileset_9"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_23"
+          "sprite_name": "plant_tileset_22"
         },
         {
           "is_filled": true,
@@ -2563,20 +2563,20 @@
           "sprite_name": "plant_tileset_178"
         },
         {
+          "is_filled": false,
+          "sprite_name": "plant_tileset_178"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "plant_tileset_178"
+        },
+        {
           "is_filled": true,
           "sprite_name": "plant_tileset_20"
         },
         {
           "is_filled": true,
           "sprite_name": "plant_tileset_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_11"
         },
         {
           "is_filled": true,
@@ -2755,24 +2755,24 @@
           "sprite_name": "plant_tileset_178"
         },
         {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_20"
+          "is_filled": false,
+          "sprite_name": "plant_tileset_178"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "plant_tileset_178"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_22"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_11"
+          "sprite_name": "plant_tileset_9"
         },
         {
           "is_filled": true,
           "sprite_name": "plant_tileset_21"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_10"
         },
         {
           "is_filled": true,
@@ -2947,24 +2947,24 @@
           "sprite_name": "plant_tileset_178"
         },
         {
+          "is_filled": false,
+          "sprite_name": "plant_tileset_178"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "plant_tileset_178"
+        },
+        {
           "is_filled": true,
           "sprite_name": "plant_tileset_0"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_5"
+          "sprite_name": "plant_tileset_4"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_5"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_1"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_2"
+          "sprite_name": "plant_tileset_3"
         },
         {
           "is_filled": true,
@@ -12335,22 +12335,6 @@
   "props_background": [],
   "objects": [
     {
-      "name": "objects_FloorFan_0",
-      "prefab_name": "FloorFan",
-      "x": 416,
-      "y": 220,
-      "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_FloorFan_1",
-      "prefab_name": "FloorFan",
-      "x": 352,
-      "y": 220,
-      "z": -2,
-      "parameters": null
-    },
-    {
       "name": "objects_FloorFan_2",
       "prefab_name": "FloorFan",
       "x": 314,
@@ -12367,7 +12351,7 @@
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12396,11 +12380,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12433,11 +12417,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12470,11 +12454,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12507,11 +12491,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12544,11 +12528,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12581,11 +12565,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12618,11 +12602,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12655,11 +12639,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12692,11 +12676,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12729,11 +12713,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12766,11 +12750,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12803,11 +12787,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12840,11 +12824,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12877,11 +12861,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12914,11 +12898,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12951,11 +12935,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -12988,11 +12972,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -13025,11 +13009,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -13062,11 +13046,11 @@
         },
         {
           "Name": "inverse",
-          "CurrentOption": "false"
+          "CurrentOption": "true"
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -13091,212 +13075,6 @@
       "parameters": null
     },
     {
-      "name": "objects_ConveyorBelt_39",
-      "prefab_name": "ConveyorBelt",
-      "x": 816,
-      "y": 400,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "direction",
-          "CurrentOption": "right"
-        },
-        {
-          "Name": "position",
-          "CurrentOption": "left"
-        },
-        {
-          "Name": "inverse",
-          "CurrentOption": "false"
-        },
-        {
-          "Name": "switch_name",
-          "CurrentOption": "A_switch"
-        },
-        {
-          "Name": "default_state",
-          "CurrentOption": "OFF"
-        },
-        {
-          "Name": "ignore_events",
-          "CurrentOption": "true"
-        },
-        {
-          "Name": "switch_mode",
-          "CurrentOption": "enable_disable"
-        }
-      ]
-    },
-    {
-      "name": "objects_ConveyorBelt_40",
-      "prefab_name": "ConveyorBelt",
-      "x": 848,
-      "y": 400,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "direction",
-          "CurrentOption": "right"
-        },
-        {
-          "Name": "position",
-          "CurrentOption": "mid"
-        },
-        {
-          "Name": "inverse",
-          "CurrentOption": "false"
-        },
-        {
-          "Name": "switch_name",
-          "CurrentOption": "A_switch"
-        },
-        {
-          "Name": "default_state",
-          "CurrentOption": "OFF"
-        },
-        {
-          "Name": "ignore_events",
-          "CurrentOption": "true"
-        },
-        {
-          "Name": "switch_mode",
-          "CurrentOption": "enable_disable"
-        }
-      ]
-    },
-    {
-      "name": "objects_ConveyorBelt_42",
-      "prefab_name": "ConveyorBelt",
-      "x": 880,
-      "y": 400,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "direction",
-          "CurrentOption": "right"
-        },
-        {
-          "Name": "position",
-          "CurrentOption": "mid"
-        },
-        {
-          "Name": "inverse",
-          "CurrentOption": "false"
-        },
-        {
-          "Name": "switch_name",
-          "CurrentOption": "A_switch"
-        },
-        {
-          "Name": "default_state",
-          "CurrentOption": "OFF"
-        },
-        {
-          "Name": "ignore_events",
-          "CurrentOption": "true"
-        },
-        {
-          "Name": "switch_mode",
-          "CurrentOption": "enable_disable"
-        }
-      ]
-    },
-    {
-      "name": "objects_ConveyorBelt_43",
-      "prefab_name": "ConveyorBelt",
-      "x": 912,
-      "y": 400,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "direction",
-          "CurrentOption": "right"
-        },
-        {
-          "Name": "position",
-          "CurrentOption": "right"
-        },
-        {
-          "Name": "inverse",
-          "CurrentOption": "false"
-        },
-        {
-          "Name": "switch_name",
-          "CurrentOption": "A_switch"
-        },
-        {
-          "Name": "default_state",
-          "CurrentOption": "OFF"
-        },
-        {
-          "Name": "ignore_events",
-          "CurrentOption": "true"
-        },
-        {
-          "Name": "switch_mode",
-          "CurrentOption": "enable_disable"
-        }
-      ]
-    },
-    {
-      "name": "objects_FloorFan_44",
-      "prefab_name": "FloorFan",
-      "x": 896,
-      "y": 380,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "attach",
-          "CurrentOption": "d"
-        },
-        {
-          "Name": "inverse",
-          "CurrentOption": "false"
-        },
-        {
-          "Name": "switch_name",
-          "CurrentOption": "A_switch"
-        },
-        {
-          "Name": "default_state",
-          "CurrentOption": "OFF"
-        },
-        {
-          "Name": "ignore_events",
-          "CurrentOption": "false"
-        }
-      ]
-    },
-    {
-      "name": "objects_FloorFan_45",
-      "prefab_name": "FloorFan",
-      "x": 832,
-      "y": 380,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "attach",
-          "CurrentOption": "d"
-        },
-        {
-          "Name": "inverse",
-          "CurrentOption": "false"
-        },
-        {
-          "Name": "switch_name",
-          "CurrentOption": "A_switch"
-        },
-        {
-          "Name": "default_state",
-          "CurrentOption": "OFF"
-        },
-        {
-          "Name": "ignore_events",
-          "CurrentOption": "false"
-        }
-      ]
-    },
-    {
       "name": "objects_Switch_46",
       "prefab_name": "Switch",
       "x": 616,
@@ -13305,7 +13083,7 @@
       "parameters": [
         {
           "Name": "switch_name",
-          "CurrentOption": "A_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "inverse",
@@ -13328,9 +13106,331 @@
       "y": 138,
       "z": -2,
       "parameters": null
+    },
+    {
+      "name": "objects_ConveyorBelt_48",
+      "prefab_name": "ConveyorBelt",
+      "x": 816,
+      "y": 400,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "direction",
+          "CurrentOption": "right"
+        },
+        {
+          "Name": "position",
+          "CurrentOption": "left"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "B_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "ON"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "switch_mode",
+          "CurrentOption": "enable_disable"
+        }
+      ]
+    },
+    {
+      "name": "objects_ConveyorBelt_50",
+      "prefab_name": "ConveyorBelt",
+      "x": 880,
+      "y": 400,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "direction",
+          "CurrentOption": "right"
+        },
+        {
+          "Name": "position",
+          "CurrentOption": "mid"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "B_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "ON"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "switch_mode",
+          "CurrentOption": "enable_disable"
+        }
+      ]
+    },
+    {
+      "name": "objects_ConveyorBelt_51",
+      "prefab_name": "ConveyorBelt",
+      "x": 912,
+      "y": 400,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "direction",
+          "CurrentOption": "right"
+        },
+        {
+          "Name": "position",
+          "CurrentOption": "right"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "B_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "ON"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "switch_mode",
+          "CurrentOption": "enable_disable"
+        }
+      ]
+    },
+    {
+      "name": "objects_FloorFan_53",
+      "prefab_name": "FloorFan",
+      "x": 416,
+      "y": 220,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "d"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "C_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "false"
+        }
+      ]
+    },
+    {
+      "name": "objects_FloorFan_54",
+      "prefab_name": "FloorFan",
+      "x": 352,
+      "y": 220,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "d"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "C_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "false"
+        }
+      ]
+    },
+    {
+      "name": "objects_FloorFan_55",
+      "prefab_name": "FloorFan",
+      "x": 832,
+      "y": 380,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "d"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "C_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "false"
+        }
+      ]
+    },
+    {
+      "name": "objects_FloorFan_56",
+      "prefab_name": "FloorFan",
+      "x": 896,
+      "y": 380,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "d"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "C_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "false"
+        }
+      ]
+    },
+    {
+      "name": "objects_ConveyorBelt_57",
+      "prefab_name": "ConveyorBelt",
+      "x": 848,
+      "y": 400,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "direction",
+          "CurrentOption": "right"
+        },
+        {
+          "Name": "position",
+          "CurrentOption": "mid"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "B_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "ON"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "switch_mode",
+          "CurrentOption": "enable_disable"
+        }
+      ]
+    },
+    {
+      "name": "objects_FloorFan_58",
+      "prefab_name": "FloorFan",
+      "x": 480,
+      "y": 380,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "d"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "C_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "false"
+        }
+      ]
+    },
+    {
+      "name": "objects_FloorFan_59",
+      "prefab_name": "FloorFan",
+      "x": 316,
+      "y": 416,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "l"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "B_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "ON"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "false"
+        }
+      ]
     }
   ],
-  "next_object_id": 48,
+  "next_object_id": 60,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 3,
