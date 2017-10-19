@@ -2531,10 +2531,6 @@
           "sprite_name": "subway_tileset_105"
         },
         {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_44"
-        },
-        {
           "is_filled": false,
           "sprite_name": "subway_tileset_105"
         },
@@ -2563,8 +2559,12 @@
           "sprite_name": "subway_tileset_105"
         },
         {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_44"
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
         },
         {
           "is_filled": false,
@@ -2851,10 +2851,6 @@
           "sprite_name": "subway_tileset_105"
         },
         {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_38"
-        },
-        {
           "is_filled": false,
           "sprite_name": "subway_tileset_105"
         },
@@ -2883,8 +2879,12 @@
           "sprite_name": "subway_tileset_105"
         },
         {
-          "is_filled": true,
-          "sprite_name": "subway_tileset_43"
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "subway_tileset_105"
         },
         {
           "is_filled": false,
@@ -3168,15 +3168,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_26"
+          "sprite_name": "subway_tileset_30"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_19"
+          "sprite_name": "subway_tileset_30"
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_29"
+          "sprite_name": "subway_tileset_28"
         },
         {
           "is_filled": true,
@@ -3204,7 +3204,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_18"
+          "sprite_name": "subway_tileset_27"
         },
         {
           "is_filled": true,
@@ -20523,7 +20523,16 @@
       "layer_name": "ParallaxFront"
     }
   ],
-  "props": [],
+  "props": [
+    {
+      "name": "props_tunnel_end_bg_2",
+      "prefab_name": "tunnel_end_bg",
+      "x": 2518,
+      "y": 208,
+      "z": 2,
+      "parameters": null
+    }
+  ],
   "props_background": [],
   "objects": [
     {
@@ -20531,39 +20540,44 @@
       "prefab_name": "TrainSpawner",
       "x": 196,
       "y": 176,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_HeroLV1_22",
       "prefab_name": "HeroLV1",
       "x": 92,
       "y": 516,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Enemy_LV1_23",
       "prefab_name": "Enemy_LV1",
       "x": 512,
       "y": 452,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Enemy_LV1_24",
       "prefab_name": "Enemy_LV1",
       "x": 600,
       "y": 484,
-      "z": -2
+      "z": -2,
+      "parameters": null
     },
     {
       "name": "objects_Enemy_LV1_26",
       "prefab_name": "Enemy_LV1",
       "x": 1036,
       "y": 164,
-      "z": -2
+      "z": -2,
+      "parameters": null
     }
   ],
   "next_object_id": 30,
-  "next_prop_id": 0,
+  "next_prop_id": 3,
   "next_prop_bg_id": 0,
   "next_light_id": 29,
   "lights": [
