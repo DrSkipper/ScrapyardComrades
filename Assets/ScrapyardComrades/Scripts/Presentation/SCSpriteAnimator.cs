@@ -113,6 +113,11 @@ public class SCSpriteAnimator : VoBehavior, IPausable
             this.PlayAnimation(_currentAnimation);
     }
 
+    public void Continue()
+    {
+        _playing = true;
+    }
+
     /**
      * Private
      */

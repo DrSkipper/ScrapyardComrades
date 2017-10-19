@@ -8,6 +8,9 @@ public class WindFan : MonoBehaviour
     public IntegerRectCollider ParticleSpawnRect;
     public MoveAndFadeParticleEmitter Particles;
     public SwitchListener SwitchListener;
+    public SCSpriteAnimator Animator;
+    public SCSpriteAnimation StoppedAnimation;
+    public SCSpriteAnimation RunningAnimation;
 
     public TurretController.AttachDir AttachedAt = TurretController.AttachDir.Down;
 
@@ -19,6 +22,7 @@ public class WindFan : MonoBehaviour
         _defaultParticleSpawnSize = this.ParticleSpawnRect.Size;
         _defaultParticleVelocity = this.Particles.PooledParticles[0].GetComponent<MoveAndFadeParticle>().VelocityDir;
         _defaultTargetVelocity = this.WindRegionScript.TargetVelocity;
+        _spriteOffset = Mathf.RoundToInt(this.SpriteTransform.localPosition.y);
 
         if (this.SwitchListener != null)
             this.SwitchListener.StateChangeCallback += onSwitchStateChange;
@@ -32,6 +36,7 @@ public class WindFan : MonoBehaviour
             default:
             case TurretController.AttachDir.Down:
                 this.SpriteTransform.rotation = Quaternion.Euler(0, 0, 0);
+                this.SpriteTransform.SetLocalPosition2D(0, _spriteOffset);
                 this.WindRegionCollider.Offset = _defaultRegionOffset;
                 this.WindRegionCollider.Size = _defaultRegionSize;
                 this.ParticleSpawnRect.Offset = _defaultParticleSpawnOffset;
@@ -41,6 +46,7 @@ public class WindFan : MonoBehaviour
                 break;
             case TurretController.AttachDir.Up:
                 this.SpriteTransform.rotation = Quaternion.Euler(0, 0, 180);
+                this.SpriteTransform.SetLocalPosition2D(0, -_spriteOffset);
                 this.WindRegionCollider.Offset = new IntegerVector(-_defaultRegionOffset.X, -_defaultRegionOffset.Y);
                 this.WindRegionCollider.Size = _defaultRegionSize;
                 this.ParticleSpawnRect.Offset = new IntegerVector(-_defaultParticleSpawnOffset.X, -_defaultParticleSpawnOffset.Y);
@@ -50,6 +56,7 @@ public class WindFan : MonoBehaviour
                 break;
             case TurretController.AttachDir.Left:
                 this.SpriteTransform.rotation = Quaternion.Euler(0, 0, -90);
+                this.SpriteTransform.SetLocalPosition2D(_spriteOffset, 0);
                 this.WindRegionCollider.Offset = new IntegerVector(_defaultRegionOffset.Y, _defaultRegionOffset.X);
                 this.WindRegionCollider.Size = new IntegerVector(_defaultRegionSize.Y, _defaultRegionSize.X);
                 this.ParticleSpawnRect.Offset = new IntegerVector(_defaultParticleSpawnOffset.Y, _defaultParticleSpawnOffset.X);
@@ -58,7 +65,8 @@ public class WindFan : MonoBehaviour
                 this.WindRegionScript.TargetVelocity = new Vector2(_defaultTargetVelocity.y, _defaultTargetVelocity.x);
                 break;
             case TurretController.AttachDir.Right:
-                this.SpriteTransform.rotation = Quaternion.Euler(0, 0, 90);
+                this.SpriteTransform.localRotation = Quaternion.Euler(0, 0, 90);
+                this.SpriteTransform.SetLocalPosition2D(-_spriteOffset, 0);
                 this.WindRegionCollider.Offset = new IntegerVector(-_defaultRegionOffset.Y, -_defaultRegionOffset.X);
                 this.WindRegionCollider.Size = new IntegerVector(_defaultRegionSize.Y, _defaultRegionSize.X);
                 this.ParticleSpawnRect.Offset = new IntegerVector(-_defaultParticleSpawnOffset.Y, -_defaultParticleSpawnOffset.X);
@@ -83,6 +91,7 @@ public class WindFan : MonoBehaviour
     private IntegerVector _defaultParticleSpawnSize;
     private IntegerVector _defaultParticleVelocity;
     private Vector2 _defaultTargetVelocity;
+    private int _spriteOffset;
 
     private void onSwitchStateChange(Switch.SwitchState state)
     {
@@ -92,10 +101,12 @@ public class WindFan : MonoBehaviour
             case Switch.SwitchState.OFF:
                 this.WindRegionScript.Activated = false;
                 this.Particles.Paused = true;
+                this.Animator.PlayAnimation(this.StoppedAnimation);
                 break;
             case Switch.SwitchState.ON:
                 this.WindRegionScript.Activated = true;
                 this.Particles.Paused = false;
+                this.Animator.PlayAnimation(this.RunningAnimation);
                 break;
         }
     }

@@ -1,14 +1,13 @@
 fileFormatVersion: 2
-guid: a15fea9fd89c77e46b6b47ef11c7adc7
-timeCreated: 1508373925
+guid: 03cf2aaaddf81b34d80270caba524479
+timeCreated: 1508371493
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: particle_small
-    21300002: particle_med
-    21300004: floor_fan_0
-    21300006: floor_fan_1
-    21300008: floor_fan_2
+    21300000: fan_0
+    21300002: fan_1
+    21300004: fan_2
+    21300006: fan_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -75,28 +74,54 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: particle_small
+      name: fan_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 22
-        width: 1
-        height: 1
+        x: 0
+        y: 8
+        width: 32
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: particle_med
+      name: fan_1
       rect:
         serializedVersion: 2
-        x: 7
-        y: 22
-        width: 2
-        height: 2
+        x: 32
+        y: 8
+        width: 32
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fan_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fan_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
