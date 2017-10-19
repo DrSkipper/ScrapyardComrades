@@ -3,9 +3,9 @@
 public class SwitchRenderer : MonoBehaviour
 {
     public Switch SwitchScript;
-    public SpriteRenderer SpriteRenderer;
-    public Sprite OffSprite;
-    public Sprite OnSprite;
+    public Transform ButtonSprite;
+    public Transform OnPosition;
+    public Transform OffPosition;
 
     void Awake()
     {
@@ -21,10 +21,10 @@ public class SwitchRenderer : MonoBehaviour
         {
             default:
             case Switch.SwitchState.OFF:
-                this.SpriteRenderer.sprite = this.OffSprite;
+                this.ButtonSprite.transform.SetLocalPosition2D(this.OffPosition.localPosition);
                 break;
             case Switch.SwitchState.ON:
-                this.SpriteRenderer.sprite = this.OnSprite;
+                this.ButtonSprite.transform.SetLocalPosition2D(this.OnPosition.localPosition);
                 break;
         }
     }
