@@ -20574,9 +20574,17 @@
       "y": 164,
       "z": -2,
       "parameters": null
+    },
+    {
+      "name": "objects_TunnelEnd_30",
+      "prefab_name": "TunnelEnd",
+      "x": 2548,
+      "y": 208,
+      "z": -2,
+      "parameters": null
     }
   ],
-  "next_object_id": 30,
+  "next_object_id": 31,
   "next_prop_id": 3,
   "next_prop_bg_id": 0,
   "next_light_id": 29,
