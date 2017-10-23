@@ -3532,7 +3532,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_2"
+          "sprite_name": "plant_tileset_4"
         },
         {
           "is_filled": true,
@@ -3732,7 +3732,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_15"
+          "sprite_name": "plant_tileset_26"
         },
         {
           "is_filled": false,
@@ -4875,20 +4875,20 @@
           "sprite_name": "plant_tileset_178"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_33"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_9"
+          "sprite_name": "plant_tileset_14"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_15"
+          "sprite_name": "plant_tileset_13"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_39"
         },
         {
           "is_filled": false,
@@ -5067,20 +5067,20 @@
           "sprite_name": "plant_tileset_178"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
           "is_filled": true,
           "sprite_name": "plant_tileset_9"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_15"
+          "sprite_name": "plant_tileset_22"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_26"
         },
         {
           "is_filled": false,
@@ -5259,20 +5259,20 @@
           "sprite_name": "plant_tileset_178"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
           "is_filled": true,
           "sprite_name": "plant_tileset_9"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_26"
+          "sprite_name": "plant_tileset_11"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_26"
         },
         {
           "is_filled": false,
@@ -5451,20 +5451,20 @@
           "sprite_name": "plant_tileset_178"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
           "is_filled": true,
           "sprite_name": "plant_tileset_0"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_6"
+          "sprite_name": "plant_tileset_5"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_5"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_6"
         },
         {
           "is_filled": false,
@@ -12563,56 +12563,6 @@
       ]
     },
     {
-      "name": "objects_Switch_17",
-      "prefab_name": "Switch",
-      "x": 560,
-      "y": 934,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "switch_name",
-          "CurrentOption": "C_switch"
-        },
-        {
-          "Name": "inverse",
-          "CurrentOption": "true"
-        },
-        {
-          "Name": "one_way",
-          "CurrentOption": "true"
-        },
-        {
-          "Name": "default_state",
-          "CurrentOption": "OFF"
-        }
-      ]
-    },
-    {
-      "name": "objects_Switch_18",
-      "prefab_name": "Switch",
-      "x": 592,
-      "y": 934,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "switch_name",
-          "CurrentOption": "C_switch"
-        },
-        {
-          "Name": "inverse",
-          "CurrentOption": "false"
-        },
-        {
-          "Name": "one_way",
-          "CurrentOption": "true"
-        },
-        {
-          "Name": "default_state",
-          "CurrentOption": "OFF"
-        }
-      ]
-    },
-    {
       "name": "objects_HeroLV1_21",
       "prefab_name": "HeroLV1",
       "x": 184,
@@ -12677,9 +12627,59 @@
           "CurrentOption": "false"
         }
       ]
+    },
+    {
+      "name": "objects_Switch_26",
+      "prefab_name": "Switch",
+      "x": 544,
+      "y": 934,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "switch_name",
+          "CurrentOption": "C_switch"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "one_way",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        }
+      ]
+    },
+    {
+      "name": "objects_Switch_27",
+      "prefab_name": "Switch",
+      "x": 608,
+      "y": 934,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "switch_name",
+          "CurrentOption": "C_switch"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "one_way",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        }
+      ]
     }
   ],
-  "next_object_id": 24,
+  "next_object_id": 28,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 3,
