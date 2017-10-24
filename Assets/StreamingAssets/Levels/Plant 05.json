@@ -12331,7 +12331,21 @@
       "layer_name": "ParallaxFront"
     }
   ],
-  "props": [],
+  "props": [
+    {
+      "name": "props_ambulance_parked2_0",
+      "prefab_name": "ambulance_parked2",
+      "x": 732,
+      "y": 148,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "flip",
+          "CurrentOption": "true"
+        }
+      ]
+    }
+  ],
   "props_background": [],
   "objects": [
     {
@@ -12365,7 +12379,7 @@
     }
   ],
   "next_object_id": 3,
-  "next_prop_id": 0,
+  "next_prop_id": 1,
   "next_prop_bg_id": 0,
   "next_light_id": 3,
   "lights": [

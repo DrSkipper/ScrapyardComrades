@@ -192,8 +192,8 @@ public class MapEditorManager : MonoBehaviour, IPausable
                 if (this.ObjectCursor.childCount > 0)
                 {
                     Transform brush = this.ObjectCursor.GetChild(0);
-
                     ObjectConfigurer configurer = brush.GetComponent<ObjectConfigurer>();
+
                     if (configurer != null)
                     {
                         configurer.ConfigureForParams((currentLayer as MapEditorObjectsLayer).CurrentObjectParams);

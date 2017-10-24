@@ -4,6 +4,7 @@ public class MapEditorObjectsPanel : MonoBehaviour
 {
     public ObjectParamEditPanel[] ParamPanels;
     public GameObject NoParametersPanel;
+    public PooledObject SpriteObjectPrefab;
 
     public void ShowForLayer(MapEditorLayer layer)
     {
@@ -19,7 +20,8 @@ public class MapEditorObjectsPanel : MonoBehaviour
                 configurer = (_layer.CurrentPrefab as PooledObject).GetComponent<ObjectConfigurer>();
             else if (_layer.CurrentPrefab is GameObject)
                 configurer = (_layer.CurrentPrefab as GameObject).GetComponent<ObjectConfigurer>();
-            //TODO: else if Sprite, have a parameter for flipping x?
+            else if (_layer.CurrentPrefab is Sprite)
+                configurer = this.SpriteObjectPrefab.GetComponent<ObjectConfigurer>();
         }
 
         if (configurer != null)
