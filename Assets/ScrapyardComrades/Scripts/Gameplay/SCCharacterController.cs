@@ -770,7 +770,8 @@ public class SCCharacterController : Actor2D
     {
         _autoMoveTimer.complete();
 
-        List<GameObject> collisions = (e as CollisionEvent).Hits;
+        //NOTE: This isn't necessary without vertical moving platforms
+        /*List<GameObject> collisions = (e as CollisionEvent).Hits;
         for (int i = 0; i < collisions.Count; ++i)
         {
             int collidedLayer = 1 << collisions[i].layer;
@@ -779,7 +780,7 @@ public class SCCharacterController : Actor2D
                 if (attemptMovingPlatformAlignment(collisions[i]))
                     break;
             }
-        }
+        }*/
     }
 
     private bool attemptMovingPlatformAlignment(GameObject platform)
