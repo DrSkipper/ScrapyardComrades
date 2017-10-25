@@ -67,7 +67,7 @@ public class ConveyorBelt : MonoBehaviour
     private void playCurrent()
     {
         float mult = _currentFacing == SCCharacterController.Facing.Left ? -1 : 1;
-        this.MovingPlatform.StaticVelociy = new Vector2(mult * _velocity.x, _velocity.y);
+        this.MovingPlatform.StaticVelociy = new Vector2(mult * _velocity.x, mult * _velocity.y);
         this.Animator.PlayAnimation(_currentFacing == SCCharacterController.Facing.Left ? this.LeftAnimation : this.RightAnimation);
     }
 }
