@@ -88,6 +88,7 @@ public class SCCharacterController : Actor2D
     public float DefaultThrowAngle = 15.0f;
     public float UpwardThrowAngle = 50.0f;
     public float DownwardThrowAngle = -30.0f;
+    public float RestingVelocityDecelRate = 10.0f;
     public bool StandupOnSpawn = false;
     public int StandupFrames = 50;
 
@@ -265,7 +266,9 @@ public class SCCharacterController : Actor2D
         this.IsGrabbingLedge = false;
         bool allowFaceChange = true;
         _autoMoveTimer.update();
-        _restingVelocityModifier.Modifier = Vector2.zero;
+
+        if (_restingVelocityModifier.Modifier.x != 0 || _restingVelocityModifier.Modifier.y != 0)
+            _restingVelocityModifier.Modifier = _restingVelocityModifier.Modifier.Approach(this.RestingVelocityDecelRate, Vector2.zero);
 
         updateControlParameters();
 
