@@ -215,7 +215,7 @@
     },
     {
       "name": "Plant 06",
-      "x": 50,
+      "x": 45,
       "y": 2,
       "width": 3,
       "height": 3
@@ -273,6 +273,13 @@
       "name": "Facility 01",
       "x": 50,
       "y": 19,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Plant 013",
+      "x": 54,
+      "y": 4,
       "width": 3,
       "height": 2
     }
