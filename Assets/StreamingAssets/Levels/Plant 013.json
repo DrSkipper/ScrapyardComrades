@@ -12517,35 +12517,6 @@
       ]
     },
     {
-      "name": "objects_FloorFan_43",
-      "prefab_name": "FloorFan",
-      "x": 672,
-      "y": 804,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "attach",
-          "CurrentOption": "u"
-        },
-        {
-          "Name": "inverse",
-          "CurrentOption": "true"
-        },
-        {
-          "Name": "switch_name",
-          "CurrentOption": "A_switch"
-        },
-        {
-          "Name": "default_state",
-          "CurrentOption": "OFF"
-        },
-        {
-          "Name": "ignore_events",
-          "CurrentOption": "false"
-        }
-      ]
-    },
-    {
       "name": "objects_FloorFan_44",
       "prefab_name": "FloorFan",
       "x": 864,
@@ -12676,9 +12647,38 @@
       "y": 580,
       "z": -2,
       "parameters": null
+    },
+    {
+      "name": "objects_FloorFan_50",
+      "prefab_name": "FloorFan",
+      "x": 672,
+      "y": 772,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "u"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "A_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "false"
+        }
+      ]
     }
   ],
-  "next_object_id": 50,
+  "next_object_id": 51,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 15,
