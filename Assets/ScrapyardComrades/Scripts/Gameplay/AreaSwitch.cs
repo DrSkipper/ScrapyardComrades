@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
 
-public class AreaSwitch : MonoBehaviour
+public class AreaSwitch : MonoBehaviour, IPausable
 {
     public IntegerCollider DetectionCollider;
     public Switch SwitchScript;
     public LayerMask DetectionLayers;
     public bool OneWay = false;
     public int TwoWayResetDuration = 0;
+
+    void Awake()
+    {
+        this.SwitchScript.StateChangeCallback += onStateChange;
+    }
 
     void OnSpawn()
     {
@@ -65,6 +70,21 @@ public class AreaSwitch : MonoBehaviour
     {
         if (!this.OneWay)
             return _twoWayTimer.Completed;
-        return this.SwitchScript.CurrentState == this.SwitchScript.DefaultState;
+        
+        return this.SwitchScript.CurrentState == Switch.SwitchState.OFF && _beingPressed;
+    }
+
+    private void onStateChange(Switch.SwitchState state)
+    {
+        switch (state)
+        {
+            default:
+            case Switch.SwitchState.OFF:
+                _beingPressed = false;
+                break;
+            case Switch.SwitchState.ON:
+                _beingPressed = true;
+                break;
+        }
     }
 }
