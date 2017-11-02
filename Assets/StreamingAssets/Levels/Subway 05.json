@@ -20531,6 +20531,84 @@
       "y": 208,
       "z": 2,
       "parameters": null
+    },
+    {
+      "name": "props_OneWayPlatform_15",
+      "prefab_name": "OneWayPlatform",
+      "x": 2448,
+      "y": 534,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "C"
+        }
+      ]
+    },
+    {
+      "name": "props_OneWayPlatform_16",
+      "prefab_name": "OneWayPlatform",
+      "x": 2416,
+      "y": 534,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "B"
+        }
+      ]
+    },
+    {
+      "name": "props_OneWayPlatform_17",
+      "prefab_name": "OneWayPlatform",
+      "x": 2384,
+      "y": 624,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "B"
+        }
+      ]
+    },
+    {
+      "name": "props_OneWayPlatform_18",
+      "prefab_name": "OneWayPlatform",
+      "x": 2416,
+      "y": 624,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "C"
+        }
+      ]
+    },
+    {
+      "name": "props_OneWayPlatform_19",
+      "prefab_name": "OneWayPlatform",
+      "x": 2448,
+      "y": 716,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "C"
+        }
+      ]
+    },
+    {
+      "name": "props_OneWayPlatform_20",
+      "prefab_name": "OneWayPlatform",
+      "x": 2416,
+      "y": 716,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "B"
+        }
+      ]
     }
   ],
   "props_background": [],
@@ -20585,7 +20663,7 @@
     }
   ],
   "next_object_id": 31,
-  "next_prop_id": 3,
+  "next_prop_id": 21,
   "next_prop_bg_id": 0,
   "next_light_id": 29,
   "lights": [
