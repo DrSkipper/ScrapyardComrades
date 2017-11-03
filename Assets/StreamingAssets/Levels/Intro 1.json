@@ -16560,6 +16560,46 @@
       "y": 78,
       "z": 2,
       "parameters": null
+    },
+    {
+      "name": "props_PlantA_21",
+      "prefab_name": "PlantA",
+      "x": 224,
+      "y": 80,
+      "z": 2,
+      "parameters": null
+    },
+    {
+      "name": "props_PlantB_22",
+      "prefab_name": "PlantB",
+      "x": 110,
+      "y": 208,
+      "z": 2,
+      "parameters": null
+    },
+    {
+      "name": "props_PlantD_24",
+      "prefab_name": "PlantD",
+      "x": 766,
+      "y": 78,
+      "z": 2,
+      "parameters": null
+    },
+    {
+      "name": "props_PlantA_25",
+      "prefab_name": "PlantA",
+      "x": 782,
+      "y": 78,
+      "z": 2,
+      "parameters": null
+    },
+    {
+      "name": "props_PlantC_26",
+      "prefab_name": "PlantC",
+      "x": 1706,
+      "y": 78,
+      "z": 2,
+      "parameters": null
     }
   ],
   "props_background": [
@@ -16687,7 +16727,7 @@
     }
   ],
   "next_object_id": 12,
-  "next_prop_id": 21,
+  "next_prop_id": 28,
   "next_prop_bg_id": 74,
   "next_light_id": 30,
   "lights": [
