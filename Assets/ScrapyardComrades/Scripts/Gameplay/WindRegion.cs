@@ -59,7 +59,7 @@ public class WindRegion : VoBehavior, IPausable
                     _currentAffected.Add(actor);
 
                     VelocityModifier mod = actor.GetVelocityModifier(WIND_BOOST);
-                    mod.Behavior = VelocityModifier.CollisionBehavior.sustain;
+                    mod.Behavior = VelocityModifier.CollisionBehavior.nullify;
                     actor.SetVelocityModifier(WIND_BOOST, mod);
                 }
             }
@@ -71,8 +71,14 @@ public class WindRegion : VoBehavior, IPausable
             Actor2D actor = _currentAffected[i];
             if (actor != null)
             {
+                float targetVelocity = this.TargetVelocity.magnitude;
+
+                // If actor is more than halfway through the wind region, interpolate between target velocity and 0 for new target;
+                targetVelocity = Mathf.Lerp(targetVelocity, 0, actorPercentInFartherHalfOfRegion(actor));
+                
                 VelocityModifier mod = actor.GetVelocityModifier(WIND_BOOST);
-                mod.Modifier = mod.Modifier.Approach(this.Acceleration, this.TargetVelocity);
+                float a = mod.Modifier.magnitude > targetVelocity ? this.Deceleration : this.Acceleration;
+                mod.Modifier = mod.Modifier.Approach(a, this.TargetVelocity.normalized * targetVelocity);
                 ++i;
             }
             else
@@ -136,5 +142,63 @@ public class WindRegion : VoBehavior, IPausable
     private void onRecenter(LocalEventNotifier.Event e)
     {
         this.StopTrackingWindingDowns();
+    }
+
+    private float actorPercentInFartherHalfOfRegion(Actor2D actor)
+    {
+        if (Mathf.Abs(this.integerCollider.Offset.X) > Mathf.Abs(this.integerCollider.Offset.Y))
+        {
+            if (this.integerCollider.Offset.X > 0)
+            {
+                // right
+                float min = this.transform.position.x + this.integerCollider.Offset.X;
+                if (actor.transform.position.x > min)
+                {
+                    float a = actor.transform.position.x - min;
+                    float max = this.integerCollider.Bounds.Size.X / 2;
+                    return Mathf.Clamp(a / max, 0, 1);
+                }
+                return 0;
+            }
+            else
+            {
+                // left
+                float min = this.transform.position.x + this.integerCollider.Offset.X;
+                if (actor.transform.position.x < min)
+                {
+                    float a = min - actor.transform.position.x;
+                    float max = this.integerCollider.Bounds.Size.X / 2;
+                    return Mathf.Clamp(a / max, 0, 1);
+                }
+                return 0;
+            }
+        }
+        else
+        {
+            if (this.integerCollider.Offset.Y > 0)
+            {
+                // up
+                float min = this.transform.position.y + this.integerCollider.Offset.Y;
+                if (actor.transform.position.y > min)
+                {
+                    float a = actor.transform.position.y - min;
+                    float max = this.integerCollider.Bounds.Size.Y / 2;
+                    return Mathf.Clamp(a / max, 0, 1);
+                }
+                return 0;
+            }
+            else
+            {
+                // down
+                float min = this.transform.position.y + this.integerCollider.Offset.Y;
+                if (actor.transform.position.y < min)
+                {
+                    float a = min - actor.transform.position.y;
+                    float max = this.integerCollider.Bounds.Size.Y / 2;
+                    return Mathf.Clamp(a / max, 0, 1);
+                }
+                return 0;
+            }
+        }
     }
 }

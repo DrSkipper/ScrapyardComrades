@@ -125,22 +125,22 @@ public class Boulder : VoBehavior, IPausable
                     {
                         if (movingDown && collided.transform.position.y < this.transform.position.y)
                         {
-                            hit(damagable, (Vector2)damagable.transform.position, new Vector2(this.transform.position.x, this.transform.position.y + this.integerCollider.Offset.Y - this.integerCollider.Bounds.Size.Y + HIT_EFFECT_BORDER));
+                            hit(damagable, (Vector2)damagable.transform.position, new Vector2(this.transform.position.x, this.transform.position.y + this.integerCollider.Offset.Y - this.integerCollider.Bounds.Size.Y / 2 + HIT_EFFECT_BORDER));
 
                             if (this.Actor.HaltMovementMask.ContainsLayer(collided.layer))
                                 bounce();
                         }
                         else if (movingUp && collided.transform.position.y > this.transform.position.y)
                         {
-                            hit(damagable, (Vector2)damagable.transform.position, new Vector2(this.transform.position.x, this.transform.position.y + this.integerCollider.Offset.Y + this.integerCollider.Bounds.Size.Y - HIT_EFFECT_BORDER));
+                            hit(damagable, (Vector2)damagable.transform.position, new Vector2(this.transform.position.x, this.transform.position.y + this.integerCollider.Offset.Y + this.integerCollider.Bounds.Size.Y / 2 - HIT_EFFECT_BORDER));
                         }
                         else if (movingLeft && collided.transform.position.x < this.transform.position.x)
                         {
-                            hit(damagable, (Vector2)damagable.transform.position, new Vector2(this.transform.position.x + this.integerCollider.Offset.X - this.integerCollider.Bounds.Size.X + HIT_EFFECT_BORDER, this.transform.position.y));
+                            hit(damagable, (Vector2)damagable.transform.position, new Vector2(this.transform.position.x + this.integerCollider.Offset.X - this.integerCollider.Bounds.Size.X / 2 + HIT_EFFECT_BORDER, this.transform.position.y));
                         }
                         else if (movingRight && collided.transform.position.x > this.transform.position.x)
                         {
-                            hit(damagable, (Vector2)damagable.transform.position, new Vector2(this.transform.position.x + this.integerCollider.Offset.X + this.integerCollider.Bounds.Size.X - HIT_EFFECT_BORDER, this.transform.position.y));
+                            hit(damagable, (Vector2)damagable.transform.position, new Vector2(this.transform.position.x + this.integerCollider.Offset.X + this.integerCollider.Bounds.Size.X / 2 - HIT_EFFECT_BORDER, this.transform.position.y));
                         }
                     }
                 }
