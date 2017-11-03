@@ -61,34 +61,6 @@ public class Boulder : VoBehavior, IPausable
         velocity.y = velocity.y.Approach(-this.MaxFallSpeed, this.Gravity);
         this.Actor.Velocity = velocity;
         _velocity = this.Actor.TotalVelocity;
-
-        /*velocity = this.Actor.TotalVelocity;
-        bool movingDown = velocity.y < -this.MinSpeedToDamageDown;
-        bool movingUp = !movingDown && velocity.y >= this.MinSpeedToDamage;
-        bool movingLeft = velocity.x <= -this.MinSpeedToDamage;
-        bool movingRight = !movingLeft && velocity.x >= this.MinSpeedToDamage;
-
-        if (movingDown || movingUp || movingLeft || movingRight)
-        {
-            _damageRange.Center = (IntegerVector)(Vector2)this.transform.position;
-            CollisionManager.Instance.GetCollidersInRange(_damageRange, this.DamagableLayers, null, _nearbyDamagables);
-
-            for (int i = _nearbyDamagables.Count - 1; i >= 0; --i)
-            {
-                IntegerCollider collider = _nearbyDamagables[i];
-                if (collider == this.integerCollider)
-                    _nearbyDamagables.RemoveAt(i);
-            }
-
-            if (movingDown)
-                damage(this.DownDamageBox, 0, -1);
-            if (movingUp)
-                damage(this.UpDamageBox, 0, 1);
-            if (movingLeft)
-                damage(this.LeftDamageBox, -1, 0);
-            if (movingRight)
-                damage(this.RightDamageBox, 1, 0);
-        }*/
     }
 
     public GameObject GroundedAgainst
@@ -164,35 +136,6 @@ public class Boulder : VoBehavior, IPausable
     {
         this.Actor.Velocity = new Vector2(this.Actor.Velocity.x, this.BounceVelocity);
     }
-
-    /*private void damage(IntegerCollider collider, int targetDirX, int targetDirY)
-    {
-        GameObject collided = collider.CollideFirst(0, 0, this.DamagableLayers, null, _nearbyDamagables);
-        if (collided != null)
-        {
-            IntegerCollider otherCollider = collided.GetComponent<IntegerCollider>();
-            IntegerVector colliderPos = new IntegerVector(Mathf.RoundToInt(collider.transform.position.x) + collider.Offset.X, Mathf.RoundToInt(collider.transform.position.y) + collider.Offset.Y);
-            IntegerVector otherPos = new IntegerVector(Mathf.RoundToInt(otherCollider.transform.position.x) + otherCollider.Offset.X, Mathf.RoundToInt(otherCollider.transform.position.y) + otherCollider.Offset.Y);
-
-            int dirX = Mathf.RoundToInt(Mathf.Sign(otherPos.X - colliderPos.X));
-            int dirY = Mathf.RoundToInt(Mathf.Sign(otherPos.Y - colliderPos.Y));
-            if ((targetDirX == 0 || targetDirX == dirX) && (targetDirY == 0 || targetDirY == dirY))
-            {
-                Damagable damagable = collided.GetComponent<Damagable>();
-                if (damagable != null)
-                {
-                    IntegerVector between = (otherPos + colliderPos) / 2; 
-                    SCCharacterController.Facing facing = dirX == 1 ? SCCharacterController.Facing.Right : SCCharacterController.Facing.Left;
-                    bool landedHit = damagable.Damage(this.HitParameters, (Vector2)this.transform.position, between, facing);
-
-                    if (landedHit && this.HitParameters.HitAnimation != null)
-                    {
-                        AttackController.CreateHitEffect(this.HitEffect, this.HitParameters.HitAnimation, between, Damagable.FREEZE_FRAMES, facing);
-                    }
-                }
-            }
-        }
-    }*/
 
     private bool attemptMovingPlatformAlignment(GameObject platform)
     {
