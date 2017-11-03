@@ -8,10 +8,12 @@ public class ObjectPlacer : VoBehavior
     public TimedCallbacks TimedCallbacks;
     public EntityTracker EntityTracker;
     public PooledObject SpriteObjectPrefab;
+    public PooledObject AnimationObjectPrefab;
     public float SpawnDelay = 0.5f;
     public int TileRenderSize = 20;
     //public int TileTextureSize = 10;
     public bool FlipVertical = true;
+    public SpriteAnimationCollection Animations;
 
     public void PlaceObjects(List<NewMapInfo.MapObject> mapObjects, Dictionary<string, PooledObject> prefabs, string quadName, bool trackEntities, string sortingLayerName)
     {
@@ -26,13 +28,19 @@ public class ObjectPlacer : VoBehavior
             {
                 PooledObject toSpawn;
                 bool spriteObject = false;
+
                 if (prefabs.ContainsKey(mapObject.prefab_name))
                 {
                     toSpawn = prefabs[mapObject.prefab_name];
                 }
-                else
+                else if (IndexedSpriteManager.HasAtlas(MapEditorManager.PROPS_PATH, mapObject.prefab_name))
                 {
                     toSpawn = this.SpriteObjectPrefab;
+                    spriteObject = true;
+                }
+                else
+                {
+                    toSpawn = this.AnimationObjectPrefab;
                     spriteObject = true;
                 }
 
@@ -158,12 +166,19 @@ public class ObjectPlacer : VoBehavior
         if (spriteName != null)
         {
             SpriteRenderer r = spawn.GetComponent<SpriteRenderer>();
-            if (r != null)
+            if (toSpawn == this.SpriteObjectPrefab)
             {
+                // Sprite object
                 r.sprite = IndexedSpriteManager.GetSprite(MapEditorManager.PROPS_PATH, spriteName, spriteName);
-                r.sortingLayerName = _sortingLayerNames.Pop();
-                r.sortingOrder = --SORTING_IN_LAYER;
             }
+            else
+            {
+                // Animation ojbect
+                spawn.GetComponent<SCSpriteAnimator>().DefaultAnimation = this.Animations.Animations.Find(x => x.name == spriteName);
+            }
+
+            r.sortingLayerName = _sortingLayerNames.Pop();
+            r.sortingOrder = --SORTING_IN_LAYER;
         }
         else
         {

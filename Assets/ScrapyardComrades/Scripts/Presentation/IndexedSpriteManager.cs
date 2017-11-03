@@ -29,6 +29,11 @@ public class IndexedSpriteManager : MonoBehaviour
         return null;
     }
 
+    public static bool HasAtlas(string path, string atlasName)
+    {
+        return _instance._sprites[path].ContainsKey(atlasName);
+    }
+
     public static List<Sprite> GetAllSpritesAtPath(string path)
     {
         List<Sprite> sprites = new List<Sprite>();

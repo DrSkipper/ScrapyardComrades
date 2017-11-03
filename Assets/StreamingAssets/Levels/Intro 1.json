@@ -16552,6 +16552,14 @@
           "CurrentOption": "jump"
         }
       ]
+    },
+    {
+      "name": "props_BarrelFire_20",
+      "prefab_name": "BarrelFire",
+      "x": 1010,
+      "y": 78,
+      "z": 2,
+      "parameters": null
     }
   ],
   "props_background": [
@@ -16679,7 +16687,7 @@
     }
   ],
   "next_object_id": 12,
-  "next_prop_id": 16,
+  "next_prop_id": 21,
   "next_prop_bg_id": 74,
   "next_light_id": 30,
   "lights": [

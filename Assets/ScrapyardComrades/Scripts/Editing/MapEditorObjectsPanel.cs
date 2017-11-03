@@ -20,7 +20,7 @@ public class MapEditorObjectsPanel : MonoBehaviour
                 configurer = (_layer.CurrentPrefab as PooledObject).GetComponent<ObjectConfigurer>();
             else if (_layer.CurrentPrefab is GameObject)
                 configurer = (_layer.CurrentPrefab as GameObject).GetComponent<ObjectConfigurer>();
-            else if (_layer.CurrentPrefab is Sprite)
+            else if (_layer.CurrentPrefab is Sprite || _layer.CurrentPrefab is SCSpriteAnimation)
                 configurer = this.SpriteObjectPrefab.GetComponent<ObjectConfigurer>();
         }
 

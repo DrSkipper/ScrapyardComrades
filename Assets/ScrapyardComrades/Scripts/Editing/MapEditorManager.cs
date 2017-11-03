@@ -46,6 +46,8 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public Transform ParallaxParent;
     public PooledObject LightPrefab;
     public Color[] ValidLightColors;
+    public PooledObject AnimationObjectPrefab;
+    public SpriteAnimationCollection PropAnimations;
 
     public List<string> DepthSortedLayers
     {
@@ -107,6 +109,11 @@ public class MapEditorManager : MonoBehaviour, IPausable
         {
             for (int i = 0; i < this.PropPrefabs.Prefabs.Count; ++i)
                 props.Add(this.PropPrefabs.Prefabs[i].gameObject);
+        }
+        if (this.PropAnimations != null)
+        {
+            for (int i = 0; i < this.PropAnimations.Animations.Count; ++i)
+                props.Add(this.PropAnimations.Animations[i]);
         }
         this.Layers.Add(PROPS_LAYER, new MapEditorObjectsLayer(PROPS_LAYER, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT, _mapInfo.props, props.ToArray(), _mapInfo.next_prop_id));
         this.Layers.Add(PROPS_BACK_LAYER, new MapEditorObjectsLayer(PROPS_BACK_LAYER, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT * 3, _mapInfo.props_background, props.ToArray(), _mapInfo.next_prop_bg_id));
@@ -701,6 +708,13 @@ public class MapEditorManager : MonoBehaviour, IPausable
         {
             newPooledObject = this.SpriteObjectPrefab.Retain();
             newPooledObject.GetComponent<SpriteRenderer>().sprite = prefab as Sprite;
+        }
+        else if (prefab is SCSpriteAnimation)
+        {
+            SCSpriteAnimation anim = prefab as SCSpriteAnimation;
+            newPooledObject = this.AnimationObjectPrefab.Retain();
+            newPooledObject.GetComponent<SCSpriteAnimator>().DefaultAnimation = anim;
+            newPooledObject.GetComponent<SpriteRenderer>().sprite = anim.Frames[0];
         }
         else
         {
