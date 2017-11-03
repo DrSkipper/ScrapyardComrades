@@ -12331,7 +12331,16 @@
       "layer_name": "ParallaxFront"
     }
   ],
-  "props": [],
+  "props": [
+    {
+      "name": "props_vat2_0",
+      "prefab_name": "vat2",
+      "x": 736,
+      "y": 442,
+      "z": 2,
+      "parameters": null
+    }
+  ],
   "props_background": [],
   "objects": [
     {
@@ -12344,7 +12353,7 @@
     }
   ],
   "next_object_id": 1,
-  "next_prop_id": 0,
+  "next_prop_id": 1,
   "next_prop_bg_id": 0,
   "next_light_id": 6,
   "lights": [
