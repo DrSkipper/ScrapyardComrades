@@ -19,7 +19,6 @@ public class Boulder : VoBehavior, IPausable
 
     void Awake()
     {
-        _nearbyDamagables = new List<IntegerCollider>();
         _damageRange = this.integerCollider.Bounds;
         _damageRange.Size += new IntegerVector(_damageRange.Size.X / 2, 0);
         this.localNotifier.Listen(CollisionEvent.NAME, this, onCollide);
@@ -72,7 +71,6 @@ public class Boulder : VoBehavior, IPausable
      * Private
      */
     private IntegerRect _damageRange;
-    private List<IntegerCollider> _nearbyDamagables;
     private VelocityModifier _restingVelocityModifier;
     private Vector2 _velocity;
 

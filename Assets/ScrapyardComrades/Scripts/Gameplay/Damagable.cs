@@ -15,6 +15,7 @@ public class Damagable : VoBehavior, IPausable
     public int RageLimit = 200;
     public int RageDuration = 50;
     public bool IsRaging { get { return !_rageTimer.Completed; } }
+    public bool CardinalKnockbackOnly = false;
     public delegate void OnDeathDelegate();
     public OnDeathDelegate OnDeathCallback;
 
@@ -78,7 +79,7 @@ public class Damagable : VoBehavior, IPausable
         
         // Handle knockback
         if (this.Actor != null)
-            this.Actor.Velocity = hitData.GetKnockback(origin, this.transform.position, hitPoint, attackerFacing);
+            this.Actor.Velocity = hitData.GetKnockback(origin, this.transform.position, hitPoint, attackerFacing, this.CardinalKnockbackOnly);
 
         // Handle invincibility and freeze frames
         this.Invincible = true;

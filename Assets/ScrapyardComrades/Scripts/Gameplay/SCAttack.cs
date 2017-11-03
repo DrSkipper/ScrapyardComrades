@@ -65,7 +65,7 @@ public class SCAttack : ScriptableObject
         public string HitSfx;
         public SCSpriteAnimation HitAnimation;
 
-        public Vector2 GetKnockback(Vector2 attackerPos, Vector2 defenderPos, Vector2 hitPos, SCCharacterController.Facing attackerFacing)
+        public Vector2 GetKnockback(Vector2 attackerPos, Vector2 defenderPos, Vector2 hitPos, SCCharacterController.Facing attackerFacing, bool cardinalOnly)
         {
             switch (this.KnockbackType)
             {
@@ -73,22 +73,37 @@ public class SCAttack : ScriptableObject
                 case KnockbackType.None:
                     return Vector2.zero;
                 case KnockbackType.Constant:
-                    Vector2 knockback = VectorExtensions.VectorFromDirection16(this.KnockbackDirection) * this.KnockbackPower;
+                    Vector2 knockback = VectorExtensions.VectorFromDirection16(this.KnockbackDirection);
+                    if (cardinalOnly)
+                        knockback = knockback.NormalizedCardinal();
+                    knockback *= this.KnockbackPower;
                     if (attackerFacing == SCCharacterController.Facing.Left)
                         knockback = new Vector2(knockback.x * -1, knockback.y);
                     return knockback;
                 case KnockbackType.CharacterDiff:
-                    return (defenderPos - attackerPos).Normalized16() * this.KnockbackPower;
+                    return (!cardinalOnly ? 
+                        (defenderPos - attackerPos).Normalized16() : 
+                        (defenderPos - attackerPos).NormalizedCardinal())
+                        * this.KnockbackPower;
                 case KnockbackType.AttackerToHitPoint:
-                    return (hitPos - attackerPos).Normalized16() * this.KnockbackPower;
+                    return (!cardinalOnly ? 
+                        (hitPos - attackerPos).Normalized16() :
+                        (hitPos - attackerPos).NormalizedCardinal())
+                        * this.KnockbackPower;
                 case KnockbackType.HitPointToDefender:
-                    return (defenderPos - hitPos).Normalized16() * this.KnockbackPower;
+                    return (!cardinalOnly ? 
+                        (defenderPos - hitPos).Normalized16() :
+                        (defenderPos - hitPos).NormalizedCardinal())
+                        * this.KnockbackPower;
                 case KnockbackType.AvgConstantAndDiff:
                     Vector2 constant = VectorExtensions.VectorFromDirection16(this.KnockbackDirection);
                     if (attackerFacing == SCCharacterController.Facing.Left)
                         constant = new Vector2(constant.x * -1, constant.y);
                     Vector2 charDiff = (defenderPos - attackerPos).normalized;
-                    return ((constant + charDiff) / 2.0f).Normalized16() * this.KnockbackPower;
+                    return (!cardinalOnly ?
+                        ((constant + charDiff) / 2.0f).Normalized16() :
+                        ((constant + charDiff) / 2.0f).NormalizedCardinal())
+                        * this.KnockbackPower;
             }
         }
     }

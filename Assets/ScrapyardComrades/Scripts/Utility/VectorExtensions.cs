@@ -74,6 +74,13 @@ public static class VectorExtensions
         return new Vector2(xFactor * Mathf.RoundToInt(Mathf.Sign(self.x)), yFactor * Mathf.RoundToInt(Mathf.Sign(self.y))).normalized;
     }
 
+    public static Vector2 NormalizedCardinal(this Vector2 self)
+    {
+        if (Mathf.Abs(self.y) > Mathf.Abs(self.x))
+            return new Vector2(0, Mathf.Sign(self.y));
+        return new Vector2(Mathf.Sign(self.x), 0);
+    }
+
     public static Vector2 VectorFromDirection16(Direction16 dir)
     {
         switch (dir)
