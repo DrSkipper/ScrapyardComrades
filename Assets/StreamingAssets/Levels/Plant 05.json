@@ -12376,9 +12376,117 @@
           "CurrentOption": "r"
         }
       ]
+    },
+    {
+      "name": "objects_DoorVertical_3",
+      "prefab_name": "DoorVertical",
+      "x": 1122,
+      "y": 144,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "red"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "A_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "false"
+        }
+      ]
+    },
+    {
+      "name": "objects_DoorHorizontal_4",
+      "prefab_name": "DoorHorizontal",
+      "x": 1256,
+      "y": 178,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "purp"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "A_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "false"
+        }
+      ]
+    },
+    {
+      "name": "objects_Switch_5",
+      "prefab_name": "Switch",
+      "x": 908,
+      "y": 102,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "switch_name",
+          "CurrentOption": "A_switch"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "one_way",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        }
+      ]
+    },
+    {
+      "name": "objects_Switch_6",
+      "prefab_name": "Switch",
+      "x": 960,
+      "y": 102,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "switch_name",
+          "CurrentOption": "A_switch"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "one_way",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        }
+      ]
     }
   ],
-  "next_object_id": 3,
+  "next_object_id": 7,
   "next_prop_id": 1,
   "next_prop_bg_id": 0,
   "next_light_id": 3,
