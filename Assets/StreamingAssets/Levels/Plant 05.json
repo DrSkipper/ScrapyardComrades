@@ -12378,64 +12378,6 @@
       ]
     },
     {
-      "name": "objects_DoorVertical_3",
-      "prefab_name": "DoorVertical",
-      "x": 1122,
-      "y": 144,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "type",
-          "CurrentOption": "red"
-        },
-        {
-          "Name": "inverse",
-          "CurrentOption": "true"
-        },
-        {
-          "Name": "switch_name",
-          "CurrentOption": "A_switch"
-        },
-        {
-          "Name": "default_state",
-          "CurrentOption": "OFF"
-        },
-        {
-          "Name": "ignore_events",
-          "CurrentOption": "false"
-        }
-      ]
-    },
-    {
-      "name": "objects_DoorHorizontal_4",
-      "prefab_name": "DoorHorizontal",
-      "x": 1256,
-      "y": 178,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "type",
-          "CurrentOption": "purp"
-        },
-        {
-          "Name": "inverse",
-          "CurrentOption": "false"
-        },
-        {
-          "Name": "switch_name",
-          "CurrentOption": "A_switch"
-        },
-        {
-          "Name": "default_state",
-          "CurrentOption": "OFF"
-        },
-        {
-          "Name": "ignore_events",
-          "CurrentOption": "false"
-        }
-      ]
-    },
-    {
       "name": "objects_Switch_5",
       "prefab_name": "Switch",
       "x": 908,
@@ -12484,9 +12426,67 @@
           "CurrentOption": "OFF"
         }
       ]
+    },
+    {
+      "name": "objects_DoorHorizontal_7",
+      "prefab_name": "DoorHorizontal",
+      "x": 1254,
+      "y": 180,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "purp"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "A_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "false"
+        }
+      ]
+    },
+    {
+      "name": "objects_DoorVertical_8",
+      "prefab_name": "DoorVertical",
+      "x": 1118,
+      "y": 144,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "blue"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "A_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "false"
+        }
+      ]
     }
   ],
-  "next_object_id": 7,
+  "next_object_id": 9,
   "next_prop_id": 1,
   "next_prop_bg_id": 0,
   "next_light_id": 3,

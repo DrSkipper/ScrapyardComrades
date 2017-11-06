@@ -11,8 +11,6 @@ public class DoorSwitchable : VoBehavior
     {
         this.GetComponent<SwitchListener>().StateChangeCallback += onStateChange;
         _stateTransitionCooldown = new Timer(STATE_TRANSITION_COOLDOWN, false, false);
-        _targetSwitchState = Switch.SwitchState.ON;
-        _currentSwitchState = Switch.SwitchState.ON;
     }
 
     void OnSpawn()
@@ -24,23 +22,12 @@ public class DoorSwitchable : VoBehavior
     void OnReturnToPool()
     {
         close();
-        _targetSwitchState = Switch.SwitchState.ON;
-        _currentSwitchState = Switch.SwitchState.ON;
         this.integerCollider.RemoveFromCollisionPool();
-    }
-
-    void FixedUpdate()
-    {
-        if (_stateTransitionCooldown.Completed && _currentSwitchState != _targetSwitchState)
-        {
-            attemptAlignToSwitchState();
-        }
     }
 
     /**
      * Private
      */
-    private bool _open;
     private Timer _stateTransitionCooldown;
     private const int STATE_TRANSITION_COOLDOWN = 20;
     private Switch.SwitchState _targetSwitchState;
@@ -49,6 +36,7 @@ public class DoorSwitchable : VoBehavior
     private void onStateChange(Switch.SwitchState state)
     {
         _targetSwitchState = state;
+        attemptAlignToSwitchState();
     }
 
     private void attemptAlignToSwitchState()
@@ -58,18 +46,16 @@ public class DoorSwitchable : VoBehavior
             default:
             case Switch.SwitchState.OFF:
                 open();
-                _currentSwitchState = _targetSwitchState;
                 break;
             case Switch.SwitchState.ON:
-                if (tryToClose())
-                    _currentSwitchState = _targetSwitchState;
+                tryToClose();
                 break;
         }
     }
 
     private void open()
     {
-        _open = true;
+        _currentSwitchState = Switch.SwitchState.OFF;
         _stateTransitionCooldown.reset();
         _stateTransitionCooldown.start();
         this.integerCollider.enabled = false;
@@ -90,7 +76,7 @@ public class DoorSwitchable : VoBehavior
 
     private void close()
     {
-        _open = false;
+        _currentSwitchState = Switch.SwitchState.ON;
         _stateTransitionCooldown.reset();
         _stateTransitionCooldown.start();
         this.integerCollider.enabled = true;
