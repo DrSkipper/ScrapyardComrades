@@ -1,0 +1,5 @@
+
+To push to itch.io:
+butler push ./Build drskipper/feeble-force-demo:win-alpha --userversion 0.x.x
+butler push ./Build drskipper/feeble-force-demo:mac-alpha --userversion 0.x.x
+
