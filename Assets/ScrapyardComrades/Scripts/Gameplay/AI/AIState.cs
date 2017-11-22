@@ -96,12 +96,13 @@ public class WalkTowardState : AIState
 
 public class SimpleAttackState : AIState
 {
-    public SimpleAttackState(float executeAttackRange, float pursuitToDist, int cooldown)
+    public SimpleAttackState(float executeAttackRange, float pursuitToDist, int cooldown, int executeStrongAttackRange = -1)
     {
         _executeAttackRange = executeAttackRange;
         _pursuitToDist = pursuitToDist;
         _cooldownAmt = cooldown;
-    }
+        _executeStrongAttackRange = executeStrongAttackRange;
+}
 
     public override void EnterState()
     {
@@ -116,10 +117,15 @@ public class SimpleAttackState : AIState
             bool attack = false;
             output.Jump = input.TargetOnGround && input.TargetCollider.Bounds.Min.Y > input.OurCollider.Bounds.Min.Y + 8;
 
-            if (input.OnGround && Vector2.Distance(input.OurPosition, input.TargetPosition) <= _executeAttackRange)
+            if (input.OnGround)
             {
-                output.Attack = true;
-                if (!input.InMoveCooldown && !input.ExecutingMove)
+                float d = Vector2.Distance(input.OurPosition, input.TargetPosition);
+                if (d <= _executeAttackRange)
+                    output.Attack = true;
+                else if (d <= _executeStrongAttackRange)
+                    output.AttackStrong = true;
+
+                if ((output.Attack || output.AttackStrong) && !input.InMoveCooldown && !input.ExecutingMove)
                 {
                     attack = true;
                     _cooldown = _cooldownAmt;
@@ -139,6 +145,7 @@ public class SimpleAttackState : AIState
     }
 
     private float _executeAttackRange;
+    private float _executeStrongAttackRange;
     private float _pursuitToDist;
     private int _cooldown;
     private int _cooldownAmt;
@@ -204,9 +211,9 @@ public class GuardAttackState : AIState
     private int _cooldownAmt;
 }
 
-public class OfficeAttackState : SimpleAttackState
+public class MidMutantAttackState : SimpleAttackState
 {
-    public OfficeAttackState(float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeAttackRange, float pursuitToDist, int cooldown) : base(executeAttackRange, pursuitToDist, cooldown)
+    public MidMutantAttackState(float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeAttackRange, float pursuitToDist, int cooldown, int executeStrongAttackRange = -1) : base(executeAttackRange, pursuitToDist, cooldown, executeStrongAttackRange)
     {
         _jumpAtRangeFar = jumpAtRangeFar;
         _jumpAtRangeNear = jumpAtRangeNear;
@@ -224,7 +231,7 @@ public class OfficeAttackState : SimpleAttackState
                 output.Jump = true;
         }
 
-        else if (!output.Attack)
+        else if (!output.Attack && !output.AttackStrong)
         {
             if (d < _executeAirAttackRange)
                 output.Attack = true;

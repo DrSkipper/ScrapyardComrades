@@ -14,7 +14,8 @@ public class EnemyController : SCCharacterController
     {
         Simple,
         Guard,
-        Office
+        Office,
+        Paramedic
     }
 
     [System.Serializable]
@@ -44,7 +45,11 @@ public class EnemyController : SCCharacterController
                     break;
                 case AIType.Office:
                     _attackStateRange = OFFICE_ATTACK_RANGE;
-                    _ai = new OfficeAI(OFFICE_ATTACK_RANGE, 425, 200, 145, 180, 100, 60, 4, WALK_TO_TARGET_DIST, INTERACT_DELAY);
+                    _ai = new MidMutantAI(OFFICE_ATTACK_RANGE, 425, 200, 145, 180, 100, 60, 4, WALK_TO_TARGET_DIST, INTERACT_DELAY);
+                    break;
+                case AIType.Paramedic:
+                    _attackStateRange = OFFICE_ATTACK_RANGE;
+                    _ai = new MidMutantAI(OFFICE_ATTACK_RANGE, 425, 240, 160, 425, 100, 60, 4, WALK_TO_TARGET_DIST, INTERACT_DELAY, 270);
                     break;
             }
         }

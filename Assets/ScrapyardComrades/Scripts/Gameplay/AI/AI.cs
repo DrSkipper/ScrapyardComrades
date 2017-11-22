@@ -117,12 +117,12 @@ public class GuardAI : AI
     }
 }
 
-public class OfficeAI : AI
+public class MidMutantAI : AI
 {
-    public OfficeAI(float attackStateRange, float pursuitRange, float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeAttackRange, float attackingPursuitTargetDist, int attackStateCooldown, float walkToTargetDist, int interactDelay)
+    public MidMutantAI(float attackStateRange, float pursuitRange, float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeAttackRange, float attackingPursuitTargetDist, int attackStateCooldown, float walkToTargetDist, int interactDelay, int executeStrongAttackRange = -1)
     {
         AIState idleState = new IdleState();
-        AIState attackState = new OfficeAttackState(jumpAtRangeFar, jumpAtRangeNear, executeAirAttackRange, executeAttackRange, attackingPursuitTargetDist, attackStateCooldown);
+        AIState attackState = new MidMutantAttackState(jumpAtRangeFar, jumpAtRangeNear, executeAirAttackRange, executeAttackRange, attackingPursuitTargetDist, attackStateCooldown, executeStrongAttackRange);
         AIState walkState = new WalkTowardState(walkToTargetDist, interactDelay); // Walk toward targets that are not alive
 
         idleState.AddTransition(new ANDTransition(new AIStateTransition[] {
