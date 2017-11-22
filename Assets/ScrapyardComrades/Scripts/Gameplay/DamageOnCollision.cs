@@ -5,6 +5,11 @@ public class DamageOnCollision : VoBehavior
     public LayerMask DamagableLayers;
     public SCAttack.HitData HitData;
     public float MinVelocityToDamage = 3.0f;
+    public bool AlwaysDestroyOnCollide = false;
+    public PooledObject DestructionPrefab; //TODO
+    public SCSpriteAnimation DestructionAnimation;
+    public PooledObject HitEffectPrefab;
+    public SCSpriteAnimation HitEffectAnimation;
 
     void Awake()
     {
@@ -46,5 +51,8 @@ public class DamageOnCollision : VoBehavior
                 }
             }
         }
+
+        if (this.AlwaysDestroyOnCollide)
+            ObjectPools.Release(this.gameObject);
     }
 }

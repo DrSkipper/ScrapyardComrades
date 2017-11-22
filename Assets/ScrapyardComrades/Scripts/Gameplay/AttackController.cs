@@ -31,6 +31,7 @@ public class AttackController : VoBehavior, IPausable
         {
             _attacking = true;
             activateEffectIfNecessary(currentAttack);
+            throwIfNecessary(currentAttack, facing);
 
             // Update hitboxes
             SCAttack.HitboxKeyframe? keyframe = getKeyframeForUpdateFrame(currentAttack, this.Animator.Elapsed);
@@ -239,6 +240,30 @@ public class AttackController : VoBehavior, IPausable
             else if (!this.EffectAnimator.IsPlaying)
             {
                 this.EffectAnimator.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void throwIfNecessary(SCAttack currentAttack, SCCharacterController.Facing facing)
+    {
+        if (currentAttack.ThrowFrames != null && currentAttack.ThrowFrames.Length > 0)
+        {
+            for (int i = 0; i < currentAttack.ThrowFrames.Length; ++i)
+            {
+                SCAttack.ThrowFrame throwFrame = currentAttack.ThrowFrames[i];
+                if (throwFrame.Frame == this.Animator.Elapsed)
+                {
+                    PooledObject thrownObject = currentAttack.PrefabToThrow.Retain();
+                    IntegerVector offset = throwFrame.OriginOffset;
+                    offset.X *= (int)facing;
+                    thrownObject.transform.SetPosition2D(offset + (IntegerVector)(Vector2)this.transform.position);
+                    Vector2 velocity = throwFrame.ThrowDirection.normalized * throwFrame.ThrowVelocity;
+                    velocity.x *= (int)facing;
+                    thrownObject.GetComponent<Actor2D>().Velocity = velocity;
+                    thrownObject.transform.SetScaleX((int)facing);
+                    thrownObject.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
+                    break;
+                }
             }
         }
     }

@@ -12,9 +12,13 @@ public class SCMoveSetEditing : MonoBehaviour
     public IntegerRectCollider NormalHurtbox;
     public IntegerRectCollider DuckHurtbox;
     public SCSpriteAnimator EffectAnimator;
+    public ThrowFrameEdit ThrowFrameOrigin;
     public SCMoveSet MoveSet;
     public SCAttack.HurtboxState HurtboxState;
     public bool EffectFrame;
+    public bool ThrowFrame;
+    public PooledObject PrefabToThrow;
+
     [HideInInspector]
     public SCAttack AttackObject;
     [HideInInspector]
@@ -41,6 +45,8 @@ public class SCMoveSetEditing : MonoBehaviour
             this.AttackObject.HitboxKeyframes[this.CurrentIndex] = gatherKeyframeData();
             if (this.EffectAnimator != null)
                 saveEffectFrameData();
+            if (this.ThrowFrameOrigin != null)
+                saveThrowFrameData();
             saveState();
         }
         else
@@ -69,6 +75,8 @@ public class SCMoveSetEditing : MonoBehaviour
 
         if (this.EffectAnimator != null)
             saveEffectFrameData();
+        if (this.ThrowFrameOrigin != null)
+            saveThrowFrameData();
         saveState();
     }
 
@@ -109,6 +117,20 @@ public class SCMoveSetEditing : MonoBehaviour
         else
         {
             this.EffectFrame = false;
+        }
+
+        int foundThrow = findThrowForFrame();
+        if (foundThrow >= 0 && this.ThrowFrameOrigin != null)
+        {
+            SCAttack.ThrowFrame throwFrame = this.AttackObject.ThrowFrames[foundThrow];
+            this.ThrowFrame = true;
+            this.ThrowFrameOrigin.transform.SetLocalPosition2D(throwFrame.OriginOffset);
+            this.ThrowFrameOrigin.ThrowDirection = throwFrame.ThrowDirection;
+            this.ThrowFrameOrigin.ThrowVelocity = throwFrame.ThrowVelocity;
+        }
+        else
+        {
+            this.ThrowFrame = false;
         }
     }
 
@@ -162,7 +184,6 @@ public class SCMoveSetEditing : MonoBehaviour
 
     private int findEffectForFrame()
     {
-        int foundEffect = -1;
         int searchFrame = this.Animator.GetDataFrameForVisualFrame(this.Frame);
         int prevFrame = this.Animator.GetDataFrameForVisualFrame(this.Frame - 1);
         if (this.AttackObject.Effects != null)
@@ -170,13 +191,28 @@ public class SCMoveSetEditing : MonoBehaviour
             for (int i = 0; i < this.AttackObject.Effects.Length; ++i)
             {
                 if (this.AttackObject.Effects[i].Frame <= searchFrame && this.AttackObject.Effects[i].Frame > prevFrame)
-                {
-                    foundEffect = i;
-                    break;
-                }
+                    return i;
             }
         }
-        return foundEffect;
+
+        return -1;
+    }
+
+    private int findThrowForFrame()
+    {
+        int searchFrame = this.Animator.GetDataFrameForVisualFrame(this.Frame);
+        int prevFrame = this.Animator.GetDataFrameForVisualFrame(this.Frame - 1);
+
+        if (this.AttackObject.ThrowFrames != null)
+        {
+            for (int i = 0; i < this.AttackObject.ThrowFrames.Length; ++i)
+            {
+                if (this.AttackObject.ThrowFrames[i].Frame <= searchFrame && this.AttackObject.ThrowFrames[i].Frame > prevFrame)
+                    return i;
+            }
+        }
+
+        return -1;
     }
 
     private void saveEffectFrameData()
@@ -186,8 +222,11 @@ public class SCMoveSetEditing : MonoBehaviour
         {
             if (foundEffect >= 0)
             {
-                this.AttackObject.Effects[foundEffect].Animation = this.EffectAnimator.DefaultAnimation;
-                this.AttackObject.Effects[foundEffect].Position = (Vector2)this.EffectAnimator.transform.localPosition;
+                SCAttack.Effect effect = this.AttackObject.Effects[foundEffect];
+                effect.Animation = this.EffectAnimator.DefaultAnimation;
+                effect.Position = (Vector2)this.EffectAnimator.transform.localPosition;
+                effect.Frame = this.Animator.GetDataFrameForVisualFrame(this.Frame);
+                this.AttackObject.Effects[foundEffect] = effect;
             }
             else
             {
@@ -204,7 +243,6 @@ public class SCMoveSetEditing : MonoBehaviour
         }
         else
         {
-
             if (foundEffect >= 0)
             {
                 List<SCAttack.Effect> effects = new List<SCAttack.Effect>(this.AttackObject.Effects);
@@ -214,9 +252,51 @@ public class SCMoveSetEditing : MonoBehaviour
         }
     }
 
+    private void saveThrowFrameData()
+    {
+        this.AttackObject.PrefabToThrow = this.PrefabToThrow;
+        int foundThrow = findThrowForFrame();
+
+        if (this.ThrowFrame)
+        {
+            SCAttack.ThrowFrame throwFrame = foundThrow >= 0 ? this.AttackObject.ThrowFrames[foundThrow] : new SCAttack.ThrowFrame();
+
+            throwFrame.Frame = this.Animator.GetDataFrameForVisualFrame(this.Frame);
+            throwFrame.OriginOffset = (Vector2)this.ThrowFrameOrigin.transform.localPosition;
+            throwFrame.ThrowDirection = this.ThrowFrameOrigin.ThrowDirection;
+            throwFrame.ThrowVelocity = this.ThrowFrameOrigin.ThrowVelocity;
+
+            if (foundThrow >= 0)
+            {
+                this.AttackObject.ThrowFrames[foundThrow] = throwFrame;
+            }
+            else
+            {
+                List<SCAttack.ThrowFrame> throws = this.AttackObject.ThrowFrames != null ? new List<SCAttack.ThrowFrame>(this.AttackObject.ThrowFrames) : new List<SCAttack.ThrowFrame>(1);
+                throws.Add(throwFrame);
+                throws.Sort(frameCompareThrows);
+                this.AttackObject.ThrowFrames = throws.ToArray();
+            }
+        }
+        else
+        {
+            if (foundThrow >= 0)
+            {
+                List<SCAttack.ThrowFrame> throws = new List<SCAttack.ThrowFrame>(this.AttackObject.ThrowFrames);
+                throws.RemoveAt(foundThrow);
+                this.AttackObject.ThrowFrames = throws.ToArray();
+            }
+        }
+    }
+
     private static int frameCompareEffects(SCAttack.Effect e1, SCAttack.Effect e2)
     {
         return Mathf.Clamp(e2.Frame - e1.Frame, -1, 1);
+    }
+
+    private static int frameCompareThrows(SCAttack.ThrowFrame t1, SCAttack.ThrowFrame t2)
+    {
+        return Mathf.Clamp(t2.Frame - t1.Frame, -1, 1);
     }
 
     private void saveState()

@@ -12678,23 +12678,6 @@
       ]
     },
     {
-      "name": "objects_EnemyOffice_46",
-      "prefab_name": "EnemyOffice",
-      "x": 948,
-      "y": 428,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "variant",
-          "CurrentOption": "F"
-        },
-        {
-          "Name": "target",
-          "CurrentOption": "player"
-        }
-      ]
-    },
-    {
       "name": "objects_FloorFan_50",
       "prefab_name": "FloorFan",
       "x": 1248,
@@ -12809,9 +12792,26 @@
           "CurrentOption": "OFF"
         }
       ]
+    },
+    {
+      "name": "objects_EnemyPlant_65",
+      "prefab_name": "EnemyPlant",
+      "x": 946,
+      "y": 428,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "C"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        }
+      ]
     }
   ],
-  "next_object_id": 65,
+  "next_object_id": 66,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 18,

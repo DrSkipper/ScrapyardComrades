@@ -134,6 +134,15 @@ public class SCAttack : ScriptableObject
         public IntegerVector Position;
     }
 
+    [System.Serializable]
+    public struct ThrowFrame
+    {
+        public int Frame;
+        public IntegerVector OriginOffset;
+        public Vector2 ThrowDirection;
+        public float ThrowVelocity;
+    }
+
     public MoveCategory Category;
     public SCSpriteAnimation SpriteAnimation;
     public int NormalFrameLength;
@@ -162,6 +171,8 @@ public class SCAttack : ScriptableObject
     public HitData HitParameters;
     public Effect[] Effects;
     public IntegerVector[] BlockActiveRanges;
+    public ThrowFrame[] ThrowFrames;
+    public PooledObject PrefabToThrow;
 
     public float GravityMultiplier = 1.0f;
     public float JumpPowerMultiplier = 1.0f;

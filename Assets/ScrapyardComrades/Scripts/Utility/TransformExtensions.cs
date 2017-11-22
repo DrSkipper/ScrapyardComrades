@@ -63,6 +63,11 @@ public static class TransformExtensions
         self.localPosition = new Vector3(self.localPosition.x, self.localPosition.y, z);
     }
 
+    public static void SetScaleX(this Transform self, float x)
+    {
+        self.localScale = new Vector3(x, self.localScale.y, self.localScale.z);
+    }
+
     public static float Distance2D(this Transform self, Transform other)
     {
         return Vector2.Distance(self.position, other.position);
