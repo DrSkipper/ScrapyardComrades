@@ -9,8 +9,8 @@ public class SCAttack : ScriptableObject
     {
         None = 0,
         Normal = 2,
-        Dodge = 4
-        //Combo = 8
+        Dodge = 4,
+        Combo = 8
         //Recovery?
     }
 

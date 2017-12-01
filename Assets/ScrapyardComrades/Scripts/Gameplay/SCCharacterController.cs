@@ -561,7 +561,7 @@ public class SCCharacterController : Actor2D
         else
         {
             // See if we should buffer a combo
-            if (_currentAttack.Combos != null && _currentAttack.Combos.Length > 0 && _currentAttack.ComboBuffer >= _currentAttack.NormalFrameLength - _attackTimer.FramesRemaining)
+            if (_currentAttack.Combos != null && _currentAttack.Combos.Length > 0 && _currentAttack.ComboBuffer >= _attackTimer.FramesRemaining)
             {
                 SCMoveSet.MoveInput comboInput = SCMoveSet.GetCurrentMoveInput(input);
                 if (comboInput != SCMoveSet.MoveInput.None)
