@@ -12350,9 +12350,17 @@
       "y": 702,
       "z": -2,
       "parameters": null
+    },
+    {
+      "name": "objects_EnemyMutant_1",
+      "prefab_name": "EnemyMutant",
+      "x": 1172,
+      "y": 666,
+      "z": -2,
+      "parameters": null
     }
   ],
-  "next_object_id": 1,
+  "next_object_id": 2,
   "next_prop_id": 1,
   "next_prop_bg_id": 0,
   "next_light_id": 6,
