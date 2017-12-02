@@ -149,3 +149,36 @@ public class MidMutantAI : AI
         this.CurrentState = idleState;
     }
 }
+
+public class MutantAI : AI
+{
+    public MutantAI(float attackStateRange, float pursuitRange, float executeChargeRange, float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeAttackRange, float attackingPursuitTargetDist, int attackStateCooldown, float walkToTargetDist, int interactDelay)
+    {
+        AIState idleState = new IdleState();
+        AIState attackState = new MutantAttackState(jumpAtRangeFar, jumpAtRangeNear, executeAirAttackRange, executeChargeRange, executeAttackRange, attackingPursuitTargetDist, attackStateCooldown);
+        AIState walkState = new WalkTowardState(walkToTargetDist, interactDelay); // Walk toward targets that are not alive
+
+        idleState.AddTransition(new ANDTransition(new AIStateTransition[] {
+            new TargetAliveTransition(attackState, true),
+            new TargetWithinRangeTransition(attackState, 0, attackStateRange, true)
+        }));
+        idleState.AddTransition(new ANDTransition(new AIStateTransition[] {
+            new TargetAliveTransition(walkState, false),
+            new TargetWithinRangeTransition(walkState, 0, attackStateRange, true)
+        }));
+        attackState.AddTransition(new NoTargetTransition(idleState));
+        attackState.AddTransition(new TargetChangedTransition(idleState));
+        attackState.AddTransition(new TargetWithinRangeTransition(idleState, pursuitRange));
+        attackState.AddTransition(new ANDTransition(new AIStateTransition[] {
+            new TargetAliveTransition(idleState, false),
+            new TargetWithinRangeTransition(idleState, 0, executeAttackRange)
+        }));
+        walkState.AddTransition(new NoTargetTransition(idleState));
+        walkState.AddTransition(new TargetChangedTransition(idleState));
+        walkState.AddTransition(new TargetAliveTransition(idleState, true));
+        walkState.AddTransition(new TargetWithinRangeTransition(idleState, pursuitRange));
+
+        this.DefaultState = idleState;
+        this.CurrentState = idleState;
+    }
+}

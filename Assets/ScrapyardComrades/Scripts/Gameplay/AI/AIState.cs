@@ -244,3 +244,86 @@ public class MidMutantAttackState : SimpleAttackState
     private float _jumpAtRangeNear;
     private float _executeAirAttackRange;
 }
+
+public class MutantAttackState : AIState
+{
+    public MutantAttackState(float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeChargeRange, float executeAttackRange, float pursuitToDist, int cooldown)
+    {
+        _jumpAtRangeFar = jumpAtRangeFar;
+        _jumpAtRangeNear = jumpAtRangeNear;
+        _executeAirAttackRange = executeAttackRange;
+        _executeChargeRange = executeChargeRange;
+        _executeAttackRange = executeAttackRange;
+        _pursuitToDist = pursuitToDist;
+        _cooldownAmt = cooldown;
+    }
+
+    public override void EnterState()
+    {
+        _cooldown = 0;
+    }
+
+    public override AIOutput UpdateState(AIInput input)
+    {
+        AIOutput output = new AIOutput();
+
+        if (!input.ExecutingMove)
+            _charging = false;
+
+        if (_cooldown <= 0)
+        {
+            float d = Mathf.Abs(input.OurPosition.X - input.TargetPosition.X);
+            bool attack = false;
+
+            if (input.OnGround && !output.Jump && d < _jumpAtRangeFar && d > _jumpAtRangeNear && input.TargetCollider.Bounds.Min.Y > input.OurCollider.Bounds.Min.Y + 2)
+            {
+                output.Jump = true;
+            }
+            else if (!input.InMoveCooldown && (!input.ExecutingMove || _charging))
+            {
+                if (input.OnGround)
+                {
+                    if (d <= _executeAttackRange)
+                    {
+                        attack = true;
+                        output.Attack = true;
+                    }
+                    else if (!_charging && d <= _executeChargeRange)
+                    {
+                        attack = true;
+                        output.Dodge = true;
+                        _charging = true;
+                    }
+                }
+                else if (d <= this._executeAirAttackRange)
+                {
+                    attack = true;
+                    output.Attack = true;
+                }
+
+                if (attack)
+                    _cooldown = _cooldownAmt;
+            }
+
+            if (d < _pursuitToDist && !attack)
+                output.MovementDirection = 0;
+            else
+                output.MovementDirection = Mathf.RoundToInt(Mathf.Sign(input.TargetPosition.X - input.OurPosition.X));
+        }
+        else if (!input.ExecutingMove)
+        {
+            --_cooldown;
+        }
+        return output;
+    }
+
+    private bool _charging;
+    private float _executeChargeRange;
+    private float _executeAttackRange;
+    private float _jumpAtRangeFar;
+    private float _jumpAtRangeNear;
+    private float _executeAirAttackRange;
+    private float _pursuitToDist;
+    private int _cooldown;
+    private int _cooldownAmt;
+}

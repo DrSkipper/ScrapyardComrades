@@ -15,7 +15,8 @@ public class EnemyController : SCCharacterController
         Simple,
         Guard,
         Office,
-        Paramedic
+        Paramedic,
+        Mutant
     }
 
     [System.Serializable]
@@ -37,19 +38,74 @@ public class EnemyController : SCCharacterController
                 default:
                 case AIType.Simple:
                     _attackStateRange = SIMPLE_ATTACK_RANGE;
-                    _ai = new SimpleAI(SIMPLE_ATTACK_RANGE, 425, 75, 48, 4, WALK_TO_TARGET_DIST, INTERACT_DELAY);
+                    _ai = new SimpleAI(
+                        attackStateRange: SIMPLE_ATTACK_RANGE, 
+                        pursuitRange: 425, 
+                        executeAttackRange: 75, 
+                        attackingPursuitTargetDist: 48, 
+                        attackStateCooldown: 4, 
+                        walkToTargetDist: WALK_TO_TARGET_DIST, 
+                        interactDelay: INTERACT_DELAY
+                    );
                     break;
                 case AIType.Guard:
                     _attackStateRange = GUARD_ATTACK_RANGE;
-                    _ai = new GuardAI(GUARD_ATTACK_RANGE, 400, 156, 114, 128, 8, WALK_TO_TARGET_DIST, INTERACT_DELAY);
+                    _ai = new GuardAI(
+                        attackStateRange: GUARD_ATTACK_RANGE,
+                        pursuitRange: 400, 
+                        executeChargeRange: 156,
+                        executeAttackRange: 114,
+                        attackingPursuitTargetDist: 128,
+                        attackStateCooldown: 8,
+                        walkToTargetDist: WALK_TO_TARGET_DIST,
+                        interactDelay: INTERACT_DELAY
+                    );
                     break;
                 case AIType.Office:
                     _attackStateRange = OFFICE_ATTACK_RANGE;
-                    _ai = new MidMutantAI(OFFICE_ATTACK_RANGE, 425, 200, 145, 180, 100, 60, 4, WALK_TO_TARGET_DIST, INTERACT_DELAY);
+                    _ai = new MidMutantAI(
+                        attackStateRange: OFFICE_ATTACK_RANGE,
+                        pursuitRange: 425, 
+                        jumpAtRangeFar: 200, 
+                        jumpAtRangeNear: 145, 
+                        executeAirAttackRange: 180, 
+                        executeAttackRange: 100, 
+                        attackingPursuitTargetDist: 60, 
+                        attackStateCooldown: 4, 
+                        walkToTargetDist: WALK_TO_TARGET_DIST, 
+                        interactDelay: INTERACT_DELAY
+                    );
                     break;
                 case AIType.Paramedic:
-                    _attackStateRange = OFFICE_ATTACK_RANGE;
-                    _ai = new MidMutantAI(OFFICE_ATTACK_RANGE, 425, 240, 160, 425, 100, 60, 4, WALK_TO_TARGET_DIST, INTERACT_DELAY, 270);
+                    _attackStateRange = MUTANT_ATTACK_RANGE;
+                    _ai = new MidMutantAI(
+                        attackStateRange: MUTANT_ATTACK_RANGE, 
+                        pursuitRange: 425,
+                        jumpAtRangeFar: 240,
+                        jumpAtRangeNear: 160,
+                        executeAirAttackRange: 425,
+                        executeAttackRange: 100,
+                        attackingPursuitTargetDist: 60,
+                        attackStateCooldown: 4,
+                        walkToTargetDist: WALK_TO_TARGET_DIST,
+                        interactDelay: INTERACT_DELAY
+                    );
+                    break;
+                case AIType.Mutant:
+                    _attackStateRange = MUTANT_ATTACK_RANGE;
+                    _ai = new MutantAI(
+                        attackStateRange: MUTANT_ATTACK_RANGE,
+                        pursuitRange: 400,
+                        executeChargeRange: 190,
+                        jumpAtRangeFar: 260,
+                        jumpAtRangeNear: 80,
+                        executeAirAttackRange: 400,
+                        executeAttackRange: 120,
+                        attackingPursuitTargetDist: 128,
+                        attackStateCooldown: 6,
+                        walkToTargetDist: WALK_TO_TARGET_DIST,
+                        interactDelay: INTERACT_DELAY
+                    );
                     break;
             }
         }
@@ -128,6 +184,7 @@ public class EnemyController : SCCharacterController
     private const int SIMPLE_ATTACK_RANGE = 250;
     private const int GUARD_ATTACK_RANGE = 275;
     private const int OFFICE_ATTACK_RANGE = 280;
+    private const int MUTANT_ATTACK_RANGE = 290;
     private const float WALK_TO_TARGET_DIST = 16;
     private const int INTERACT_DELAY = 25;
 
