@@ -34,6 +34,12 @@ public class Timer
         this.reset();
     }
 
+    public void resetAndStart()
+    {
+        this.reset();
+        this.start();
+    }
+
     public void complete(bool callback = true)
     {
         _framesRemaining = 0;

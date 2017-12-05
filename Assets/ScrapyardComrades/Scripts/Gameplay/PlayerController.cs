@@ -61,4 +61,11 @@ public class PlayerController : SCCharacterController
         if (this.Velocity.y > 0 && (e as WorldRecenterEvent).RecenterOffset.Y < 0)
             this.Velocity.y += SCREEN_TRANSITION_UP_BOOST;
     }
+
+    protected override void updateControlParameters()
+    {
+        base.updateControlParameters();
+
+        //TODO: Apply parameter modifications based on power level
+    }
 }

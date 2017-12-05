@@ -640,7 +640,7 @@ public class SCCharacterController : Actor2D
     private SCAttack _currentAttack = null;
     private CharacterUpdateFinishedEvent _updateFinishEvent;
     private Timer _attackTimer;
-    private ControlParameters _parameters;
+    protected ControlParameters _parameters;
     private Timer _freezeFrameTimer;
     private Timer _hitStunTimer;
     private float _hitStunGravityMultiplier;
@@ -666,7 +666,7 @@ public class SCCharacterController : Actor2D
     private const float HORIZ_BOUNCE_FACTOR = 0.8f;
     private const float VERY_SMALL_VELOCITY = 0.02f;
 
-    private struct ControlParameters
+    protected struct ControlParameters
     {
         public float Gravity;
         public float MaxFallSpeed;
@@ -689,7 +689,7 @@ public class SCCharacterController : Actor2D
         public SCAttack.VelocityBoost.BoostType VelocityBoostType;
     }
 
-    private void updateControlParameters()
+    protected virtual void updateControlParameters()
     {
         if (_currentAttack != null)
         {

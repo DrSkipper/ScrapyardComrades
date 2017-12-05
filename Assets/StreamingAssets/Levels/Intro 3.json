@@ -12428,9 +12428,17 @@
       "y": 324,
       "z": -2,
       "parameters": null
+    },
+    {
+      "name": "objects_Powerup_1",
+      "prefab_name": "Powerup",
+      "x": 880,
+      "y": 304,
+      "z": -2,
+      "parameters": null
     }
   ],
-  "next_object_id": 1,
+  "next_object_id": 2,
   "next_prop_id": 3,
   "next_prop_bg_id": 5,
   "next_light_id": 8,
