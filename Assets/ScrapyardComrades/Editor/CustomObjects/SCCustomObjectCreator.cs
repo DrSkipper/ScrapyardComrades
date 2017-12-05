@@ -16,6 +16,9 @@ public static class SCCustomObjectCreator
     private const string PACKED_SPRITE_GROUP_PATH = "NewPackedSpriteGroup.asset";
     private const string HERO_PROGRESSION_DATA_PATH = "ProgressionData/NewHeroProgressionData.asset";
     private const string ANIMATION_COLLECTION_PATH = "PrefabCollections/NewSpriteAnimationCollection.asset";
+    private const string POWERUP_STATE_PATH = "PowerupData/States/NewPowerupState.asset";
+    private const string POWERUP_TIERS_PATH = "PowerupData/Tiers/NewPowerupTiers.asset";
+    private const string POWERUP_LEVELS_PATH = "PowerupData/Levels/NewPowerupLevels.asset";
 
     [MenuItem("Custom Objects/Create Sprite Animation")]
     public static void CreateSpriteAnimation()
@@ -87,6 +90,24 @@ public static class SCCustomObjectCreator
     public static void CreateSpriteAnimationCollection()
     {
         SaveAsset(SpriteAnimationCollection.CreateInstance<SpriteAnimationCollection>(), PATH + ANIMATION_COLLECTION_PATH);
+    }
+
+    [MenuItem("Custom Objects/Create Powerup State")]
+    public static void CreatePowerupState()
+    {
+        SaveAsset(PowerupState.CreateInstance<PowerupState>(), PATH + POWERUP_STATE_PATH);
+    }
+
+    [MenuItem("Custom Objects/Create Powerup Tiers")]
+    public static void CreatePowerupTiers()
+    {
+        SaveAsset(PowerupTiers.CreateInstance<PowerupTiers>(), PATH + POWERUP_TIERS_PATH);
+    }
+
+    [MenuItem("Custom Objects/Create Powerup Levels")]
+    public static void CreatePowerupLevels()
+    {
+        SaveAsset(PowerupLevels.CreateInstance<PowerupLevels>(), PATH + POWERUP_LEVELS_PATH);
     }
 
     public static void SaveAsset(ScriptableObject asset, string path)
