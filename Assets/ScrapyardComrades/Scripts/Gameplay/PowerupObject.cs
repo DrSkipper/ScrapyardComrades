@@ -29,10 +29,14 @@ public class PowerupObject : MonoBehaviour
             GameObject collided = this.Collider.CollideFirst(0, 0, this.ConsumerMask);
             if (collided != null)
             {
-                //TODO: increment player's powerup count
-
-                this.Animator.PlayAnimation(this.PickupAnimation);
-                _destructionTimer.resetAndStart();
+                PowerupConsumer consumer = collided.GetComponent<PowerupConsumer>();
+                if (consumer != null)
+                {
+                    consumer.ConsumePowerup();
+                    this.Animator.PlayAnimation(this.PickupAnimation);
+                    _destructionTimer.resetAndStart();
+                    this.GetComponent<WorldEntity>().TriggerConsumption(false);
+                }
             }
         }
     }

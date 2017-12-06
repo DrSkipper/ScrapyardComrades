@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerController : SCCharacterController
+public class PlayerController : SCCharacterController, PowerupConsumer
 {
     public PowerupLevels PowerupLevels;
 
@@ -51,6 +51,15 @@ public class PlayerController : SCCharacterController
             _died = true;
             GlobalEvents.Notifier.SendEvent(new PlayerDiedEvent());
         }
+    }
+
+    public void ConsumePowerup()
+    {
+        ++SaveData.PlayerStats.PowerupCount;
+        int powerupLevel = Mathf.Clamp(SaveData.PlayerStats.PowerupCount, 0, this.PowerupLevels.TiersByPowerupLevel.Length - 1);
+        _powerupTier = Mathf.Min(_powerupTier, this.PowerupLevels.TiersByPowerupLevel[powerupLevel].Tiers.Length - 1);
+        _framesAtNextPowerupTier = 0;
+        _framesBelowDowngrade = 0;
     }
 
     /**
