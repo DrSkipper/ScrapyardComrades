@@ -8,6 +8,7 @@ public class PowerupState : ScriptableObject
     public float GravityMultiplier;
     public float JumpHorizontalBoostMultiplier;
     public float MaxSpeedForJumpHorizontalBoostMultiplier;
+    public float LandingHorizontalMultiplierMultiplier;
     public float JumpPowerMultiplier;
     public float WallJumpYPowerMultiplier;
     public float WallJumpXPowerMultiplier;

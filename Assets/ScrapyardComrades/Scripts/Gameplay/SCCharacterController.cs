@@ -684,6 +684,9 @@ public class SCCharacterController : Actor2D
         public float RunAcceleration;
         public float RunDecceleration;
         public float AirRunAcceleration;
+        public float MaxSpeedForJumpHorizontalBoost;
+        public float WallJumpYPower;
+        public float WallJumpXPower;
 
         public Vector2 VelocityBoost;
         public SCAttack.VelocityBoost.BoostType VelocityBoostType;
@@ -744,6 +747,9 @@ public class SCCharacterController : Actor2D
         _parameters.JumpBufferFrames = this.JumpBufferFrames;
         _parameters.JumpGraceFrames = this.JumpGraceFrames;
         _parameters.LandingHorizontalMultiplier = this.LandingHorizontalMultiplier;
+        _parameters.MaxSpeedForJumpHorizontalBoost = this.MaxSpeedForJumpHorizontalBoost;
+        _parameters.WallJumpYPower = this.WallJumpYPower;
+        _parameters.WallJumpXPower = this.WallJumpXPower;
     }
 
     private List<IntegerCollider> potentialCollisions()
@@ -911,7 +917,7 @@ public class SCCharacterController : Actor2D
         {
             if (Mathf.RoundToInt(Mathf.Sign(_velocity.x)) == _moveAxis)
             {
-                _velocity.x = _velocity.x.Approach(_moveAxis * this.MaxSpeedForJumpHorizontalBoost, _parameters.JumpHorizontalBoost);
+                _velocity.x = _velocity.x.Approach(_moveAxis * _parameters.MaxSpeedForJumpHorizontalBoost, _parameters.JumpHorizontalBoost);
             }
             else
             {
@@ -944,8 +950,8 @@ public class SCCharacterController : Actor2D
         _jumpGraceTimer.complete();
 
         _autoMoveTimer.reset(this.WallJumpAutomoveFrames);
-        _autoMoveValue.x = ((int)direction) * this.WallJumpXPower;
-        _autoMoveValue.y = this.WallJumpYPower;
+        _autoMoveValue.x = ((int)direction) * _parameters.WallJumpXPower;
+        _autoMoveValue.y = _parameters.WallJumpYPower;
         _velocity.x = _autoMoveValue.x;
         _velocity.y = Mathf.Max(_autoMoveValue.y, _velocity.y);
         _canJumpHold = true;

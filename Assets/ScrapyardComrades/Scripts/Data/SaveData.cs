@@ -69,6 +69,7 @@ public static class SaveData
         public int Level;
         public int MaxHealth;
         public int CurrentHealth;
+        public int PowerupCount;
     }
 
     [System.Serializable]

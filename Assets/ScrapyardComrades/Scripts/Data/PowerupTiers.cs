@@ -9,6 +9,7 @@ public class PowerupTiers : ScriptableObject
     {
         public float MinVelocityToTrigger;
         public int MinDurationAtVelocity;
+        public int DurationBelowVelocityToDowngrade;
         public PowerupState State;
     }
 }

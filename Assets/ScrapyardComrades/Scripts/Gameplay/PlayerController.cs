@@ -1,6 +1,9 @@
-﻿
+﻿using UnityEngine;
+
 public class PlayerController : SCCharacterController
 {
+    public PowerupLevels PowerupLevels;
+
     public struct PlayerInput : InputWrapper
     {
         public int MovementAxis { get { return GameplayInput.MovementAxis; } }
@@ -54,6 +57,10 @@ public class PlayerController : SCCharacterController
      * Private
      */
     private bool _died;
+    private int _framesAtNextPowerupTier;
+    private int _framesBelowDowngrade;
+    private int _powerupTier;
+
     private const float SCREEN_TRANSITION_UP_BOOST = 3.0f;
 
     private void onWorldRecenter(LocalEventNotifier.Event e)
@@ -66,6 +73,88 @@ public class PlayerController : SCCharacterController
     {
         base.updateControlParameters();
 
-        //TODO: Apply parameter modifications based on power level
+        // Apply parameter modifications based on power level
+        int powerupLevel = Mathf.Clamp(SaveData.PlayerStats.PowerupCount, 0, this.PowerupLevels.TiersByPowerupLevel.Length - 1);
+        PowerupTiers tiers = this.PowerupLevels.TiersByPowerupLevel[powerupLevel];
+
+        updatePowerupState(tiers);
+        if (_powerupTier > 0)
+            applyCurrentPowerupState(tiers);
+    }
+
+    private void updatePowerupState(PowerupTiers tiers)
+    {
+        bool inNextTier = false;
+        float speed = this.TotalVelocity.magnitude;
+
+        // Check if we can advance our powerup tier
+        if (_powerupTier + 1 < tiers.Tiers.Length)
+        {
+            _framesBelowDowngrade = 0;
+            PowerupTiers.Tier nextTier = tiers.Tiers[_powerupTier + 1];
+
+            if (nextTier.MinVelocityToTrigger <= speed)
+            {
+                inNextTier = true;
+                ++_framesAtNextPowerupTier;
+
+                // Advance tier if necessary
+                if (_framesAtNextPowerupTier > nextTier.MinDurationAtVelocity)
+                    changePowerupTier(1);
+            }
+        }
+
+        // Check if we must downgrade our powerup tier
+        if (!inNextTier)
+        {
+            _framesAtNextPowerupTier = 0;
+
+            if (_powerupTier > 0)
+            {
+                PowerupTiers.Tier currentTier = tiers.Tiers[_powerupTier];
+
+                if (currentTier.MinDurationAtVelocity > speed)
+                {
+                    ++_framesBelowDowngrade;
+
+                    // Downgrade tier if necessary
+                    if (_framesBelowDowngrade > currentTier.DurationBelowVelocityToDowngrade)
+                        changePowerupTier(-1);
+                }
+                else
+                {
+                    _framesBelowDowngrade = 0;
+                }
+            }
+        }
+    }
+
+    private void changePowerupTier(int direction)
+    {
+        _powerupTier += direction;
+        _framesAtNextPowerupTier = 0;
+        _framesBelowDowngrade = 0;
+    }
+
+    private void applyCurrentPowerupState(PowerupTiers tiers)
+    {
+        PowerupState powerupState = tiers.Tiers[_powerupTier].State;
+
+        //TODO: Apply Damage Multiplier
+        _parameters.Friction *= powerupState.FrictionMultiplier;
+        _parameters.AirFriction *= powerupState.AirFrictionMultiplier;
+        _parameters.Gravity *= powerupState.GravityMultiplier;
+        _parameters.JumpHorizontalBoost *= powerupState.JumpHorizontalBoostMultiplier;
+        _parameters.MaxSpeedForJumpHorizontalBoost *= powerupState.MaxSpeedForJumpHorizontalBoostMultiplier;
+        _parameters.LandingHorizontalMultiplier *= powerupState.LandingHorizontalMultiplierMultiplier;
+        _parameters.JumpPower *= powerupState.JumpPowerMultiplier;
+        _parameters.WallJumpYPower *= powerupState.WallJumpYPowerMultiplier;
+        _parameters.WallJumpXPower *= powerupState.WallJumpXPowerMultiplier;
+        _parameters.MaxFallSpeed *= powerupState.MaxFallSpeedMultiplier;
+        _parameters.FastFallSpeed *= powerupState.FastFallSpeedMultiplier;
+        _parameters.MaxRunSpeed *= powerupState.MaxRunSpeedMultiplier;
+        _parameters.RunAcceleration *= powerupState.RunAccelerationMultiplier;
+        _parameters.RunDecceleration *= powerupState.RunDeccelerationMultiplier;
+        _parameters.AirRunAcceleration *= powerupState.AirRunAccelerationMultiplier;
     }
 }
