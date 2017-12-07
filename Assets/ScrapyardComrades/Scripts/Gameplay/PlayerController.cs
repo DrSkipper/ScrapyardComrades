@@ -148,7 +148,7 @@ public class PlayerController : SCCharacterController, PowerupConsumer
 
                     // Downgrade tier if necessary
                     if (_framesBelowDowngrade > currentTier.DurationBelowVelocityToDowngrade)
-                        changePowerupTier(-1);
+                        changePowerupTier(-_powerupTier);
                 }
                 else
                 {
