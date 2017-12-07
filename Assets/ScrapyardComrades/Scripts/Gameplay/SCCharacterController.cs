@@ -128,7 +128,7 @@ public class SCCharacterController : Actor2D
         return EmptyInput.Reference;
     }
 
-    void Awake()
+    public virtual void Awake()
     {
         _updateFinishEvent = new CharacterUpdateFinishedEvent(null);
 

@@ -3,6 +3,10 @@
 public class PlayerController : SCCharacterController, PowerupConsumer
 {
     public PowerupLevels PowerupLevels;
+    public string GlowParameter;
+    public float GlowPowerBase = 0.1f;
+    public float GlowPowerPerTier = 0.1f;
+    public float GlowPowerLerpSpeed = 0.01f;
 
     public struct PlayerInput : InputWrapper
     {
@@ -29,10 +33,17 @@ public class PlayerController : SCCharacterController, PowerupConsumer
         return PlayerInput.Reference;
     }
 
+    public override void Awake()
+    {
+        base.Awake();
+        _glowMaterial = this.spriteRenderer.material;
+    }
+
     public override void OnSpawn()
     {
         base.OnSpawn();
 
+        _glowAmt = 0.0f;
         GlobalEvents.Notifier.SendEvent(new PlayerSpawnedEvent(this.gameObject));
         GlobalEvents.Notifier.Listen(WorldRecenterEvent.NAME, this, onWorldRecenter);
     }
@@ -50,6 +61,13 @@ public class PlayerController : SCCharacterController, PowerupConsumer
         {
             _died = true;
             GlobalEvents.Notifier.SendEvent(new PlayerDiedEvent());
+        }
+
+        if (_glowMaterial != null)
+        {
+            float target = _powerupTier > 0 ? this.GlowPowerBase + _powerupTier * this.GlowPowerPerTier : 0.0f;
+            _glowAmt = _glowAmt.Approach(target, this.GlowPowerLerpSpeed);
+            _glowMaterial.SetFloat(this.GlowParameter, _glowAmt);
         }
     }
 
@@ -69,6 +87,8 @@ public class PlayerController : SCCharacterController, PowerupConsumer
     private int _framesAtNextPowerupTier;
     private int _framesBelowDowngrade;
     private int _powerupTier;
+    private Material _glowMaterial;
+    private float _glowAmt;
 
     private const float SCREEN_TRANSITION_UP_BOOST = 3.0f;
 
