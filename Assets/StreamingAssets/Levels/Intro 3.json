@@ -12376,6 +12376,14 @@
           "CurrentOption": "slide"
         }
       ]
+    },
+    {
+      "name": "props_NPC_Old_Lady_A_3",
+      "prefab_name": "NPC_Old_Lady_A",
+      "x": 830,
+      "y": 324,
+      "z": 2,
+      "parameters": null
     }
   ],
   "props_background": [
@@ -12439,7 +12447,7 @@
     }
   ],
   "next_object_id": 2,
-  "next_prop_id": 3,
+  "next_prop_id": 4,
   "next_prop_bg_id": 5,
   "next_light_id": 8,
   "lights": [
