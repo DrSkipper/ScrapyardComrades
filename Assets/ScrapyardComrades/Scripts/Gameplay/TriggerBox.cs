@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TriggerBox : VoBehavior
+public class TriggerBox : VoBehavior, IPausable
 {
     public string EventToSend = "TRIGGER";
     public LayerMask TriggerMask;
