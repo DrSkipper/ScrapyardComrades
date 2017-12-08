@@ -12444,9 +12444,17 @@
       "y": 304,
       "z": -2,
       "parameters": null
+    },
+    {
+      "name": "objects_TriggerBox_2",
+      "prefab_name": "TriggerBox",
+      "x": 798,
+      "y": 302,
+      "z": -2,
+      "parameters": null
     }
   ],
-  "next_object_id": 2,
+  "next_object_id": 3,
   "next_prop_id": 4,
   "next_prop_bg_id": 5,
   "next_light_id": 8,

@@ -14,6 +14,7 @@ public class PowerupObject : VoBehavior, IPausable
     public string ThrowOnEvent = "TRIGGER";
     public Vector2 ThrowSpawnVelocity;
     public float ThrowBounceMultiplier = 0.5f;
+    public int ThrowScaleDuration = 35;
 
     void OnSpawn()
     {
@@ -25,7 +26,24 @@ public class PowerupObject : VoBehavior, IPausable
         this.Actor.enabled = false;
 
         if (this.ThrowSpawnAnimation)
+        {
+            if (_throwScaleTimer == null)
+            {
+                _throwScaleTimer = new Timer(this.ThrowScaleDuration, false, true);
+            }
+            else
+            {
+                _throwScaleTimer.reset(this.ThrowScaleDuration);
+                _throwScaleTimer.start();
+            }
+
             GlobalEvents.Notifier.Listen(this.ThrowOnEvent, this, throwCoin);
+            this.transform.SetScale2D(0, 0);
+        }
+        else
+        {
+            this.transform.SetScale2D(1, 1);
+        }
     }
 
     void OnReturnToPool()
@@ -47,20 +65,28 @@ public class PowerupObject : VoBehavior, IPausable
             {
                 VelocityModifier vMod = this.Actor.GetVelocityModifier(THROW_VMOD);
                 vMod.Modifier = new Vector2(vMod.Modifier.x, vMod.Modifier.y - this.Gravity);
+
+                _throwScaleTimer.update();
+                float s = 1.0f - (float)_throwScaleTimer.FramesRemaining / (float)this.ThrowScaleDuration;
+                s = 0.2f + s * 0.8f;
+                this.transform.SetScale2D(s, s);
             }
 
-            GameObject collided = this.Collider.CollideFirst(0, 0, this.ConsumerMask);
-            if (collided != null)
+            if (_throwScaleTimer == null || _throwScaleTimer.Completed)
             {
-                PowerupConsumer consumer = collided.GetComponent<PowerupConsumer>();
-                if (consumer != null)
+                GameObject collided = this.Collider.CollideFirst(0, 0, this.ConsumerMask);
+                if (collided != null)
                 {
-                    _throwing = false;
-                    this.Actor.enabled = false;
-                    consumer.ConsumePowerup();
-                    this.Animator.PlayAnimation(this.PickupAnimation);
-                    _destructionTimer.resetAndStart();
-                    this.GetComponent<WorldEntity>().TriggerConsumption(false);
+                    PowerupConsumer consumer = collided.GetComponent<PowerupConsumer>();
+                    if (consumer != null)
+                    {
+                        _throwing = false;
+                        this.Actor.enabled = false;
+                        consumer.ConsumePowerup();
+                        this.Animator.PlayAnimation(this.PickupAnimation);
+                        _destructionTimer.resetAndStart();
+                        this.GetComponent<WorldEntity>().TriggerConsumption(false);
+                    }
                 }
             }
         }
@@ -70,6 +96,7 @@ public class PowerupObject : VoBehavior, IPausable
      * Private
      */
     private Timer _destructionTimer;
+    private Timer _throwScaleTimer;
     private bool _throwing;
 
     private const string THROW_VMOD = "THROW";

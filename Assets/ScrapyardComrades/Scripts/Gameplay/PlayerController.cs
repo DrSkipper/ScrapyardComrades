@@ -63,7 +63,7 @@ public class PlayerController : SCCharacterController, PowerupConsumer
             GlobalEvents.Notifier.SendEvent(new PlayerDiedEvent());
         }
 
-        if (_glowMaterial != null)
+        if (this.PowerupLevels != null)
         {
             float target = _powerupTier > 0 ? this.GlowPowerBase + _powerupTier * this.GlowPowerPerTier : 0.0f;
             _glowAmt = _glowAmt.Approach(target, this.GlowPowerLerpSpeed);
@@ -102,13 +102,16 @@ public class PlayerController : SCCharacterController, PowerupConsumer
     {
         base.updateControlParameters();
 
-        // Apply parameter modifications based on power level
-        int powerupLevel = Mathf.Clamp(SaveData.PlayerStats.PowerupCount, 0, this.PowerupLevels.TiersByPowerupLevel.Length - 1);
-        PowerupTiers tiers = this.PowerupLevels.TiersByPowerupLevel[powerupLevel];
+        if (this.PowerupLevels != null)
+        {
+            // Apply parameter modifications based on power level
+            int powerupLevel = Mathf.Clamp(SaveData.PlayerStats.PowerupCount, 0, this.PowerupLevels.TiersByPowerupLevel.Length - 1);
+            PowerupTiers tiers = this.PowerupLevels.TiersByPowerupLevel[powerupLevel];
 
-        updatePowerupState(tiers);
-        if (_powerupTier > 0)
-            applyCurrentPowerupState(tiers);
+            updatePowerupState(tiers);
+            if (_powerupTier > 0)
+                applyCurrentPowerupState(tiers);
+        }
     }
 
     private void updatePowerupState(PowerupTiers tiers)

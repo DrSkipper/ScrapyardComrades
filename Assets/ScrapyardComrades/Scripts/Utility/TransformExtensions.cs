@@ -68,6 +68,16 @@ public static class TransformExtensions
         self.localScale = new Vector3(x, self.localScale.y, self.localScale.z);
     }
 
+    public static void SetScaleY(this Transform self, float y)
+    {
+        self.localScale = new Vector3(self.localScale.x, y, self.localScale.z);
+    }
+
+    public static void SetScale2D(this Transform self, float x, float y)
+    {
+        self.localScale = new Vector3(x, y, self.localScale.z);
+    }
+
     public static float Distance2D(this Transform self, Transform other)
     {
         return Vector2.Distance(self.position, other.position);
