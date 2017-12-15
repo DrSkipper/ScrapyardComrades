@@ -15,9 +15,16 @@ public class SwitchConfigurer : ObjectConfigurer
     public const string FALSE = "false";
     public const string ONE_WAY = "one_way";
     public const string DEFAULT_STATE = "default_state";
+    public const string COLOR = "color";
+    public const string YELLOW = "yellow";
 
     public Switch SwitchScript;
     public AreaSwitch SwitchDetectionScript; //TODO: Interface that AreaSwitch implements
+    public SpriteRenderer ButtonRenderer;
+    public Sprite YellowButtonSprite;
+    public Sprite RedButtonSprite;
+    public Sprite PurpButtonSprite;
+    public Sprite BlueButtonSprite;
 
     public override ObjectParamType[] ParameterTypes
     {
@@ -43,6 +50,12 @@ public class SwitchConfigurer : ObjectConfigurer
                 new ObjectParamType(DEFAULT_STATE, new string[] {
                     Switch.OFF,
                     Switch.ON
+                }),
+                new ObjectParamType(COLOR, new string[] {
+                    YELLOW,
+                    DoorConfigurer.RED_DOOR,
+                    DoorConfigurer.PURP_DOOR,
+                    DoorConfigurer.BLUE_DOOR
                 })
             };
         }
@@ -66,6 +79,9 @@ public class SwitchConfigurer : ObjectConfigurer
                 break;
             case DEFAULT_STATE:
                 configureDefaultState(option);
+                break;
+            case COLOR:
+                configureColor(option);
                 break;
         }
     }
@@ -125,6 +141,29 @@ public class SwitchConfigurer : ObjectConfigurer
                 break;
             case Switch.OFF:
                 this.SwitchScript.DefaultState = Switch.SwitchState.OFF;
+                break;
+        }
+    }
+
+    private void configureColor(string option)
+    {
+        switch (option)
+        {
+            default:
+                LogInvalidParameter(NAME, COLOR, option);
+                this.ButtonRenderer.sprite = this.YellowButtonSprite;
+                break;
+            case YELLOW:
+                this.ButtonRenderer.sprite = this.YellowButtonSprite;
+                break;
+            case DoorConfigurer.RED_DOOR:
+                this.ButtonRenderer.sprite = this.RedButtonSprite;
+                break;
+            case DoorConfigurer.PURP_DOOR:
+                this.ButtonRenderer.sprite = this.PurpButtonSprite;
+                break;
+            case DoorConfigurer.BLUE_DOOR:
+                this.ButtonRenderer.sprite = this.BlueButtonSprite;
                 break;
         }
     }

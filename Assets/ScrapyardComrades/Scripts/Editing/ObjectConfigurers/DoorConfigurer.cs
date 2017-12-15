@@ -4,9 +4,9 @@ public class DoorConfigurer : ObjectConfigurer
 {
     private const string NAME = "Door";
     private const string DOOR_TYPE = "type";
-    private const string RED_DOOR = "red";
-    private const string PURP_DOOR = "purp";
-    private const string BLUE_DOOR = "blue";
+    public const string RED_DOOR = "red";
+    public const string PURP_DOOR = "purp";
+    public const string BLUE_DOOR = "blue";
 
     public SCSpriteAnimation RedOpenAnimation;
     public SCSpriteAnimation RedCloseAnimation;

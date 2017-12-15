@@ -12813,6 +12813,10 @@
         {
           "Name": "default_state",
           "CurrentOption": "OFF"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "red"
         }
       ]
     },
@@ -12867,6 +12871,10 @@
         {
           "Name": "default_state",
           "CurrentOption": "OFF"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "purp"
         }
       ]
     },
@@ -12892,6 +12900,10 @@
         {
           "Name": "default_state",
           "CurrentOption": "OFF"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "purp"
         }
       ]
     },
@@ -12917,6 +12929,10 @@
         {
           "Name": "default_state",
           "CurrentOption": "OFF"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     },
@@ -12942,6 +12958,10 @@
         {
           "Name": "default_state",
           "CurrentOption": "OFF"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     },
@@ -13004,14 +13024,6 @@
       ]
     },
     {
-      "name": "objects_EnemyPlant_88",
-      "prefab_name": "EnemyPlant",
-      "x": 1054,
-      "y": 488,
-      "z": -2,
-      "parameters": null
-    },
-    {
       "name": "objects_EnemyPlant_89",
       "prefab_name": "EnemyPlant",
       "x": 864,
@@ -13029,10 +13041,10 @@
       ]
     },
     {
-      "name": "objects_EnemyPlant_90",
+      "name": "objects_EnemyPlant_91",
       "prefab_name": "EnemyPlant",
-      "x": 668,
-      "y": 488,
+      "x": 1168,
+      "y": 554,
       "z": -2,
       "parameters": [
         {
@@ -13046,7 +13058,7 @@
       ]
     }
   ],
-  "next_object_id": 91,
+  "next_object_id": 92,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 26,
