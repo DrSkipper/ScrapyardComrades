@@ -9,20 +9,16 @@ public class DoorSwitchable : VoBehavior
 
     private void Awake()
     {
+        _currentSwitchState = Switch.SwitchState.OFF;
         this.GetComponent<SwitchListener>().StateChangeCallback += onStateChange;
-        _stateTransitionCooldown = new Timer(STATE_TRANSITION_COOLDOWN, false, false);
-    }
-
-    void OnSpawn()
-    {
-        this.integerCollider.AddToCollisionPool();
+        _stateTransitionCooldown = new Timer(STATE_TRANSITION_COOLDOWN, false, true);
         _stateTransitionCooldown.complete();
     }
 
     void OnReturnToPool()
     {
-        close();
-        this.integerCollider.RemoveFromCollisionPool();
+        open();
+        _stateTransitionCooldown.complete();
     }
 
     /**
@@ -55,10 +51,14 @@ public class DoorSwitchable : VoBehavior
 
     private void open()
     {
-        _currentSwitchState = Switch.SwitchState.OFF;
+        if (_currentSwitchState != Switch.SwitchState.OFF)
+        {
+            this.integerCollider.RemoveFromCollisionPool();
+            _currentSwitchState = Switch.SwitchState.OFF;
+        }
+
         _stateTransitionCooldown.reset();
         _stateTransitionCooldown.start();
-        this.integerCollider.enabled = false;
         this.Animator.PlayAnimation(this.OpenAnimation);
     }
 
@@ -76,10 +76,14 @@ public class DoorSwitchable : VoBehavior
 
     private void close()
     {
-        _currentSwitchState = Switch.SwitchState.ON;
+        if (_currentSwitchState != Switch.SwitchState.ON)
+        {
+            this.integerCollider.AddToCollisionPool();
+            _currentSwitchState = Switch.SwitchState.ON;
+        }
+
         _stateTransitionCooldown.reset();
         _stateTransitionCooldown.start();
-        this.integerCollider.enabled = true;
         this.Animator.PlayAnimation(this.CloseAnimation);
     }
 }
