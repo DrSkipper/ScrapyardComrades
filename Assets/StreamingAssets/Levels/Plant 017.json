@@ -3231,24 +3231,24 @@
           "sprite_name": "plant_tileset_178"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_33"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_34"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_35"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_36"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_39"
         },
         {
           "is_filled": false,
@@ -3424,27 +3424,27 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_35"
+          "sprite_name": "plant_tileset_14"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_37"
+          "sprite_name": "plant_tileset_11"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_38"
+          "sprite_name": "plant_tileset_23"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_37"
+          "sprite_name": "plant_tileset_23"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_34"
+          "sprite_name": "plant_tileset_15"
         },
         {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_39"
+          "is_filled": false,
+          "sprite_name": "plant_tileset_178"
         },
         {
           "is_filled": false,
@@ -3636,7 +3636,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_6"
+          "sprite_name": "plant_tileset_56"
         },
         {
           "is_filled": false,
@@ -12469,6 +12469,32 @@
           "CurrentOption": "C"
         }
       ]
+    },
+    {
+      "name": "props_OneWayPlatform_15",
+      "prefab_name": "OneWayPlatform",
+      "x": 688,
+      "y": 560,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "B"
+        }
+      ]
+    },
+    {
+      "name": "props_OneWayPlatform_16",
+      "prefab_name": "OneWayPlatform",
+      "x": 720,
+      "y": 560,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "C"
+        }
+      ]
     }
   ],
   "props_background": [],
@@ -13294,10 +13320,64 @@
       "y": 638,
       "z": -2,
       "parameters": null
+    },
+    {
+      "name": "objects_DoorHorizontal_47",
+      "prefab_name": "DoorHorizontal",
+      "x": 1392,
+      "y": 518,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "blue"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "D_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "false"
+        }
+      ]
+    },
+    {
+      "name": "objects_Switch_48",
+      "prefab_name": "Switch",
+      "x": 1216,
+      "y": 646,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "switch_name",
+          "CurrentOption": "D_switch"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "one_way",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        }
+      ]
     }
   ],
-  "next_object_id": 47,
-  "next_prop_id": 15,
+  "next_object_id": 49,
+  "next_prop_id": 17,
   "next_prop_bg_id": 0,
   "next_light_id": 3,
   "lights": [
