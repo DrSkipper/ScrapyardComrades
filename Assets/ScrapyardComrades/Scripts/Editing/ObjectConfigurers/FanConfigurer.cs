@@ -12,6 +12,14 @@ public class FanConfigurer : ObjectConfigurer
 
     public WindFan FanScript;
     public SwitchListener SwitchListenerScript;
+    public SCSpriteAnimation YellowStoppedAnim;
+    public SCSpriteAnimation YellowRunningAnim;
+    public SCSpriteAnimation RedStoppedAnim;
+    public SCSpriteAnimation RedRunningAnim;
+    public SCSpriteAnimation PurpStoppedAnim;
+    public SCSpriteAnimation PurpRunningAnim;
+    public SCSpriteAnimation BlueStoppedAnim;
+    public SCSpriteAnimation BlueRunningAnim;
 
     public override ObjectParamType[] ParameterTypes
     {
@@ -43,6 +51,13 @@ public class FanConfigurer : ObjectConfigurer
                 new ObjectParamType(IGNORE_EVENTS, new string[] {
                     SwitchConfigurer.FALSE,
                     SwitchConfigurer.TRUE
+                }),
+                new ObjectParamType(SwitchConfigurer.COLOR, new string[]
+                {
+                    SwitchConfigurer.YELLOW,
+                    DoorConfigurer.RED_DOOR,
+                    DoorConfigurer.PURP_DOOR,
+                    DoorConfigurer.BLUE_DOOR
                 })
             };
         }
@@ -69,6 +84,9 @@ public class FanConfigurer : ObjectConfigurer
                 break;
             case IGNORE_EVENTS:
                 configureIgnoreEvents(option);
+                break;
+            case SwitchConfigurer.COLOR:
+                configureColor(option);
                 break;
         }
     }
@@ -150,6 +168,34 @@ public class FanConfigurer : ObjectConfigurer
                 break;
             case SwitchConfigurer.FALSE:
                 this.SwitchListenerScript.IgnoreEvents = false;
+                break;
+        }
+    }
+
+    private void configureColor(string option)
+    {
+        switch (option)
+        {
+            default:
+                LogInvalidParameter(NAME, SwitchConfigurer.COLOR, option);
+                this.FanScript.StoppedAnimation = this.YellowStoppedAnim;
+                this.FanScript.RunningAnimation = this.YellowRunningAnim;
+                break;
+            case SwitchConfigurer.YELLOW:
+                this.FanScript.StoppedAnimation = this.YellowStoppedAnim;
+                this.FanScript.RunningAnimation = this.YellowRunningAnim;
+                break;
+            case DoorConfigurer.RED_DOOR:
+                this.FanScript.StoppedAnimation = this.RedStoppedAnim;
+                this.FanScript.RunningAnimation = this.RedRunningAnim;
+                break;
+            case DoorConfigurer.PURP_DOOR:
+                this.FanScript.StoppedAnimation = this.PurpStoppedAnim;
+                this.FanScript.RunningAnimation = this.PurpRunningAnim;
+                break;
+            case DoorConfigurer.BLUE_DOOR:
+                this.FanScript.StoppedAnimation = this.BlueStoppedAnim;
+                this.FanScript.RunningAnimation = this.BlueRunningAnim;
                 break;
         }
     }
