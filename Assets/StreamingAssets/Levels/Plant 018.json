@@ -13031,39 +13031,6 @@
       ]
     },
     {
-      "name": "objects_FloorFan_87",
-      "prefab_name": "FloorFan",
-      "x": 142,
-      "y": 158,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "attach",
-          "CurrentOption": "d"
-        },
-        {
-          "Name": "inverse",
-          "CurrentOption": "true"
-        },
-        {
-          "Name": "switch_name",
-          "CurrentOption": "A_switch"
-        },
-        {
-          "Name": "default_state",
-          "CurrentOption": "OFF"
-        },
-        {
-          "Name": "ignore_events",
-          "CurrentOption": "false"
-        },
-        {
-          "Name": "color",
-          "CurrentOption": "blue"
-        }
-      ]
-    },
-    {
       "name": "objects_EnemyPlant_89",
       "prefab_name": "EnemyPlant",
       "x": 864,
@@ -13096,9 +13063,68 @@
           "CurrentOption": "player"
         }
       ]
+    },
+    {
+      "name": "objects_Generator_92",
+      "prefab_name": "Generator",
+      "x": 864,
+      "y": 142,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ]
+    },
+    {
+      "name": "objects_Generator_93",
+      "prefab_name": "Generator",
+      "x": 144,
+      "y": 142,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ]
+    },
+    {
+      "name": "objects_FloorFan_94",
+      "prefab_name": "FloorFan",
+      "x": 142,
+      "y": 156,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "d"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "A_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ]
     }
   ],
-  "next_object_id": 92,
+  "next_object_id": 95,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 26,
