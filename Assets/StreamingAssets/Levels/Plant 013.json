@@ -12340,7 +12340,32 @@
       "x": 224,
       "y": 476,
       "z": -2,
-      "parameters": null
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "d"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "A_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ]
     },
     {
       "name": "objects_FloorFan_36",
@@ -12368,6 +12393,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "true"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     },
@@ -12397,6 +12426,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     },
@@ -12426,6 +12459,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     },
@@ -12455,6 +12492,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     },
@@ -12484,6 +12525,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     },
@@ -12513,6 +12558,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     },
@@ -12542,6 +12591,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     },
@@ -12571,6 +12624,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     },
@@ -12600,6 +12657,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     },
@@ -12629,6 +12690,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     },
@@ -12638,7 +12703,32 @@
       "x": 1184,
       "y": 636,
       "z": -2,
-      "parameters": null
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "d"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "switch_name",
+          "CurrentOption": "A_switch"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        },
+        {
+          "Name": "ignore_events",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ]
     },
     {
       "name": "objects_HeroLV1_49",
@@ -12652,7 +12742,7 @@
       "name": "objects_FloorFan_50",
       "prefab_name": "FloorFan",
       "x": 672,
-      "y": 772,
+      "y": 740,
       "z": -2,
       "parameters": [
         {
@@ -12674,11 +12764,54 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ]
+    },
+    {
+      "name": "objects_Generator_51",
+      "prefab_name": "Generator",
+      "x": 238,
+      "y": 462,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ]
+    },
+    {
+      "name": "objects_Generator_52",
+      "prefab_name": "Generator",
+      "x": 324,
+      "y": 670,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ]
+    },
+    {
+      "name": "objects_Generator_53",
+      "prefab_name": "Generator",
+      "x": 644,
+      "y": 854,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     }
   ],
-  "next_object_id": 51,
+  "next_object_id": 54,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 15,

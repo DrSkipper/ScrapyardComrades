@@ -13026,6 +13026,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     },
@@ -13063,6 +13067,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     },
@@ -13092,6 +13100,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     },
@@ -13100,14 +13112,6 @@
       "prefab_name": "Boulder",
       "x": 626,
       "y": 222,
-      "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Switch_71",
-      "prefab_name": "Switch",
-      "x": 554,
-      "y": 198,
       "z": -2,
       "parameters": null
     },
@@ -13165,9 +13169,103 @@
           "CurrentOption": "u"
         }
       ]
+    },
+    {
+      "name": "objects_Switch_75",
+      "prefab_name": "Switch",
+      "x": 560,
+      "y": 198,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "switch_name",
+          "CurrentOption": "A_switch"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "one_way",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ]
+    },
+    {
+      "name": "objects_Generator_76",
+      "prefab_name": "Generator",
+      "x": 398,
+      "y": 694,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ]
+    },
+    {
+      "name": "objects_Generator_77",
+      "prefab_name": "Generator",
+      "x": 946,
+      "y": 694,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ]
+    },
+    {
+      "name": "objects_Generator_78",
+      "prefab_name": "Generator",
+      "x": 996,
+      "y": 534,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ]
+    },
+    {
+      "name": "objects_Generator_79",
+      "prefab_name": "Generator",
+      "x": 360,
+      "y": 462,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ]
+    },
+    {
+      "name": "objects_Generator_80",
+      "prefab_name": "Generator",
+      "x": 296,
+      "y": 142,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ]
     }
   ],
-  "next_object_id": 75,
+  "next_object_id": 81,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 12,
