@@ -10,6 +10,11 @@ public class SwitchConfigurer : ObjectConfigurer
     public const string SWITCH_D = "D_switch";
     public const string SWITCH_E = "E_switch";
     public const string SWITCH_F = "F_switch";
+    public const string SWITCH_G = "G_switch";
+    public const string SWITCH_H = "H_switch";
+    public const string SWITCH_I = "I_switch";
+    public const string SWITCH_J = "J_switch";
+    public const string SWITCH_K = "K_switch";
     public const string INVERSE_SWITCH = "inverse";
     public const string TRUE = "true";
     public const string FALSE = "false";
@@ -37,7 +42,12 @@ public class SwitchConfigurer : ObjectConfigurer
                     SWITCH_C,
                     SWITCH_D,
                     SWITCH_E,
-                    SWITCH_F
+                    SWITCH_F,
+                    SWITCH_G,
+                    SWITCH_H,
+                    SWITCH_I,
+                    SWITCH_J,
+                    SWITCH_K
                 }),
                 new ObjectParamType(INVERSE_SWITCH, new string[] {
                     FALSE,

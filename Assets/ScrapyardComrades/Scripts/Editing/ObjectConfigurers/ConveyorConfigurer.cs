@@ -56,7 +56,12 @@ public class ConveyorConfigurer : ObjectConfigurer
                     SwitchConfigurer.SWITCH_C,
                     SwitchConfigurer.SWITCH_D,
                     SwitchConfigurer.SWITCH_E,
-                    SwitchConfigurer.SWITCH_F
+                    SwitchConfigurer.SWITCH_F,
+                    SwitchConfigurer.SWITCH_G,
+                    SwitchConfigurer.SWITCH_H,
+                    SwitchConfigurer.SWITCH_I,
+                    SwitchConfigurer.SWITCH_J,
+                    SwitchConfigurer.SWITCH_K
                 }),
                 new ObjectParamType(SwitchConfigurer.DEFAULT_STATE, new string[] {
                     Switch.OFF,
