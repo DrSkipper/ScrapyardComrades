@@ -4059,32 +4059,32 @@
           "sprite_name": "plant_tileset_178"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_33"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_34"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_37"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_35"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_38"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_39"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_139"
         },
         {
           "is_filled": false,
@@ -4252,7 +4252,43 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "plant_tileset_14"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_21"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_13"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "plant_tileset_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_35"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_38"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_38"
         },
         {
           "is_filled": true,
@@ -4260,43 +4296,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_34"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_34"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_34"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "plant_tileset_39"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
         },
         {
           "is_filled": false,
@@ -4464,19 +4464,31 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "plant_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_21"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_22"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "plant_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_37"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_38"
         },
         {
           "is_filled": true,
@@ -4484,35 +4496,23 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_36"
+          "sprite_name": "plant_tileset_35"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_35"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_38"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_38"
         },
         {
           "is_filled": true,
           "sprite_name": "plant_tileset_39"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_125"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
         },
         {
           "is_filled": false,
@@ -4680,19 +4680,47 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_13"
+          "sprite_name": "plant_tileset_12"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_34"
+          "sprite_name": "plant_tileset_12"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_34"
+          "sprite_name": "plant_tileset_10"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_38"
+          "sprite_name": "plant_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_26"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "plant_tileset_178"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "plant_tileset_178"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "plant_tileset_178"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_33"
         },
         {
           "is_filled": true,
@@ -4700,35 +4728,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_36"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "plant_tileset_39"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
         },
         {
           "is_filled": false,
@@ -4912,7 +4912,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_33"
+          "sprite_name": "plant_tileset_20"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_21"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_13"
         },
         {
           "is_filled": true,
@@ -4920,43 +4928,35 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "plant_tileset_35"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_36"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_37"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "plant_tileset_39"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_139"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_140"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_141"
         },
         {
           "is_filled": false,
@@ -5112,6 +5112,30 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "plant_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_21"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "plant_tileset_22"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "plant_tileset_13"
         },
         {
@@ -5124,43 +5148,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_37"
+          "sprite_name": "plant_tileset_38"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_37"
+          "sprite_name": "plant_tileset_38"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_36"
+          "sprite_name": "plant_tileset_34"
         },
         {
           "is_filled": true,
           "sprite_name": "plant_tileset_39"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "plant_tileset_125"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
         },
         {
           "is_filled": false,
@@ -5328,31 +5328,31 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_13"
+          "sprite_name": "plant_tileset_21"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_38"
+          "sprite_name": "plant_tileset_11"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_36"
+          "sprite_name": "plant_tileset_22"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_34"
+          "sprite_name": "plant_tileset_21"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_36"
+          "sprite_name": "plant_tileset_23"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_36"
+          "sprite_name": "plant_tileset_22"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_39"
+          "sprite_name": "plant_tileset_26"
         },
         {
           "is_filled": false,
@@ -12462,7 +12462,7 @@
       "name": "objects_FloorFan_41",
       "prefab_name": "FloorFan",
       "x": 288,
-      "y": 708,
+      "y": 676,
       "z": -2,
       "parameters": [
         {
@@ -12491,7 +12491,7 @@
       "name": "objects_FloorFan_42",
       "prefab_name": "FloorFan",
       "x": 480,
-      "y": 740,
+      "y": 708,
       "z": -2,
       "parameters": [
         {
@@ -12520,7 +12520,7 @@
       "name": "objects_FloorFan_44",
       "prefab_name": "FloorFan",
       "x": 864,
-      "y": 804,
+      "y": 772,
       "z": -2,
       "parameters": [
         {
@@ -12549,7 +12549,7 @@
       "name": "objects_FloorFan_45",
       "prefab_name": "FloorFan",
       "x": 1056,
-      "y": 836,
+      "y": 804,
       "z": -2,
       "parameters": [
         {
@@ -12578,7 +12578,7 @@
       "name": "objects_FloorFan_46",
       "prefab_name": "FloorFan",
       "x": 1248,
-      "y": 868,
+      "y": 836,
       "z": -2,
       "parameters": [
         {
