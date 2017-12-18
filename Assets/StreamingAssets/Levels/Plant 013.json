@@ -12809,9 +12809,48 @@
           "CurrentOption": "blue"
         }
       ]
+    },
+    {
+      "name": "objects_Turret_54",
+      "prefab_name": "Turret",
+      "x": 432,
+      "y": 416,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "u"
+        }
+      ]
+    },
+    {
+      "name": "objects_Turret_55",
+      "prefab_name": "Turret",
+      "x": 816,
+      "y": 480,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "u"
+        }
+      ]
+    },
+    {
+      "name": "objects_Turret_56",
+      "prefab_name": "Turret",
+      "x": 1376,
+      "y": 430,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "r"
+        }
+      ]
     }
   ],
-  "next_object_id": 54,
+  "next_object_id": 57,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 15,

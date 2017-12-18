@@ -13557,9 +13557,69 @@
           "CurrentOption": "purp"
         }
       ]
+    },
+    {
+      "name": "objects_Generator_59",
+      "prefab_name": "Generator",
+      "x": 240,
+      "y": 392,
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_Generator_60",
+      "prefab_name": "Generator",
+      "x": 240,
+      "y": 328,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ]
+    },
+    {
+      "name": "objects_Generator_61",
+      "prefab_name": "Generator",
+      "x": 416,
+      "y": 558,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "purp"
+        }
+      ]
+    },
+    {
+      "name": "objects_Generator_62",
+      "prefab_name": "Generator",
+      "x": 736,
+      "y": 558,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "purp"
+        }
+      ]
+    },
+    {
+      "name": "objects_Generator_63",
+      "prefab_name": "Generator",
+      "x": 988,
+      "y": 494,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "red"
+        }
+      ]
     }
   ],
-  "next_object_id": 59,
+  "next_object_id": 64,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 16,
