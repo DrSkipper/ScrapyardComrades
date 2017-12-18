@@ -12356,6 +12356,10 @@
         {
           "Name": "default_state",
           "CurrentOption": "OFF"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "red"
         }
       ]
     },
@@ -12385,6 +12389,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "red"
         }
       ]
     },
@@ -12414,6 +12422,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
       ]
     },
@@ -12443,6 +12455,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "red"
         }
       ]
     },
@@ -12472,6 +12488,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "purp"
         }
       ]
     },
@@ -12501,6 +12521,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "purp"
         }
       ]
     },
@@ -12530,6 +12554,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "purp"
         }
       ]
     },
@@ -12559,6 +12587,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "purp"
         }
       ]
     },
@@ -12596,6 +12628,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "purp"
         }
       ]
     },
@@ -12625,6 +12661,10 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "purp"
         }
       ]
     },
@@ -12650,6 +12690,10 @@
         {
           "Name": "default_state",
           "CurrentOption": "OFF"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "purp"
         }
       ]
     },
@@ -12675,6 +12719,10 @@
         {
           "Name": "default_state",
           "CurrentOption": "OFF"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "purp"
         }
       ]
     },
@@ -13469,7 +13517,7 @@
         },
         {
           "Name": "switch_name",
-          "CurrentOption": "G_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "default_state",
@@ -13490,7 +13538,7 @@
       "parameters": [
         {
           "Name": "switch_name",
-          "CurrentOption": "G_switch"
+          "CurrentOption": "C_switch"
         },
         {
           "Name": "inverse",
