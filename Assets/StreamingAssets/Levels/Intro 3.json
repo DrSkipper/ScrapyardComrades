@@ -12376,14 +12376,6 @@
           "CurrentOption": "slide"
         }
       ]
-    },
-    {
-      "name": "props_NPC_Old_Lady_A_3",
-      "prefab_name": "NPC_Old_Lady_A",
-      "x": 830,
-      "y": 324,
-      "z": 2,
-      "parameters": null
     }
   ],
   "props_background": [
@@ -12434,22 +12426,6 @@
       "prefab_name": "HeroLV1",
       "x": 48,
       "y": 324,
-      "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Powerup_1",
-      "prefab_name": "Powerup",
-      "x": 880,
-      "y": 304,
-      "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_TriggerBox_2",
-      "prefab_name": "TriggerBox",
-      "x": 798,
-      "y": 302,
       "z": -2,
       "parameters": null
     }
