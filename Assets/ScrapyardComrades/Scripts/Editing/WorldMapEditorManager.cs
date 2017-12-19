@@ -344,22 +344,49 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         this.Save();
     }
 
-    private string findUsableName(string startingName)
+    private string findUsableName(string startingName, int minDigits = 2)
     {
         bool done = false;
         while (!done)
         {
+            // Keep incrementing name's number until we have something that doesn't exist yet
             done = true;
             foreach (string name in _quadVisuals.Keys)
             {
+                // If this name already exists
                 if (name == startingName)
                 {
-                    string finalDigit = name.Substring(name.Length - 1);
-                    int digit;
-                    if (int.TryParse(finalDigit, out digit))
-                        startingName = name.Substring(0, name.Length - 1) + ((int)(digit + 1));
+                    // Get the number at the end of the name (if there is one)
+                    string digits = name;
+                    int index = name.LastIndexOf(StringExtensions.SPACE) + 1;
+                    if (index > 0)
+                    {
+                        digits = index < name.Length ? name.Substring(index, name.Length - index) : StringExtensions.EMPTY;
+
+                        // Get the name before the number
+                        startingName = name.Substring(0, index);
+                    }
                     else
+                    {
+                        startingName = StringExtensions.EMPTY;
+                    }
+
+                    // Evaluate the int value of the number at the end of the name
+                    int number;
+                    if (int.TryParse(digits, out number))
+                    {
+                        // Increment the number and guarantee the min number of digits desired
+                        ++number;
+                        digits = StringExtensions.EMPTY + number;
+                        while (digits.Length < minDigits)
+                            digits = "0" + digits;
+                        startingName += digits;
+                    }
+                    else
+                    {
                         startingName += "0";
+                    }
+                    
                     done = false;
                     break;
                 }
