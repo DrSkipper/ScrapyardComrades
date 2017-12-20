@@ -11,7 +11,10 @@ public class ConveyorConfigurer : ObjectConfigurer
     private const string SWITCH_MODE = "switch_mode";
     private const string ENABLE_DISABLE = "enable_disable";
     private const string TOGGLE_DIRECTION = "toggle_direction";
+    private const string SPEED = "speed";
+    private const int DEFAULT_SPEED = 4;
 
+    public StaticMovingPlatform MovingPlatformScript;
     public ConveyorBelt ConveyorScript;
     public SwitchListener SwitchListenerScript;
     public PositionType Position;
@@ -74,6 +77,16 @@ public class ConveyorConfigurer : ObjectConfigurer
                 new ObjectParamType(SWITCH_MODE, new string[] {
                     ENABLE_DISABLE,
                     TOGGLE_DIRECTION
+                }),
+                new ObjectParamType(SPEED, new string[] {
+                    StringExtensions.EMPTY + DEFAULT_SPEED,
+                    StringExtensions.EMPTY + (DEFAULT_SPEED + 1),
+                    StringExtensions.EMPTY + (DEFAULT_SPEED + 2),
+                    StringExtensions.EMPTY + (DEFAULT_SPEED + 3),
+                    StringExtensions.EMPTY + (DEFAULT_SPEED + 4),
+                    StringExtensions.EMPTY + (DEFAULT_SPEED - 3),
+                    StringExtensions.EMPTY + (DEFAULT_SPEED - 2),
+                    StringExtensions.EMPTY + (DEFAULT_SPEED - 1)
                 })
             };
         }
@@ -106,6 +119,9 @@ public class ConveyorConfigurer : ObjectConfigurer
                 break;
             case SWITCH_MODE:
                 configureSwitchMode(option);
+                break;
+            case SPEED:
+                configureSpeed(option);
                 break;
         }
     }
@@ -223,6 +239,19 @@ public class ConveyorConfigurer : ObjectConfigurer
             case TOGGLE_DIRECTION:
                 this.ConveyorScript.OnSwitchAction = ConveyorBelt.SwitchBehavior.DirectionToggle;
                 break;
+        }
+    }
+
+    private void configureSpeed(string option)
+    {
+        int speed;
+        if (int.TryParse(option, out speed))
+        {
+            this.MovingPlatformScript.StaticVelociy = this.MovingPlatformScript.StaticVelociy.normalized * speed;
+        }
+        else
+        {
+            this.MovingPlatformScript.StaticVelociy = this.MovingPlatformScript.StaticVelociy.normalized * DEFAULT_SPEED;
         }
     }
 }

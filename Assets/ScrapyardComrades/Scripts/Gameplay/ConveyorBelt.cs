@@ -20,23 +20,27 @@ public class ConveyorBelt : MonoBehaviour
 
     void Awake()
     {
-        _velocity = this.MovingPlatform.Velocity;
         _currentFacing = this.DefaultDirection;
         this.SwitchListener.StateChangeCallback += onSwitchStateChange;
     }
 
     void OnSpawn()
     {
+        _v = this.MovingPlatform.StaticVelociy;
         if (this.OnSwitchAction == SwitchBehavior.EnableDisable)
             _currentFacing = this.DefaultDirection;
+    }
+
+    void OnReturnToPool()
+    {
+        this.MovingPlatform.StaticVelociy = _v;
     }
 
     /**
      * Private
      */
     private SCCharacterController.Facing _currentFacing;
-    private bool _enabled;
-    private Vector2 _velocity;
+    private Vector2 _v;
 
     private void onSwitchStateChange(Switch.SwitchState state)
     {
@@ -67,7 +71,7 @@ public class ConveyorBelt : MonoBehaviour
     private void playCurrent()
     {
         float mult = _currentFacing == SCCharacterController.Facing.Left ? -1 : 1;
-        this.MovingPlatform.StaticVelociy = new Vector2(mult * _velocity.x, mult * _velocity.y);
+        this.MovingPlatform.StaticVelociy = new Vector2(mult * Mathf.Abs(_v.x), mult * Mathf.Abs(_v.y));
         this.Animator.PlayAnimation(_currentFacing == SCCharacterController.Facing.Left ? this.LeftAnimation : this.RightAnimation);
     }
 }
