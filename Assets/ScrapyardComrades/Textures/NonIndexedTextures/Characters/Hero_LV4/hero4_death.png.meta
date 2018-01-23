@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ea2e75df72f8574499afcd4e16d25669
-timeCreated: 1516247509
+timeCreated: 1516675472
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -32,7 +32,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -106,128 +106,128 @@ TextureImporter:
         y: 397
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
       name: hero4_death_1
-      rect:
-        serializedVersion: 2
-        x: 85
-        y: 397
-        width: 85
-        height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero4_death_2
-      rect:
-        serializedVersion: 2
-        x: 170
-        y: 397
-        width: 85
-        height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero4_death_3
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 397
-        width: 85
-        height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero4_death_4
-      rect:
-        serializedVersion: 2
-        x: 340
-        y: 397
-        width: 85
-        height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero4_death_5
-      rect:
-        serializedVersion: 2
-        x: 425
-        y: 397
-        width: 85
-        height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero4_death_6
       rect:
         serializedVersion: 2
         x: 0
         y: 282
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
-      name: hero4_death_7
+      name: hero4_death_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 167
+        width: 85
+        height: 115
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hero4_death_3
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 397
+        width: 85
+        height: 115
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hero4_death_4
       rect:
         serializedVersion: 2
         x: 85
         y: 282
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
-      name: hero4_death_8
+      name: hero4_death_5
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 397
+        width: 85
+        height: 115
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hero4_death_6
       rect:
         serializedVersion: 2
         x: 170
         y: 282
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
-      name: hero4_death_9
+      name: hero4_death_7
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 397
+        width: 85
+        height: 115
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hero4_death_8
       rect:
         serializedVersion: 2
         x: 255
         y: 282
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hero4_death_9
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 397
+        width: 85
+        height: 115
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
     - serializedVersion: 2
       name: hero4_death_10
       rect:
@@ -236,37 +236,37 @@ TextureImporter:
         y: 282
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
       name: hero4_death_11
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 397
+        width: 85
+        height: 115
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hero4_death_12
       rect:
         serializedVersion: 2
         x: 425
         y: 282
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero4_death_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 167
-        width: 85
-        height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     outline: []
   spritePackingTag: lvl_1
   userData: 

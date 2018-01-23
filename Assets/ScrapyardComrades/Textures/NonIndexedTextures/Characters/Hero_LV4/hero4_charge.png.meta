@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6b9573a2b8262bc47897d37e42e3664c
-timeCreated: 1516247503
+timeCreated: 1516675449
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -29,7 +29,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -103,128 +103,128 @@ TextureImporter:
         y: 141
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
       name: hero4_charge_1
-      rect:
-        serializedVersion: 2
-        x: 85
-        y: 141
-        width: 85
-        height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero4_charge_2
-      rect:
-        serializedVersion: 2
-        x: 170
-        y: 141
-        width: 85
-        height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero4_charge_3
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 141
-        width: 85
-        height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero4_charge_4
-      rect:
-        serializedVersion: 2
-        x: 340
-        y: 141
-        width: 85
-        height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero4_charge_5
-      rect:
-        serializedVersion: 2
-        x: 425
-        y: 141
-        width: 85
-        height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hero4_charge_6
       rect:
         serializedVersion: 2
         x: 0
         y: 26
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
-      name: hero4_charge_7
+      name: hero4_charge_2
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 141
+        width: 85
+        height: 115
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hero4_charge_3
       rect:
         serializedVersion: 2
         x: 85
         y: 26
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
-      name: hero4_charge_8
+      name: hero4_charge_4
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 141
+        width: 85
+        height: 115
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hero4_charge_5
       rect:
         serializedVersion: 2
         x: 170
         y: 26
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
-      name: hero4_charge_9
+      name: hero4_charge_6
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 141
+        width: 85
+        height: 115
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hero4_charge_7
       rect:
         serializedVersion: 2
         x: 255
         y: 26
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hero4_charge_8
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 141
+        width: 85
+        height: 115
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hero4_charge_9
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 141
+        width: 85
+        height: 115
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: lvl_1
   userData: 
