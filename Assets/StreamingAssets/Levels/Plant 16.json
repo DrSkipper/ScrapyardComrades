@@ -12352,15 +12352,15 @@
       ]
     },
     {
-      "name": "objects_HeroMutant_2",
-      "prefab_name": "HeroMutant",
-      "x": 342,
-      "y": 188,
+      "name": "objects_HeroLV4_3",
+      "prefab_name": "HeroLV4",
+      "x": 290,
+      "y": 186,
       "z": -2,
       "parameters": null
     }
   ],
-  "next_object_id": 3,
+  "next_object_id": 4,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 3,
