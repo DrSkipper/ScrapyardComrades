@@ -101,9 +101,9 @@ public class SpriteAnimationCreator : EditorWindow
         List<SpriteMetaData> spriteData = new List<SpriteMetaData>();
 
         int count = 0;
-        for (int i = 0; i <= texture.width - spriteWidth; i += spriteWidth)
+        for (int j = texture.height; j >= spriteHeight; j -= spriteHeight)
         {
-            for (int j = texture.height; j >= spriteHeight; j -= spriteHeight)
+            for (int i = 0; i <= texture.width - spriteWidth; i += spriteWidth)
             {
                 Rect region = new Rect(i, j - spriteHeight, spriteWidth, spriteHeight);
 

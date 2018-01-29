@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ea2e75df72f8574499afcd4e16d25669
-timeCreated: 1516675472
+timeCreated: 1517262864
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -115,8 +115,8 @@ TextureImporter:
       name: hero4_death_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 282
+        x: 85
+        y: 397
         width: 85
         height: 115
       alignment: 9
@@ -128,8 +128,8 @@ TextureImporter:
       name: hero4_death_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 167
+        x: 170
+        y: 397
         width: 85
         height: 115
       alignment: 9
@@ -141,7 +141,7 @@ TextureImporter:
       name: hero4_death_3
       rect:
         serializedVersion: 2
-        x: 85
+        x: 255
         y: 397
         width: 85
         height: 115
@@ -154,8 +154,8 @@ TextureImporter:
       name: hero4_death_4
       rect:
         serializedVersion: 2
-        x: 85
-        y: 282
+        x: 340
+        y: 397
         width: 85
         height: 115
       alignment: 9
@@ -167,7 +167,7 @@ TextureImporter:
       name: hero4_death_5
       rect:
         serializedVersion: 2
-        x: 170
+        x: 425
         y: 397
         width: 85
         height: 115
@@ -180,7 +180,7 @@ TextureImporter:
       name: hero4_death_6
       rect:
         serializedVersion: 2
-        x: 170
+        x: 0
         y: 282
         width: 85
         height: 115
@@ -193,8 +193,8 @@ TextureImporter:
       name: hero4_death_7
       rect:
         serializedVersion: 2
-        x: 255
-        y: 397
+        x: 85
+        y: 282
         width: 85
         height: 115
       alignment: 9
@@ -206,7 +206,7 @@ TextureImporter:
       name: hero4_death_8
       rect:
         serializedVersion: 2
-        x: 255
+        x: 170
         y: 282
         width: 85
         height: 115
@@ -219,8 +219,8 @@ TextureImporter:
       name: hero4_death_9
       rect:
         serializedVersion: 2
-        x: 340
-        y: 397
+        x: 255
+        y: 282
         width: 85
         height: 115
       alignment: 9
@@ -246,7 +246,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 425
-        y: 397
+        y: 282
         width: 85
         height: 115
       alignment: 9
@@ -258,8 +258,8 @@ TextureImporter:
       name: hero4_death_12
       rect:
         serializedVersion: 2
-        x: 425
-        y: 282
+        x: 0
+        y: 167
         width: 85
         height: 115
       alignment: 9

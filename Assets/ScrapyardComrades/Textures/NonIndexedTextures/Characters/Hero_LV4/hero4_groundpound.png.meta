@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3efcc1d4a3047da4e99ca707dc90e482
-timeCreated: 1516247526
+timeCreated: 1517262909
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -29,7 +29,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -103,11 +103,11 @@ TextureImporter:
         y: 141
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
       name: hero4_groundpound_1
       rect:
@@ -116,11 +116,11 @@ TextureImporter:
         y: 141
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
       name: hero4_groundpound_2
       rect:
@@ -129,11 +129,11 @@ TextureImporter:
         y: 141
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
       name: hero4_groundpound_3
       rect:
@@ -142,11 +142,11 @@ TextureImporter:
         y: 141
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
       name: hero4_groundpound_4
       rect:
@@ -155,11 +155,11 @@ TextureImporter:
         y: 141
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
       name: hero4_groundpound_5
       rect:
@@ -168,11 +168,11 @@ TextureImporter:
         y: 141
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
       name: hero4_groundpound_6
       rect:
@@ -181,11 +181,11 @@ TextureImporter:
         y: 26
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
       name: hero4_groundpound_7
       rect:
@@ -194,11 +194,11 @@ TextureImporter:
         y: 26
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
       name: hero4_groundpound_8
       rect:
@@ -207,11 +207,11 @@ TextureImporter:
         y: 26
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
       name: hero4_groundpound_9
       rect:
@@ -220,11 +220,11 @@ TextureImporter:
         y: 26
         width: 85
         height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     outline: []
   spritePackingTag: lvl_1
   userData: 

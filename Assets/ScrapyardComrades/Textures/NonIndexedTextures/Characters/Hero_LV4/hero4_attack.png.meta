@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fcf39edc5134d854ea684ccc7a4205fb
-timeCreated: 1516674146
+timeCreated: 1517262767
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -244,19 +244,6 @@ TextureImporter:
       name: hero4_attack_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 26
-        width: 85
-        height: 115
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: hero4_attack_2
-      rect:
-        serializedVersion: 2
         x: 85
         y: 141
         width: 85
@@ -267,20 +254,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: hero4_attack_3
-      rect:
-        serializedVersion: 2
-        x: 85
-        y: 26
-        width: 85
-        height: 115
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: hero4_attack_4
+      name: hero4_attack_2
       rect:
         serializedVersion: 2
         x: 170
@@ -293,7 +267,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: hero4_attack_5
+      name: hero4_attack_3
       rect:
         serializedVersion: 2
         x: 255
@@ -306,7 +280,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: hero4_attack_6
+      name: hero4_attack_4
       rect:
         serializedVersion: 2
         x: 340
@@ -319,11 +293,37 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: hero4_attack_7
+      name: hero4_attack_5
       rect:
         serializedVersion: 2
         x: 425
         y: 141
+        width: 85
+        height: 115
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hero4_attack_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 26
+        width: 85
+        height: 115
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hero4_attack_7
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 26
         width: 85
         height: 115
       alignment: 9
