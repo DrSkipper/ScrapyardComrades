@@ -89,8 +89,10 @@ public class HitStunEvent : LocalEventNotifier.Event
     public float AirFrictionMultiplier;
     public bool Blocked;
     public bool Raging;
+    public bool Dead;
+    public IntegerVector HitPos;
 
-    public HitStunEvent(int numFrames, float gravityMultiplier, float airFrictionMultiplier, bool blocked, bool raging)
+    public HitStunEvent(int numFrames, float gravityMultiplier, float airFrictionMultiplier, bool blocked, bool raging, bool dead, IntegerVector hitPos)
     {
         this.Name = NAME;
         this.NumFrames = numFrames;
@@ -98,6 +100,8 @@ public class HitStunEvent : LocalEventNotifier.Event
         this.AirFrictionMultiplier = airFrictionMultiplier;
         this.Blocked = blocked;
         this.Raging = raging;
+        this.Dead = dead;
+        this.HitPos = hitPos;
     }
 }
 

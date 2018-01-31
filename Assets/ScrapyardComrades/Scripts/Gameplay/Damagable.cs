@@ -23,7 +23,7 @@ public class Damagable : VoBehavior, IPausable
     {
         _invincibilityTimer = new Timer(1, false, false);
         _freezeFrameEvent = new FreezeFrameEvent(FREEZE_FRAMES);
-        _hitStunEvent = new HitStunEvent(1, 1.0f, 1.0f, false, false);
+        _hitStunEvent = new HitStunEvent(1, 1.0f, 1.0f, false, false, false, Vector2.zero);
         _healEvent = new HealEvent(this.Health, this.Health, this.MaxHealth, this.MaxHealth);
         _prevLayer = this.gameObject.layer;
 
@@ -112,6 +112,8 @@ public class Damagable : VoBehavior, IPausable
         _hitStunEvent.AirFrictionMultiplier = hitData.HitStunAirFrictionMultiplier;
         _hitStunEvent.Blocked = false;
         _hitStunEvent.Raging = raging && !this.Dead;
+        _hitStunEvent.Dead = this.Dead;
+        _hitStunEvent.HitPos = hitPoint;
 
         // SFX
         if (!hitData.HitSfx.IsEmpty())
