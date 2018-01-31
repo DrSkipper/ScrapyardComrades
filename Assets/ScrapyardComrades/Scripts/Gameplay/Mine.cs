@@ -11,15 +11,48 @@ public class Mine : VoBehavior, IPausable
     public Transform ExplosionLocation;
     public AudioClip ExplosionSound;
     public bool TriggerOnCollision = true;
+    public TurretController.AttachDir AttachedAt = TurretController.AttachDir.Down;
 
     void Awake()
     {
+        _ourCollider = this.GetComponent<IntegerRectCollider>();
         _nearbyColliders = new List<IntegerCollider>();
+        _defaultColliderOffset = _ourCollider.Offset;
+        _defaultColliderSize = _ourCollider.Size;
         this.localNotifier.Listen(HitStunEvent.NAME, this, onHit);
     }
 
     void OnSpawn()
     {
+        switch (this.AttachedAt)
+        {
+            default:
+            case TurretController.AttachDir.Down:
+                _normal = Vector2.up;
+                this.transform.rotation = Quaternion.Euler(0, 0, 0);
+                _ourCollider.Offset = _defaultColliderOffset;
+                _ourCollider.Size = _defaultColliderSize;
+                break;
+            case TurretController.AttachDir.Up:
+                _normal = Vector2.down;
+                this.transform.rotation = Quaternion.Euler(0, 0, 180);
+                _ourCollider.Offset = new IntegerVector(_defaultColliderOffset.X, -_defaultColliderOffset.Y - 1);
+                _ourCollider.Size = _defaultColliderSize;
+                break;
+            case TurretController.AttachDir.Left:
+                _normal = Vector2.right;
+                this.transform.rotation = Quaternion.Euler(0, 0, -90);
+                _ourCollider.Offset = new IntegerVector(_defaultColliderOffset.Y, -_defaultColliderOffset.X);
+                _ourCollider.Size = new IntegerVector(_defaultColliderSize.Y, _defaultColliderSize.X);
+                break;
+            case TurretController.AttachDir.Right:
+                _normal = Vector2.left;
+                this.transform.rotation = Quaternion.Euler(0, 0, 90);
+                _ourCollider.Offset = new IntegerVector(-_defaultColliderOffset.Y, _defaultColliderOffset.X);
+                _ourCollider.Size = new IntegerVector(_defaultColliderSize.Y, _defaultColliderSize.X);
+                break;
+        }
+
         this.integerCollider.AddToCollisionPool();
 
         if (this.TriggerOnCollision)
@@ -63,8 +96,12 @@ public class Mine : VoBehavior, IPausable
     /**
      * Private
      */
+    private IntegerRectCollider _ourCollider;
     private List<IntegerCollider> _nearbyColliders;
     private int _framesUntilColliderGet;
+    private Vector2 _normal;
+    private IntegerVector _defaultColliderOffset;
+    private IntegerVector _defaultColliderSize;
 
     private static int FRAME_OFFSET = 0;
     private const int ENLARGE_AMT = 40;

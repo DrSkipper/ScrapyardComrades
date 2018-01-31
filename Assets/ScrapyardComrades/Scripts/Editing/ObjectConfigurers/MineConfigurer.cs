@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 
-public class TurretConfigurer : ObjectConfigurer
+public class MineConfigurer : ObjectConfigurer
 {
-    private const string NAME = "Turret";
+    private const string NAME = "Mine";
     public const string ATTACH_DIR_TYPE = "attach";
     public const string ATTACH_DOWN = "d";
     public const string ATTACH_UP = "u";
     public const string ATTACH_LEFT = "l";
     public const string ATTACH_RIGHT = "r";
 
-    public TurretController TurretScript;
-    
+    public Mine MineScript;
+
     public override ObjectParamType[] ParameterTypes
     {
         get
@@ -48,19 +48,19 @@ public class TurretConfigurer : ObjectConfigurer
         {
             default:
                 LogInvalidParameter(NAME, ATTACH_DIR_TYPE, option);
-                this.TurretScript.AttachedAt = TurretController.AttachDir.Down;
+                this.MineScript.AttachedAt = TurretController.AttachDir.Down;
                 break;
             case ATTACH_DOWN:
-                this.TurretScript.AttachedAt = TurretController.AttachDir.Down;
+                this.MineScript.AttachedAt = TurretController.AttachDir.Down;
                 break;
             case ATTACH_UP:
-                this.TurretScript.AttachedAt = TurretController.AttachDir.Up;
+                this.MineScript.AttachedAt = TurretController.AttachDir.Up;
                 break;
             case ATTACH_LEFT:
-                this.TurretScript.AttachedAt = TurretController.AttachDir.Left;
+                this.MineScript.AttachedAt = TurretController.AttachDir.Left;
                 break;
             case ATTACH_RIGHT:
-                this.TurretScript.AttachedAt = TurretController.AttachDir.Right;
+                this.MineScript.AttachedAt = TurretController.AttachDir.Right;
                 break;
         }
     }
