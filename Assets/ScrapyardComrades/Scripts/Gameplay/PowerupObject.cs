@@ -11,7 +11,7 @@ public class PowerupObject : VoBehavior, IPausable
     public float Gravity = 1.0f;
 
     public bool ThrowSpawnAnimation = true;
-    public string ThrowOnEvent = "TRIGGER";
+    public string ThrowOnStateKey = "TRIGGER";
     public Vector2 ThrowSpawnVelocity;
     public float ThrowBounceMultiplier = 0.5f;
     public int ThrowScaleDuration = 35;
@@ -37,7 +37,7 @@ public class PowerupObject : VoBehavior, IPausable
                 _throwScaleTimer.start();
             }
 
-            GlobalEvents.Notifier.Listen(this.ThrowOnEvent, this, throwCoin);
+            GlobalEvents.Notifier.Listen(SwitchStateChangedEvent.NAME, this, onSwitchStateChange);
             this.transform.SetScale2D(0, 0);
         }
         else
@@ -49,7 +49,7 @@ public class PowerupObject : VoBehavior, IPausable
     void OnReturnToPool()
     {
         if (this.ThrowSpawnAnimation)
-            GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, this.ThrowOnEvent);
+            GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, SwitchStateChangedEvent.NAME);
     }
 
     void FixedUpdate()
@@ -101,7 +101,14 @@ public class PowerupObject : VoBehavior, IPausable
 
     private const string THROW_VMOD = "THROW";
     
-    private void throwCoin(LocalEventNotifier.Event e)
+    private void onSwitchStateChange(LocalEventNotifier.Event e)
+    {
+        SwitchStateChangedEvent switchEvent = e as SwitchStateChangedEvent;
+        if (switchEvent.SwitchName == this.ThrowOnStateKey && switchEvent.State == Switch.SwitchState.ON)
+            throwCoin();
+    }
+
+    private void throwCoin()
     {
         _throwing = true;
         this.Actor.enabled = true;

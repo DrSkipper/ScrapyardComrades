@@ -2,7 +2,7 @@
 
 public class TriggerBox : VoBehavior, IPausable
 {
-    public string EventToSend = "TRIGGER";
+    public string StateKeyToSetOn = "TRIGGER";
     public LayerMask TriggerMask;
 
     void OnSpawn()
@@ -21,9 +21,8 @@ public class TriggerBox : VoBehavior, IPausable
     {
         if (this.integerCollider.CollideFirst(0, 0, this.TriggerMask))
         {
-            LocalEventNotifier.Event e = new LocalEventNotifier.Event();
-            e.Name = this.EventToSend;
-            GlobalEvents.Notifier.SendEvent(e);
+            GlobalEvents.Notifier.SendEvent(new SwitchStateChangedEvent(this.StateKeyToSetOn, Switch.SwitchState.ON), true);
+            SaveData.SetGlobalState(this.StateKeyToSetOn, Switch.ON);
             this.GetComponent<WorldEntity>().TriggerConsumption(true);
         }
     }

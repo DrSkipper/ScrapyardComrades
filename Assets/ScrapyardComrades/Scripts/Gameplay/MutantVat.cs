@@ -60,7 +60,7 @@ public class MutantVat : VoBehavior
     void OnReturnToPool()
     {
         if (_state == State.Unbroken)
-        GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, SwitchStateChangedEvent.NAME);
+            GlobalEvents.Notifier.RemoveListenersForOwnerAndEventName(this, SwitchStateChangedEvent.NAME);
     }
 
     /**

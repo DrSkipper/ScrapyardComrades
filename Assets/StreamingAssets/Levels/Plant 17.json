@@ -12513,7 +12513,16 @@
       "x": 400,
       "y": 82,
       "z": -2,
-      "parameters": null
+      "parameters": [
+	    {
+		  "Name": "trigger_name",
+		  "CurrentOption": "powerup_a"
+		},
+		{
+		  "Name": "ThrowAnimation",
+		  "CurrentOption": "ON"
+		}
+	  ]
     },
     {
       "name": "objects_TriggerBox_4",
@@ -12521,7 +12530,12 @@
       "x": 518,
       "y": 86,
       "z": -2,
-      "parameters": null
+      "parameters": [
+	    {
+		  "Name": "trigger_name",
+		  "CurrentOption": "powerup_a"
+		}
+	  ]
     },
     {
       "name": "objects_FloorFan_5",
