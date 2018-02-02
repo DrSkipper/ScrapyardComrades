@@ -9,11 +9,14 @@ public class WorldEntity : VoBehavior
     {
         get
         {
+            if (EntityTracker.Instance == null)
+                return StringExtensions.EMPTY;
             return EntityTracker.Instance.GetEntityStateTag(this.QuadName, this.EntityName);
         }
         set
         {
-            EntityTracker.Instance.SetEntityStateTag(this.QuadName, this.EntityName, value);
+            if (EntityTracker.Instance != null)
+                EntityTracker.Instance.SetEntityStateTag(this.QuadName, this.EntityName, value);
         }
     }
 

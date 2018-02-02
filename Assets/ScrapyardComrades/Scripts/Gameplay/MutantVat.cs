@@ -100,6 +100,7 @@ public class MutantVat : VoBehavior
         WorldEntity otherEntity = spawnObj.GetComponent<WorldEntity>();
         otherEntity.QuadName = _entity.QuadName;
         otherEntity.EntityName = this.SpawnEntityKey;
+        spawnObj.GetComponent<Renderer>().sortingOrder = this.spriteRenderer.sortingOrder + 1;
 
         EntityTracker.Instance.TrackLoadedEntity(otherEntity);
         spawnObj.transform.SetPosition2D(this.SpawnPosition.position);
@@ -108,6 +109,8 @@ public class MutantVat : VoBehavior
 
     private void onSwitchStateChange(LocalEventNotifier.Event e)
     {
-        //TODO: set conditions met if our switch key is set
+        SwitchStateChangedEvent switchEvent = e as SwitchStateChangedEvent;
+        if (switchEvent.SwitchName == this.StateKeyForBreak)
+            _conditionsMet = switchEvent.State == Switch.SwitchState.ON;
     }
 }
