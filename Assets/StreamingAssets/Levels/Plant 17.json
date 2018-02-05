@@ -12514,15 +12514,15 @@
       "y": 82,
       "z": -2,
       "parameters": [
-	    {
-		  "Name": "trigger_name",
-		  "CurrentOption": "powerup_a"
-		},
-		{
-		  "Name": "ThrowAnimation",
-		  "CurrentOption": "ON"
-		}
-	  ]
+        {
+          "Name": "trigger_name",
+          "CurrentOption": "powerup_a"
+        },
+        {
+          "Name": "ThrowAnimation",
+          "CurrentOption": "ON"
+        }
+      ]
     },
     {
       "name": "objects_TriggerBox_4",
@@ -12531,11 +12531,11 @@
       "y": 86,
       "z": -2,
       "parameters": [
-	    {
-		  "Name": "trigger_name",
-		  "CurrentOption": "powerup_a"
-		}
-	  ]
+        {
+          "Name": "trigger_name",
+          "CurrentOption": "powerup_a"
+        }
+      ]
     },
     {
       "name": "objects_FloorFan_5",
