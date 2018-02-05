@@ -3,12 +3,13 @@
 public class Consumable : VoBehavior, Interactable
 {
     public SCConsumable Data;
+    public int Bonus = 0;
     public AudioClip ConsumptionSound;
 
     public bool Interact(InteractionController interactor)
     {
-        int mutate = this.Data.MutateAmount;
-        int heal = this.Data.HealAmount;
+        int mutate = this.Data.MutateAmount + this.Bonus;
+        int heal = this.Data.HealAmount + this.Bonus;
 
         WorldEntity entity = this.GetComponent<WorldEntity>();
         if (entity != null && entity.enabled)
@@ -17,6 +18,9 @@ public class Consumable : VoBehavior, Interactable
             ObjectPools.Release(this.gameObject);
 
         interactor.GetComponent<Damagable>().IncreaseMaxHealth(mutate, heal);
+        HeartSpawner heartSpawner = interactor.GetComponent<HeartSpawner>();
+        if (heartSpawner != null)
+            heartSpawner.Bonus += mutate;
 
         if (_heartConsumedEvent == null)
             _heartConsumedEvent = new HeartConsumedEvent(this.transform.position);

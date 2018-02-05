@@ -166,6 +166,12 @@ public class PlayerHealthController : VoBehavior, IPausable
 
         otherActor.SetFacingDirectly(this.GetComponent<SCCharacterController>().CurrentFacing);
 
+        // Make sure Heart Spawner bonus carries over
+        HeartSpawner ourHeartSpawner = this.GetComponent<HeartSpawner>();
+        HeartSpawner otherHeartSpawner = otherEntity.GetComponent<HeartSpawner>();
+        if (ourHeartSpawner != null && otherHeartSpawner != null)
+            otherHeartSpawner.Bonus = ourHeartSpawner.Bonus;
+
         SaveData.PlayerStats.MaxHealth = maxHealth;
         SaveData.PlayerStats.CurrentHealth = Mathf.Min(health + MUTATE_HEAL_AMT, maxHealth);
         nextLevel.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
