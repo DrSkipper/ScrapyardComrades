@@ -257,10 +257,13 @@ public class AttackController : VoBehavior, IPausable
                     IntegerVector offset = throwFrame.OriginOffset;
                     offset.X *= (int)facing;
                     thrownObject.transform.SetPosition2D(offset + (IntegerVector)(Vector2)this.transform.position);
-                    Vector2 velocity = throwFrame.ThrowDirection.normalized * throwFrame.ThrowVelocity;
+                    Vector2 throwDirNorm = throwFrame.ThrowDirection.normalized;
+                    Vector2 velocity = throwDirNorm * throwFrame.ThrowVelocity;
                     velocity.x *= (int)facing;
                     thrownObject.GetComponent<Actor2D>().Velocity = velocity;
                     thrownObject.transform.SetScaleX((int)facing);
+                    if (throwFrame.RotateSprite)
+                        thrownObject.transform.localRotation = Quaternion.Euler(0, 0, -1 * (int)facing * Vector2.Angle(Vector2.right, throwDirNorm));
                     thrownObject.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
                     break;
                 }

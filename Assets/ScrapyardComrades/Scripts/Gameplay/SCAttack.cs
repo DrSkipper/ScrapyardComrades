@@ -141,6 +141,7 @@ public class SCAttack : ScriptableObject
         public IntegerVector OriginOffset;
         public Vector2 ThrowDirection;
         public float ThrowVelocity;
+        public bool RotateSprite;
     }
 
     public MoveCategory Category;
