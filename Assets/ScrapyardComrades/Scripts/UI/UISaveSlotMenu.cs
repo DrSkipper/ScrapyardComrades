@@ -4,8 +4,8 @@ using System.Collections.Generic;
 public class UISaveSlotMenu : Menu
 {
     public const string EMPTY_SLOT = "empty";
-    public const string EMPTY_SLOT_NAME = "Start New Game";
-    public const string ERASE = "ERASE";
+    public const string EMPTY_SLOT_NAME = "START NEW GAME";
+    public const string ERASE = "Erase";
     public MenuMode Mode;
     public string EraseMenu = "EraseMenu";
 
@@ -39,8 +39,8 @@ public class UISaveSlotMenu : Menu
         }
 
         this.Elements = new MenuElement[SaveSlotData.MAX_SLOTS + (this.Mode == MenuMode.Loading ? 1 : 0)];
-        string prefix = this.Mode == MenuMode.Loading ? StringExtensions.EMPTY : "Erase: ";
-        string emptyName = this.Mode == MenuMode.Loading ? EMPTY_SLOT_NAME : "Empty Slot";
+        string prefix = this.Mode == MenuMode.Loading ? StringExtensions.EMPTY : "ERASE: ";
+        string emptyName = this.Mode == MenuMode.Loading ? EMPTY_SLOT_NAME : "EMPTY SLOT";
 
         for (int i = 0; i < SaveSlotData.MAX_SLOTS; ++i)
         {
@@ -67,7 +67,7 @@ public class UISaveSlotMenu : Menu
         {
             MenuElement eraseElement = new MenuElement();
             Action action = new Action();
-            eraseElement.Text = "Erase Slots";
+            eraseElement.Text = "ERASE SLOTS";
             action.Type = ActionType.Custom;
             action.Param = ERASE;
             eraseElement.Action = action;

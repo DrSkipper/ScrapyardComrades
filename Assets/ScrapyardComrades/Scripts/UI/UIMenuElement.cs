@@ -15,15 +15,10 @@ public class UIMenuElement : UIMenuElementSpec
     void Awake()
     {
         float h, s, v;
-        Color.RGBToHSV(this.UnselectedTextColor, out h, out s, out v);
-        _unhighlightedTextV = v;
-        Color.RGBToHSV(this.SelectedTextColor, out h, out s, out v);
-        _highlightedTextV = v;
-
-        Color.RGBToHSV(this.UnselectedOutlineColor, out h, out s, out v);
-        _unhighlightedOutlineV = v;
-        Color.RGBToHSV(this.SelectedOutlineColor, out h, out s, out v);
-        _highlightedOutlineV = v;
+        _unhighlightedTextHSV = this.UnselectedTextColor.GetHSV();
+        _highlightedTextHSV = this.SelectedTextColor.GetHSV();
+        _unhighlightedOutlineHSV = this.UnselectedOutlineColor.GetHSV();
+        _highlightedOutlineHSV = this.SelectedOutlineColor.GetHSV();
     }
 
     public override void Configure(Menu menu, Menu.MenuElement element)
@@ -77,21 +72,14 @@ public class UIMenuElement : UIMenuElementSpec
      */
     private int _t;
     private bool _highlighted;
-    private float _unhighlightedTextV;
-    private float _highlightedTextV;
-    private float _unhighlightedOutlineV;
-    private float _highlightedOutlineV;
+    private ColorExtensions.HSV _unhighlightedTextHSV;
+    private ColorExtensions.HSV _highlightedTextHSV;
+    private ColorExtensions.HSV _unhighlightedOutlineHSV;
+    private ColorExtensions.HSV _highlightedOutlineHSV;
 
     private void updateColor()
     {
-        float textV = Easing.Linear(_t, _unhighlightedTextV, _highlightedTextV - _unhighlightedTextV, this.AnimDuration);
-        float outlineV = Easing.Linear(_t, _unhighlightedOutlineV, _highlightedOutlineV - _unhighlightedOutlineV, this.AnimDuration);
-        
-        float h, s, v;
-        Color.RGBToHSV(this.Text.color, out h, out s, out v);
-        this.Text.color = Color.HSVToRGB(h, s, textV);
-        
-        Color.RGBToHSV(this.Outline.effectColor, out h, out s, out v);
-        this.Outline.effectColor = Color.HSVToRGB(h, s, outlineV);
+        this.Text.color = _unhighlightedTextHSV.LerpTo(_highlightedTextHSV, _t, this.AnimDuration).RGBColor;
+        this.Outline.effectColor = _unhighlightedOutlineHSV.LerpTo(_highlightedOutlineHSV, _t, this.AnimDuration).RGBColor;
     }
 }
