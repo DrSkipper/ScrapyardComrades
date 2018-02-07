@@ -320,3 +320,15 @@ public class SwitchStateChangedEvent : LocalEventNotifier.Event
         this.State = state;
     }
 }
+
+public class OptionsValueChangedEvent : LocalEventNotifier.Event
+{
+    public const string NAME = "OPTION";
+    public string OptionName;
+
+    public OptionsValueChangedEvent(string optionName)
+    {
+        this.Name = NAME;
+        this.OptionName = optionName;
+    }
+}

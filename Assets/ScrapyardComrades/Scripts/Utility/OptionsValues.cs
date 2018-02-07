@@ -25,6 +25,19 @@ public static class OptionsValues
                 changeVsync();
                 break;
         }
+        
+        // Broadcast notification that an options value has been changed
+        if (GlobalEvents.Notifier != null)
+        {
+            if (_valueChangeEvent == null)
+                _valueChangeEvent = new OptionsValueChangedEvent(key);
+            else
+                _valueChangeEvent.OptionName = key;
+
+            GlobalEvents.Notifier.SendEvent(_valueChangeEvent, true);
+        }
+
+        // Save the player prefs
         PlayerPrefs.Save();
     }
 
@@ -47,6 +60,7 @@ public static class OptionsValues
      * Private
      */
     private static Resolution[] _fullscreenResolutions;
+    private static OptionsValueChangedEvent _valueChangeEvent;
     private const string ON = "ON";
     private const string OFF = "OFF";
 

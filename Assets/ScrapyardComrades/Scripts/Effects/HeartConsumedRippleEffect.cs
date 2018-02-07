@@ -5,6 +5,7 @@ public class HeartConsumedRippleEffect : MonoBehaviour
     public Material RippleMaterial;
     public SimpleCameraShaderEffect Effect;
     public Camera Camera;
+    public CameraController CameraController;
     public string BoundsVariableName = "_Bounds";
     public string TimeVariableName = "_T";
     public string IntensityVariableName = "_Intensity";
@@ -56,12 +57,24 @@ public class HeartConsumedRippleEffect : MonoBehaviour
 
     private void updateVisual(bool wipePosition = false)
     {
-        Vector2 pos = this.Camera.WorldToScreenPoint(_effectPos);
-        pos.x /= Screen.width;
-        pos.y /= Screen.height;
-
+        Vector2 pos;
+        
         if (wipePosition)
+        {
             pos = Vector2.zero;
+        }
+        else if (this.Camera.targetTexture != null)
+        {
+            pos = _effectPos - ((Vector2)this.CameraController.transform.position - new Vector2(this.CameraController.CameraViewWidth / 2.0f, this.CameraController.CameraViewHeight / 2.0f));
+            pos.x /= (float)this.CameraController.CameraViewWidth;
+            pos.y /= (float)this.CameraController.CameraViewHeight;
+        }
+        else
+        {
+            pos = this.Camera.WorldToScreenPoint(_effectPos);
+            pos.x /= Screen.width;
+            pos.y /= Screen.height;
+        }
 
         float intensity = this.MaxIntensity;
         if (_t >= this.TimeToMaxIntensity)

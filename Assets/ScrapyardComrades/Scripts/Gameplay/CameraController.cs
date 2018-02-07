@@ -21,27 +21,9 @@ public class CameraController : VoBehavior, IPausable
     {
         _tracker = this.InitialTracker;
         _boundsHandler = this.WorldBoundsHandler.GetComponent<CameraBoundsHandler>();
-        int cameraHeight = Screen.height;
-        while (cameraHeight > this.ResolutionDoublingThreshold)
-            cameraHeight /= 2;
-        Camera.orthographicSize = cameraHeight;
-        _attemptedHeight = cameraHeight * PIXELS_TO_UNITS;
-        _attemptedWidth = Mathf.RoundToInt((float)_attemptedHeight * (float)Screen.width / (float)Screen.height);
-        this.CameraViewWidth = _attemptedWidth;
-        this.CameraViewHeight = _attemptedHeight;
+        recalculateRendering();
 
-        //if (Screen.fullScreen)
-        //    Screen.SetResolution(_attemptedWidth, _attemptedHeight, true);
-
-        if (_attemptedHeight < Screen.height)
-        {
-            //Debug.Log("Creating render texture for scene of size " + _attemptedWidth + "," + _attemptedHeight);
-            //int cameraWidth = Mathf.RoundToInt((float)cameraHeight * (float)Screen.width / Screen.height);
-            RenderTexture rt = new RenderTexture(_attemptedWidth, _attemptedHeight, 16);
-            this.Camera.targetTexture = rt;
-            this.UpscaleImage.gameObject.SetActive(true);
-            this.UpscaleImage.texture = rt;
-        }
+        GlobalEvents.Notifier.Listen(OptionsValueChangedEvent.NAME, this, onOptionChange);
 
         _easingDelegate = Easing.GetFunction(this.TransitionEasingFunction, this.TransitionEasingFlow);
         this.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
@@ -143,6 +125,55 @@ public class CameraController : VoBehavior, IPausable
             _transitionTime = 0.0f;
             this.CalculateBounds();
         }
+    }
+
+    private void onOptionChange(LocalEventNotifier.Event e)
+    {
+        string optionName = (e as OptionsValueChangedEvent).OptionName;
+        if (optionName == OptionsValues.FULLSCREEN_KEY || 
+            optionName == OptionsValues.RESOLUTION_KEY)
+            recalculateRendering();
+    }
+
+    private void recalculateRendering()
+    {
+        int cameraHeight = Screen.height;
+        while (cameraHeight > this.ResolutionDoublingThreshold)
+            cameraHeight /= 2;
+        Camera.orthographicSize = cameraHeight;
+        _attemptedHeight = cameraHeight * PIXELS_TO_UNITS;
+        _attemptedWidth = Mathf.RoundToInt((float)_attemptedHeight * (float)Screen.width / (float)Screen.height);
+        this.CameraViewWidth = _attemptedWidth;
+        this.CameraViewHeight = _attemptedHeight;
+
+        // Set up a render texture for upscaling if render resolution is lower than the screen's resolution
+#if !UNITY_EDITOR
+        if (_attemptedHeight < Screen.height)
+        {
+            bool needRefresh = true;
+
+            if (this.Camera.targetTexture != null)
+            {
+                if (this.Camera.targetTexture.width == _attemptedWidth && this.Camera.targetTexture.height == _attemptedHeight)
+                    needRefresh = false;
+                else
+                    this.Camera.targetTexture.Release();
+            }
+
+            if (needRefresh)
+            {
+                RenderTexture rt = new RenderTexture(_attemptedWidth, _attemptedHeight, 16);
+                this.Camera.targetTexture = rt;
+                this.UpscaleImage.gameObject.SetActive(true);
+                this.UpscaleImage.texture = rt;
+            }
+        }
+        else if (this.Camera.targetTexture != null)
+        {
+            this.Camera.targetTexture.Release();
+            this.Camera.targetTexture = null;
+        }
+#endif
     }
 
     private IntegerVector getDestination()
