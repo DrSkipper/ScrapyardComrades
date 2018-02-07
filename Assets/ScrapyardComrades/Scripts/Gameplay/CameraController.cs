@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraController : VoBehavior, IPausable
 {
@@ -14,6 +15,8 @@ public class CameraController : VoBehavior, IPausable
     public int CameraViewHeight { get; private set; }
     public int ResolutionDoublingThreshold = 270;
 
+    public RawImage UpscaleImage;
+
     void Awake()
     {
         _tracker = this.InitialTracker;
@@ -26,6 +29,20 @@ public class CameraController : VoBehavior, IPausable
         _attemptedWidth = Mathf.RoundToInt((float)_attemptedHeight * (float)Screen.width / (float)Screen.height);
         this.CameraViewWidth = _attemptedWidth;
         this.CameraViewHeight = _attemptedHeight;
+
+        //if (Screen.fullScreen)
+        //    Screen.SetResolution(_attemptedWidth, _attemptedHeight, true);
+
+        if (_attemptedHeight < Screen.height)
+        {
+            //Debug.Log("Creating render texture for scene of size " + _attemptedWidth + "," + _attemptedHeight);
+            //int cameraWidth = Mathf.RoundToInt((float)cameraHeight * (float)Screen.width / Screen.height);
+            RenderTexture rt = new RenderTexture(_attemptedWidth, _attemptedHeight, 16);
+            this.Camera.targetTexture = rt;
+            this.UpscaleImage.gameObject.SetActive(true);
+            this.UpscaleImage.texture = rt;
+        }
+
         _easingDelegate = Easing.GetFunction(this.TransitionEasingFunction, this.TransitionEasingFlow);
         this.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
     }

@@ -14,7 +14,6 @@ public class UIMenuElement : UIMenuElementSpec
 
     void Awake()
     {
-        float h, s, v;
         _unhighlightedTextHSV = this.UnselectedTextColor.GetHSV();
         _highlightedTextHSV = this.SelectedTextColor.GetHSV();
         _unhighlightedOutlineHSV = this.UnselectedOutlineColor.GetHSV();
