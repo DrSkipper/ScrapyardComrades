@@ -66,7 +66,7 @@ public class LightFlash : MonoBehaviour, IPausable
         float targetIntensity = hsIntensity ? this.StartIntensity : this.EndIntensity;
 
         this.Light.range = _rangeDelegate(hsRange ? _t - _horseshoeDuration :_t, initialRange, targetRange - initialRange, this.HorseshoeRange ? _horseshoeDuration : this.Duration);
-        this.Light.intensity = _rangeDelegate(hsIntensity ? _t - _horseshoeDuration : _t, initialIntensity, targetIntensity - initialIntensity, this.HorseshoeIntensity ? _horseshoeDuration : this.Duration);
+        this.Light.intensity = _intensityDelegate(hsIntensity ? _t - _horseshoeDuration : _t, initialIntensity, targetIntensity - initialIntensity, this.HorseshoeIntensity ? _horseshoeDuration : this.Duration);
 
         ++_t;
 
