@@ -25,7 +25,10 @@ public static class OptionsValues
                 changeVsync();
                 break;
         }
-        
+
+        // Save the player prefs
+        PlayerPrefs.Save();
+
         // Broadcast notification that an options value has been changed
         if (GlobalEvents.Notifier != null)
         {
@@ -36,9 +39,6 @@ public static class OptionsValues
 
             GlobalEvents.Notifier.SendEvent(_valueChangeEvent, true);
         }
-
-        // Save the player prefs
-        PlayerPrefs.Save();
     }
 
     public static string GetDisplaySuffix(string key)

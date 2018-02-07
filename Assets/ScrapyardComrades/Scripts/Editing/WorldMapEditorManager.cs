@@ -28,7 +28,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         return this.WorldBounds;
     }
 
-    void Start()
+    void Awake()
     {
         this.Load();
         this.NewLevelPanel.CompletionCallback = levelCreated;

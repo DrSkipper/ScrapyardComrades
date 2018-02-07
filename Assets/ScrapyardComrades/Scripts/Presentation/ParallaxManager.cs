@@ -18,6 +18,7 @@ public class ParallaxManager : VoBehavior, IPausable
         _origins = new Dictionary<int, IntegerVector>();
         GlobalEvents.Notifier.Listen(PauseEvent.NAME, this, onPause);
         GlobalEvents.Notifier.Listen(WorldRecenterEvent.NAME, this, onRecenter);
+        GlobalEvents.Notifier.Listen(OptionsValueChangedEvent.NAME, this, onOptionChange);
     }
 
     void Start()
@@ -164,6 +165,14 @@ public class ParallaxManager : VoBehavior, IPausable
                 objects[i] = entry;
             }
         }
+    }
+
+    private void onOptionChange(LocalEventNotifier.Event e)
+    {
+        string optionName = (e as OptionsValueChangedEvent).OptionName;
+        if (optionName == OptionsValues.FULLSCREEN_KEY ||
+            optionName == OptionsValues.RESOLUTION_KEY)
+            loadParallaxForCurrentQuad(false);
     }
 
     private void loadParallaxForCurrentQuad(bool transition)

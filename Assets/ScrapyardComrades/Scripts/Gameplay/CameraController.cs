@@ -23,19 +23,10 @@ public class CameraController : VoBehavior, IPausable
         _boundsHandler = this.WorldBoundsHandler.GetComponent<CameraBoundsHandler>();
         recalculateRendering();
 
-        GlobalEvents.Notifier.Listen(OptionsValueChangedEvent.NAME, this, onOptionChange);
-
         _easingDelegate = Easing.GetFunction(this.TransitionEasingFunction, this.TransitionEasingFlow);
         this.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
-    }
-
-    void Start()
-    {
-        this.BoundsChecker.Size.Y = _attemptedHeight;
-        _attemptedHeight -= this.RoomBorder * 2;
-        _attemptedWidth -= this.RoomBorder * 2;
-        this.CalculateBounds();
-
+        
+        GlobalEvents.Notifier.Listen(OptionsValueChangedEvent.NAME, this, onOptionChange);
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
         GlobalEvents.Notifier.Listen(PauseEvent.NAME, this, onPause);
     }
@@ -62,8 +53,7 @@ public class CameraController : VoBehavior, IPausable
         {
             if (!_inTransition)
             {
-                IntegerVector destination = getDestination();
-                this.transform.position = new Vector3(destination.X, destination.Y, this.transform.position.z);
+                updateTowardDestination();
             }
             else
             {
@@ -137,18 +127,30 @@ public class CameraController : VoBehavior, IPausable
 
     private void recalculateRendering()
     {
-        int cameraHeight = Screen.height;
+        int screenWidth = PlayerPrefs.GetInt(OptionsValues.RESOLUTION_WIDTH_KEY, Screen.width);
+        int screenHeight = PlayerPrefs.GetInt(OptionsValues.RESOLUTION_HEIGHT_KEY, Screen.height);
+
+        int cameraHeight = screenHeight;
         while (cameraHeight > this.ResolutionDoublingThreshold)
             cameraHeight /= 2;
-        Camera.orthographicSize = cameraHeight;
+        this.Camera.orthographicSize = cameraHeight;
         _attemptedHeight = cameraHeight * PIXELS_TO_UNITS;
-        _attemptedWidth = Mathf.RoundToInt((float)_attemptedHeight * (float)Screen.width / (float)Screen.height);
+        _attemptedWidth = Mathf.RoundToInt((float)_attemptedHeight * (float)screenWidth / (float)screenHeight);
         this.CameraViewWidth = _attemptedWidth;
         this.CameraViewHeight = _attemptedHeight;
+        
+        // Bounds
+        this.BoundsChecker.Size.Y = _attemptedHeight;
+        _attemptedHeight -= this.RoomBorder * 2;
+        _attemptedWidth -= this.RoomBorder * 2;
+        this.CalculateBounds();
+
+        if (_tracker != null)
+            updateTowardDestination();
 
         // Set up a render texture for upscaling if render resolution is lower than the screen's resolution
 #if !UNITY_EDITOR
-        if (_attemptedHeight < Screen.height)
+        if (this.UpscaleImage != null &&  _attemptedHeight < screenHeight)
         {
             bool needRefresh = true;
 
@@ -172,8 +174,15 @@ public class CameraController : VoBehavior, IPausable
         {
             this.Camera.targetTexture.Release();
             this.Camera.targetTexture = null;
+            this.UpscaleImage.gameObject.SetActive(false);
         }
 #endif
+    }
+
+    private void updateTowardDestination()
+    {
+        IntegerVector destination = getDestination();
+        this.transform.position = new Vector3(destination.X, destination.Y, this.transform.position.z);
     }
 
     private IntegerVector getDestination()
