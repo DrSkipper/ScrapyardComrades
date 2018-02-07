@@ -164,7 +164,7 @@ public class CameraController : VoBehavior, IPausable
 
             if (needRefresh)
             {
-                RenderTexture rt = new RenderTexture(_attemptedWidth, _attemptedHeight, 16);
+                RenderTexture rt = new RenderTexture(_attemptedWidth, _attemptedHeight, 0);
                 this.Camera.targetTexture = rt;
                 this.UpscaleImage.gameObject.SetActive(true);
                 this.UpscaleImage.texture = rt;
