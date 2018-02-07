@@ -28,25 +28,25 @@ public class Mine : VoBehavior, IPausable
         {
             default:
             case TurretController.AttachDir.Down:
-                _normal = Vector2.up;
+                //_normal = Vector2.up;
                 this.transform.rotation = Quaternion.Euler(0, 0, 0);
                 _ourCollider.Offset = _defaultColliderOffset;
                 _ourCollider.Size = _defaultColliderSize;
                 break;
             case TurretController.AttachDir.Up:
-                _normal = Vector2.down;
+                //_normal = Vector2.down;
                 this.transform.rotation = Quaternion.Euler(0, 0, 180);
                 _ourCollider.Offset = new IntegerVector(_defaultColliderOffset.X, -_defaultColliderOffset.Y - 1);
                 _ourCollider.Size = _defaultColliderSize;
                 break;
             case TurretController.AttachDir.Left:
-                _normal = Vector2.right;
+                //_normal = Vector2.right;
                 this.transform.rotation = Quaternion.Euler(0, 0, -90);
                 _ourCollider.Offset = new IntegerVector(_defaultColliderOffset.Y, -_defaultColliderOffset.X);
                 _ourCollider.Size = new IntegerVector(_defaultColliderSize.Y, _defaultColliderSize.X);
                 break;
             case TurretController.AttachDir.Right:
-                _normal = Vector2.left;
+                //_normal = Vector2.left;
                 this.transform.rotation = Quaternion.Euler(0, 0, 90);
                 _ourCollider.Offset = new IntegerVector(-_defaultColliderOffset.Y, _defaultColliderOffset.X);
                 _ourCollider.Size = new IntegerVector(_defaultColliderSize.Y, _defaultColliderSize.X);
@@ -80,6 +80,7 @@ public class Mine : VoBehavior, IPausable
                     Actor2D actor = damagable.GetComponent<Actor2D>();
                     float vx = actor == null ? 0.0f : actor.Velocity.x;
 
+                    //TODO: Rotate knockback direction based on normal
                     damagable.Damage(this.HitData, (Vector2)this.transform.position, (Vector2)this.transform.position, vx > 0.0f ? SCCharacterController.Facing.Left : SCCharacterController.Facing.Right);
 
                     explode();
@@ -99,7 +100,7 @@ public class Mine : VoBehavior, IPausable
     private IntegerRectCollider _ourCollider;
     private List<IntegerCollider> _nearbyColliders;
     private int _framesUntilColliderGet;
-    private Vector2 _normal;
+    //private Vector2 _normal;
     private IntegerVector _defaultColliderOffset;
     private IntegerVector _defaultColliderSize;
 
