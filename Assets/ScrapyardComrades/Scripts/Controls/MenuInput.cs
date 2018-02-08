@@ -18,6 +18,7 @@ public static class MenuInput
     public static bool Confirm { get { return RewiredPlayer.GetButtonDown(CONFIRM); } }
     public static bool ConfirmHeld { get { return RewiredPlayer.GetButton(CONFIRM); } }
     public static bool Action { get { return RewiredPlayer.GetButtonDown(ACTION); } }
+    public static bool ActionLong { get { return RewiredPlayer.GetButtonLongPressDown(ACTION); } }
     public static bool SwapModes { get { return RewiredPlayer.GetButtonDown(MODE_SWAP); } }
     public static bool Cancel { get { return RewiredPlayer.GetButtonDown(CANCEL); } }
     public static bool Exit { get { return RewiredPlayer.GetButtonDown(EXIT); } }

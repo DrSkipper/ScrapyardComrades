@@ -326,7 +326,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
             {
                 layer.ApplyBrush(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
             }
-            else if (MenuInput.Action)
+            else if (MenuInput.ActionLong)
             {
                 layer.ReplaceFill(this.Cursor.GridPos.X, this.Cursor.GridPos.Y);
             }
