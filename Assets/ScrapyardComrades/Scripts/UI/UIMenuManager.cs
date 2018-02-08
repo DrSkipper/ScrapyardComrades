@@ -74,6 +74,13 @@ public class UIMenuManager : MonoBehaviour
                 else
                     handleAction(this.CancelAction);
             }
+            else if (_currentMenu.CurrentElementAllowsCycling())
+            {
+                if (cycleNext())
+                    cycleCurrent(1);
+                else if (cyclePrev())
+                    cycleCurrent(-1);
+            }
         }
     }
 
@@ -127,7 +134,16 @@ public class UIMenuManager : MonoBehaviour
         this.MenuBounds.BeginLerp();
     }
 
-    private void handleAction(Menu.Action action)
+    private void cycleCurrent(int dir)
+    {
+        Menu.Action action = _currentMenu.SelectCurrent();
+        if (action.Type == Menu.ActionType.Custom)
+            handleAction(this.ElementVisuals[_currentHighlight].HandleCustomAction(action, dir), dir);
+        else
+            handleAction(action, dir);
+    }
+
+    private void handleAction(Menu.Action action, int dir = 1)
     {
         switch (action.Type)
         {
@@ -230,6 +246,30 @@ public class UIMenuManager : MonoBehaviour
                 return MenuInput.NavDown;
             case MenuOrientation.Horizontal:
                 return MenuInput.NavRight;
+        }
+    }
+
+    private bool cyclePrev()
+    {
+        switch (this.Orientation)
+        {
+            default:
+            case MenuOrientation.Vertical:
+                return MenuInput.NavLeft;
+            case MenuOrientation.Horizontal:
+                return MenuInput.NavDown;
+        }
+    }
+
+    private bool cycleNext()
+    {
+        switch (this.Orientation)
+        {
+            default:
+            case MenuOrientation.Vertical:
+                return MenuInput.NavRight;
+            case MenuOrientation.Horizontal:
+                return MenuInput.NavUp;
         }
     }
 }

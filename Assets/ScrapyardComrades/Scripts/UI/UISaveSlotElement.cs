@@ -68,7 +68,7 @@ public class UISaveSlotElement : UIMenuElementSpec
     {
     }
 
-    public override Menu.Action HandleCustomAction(Menu.Action action)
+    public override Menu.Action HandleCustomAction(Menu.Action action, int dir = 0)
     {
         Menu.ActionType actionType = Menu.ActionType.SceneTransition;
         string actionParam = this.GameplayScene;

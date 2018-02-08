@@ -61,7 +61,7 @@ public class UIMenuElement : UIMenuElementSpec
         }
     }
 
-    public override Menu.Action HandleCustomAction(Menu.Action action)
+    public override Menu.Action HandleCustomAction(Menu.Action action, int dir = 0)
     {
         return new Menu.Action();
     }

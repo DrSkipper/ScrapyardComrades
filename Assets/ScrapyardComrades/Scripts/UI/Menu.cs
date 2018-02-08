@@ -48,10 +48,16 @@ public class Menu : MonoBehaviour
         return this.HighlightedElement < this.NumElements && this.HighlightedElement >= 0 ? this.Elements[this.HighlightedElement].Action : new Action();
     }
 
+    public bool CurrentElementAllowsCycling()
+    {
+        return this.Elements[this.HighlightedElement].AllowCycling;
+    }
+
     [System.Serializable]
     public struct MenuElement
     {
         public string Text;
         public Action Action;
+        public bool AllowCycling;
     }
 }
