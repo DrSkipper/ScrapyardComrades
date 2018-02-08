@@ -222,7 +222,7 @@
     },
     {
       "name": "Slums 12",
-      "x": 4,
+      "x": 9,
       "y": 4,
       "width": 3,
       "height": 2
@@ -343,6 +343,13 @@
       "name": "MainSt 00",
       "x": 39,
       "y": 11,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Intro 03",
+      "x": 5,
+      "y": 4,
       "width": 3,
       "height": 2
     }

@@ -238,6 +238,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     private int _foregroundParallaxCount;
     private int _backgroundParallaxCount;
     private List<Sprite> _parallaxSprites;
+    private bool _tileSnapObjectSpeed;
 
     private Sprite findParallaxSprite(string spriteName)
     {
@@ -490,27 +491,30 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
     private void updateObjectMovement()
     {
+        if (MenuInput.ExtrMovePressed)
+            _tileSnapObjectSpeed = !_tileSnapObjectSpeed;
+
         if (MenuInput.NavLeftFast)
         {
-            this.ObjectCursor.SetX(this.ObjectCursor.position.x - _objectPrecisionIncrement * (MenuInput.ExtrMoveHeld ? 8 : 1));
+            this.ObjectCursor.SetX(this.ObjectCursor.position.x - _objectPrecisionIncrement * (_tileSnapObjectSpeed ? 16 : 1));
             if (this.ObjectCursor.position.x < _objectPrecisionIncrement)
                 this.ObjectCursor.SetX(_mapInfo.width * this.Grid.GridSpaceSize - _objectPrecisionIncrement);
         }
         else if (MenuInput.NavRightFast)
         {
-            this.ObjectCursor.SetX(this.ObjectCursor.position.x + _objectPrecisionIncrement * (MenuInput.ExtrMoveHeld ? 8 : 1));
+            this.ObjectCursor.SetX(this.ObjectCursor.position.x + _objectPrecisionIncrement * (_tileSnapObjectSpeed ? 16 : 1));
             if (this.ObjectCursor.position.x > _mapInfo.width * this.Grid.GridSpaceSize - _objectPrecisionIncrement)
                 this.ObjectCursor.SetX(_objectPrecisionIncrement);
         }
         else if (MenuInput.NavDownFast)
         {
-            this.ObjectCursor.SetY(this.ObjectCursor.position.y - _objectPrecisionIncrement * (MenuInput.ExtrMoveHeld ? 8 : 1));
+            this.ObjectCursor.SetY(this.ObjectCursor.position.y - _objectPrecisionIncrement * (_tileSnapObjectSpeed ? 16 : 1));
             if (this.ObjectCursor.position.y < _objectPrecisionIncrement)
                 this.ObjectCursor.SetY(_mapInfo.height * this.Grid.GridSpaceSize - _objectPrecisionIncrement);
         }
         else if (MenuInput.NavUpFast)
         {
-            this.ObjectCursor.SetY(this.ObjectCursor.position.y + _objectPrecisionIncrement * (MenuInput.ExtrMoveHeld ? 8 : 1));
+            this.ObjectCursor.SetY(this.ObjectCursor.position.y + _objectPrecisionIncrement * (_tileSnapObjectSpeed ? 16 : 1));
             if (this.ObjectCursor.position.y > _mapInfo.height * this.Grid.GridSpaceSize - _objectPrecisionIncrement)
                 this.ObjectCursor.SetY(_objectPrecisionIncrement);
         }

@@ -44,6 +44,7 @@ public static class MenuInput
     public static bool CyclePrevAltHeld { get { return RewiredPlayer.GetButton(CYCLE_PREV_ALT); } }
     public static bool CycleNextAltHeld { get { return RewiredPlayer.GetButton(CYCLE_NEXT_ALT); } }
 
+    public static bool ExtrMovePressed { get { return RewiredPlayer.GetButtonDown(EXTRA_MOVE); } }
     public static bool ExtrMoveHeld { get { return RewiredPlayer.GetButton(EXTRA_MOVE); } }
 
     /**
