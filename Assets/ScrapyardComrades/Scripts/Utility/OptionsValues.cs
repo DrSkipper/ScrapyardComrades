@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public static class OptionsValues
 {
@@ -157,6 +158,52 @@ public static class OptionsValues
     private static void guaranteeFullscreenResolutions()
     {
         if (_fullscreenResolutions == null)
-            _fullscreenResolutions = Screen.resolutions;
+        {
+            List<Resolution> resolutions = new List<Resolution>(Screen.resolutions);
+            int[] guaranteedWidths = new int[] { 960, 1280, 1920 };
+            int[] guaranteedHeights = new int[] { 540, 720, 1080 };
+
+            // Make sure all our guaranteed resolutions are present in the selectable resolutions list
+            for (int i = 0; i < guaranteedWidths.Length; ++i)
+            {
+                int w = guaranteedWidths[i];
+                int h = guaranteedHeights[i];
+
+                if (!alreadyHasResolution(w, h, resolutions))
+                {
+                    int insertIndex = indexToInsertRes(w, h, resolutions);
+                    Resolution guaranteedRes = new Resolution();
+                    guaranteedRes.width = w;
+                    guaranteedRes.height = h;
+                    guaranteedRes.refreshRate = resolutions[resolutions.Count - 1].refreshRate;
+                    resolutions.Insert(insertIndex, guaranteedRes);
+                }
+            }
+            
+            _fullscreenResolutions = resolutions.ToArray();
+        }
+    }
+
+    private static bool alreadyHasResolution(int w, int h, List<Resolution> res)
+    {
+        for (int i = 0; i < res.Count; ++i)
+        {
+            Resolution r = res[i];
+            if (r.width == w && r.height == h)
+                return true;
+        }
+        return false;
+    }
+
+    public static int indexToInsertRes(int w, int h, List<Resolution> res)
+    {
+        int insertBeforeIndex = 0;
+        for (; insertBeforeIndex < res.Count; ++insertBeforeIndex)
+        {
+            Resolution r = res[insertBeforeIndex];
+            if (r.width > w || (r.width == w && r.height > h))
+                break;
+        }
+        return insertBeforeIndex;
     }
 }
