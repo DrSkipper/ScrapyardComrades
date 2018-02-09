@@ -4,6 +4,13 @@ using System;
 
 public static class GameplayInput
 {
+    public enum ControllerLayout
+    {
+        Xbox360,
+        XboxOne,
+        Playstation
+    }
+
     private const int PLAYER_ID = 0;
     private const int MOVE_HORIZONTAL = 0;
     private const int DUCK = 32;
@@ -16,6 +23,11 @@ public static class GameplayInput
     private const int INTERACT = 6;
     private const int PAUSE = 15;
     private const float AXIS_DEADZONE = 0.15f;
+    private const string XBOX_ONE = "Xbox One";
+    private const string PLAYSTATION_1 = "Dualshock";
+    private const string PLAYSTATION_2 = "PS3";
+    private const string PLAYSTATION_3 = "PS4";
+    private const string PLAYSTATION_4 = "Playstation";
 
     public static int MovementAxis
     {
@@ -143,5 +155,22 @@ public static class GameplayInput
         if (c != null)
             return c.type == ControllerType.Joystick;
         return ReInput.players.GetPlayer(PLAYER_ID).controllers.joystickCount > 0;
+    }
+
+    public static ControllerLayout GetControllerLayout()
+    {
+        Controller c = ReInput.players.GetPlayer(PLAYER_ID).controllers.GetLastActiveController();
+        //c.GetExtension<Rewired.ControllerExtensions.DualShock4Extension>();
+        if (c != null)
+        {
+            if (c.name.Contains(XBOX_ONE))
+                return ControllerLayout.XboxOne;
+            else if (c.name.Contains(PLAYSTATION_1) ||
+                c.name.Contains(PLAYSTATION_2) ||
+                c.name.Contains(PLAYSTATION_3) ||
+                c.name.Contains(PLAYSTATION_4))
+                return ControllerLayout.Playstation;
+        }
+        return ControllerLayout.Xbox360;
     }
 }

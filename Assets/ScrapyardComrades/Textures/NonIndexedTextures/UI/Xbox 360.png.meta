@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 08543959f6fcf5b49a589729cc580357
-timeCreated: 1504663342
+timeCreated: 1518136946
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -104,6 +104,22 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -112,32 +128,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 17
-        y: 65
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Xbox 360_2
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 65
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Xbox 360_3
-      rect:
-        serializedVersion: 2
-        x: 49
         y: 65
         width: 14
         height: 14
@@ -160,49 +150,10 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Xbox 360_5
-      rect:
-        serializedVersion: 2
-        x: 81
-        y: 65
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: xbox_start
       rect:
         serializedVersion: 2
         x: 97
-        y: 65
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Xbox 360_7
-      rect:
-        serializedVersion: 2
-        x: 113
-        y: 65
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Xbox 360_8
-      rect:
-        serializedVersion: 2
-        x: 129
         y: 65
         width: 14
         height: 14
@@ -238,36 +189,10 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Xbox 360_11
-      rect:
-        serializedVersion: 2
-        x: 177
-        y: 65
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: xbox_x
       rect:
         serializedVersion: 2
         x: 17
-        y: 49
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Xbox 360_13
-      rect:
-        serializedVersion: 2
-        x: 33
         y: 49
         width: 14
         height: 14
@@ -342,19 +267,6 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Xbox 360_19
-      rect:
-        serializedVersion: 2
-        x: 129
-        y: 49
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: xbox_lb
       rect:
         serializedVersion: 2
@@ -381,36 +293,10 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Xbox 360_22
-      rect:
-        serializedVersion: 2
-        x: 177
-        y: 49
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: xbox_y
       rect:
         serializedVersion: 2
         x: 17
-        y: 33
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Xbox 360_24
-      rect:
-        serializedVersion: 2
-        x: 33
         y: 33
         width: 14
         height: 14
@@ -485,36 +371,10 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Xbox 360_30
-      rect:
-        serializedVersion: 2
-        x: 129
-        y: 33
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: xbox_b
       rect:
         serializedVersion: 2
         x: 17
-        y: 17
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Xbox 360_32
-      rect:
-        serializedVersion: 2
-        x: 33
         y: 17
         width: 14
         height: 14
@@ -580,19 +440,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 113
-        y: 17
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Xbox 360_38
-      rect:
-        serializedVersion: 2
-        x: 129
         y: 17
         width: 14
         height: 14

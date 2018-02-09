@@ -5,8 +5,10 @@ public class ControlSchemeImage : MonoBehaviour
 {
     public Image Image;
     public SpriteRenderer SpriteRenderer;
-    public Sprite ControllerSprite;
+    public Sprite ControllerSprite; // 360
     public Sprite KeyboardSprite;
+    public Sprite ControllerSpriteXbone;
+    public Sprite ControllerSpritePS;
     public float KeyboardScale = 1.0f;
 
     void Start()
@@ -22,7 +24,7 @@ public class ControlSchemeImage : MonoBehaviour
     public void Configure()
     {
         bool controller = GameplayInput.UsingController();
-        Sprite sprite = GameplayInput.UsingController() ? this.ControllerSprite : this.KeyboardSprite;
+        Sprite sprite = GameplayInput.UsingController() ? chooseControllerSprite(GameplayInput.GetControllerLayout()) : this.KeyboardSprite;
         float scale = controller ? 1.0f : this.KeyboardScale;
 
         if (this.Image != null)
@@ -40,11 +42,25 @@ public class ControlSchemeImage : MonoBehaviour
     /**
      * Private
      */
+    private Sprite chooseControllerSprite(GameplayInput.ControllerLayout layout)
+    {
+        switch (layout)
+        {
+            default:
+            case GameplayInput.ControllerLayout.Xbox360:
+                return this.ControllerSprite;
+            case GameplayInput.ControllerLayout.XboxOne:
+                return this.ControllerSpriteXbone != null ? this.ControllerSpriteXbone : this.ControllerSprite;
+            case GameplayInput.ControllerLayout.Playstation:
+                return this.ControllerSpritePS != null ? this.ControllerSpritePS : this.ControllerSprite;
+        }
+    }
+
     private void controlSchemeChangedImage(LocalEventNotifier.Event e)
     {
         if ((e as ControlSchemeChangeEvent).UsingController)
         {
-            this.Image.sprite = this.ControllerSprite;
+            this.Image.sprite = chooseControllerSprite(GameplayInput.GetControllerLayout());
             this.Image.transform.localScale = new Vector3(1, 1, 1);
         }
         else
@@ -58,7 +74,7 @@ public class ControlSchemeImage : MonoBehaviour
     {
         if ((e as ControlSchemeChangeEvent).UsingController)
         {
-            this.SpriteRenderer.sprite = this.ControllerSprite;
+            this.SpriteRenderer.sprite = chooseControllerSprite(GameplayInput.GetControllerLayout());
             this.SpriteRenderer.transform.localScale = new Vector3(1, 1, 1);
         }
         else
