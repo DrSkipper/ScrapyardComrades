@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 072b91525361b664d8da64d130bfcf74
-timeCreated: 1503521646
+timeCreated: 1518145230
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -24,6 +24,9 @@ TextureImporter:
     21300034: up
     21300036: arrows
     21300038: v
+    21300040: space_small
+    21300042: enter_small
+    21300044: shift_small
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -358,6 +361,45 @@ TextureImporter:
         serializedVersion: 2
         x: 96
         y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: space_small
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enter_small
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shift_small
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 144
         width: 16
         height: 16
       alignment: 0

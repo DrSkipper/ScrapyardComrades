@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: cbfcb1a78b154d642b8ce5a322d07e47
-timeCreated: 1518134923
+timeCreated: 1518144110
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -129,10 +129,10 @@ TextureImporter:
       name: ps4_x
       rect:
         serializedVersion: 2
-        x: 17
-        y: 65
-        width: 14
-        height: 14
+        x: 16
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,10 +142,10 @@ TextureImporter:
       name: Ps4_4
       rect:
         serializedVersion: 2
-        x: 53
+        x: 48
         y: 64
-        width: 6
-        height: 9
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +155,10 @@ TextureImporter:
       name: Ps4_8
       rect:
         serializedVersion: 2
-        x: 117
+        x: 112
         y: 64
-        width: 6
-        height: 10
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: ps4_sq
       rect:
         serializedVersion: 2
-        x: 17
-        y: 49
-        width: 14
-        height: 14
+        x: 16
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: Ps4_11
       rect:
         serializedVersion: 2
-        x: 49
-        y: 49
-        width: 14
-        height: 14
+        x: 48
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +194,10 @@ TextureImporter:
       name: Ps4_12
       rect:
         serializedVersion: 2
-        x: 65
-        y: 49
-        width: 14
-        height: 14
+        x: 64
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,10 +207,10 @@ TextureImporter:
       name: Ps4_13
       rect:
         serializedVersion: 2
-        x: 81
-        y: 49
-        width: 14
-        height: 14
+        x: 80
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,10 +220,10 @@ TextureImporter:
       name: Ps4_15
       rect:
         serializedVersion: 2
-        x: 97
-        y: 49
-        width: 14
-        height: 14
+        x: 96
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,10 +233,10 @@ TextureImporter:
       name: Ps4_16
       rect:
         serializedVersion: 2
-        x: 113
-        y: 49
-        width: 14
-        height: 13
+        x: 112
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,10 +246,10 @@ TextureImporter:
       name: ps4_lt
       rect:
         serializedVersion: 2
-        x: 147
-        y: 49
-        width: 10
-        height: 14
+        x: 144
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,10 +259,10 @@ TextureImporter:
       name: ps4_rt
       rect:
         serializedVersion: 2
-        x: 164
-        y: 49
-        width: 10
-        height: 14
+        x: 161
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,10 +272,10 @@ TextureImporter:
       name: ps4_tri
       rect:
         serializedVersion: 2
-        x: 17
-        y: 33
-        width: 14
-        height: 14
+        x: 16
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,10 +285,10 @@ TextureImporter:
       name: Ps4_23
       rect:
         serializedVersion: 2
-        x: 49
-        y: 33
-        width: 14
-        height: 14
+        x: 48
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,10 +298,10 @@ TextureImporter:
       name: Ps4_24
       rect:
         serializedVersion: 2
-        x: 65
-        y: 33
-        width: 14
-        height: 14
+        x: 64
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,10 +311,10 @@ TextureImporter:
       name: Ps4_25
       rect:
         serializedVersion: 2
-        x: 81
-        y: 33
-        width: 14
-        height: 13
+        x: 80
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,10 +324,10 @@ TextureImporter:
       name: Ps4_26
       rect:
         serializedVersion: 2
-        x: 97
-        y: 33
-        width: 14
-        height: 14
+        x: 96
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -337,10 +337,10 @@ TextureImporter:
       name: Ps4_27
       rect:
         serializedVersion: 2
-        x: 113
-        y: 33
-        width: 14
-        height: 14
+        x: 112
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,10 +350,10 @@ TextureImporter:
       name: ps4_lb
       rect:
         serializedVersion: 2
-        x: 161
-        y: 34
-        width: 14
-        height: 11
+        x: 160
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,10 +363,10 @@ TextureImporter:
       name: ps4_rb
       rect:
         serializedVersion: 2
-        x: 177
-        y: 34
-        width: 14
-        height: 11
+        x: 176
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,10 +376,10 @@ TextureImporter:
       name: ps4_o
       rect:
         serializedVersion: 2
-        x: 17
-        y: 17
-        width: 14
-        height: 14
+        x: 16
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,10 +389,10 @@ TextureImporter:
       name: Ps4_35
       rect:
         serializedVersion: 2
-        x: 49
-        y: 17
-        width: 14
-        height: 14
+        x: 48
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -402,10 +402,10 @@ TextureImporter:
       name: Ps4_36
       rect:
         serializedVersion: 2
-        x: 65
-        y: 17
-        width: 14
-        height: 14
+        x: 64
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -415,10 +415,10 @@ TextureImporter:
       name: Ps4_37
       rect:
         serializedVersion: 2
-        x: 81
-        y: 17
-        width: 14
-        height: 13
+        x: 80
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -428,10 +428,10 @@ TextureImporter:
       name: Ps4_38
       rect:
         serializedVersion: 2
-        x: 97
-        y: 17
-        width: 14
-        height: 14
+        x: 96
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,10 +441,10 @@ TextureImporter:
       name: Ps4_39
       rect:
         serializedVersion: 2
-        x: 113
-        y: 17
-        width: 14
-        height: 14
+        x: 112
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

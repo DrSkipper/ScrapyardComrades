@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 08543959f6fcf5b49a589729cc580357
-timeCreated: 1518136946
+timeCreated: 1518143794
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -127,10 +127,10 @@ TextureImporter:
       name: xbox_a
       rect:
         serializedVersion: 2
-        x: 17
-        y: 65
-        width: 14
-        height: 14
+        x: 16
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,10 +140,10 @@ TextureImporter:
       name: xbox_back
       rect:
         serializedVersion: 2
-        x: 65
-        y: 65
-        width: 14
-        height: 14
+        x: 64
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +153,10 @@ TextureImporter:
       name: xbox_start
       rect:
         serializedVersion: 2
-        x: 97
-        y: 65
-        width: 14
-        height: 14
+        x: 96
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,10 +166,10 @@ TextureImporter:
       name: xbox_lt
       rect:
         serializedVersion: 2
-        x: 145
-        y: 65
-        width: 14
-        height: 14
+        x: 144
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,10 +179,10 @@ TextureImporter:
       name: xbox_rt
       rect:
         serializedVersion: 2
-        x: 162
-        y: 65
-        width: 14
-        height: 14
+        x: 161
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: xbox_x
       rect:
         serializedVersion: 2
-        x: 17
-        y: 49
-        width: 14
-        height: 14
+        x: 16
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,10 +205,10 @@ TextureImporter:
       name: Xbox 360_14
       rect:
         serializedVersion: 2
-        x: 49
-        y: 49
-        width: 14
-        height: 14
+        x: 48
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: Xbox 360_15
       rect:
         serializedVersion: 2
-        x: 65
-        y: 49
-        width: 14
-        height: 14
+        x: 64
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: Xbox 360_16
       rect:
         serializedVersion: 2
-        x: 81
-        y: 49
-        width: 14
-        height: 14
+        x: 80
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,10 +244,10 @@ TextureImporter:
       name: Xbox 360_17
       rect:
         serializedVersion: 2
-        x: 97
-        y: 49
-        width: 14
-        height: 14
+        x: 96
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,10 +257,10 @@ TextureImporter:
       name: Xbox 360_18
       rect:
         serializedVersion: 2
-        x: 113
-        y: 49
-        width: 14
-        height: 14
+        x: 112
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,10 +270,10 @@ TextureImporter:
       name: xbox_lb
       rect:
         serializedVersion: 2
-        x: 145
-        y: 49
-        width: 14
-        height: 14
+        x: 144
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,10 +283,10 @@ TextureImporter:
       name: xbox_rb
       rect:
         serializedVersion: 2
-        x: 161
-        y: 49
-        width: 14
-        height: 14
+        x: 160
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,10 +296,10 @@ TextureImporter:
       name: xbox_y
       rect:
         serializedVersion: 2
-        x: 17
-        y: 33
-        width: 14
-        height: 14
+        x: 16
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,10 +309,10 @@ TextureImporter:
       name: Xbox 360_25
       rect:
         serializedVersion: 2
-        x: 49
-        y: 33
-        width: 14
-        height: 14
+        x: 48
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,10 +322,10 @@ TextureImporter:
       name: Xbox 360_26
       rect:
         serializedVersion: 2
-        x: 65
-        y: 33
-        width: 14
-        height: 14
+        x: 64
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -335,10 +335,10 @@ TextureImporter:
       name: Xbox 360_27
       rect:
         serializedVersion: 2
-        x: 81
-        y: 33
-        width: 14
-        height: 13
+        x: 80
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -348,10 +348,10 @@ TextureImporter:
       name: Xbox 360_28
       rect:
         serializedVersion: 2
-        x: 97
-        y: 33
-        width: 14
-        height: 14
+        x: 96
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -361,10 +361,10 @@ TextureImporter:
       name: Xbox 360_29
       rect:
         serializedVersion: 2
-        x: 113
-        y: 33
-        width: 14
-        height: 14
+        x: 112
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -374,10 +374,10 @@ TextureImporter:
       name: xbox_b
       rect:
         serializedVersion: 2
-        x: 17
-        y: 17
-        width: 14
-        height: 14
+        x: 16
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -387,10 +387,10 @@ TextureImporter:
       name: Xbox 360_33
       rect:
         serializedVersion: 2
-        x: 49
-        y: 17
-        width: 14
-        height: 14
+        x: 48
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -400,10 +400,10 @@ TextureImporter:
       name: Xbox 360_34
       rect:
         serializedVersion: 2
-        x: 65
-        y: 17
-        width: 14
-        height: 14
+        x: 64
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -413,10 +413,10 @@ TextureImporter:
       name: Xbox 360_35
       rect:
         serializedVersion: 2
-        x: 81
-        y: 17
-        width: 14
-        height: 13
+        x: 80
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -426,10 +426,10 @@ TextureImporter:
       name: Xbox 360_36
       rect:
         serializedVersion: 2
-        x: 97
-        y: 17
-        width: 14
-        height: 14
+        x: 96
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -439,10 +439,10 @@ TextureImporter:
       name: Xbox 360_37
       rect:
         serializedVersion: 2
-        x: 113
-        y: 17
-        width: 14
-        height: 14
+        x: 112
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

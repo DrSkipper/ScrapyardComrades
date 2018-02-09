@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: dd279a6b3bc4a6e4497319c8e426b01c
-timeCreated: 1518134691
+timeCreated: 1518143956
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -126,10 +126,10 @@ TextureImporter:
       name: xbone_a
       rect:
         serializedVersion: 2
-        x: 17
-        y: 65
-        width: 14
-        height: 14
+        x: 16
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,10 +139,10 @@ TextureImporter:
       name: xbone_back
       rect:
         serializedVersion: 2
-        x: 66
-        y: 67
-        width: 12
-        height: 10
+        x: 64
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,10 +152,10 @@ TextureImporter:
       name: xbone_start
       rect:
         serializedVersion: 2
-        x: 82
-        y: 67
-        width: 12
-        height: 10
+        x: 80
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: xbone_lt
       rect:
         serializedVersion: 2
-        x: 147
-        y: 65
-        width: 10
-        height: 14
+        x: 144
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: xbone_rt
       rect:
         serializedVersion: 2
-        x: 164
-        y: 65
-        width: 10
-        height: 14
+        x: 161
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: xbone_x
       rect:
         serializedVersion: 2
-        x: 17
-        y: 49
-        width: 14
-        height: 14
+        x: 16
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +204,10 @@ TextureImporter:
       name: Xbox one_13
       rect:
         serializedVersion: 2
-        x: 49
-        y: 49
-        width: 14
-        height: 14
+        x: 48
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,10 +217,10 @@ TextureImporter:
       name: Xbox one_14
       rect:
         serializedVersion: 2
-        x: 65
-        y: 49
-        width: 14
-        height: 14
+        x: 64
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,10 +230,10 @@ TextureImporter:
       name: Xbox one_15
       rect:
         serializedVersion: 2
-        x: 81
-        y: 49
-        width: 14
-        height: 14
+        x: 80
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,10 +243,10 @@ TextureImporter:
       name: Xbox one_16
       rect:
         serializedVersion: 2
-        x: 97
-        y: 49
-        width: 14
-        height: 14
+        x: 96
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,10 +256,10 @@ TextureImporter:
       name: Xbox one_17
       rect:
         serializedVersion: 2
-        x: 113
-        y: 49
-        width: 14
-        height: 14
+        x: 112
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,10 +269,10 @@ TextureImporter:
       name: xbone_lb
       rect:
         serializedVersion: 2
-        x: 145
-        y: 50
-        width: 14
-        height: 11
+        x: 144
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,10 +282,10 @@ TextureImporter:
       name: xbone_rb
       rect:
         serializedVersion: 2
-        x: 161
-        y: 50
-        width: 14
-        height: 11
+        x: 160
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -295,10 +295,10 @@ TextureImporter:
       name: xbone_y
       rect:
         serializedVersion: 2
-        x: 17
-        y: 33
-        width: 14
-        height: 14
+        x: 16
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,10 +308,10 @@ TextureImporter:
       name: Xbox one_24
       rect:
         serializedVersion: 2
-        x: 49
-        y: 33
-        width: 14
-        height: 14
+        x: 48
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,10 +321,10 @@ TextureImporter:
       name: Xbox one_25
       rect:
         serializedVersion: 2
-        x: 65
-        y: 33
-        width: 14
-        height: 14
+        x: 64
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,10 +334,10 @@ TextureImporter:
       name: Xbox one_26
       rect:
         serializedVersion: 2
-        x: 81
-        y: 33
-        width: 14
-        height: 13
+        x: 80
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,10 +347,10 @@ TextureImporter:
       name: Xbox one_27
       rect:
         serializedVersion: 2
-        x: 97
-        y: 33
-        width: 14
-        height: 14
+        x: 96
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,10 +360,10 @@ TextureImporter:
       name: Xbox one_28
       rect:
         serializedVersion: 2
-        x: 113
-        y: 33
-        width: 14
-        height: 14
+        x: 112
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -373,10 +373,10 @@ TextureImporter:
       name: xbone_b
       rect:
         serializedVersion: 2
-        x: 17
-        y: 17
-        width: 14
-        height: 14
+        x: 16
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -386,10 +386,10 @@ TextureImporter:
       name: Xbox one_32
       rect:
         serializedVersion: 2
-        x: 49
-        y: 17
-        width: 14
-        height: 14
+        x: 48
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -399,10 +399,10 @@ TextureImporter:
       name: Xbox one_33
       rect:
         serializedVersion: 2
-        x: 65
-        y: 17
-        width: 14
-        height: 14
+        x: 64
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,10 +412,10 @@ TextureImporter:
       name: Xbox one_34
       rect:
         serializedVersion: 2
-        x: 81
-        y: 17
-        width: 14
-        height: 13
+        x: 80
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -425,10 +425,10 @@ TextureImporter:
       name: Xbox one_35
       rect:
         serializedVersion: 2
-        x: 97
-        y: 17
-        width: 14
-        height: 14
+        x: 96
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -438,10 +438,10 @@ TextureImporter:
       name: Xbox one_36
       rect:
         serializedVersion: 2
-        x: 113
-        y: 17
-        width: 14
-        height: 14
+        x: 112
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
