@@ -85,10 +85,11 @@ public static class OptionsValues
     private static void changeFullscreen()
     {
         guaranteeFullscreenResolutions();
-        if (Screen.fullScreen)
+        bool fullscreen = PlayerPrefs.GetInt(FULLSCREEN_KEY, Screen.fullScreen ? 1 : 0) == 1;
+        if (fullscreen)
         {
-            int w = Screen.currentResolution.width;
-            int h = Screen.currentResolution.height;
+            int w = PlayerPrefs.GetInt(RESOLUTION_WIDTH_KEY, Screen.currentResolution.width);
+            int h = PlayerPrefs.GetInt(RESOLUTION_HEIGHT_KEY, Screen.currentResolution.height);
 
             if (h >= _fullscreenResolutions[_fullscreenResolutions.Length - 1].height)
             {
@@ -119,8 +120,11 @@ public static class OptionsValues
     private static void changeResolution(int dir)
     {
         guaranteeFullscreenResolutions();
-        int w = Screen.fullScreen ? Screen.currentResolution.width : Screen.width;
-        int h = Screen.fullScreen ? Screen.currentResolution.height : Screen.height;
+        bool fullscreen = PlayerPrefs.GetInt(FULLSCREEN_KEY, Screen.fullScreen ? 1 : 0) == 1;
+        int w = fullscreen ? Screen.currentResolution.width : Screen.width;
+        int h = fullscreen ? Screen.currentResolution.height : Screen.height;
+        w = PlayerPrefs.GetInt(RESOLUTION_WIDTH_KEY, w);
+        h = PlayerPrefs.GetInt(RESOLUTION_HEIGHT_KEY, h);
         int i = 0;
 
         for (; i < _fullscreenResolutions.Length; ++i)
@@ -128,7 +132,7 @@ public static class OptionsValues
             if (_fullscreenResolutions[i].width == w && _fullscreenResolutions[i].height == h)
                 break;
         }
-
+        
         i += dir;
         int max = Screen.fullScreen ? _fullscreenResolutions.Length : _fullscreenResolutions.Length - 1;
         if (i >= max)
@@ -140,7 +144,7 @@ public static class OptionsValues
         h = _fullscreenResolutions[i].height;
         PlayerPrefs.SetInt(RESOLUTION_WIDTH_KEY, w);
         PlayerPrefs.SetInt(RESOLUTION_HEIGHT_KEY, h);
-        Screen.SetResolution(w, h, Screen.fullScreen);
+        Screen.SetResolution(w, h, fullscreen);
     }
 
     private static void changeVsync()

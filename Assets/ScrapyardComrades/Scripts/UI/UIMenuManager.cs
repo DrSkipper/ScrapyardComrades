@@ -170,7 +170,7 @@ public class UIMenuManager : MonoBehaviour
                 _timerParam = action.Param;
                 break;
             case Menu.ActionType.ChangeValue:
-                OptionsValues.ChangeValue(action.Param, 1);
+                OptionsValues.ChangeValue(action.Param, dir);
                 refreshState();
                 break;
             case Menu.ActionType.Reload:
