@@ -10,6 +10,9 @@ public static class OptionsValues
     public const string RESOLUTION_WIDTH_KEY = "RES_W";
     public const string RESOLUTION_HEIGHT_KEY = "RES_H";
 
+    private const int DEFAULT_WINDOWED_W = 960;
+    private const int DEFAULT_WINDOWED_H = 540;
+
     public static void ChangeValue(string key, int dir)
     {
         switch (key)
@@ -89,24 +92,10 @@ public static class OptionsValues
         bool fullscreen = PlayerPrefs.GetInt(FULLSCREEN_KEY, Screen.fullScreen ? 1 : 0) == 1;
         if (fullscreen)
         {
-            int w = PlayerPrefs.GetInt(RESOLUTION_WIDTH_KEY, Screen.currentResolution.width);
-            int h = PlayerPrefs.GetInt(RESOLUTION_HEIGHT_KEY, Screen.currentResolution.height);
-
-            if (h >= _fullscreenResolutions[_fullscreenResolutions.Length - 1].height)
-            {
-                int i = _fullscreenResolutions.Length > 1 ? _fullscreenResolutions.Length - 2 : 0;
-                w = _fullscreenResolutions[i].width;
-                h = _fullscreenResolutions[i].height;
-                PlayerPrefs.SetInt(RESOLUTION_WIDTH_KEY, w);
-                PlayerPrefs.SetInt(RESOLUTION_HEIGHT_KEY, h);
-                PlayerPrefs.SetInt(FULLSCREEN_KEY, 0);
-                Screen.SetResolution(w, h, false);
-            }
-            else
-            {
-                PlayerPrefs.SetInt(FULLSCREEN_KEY, 0);
-                Screen.fullScreen = false;
-            }
+            PlayerPrefs.SetInt(RESOLUTION_WIDTH_KEY, DEFAULT_WINDOWED_W);
+            PlayerPrefs.SetInt(RESOLUTION_HEIGHT_KEY, DEFAULT_WINDOWED_H);
+            PlayerPrefs.SetInt(FULLSCREEN_KEY, 0);
+            Screen.SetResolution(DEFAULT_WINDOWED_W, DEFAULT_WINDOWED_H, false);
         }
         else
         {
@@ -160,8 +149,8 @@ public static class OptionsValues
         if (_fullscreenResolutions == null)
         {
             List<Resolution> resolutions = new List<Resolution>(Screen.resolutions);
-            int[] guaranteedWidths = new int[] { 960, 1280, 1920 };
-            int[] guaranteedHeights = new int[] { 540, 720, 1080 };
+            int[] guaranteedWidths = new int[] { DEFAULT_WINDOWED_W, 1280, 1920 };
+            int[] guaranteedHeights = new int[] { DEFAULT_WINDOWED_H, 720, 1080 };
 
             // Make sure all our guaranteed resolutions are present in the selectable resolutions list
             for (int i = 0; i < guaranteedWidths.Length; ++i)
