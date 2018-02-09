@@ -10,12 +10,16 @@ public class PosterConfigurer : ObjectConfigurer
     public IntegerVector BGOffsetB;
     public ControlSchemeImage ButtonRenderer;
     public Sprite ControllerJumpButton;
+    public Sprite PlaystationJumpButton;
     public Sprite KeyboardJumpButton;
     public Sprite ControllerSlideButton;
+    public Sprite PlaystationSlideButton;
     public Sprite KeyboardSlideButton;
     public Sprite ControllerLightAttackButton;
+    public Sprite PlaystationLightAttackButton;
     public Sprite KeyboardLightAttackButton;
     public Sprite ControllerStrongAttackButton;
+    public Sprite PlaystationStrongAttackButton;
     public Sprite KeyboardStrongAttackButton;
     public float KeyboardJumpScale = 0.25f;
     public float KeyboardSlideScale = 0.5f;
@@ -99,26 +103,31 @@ public class PosterConfigurer : ObjectConfigurer
                 this.ButtonRenderer.ControllerSprite = this.ControllerJumpButton;
                 this.ButtonRenderer.KeyboardSprite = this.KeyboardJumpButton;
                 this.ButtonRenderer.KeyboardScale = this.KeyboardJumpScale;
+                this.ButtonRenderer.ControllerSpritePS = this.PlaystationJumpButton;
                 break;
             case INPUT_JUMP:
                 this.ButtonRenderer.ControllerSprite = this.ControllerJumpButton;
                 this.ButtonRenderer.KeyboardSprite = this.KeyboardJumpButton;
                 this.ButtonRenderer.KeyboardScale = this.KeyboardJumpScale;
+                this.ButtonRenderer.ControllerSpritePS = this.PlaystationJumpButton;
                 break;
             case INPUT_SLIDE:
                 this.ButtonRenderer.ControllerSprite = this.ControllerSlideButton;
                 this.ButtonRenderer.KeyboardSprite = this.KeyboardSlideButton;
                 this.ButtonRenderer.KeyboardScale = this.KeyboardSlideScale;
+                this.ButtonRenderer.ControllerSpritePS = this.PlaystationSlideButton;
                 break;
             case INPUT_LIGHTATTACK:
                 this.ButtonRenderer.ControllerSprite = this.ControllerLightAttackButton;
                 this.ButtonRenderer.KeyboardSprite = this.KeyboardLightAttackButton;
                 this.ButtonRenderer.KeyboardScale = this.KeyboardLightAttackScale;
+                this.ButtonRenderer.ControllerSpritePS = this.PlaystationLightAttackButton;
                 break;
             case INPUT_STRONGATTACK:
                 this.ButtonRenderer.ControllerSprite = this.ControllerStrongAttackButton;
                 this.ButtonRenderer.KeyboardSprite = this.KeyboardStrongAttackButton;
                 this.ButtonRenderer.KeyboardScale = this.KeyboardStrongAttackScale;
+                this.ButtonRenderer.ControllerSpritePS = this.PlaystationStrongAttackButton;
                 break;
         }
 
