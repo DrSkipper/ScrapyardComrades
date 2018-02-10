@@ -102,7 +102,7 @@ public class SimpleAttackState : AIState
         _pursuitToDist = pursuitToDist;
         _cooldownAmt = cooldown;
         _executeStrongAttackRange = executeStrongAttackRange;
-}
+    }
 
     public override void EnterState()
     {
@@ -149,6 +149,32 @@ public class SimpleAttackState : AIState
     private float _pursuitToDist;
     private int _cooldown;
     private int _cooldownAmt;
+}
+
+public class SimpleDefenseState : AIState, CooldownState
+{
+    public int Cooldown { get { return _cooldown; } }
+
+    public SimpleDefenseState(int duration)
+    {
+        _duration = duration;
+        _cooldown = duration;
+    }
+
+    public override void EnterState()
+    {
+        _cooldown = _duration;
+    }
+
+    public override AIOutput UpdateState(AIInput input)
+    {
+        if (_cooldown > 0)
+            --_cooldown;
+        return new AIOutput();
+    }
+
+    private int _duration;
+    private int _cooldown;
 }
 
 public class GuardAttackState : AIState
