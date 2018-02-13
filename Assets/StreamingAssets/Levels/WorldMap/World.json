@@ -5,15 +5,15 @@
   "level_quads": [
     {
       "name": "Intro 1",
-      "x": 2,
-      "y": 6,
+      "x": 5,
+      "y": 7,
       "width": 4,
       "height": 2
     },
     {
       "name": "Intro 2",
       "x": 3,
-      "y": 11,
+      "y": 12,
       "width": 3,
       "height": 2
     },
@@ -349,14 +349,28 @@
     {
       "name": "Intro 03",
       "x": 6,
-      "y": 6,
+      "y": 10,
       "width": 3,
       "height": 2
     },
     {
       "name": "Intro 04",
       "x": 9,
+      "y": 10,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Intro 05",
+      "x": 9,
       "y": 7,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Intro 06",
+      "x": 9,
+      "y": 15,
       "width": 3,
       "height": 2
     }
