@@ -44,6 +44,8 @@ public class EnemyController : SCCharacterController
                         executeAttackRange: 75, 
                         attackingPursuitTargetDist: 48, 
                         attackStateCooldown: 4, 
+                        defenseDuration: 40,
+                        defenseChance: 0.35f,
                         walkToTargetDist: WALK_TO_TARGET_DIST, 
                         interactDelay: INTERACT_DELAY
                     );
@@ -57,6 +59,8 @@ public class EnemyController : SCCharacterController
                         executeAttackRange: 114,
                         attackingPursuitTargetDist: 128,
                         attackStateCooldown: 8,
+                        defenseDuration: 30,
+                        defenseChance: 0.35f,
                         walkToTargetDist: WALK_TO_TARGET_DIST,
                         interactDelay: INTERACT_DELAY
                     );
@@ -71,7 +75,9 @@ public class EnemyController : SCCharacterController
                         executeAirAttackRange: 180, 
                         executeAttackRange: 100, 
                         attackingPursuitTargetDist: 60, 
-                        attackStateCooldown: 4, 
+                        attackStateCooldown: 4,
+                        defenseDuration: 40,
+                        defenseChance: 0.35f,
                         walkToTargetDist: WALK_TO_TARGET_DIST, 
                         interactDelay: INTERACT_DELAY
                     );
@@ -87,6 +93,8 @@ public class EnemyController : SCCharacterController
                         executeAttackRange: 100,
                         attackingPursuitTargetDist: 60,
                         attackStateCooldown: 4,
+                        defenseDuration: 40,
+                        defenseChance: 0.35f,
                         walkToTargetDist: WALK_TO_TARGET_DIST,
                         interactDelay: INTERACT_DELAY
                     );
@@ -103,6 +111,8 @@ public class EnemyController : SCCharacterController
                         executeAttackRange: 120,
                         attackingPursuitTargetDist: 128,
                         attackStateCooldown: 6,
+                        defenseDuration: 25,
+                        defenseChance: 0.30f,
                         walkToTargetDist: WALK_TO_TARGET_DIST,
                         interactDelay: INTERACT_DELAY
                     );

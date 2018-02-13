@@ -125,24 +125,24 @@ public class ANDTransition : AIStateTransition
     }
 }
 
-public class CooldownTransition : AIStateTransition
+public class CustomTransition : AIStateTransition
 {
     public AIState Destination { get; private set; }
-    private CooldownState _cooldownState;
+    private CustomTransitionState _state;
 
-    public CooldownTransition(CooldownState cooldownState, AIState destination)
+    public CustomTransition(CustomTransitionState state, AIState destination)
     {
         this.Destination = destination;
-        _cooldownState = cooldownState;
+        _state = state;
     }
 
     public bool ShouldTransition(AIInput input)
     {
-        return _cooldownState.Cooldown <= 0;
+        return _state.CanCustomTransition;
     }
 }
 
-public interface CooldownState
+public interface CustomTransitionState
 {
-    int Cooldown { get; }
+    bool CanCustomTransition { get; }
 }

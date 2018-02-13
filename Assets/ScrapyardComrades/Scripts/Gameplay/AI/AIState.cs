@@ -94,24 +94,28 @@ public class WalkTowardState : AIState
     private int _t;
 }
 
-public class SimpleAttackState : AIState
+public class SimpleAttackState : AIState, CustomTransitionState
 {
-    public SimpleAttackState(float executeAttackRange, float pursuitToDist, int cooldown, int executeStrongAttackRange = -1)
+    public SimpleAttackState(float executeAttackRange, float pursuitToDist, int cooldown, int executeStrongAttackRange = -1, float defenseStateChance = 0.5f)
     {
         _executeAttackRange = executeAttackRange;
         _pursuitToDist = pursuitToDist;
         _cooldownAmt = cooldown;
         _executeStrongAttackRange = executeStrongAttackRange;
+        _defenseStateChance = defenseStateChance;
     }
 
     public override void EnterState()
     {
         _cooldown = 0;
+        _canCustomTransition = false;
     }
 
     public override AIOutput UpdateState(AIInput input)
     {
         AIOutput output = new AIOutput();
+        _canCustomTransition = false;
+
         if (_cooldown <= 0)
         {
             bool attack = false;
@@ -140,20 +144,26 @@ public class SimpleAttackState : AIState
         else if (!input.ExecutingMove)
         {
             --_cooldown;
+            _canCustomTransition = _cooldown == 0;
         }
         return output;
     }
+
+    // Allow transition to defensive state if conditions are met
+    public bool CanCustomTransition { get { return _canCustomTransition && Random.Range(0.0f, 1.0f) < _defenseStateChance; } }
 
     private float _executeAttackRange;
     private float _executeStrongAttackRange;
     private float _pursuitToDist;
     private int _cooldown;
     private int _cooldownAmt;
+    private float _defenseStateChance;
+    private bool _canCustomTransition;
 }
 
-public class SimpleDefenseState : AIState, CooldownState
+public class SimpleDefenseState : AIState, CustomTransitionState
 {
-    public int Cooldown { get { return _cooldown; } }
+    public bool CanCustomTransition { get { return _cooldown == 0; } }
 
     public SimpleDefenseState(int duration)
     {
@@ -177,24 +187,27 @@ public class SimpleDefenseState : AIState, CooldownState
     private int _cooldown;
 }
 
-public class GuardAttackState : AIState
+public class GuardAttackState : AIState, CustomTransitionState
 {
-    public GuardAttackState(float executeChargeRange, float executeAttackRange, float pursuitToDist, int cooldown)
+    public GuardAttackState(float executeChargeRange, float executeAttackRange, float pursuitToDist, int cooldown, int executeStrongAttackRange = -1, float defenseStateChance = 0.5f)
     {
         _executeChargeRange = executeChargeRange;
         _executeAttackRange = executeAttackRange;
         _pursuitToDist = pursuitToDist;
         _cooldownAmt = cooldown;
+        _defenseStateChance = defenseStateChance;
     }
 
     public override void EnterState()
     {
         _cooldown = 0;
+        _canCustomTransition = false;
     }
 
     public override AIOutput UpdateState(AIInput input)
     {
         AIOutput output = new AIOutput();
+        _canCustomTransition = false;
         if (_cooldown <= 0)
         {
             float d = Mathf.Abs(input.OurPosition.X - input.TargetPosition.X);
@@ -226,20 +239,26 @@ public class GuardAttackState : AIState
         else if (!input.ExecutingMove)
         {
             --_cooldown;
+            _canCustomTransition = _cooldown == 0;
         }
         return output;
     }
+    
+    // Allow transition to defensive state if conditions are met
+    public bool CanCustomTransition { get { return _canCustomTransition && Random.Range(0.0f, 1.0f) < _defenseStateChance; } }
 
     private float _executeChargeRange;
     private float _executeAttackRange;
     private float _pursuitToDist;
     private int _cooldown;
     private int _cooldownAmt;
+    private float _defenseStateChance;
+    private bool _canCustomTransition;
 }
 
 public class MidMutantAttackState : SimpleAttackState
 {
-    public MidMutantAttackState(float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeAttackRange, float pursuitToDist, int cooldown, int executeStrongAttackRange = -1) : base(executeAttackRange, pursuitToDist, cooldown, executeStrongAttackRange)
+    public MidMutantAttackState(float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeAttackRange, float pursuitToDist, int cooldown, int executeStrongAttackRange = -1, float defenseStateChance = 0.5f) : base(executeAttackRange, pursuitToDist, cooldown, executeStrongAttackRange, defenseStateChance)
     {
         _jumpAtRangeFar = jumpAtRangeFar;
         _jumpAtRangeNear = jumpAtRangeNear;
@@ -271,9 +290,9 @@ public class MidMutantAttackState : SimpleAttackState
     private float _executeAirAttackRange;
 }
 
-public class MutantAttackState : AIState
+public class MutantAttackState : AIState, CustomTransitionState
 {
-    public MutantAttackState(float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeChargeRange, float executeAttackRange, float pursuitToDist, int cooldown)
+    public MutantAttackState(float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeChargeRange, float executeAttackRange, float pursuitToDist, int cooldown, float defenseStateChance = 0.5f)
     {
         _jumpAtRangeFar = jumpAtRangeFar;
         _jumpAtRangeNear = jumpAtRangeNear;
@@ -282,16 +301,19 @@ public class MutantAttackState : AIState
         _executeAttackRange = executeAttackRange;
         _pursuitToDist = pursuitToDist;
         _cooldownAmt = cooldown;
+        _defenseStateChance = defenseStateChance;
     }
 
     public override void EnterState()
     {
         _cooldown = 0;
+        _canCustomTransition = false;
     }
 
     public override AIOutput UpdateState(AIInput input)
     {
         AIOutput output = new AIOutput();
+        _canCustomTransition = false;
 
         if (!input.ExecutingMove)
             _charging = false;
@@ -339,9 +361,13 @@ public class MutantAttackState : AIState
         else if (!input.ExecutingMove)
         {
             --_cooldown;
+            _canCustomTransition = _cooldown == 0;
         }
         return output;
     }
+
+    // Allow transition to defensive state if conditions are met
+    public bool CanCustomTransition { get { return _canCustomTransition && Random.Range(0.0f, 1.0f) < _defenseStateChance; } }
 
     private bool _charging;
     private float _executeChargeRange;
@@ -352,4 +378,6 @@ public class MutantAttackState : AIState
     private float _pursuitToDist;
     private int _cooldown;
     private int _cooldownAmt;
+    private float _defenseStateChance;
+    private bool _canCustomTransition;
 }
