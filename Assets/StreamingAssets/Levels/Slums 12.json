@@ -12363,23 +12363,6 @@
       "parameters": null
     },
     {
-      "name": "objects_EnemyOffice_4",
-      "prefab_name": "EnemyOffice",
-      "x": 822,
-      "y": 364,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "variant",
-          "CurrentOption": "A"
-        },
-        {
-          "Name": "target",
-          "CurrentOption": "all"
-        }
-      ]
-    },
-    {
       "name": "objects_Enemy_LV1_6",
       "prefab_name": "Enemy_LV1",
       "x": 1038,
@@ -12395,9 +12378,26 @@
           "CurrentOption": "all"
         }
       ]
+    },
+    {
+      "name": "objects_EnemyOfficeMutator_8",
+      "prefab_name": "EnemyOfficeMutator",
+      "x": 802,
+      "y": 364,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "A"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "all"
+        }
+      ]
     }
   ],
-  "next_object_id": 7,
+  "next_object_id": 9,
   "next_prop_id": 3,
   "next_prop_bg_id": 0,
   "next_light_id": 7,

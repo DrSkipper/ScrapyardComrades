@@ -11,6 +11,7 @@ public class PlayerHealthController : VoBehavior, IPausable
     public int HeroLevel = 0;
     public SCAttack.HitData AttritionDeathHitData;
     public float PercentToAnimateAttrtion = 0.2f;
+    public bool IsPlayer = true;
 
     public HealthChangedDelegate HealthChangedCallback;
     public delegate void HealthChangedDelegate(int currentHealth, int maxHealth, bool animate = true, bool highlight = true);
@@ -25,7 +26,7 @@ public class PlayerHealthController : VoBehavior, IPausable
 
     void OnSpawn()
     {
-        int level = SaveData.DataLoaded ? SaveData.PlayerStats.Level : -1;
+        int level = this.IsPlayer && SaveData.DataLoaded ? SaveData.PlayerStats.Level : -1;
 
         if (level > 0)
         {
@@ -118,7 +119,10 @@ public class PlayerHealthController : VoBehavior, IPausable
     private void levelUp()
     {
         GlobalEvents.Notifier.SendEvent(new LocalEventNotifier.Event(MUTATE_EVENT));
-        SaveData.PlayerStats.Level = this.HeroLevel + 1;
+
+        if (this.IsPlayer)
+            SaveData.PlayerStats.Level = this.HeroLevel + 1;
+
         loadLevel(this.HeroLevel + 1, this.Damagable.Health, this.ProgressionData.LevelData[this.HeroLevel + 1].MaxHealthThreshold);
     }
 
@@ -172,8 +176,12 @@ public class PlayerHealthController : VoBehavior, IPausable
         if (ourHeartSpawner != null && otherHeartSpawner != null)
             otherHeartSpawner.Bonus = ourHeartSpawner.Bonus;
 
-        SaveData.PlayerStats.MaxHealth = maxHealth;
-        SaveData.PlayerStats.CurrentHealth = Mathf.Min(health + MUTATE_HEAL_AMT, maxHealth);
+        if (this.IsPlayer)
+        {
+            SaveData.PlayerStats.MaxHealth = maxHealth;
+            SaveData.PlayerStats.CurrentHealth = Mathf.Min(health + MUTATE_HEAL_AMT, maxHealth);
+        }
+
         nextLevel.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
 
         GlobalEvents.Notifier.SendEvent(new EntityReplacementEvent(otherEntity));
