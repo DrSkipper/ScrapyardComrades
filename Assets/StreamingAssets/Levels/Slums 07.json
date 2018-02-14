@@ -18589,46 +18589,6 @@
       "parameters": null
     },
     {
-      "name": "objects_Mine_19",
-      "prefab_name": "Mine",
-      "x": 664,
-      "y": 368,
-      "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Mine_20",
-      "prefab_name": "Mine",
-      "x": 744,
-      "y": 368,
-      "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Mine_21",
-      "prefab_name": "Mine",
-      "x": 704,
-      "y": 368,
-      "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Mine_23",
-      "prefab_name": "Mine",
-      "x": 784,
-      "y": 400,
-      "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Mine_24",
-      "prefab_name": "Mine",
-      "x": 832,
-      "y": 400,
-      "z": -2,
-      "parameters": null
-    },
-    {
       "name": "objects_Mine_27",
       "prefab_name": "Mine",
       "x": 904,
@@ -18682,9 +18642,217 @@
           "CurrentOption": "D"
         }
       ]
+    },
+    {
+      "name": "objects_Mine_37",
+      "prefab_name": "Mine",
+      "x": 816,
+      "y": 592,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "r"
+        }
+      ]
+    },
+    {
+      "name": "objects_Mine_38",
+      "prefab_name": "Mine",
+      "x": 816,
+      "y": 624,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "r"
+        }
+      ]
+    },
+    {
+      "name": "objects_Mine_39",
+      "prefab_name": "Mine",
+      "x": 848,
+      "y": 400,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "d"
+        }
+      ]
+    },
+    {
+      "name": "objects_Mine_40",
+      "prefab_name": "Mine",
+      "x": 816,
+      "y": 400,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "d"
+        }
+      ]
+    },
+    {
+      "name": "objects_Mine_41",
+      "prefab_name": "Mine",
+      "x": 784,
+      "y": 400,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "d"
+        }
+      ]
+    },
+    {
+      "name": "objects_Mine_42",
+      "prefab_name": "Mine",
+      "x": 752,
+      "y": 368,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "d"
+        }
+      ]
+    },
+    {
+      "name": "objects_Mine_43",
+      "prefab_name": "Mine",
+      "x": 720,
+      "y": 368,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "d"
+        }
+      ]
+    },
+    {
+      "name": "objects_Mine_44",
+      "prefab_name": "Mine",
+      "x": 688,
+      "y": 368,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "d"
+        }
+      ]
+    },
+    {
+      "name": "objects_Mine_46",
+      "prefab_name": "Mine",
+      "x": 656,
+      "y": 368,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "l"
+        }
+      ]
+    },
+    {
+      "name": "objects_Mine_47",
+      "prefab_name": "Mine",
+      "x": 656,
+      "y": 400,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "l"
+        }
+      ]
+    },
+    {
+      "name": "objects_Mine_48",
+      "prefab_name": "Mine",
+      "x": 656,
+      "y": 624,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "l"
+        }
+      ]
+    },
+    {
+      "name": "objects_Mine_49",
+      "prefab_name": "Mine",
+      "x": 656,
+      "y": 592,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "l"
+        }
+      ]
+    },
+    {
+      "name": "objects_Mine_51",
+      "prefab_name": "Mine",
+      "x": 592,
+      "y": 624,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "r"
+        }
+      ]
+    },
+    {
+      "name": "objects_Mine_52",
+      "prefab_name": "Mine",
+      "x": 272,
+      "y": 720,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "r"
+        }
+      ]
+    },
+    {
+      "name": "objects_Mine_53",
+      "prefab_name": "Mine",
+      "x": 336,
+      "y": 720,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "l"
+        }
+      ]
+    },
+    {
+      "name": "objects_Mine_54",
+      "prefab_name": "Mine",
+      "x": 336,
+      "y": 688,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "l"
+        }
+      ]
     }
   ],
-  "next_object_id": 37,
+  "next_object_id": 55,
   "next_prop_id": 4,
   "next_prop_bg_id": 15,
   "next_light_id": 15,
