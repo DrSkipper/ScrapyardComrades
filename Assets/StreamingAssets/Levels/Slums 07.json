@@ -18748,32 +18748,6 @@
       ]
     },
     {
-      "name": "objects_Mine_46",
-      "prefab_name": "Mine",
-      "x": 656,
-      "y": 368,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "attach",
-          "CurrentOption": "l"
-        }
-      ]
-    },
-    {
-      "name": "objects_Mine_47",
-      "prefab_name": "Mine",
-      "x": 656,
-      "y": 400,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "attach",
-          "CurrentOption": "l"
-        }
-      ]
-    },
-    {
       "name": "objects_Mine_48",
       "prefab_name": "Mine",
       "x": 656,
@@ -18850,9 +18824,22 @@
           "CurrentOption": "l"
         }
       ]
+    },
+    {
+      "name": "objects_Mine_55",
+      "prefab_name": "Mine",
+      "x": 656,
+      "y": 368,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "d"
+        }
+      ]
     }
   ],
-  "next_object_id": 55,
+  "next_object_id": 56,
   "next_prop_id": 4,
   "next_prop_bg_id": 15,
   "next_light_id": 15,
