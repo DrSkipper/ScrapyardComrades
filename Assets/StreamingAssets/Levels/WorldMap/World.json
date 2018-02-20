@@ -13,7 +13,7 @@
     {
       "name": "Intro 2",
       "x": 2,
-      "y": 12,
+      "y": 13,
       "width": 3,
       "height": 2
     },
@@ -371,6 +371,13 @@
       "name": "Intro 06",
       "x": 15,
       "y": 15,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Intro 07",
+      "x": 2,
+      "y": 10,
       "width": 3,
       "height": 2
     }
