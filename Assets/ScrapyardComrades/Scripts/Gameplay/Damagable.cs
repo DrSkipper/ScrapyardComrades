@@ -16,6 +16,7 @@ public class Damagable : VoBehavior, IPausable
     public int RageDuration = 50;
     public bool IsRaging { get { return !_rageTimer.Completed; } }
     public bool CardinalKnockbackOnly = false;
+    public bool FreezeSelf = true;
     public delegate void OnDeathDelegate();
     public OnDeathDelegate OnDeathCallback;
 
@@ -69,6 +70,14 @@ public class Damagable : VoBehavior, IPausable
         this.localNotifier.SendEvent(_healEvent);
     }
 
+    public void ResetDamagable()
+    {
+        if (_invincibilityTimer != null)
+            _invincibilityTimer.complete();
+        this.Invincible = false;
+        this.Health = this.MaxHealth;
+    }
+
     public bool Damage(SCAttack.HitData hitData, IntegerVector origin, IntegerVector hitPoint, SCCharacterController.Facing attackerFacing)
     {
         if (this.Invincible)
@@ -87,8 +96,11 @@ public class Damagable : VoBehavior, IPausable
         _invincibilityTimer.reset(invinciblityDuration);
         _invincibilityTimer.start();
 
-        _freezeFrameEvent.NumFrames = this.Dead ? DEATH_FREEZE_FRAMES : FREEZE_FRAMES;
-        this.localNotifier.SendEvent(_freezeFrameEvent);
+        if (this.FreezeSelf)
+        {
+            _freezeFrameEvent.NumFrames = this.Dead ? DEATH_FREEZE_FRAMES : FREEZE_FRAMES;
+            this.localNotifier.SendEvent(_freezeFrameEvent);
+        }
 
         // Rage buildup
         bool raging = false;

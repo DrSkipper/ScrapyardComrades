@@ -182,9 +182,11 @@ public class Mine : VoBehavior, IPausable
     private void onCooldownComplete()
     {
         this.spriteRenderer.color = Color.white;
-        _animator.Play();
+
+        if (_animator != null)
+            _animator.Play();
 
         if (this.Damagable != null)
-            this.Damagable.Health = this.Damagable.MaxHealth;
+            this.Damagable.ResetDamagable();
     }
 }
