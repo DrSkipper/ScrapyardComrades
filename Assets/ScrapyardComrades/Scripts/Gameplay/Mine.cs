@@ -28,25 +28,25 @@ public class Mine : VoBehavior, IPausable
         {
             default:
             case TurretController.AttachDir.Down:
-                //_normal = Vector2.up;
+                this.HitData.KnockbackDirection = VectorExtensions.Direction16.DownRight;
                 this.transform.rotation = Quaternion.Euler(0, 0, 0);
                 _ourCollider.Offset = _defaultColliderOffset;
                 _ourCollider.Size = _defaultColliderSize;
                 break;
             case TurretController.AttachDir.Up:
-                //_normal = Vector2.down;
+                this.HitData.KnockbackDirection = VectorExtensions.Direction16.UpRight;
                 this.transform.rotation = Quaternion.Euler(0, 0, 180);
                 _ourCollider.Offset = new IntegerVector(_defaultColliderOffset.X, -_defaultColliderOffset.Y - 1);
                 _ourCollider.Size = _defaultColliderSize;
                 break;
             case TurretController.AttachDir.Left:
-                //_normal = Vector2.right;
+                this.HitData.KnockbackDirection = VectorExtensions.Direction16.Right;
                 this.transform.rotation = Quaternion.Euler(0, 0, -90);
                 _ourCollider.Offset = new IntegerVector(_defaultColliderOffset.Y, -_defaultColliderOffset.X);
                 _ourCollider.Size = new IntegerVector(_defaultColliderSize.Y, _defaultColliderSize.X);
                 break;
             case TurretController.AttachDir.Right:
-                //_normal = Vector2.left;
+                this.HitData.KnockbackDirection = VectorExtensions.Direction16.Right;
                 this.transform.rotation = Quaternion.Euler(0, 0, 90);
                 _ourCollider.Offset = new IntegerVector(-_defaultColliderOffset.Y, _defaultColliderOffset.X);
                 _ourCollider.Size = new IntegerVector(_defaultColliderSize.Y, _defaultColliderSize.X);
@@ -116,8 +116,7 @@ public class Mine : VoBehavior, IPausable
             exp.HitData = this.HitData;
         flash.transform.position = this.transform.position;
         flash.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
-
-
+        
         PooledObject explosion = this.ExplosionEffect.Retain();
         explosion.transform.position = this.ExplosionLocation.position;
         explosion.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
