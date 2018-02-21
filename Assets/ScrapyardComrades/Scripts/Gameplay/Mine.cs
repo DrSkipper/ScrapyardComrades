@@ -12,18 +12,33 @@ public class Mine : VoBehavior, IPausable
     public AudioClip ExplosionSound;
     public bool TriggerOnCollision = true;
     public TurretController.AttachDir AttachedAt = TurretController.AttachDir.Down;
+    public DestructionStyle DestructionType = DestructionStyle.Destroy;
+    public int CooldownDuration = 50;
+    public Color CooldownColor;
+
+    public enum DestructionStyle
+    {
+        Destroy,
+        Cooldown
+    }
 
     void Awake()
     {
+        _animator = this.GetComponent<SCSpriteAnimator>();
         _ourCollider = this.GetComponent<IntegerRectCollider>();
         _nearbyColliders = new List<IntegerCollider>();
         _defaultColliderOffset = _ourCollider.Offset;
         _defaultColliderSize = _ourCollider.Size;
         this.localNotifier.Listen(HitStunEvent.NAME, this, onHit);
+        _cooldownTimer = new Timer(this.CooldownDuration, false, true, onCooldownComplete);
+        _cooldownTimer.complete();
     }
 
     void OnSpawn()
     {
+        if (!_cooldownTimer.Completed)
+            _cooldownTimer.complete();
+
         switch (this.AttachedAt)
         {
             default:
@@ -65,12 +80,15 @@ public class Mine : VoBehavior, IPausable
 
     void FixedUpdate()
     {
-        if (this.TriggerOnCollision)
+        if (!_cooldownTimer.Completed)
+            _cooldownTimer.update();
+
+        if (this.TriggerOnCollision && _cooldownTimer.Completed)
         {
             --_framesUntilColliderGet;
             if (_framesUntilColliderGet < 0)
                 gatherNearbyColliders();
-
+            
             GameObject collided = this.integerCollider.CollideFirst(0, 0, this.DamagableLayers, null, _nearbyColliders);
             if (collided != null)
             {
@@ -79,8 +97,7 @@ public class Mine : VoBehavior, IPausable
                 {
                     Actor2D actor = damagable.GetComponent<Actor2D>();
                     float vx = actor == null ? 0.0f : actor.Velocity.x;
-
-                    //TODO: Rotate knockback direction based on normal
+                    
                     damagable.Damage(this.HitData, (Vector2)this.transform.position, (Vector2)this.transform.position, vx > 0.0f ? SCCharacterController.Facing.Left : SCCharacterController.Facing.Right);
 
                     explode();
@@ -97,12 +114,13 @@ public class Mine : VoBehavior, IPausable
     /**
      * Private
      */
+    private SCSpriteAnimator _animator;
     private IntegerRectCollider _ourCollider;
     private List<IntegerCollider> _nearbyColliders;
     private int _framesUntilColliderGet;
-    //private Vector2 _normal;
     private IntegerVector _defaultColliderOffset;
     private IntegerVector _defaultColliderSize;
+    private Timer _cooldownTimer;
 
     private static int FRAME_OFFSET = 0;
     private const int ENLARGE_AMT = 40;
@@ -123,13 +141,25 @@ public class Mine : VoBehavior, IPausable
 
         if (this.ExplosionSound != null)
             SoundManager.Play(this.ExplosionSound.name);
-
-        this.GetComponent<WorldEntity>().TriggerConsumption();
+        
+        switch (this.DestructionType)
+        {
+            default:
+            case DestructionStyle.Destroy:
+                this.GetComponent<WorldEntity>().TriggerConsumption();
+                break;
+            case DestructionStyle.Cooldown:
+                this.spriteRenderer.color = this.CooldownColor;
+                _animator.GoToFrame(0);
+                _animator.Stop();
+                _cooldownTimer.resetAndStart();
+                break;
+        }
     }
 
     private void onHit(LocalEventNotifier.Event e)
     {
-        if (this.Damagable.Dead)
+        if (this.Damagable.Dead && _cooldownTimer.Completed)
         {
             explode();
         }
@@ -147,5 +177,14 @@ public class Mine : VoBehavior, IPausable
             }
         }
         _framesUntilColliderGet = FRAMES_BETWEEN_COLLIDER_GET;
+    }
+
+    private void onCooldownComplete()
+    {
+        this.spriteRenderer.color = Color.white;
+        _animator.Play();
+
+        if (this.Damagable != null)
+            this.Damagable.Health = this.Damagable.MaxHealth;
     }
 }
