@@ -38,10 +38,22 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         this.WorldBounds.Size = this.WorldPanel.sizeDelta;
         this.WorldBounds.Offset = this.WorldPanel.sizeDelta / 2;
 
-        for (int i = 0; i < _worldInfo.level_quads.Length; ++i)
+        if (_worldInfo.level_quads.Length > 0)
         {
-            WorldInfo.LevelQuad levelQuad = _worldInfo.level_quads[i];
-            _quadVisuals.Add(levelQuad.name, loadQuad(levelQuad));
+            int x = 0;
+            int y = 0;
+            for (int i = 0; i < _worldInfo.level_quads.Length; ++i)
+            {
+                WorldInfo.LevelQuad levelQuad = _worldInfo.level_quads[i];
+                _quadVisuals.Add(levelQuad.name, loadQuad(levelQuad));
+                x += levelQuad.x;
+                y += levelQuad.y;
+            }
+
+            x /= _worldInfo.level_quads.Length;
+            y /= _worldInfo.level_quads.Length;
+            this.Cursor.GridPos = new IntegerVector(x, y);
+            this.Cursor.MoveToGridPos();
         }
 
         this.ContextMenu.EnterState(hoveredQuadVisual() == null ? NO_SELECTION_STATE : HOVER_STATE);
