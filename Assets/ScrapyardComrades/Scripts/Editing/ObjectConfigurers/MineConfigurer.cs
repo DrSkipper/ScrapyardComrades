@@ -3,11 +3,6 @@
 public class MineConfigurer : ObjectConfigurer
 {
     private const string NAME = "Mine";
-    public const string ATTACH_DIR_TYPE = "attach";
-    public const string ATTACH_DOWN = "d";
-    public const string ATTACH_UP = "u";
-    public const string ATTACH_LEFT = "l";
-    public const string ATTACH_RIGHT = "r";
 
     public Mine MineScript;
 
@@ -16,11 +11,11 @@ public class MineConfigurer : ObjectConfigurer
         get
         {
             return new ObjectParamType[] {
-                new ObjectParamType(ATTACH_DIR_TYPE, new string[] {
-                    ATTACH_DOWN,
-                    ATTACH_UP,
-                    ATTACH_LEFT,
-                    ATTACH_RIGHT
+                new ObjectParamType(TurretConfigurer.ATTACH_DIR_TYPE, new string[] {
+                    TurretConfigurer.ATTACH_DOWN,
+                    TurretConfigurer.ATTACH_UP,
+                    TurretConfigurer.ATTACH_LEFT,
+                    TurretConfigurer.ATTACH_RIGHT
                 })
             };
         }
@@ -33,7 +28,7 @@ public class MineConfigurer : ObjectConfigurer
             default:
                 LogInvalidParameter(NAME, parameterName, option);
                 break;
-            case ATTACH_DIR_TYPE:
+            case TurretConfigurer.ATTACH_DIR_TYPE:
                 configureAttachType(option);
                 break;
         }
@@ -47,19 +42,19 @@ public class MineConfigurer : ObjectConfigurer
         switch (option)
         {
             default:
-                LogInvalidParameter(NAME, ATTACH_DIR_TYPE, option);
+                LogInvalidParameter(NAME, TurretConfigurer.ATTACH_DIR_TYPE, option);
                 this.MineScript.AttachedAt = TurretController.AttachDir.Down;
                 break;
-            case ATTACH_DOWN:
+            case TurretConfigurer.ATTACH_DOWN:
                 this.MineScript.AttachedAt = TurretController.AttachDir.Down;
                 break;
-            case ATTACH_UP:
+            case TurretConfigurer.ATTACH_UP:
                 this.MineScript.AttachedAt = TurretController.AttachDir.Up;
                 break;
-            case ATTACH_LEFT:
+            case TurretConfigurer.ATTACH_LEFT:
                 this.MineScript.AttachedAt = TurretController.AttachDir.Left;
                 break;
-            case ATTACH_RIGHT:
+            case TurretConfigurer.ATTACH_RIGHT:
                 this.MineScript.AttachedAt = TurretController.AttachDir.Right;
                 break;
         }

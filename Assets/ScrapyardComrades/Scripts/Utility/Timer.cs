@@ -40,6 +40,12 @@ public class Timer
         this.start();
     }
 
+    public void resetAndStart(int numFrames)
+    {
+        this.reset(numFrames);
+        this.start();
+    }
+
     public void complete(bool callback = true)
     {
         _framesRemaining = 0;

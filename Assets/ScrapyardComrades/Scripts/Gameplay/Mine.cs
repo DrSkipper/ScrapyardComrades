@@ -43,13 +43,13 @@ public class Mine : VoBehavior, IPausable
         {
             default:
             case TurretController.AttachDir.Down:
-                this.HitData.KnockbackDirection = VectorExtensions.Direction16.DownRight;
+                this.HitData.KnockbackDirection = VectorExtensions.Direction16.UpRight;
                 this.transform.rotation = Quaternion.Euler(0, 0, 0);
                 _ourCollider.Offset = _defaultColliderOffset;
                 _ourCollider.Size = _defaultColliderSize;
                 break;
             case TurretController.AttachDir.Up:
-                this.HitData.KnockbackDirection = VectorExtensions.Direction16.UpRight;
+                this.HitData.KnockbackDirection = VectorExtensions.Direction16.DownRight;
                 this.transform.rotation = Quaternion.Euler(0, 0, 180);
                 _ourCollider.Offset = new IntegerVector(_defaultColliderOffset.X, -_defaultColliderOffset.Y - 1);
                 _ourCollider.Size = _defaultColliderSize;
@@ -61,7 +61,7 @@ public class Mine : VoBehavior, IPausable
                 _ourCollider.Size = new IntegerVector(_defaultColliderSize.Y, _defaultColliderSize.X);
                 break;
             case TurretController.AttachDir.Right:
-                this.HitData.KnockbackDirection = VectorExtensions.Direction16.Right;
+                this.HitData.KnockbackDirection = VectorExtensions.Direction16.Left;
                 this.transform.rotation = Quaternion.Euler(0, 0, 90);
                 _ourCollider.Offset = new IntegerVector(-_defaultColliderOffset.Y, _defaultColliderOffset.X);
                 _ourCollider.Size = new IntegerVector(_defaultColliderSize.Y, _defaultColliderSize.X);
@@ -146,7 +146,11 @@ public class Mine : VoBehavior, IPausable
         {
             default:
             case DestructionStyle.Destroy:
-                this.GetComponent<WorldEntity>().TriggerConsumption();
+                WorldEntity entity = this.GetComponent<WorldEntity>();
+                if (entity != null)
+                    entity.TriggerConsumption();
+                else
+                    ObjectPools.Release(this.gameObject);
                 break;
             case DestructionStyle.Cooldown:
                 this.spriteRenderer.color = this.CooldownColor;

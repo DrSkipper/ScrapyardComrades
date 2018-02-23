@@ -11,9 +11,12 @@ public class LightStrobe : MonoBehaviour
 
     void OnSpawn()
     {
-        _maxRange = Mathf.RoundToInt(this.Light.range) + this.RangeRange / 2;
+        _startingRange = Mathf.RoundToInt(this.Light.range);
+        _startingIntensity = this.Light.intensity;
+
+        _maxRange = _startingRange + this.RangeRange / 2;
         _minRange = _maxRange - this.RangeRange;
-        _maxIntensity = this.Light.intensity + this.IntensityRange / 2.0f;
+        _maxIntensity = _startingIntensity + this.IntensityRange / 2.0f;
         _minIntensity = _maxIntensity - this.IntensityRange;
         _t = this.OneWayDuration / 2;
         _goingUp = false;
@@ -44,6 +47,12 @@ public class LightStrobe : MonoBehaviour
         }
     }
 
+    void OnReturnToPool()
+    {
+        this.Light.range = _startingRange;
+        this.Light.intensity = _startingIntensity;
+    }
+
     /**
      * Private
      */
@@ -54,4 +63,7 @@ public class LightStrobe : MonoBehaviour
     private int _maxRange;
     private float _minIntensity;
     private float _maxIntensity;
+
+    private int _startingRange;
+    private float _startingIntensity;
 }

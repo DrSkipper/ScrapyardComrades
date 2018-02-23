@@ -12435,9 +12435,46 @@
       "y": 196,
       "z": -2,
       "parameters": null
+    },
+    {
+      "name": "objects_MineLauncher_8",
+      "prefab_name": "MineLauncher",
+      "x": 576,
+      "y": 400,
+      "z": -2,
+      "parameters": null
+    },
+    {
+      "name": "objects_MineLauncher_9",
+      "prefab_name": "MineLauncher",
+      "x": 704,
+      "y": 400,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "is_launching",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "attach",
+          "CurrentOption": "r"
+        },
+        {
+          "Name": "mine_dir",
+          "CurrentOption": "d"
+        },
+        {
+          "Name": "launch_speed",
+          "CurrentOption": "2"
+        },
+        {
+          "Name": "interval",
+          "CurrentOption": "50"
+        }
+      ]
     }
   ],
-  "next_object_id": 3,
+  "next_object_id": 10,
   "next_prop_id": 3,
   "next_prop_bg_id": 12,
   "next_light_id": 15,
