@@ -16454,7 +16454,9 @@
       "x": 1208,
       "y": 72,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_SlumsLamp_3",
@@ -16462,7 +16464,9 @@
       "x": 280,
       "y": 176,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_slums_plant_4",
@@ -16470,7 +16474,9 @@
       "x": 176,
       "y": 64,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_SlumsLamp_5",
@@ -16478,7 +16484,9 @@
       "x": 1872,
       "y": 240,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_slums_car2_6",
@@ -16486,7 +16494,9 @@
       "x": 1964,
       "y": 148,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_slums_neon_7",
@@ -16494,7 +16504,9 @@
       "x": 908,
       "y": 268,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_Bird_8",
@@ -16502,7 +16514,9 @@
       "x": 1176,
       "y": 80,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_Bird_9",
@@ -16510,7 +16524,9 @@
       "x": 1186,
       "y": 80,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_Bird_10",
@@ -16518,7 +16534,9 @@
       "x": 1136,
       "y": 80,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_Bird_11",
@@ -16526,7 +16544,9 @@
       "x": 1120,
       "y": 80,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_Bird_12",
@@ -16534,7 +16554,9 @@
       "x": 1146,
       "y": 80,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_Poster_15",
@@ -16551,7 +16573,9 @@
           "Name": "input",
           "CurrentOption": "jump"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_BarrelFire_20",
@@ -16559,7 +16583,9 @@
       "x": 1010,
       "y": 78,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_PlantA_21",
@@ -16567,7 +16593,9 @@
       "x": 224,
       "y": 80,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_PlantB_22",
@@ -16575,7 +16603,9 @@
       "x": 110,
       "y": 208,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_PlantD_24",
@@ -16583,7 +16613,9 @@
       "x": 766,
       "y": 78,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_PlantA_25",
@@ -16591,7 +16623,9 @@
       "x": 782,
       "y": 78,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_PlantC_26",
@@ -16599,7 +16633,9 @@
       "x": 1706,
       "y": 78,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "props_background": [
@@ -16609,7 +16645,9 @@
       "x": 724,
       "y": 352,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_house1_16",
@@ -16617,7 +16655,9 @@
       "x": 92,
       "y": 656,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_house2_17",
@@ -16625,7 +16665,9 @@
       "x": 136,
       "y": 648,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_house1_18",
@@ -16633,7 +16675,9 @@
       "x": 196,
       "y": 620,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slum_house4_41",
@@ -16641,7 +16685,9 @@
       "x": 1944,
       "y": 524,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_bg_49",
@@ -16649,7 +16695,9 @@
       "x": 1560,
       "y": 312,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_plant_55",
@@ -16657,7 +16705,9 @@
       "x": 1744,
       "y": 448,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slum_house10_59",
@@ -16665,7 +16715,9 @@
       "x": 1272,
       "y": 112,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slum_house7_60",
@@ -16673,7 +16725,9 @@
       "x": 952,
       "y": 112,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slum_house4_71",
@@ -16681,7 +16735,9 @@
       "x": 476,
       "y": 368,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_pole_72",
@@ -16689,7 +16745,9 @@
       "x": 836,
       "y": 576,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slum_house10_73",
@@ -16697,7 +16755,9 @@
       "x": 624,
       "y": 264,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "objects": [
@@ -16707,7 +16767,9 @@
       "x": 1208,
       "y": 96,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Ambulance_3",
@@ -16715,7 +16777,9 @@
       "x": 380,
       "y": 118,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_HeroLV0_5",
@@ -16723,10 +16787,12 @@
       "x": 480,
       "y": 100,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
-  "next_object_id": 12,
+  "next_object_id": 14,
   "next_prop_id": 28,
   "next_prop_bg_id": 74,
   "next_light_id": 30,

@@ -193,6 +193,8 @@ public class NewMapInfo
         public int y;
         public int z;
         public ObjectParam[] parameters;
+        public int secondary_x;
+        public int secondary_y;
         //public int width;
         //public int height;
     }

@@ -16,6 +16,7 @@ public abstract class ObjectConfigurer : MonoBehaviour
 
     public abstract ObjectParamType[] ParameterTypes { get; }
     public int[] CurrentOptions { get; private set; }
+    public virtual Transform GetSecondaryTransform() { return null; }
 
     protected abstract void ConfigureParameter(string parameterName, string option);
 

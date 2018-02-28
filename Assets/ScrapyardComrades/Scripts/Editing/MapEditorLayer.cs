@@ -378,6 +378,12 @@ public class MapEditorObjectsLayer : MapEditorLayer
         ObjectConfigurer configurer = gameObject.GetComponent<ObjectConfigurer>();
         if (configurer != null)
         {
+            Transform secondaryTransform = configurer.GetSecondaryTransform();
+            if (secondaryTransform != null)
+            {
+                mapObject.secondary_x = Mathf.RoundToInt(secondaryTransform.position.x);
+                mapObject.secondary_y = Mathf.RoundToInt(secondaryTransform.position.y);
+            }
             configurer.ConfigureForParams(this.CurrentObjectParams);
             gameObject.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
         }

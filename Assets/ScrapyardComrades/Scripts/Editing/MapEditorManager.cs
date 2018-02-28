@@ -160,21 +160,24 @@ public class MapEditorManager : MonoBehaviour, IPausable
         if (_exiting)
             return;
 
-        if (MenuInput.CycleNextAlt || MenuInput.CyclePrevAlt)
+        if (_secondaryPlacement == null)
         {
-            cycleLayers(MenuInput.CycleNextAlt);
-        }
-        else if (MenuInput.Start)
-        {
-            this.Save();
-        }
-        else if (MenuInput.Exit)
-        {
-            _exiting = true;
-            this.FadeOut.Run();
-            this.Cursor.Hide();
-            this.Save();
-            this.TimedCallbacks.AddCallback(this, loadWorldEditor, this.LoadTime);
+            if (MenuInput.CycleNextAlt || MenuInput.CyclePrevAlt)
+            {
+                cycleLayers(MenuInput.CycleNextAlt);
+            }
+            else if (MenuInput.Start)
+            {
+                this.Save();
+            }
+            else if (MenuInput.Exit)
+            {
+                _exiting = true;
+                this.FadeOut.Run();
+                this.Cursor.Hide();
+                this.Save();
+                this.TimedCallbacks.AddCallback(this, loadWorldEditor, this.LoadTime);
+            }
         }
 
         updateCurrentLayer();
@@ -239,6 +242,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     private int _backgroundParallaxCount;
     private List<Sprite> _parallaxSprites;
     private bool _tileSnapObjectSpeed;
+    private ObjectConfigurer _secondaryPlacement;
 
     private Sprite findParallaxSprite(string spriteName)
     {
@@ -396,11 +400,18 @@ public class MapEditorManager : MonoBehaviour, IPausable
         if (MenuInput.Confirm)
         {
             if (!layer.EraserEnabled)
-                addObject(layer);
+            {
+                if (_secondaryPlacement != null)
+                    addSecondaryTransform(layer);
+                else
+                    addObject(layer);
+            }
             else
+            {
                 eraseObject(layer, toErase);
+            }
         }
-        else if (MenuInput.Cancel)
+        else if (MenuInput.Cancel && _secondaryPlacement == null)
         {
             _objectEraserEnabled = !_objectEraserEnabled;
             layer.EraserEnabled = _objectEraserEnabled;
@@ -411,17 +422,20 @@ public class MapEditorManager : MonoBehaviour, IPausable
         {
             updateObjectMovement();
 
-            if (MenuInput.CyclePrev)
+            if (_secondaryPlacement == null)
             {
-                removeObjectBrush();
-                layer.CyclePrev();
-                addObjectBrush(layer);
-            }
-            else if (MenuInput.CycleNext)
-            {
-                removeObjectBrush();
-                layer.CycleNext();
-                addObjectBrush(layer);
+                if (MenuInput.CyclePrev)
+                {
+                    removeObjectBrush();
+                    layer.CyclePrev();
+                    addObjectBrush(layer);
+                }
+                else if (MenuInput.CycleNext)
+                {
+                    removeObjectBrush();
+                    layer.CycleNext();
+                    addObjectBrush(layer);
+                }
             }
         }
     }
@@ -607,13 +621,25 @@ public class MapEditorManager : MonoBehaviour, IPausable
             r.sortingLayerName = layer.Name;
     }
 
-    private void addObject(MapEditorObjectsLayer layer)
+    private GameObject addObject(MapEditorObjectsLayer layer)
     {
         Object prefab = layer.CurrentPrefab;
         PooledObject brushPooledObject = loadPooledObject(prefab);
         GameObject newObject = brushPooledObject.gameObject;
         newObject.transform.SetPosition(this.ObjectCursor.position.x, this.ObjectCursor.position.y, layer.Depth);
-        layer.AddObject(newObject);
+        ObjectConfigurer config = newObject.GetComponent<ObjectConfigurer>();
+        if (config != null && config.GetSecondaryTransform() != null)
+            _secondaryPlacement = config;
+        else
+            layer.AddObject(newObject);
+        return newObject;
+    }
+
+    private void addSecondaryTransform(MapEditorObjectsLayer layer)
+    {
+        _secondaryPlacement.GetSecondaryTransform().SetPosition(this.ObjectCursor.position.x, this.ObjectCursor.position.y, layer.Depth);
+        layer.AddObject(_secondaryPlacement.gameObject);
+        _secondaryPlacement = null;
     }
 
     private void addLight(MapEditorLightingLayer layer)
@@ -681,6 +707,11 @@ public class MapEditorManager : MonoBehaviour, IPausable
             ObjectConfigurer configurer = newObject.GetComponent<ObjectConfigurer>();
             if (configurer != null)
             {
+                Transform secondaryTransform = configurer.GetSecondaryTransform();
+                if (secondaryTransform != null)
+                {
+                    secondaryTransform.transform.SetPosition2D(layer.Objects[i].secondary_x, layer.Objects[i].secondary_y);
+                }
                 configurer.ConfigureForParams(layer.Objects[i].parameters);
                 newObject.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
             }

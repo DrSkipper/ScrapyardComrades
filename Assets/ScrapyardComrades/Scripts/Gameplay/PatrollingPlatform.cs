@@ -22,11 +22,17 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform
 
     void OnSpawn()
     {
-        this.transform.SetLocalPosition2D(this.Start.position);
+        this.integerCollider.AddToCollisionPool();
+        this.transform.SetPosition2D(this.Start.position);
         _actualPos = this.transform.position;
         _outward = true;
         _outwardVelocity = ((Vector2)this.Destination.transform.position) - ((Vector2)this.Start.transform.position).normalized * this.Speed;
         _inwardVelocity = ((Vector2)this.Start.transform.position) - ((Vector2)this.Destination.transform.position).normalized * this.Speed;
+    }
+
+    void OnReturnToPool()
+    {
+        this.integerCollider.RemoveFromCollisionPool();
     }
 
     void FixedUpdate()
@@ -36,12 +42,12 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform
         IntegerVector nextPos = nextActualPos;
         IntegerVector currentPos = (Vector2)this.transform.position;
 
-        if (this.integerCollider.CollideFirst(nextPos.X - currentPos.X, nextPos.Y - currentPos.Y, this.BlockingMask) != null)
+        if (this.integerCollider.CollideFirst(nextPos.X - currentPos.X, nextPos.Y - currentPos.Y, this.BlockingMask) == null)
         {
             this.transform.SetPosition2D(nextPos);
             _actualPos = nextActualPos;
 
-            if (nextPos == (IntegerVector)(Vector2)this.transform.position)
+            if (nextPos == (IntegerVector)(Vector2)this.Start.position)
             {
                 //TODO: Stop for a bit
                 _outward = !_outward;

@@ -51,7 +51,8 @@ public class ObjectPlacer : VoBehavior
                     int x = mapObject.x;
                     int y = mapObject.y;
                     Vector3 spawnPos = new Vector3(x + this.transform.position.x, y + this.transform.position.y, mapObject.z);
-                    addSpawn(toSpawn, spawnPos, entity, sortingLayerName, mapObject.parameters, spriteObject ? mapObject.prefab_name : null);
+                    IntegerVector secondaryPos = new IntegerVector(mapObject.secondary_x + Mathf.RoundToInt(this.transform.position.x), mapObject.secondary_y + Mathf.RoundToInt(this.transform.position.y));
+                    addSpawn(toSpawn, spawnPos, entity, sortingLayerName, mapObject.parameters, spriteObject ? mapObject.prefab_name : null, secondaryPos);
                 }
             }
         }
@@ -90,6 +91,7 @@ public class ObjectPlacer : VoBehavior
         _spriteNames.Clear();
         _sortingLayerNames.Clear();
         _spawnParams.Clear();
+        _secondaryPositions.Clear();
     }
 
     public void EnableNonTrackedObjects(bool enabled)
@@ -111,12 +113,13 @@ public class ObjectPlacer : VoBehavior
     private List<string> _spriteNames = new List<string>();
     private List<string> _sortingLayerNames = new List<string>();
     private List<PooledObject> _nonTrackedObjects = new List<PooledObject>();
+    private List<IntegerVector> _secondaryPositions = new List<IntegerVector>();
     private const int LIGHTING_Z = -4;
     private static int SORTING_IN_LAYER = MAX_SORTING_ORDER;
     private const int MIN_SORTING_ORDER = -10000;
     private const int MAX_SORTING_ORDER = 10000;
 
-    private void addSpawn(PooledObject toSpawn, Vector3 spawnPos, EntityTracker.Entity entity, string sortingLayerName, NewMapInfo.ObjectParam[] spawnParams, string spriteName = null)
+    private void addSpawn(PooledObject toSpawn, Vector3 spawnPos, EntityTracker.Entity entity, string sortingLayerName, NewMapInfo.ObjectParam[] spawnParams, string spriteName, IntegerVector secondaryPosition)
     {
         _spawnQueue.Add(toSpawn);
         _spawnPositions.Add(spawnPos);
@@ -124,6 +127,8 @@ public class ObjectPlacer : VoBehavior
         _spriteNames.Add(spriteName);
         _sortingLayerNames.Add(sortingLayerName);
         _spawnParams.Add(spawnParams);
+        if (secondaryPosition != null)
+            _secondaryPositions.Add(secondaryPosition);
     }
 
     private void addLightSpawn(PooledObject lightPrefab, Vector3 spawnPos, NewMapInfo.MapLight light)
@@ -149,6 +154,7 @@ public class ObjectPlacer : VoBehavior
         EntityTracker.Entity entity = _spawnEntities.Pop();
         string spriteName = _spriteNames.Pop();
         NewMapInfo.ObjectParam[] spawnParams = _spawnParams.Pop();
+        IntegerVector secondaryPos = _secondaryPositions.Pop();
 
         if (entity != null)
         {
@@ -192,16 +198,19 @@ public class ObjectPlacer : VoBehavior
             }
         }
 
+        spawn.transform.position = spawnLocation;
+
         ObjectConfigurer configurer = spawn.GetComponent<ObjectConfigurer>();
         if (configurer != null)
         {
+            if (configurer.GetSecondaryTransform() != null)
+                configurer.GetSecondaryTransform().SetPosition2D(secondaryPos);
             configurer.ConfigureForParams(spawnParams);
         }
 
         if (SORTING_IN_LAYER <= MIN_SORTING_ORDER)
             SORTING_IN_LAYER = MAX_SORTING_ORDER;
         
-        spawn.transform.position = spawnLocation;
         spawn.BroadcastMessage(ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
     }
 

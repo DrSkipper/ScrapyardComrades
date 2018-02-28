@@ -12358,7 +12358,9 @@
       "x": 576,
       "y": 92,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_slums_plant_1",
@@ -12366,7 +12368,9 @@
       "x": 464,
       "y": 96,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_SlumsLamp_2",
@@ -12374,7 +12378,9 @@
       "x": 1432,
       "y": 400,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "props_background": [
@@ -12384,7 +12390,9 @@
       "x": 152,
       "y": 372,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_house1_1",
@@ -12392,7 +12400,9 @@
       "x": 216,
       "y": 368,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_plant_5",
@@ -12400,7 +12410,9 @@
       "x": 1172,
       "y": 60,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_house1_9",
@@ -12408,7 +12420,9 @@
       "x": 256,
       "y": 320,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_house2_10",
@@ -12416,7 +12430,9 @@
       "x": 296,
       "y": 292,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_house2_11",
@@ -12424,7 +12440,9 @@
       "x": 112,
       "y": 380,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "objects": [
@@ -12434,7 +12452,9 @@
       "x": 64,
       "y": 196,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_MineLauncher_8",
@@ -12442,7 +12462,9 @@
       "x": 576,
       "y": 400,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_MineLauncher_9",
@@ -12471,10 +12493,22 @@
           "Name": "interval",
           "CurrentOption": "50"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_PatrollingPlatform_17",
+      "prefab_name": "PatrollingPlatform",
+      "x": 320,
+      "y": 272,
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 320,
+      "secondary_y": 400
     }
   ],
-  "next_object_id": 10,
+  "next_object_id": 18,
   "next_prop_id": 3,
   "next_prop_bg_id": 12,
   "next_light_id": 15,
