@@ -26,8 +26,8 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform
         this.transform.SetPosition2D(this.Start.position);
         _actualPos = this.transform.position;
         _outward = true;
-        _outwardVelocity = ((Vector2)this.Destination.transform.position) - ((Vector2)this.Start.transform.position).normalized * this.Speed;
-        _inwardVelocity = ((Vector2)this.Start.transform.position) - ((Vector2)this.Destination.transform.position).normalized * this.Speed;
+        _outwardVelocity = (((Vector2)this.Destination.transform.position) - ((Vector2)this.Start.transform.position)).normalized * this.Speed;
+        _inwardVelocity = (((Vector2)this.Start.transform.position) - ((Vector2)this.Destination.transform.position)).normalized * this.Speed;
     }
 
     void OnReturnToPool()
@@ -47,12 +47,16 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform
             this.transform.SetPosition2D(nextPos);
             _actualPos = nextActualPos;
 
-            if (nextPos == (IntegerVector)(Vector2)this.Start.position)
+            if (nextPos == target)
             {
                 //TODO: Stop for a bit
                 _outward = !_outward;
                 _actualPos = nextPos;
             }
+        }
+        else
+        {
+            _actualPos = this.integerPosition;
         }
     }
 
