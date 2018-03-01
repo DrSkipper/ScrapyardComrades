@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class PatrollingPlatform : VoBehavior, IMovingPlatform
 {
@@ -20,6 +21,11 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform
         }
     }
 
+    void Awake()
+    {
+        _collisions = new List<GameObject>();
+    }
+
     void OnSpawn()
     {
         this.integerCollider.AddToCollisionPool();
@@ -37,26 +43,54 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform
 
     void FixedUpdate()
     {
-        IntegerVector target = _outward ? (Vector2)this.Destination.transform.position : (Vector2)this.Start.transform.position;
-        Vector2 nextActualPos = Vector2.MoveTowards(_actualPos, target, this.Speed);
-        IntegerVector nextPos = nextActualPos;
-        IntegerVector currentPos = (Vector2)this.transform.position;
-
-        if (this.integerCollider.CollideFirst(nextPos.X - currentPos.X, nextPos.Y - currentPos.Y, this.BlockingMask) == null)
+        if (!_stopped)
         {
-            this.transform.SetPosition2D(nextPos);
-            _actualPos = nextActualPos;
+            IntegerVector target = _outward ? (Vector2)this.Destination.transform.position : (Vector2)this.Start.transform.position;
+            Vector2 nextActualPos = Vector2.MoveTowards(_actualPos, target, this.Speed);
+            IntegerVector nextPos = nextActualPos;
+            IntegerVector currentPos = this.integerPosition;
 
-            if (nextPos == target)
+            // Can we move or are we blocked?
+            bool canMove = true;
+            int offsetX = nextPos.X - currentPos.X;
+            int offsetY = nextPos.Y - currentPos.Y;
+            this.integerCollider.Collide(_collisions, offsetX, offsetY, this.BlockingMask);
+
+            if (_collisions.Count > 0)
             {
-                //TODO: Stop for a bit
-                _outward = !_outward;
-                _actualPos = nextPos;
+                DirectionalVector2 dir = _outward ? new DirectionalVector2(_outwardVelocity.x, _outwardVelocity.y) : new DirectionalVector2(_inwardVelocity.x, _inwardVelocity.y);
+                for (int i = 0; i < _collisions.Count; ++i)
+                {
+                    // Push actors to make room if possible
+                    Actor2D collision = _collisions[i].GetComponent<Actor2D>();
+                    if (collision == null || !collision.Push(dir, this.integerCollider, offsetX, offsetY))
+                    {
+                        canMove = false;
+                        break;
+                    }
+                }
+                _collisions.Clear();
             }
-        }
-        else
-        {
-            _actualPos = this.integerPosition;
+
+            // If we can move, do so, otherwise register that we're blocked here
+            if (canMove)
+            {
+                _blocked = false;
+                this.transform.SetPosition2D(nextPos);
+                _actualPos = nextActualPos;
+
+                if (nextPos == target)
+                {
+                    //TODO: Stop for a bit
+                    _outward = !_outward;
+                    _actualPos = nextPos;
+                }
+            }
+            else
+            {
+                _blocked = true;
+                _actualPos = currentPos;
+            }
         }
     }
 
@@ -69,4 +103,5 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform
     private bool _blocked;
     private bool _stopped;
     private bool _outward;
+    private List<GameObject> _collisions;
 }

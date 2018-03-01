@@ -221,6 +221,21 @@ public class Actor2D : VoBehavior, IPausable
         return true;
     }
 
+    public bool Push(DirectionalVector2 dir, IntegerCollider fromBounds, int fromOffsetX, int fromOffsetY)
+    {
+        IntegerVector d = IntegerVector.Zero;
+        while (fromBounds.CollideCheck(this.gameObject, fromOffsetX - d.X, fromOffsetY - d.Y))
+        {
+            d.X += dir.X;
+            d.Y += dir.Y;
+        }
+
+        IntegerVector target = this.integerPosition + d;
+        this.Move(d);
+
+        return this.integerPosition == target;
+    }
+
     /**
      * Private
      */
