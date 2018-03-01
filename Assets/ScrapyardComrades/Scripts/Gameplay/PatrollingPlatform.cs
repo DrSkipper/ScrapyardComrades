@@ -7,6 +7,7 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform
     public Transform Start;
     public Transform Destination;
     public LayerMask BlockingMask;
+    public LayerMask ActorMask;
 
     public Vector2 Velocity
     {
@@ -49,11 +50,11 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform
             Vector2 nextActualPos = Vector2.MoveTowards(_actualPos, target, this.Speed);
             IntegerVector nextPos = nextActualPos;
             IntegerVector currentPos = this.integerPosition;
+            int offsetX = nextPos.X - currentPos.X;
+            int offsetY = nextPos.Y - currentPos.Y;
 
             // Can we move or are we blocked?
             bool canMove = true;
-            int offsetX = nextPos.X - currentPos.X;
-            int offsetY = nextPos.Y - currentPos.Y;
             this.integerCollider.Collide(_collisions, offsetX, offsetY, this.BlockingMask);
 
             if (_collisions.Count > 0)
@@ -75,6 +76,12 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform
             // If we can move, do so, otherwise register that we're blocked here
             if (canMove)
             {
+                // If we're moving a negative y value, get a list of the actors on us to pull down with us
+                if (offsetY < 0)
+                {
+                    this.integerCollider.Collide(_collisions, 0, 1, this.ActorMask);
+                }
+
                 _blocked = false;
                 this.transform.SetPosition2D(nextPos);
                 _actualPos = nextActualPos;
@@ -84,6 +91,16 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform
                     //TODO: Stop for a bit
                     _outward = !_outward;
                     _actualPos = nextPos;
+                }
+
+                // Pull any actors on our platform down with us
+                if (offsetY < 0 && _collisions.Count > 0)
+                {
+                    for (int i = 0; i < _collisions.Count; ++i)
+                    {
+                        _collisions[i].GetComponent<Actor2D>().Move(new Vector2(0, offsetY));
+                    }
+                    _collisions.Clear();
                 }
             }
             else
