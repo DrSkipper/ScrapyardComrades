@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class PatrollingPlatform : VoBehavior, IMovingPlatform
+public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
 {
     public int Speed = 2;
     public Transform Start;
@@ -35,6 +35,15 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform
         _outward = true;
         _outwardVelocity = (((Vector2)this.Destination.transform.position) - ((Vector2)this.Start.transform.position)).normalized * this.Speed;
         _inwardVelocity = (((Vector2)this.Start.transform.position) - ((Vector2)this.Destination.transform.position)).normalized * this.Speed;
+
+        // Hack check to see if we're not in the level editor
+        if (EntityTracker.Instance != null)
+        {
+            // Disable debug image for our destination
+            SpriteRenderer destinationRenderer = this.Destination.GetComponent<SpriteRenderer>();
+            if (destinationRenderer != null)
+                destinationRenderer.enabled = false;
+        }
     }
 
     void OnReturnToPool()

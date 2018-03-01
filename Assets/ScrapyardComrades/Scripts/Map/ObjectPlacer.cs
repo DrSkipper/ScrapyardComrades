@@ -127,8 +127,7 @@ public class ObjectPlacer : VoBehavior
         _spriteNames.Add(spriteName);
         _sortingLayerNames.Add(sortingLayerName);
         _spawnParams.Add(spawnParams);
-        if (secondaryPosition != null)
-            _secondaryPositions.Add(secondaryPosition);
+        _secondaryPositions.Add(secondaryPosition);
     }
 
     private void addLightSpawn(PooledObject lightPrefab, Vector3 spawnPos, NewMapInfo.MapLight light)
