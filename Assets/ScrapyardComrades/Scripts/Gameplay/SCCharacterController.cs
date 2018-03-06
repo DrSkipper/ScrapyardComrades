@@ -48,7 +48,8 @@ public class SCCharacterController : Actor2D
         public static EmptyInput Reference = new EmptyInput();
     }
 
-    public LayerMask WallJumpLedgeGrabMask;
+    public LayerMask WallJumpMask;
+    public LayerMask LedgeGrabMask;
     public LayerMask DuckingHaltMovementMask;
     public LayerMask DuckingCollisionMask;
     public LayerMask DeathCollisionMask;
@@ -376,10 +377,12 @@ public class SCCharacterController : Actor2D
         bool againstWall = false;
         bool leftWallJumpValid = false;
         bool rightWallJumpValid = false;
+        int againstLayer = -1;
         Facing dir = prevGrabbingLedge ? this.DirectionGrabbingLedge : (Facing)_moveAxis;
+
         if (!_onGround)
         {
-            againstWall = prevGrabbingLedge || checkAgainstWall((Facing)_moveAxis);
+            againstWall = prevGrabbingLedge || checkAgainstWall((Facing)_moveAxis, out againstLayer);
 
             if (_autoMoveTimer.Completed)
             {
@@ -402,8 +405,8 @@ public class SCCharacterController : Actor2D
                 _velocity.y = _velocity.y.Approach(-targetFallSpeed, gravity);
             }
 
-            leftWallJumpValid = (againstWall && dir == Facing.Left) || (!againstWall && checkAgainstWall(Facing.Left));
-            rightWallJumpValid = !leftWallJumpValid && (againstWall || checkAgainstWall(Facing.Right));
+            leftWallJumpValid = (againstWall && dir == Facing.Left) || (!againstWall && checkAgainstWall(Facing.Left, out againstLayer));
+            rightWallJumpValid = !leftWallJumpValid && (againstWall || checkAgainstWall(Facing.Right, out againstLayer));
         }
 
         if (this.IsWallSliding)
@@ -433,9 +436,9 @@ public class SCCharacterController : Actor2D
         bool ledgeGrabbing = false;
         if (!_onGround && !input.Duck && (_velocity.y < 0.0f || prevGrabbingLedge))
         {
-            if (leftWallJumpValid && dir == Facing.Left)
+            if (leftWallJumpValid && dir == Facing.Left && againstLayer != -1 && this.LedgeGrabMask.ContainsLayer(againstLayer))
                 ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Left, prevGrabbingLedge);
-            else if (rightWallJumpValid && dir == Facing.Right)
+            else if (rightWallJumpValid && dir == Facing.Right && againstLayer != -1 && this.LedgeGrabMask.ContainsLayer(againstLayer))
                 ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Right, prevGrabbingLedge);
             if (ledgeGrabbing)
                 wallJumpValid = false;
@@ -769,7 +772,7 @@ public class SCCharacterController : Actor2D
     private void gatherPotentialCollisions()
     {
         this.integerCollider.GetPotentialCollisions(0, 0, 0, 0, this.HaltMovementMask, _potentialCollisions, 2, 2);
-        this.integerCollider.GetPotentialCollisions(0, 0, 0, 0, this.WallJumpLedgeGrabMask, _potentialWallCollisions, _wallJumpExpandAmount, _wallJumpExpandAmount);
+        this.integerCollider.GetPotentialCollisions(0, 0, 0, 0, this.WallJumpMask, _potentialWallCollisions, _wallJumpExpandAmount, _wallJumpExpandAmount);
         _hasGatheredPotentialCollisions = true;
     }
 
@@ -801,13 +804,17 @@ public class SCCharacterController : Actor2D
         return false;
     }
 
-    private bool checkAgainstWall(Facing direction)
+    private bool checkAgainstWall(Facing direction, out int layer)
     {
+        layer = -1;
         if (this.DisableWallInteractions)
             return false;
 
         IntegerVector checkPoint = new Vector2(this.transform.position.x + ((int)direction) * (this.Hurtbox.Offset.X + this.Hurtbox.Bounds.Size.X / 2 + 1), this.transform.position.y + 1 + this.Hurtbox.Offset.Y - this.Hurtbox.Bounds.Size.Y / 2 - this.AgainstWallCheckOffset);
-        bool retVal = this.CollisionManager.CollidePointFirst(checkPoint, potentialWallCollisions()) != null;
+        GameObject collided = this.CollisionManager.CollidePointFirst(checkPoint, potentialWallCollisions());
+        bool retVal = collided != null;
+        if (retVal)
+            layer = collided.layer;
 
         //Debug
         Debug.DrawLine(new Vector3(this.transform.position.x + ((int)direction) * this.Hurtbox.Offset.X, checkPoint.Y, -5), new Vector3(checkPoint.X, checkPoint.Y, -5), retVal ? Color.blue : Color.red, 0.1f);
@@ -847,7 +854,7 @@ public class SCCharacterController : Actor2D
             return true;
 
         IntegerVector rayOrigin = new Vector2(this.transform.position.x + ((int)direction) * (this.Hurtbox.Offset.X + this.Hurtbox.Bounds.Size.X / 2 + 1), this.transform.position.y + this.Hurtbox.Offset.Y + this.Hurtbox.Bounds.Size.Y / 2 - LedgeGrabCheckDistance);
-        CollisionManager.RaycastResult result = this.CollisionManager.RaycastFirst(rayOrigin, Vector2.down, this.Hurtbox.Bounds.Size.Y - this.LedgeGrabCheckDistance + 2, this.WallJumpLedgeGrabMask, null, potentialWallCollisions());
+        CollisionManager.RaycastResult result = this.CollisionManager.RaycastFirst(rayOrigin, Vector2.down, this.Hurtbox.Bounds.Size.Y - this.LedgeGrabCheckDistance + 2, this.LedgeGrabMask, null, potentialWallCollisions());
         IntegerVector ledgeTop = result.FarthestPointReached;
         _ledgeGrabY = ledgeTop.Y - this.Hurtbox.Offset.Y - this.Hurtbox.Size.Y / 2 + this.LedgeGrabPeekDistance;
         bool retVal = this.Hurtbox.CollideFirst(0, _ledgeGrabY - Mathf.RoundToInt(this.transform.position.y), this.HaltMovementMask, null, null) == null;

@@ -86,9 +86,9 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
             if (canMove)
             {
                 // If we're moving a negative y value, get a list of the actors on us to pull down with us
-                if (offsetY < 0)
+                if (offsetY < 0 || offsetX != 0)
                 {
-                    this.integerCollider.Collide(_collisions, 0, 1, this.ActorMask);
+                    this.integerCollider.Collide(_collisions, offsetX == 0 ? 0 : -Mathf.RoundToInt(Mathf.Sign(offsetX)), offsetY == 0 ? 0 : 1, this.ActorMask);
                 }
 
                 _blocked = false;
@@ -103,11 +103,11 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
                 }
 
                 // Pull any actors on our platform down with us
-                if (offsetY < 0 && _collisions.Count > 0)
+                if ((offsetY < 0 || offsetX != 0) && _collisions.Count > 0)
                 {
                     for (int i = 0; i < _collisions.Count; ++i)
                     {
-                        _collisions[i].GetComponent<Actor2D>().Move(new Vector2(0, offsetY));
+                        _collisions[i].GetComponent<Actor2D>().Move(new Vector2(offsetX, offsetY));
                     }
                     _collisions.Clear();
                 }
