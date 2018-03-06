@@ -73,7 +73,7 @@ public class ObjectPools : MonoBehaviour
             Release(pooledObject);
         }
     }
-
+    
     public static void Release(PooledObject toRelease)
     {
         if (_instance != null)

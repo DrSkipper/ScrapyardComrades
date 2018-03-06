@@ -16,4 +16,16 @@ public class PooledObject : MonoBehaviour
     {
         ObjectPools.Release(this);
     }
+    
+    /**
+     * If we've been added as a child to another object that is now being released, separate from that object and release ourselves as well.
+     */
+    void OnReturnToPool()
+    {
+        if (this.transform.parent != null)
+        {
+            this.transform.SetParent(null);
+            ObjectPools.Release(this);
+        }
+    }
 }

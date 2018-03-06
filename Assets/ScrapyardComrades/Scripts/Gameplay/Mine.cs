@@ -15,6 +15,8 @@ public class Mine : VoBehavior, IPausable
     public DestructionStyle DestructionType = DestructionStyle.Destroy;
     public int CooldownDuration = 50;
     public Color CooldownColor;
+    public bool AttachToSurfaces = true;
+    public LayerMask SurfaceLayers;
 
     public enum DestructionStyle
     {
@@ -36,6 +38,7 @@ public class Mine : VoBehavior, IPausable
 
     void OnSpawn()
     {
+        _hasAttached = !this.AttachToSurfaces;
         if (!_cooldownTimer.Completed)
             _cooldownTimer.complete();
 
@@ -80,6 +83,9 @@ public class Mine : VoBehavior, IPausable
 
     void FixedUpdate()
     {
+        if (!_hasAttached)
+            attachToSurface();
+
         if (!_cooldownTimer.Completed)
             _cooldownTimer.update();
 
@@ -121,6 +127,7 @@ public class Mine : VoBehavior, IPausable
     private IntegerVector _defaultColliderOffset;
     private IntegerVector _defaultColliderSize;
     private Timer _cooldownTimer;
+    private bool _hasAttached;
 
     private static int FRAME_OFFSET = 0;
     private const int ENLARGE_AMT = 40;
@@ -192,5 +199,35 @@ public class Mine : VoBehavior, IPausable
 
         if (this.Damagable != null)
             this.Damagable.ResetDamagable();
+    }
+
+    private void attachToSurface()
+    {
+        _hasAttached = true;
+        int offsetX = 0;
+        int offsetY = 0;
+
+        switch (this.AttachedAt)
+        {
+            default:
+            case TurretController.AttachDir.Down:
+                offsetY = -1;
+                break;
+            case TurretController.AttachDir.Left:
+                offsetX = -1;
+                break;
+            case TurretController.AttachDir.Up:
+                offsetY = 2;
+                break;
+            case TurretController.AttachDir.Right:
+                offsetX = 1;
+                break;
+        }
+
+        GameObject surface = _ourCollider.CollideFirst(offsetX, offsetY, this.SurfaceLayers);
+        if (surface != null)
+        {
+            this.transform.SetParent(surface.transform);
+        }
     }
 }

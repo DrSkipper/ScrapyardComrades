@@ -12526,9 +12526,99 @@
       "parameters": null,
       "secondary_x": 64,
       "secondary_y": 464
+    },
+    {
+      "name": "objects_Mine_23",
+      "prefab_name": "Mine",
+      "x": 144,
+      "y": 496,
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Mine_24",
+      "prefab_name": "Mine",
+      "x": 176,
+      "y": 496,
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Mine_25",
+      "prefab_name": "Mine",
+      "x": 208,
+      "y": 496,
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Mine_26",
+      "prefab_name": "Mine",
+      "x": 112,
+      "y": 464,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "r"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Mine_27",
+      "prefab_name": "Mine",
+      "x": 144,
+      "y": 400,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "u"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Mine_28",
+      "prefab_name": "Mine",
+      "x": 176,
+      "y": 400,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "u"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Mine_29",
+      "prefab_name": "Mine",
+      "x": 400,
+      "y": 272,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "l"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
-  "next_object_id": 23,
+  "next_object_id": 30,
   "next_prop_id": 3,
   "next_prop_bg_id": 12,
   "next_light_id": 15,
