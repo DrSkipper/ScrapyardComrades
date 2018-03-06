@@ -436,9 +436,9 @@ public class SCCharacterController : Actor2D
         bool ledgeGrabbing = false;
         if (!_onGround && !input.Duck && (_velocity.y < 0.0f || prevGrabbingLedge))
         {
-            if (leftWallJumpValid && dir == Facing.Left && againstLayer != -1 && this.LedgeGrabMask.ContainsLayer(againstLayer))
+            if (leftWallJumpValid && dir == Facing.Left && (prevGrabbingLedge || (againstLayer != -1 && this.LedgeGrabMask.ContainsLayer(againstLayer))))
                 ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Left, prevGrabbingLedge);
-            else if (rightWallJumpValid && dir == Facing.Right && againstLayer != -1 && this.LedgeGrabMask.ContainsLayer(againstLayer))
+            else if (rightWallJumpValid && dir == Facing.Right && (prevGrabbingLedge || (againstLayer != -1 && this.LedgeGrabMask.ContainsLayer(againstLayer))))
                 ledgeGrabbing = checkTopHalfLedgeGrab(Facing.Right, prevGrabbingLedge);
             if (ledgeGrabbing)
                 wallJumpValid = false;
