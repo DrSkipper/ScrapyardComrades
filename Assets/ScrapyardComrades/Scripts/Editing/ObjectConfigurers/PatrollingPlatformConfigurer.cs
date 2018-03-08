@@ -4,12 +4,20 @@ using System.Linq;
 public class PatrollingPlatformConfigurer : ObjectConfigurer
 {
     private const string NAME = "PatrollingPlatform";
-    private const string CONFIGURATION = "config";
-    public SpriteRenderer Renderer;
-    public IntegerRectCollider Collider;
+    private const string WIDTH = "width";
+    private const string HEIGHT = "height";
+    private const string SPEED = "speed";
+    private const string ONE = "1";
+    private const string TWO = "2";
+    private const string THREE = "3";
+    private const string FOUR = "4";
+    private const string FIVE = "5";
+    private const string SIX = "6";
+    public const int MAX_SIZE = 6;
+    private const string TILESET = "tileset";
     public Transform DestinationLocation;
-    public Sprite[] Configurations;
-    public IntegerVector[] ColliderSizes;
+    public TilesetCollection TilesetCollection;
+    public PatrollingPlatform PlatformScript;
 
     public override Transform GetSecondaryTransform()
     {
@@ -20,8 +28,12 @@ public class PatrollingPlatformConfigurer : ObjectConfigurer
     {
         get
         {
+            string[] sizes = new string[] { ONE, TWO, THREE, FOUR, FIVE, SIX };
             return new ObjectParamType[] {
-                new ObjectParamType(CONFIGURATION, this.Configurations.Select(x => x.name).ToArray())
+                new ObjectParamType(WIDTH, sizes),
+                new ObjectParamType(HEIGHT, sizes),
+                new ObjectParamType(TILESET, this.TilesetCollection.Tilesets.Select(x => x.name).ToArray()),
+                new ObjectParamType(SPEED, sizes)
             };
         }
     }
@@ -33,8 +45,17 @@ public class PatrollingPlatformConfigurer : ObjectConfigurer
             default:
                 LogInvalidParameter(NAME, parameterName, option);
                 break;
-            case CONFIGURATION:
-                configure(option);
+            case WIDTH:
+                configureWidth(option);
+                break;
+            case HEIGHT:
+                configureHeight(option);
+                break;
+            case TILESET:
+                configureTileset(option);
+                break;
+            case SPEED:
+                configureSpeed(option);
                 break;
         }
     }
@@ -42,25 +63,57 @@ public class PatrollingPlatformConfigurer : ObjectConfigurer
     /**
      * Private
      */
-    private void configure(string option)
+    private void configureWidth(string option)
     {
-        for (int i = 0; i < this.Configurations.Length; ++i)
+        int value;
+        if (int.TryParse(option, out value))
         {
-            if (this.Configurations[i].name == option)
+            this.PlatformScript.Width = value;
+        }
+        else
+        {
+            LogInvalidParameter(NAME, WIDTH, option);
+        }
+    }
+
+    private void configureHeight(string option)
+    {
+        int value;
+        if (int.TryParse(option, out value))
+        {
+            this.PlatformScript.Height = value;
+        }
+        else
+        {
+            LogInvalidParameter(NAME, HEIGHT, option);
+        }
+    }
+
+    private void configureTileset(string option)
+    {
+        for (int i = 0; i < this.TilesetCollection.Tilesets.Length; ++i)
+        {
+            TilesetData tileset = this.TilesetCollection.Tilesets[i];
+            if (tileset.name == option)
             {
-                useConfiguration(i);
+                this.PlatformScript.Tileset = tileset;
                 return;
             }
         }
 
-        if (this.Configurations.Length > 0)
-            useConfiguration(0);
-        LogInvalidParameter(NAME, CONFIGURATION, option);
+        LogInvalidParameter(NAME, TILESET, option);
     }
 
-    private void useConfiguration(int config)
+    private void configureSpeed(string option)
     {
-        this.Renderer.sprite = this.Configurations[config];
-        this.Collider.Size = this.ColliderSizes[config];
+        int value;
+        if (int.TryParse(option, out value))
+        {
+            this.PlatformScript.Speed = value;
+        }
+        else
+        {
+            LogInvalidParameter(NAME, SPEED, option);
+        }
     }
 }

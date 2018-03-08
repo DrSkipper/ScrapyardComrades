@@ -12498,36 +12498,6 @@
       "secondary_y": 0
     },
     {
-      "name": "objects_PatrollingPlatform_17",
-      "prefab_name": "PatrollingPlatform",
-      "x": 320,
-      "y": 272,
-      "z": -2,
-      "parameters": null,
-      "secondary_x": 320,
-      "secondary_y": 400
-    },
-    {
-      "name": "objects_PatrollingPlatform_18",
-      "prefab_name": "PatrollingPlatform",
-      "x": 192,
-      "y": 432,
-      "z": -2,
-      "parameters": null,
-      "secondary_x": 64,
-      "secondary_y": 432
-    },
-    {
-      "name": "objects_PatrollingPlatform_22",
-      "prefab_name": "PatrollingPlatform",
-      "x": 192,
-      "y": 464,
-      "z": -2,
-      "parameters": null,
-      "secondary_x": 64,
-      "secondary_y": 464
-    },
-    {
       "name": "objects_Mine_23",
       "prefab_name": "Mine",
       "x": 144,
@@ -12616,9 +12586,82 @@
       ],
       "secondary_x": 0,
       "secondary_y": 0
+    },
+    {
+      "name": "objects_PatrollingPlatform_34",
+      "prefab_name": "PatrollingPlatform",
+      "x": 320,
+      "y": 288,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "width",
+          "CurrentOption": "4"
+        },
+        {
+          "Name": "height",
+          "CurrentOption": "1"
+        },
+        {
+          "Name": "tileset",
+          "CurrentOption": "SlumsPlatforms"
+        }
+      ],
+      "secondary_x": 320,
+      "secondary_y": 512
+    },
+    {
+      "name": "objects_PatrollingPlatform_36",
+      "prefab_name": "PatrollingPlatform",
+      "x": 192,
+      "y": 448,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "width",
+          "CurrentOption": "4"
+        },
+        {
+          "Name": "height",
+          "CurrentOption": "2"
+        },
+        {
+          "Name": "tileset",
+          "CurrentOption": "SlumsPlatforms"
+        }
+      ],
+      "secondary_x": 64,
+      "secondary_y": 448
+    },
+    {
+      "name": "objects_PatrollingPlatform_40",
+      "prefab_name": "PatrollingPlatform",
+      "x": 64,
+      "y": 640,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "width",
+          "CurrentOption": "1"
+        },
+        {
+          "Name": "height",
+          "CurrentOption": "5"
+        },
+        {
+          "Name": "tileset",
+          "CurrentOption": "SlumsPlatforms"
+        },
+        {
+          "Name": "speed",
+          "CurrentOption": "2"
+        }
+      ],
+      "secondary_x": 480,
+      "secondary_y": 640
     }
   ],
-  "next_object_id": 30,
+  "next_object_id": 41,
   "next_prop_id": 3,
   "next_prop_bg_id": 12,
   "next_light_id": 15,

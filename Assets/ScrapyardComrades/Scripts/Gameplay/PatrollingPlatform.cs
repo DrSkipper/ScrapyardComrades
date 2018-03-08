@@ -8,6 +8,14 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
     public Transform Destination;
     public LayerMask BlockingMask;
     public LayerMask ActorMask;
+    public TileRenderer Renderer;
+    
+    [HideInInspector]
+    public int Width = 1;
+    [HideInInspector]
+    public int Height = 1;
+    [HideInInspector]
+    public TilesetData Tileset;
 
     public Vector2 Velocity
     {
@@ -25,10 +33,21 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
     void Awake()
     {
         _collisions = new List<GameObject>();
+        int size = PatrollingPlatformConfigurer.MAX_SIZE + 2;
+        _fakeTiles = new NewMapInfo.MapTile[size, size];
+
+        for (int x = 0; x < size; ++x)
+        {
+            for (int y = 0; y < size; ++y)
+            {
+                _fakeTiles[x, y] = new NewMapInfo.MapTile();
+            }
+        }
     }
 
     void OnSpawn()
     {
+        createPlatform();
         this.integerCollider.AddToCollisionPool();
         this.transform.SetPosition2D(this.Start.position);
         _actualPos = this.transform.position;
@@ -130,4 +149,66 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
     private bool _stopped;
     private bool _outward;
     private List<GameObject> _collisions;
+    NewMapInfo.MapTile[,] _fakeTiles;
+
+    private void createPlatform()
+    {
+        if (this.Tileset != null)
+        {
+            this.Renderer.SetAtlas(this.Tileset.AtlasName);
+            
+            Dictionary<TilesetData.TileType, List<TilesetData.SpriteData>> autotileDict = this.Tileset.GetAutotileDictionary();
+            Dictionary<string, TilesetData.SpriteData> spriteDict = this.Tileset.GetSpriteDataDictionary();
+            string filledSpriteName = autotileDict[TilesetData.TileType.Surrounded][0].SpriteName;
+            string emptySpritename = this.Tileset.GetEmptySpriteName();
+
+            int lengthX = _fakeTiles.GetLength(0);
+            int diffX = lengthX - this.Width;
+            int halfDiffXLarge = Mathf.RoundToInt(diffX / 2.0f + 0.1f);
+            int halfDiffXSmall = diffX / 2;
+
+            int lengthY = _fakeTiles.GetLength(1);
+            int diffY = lengthY - this.Height;
+            int halfDiffYLarge = Mathf.RoundToInt(diffY / 2.0f + 0.1f);
+            int halfDiffYSmall = diffY / 2;
+
+            for (int x = 0; x < lengthX; ++x)
+            {
+                for (int y = 0; y < lengthY; ++y)
+                {
+                    bool withinX = x >= halfDiffXSmall && x < lengthX - halfDiffXLarge;
+                    bool withinY = y >= halfDiffYSmall && y < lengthY - halfDiffYLarge;
+
+                    if (withinX && withinY)
+                    {
+                        _fakeTiles[x, y].is_filled = true;
+                        _fakeTiles[x, y].sprite_name = filledSpriteName;
+                    }
+                    else
+                    {
+                        _fakeTiles[x, y].is_filled = false;
+                        _fakeTiles[x, y].sprite_name = emptySpritename;
+                    }
+                }
+            }
+
+            for (int x = 0; x < lengthX; ++x)
+            {
+                for (int y = 0; y < lengthY; ++y)
+                {
+                    _fakeTiles[x, y].sprite_name = TilesetData.GetAutotileSpriteName(TilesetData.GetAutotileType(x, y, _fakeTiles, spriteDict, false), autotileDict, this.Tileset);
+                }
+            }
+
+            this.Renderer.CreateMapWithGrid(_fakeTiles);
+
+            int offsetX = this.Width % 2 != 0 ? this.Renderer.TileRenderSize / 2 : 0;
+            offsetX -= lengthX * this.Renderer.TileRenderSize / 2;
+            int offsetY = this.Height % 2 != 0 ? this.Renderer.TileRenderSize / 2 : 0;
+            offsetY -= lengthY * this.Renderer.TileRenderSize / 2;
+            this.Renderer.transform.SetLocalPosition2D(offsetX, offsetY);
+        }
+
+        (this.integerCollider as IntegerRectCollider).Size = new IntegerVector(this.Width * this.Renderer.TileRenderSize, this.Height * this.Renderer.TileRenderSize);
+    }
 }
