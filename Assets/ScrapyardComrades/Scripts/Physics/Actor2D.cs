@@ -10,6 +10,7 @@ public class Actor2D : VoBehavior, IPausable
     public bool CheckCollisionsWhenStill = false;
     public Transform ActualPosition;
     public int BonkGrace = 0;
+    public float MinVForExclusiveBonkGrace = 1.0f;
 
     public const float MAX_POSITION_INCREMENT = 1.0f;
     public const int BOUNCE_DETECTION_RANGE = 1;
@@ -65,7 +66,7 @@ public class Actor2D : VoBehavior, IPausable
         float incY = d.y;
 
         if (potentialCollisions == null)
-            potentialCollisions = this.integerCollider.GetPotentialCollisions(d.x, d.y, 0, 0, this.CollisionMask);
+            potentialCollisions = this.integerCollider.GetPotentialCollisions(d.x, d.y, this.BonkGrace, this.BonkGrace, this.CollisionMask);
 
         if (Mathf.Abs(incX) > MAX_POSITION_INCREMENT || Mathf.Abs(incY) > MAX_POSITION_INCREMENT)
         {
@@ -91,7 +92,7 @@ public class Actor2D : VoBehavior, IPausable
             {
                 if (!_haltX)
                 {
-                    moveX(d.x - soFar.x, _collisionsFromMove, _horizontalCollisions, potentialCollisions);
+                    moveX(d.x - soFar.x, _collisionsFromMove, _horizontalCollisions, potentialCollisions, d.y);
 
                     if (_collisionsFromMove.Count > collisionCount)
                         collideX = true;
@@ -99,7 +100,7 @@ public class Actor2D : VoBehavior, IPausable
                 }
                 if (!_haltY)
                 {
-                    moveY(d.y - soFar.y, _collisionsFromMove, _verticalCollisions, potentialCollisions);
+                    moveY(d.y - soFar.y, _collisionsFromMove, _verticalCollisions, potentialCollisions, d.x);
 
                     if (_collisionsFromMove.Count > collisionCount)
                         collideY = true;
@@ -112,7 +113,7 @@ public class Actor2D : VoBehavior, IPausable
 
             if (!_haltX)
             {
-                soFar.x += moveX(incX, _collisionsFromMove, _horizontalCollisions, potentialCollisions);
+                soFar.x += moveX(incX, _collisionsFromMove, _horizontalCollisions, potentialCollisions, d.y);
 
                 if (_collisionsFromMove.Count > collisionCount)
                     collideX = true;
@@ -121,7 +122,7 @@ public class Actor2D : VoBehavior, IPausable
 
             if (!_haltY)
             {
-                soFar.y += moveY(incY, _collisionsFromMove, _verticalCollisions, potentialCollisions);
+                soFar.y += moveY(incY, _collisionsFromMove, _verticalCollisions, potentialCollisions, d.x);
 
                 if (_collisionsFromMove.Count > collisionCount)
                     collideY = true;
@@ -244,13 +245,14 @@ public class Actor2D : VoBehavior, IPausable
     private List<GameObject> _collisionsFromMove = new List<GameObject>();
     private List<GameObject> _horizontalCollisions = new List<GameObject>();
     private List<GameObject> _verticalCollisions = new List<GameObject>();
+    private List<GameObject> _tempCollisions = new List<GameObject>();
     private Dictionary<string, VelocityModifier> _velocityModifiers = new Dictionary<string, VelocityModifier>();
     private bool _haltX;
     private bool _haltY;
     private CollisionEvent _collisionEvent;
 
     // Returns actual amount applied to movement (along x axis)
-    private float moveX(float dx, List<GameObject> collisions, List<GameObject> horizontalCollisions, List<IntegerCollider> potentialCollisions)
+    private float moveX(float dx, List<GameObject> collisions, List<GameObject> horizontalCollisions, List<IntegerCollider> potentialCollisions, float totalDY)
     {
         _positionModifier.x += dx;
         int unitMove = Mathf.RoundToInt(_positionModifier.x);
@@ -267,36 +269,36 @@ public class Actor2D : VoBehavior, IPausable
                 int bonkOffset = 0;
                 int oldCount = horizontalCollisions.Count;
                 bool blocked = checkedBlocked(horizontalCollisions, unitDir, 0, potentialCollisions);
-                int newCount = horizontalCollisions.Count;
 
                 // If we're blocked, try to bonk grace ourselves around the corner
                 while (blocked && Mathf.Abs(bonkOffset) < this.BonkGrace)
                 {
                     bonkOffset = Mathf.Abs(bonkOffset);
                     bonkOffset += 1;
-                    blocked = checkedBlocked(horizontalCollisions, unitDir, bonkOffset, potentialCollisions);
+                    if (totalDY > -this.MinVForExclusiveBonkGrace)
+                    {
+                        _tempCollisions.Clear();
+                        blocked = checkedBlocked(_tempCollisions, unitDir, bonkOffset, potentialCollisions);
+                    }
 
+                    if (blocked)
+                    {
+                        bonkOffset = -bonkOffset;
+                        if (totalDY < this.MinVForExclusiveBonkGrace)
+                        {
+                            _tempCollisions.Clear();
+                            blocked = checkedBlocked(_tempCollisions, unitDir, bonkOffset, potentialCollisions);
+                        }
+                    }
+                    
                     if (!blocked)
                     {
-                        horizontalCollisions.RemoveRange(oldCount, newCount - oldCount);
-                    }
-                    else
-                    {
-                        horizontalCollisions.RemoveRange(newCount, horizontalCollisions.Count - newCount);
-                        bonkOffset = -bonkOffset;
-                        blocked = checkedBlocked(horizontalCollisions, unitDir, bonkOffset, potentialCollisions);
-                        
-                        if (!blocked)
-                            horizontalCollisions.RemoveRange(oldCount, newCount - oldCount);
-                        else
-                            horizontalCollisions.RemoveRange(newCount, horizontalCollisions.Count - newCount);
+                        horizontalCollisions.RemoveRange(oldCount, horizontalCollisions.Count - oldCount);
+                        horizontalCollisions.AddUnique(_tempCollisions);
                     }
                 }
-
-                for (int i = oldCount; i < horizontalCollisions.Count; ++i)
-                {
-                    collisions.AddUnique(horizontalCollisions[i]);
-                }
+                
+                collisions.AddUnique(horizontalCollisions, oldCount);
 
                 // If we're still blocked after attempting bonk grace, halt movement in this axis
                 if (blocked)
@@ -317,7 +319,7 @@ public class Actor2D : VoBehavior, IPausable
     }
 
     // Returns actual amount applied to movement (along y axis)
-    private float moveY(float dy, List<GameObject> collisions, List<GameObject> verticalCollisions, List<IntegerCollider> potentialCollisions)
+    private float moveY(float dy, List<GameObject> collisions, List<GameObject> verticalCollisions, List<IntegerCollider> potentialCollisions, float totalDX)
     {
         _positionModifier.y += dy;
         int unitMove = Mathf.RoundToInt(_positionModifier.y);
@@ -334,36 +336,37 @@ public class Actor2D : VoBehavior, IPausable
                 int bonkOffset = 0;
                 int oldCount = verticalCollisions.Count;
                 bool blocked = checkedBlocked(verticalCollisions, 0, unitDir, potentialCollisions);
-                int newCount = verticalCollisions.Count;
 
                 // If we're blocked, try to bonk grace ourselves around the corner
                 while (blocked && Mathf.Abs(bonkOffset) < this.BonkGrace)
                 {
                     bonkOffset = Mathf.Abs(bonkOffset);
                     bonkOffset += 1;
-                    blocked = checkedBlocked(verticalCollisions, bonkOffset, unitDir, potentialCollisions);
+
+                    if (totalDX > -this.MinVForExclusiveBonkGrace)
+                    {
+                        _tempCollisions.Clear();
+                        blocked = checkedBlocked(_tempCollisions, bonkOffset, unitDir, potentialCollisions);
+                    }
+
+                    if (blocked)
+                    {
+                        bonkOffset = -bonkOffset;
+                        if (totalDX < this.MinVForExclusiveBonkGrace)
+                        {
+                            _tempCollisions.Clear();
+                            blocked = checkedBlocked(_tempCollisions, bonkOffset, unitDir, potentialCollisions);
+                        }
+                    }
 
                     if (!blocked)
                     {
-                        verticalCollisions.RemoveRange(oldCount, newCount - oldCount);
-                    }
-                    else
-                    {
-                        verticalCollisions.RemoveRange(newCount, verticalCollisions.Count - newCount);
-                        bonkOffset = -bonkOffset;
-                        blocked = checkedBlocked(verticalCollisions, bonkOffset, unitDir, potentialCollisions);
-
-                        if (!blocked)
-                            verticalCollisions.RemoveRange(oldCount, newCount - oldCount);
-                        else
-                            verticalCollisions.RemoveRange(newCount, verticalCollisions.Count - newCount);
+                        verticalCollisions.RemoveRange(oldCount, verticalCollisions.Count - oldCount);
+                        verticalCollisions.AddUnique(_tempCollisions);
                     }
                 }
-
-                for (int i = oldCount; i < verticalCollisions.Count; ++i)
-                {
-                    collisions.AddUnique(verticalCollisions[i]);
-                }
+                
+                collisions.AddUnique(verticalCollisions, oldCount);
 
                 // If we're still blocked after attempting bonk grace, halt movement in this axis
                 if (blocked)

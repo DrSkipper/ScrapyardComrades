@@ -20,6 +20,13 @@ public static class ListExtensions
             self.Add(toAdd);
     }
 
+
+    public static void AddUnique<T>(this List<T> self, List<T> toAdd, int startingIndex = 0)
+    {
+        for (int i = startingIndex; i < toAdd.Count; ++i)
+            self.AddUnique(toAdd[i]);
+    }
+
     public static T Pop<T>(this List<T> self)
     {
         if (self.Count > 0)
