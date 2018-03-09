@@ -47,7 +47,9 @@ public class MapGeometryCreator : VoBehavior
             while (_geometry.Count > 0)
             {
                 //NOTE: No need to remove from collision pool here, as we're now just calling "CollisionManager.RemoveAllSolids()"
-                ObjectPools.Release(_geometry.Pop().gameObject);
+                IntegerCollider geo = _geometry.Pop();
+                geo.transform.SetParent(null);
+                ObjectPools.Release(geo.gameObject);
             }
         }
     }
