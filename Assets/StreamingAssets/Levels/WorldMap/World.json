@@ -390,7 +390,14 @@
     },
     {
       "name": "Slums 14",
-      "x": 20,
+      "x": 19,
+      "y": 6,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Slums 15",
+      "x": 22,
       "y": 8,
       "width": 3,
       "height": 2
