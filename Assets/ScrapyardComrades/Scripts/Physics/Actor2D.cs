@@ -28,6 +28,12 @@ public class Actor2D : VoBehavior, IPausable
 
     public virtual void FixedUpdate()
     {
+        /*_tempCollisions.Clear();
+        if (checkedBlocked(_tempCollisions, 0, 0, null))
+        {
+            Debug.LogWarning("Moved into invalid position!");
+        }*/
+
         Vector2 modifiedVelocity = this.TotalVelocity;
         if (modifiedVelocity.x != 0.0f || modifiedVelocity.y != 0.0f)
         {
@@ -66,7 +72,7 @@ public class Actor2D : VoBehavior, IPausable
         float incY = d.y;
 
         if (potentialCollisions == null)
-            potentialCollisions = this.integerCollider.GetPotentialCollisions(d.x, d.y, this.BonkGrace, this.BonkGrace, this.CollisionMask);
+            potentialCollisions = this.integerCollider.GetPotentialCollisions(d.x, d.y, 0, 0, this.CollisionMask, _potentialCollisionsCache, this.BonkGrace, this.BonkGrace);
 
         if (Mathf.Abs(incX) > MAX_POSITION_INCREMENT || Mathf.Abs(incY) > MAX_POSITION_INCREMENT)
         {
@@ -172,6 +178,12 @@ public class Actor2D : VoBehavior, IPausable
             this.localNotifier.SendEvent(_collisionEvent);
             _collisionsFromMove.Clear();
         }
+
+        /*_tempCollisions.Clear();
+        if (checkedBlocked(_tempCollisions, 0, 0, null))
+        {
+            Debug.LogWarning("Moved into invalid position!");
+        }*/
     }
 
     public void SetVelocityModifier(string key, VelocityModifier v)
@@ -246,6 +258,7 @@ public class Actor2D : VoBehavior, IPausable
     private List<GameObject> _horizontalCollisions = new List<GameObject>();
     private List<GameObject> _verticalCollisions = new List<GameObject>();
     private List<GameObject> _tempCollisions = new List<GameObject>();
+    private List<IntegerCollider> _potentialCollisionsCache = new List<IntegerCollider>();
     private Dictionary<string, VelocityModifier> _velocityModifiers = new Dictionary<string, VelocityModifier>();
     private bool _haltX;
     private bool _haltY;
@@ -281,14 +294,11 @@ public class Actor2D : VoBehavior, IPausable
                         blocked = checkedBlocked(_tempCollisions, unitDir, bonkOffset, potentialCollisions);
                     }
 
-                    if (blocked)
+                    if (blocked && totalDY < this.MinVForExclusiveBonkGrace)
                     {
                         bonkOffset = -bonkOffset;
-                        if (totalDY < this.MinVForExclusiveBonkGrace)
-                        {
-                            _tempCollisions.Clear();
-                            blocked = checkedBlocked(_tempCollisions, unitDir, bonkOffset, potentialCollisions);
-                        }
+                        _tempCollisions.Clear();
+                        blocked = checkedBlocked(_tempCollisions, unitDir, bonkOffset, potentialCollisions);
                     }
                     
                     if (!blocked)
@@ -297,8 +307,9 @@ public class Actor2D : VoBehavior, IPausable
                         horizontalCollisions.AddUnique(_tempCollisions);
                     }
                 }
-                
-                collisions.AddUnique(horizontalCollisions, oldCount);
+
+                if (horizontalCollisions.Count > oldCount)
+                    collisions.AddUnique(horizontalCollisions, oldCount);
 
                 // If we're still blocked after attempting bonk grace, halt movement in this axis
                 if (blocked)
@@ -309,9 +320,15 @@ public class Actor2D : VoBehavior, IPausable
                 }
 
                 // Otherwise we're good, so increment our position
-                this.transform.position += new Vector3(unitDir, bonkOffset, 0);
+                this.transform.SetPosition2D(Mathf.Round(this.transform.position.x + unitDir), Mathf.Round(this.transform.position.y + bonkOffset));
                 unitMove -= unitDir;
                 ++moves;
+
+                /*_tempCollisions.Clear();
+                if (checkedBlocked(_tempCollisions, 0, 0, null))
+                {
+                    Debug.LogWarning("Moved into invalid position! along x axis");
+                }*/
             }
         }
 
@@ -349,14 +366,11 @@ public class Actor2D : VoBehavior, IPausable
                         blocked = checkedBlocked(_tempCollisions, bonkOffset, unitDir, potentialCollisions);
                     }
 
-                    if (blocked)
+                    if (blocked && totalDX < this.MinVForExclusiveBonkGrace)
                     {
                         bonkOffset = -bonkOffset;
-                        if (totalDX < this.MinVForExclusiveBonkGrace)
-                        {
-                            _tempCollisions.Clear();
-                            blocked = checkedBlocked(_tempCollisions, bonkOffset, unitDir, potentialCollisions);
-                        }
+                        _tempCollisions.Clear();
+                        blocked = checkedBlocked(_tempCollisions, bonkOffset, unitDir, potentialCollisions);
                     }
 
                     if (!blocked)
@@ -366,7 +380,8 @@ public class Actor2D : VoBehavior, IPausable
                     }
                 }
                 
-                collisions.AddUnique(verticalCollisions, oldCount);
+                if (verticalCollisions.Count > oldCount)
+                    collisions.AddUnique(verticalCollisions, oldCount);
 
                 // If we're still blocked after attempting bonk grace, halt movement in this axis
                 if (blocked)
@@ -377,9 +392,15 @@ public class Actor2D : VoBehavior, IPausable
                 }
 
                 // Otherwise we're good, so increment our position
-                this.transform.position += new Vector3(bonkOffset, unitDir, 0);
+                this.transform.SetPosition2D(Mathf.Round(this.transform.position.x + bonkOffset), Mathf.Round(this.transform.position.y + unitDir));
                 unitMove -= unitDir;
                 ++moves;
+
+                /*_tempCollisions.Clear();
+                if (checkedBlocked(_tempCollisions, 0, 0, null))
+                {
+                    Debug.LogWarning("Moved into invalid position! along y axis");
+                }*/
             }
         }
 
@@ -390,16 +411,11 @@ public class Actor2D : VoBehavior, IPausable
     {
         int oldCount = collisions.Count;
         this.integerCollider.Collide(collisions, xOffset, yOffset, this.CollisionMask, null, potentialCollisions);
-
-        if (collisions.Count > oldCount)
+        
+        for (int i = oldCount; i < collisions.Count; ++i)
         {
-            for (int i = oldCount; i < collisions.Count; ++i)
-            {
-                if (((1 << collisions[i].layer) & this.HaltMovementMask) != 0)
-                {
-                    return true;
-                }
-            }
+            if (this.HaltMovementMask.ContainsLayer(collisions[i].layer))
+                return true;
         }
         return false;
     }

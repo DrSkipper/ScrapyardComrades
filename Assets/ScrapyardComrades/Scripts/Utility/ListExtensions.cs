@@ -20,7 +20,6 @@ public static class ListExtensions
             self.Add(toAdd);
     }
 
-
     public static void AddUnique<T>(this List<T> self, List<T> toAdd, int startingIndex = 0)
     {
         for (int i = startingIndex; i < toAdd.Count; ++i)
