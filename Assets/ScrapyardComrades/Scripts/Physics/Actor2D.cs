@@ -9,6 +9,8 @@ public class Actor2D : VoBehavior, IPausable
     public LayerMask CollisionMask;
     public bool CheckCollisionsWhenStill = false;
     public Transform ActualPosition;
+    public int BonkGrace = 0;
+    public float MinVForExclusiveBonkGrace = 1.0f;
 
     public const float MAX_POSITION_INCREMENT = 1.0f;
     public const int BOUNCE_DETECTION_RANGE = 1;
@@ -26,6 +28,12 @@ public class Actor2D : VoBehavior, IPausable
 
     public virtual void FixedUpdate()
     {
+        /*_tempCollisions.Clear();
+        if (checkedBlocked(_tempCollisions, 0, 0, null))
+        {
+            Debug.LogWarning("Moved into invalid position!");
+        }*/
+
         Vector2 modifiedVelocity = this.TotalVelocity;
         if (modifiedVelocity.x != 0.0f || modifiedVelocity.y != 0.0f)
         {
@@ -64,7 +72,7 @@ public class Actor2D : VoBehavior, IPausable
         float incY = d.y;
 
         if (potentialCollisions == null)
-            potentialCollisions = this.integerCollider.GetPotentialCollisions(d.x, d.y, 0, 0, this.CollisionMask);
+            potentialCollisions = this.integerCollider.GetPotentialCollisions(d.x, d.y, 0, 0, this.CollisionMask, _potentialCollisionsCache, this.BonkGrace, this.BonkGrace);
 
         if (Mathf.Abs(incX) > MAX_POSITION_INCREMENT || Mathf.Abs(incY) > MAX_POSITION_INCREMENT)
         {
@@ -90,7 +98,7 @@ public class Actor2D : VoBehavior, IPausable
             {
                 if (!_haltX)
                 {
-                    moveX(d.x - soFar.x, _collisionsFromMove, _horizontalCollisions, potentialCollisions);
+                    moveX(d.x - soFar.x, _collisionsFromMove, _horizontalCollisions, potentialCollisions, d.y);
 
                     if (_collisionsFromMove.Count > collisionCount)
                         collideX = true;
@@ -98,7 +106,7 @@ public class Actor2D : VoBehavior, IPausable
                 }
                 if (!_haltY)
                 {
-                    moveY(d.y - soFar.y, _collisionsFromMove, _verticalCollisions, potentialCollisions);
+                    moveY(d.y - soFar.y, _collisionsFromMove, _verticalCollisions, potentialCollisions, d.x);
 
                     if (_collisionsFromMove.Count > collisionCount)
                         collideY = true;
@@ -111,7 +119,7 @@ public class Actor2D : VoBehavior, IPausable
 
             if (!_haltX)
             {
-                soFar.x += moveX(incX, _collisionsFromMove, _horizontalCollisions, potentialCollisions);
+                soFar.x += moveX(incX, _collisionsFromMove, _horizontalCollisions, potentialCollisions, d.y);
 
                 if (_collisionsFromMove.Count > collisionCount)
                     collideX = true;
@@ -120,7 +128,7 @@ public class Actor2D : VoBehavior, IPausable
 
             if (!_haltY)
             {
-                soFar.y += moveY(incY, _collisionsFromMove, _verticalCollisions, potentialCollisions);
+                soFar.y += moveY(incY, _collisionsFromMove, _verticalCollisions, potentialCollisions, d.x);
 
                 if (_collisionsFromMove.Count > collisionCount)
                     collideY = true;
@@ -170,6 +178,12 @@ public class Actor2D : VoBehavior, IPausable
             this.localNotifier.SendEvent(_collisionEvent);
             _collisionsFromMove.Clear();
         }
+
+        /*_tempCollisions.Clear();
+        if (checkedBlocked(_tempCollisions, 0, 0, null))
+        {
+            Debug.LogWarning("Moved into invalid position!");
+        }*/
     }
 
     public void SetVelocityModifier(string key, VelocityModifier v)
@@ -243,17 +257,20 @@ public class Actor2D : VoBehavior, IPausable
     private List<GameObject> _collisionsFromMove = new List<GameObject>();
     private List<GameObject> _horizontalCollisions = new List<GameObject>();
     private List<GameObject> _verticalCollisions = new List<GameObject>();
+    private List<GameObject> _tempCollisions = new List<GameObject>();
+    private List<IntegerCollider> _potentialCollisionsCache = new List<IntegerCollider>();
     private Dictionary<string, VelocityModifier> _velocityModifiers = new Dictionary<string, VelocityModifier>();
     private bool _haltX;
     private bool _haltY;
     private CollisionEvent _collisionEvent;
 
-    // Returns actual amount applied to movement
-    private float moveX(float dx, List<GameObject> collisions, List<GameObject> horizontalCollisions, List<IntegerCollider> potentialCollisions)
+    // Returns actual amount applied to movement (along x axis)
+    private float moveX(float dx, List<GameObject> collisions, List<GameObject> horizontalCollisions, List<IntegerCollider> potentialCollisions, float totalDY)
     {
         _positionModifier.x += dx;
         int unitMove = Mathf.RoundToInt(_positionModifier.x);
 
+        // Check if we've moved far enough virtually to actually increment our position by an integer unit
         if (unitMove != 0)
         {
             int moves = 0;
@@ -262,38 +279,69 @@ public class Actor2D : VoBehavior, IPausable
 
             while (unitMove != 0)
             {
+                int bonkOffset = 0;
                 int oldCount = horizontalCollisions.Count;
-                this.integerCollider.Collide(horizontalCollisions, unitDir, 0, this.CollisionMask, null, potentialCollisions);
+                bool blocked = checkedBlocked(horizontalCollisions, unitDir, 0, potentialCollisions);
 
-                if (horizontalCollisions.Count > oldCount)
+                // If we're blocked, try to bonk grace ourselves around the corner
+                while (blocked && Mathf.Abs(bonkOffset) < this.BonkGrace)
                 {
-                    for (int i = oldCount; i < horizontalCollisions.Count; ++i)
+                    bonkOffset = Mathf.Abs(bonkOffset);
+                    bonkOffset += 1;
+                    if (totalDY > -this.MinVForExclusiveBonkGrace)
                     {
-                        collisions.AddUnique(horizontalCollisions[i]);
+                        _tempCollisions.Clear();
+                        blocked = checkedBlocked(_tempCollisions, unitDir, bonkOffset, potentialCollisions);
+                    }
 
-                        if (((1 << horizontalCollisions[i].layer) & this.HaltMovementMask) != 0)
-                        {
-                            _positionModifier.x = 0.0f;
-                            _haltX = true;
-                            return moves;
-                        }
+                    if (blocked && totalDY < this.MinVForExclusiveBonkGrace)
+                    {
+                        bonkOffset = -bonkOffset;
+                        _tempCollisions.Clear();
+                        blocked = checkedBlocked(_tempCollisions, unitDir, bonkOffset, potentialCollisions);
+                    }
+                    
+                    if (!blocked)
+                    {
+                        horizontalCollisions.RemoveRange(oldCount, horizontalCollisions.Count - oldCount);
+                        horizontalCollisions.AddUnique(_tempCollisions);
                     }
                 }
 
-                this.transform.position += new Vector3(unitDir, 0, 0);
+                if (horizontalCollisions.Count > oldCount)
+                    collisions.AddUnique(horizontalCollisions, oldCount);
+
+                // If we're still blocked after attempting bonk grace, halt movement in this axis
+                if (blocked)
+                {
+                    _positionModifier.x = 0.0f;
+                    _haltX = true;
+                    return moves;
+                }
+
+                // Otherwise we're good, so increment our position
+                this.transform.SetPosition2D(Mathf.Round(this.transform.position.x + unitDir), Mathf.Round(this.transform.position.y + bonkOffset));
                 unitMove -= unitDir;
                 ++moves;
+
+                /*_tempCollisions.Clear();
+                if (checkedBlocked(_tempCollisions, 0, 0, null))
+                {
+                    Debug.LogWarning("Moved into invalid position! along x axis");
+                }*/
             }
         }
 
         return dx;
     }
 
-    private float moveY(float dy, List<GameObject> collisions, List<GameObject> verticalCollisions, List<IntegerCollider> potentialCollisions)
+    // Returns actual amount applied to movement (along y axis)
+    private float moveY(float dy, List<GameObject> collisions, List<GameObject> verticalCollisions, List<IntegerCollider> potentialCollisions, float totalDX)
     {
         _positionModifier.y += dy;
         int unitMove = Mathf.RoundToInt(_positionModifier.y);
 
+        // Check if we've moved far enough virtually to actually increment our position by an integer unit
         if (unitMove != 0)
         {
             int moves = 0;
@@ -302,30 +350,73 @@ public class Actor2D : VoBehavior, IPausable
 
             while (unitMove != 0)
             {
+                int bonkOffset = 0;
                 int oldCount = verticalCollisions.Count;
-                this.integerCollider.Collide(verticalCollisions, 0, unitDir, this.CollisionMask, null, potentialCollisions);
+                bool blocked = checkedBlocked(verticalCollisions, 0, unitDir, potentialCollisions);
 
-                if (verticalCollisions.Count > oldCount)
+                // If we're blocked, try to bonk grace ourselves around the corner
+                while (blocked && Mathf.Abs(bonkOffset) < this.BonkGrace)
                 {
-                    for (int i = oldCount; i < verticalCollisions.Count; ++i)
-                    {
-                        collisions.AddUnique(verticalCollisions[i]);
+                    bonkOffset = Mathf.Abs(bonkOffset);
+                    bonkOffset += 1;
 
-                        if (((1 << verticalCollisions[i].layer) & this.HaltMovementMask) != 0)
-                        {
-                            _positionModifier.y = 0.0f;
-                            _haltY = true;
-                            return moves;
-                        }
+                    if (totalDX > -this.MinVForExclusiveBonkGrace)
+                    {
+                        _tempCollisions.Clear();
+                        blocked = checkedBlocked(_tempCollisions, bonkOffset, unitDir, potentialCollisions);
+                    }
+
+                    if (blocked && totalDX < this.MinVForExclusiveBonkGrace)
+                    {
+                        bonkOffset = -bonkOffset;
+                        _tempCollisions.Clear();
+                        blocked = checkedBlocked(_tempCollisions, bonkOffset, unitDir, potentialCollisions);
+                    }
+
+                    if (!blocked)
+                    {
+                        verticalCollisions.RemoveRange(oldCount, verticalCollisions.Count - oldCount);
+                        verticalCollisions.AddUnique(_tempCollisions);
                     }
                 }
+                
+                if (verticalCollisions.Count > oldCount)
+                    collisions.AddUnique(verticalCollisions, oldCount);
 
-                this.transform.position += new Vector3(0, unitDir, 0);
+                // If we're still blocked after attempting bonk grace, halt movement in this axis
+                if (blocked)
+                {
+                    _positionModifier.y = 0.0f;
+                    _haltY = true;
+                    return moves;
+                }
+
+                // Otherwise we're good, so increment our position
+                this.transform.SetPosition2D(Mathf.Round(this.transform.position.x + bonkOffset), Mathf.Round(this.transform.position.y + unitDir));
                 unitMove -= unitDir;
                 ++moves;
+
+                /*_tempCollisions.Clear();
+                if (checkedBlocked(_tempCollisions, 0, 0, null))
+                {
+                    Debug.LogWarning("Moved into invalid position! along y axis");
+                }*/
             }
         }
 
         return dy;
+    }
+
+    private bool checkedBlocked(List<GameObject> collisions, int xOffset, int yOffset, List<IntegerCollider> potentialCollisions)
+    {
+        int oldCount = collisions.Count;
+        this.integerCollider.Collide(collisions, xOffset, yOffset, this.CollisionMask, null, potentialCollisions);
+        
+        for (int i = oldCount; i < collisions.Count; ++i)
+        {
+            if (this.HaltMovementMask.ContainsLayer(collisions[i].layer))
+                return true;
+        }
+        return false;
     }
 }
