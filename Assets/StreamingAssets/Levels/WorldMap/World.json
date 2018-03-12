@@ -32,13 +32,6 @@
       "height": 2
     },
     {
-      "name": "Slums 01",
-      "x": 22,
-      "y": 11,
-      "width": 3,
-      "height": 2
-    },
-    {
       "name": "Slums 02",
       "x": 25,
       "y": 11,
@@ -377,7 +370,7 @@
     {
       "name": "Intro 07",
       "x": 2,
-      "y": 14,
+      "y": 16,
       "width": 3,
       "height": 2
     },
@@ -398,9 +391,58 @@
     {
       "name": "Slums 15",
       "x": 22,
-      "y": 8,
+      "y": 11,
       "width": 3,
       "height": 2
+    },
+    {
+      "name": "Slums 01",
+      "x": 20,
+      "y": 13,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Slums 16",
+      "x": 17,
+      "y": 13,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Slums 17",
+      "x": 12,
+      "y": 13,
+      "width": 5,
+      "height": 2
+    },
+    {
+      "name": "Slums 18",
+      "x": 3,
+      "y": 12,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Slums 19",
+      "x": 6,
+      "y": 13,
+      "width": 6,
+      "height": 2
+    },
+    {
+      "name": "Slums 20",
+      "x": 4,
+      "y": 11,
+      "width": 2,
+      "height": 1
+    },
+    {
+      "name": "Slums 21",
+      "x": 3,
+      "y": 14,
+      "width": 3,
+      "height": 1
     }
   ]
 }
