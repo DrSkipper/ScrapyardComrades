@@ -50,7 +50,7 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
         createPlatform();
         this.integerCollider.AddToCollisionPool();
         this.transform.SetPosition2D(this.Start.position);
-        _actualPos = this.transform.position;
+        _positionModifier = Vector2.zero;
         _outward = true;
         _outwardVelocity = (((Vector2)this.Destination.transform.position) - ((Vector2)this.Start.transform.position)).normalized * this.Speed;
         _inwardVelocity = (((Vector2)this.Start.transform.position) - ((Vector2)this.Destination.transform.position)).normalized * this.Speed;
@@ -75,7 +75,7 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
         if (!_stopped)
         {
             IntegerVector target = _outward ? (Vector2)this.Destination.transform.position : (Vector2)this.Start.transform.position;
-            Vector2 nextActualPos = Vector2.MoveTowards(_actualPos, target, this.Speed);
+            Vector2 nextActualPos = Vector2.MoveTowards(((Vector2)this.integerPosition) + _positionModifier, target, this.Speed);
             IntegerVector nextPos = nextActualPos;
             IntegerVector currentPos = this.integerPosition;
             int offsetX = nextPos.X - currentPos.X;
@@ -112,13 +112,13 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
 
                 _blocked = false;
                 this.transform.SetPosition2D(nextPos);
-                _actualPos = nextActualPos;
+                _positionModifier = nextActualPos - (Vector2)nextPos;
 
                 if (nextPos == target)
                 {
                     //TODO: Stop for a bit
                     _outward = !_outward;
-                    _actualPos = nextPos;
+                    _positionModifier = Vector2.zero;
                 }
 
                 // Pull any actors on our platform down with us
@@ -134,7 +134,7 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
             else
             {
                 _blocked = true;
-                _actualPos = currentPos;
+                _positionModifier = Vector2.zero;
             }
         }
     }
@@ -142,7 +142,7 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
     /**
      * Private
      */
-    private Vector2 _actualPos;
+    private Vector2 _positionModifier;
     private Vector2 _outwardVelocity;
     private Vector2 _inwardVelocity;
     private bool _blocked;
