@@ -1967,12 +1967,12 @@
           "sprite_name": "plant_tileset_178"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_52"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_33"
+          "sprite_name": "plant_tileset_38"
         },
         {
           "is_filled": true,
@@ -12343,7 +12343,9 @@
           "Name": "flip",
           "CurrentOption": "true"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "props_background": [],
@@ -12354,7 +12356,9 @@
       "x": 776,
       "y": 374,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_FloorFan_1",
@@ -12362,7 +12366,9 @@
       "x": 580,
       "y": 92,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_FloorFan_2",
@@ -12375,7 +12381,9 @@
           "Name": "attach",
           "CurrentOption": "r"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Switch_5",
@@ -12400,7 +12408,9 @@
           "Name": "default_state",
           "CurrentOption": "OFF"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Switch_6",
@@ -12425,7 +12435,9 @@
           "Name": "default_state",
           "CurrentOption": "OFF"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_DoorHorizontal_7",
@@ -12454,7 +12466,9 @@
           "Name": "ignore_events",
           "CurrentOption": "false"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_DoorVertical_8",
@@ -12483,7 +12497,9 @@
           "Name": "ignore_events",
           "CurrentOption": "false"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "next_object_id": 9,

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5b889c41c196c2446ad31a93a5e43eca
-timeCreated: 1516247515
+timeCreated: 1520888403
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -90,12 +90,12 @@ TextureImporter:
       name: hero4_grab_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 5
         y: 0
-        width: 85
+        width: 80
         height: 115
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

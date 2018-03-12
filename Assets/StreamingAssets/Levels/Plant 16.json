@@ -1831,12 +1831,12 @@
           "sprite_name": "plant_tileset_178"
         },
         {
-          "is_filled": false,
-          "sprite_name": "plant_tileset_178"
+          "is_filled": true,
+          "sprite_name": "plant_tileset_52"
         },
         {
           "is_filled": true,
-          "sprite_name": "plant_tileset_0"
+          "sprite_name": "plant_tileset_5"
         },
         {
           "is_filled": true,
@@ -12349,7 +12349,9 @@
           "Name": "target",
           "CurrentOption": "player"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_HeroLV4_3",
@@ -12357,7 +12359,9 @@
       "x": 290,
       "y": 186,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "next_object_id": 4,
