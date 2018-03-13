@@ -12363,7 +12363,9 @@
           "Name": "type",
           "CurrentOption": "C"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_OneWayPlatform_10",
@@ -12376,7 +12378,9 @@
           "Name": "type",
           "CurrentOption": "B"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_OneWayPlatform_11",
@@ -12389,7 +12393,9 @@
           "Name": "type",
           "CurrentOption": "D"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_OneWayPlatform_12",
@@ -12402,7 +12408,9 @@
           "Name": "type",
           "CurrentOption": "A"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "props_background": [],
@@ -12413,7 +12421,9 @@
       "x": 44,
       "y": 684,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_16",
@@ -12421,7 +12431,9 @@
       "x": 272,
       "y": 592,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_17",
@@ -12429,7 +12441,9 @@
       "x": 368,
       "y": 592,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_18",
@@ -12437,7 +12451,9 @@
       "x": 144,
       "y": 528,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_20",
@@ -12445,7 +12461,9 @@
       "x": 496,
       "y": 496,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_21",
@@ -12453,7 +12471,9 @@
       "x": 656,
       "y": 560,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_22",
@@ -12461,7 +12481,9 @@
       "x": 592,
       "y": 656,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_23",
@@ -12469,7 +12491,9 @@
       "x": 496,
       "y": 656,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_25",
@@ -12477,7 +12501,9 @@
       "x": 844,
       "y": 464,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_26",
@@ -12485,7 +12511,9 @@
       "x": 804,
       "y": 464,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_27",
@@ -12493,7 +12521,9 @@
       "x": 764,
       "y": 464,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_28",
@@ -12501,7 +12531,9 @@
       "x": 724,
       "y": 464,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_29",
@@ -12509,7 +12541,9 @@
       "x": 624,
       "y": 176,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_32",
@@ -12517,7 +12551,9 @@
       "x": 784,
       "y": 688,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_33",
@@ -12525,7 +12561,9 @@
       "x": 892,
       "y": 688,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_34",
@@ -12533,7 +12571,9 @@
       "x": 328,
       "y": 752,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_35",
@@ -12541,7 +12581,9 @@
       "x": 216,
       "y": 752,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_EnemyOffice_36",
@@ -12549,7 +12591,9 @@
       "x": 1338,
       "y": 362,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "next_object_id": 37,

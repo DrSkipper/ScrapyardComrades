@@ -8471,8 +8471,8 @@
           "sprite_name": "slums_tileset_142"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_142"
+          "is_filled": true,
+          "sprite_name": "slums_tileset_139"
         },
         {
           "is_filled": false,
@@ -12395,7 +12395,7 @@
   "next_object_id": 4,
   "next_prop_id": 3,
   "next_prop_bg_id": 0,
-  "next_light_id": 7,
+  "next_light_id": 12,
   "lights": [
     {
       "name": "lights_OverlayLight_25",
@@ -12462,6 +12462,94 @@
         false
       ],
       "parallax_ratio": 0.74999994
+    },
+    {
+      "name": "lights_OverlayLight_8",
+      "x": 764,
+      "y": 48,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 620,
+      "distance": 140,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": [
+        false,
+        false,
+        false
+      ],
+      "parallax_ratio": 0.0
+    },
+    {
+      "name": "lights_OverlayLight_9",
+      "x": 450,
+      "y": 48,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 620,
+      "distance": 140,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": [
+        false,
+        false,
+        false
+      ],
+      "parallax_ratio": 0.0
+    },
+    {
+      "name": "lights_OverlayLight_10",
+      "x": 450,
+      "y": 304,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 620,
+      "distance": 140,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": [
+        false,
+        false,
+        false
+      ],
+      "parallax_ratio": 0.0
+    },
+    {
+      "name": "lights_OverlayLight_11",
+      "x": 84,
+      "y": 296,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 620,
+      "distance": 140,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": [
+        false,
+        false,
+        false
+      ],
+      "parallax_ratio": 0.0
     }
   ]
 }
