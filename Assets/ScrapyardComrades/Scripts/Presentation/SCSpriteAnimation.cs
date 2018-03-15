@@ -8,4 +8,5 @@ public class SCSpriteAnimation : ScriptableObject
     public int LoopFrame = 0;
     public AudioClip Sfx;
     public int SfxFrame;
+    public int SfxFrame2;
 }
