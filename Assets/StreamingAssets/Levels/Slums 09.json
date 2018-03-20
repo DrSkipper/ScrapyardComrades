@@ -12359,7 +12359,9 @@
       "x": 108,
       "y": 244,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "objects": [
@@ -12369,15 +12371,9 @@
       "x": 652,
       "y": 260,
       "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_rock_7",
-      "prefab_name": "rock",
-      "x": 708,
-      "y": 284,
-      "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Checkpoint_8",
@@ -12385,7 +12381,9 @@
       "x": 96,
       "y": 108,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_HeroLV2_9",
@@ -12393,7 +12391,9 @@
       "x": 96,
       "y": 108,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_EnemyOffice_11",
@@ -12406,7 +12406,9 @@
           "Name": "variant",
           "CurrentOption": "B"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_EnemyOffice_13",
@@ -12419,7 +12421,9 @@
           "Name": "variant",
           "CurrentOption": "E"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "next_object_id": 14,

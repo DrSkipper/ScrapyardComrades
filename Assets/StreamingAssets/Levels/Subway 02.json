@@ -4924,7 +4924,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_31"
+          "sprite_name": "subway_tileset_24"
         },
         {
           "is_filled": false,
@@ -24631,7 +24631,9 @@
           "Name": "flip",
           "CurrentOption": "true"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "props_background": [],
@@ -24642,15 +24644,9 @@
       "x": 464,
       "y": 988,
       "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Enemy_LV1_8",
-      "prefab_name": "Enemy_LV1",
-      "x": 2404,
-      "y": 452,
-      "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Enemy_LV1_9",
@@ -24658,23 +24654,9 @@
       "x": 2916,
       "y": 452,
       "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Enemy_LV1_10",
-      "prefab_name": "Enemy_LV1",
-      "x": 912,
-      "y": 772,
-      "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Enemy_LV1_11",
-      "prefab_name": "Enemy_LV1",
-      "x": 1508,
-      "y": 708,
-      "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_TrainSpawner_15",
@@ -24682,23 +24664,9 @@
       "x": 196,
       "y": 176,
       "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Enemy_LV1_16",
-      "prefab_name": "Enemy_LV1",
-      "x": 1356,
-      "y": 164,
-      "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Enemy_LV1_19",
-      "prefab_name": "Enemy_LV1",
-      "x": 868,
-      "y": 164,
-      "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_TunnelEnd_20",
@@ -24711,10 +24679,107 @@
           "Name": "flip",
           "CurrentOption": "true"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Enemy_LV1_21",
+      "prefab_name": "Enemy_LV1",
+      "x": 912,
+      "y": 772,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "I"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Enemy_LV1_22",
+      "prefab_name": "Enemy_LV1",
+      "x": 858,
+      "y": 164,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "G"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Enemy_LV1_23",
+      "prefab_name": "Enemy_LV1",
+      "x": 1360,
+      "y": 164,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "E"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Enemy_LV1_24",
+      "prefab_name": "Enemy_LV1",
+      "x": 1508,
+      "y": 708,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "C"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Enemy_LV1_25",
+      "prefab_name": "Enemy_LV1",
+      "x": 2404,
+      "y": 452,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "H"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
-  "next_object_id": 21,
+  "next_object_id": 26,
   "next_prop_id": 1,
   "next_prop_bg_id": 0,
   "next_light_id": 16,

@@ -12339,24 +12339,51 @@
       "prefab_name": "HeroLV1",
       "x": 116,
       "y": 676,
-      "z": -2
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
-      "name": "objects_Enemy_LV1_1",
+      "name": "objects_Enemy_LV1_4",
       "prefab_name": "Enemy_LV1",
-      "x": 280,
+      "x": 284,
       "y": 484,
-      "z": -2
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "B"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
-      "name": "objects_Enemy_LV1_3",
+      "name": "objects_Enemy_LV1_5",
       "prefab_name": "Enemy_LV1",
-      "x": 1008,
+      "x": 1006,
       "y": 452,
-      "z": -2
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "G"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
-  "next_object_id": 4,
+  "next_object_id": 6,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 6,

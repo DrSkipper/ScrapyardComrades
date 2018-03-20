@@ -3972,7 +3972,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_6"
+          "sprite_name": "subway_tileset_15"
         },
         {
           "is_filled": false,
@@ -4752,7 +4752,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_25"
+          "sprite_name": "subway_tileset_23"
         },
         {
           "is_filled": true,
@@ -4776,7 +4776,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_31"
+          "sprite_name": "subway_tileset_24"
         },
         {
           "is_filled": false,
@@ -24623,42 +24623,84 @@
   "props_background": [],
   "objects": [
     {
-      "name": "objects_Enemy_LV1_13",
-      "prefab_name": "Enemy_LV1",
-      "x": 1216,
-      "y": 452,
-      "z": -2
-    },
-    {
-      "name": "objects_Enemy_LV1_14",
-      "prefab_name": "Enemy_LV1",
-      "x": 688,
-      "y": 484,
-      "z": -2
-    },
-    {
       "name": "objects_HeroLV1_15",
       "prefab_name": "HeroLV1",
       "x": 116,
       "y": 484,
-      "z": -2
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_TrainSpawner_18",
       "prefab_name": "TrainSpawner",
       "x": 196,
       "y": 176,
-      "z": -2
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
-      "name": "objects_Enemy_LV1_19",
+      "name": "objects_Enemy_LV1_20",
       "prefab_name": "Enemy_LV1",
-      "x": 1672,
+      "x": 1216,
+      "y": 452,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "I"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Enemy_LV1_21",
+      "prefab_name": "Enemy_LV1",
+      "x": 1664,
       "y": 164,
-      "z": -2
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "B"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Enemy_LV1_22",
+      "prefab_name": "Enemy_LV1",
+      "x": 672,
+      "y": 484,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "G"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
-  "next_object_id": 20,
+  "next_object_id": 23,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 24,

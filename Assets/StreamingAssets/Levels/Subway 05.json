@@ -3892,7 +3892,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "subway_tileset_25"
+          "sprite_name": "subway_tileset_23"
         },
         {
           "is_filled": true,
@@ -20530,7 +20530,9 @@
       "x": 2518,
       "y": 208,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_OneWayPlatform_15",
@@ -20543,7 +20545,9 @@
           "Name": "type",
           "CurrentOption": "C"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_OneWayPlatform_16",
@@ -20556,7 +20560,9 @@
           "Name": "type",
           "CurrentOption": "B"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_OneWayPlatform_17",
@@ -20569,7 +20575,9 @@
           "Name": "type",
           "CurrentOption": "B"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_OneWayPlatform_18",
@@ -20582,7 +20590,9 @@
           "Name": "type",
           "CurrentOption": "C"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_OneWayPlatform_19",
@@ -20595,7 +20605,9 @@
           "Name": "type",
           "CurrentOption": "C"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_OneWayPlatform_20",
@@ -20608,7 +20620,9 @@
           "Name": "type",
           "CurrentOption": "B"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "props_background": [],
@@ -20619,7 +20633,9 @@
       "x": 196,
       "y": 176,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_HeroLV1_22",
@@ -20627,31 +20643,9 @@
       "x": 92,
       "y": 516,
       "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Enemy_LV1_23",
-      "prefab_name": "Enemy_LV1",
-      "x": 512,
-      "y": 452,
-      "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Enemy_LV1_24",
-      "prefab_name": "Enemy_LV1",
-      "x": 600,
-      "y": 484,
-      "z": -2,
-      "parameters": null
-    },
-    {
-      "name": "objects_Enemy_LV1_26",
-      "prefab_name": "Enemy_LV1",
-      "x": 1036,
-      "y": 164,
-      "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_TunnelEnd_30",
@@ -20659,10 +20653,69 @@
       "x": 2548,
       "y": 208,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Enemy_LV1_31",
+      "prefab_name": "Enemy_LV1",
+      "x": 512,
+      "y": 452,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "C"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Enemy_LV1_32",
+      "prefab_name": "Enemy_LV1",
+      "x": 608,
+      "y": 484,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "H"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Enemy_LV1_33",
+      "prefab_name": "Enemy_LV1",
+      "x": 1028,
+      "y": 164,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "G"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
-  "next_object_id": 31,
+  "next_object_id": 34,
   "next_prop_id": 21,
   "next_prop_bg_id": 0,
   "next_light_id": 29,

@@ -18502,7 +18502,9 @@
       "x": 1164,
       "y": 1136,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "props_background": [
@@ -18512,7 +18514,9 @@
       "x": 96,
       "y": 892,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slum_house5_7",
@@ -18520,7 +18524,9 @@
       "x": 96,
       "y": 612,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slum_house4_8",
@@ -18528,7 +18534,9 @@
       "x": 468,
       "y": 632,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slum_house10_11",
@@ -18536,7 +18544,9 @@
       "x": 396,
       "y": 768,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slum_house9_12",
@@ -18544,7 +18554,9 @@
       "x": 976,
       "y": 244,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slum_house5_13",
@@ -18552,7 +18564,9 @@
       "x": 1248,
       "y": 1092,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_pole_14",
@@ -18560,7 +18574,9 @@
       "x": 1356,
       "y": 1424,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "objects": [
@@ -18570,7 +18586,9 @@
       "x": 304,
       "y": 752,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_HeroLV1_4",
@@ -18578,7 +18596,9 @@
       "x": 28,
       "y": 548,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_9",
@@ -18586,7 +18606,9 @@
       "x": 624,
       "y": 656,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_27",
@@ -18594,7 +18616,9 @@
       "x": 904,
       "y": 208,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_29",
@@ -18602,7 +18626,9 @@
       "x": 1428,
       "y": 208,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Enemy_LV1_34",
@@ -18615,7 +18641,9 @@
           "Name": "variant",
           "CurrentOption": "F"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Enemy_LV1_35",
@@ -18628,7 +18656,9 @@
           "Name": "variant",
           "CurrentOption": "C"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Enemy_LV1_36",
@@ -18641,7 +18671,9 @@
           "Name": "variant",
           "CurrentOption": "D"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_37",
@@ -18654,7 +18686,9 @@
           "Name": "attach",
           "CurrentOption": "r"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_38",
@@ -18667,7 +18701,9 @@
           "Name": "attach",
           "CurrentOption": "r"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_39",
@@ -18680,7 +18716,9 @@
           "Name": "attach",
           "CurrentOption": "d"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_40",
@@ -18693,7 +18731,9 @@
           "Name": "attach",
           "CurrentOption": "d"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_41",
@@ -18706,7 +18746,9 @@
           "Name": "attach",
           "CurrentOption": "d"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_42",
@@ -18719,7 +18761,9 @@
           "Name": "attach",
           "CurrentOption": "d"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_43",
@@ -18732,7 +18776,9 @@
           "Name": "attach",
           "CurrentOption": "d"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_44",
@@ -18745,7 +18791,9 @@
           "Name": "attach",
           "CurrentOption": "d"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_48",
@@ -18758,7 +18806,9 @@
           "Name": "attach",
           "CurrentOption": "l"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_49",
@@ -18771,7 +18821,9 @@
           "Name": "attach",
           "CurrentOption": "l"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_51",
@@ -18784,7 +18836,9 @@
           "Name": "attach",
           "CurrentOption": "r"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_52",
@@ -18797,7 +18851,9 @@
           "Name": "attach",
           "CurrentOption": "r"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_53",
@@ -18810,7 +18866,9 @@
           "Name": "attach",
           "CurrentOption": "l"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_54",
@@ -18823,7 +18881,9 @@
           "Name": "attach",
           "CurrentOption": "l"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_55",
@@ -18836,7 +18896,9 @@
           "Name": "attach",
           "CurrentOption": "d"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "next_object_id": 56,
