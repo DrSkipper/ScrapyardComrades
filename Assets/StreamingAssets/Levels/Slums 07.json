@@ -3736,7 +3736,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_33"
+          "sprite_name": "slums_platforms_41"
         },
         {
           "is_filled": false,
@@ -3927,8 +3927,8 @@
           "sprite_name": "slums_platforms_40"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_33"
         },
         {
           "is_filled": false,
@@ -18601,16 +18601,6 @@
       "secondary_y": 0
     },
     {
-      "name": "objects_Mine_9",
-      "prefab_name": "Mine",
-      "x": 624,
-      "y": 656,
-      "z": -2,
-      "parameters": null,
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
       "name": "objects_Mine_27",
       "prefab_name": "Mine",
       "x": 904,
@@ -18811,36 +18801,6 @@
       "secondary_y": 0
     },
     {
-      "name": "objects_Mine_49",
-      "prefab_name": "Mine",
-      "x": 656,
-      "y": 592,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "attach",
-          "CurrentOption": "l"
-        }
-      ],
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
-      "name": "objects_Mine_51",
-      "prefab_name": "Mine",
-      "x": 592,
-      "y": 624,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "attach",
-          "CurrentOption": "r"
-        }
-      ],
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
       "name": "objects_Mine_52",
       "prefab_name": "Mine",
       "x": 272,
@@ -18899,9 +18859,49 @@
       ],
       "secondary_x": 0,
       "secondary_y": 0
+    },
+    {
+      "name": "objects_Mine_56",
+      "prefab_name": "Mine",
+      "x": 624,
+      "y": 688,
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Mine_57",
+      "prefab_name": "Mine",
+      "x": 592,
+      "y": 656,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "r"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Mine_58",
+      "prefab_name": "Mine",
+      "x": 656,
+      "y": 656,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "l"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
-  "next_object_id": 56,
+  "next_object_id": 59,
   "next_prop_id": 4,
   "next_prop_bg_id": 15,
   "next_light_id": 15,

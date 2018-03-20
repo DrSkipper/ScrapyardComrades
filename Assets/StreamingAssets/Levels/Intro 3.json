@@ -4376,15 +4376,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_0"
+          "sprite_name": "slums_platforms_7"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_4"
+          "sprite_name": "slums_platforms_16"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_19"
+          "sprite_name": "slums_platforms_9"
         },
         {
           "is_filled": true,
@@ -4567,16 +4567,16 @@
           "sprite_name": "slums_platforms_40"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_0"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_14"
+          "sprite_name": "slums_platforms_2"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_19"
         },
         {
           "is_filled": true,
@@ -10915,8 +10915,8 @@
           "sprite_name": "slums_tileset_142"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_tileset_142"
+          "is_filled": true,
+          "sprite_name": "slums_tileset_138"
         },
         {
           "is_filled": false,
@@ -12358,7 +12358,9 @@
       "x": 1180,
       "y": 152,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_Poster_2",
@@ -12375,7 +12377,9 @@
           "Name": "input",
           "CurrentOption": "slide"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "props_background": [
@@ -12385,7 +12389,9 @@
       "x": 316,
       "y": 716,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_house1_1",
@@ -12393,7 +12399,9 @@
       "x": 376,
       "y": 696,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_house2_2",
@@ -12401,7 +12409,9 @@
       "x": 516,
       "y": 700,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_house2_3",
@@ -12409,7 +12419,9 @@
       "x": 168,
       "y": 732,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_house2_4",
@@ -12417,7 +12429,9 @@
       "x": 196,
       "y": 716,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "objects": [
@@ -12427,7 +12441,9 @@
       "x": 48,
       "y": 324,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "next_object_id": 3,

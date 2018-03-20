@@ -21,9 +21,17 @@ public class PowerupObject : VoBehavior, IPausable
         if (_destructionTimer == null)
             _destructionTimer = new Timer(this.PickupAnimation.LengthInFrames, false, false, onDestruction);
         else
+        {
+            _destructionTimer.reset();
             _destructionTimer.Paused = true;
+        }
 
+        _throwing = false;
         this.Actor.enabled = false;
+
+        VelocityModifier vMod = this.Actor.GetVelocityModifier(THROW_VMOD);
+        vMod.Modifier = Vector2.zero;
+        this.Actor.SetVelocityModifier(THROW_VMOD, vMod);
 
         if (this.ThrowSpawnAnimation)
         {
