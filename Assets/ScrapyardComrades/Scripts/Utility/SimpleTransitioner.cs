@@ -4,11 +4,13 @@ using UnityEngine.SceneManagement;
 public class SimpleTransitioner : MonoBehaviour, IPausable
 {
     public string ButtonToActivate = "Cancel";
+    public string SecondButtonToActivate;
     public string DestinationScene = "WorldEditor";
     public int Delay = 0;
     public string EventNameToSend = "";
     public AudioClip ClipToPlay;
     public bool EventOnly = false;
+    public bool LongPress = false;
 
     void Awake()
     {
@@ -21,7 +23,7 @@ public class SimpleTransitioner : MonoBehaviour, IPausable
         {
             _delayTimer.update();
         }
-        else if (GameplayInput.ButtonPressed(this.ButtonToActivate))
+        else if (buttonPressed(this.ButtonToActivate) && (StringExtensions.IsEmpty(this.SecondButtonToActivate) || buttonPressed(this.SecondButtonToActivate)))
         {
             if (this.EventNameToSend != "")
                 GlobalEvents.Notifier.SendEvent(new LocalEventNotifier.Event(this.EventNameToSend));
@@ -48,5 +50,10 @@ public class SimpleTransitioner : MonoBehaviour, IPausable
             else
                 SceneManager.LoadScene(this.DestinationScene);
         }
+    }
+
+    private bool buttonPressed(string button)
+    {
+        return this.LongPress ? GameplayInput.ButtonLongHeld(button) : GameplayInput.ButtonPressed(button);
     }
 }

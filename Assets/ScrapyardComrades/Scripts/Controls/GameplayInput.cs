@@ -149,6 +149,11 @@ public static class GameplayInput
         return ReInput.players.GetPlayer(PLAYER_ID).GetButtonDown(buttonName);
     }
 
+    public static bool ButtonLongHeld(string buttonName)
+    {
+        return ReInput.players.GetPlayer(PLAYER_ID).GetButtonLongPress(buttonName);
+    }
+
     public static bool UsingController()
     {
         Controller c = ReInput.players.GetPlayer(PLAYER_ID).controllers.GetLastActiveController();
