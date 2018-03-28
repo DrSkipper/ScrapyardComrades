@@ -3655,8 +3655,8 @@
           "sprite_name": "slums_platforms_40"
         },
         {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_21"
+          "is_filled": false,
+          "sprite_name": "slums_platforms_40"
         },
         {
           "is_filled": false,
@@ -3848,7 +3848,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_12"
+          "sprite_name": "slums_platforms_25"
         },
         {
           "is_filled": false,
