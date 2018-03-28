@@ -32,13 +32,6 @@
       "height": 2
     },
     {
-      "name": "Slums 02",
-      "x": 25,
-      "y": 7,
-      "width": 3,
-      "height": 2
-    },
-    {
       "name": "Slums 03",
       "x": 23,
       "y": 13,
@@ -455,6 +448,13 @@
       "name": "Slums 22",
       "x": 25,
       "y": 11,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Slums 23",
+      "x": 23,
+      "y": 7,
       "width": 3,
       "height": 2
     }
