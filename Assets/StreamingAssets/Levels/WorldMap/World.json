@@ -5,64 +5,64 @@
   "level_quads": [
     {
       "name": "Intro 1",
-      "x": 6,
+      "x": 8,
       "y": 11,
       "width": 4,
       "height": 2
     },
     {
       "name": "Intro 2",
-      "x": 2,
-      "y": 19,
+      "x": 4,
+      "y": 21,
       "width": 3,
       "height": 2
     },
     {
       "name": "Intro 3",
-      "x": 13,
+      "x": 15,
       "y": 11,
       "width": 3,
       "height": 2
     },
     {
       "name": "Intro 4",
-      "x": 19,
+      "x": 21,
       "y": 11,
       "width": 3,
       "height": 2
     },
     {
       "name": "Slums 03",
-      "x": 23,
+      "x": 25,
       "y": 13,
       "width": 3,
       "height": 2
     },
     {
       "name": "Slums 04",
-      "x": 26,
+      "x": 28,
       "y": 13,
       "width": 3,
       "height": 2
     },
     {
       "name": "Subway 01",
-      "x": 34,
-      "y": 11,
+      "x": 40,
+      "y": 12,
       "width": 3,
       "height": 2
     },
     {
       "name": "Plant 01",
-      "x": 50,
-      "y": 8,
+      "x": 56,
+      "y": 9,
       "width": 3,
       "height": 2
     },
     {
       "name": "Slums 05",
-      "x": 28,
-      "y": 11,
+      "x": 34,
+      "y": 12,
       "width": 3,
       "height": 2
     },
@@ -75,78 +75,78 @@
     },
     {
       "name": "Slums 06",
-      "x": 31,
-      "y": 11,
+      "x": 37,
+      "y": 12,
       "width": 3,
       "height": 2
     },
     {
       "name": "Subway 02",
-      "x": 32,
-      "y": 9,
+      "x": 38,
+      "y": 10,
       "width": 6,
       "height": 2
     },
     {
       "name": "Slums 07",
-      "x": 29,
-      "y": 13,
+      "x": 35,
+      "y": 14,
       "width": 3,
       "height": 3
     },
     {
       "name": "Subway 03",
-      "x": 31,
-      "y": 9,
+      "x": 37,
+      "y": 10,
       "width": 1,
       "height": 1
     },
     {
       "name": "Slums 08",
-      "x": 32,
-      "y": 13,
+      "x": 38,
+      "y": 14,
       "width": 3,
       "height": 2
     },
     {
       "name": "Slums 09",
-      "x": 32,
-      "y": 15,
+      "x": 38,
+      "y": 16,
       "width": 3,
       "height": 2
     },
     {
       "name": "Slums 10",
-      "x": 35,
-      "y": 13,
+      "x": 41,
+      "y": 14,
       "width": 3,
       "height": 2
     },
     {
       "name": "Slums 11",
-      "x": 35,
-      "y": 15,
+      "x": 41,
+      "y": 16,
       "width": 3,
       "height": 2
     },
     {
       "name": "Subway 04",
-      "x": 38,
-      "y": 9,
+      "x": 44,
+      "y": 10,
       "width": 6,
       "height": 2
     },
     {
       "name": "Subway 05",
-      "x": 44,
-      "y": 9,
+      "x": 50,
+      "y": 10,
       "width": 5,
       "height": 2
     },
     {
       "name": "Plant 03",
-      "x": 49,
-      "y": 9,
+      "x": 55,
+      "y": 10,
       "width": 1,
       "height": 1
     },
@@ -159,8 +159,8 @@
     },
     {
       "name": "Plant 02",
-      "x": 49,
-      "y": 10,
+      "x": 55,
+      "y": 11,
       "width": 3,
       "height": 2
     },
@@ -208,22 +208,22 @@
     },
     {
       "name": "Slums 12",
-      "x": 16,
+      "x": 18,
       "y": 11,
       "width": 3,
       "height": 2
     },
     {
       "name": "Plant 07",
-      "x": 56,
-      "y": 7,
+      "x": 62,
+      "y": 8,
       "width": 3,
       "height": 2
     },
     {
       "name": "Plant 08",
-      "x": 59,
-      "y": 7,
+      "x": 65,
+      "y": 8,
       "width": 3,
       "height": 2
     },
@@ -264,29 +264,29 @@
     },
     {
       "name": "Plant 13",
-      "x": 53,
-      "y": 7,
+      "x": 59,
+      "y": 8,
       "width": 3,
       "height": 2
     },
     {
       "name": "Plant 14",
-      "x": 47,
-      "y": 11,
+      "x": 53,
+      "y": 12,
       "width": 2,
       "height": 1
     },
     {
       "name": "Plant 15",
-      "x": 51,
-      "y": 7,
+      "x": 57,
+      "y": 8,
       "width": 2,
       "height": 1
     },
     {
       "name": "Office 03",
-      "x": 38,
-      "y": 13,
+      "x": 44,
+      "y": 14,
       "width": 3,
       "height": 4
     },
@@ -299,71 +299,71 @@
     },
     {
       "name": "Plant 17",
-      "x": 53,
-      "y": 9,
-      "width": 3,
-      "height": 2
-    },
-    {
-      "name": "Plant 18",
-      "x": 56,
-      "y": 10,
-      "width": 3,
-      "height": 2
-    },
-    {
-      "name": "Plant 19",
-      "x": 54,
-      "y": 11,
-      "width": 2,
-      "height": 1
-    },
-    {
-      "name": "Plant 20",
       "x": 59,
       "y": 10,
       "width": 3,
       "height": 2
     },
     {
+      "name": "Plant 18",
+      "x": 62,
+      "y": 11,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Plant 19",
+      "x": 60,
+      "y": 12,
+      "width": 2,
+      "height": 1
+    },
+    {
+      "name": "Plant 20",
+      "x": 65,
+      "y": 11,
+      "width": 3,
+      "height": 2
+    },
+    {
       "name": "MainSt 00",
       "x": 46,
-      "y": 18,
+      "y": 19,
       "width": 3,
       "height": 2
     },
     {
       "name": "Intro 03",
-      "x": 6,
-      "y": 16,
+      "x": 8,
+      "y": 18,
       "width": 3,
       "height": 2
     },
     {
       "name": "Intro 04",
-      "x": 10,
-      "y": 16,
+      "x": 12,
+      "y": 18,
       "width": 3,
       "height": 2
     },
     {
       "name": "Intro 05",
-      "x": 10,
+      "x": 12,
       "y": 11,
       "width": 3,
       "height": 2
     },
     {
       "name": "Intro 06",
-      "x": 15,
+      "x": 17,
       "y": 19,
       "width": 3,
       "height": 2
     },
     {
       "name": "Intro 07",
-      "x": 2,
-      "y": 16,
+      "x": 4,
+      "y": 18,
       "width": 3,
       "height": 2
     },
@@ -383,80 +383,108 @@
     },
     {
       "name": "Slums 15",
-      "x": 22,
+      "x": 24,
       "y": 11,
       "width": 3,
       "height": 2
     },
     {
       "name": "Slums 01",
-      "x": 20,
+      "x": 22,
       "y": 13,
       "width": 3,
       "height": 2
     },
     {
       "name": "Slums 16",
-      "x": 17,
+      "x": 19,
       "y": 13,
       "width": 3,
       "height": 2
     },
     {
       "name": "Slums 17",
-      "x": 12,
+      "x": 14,
       "y": 13,
       "width": 5,
       "height": 2
     },
     {
       "name": "Slums 18",
-      "x": 3,
+      "x": 5,
       "y": 12,
       "width": 3,
       "height": 2
     },
     {
       "name": "Slums 19",
-      "x": 6,
+      "x": 8,
       "y": 13,
       "width": 6,
       "height": 2
     },
     {
       "name": "Slums 20",
-      "x": 4,
+      "x": 6,
       "y": 11,
       "width": 2,
       "height": 1
     },
     {
       "name": "Slums 21",
-      "x": 3,
+      "x": 5,
       "y": 14,
       "width": 3,
       "height": 1
     },
     {
       "name": "Subway 06",
-      "x": 37,
-      "y": 11,
+      "x": 43,
+      "y": 12,
       "width": 2,
       "height": 2
     },
     {
       "name": "Slums 22",
-      "x": 25,
+      "x": 27,
       "y": 11,
-      "width": 3,
+      "width": 4,
       "height": 2
     },
     {
       "name": "Slums 23",
-      "x": 23,
-      "y": 7,
+      "x": 31,
+      "y": 12,
       "width": 3,
       "height": 2
+    },
+    {
+      "name": "Slums 02",
+      "x": 31,
+      "y": 14,
+      "width": 4,
+      "height": 2
+    },
+    {
+      "name": "Plant 21",
+      "x": 58,
+      "y": 11,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "name": "Slums 24",
+      "x": 31,
+      "y": 11,
+      "width": 2,
+      "height": 1
+    },
+    {
+      "name": "Slums 25",
+      "x": 29,
+      "y": 15,
+      "width": 2,
+      "height": 1
     }
   ]
 }
