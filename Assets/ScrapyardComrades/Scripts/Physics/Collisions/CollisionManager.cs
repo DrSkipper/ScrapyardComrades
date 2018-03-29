@@ -233,7 +233,7 @@ public class CollisionManager : VoBehavior
             projected.x += incX;
             projected.y += incY;
 
-            if (projected.magnitude > dMagnitude)
+            if (projected.magnitude >= dMagnitude)
             {
                 incX = d.x - soFar.x;
                 incY = d.y - soFar.y;
@@ -364,7 +364,7 @@ public class CollisionManager : VoBehavior
             projected.x += incX;
             projected.y += incY;
 
-            if (projected.magnitude > dMagnitude)
+            if (projected.magnitude >= dMagnitude)
             {
                 incX = d.x - soFar.x;
                 incY = d.y - soFar.y;
@@ -482,7 +482,7 @@ public class CollisionManager : VoBehavior
             projected.x += incX;
             projected.y += incY;
 
-            if (projected.magnitude > dMagnitude)
+            if (projected.magnitude >= dMagnitude)
             {
                 incX = d.x - soFar.x;
                 incY = d.y - soFar.y;

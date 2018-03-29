@@ -624,7 +624,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_16"
+          "sprite_name": "slums_platforms_15"
         },
         {
           "is_filled": true,
@@ -632,7 +632,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_15"
+          "sprite_name": "slums_platforms_8"
         },
         {
           "is_filled": true,
@@ -816,15 +816,15 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "slums_platforms_8"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "slums_platforms_10"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_17"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_8"
+          "sprite_name": "slums_platforms_9"
         },
         {
           "is_filled": true,
@@ -1000,15 +1000,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_15"
+          "sprite_name": "slums_platforms_10"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_15"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_16"
+          "sprite_name": "slums_platforms_8"
         },
         {
           "is_filled": true,
@@ -1016,11 +1012,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_15"
+          "sprite_name": "slums_platforms_17"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_16"
+          "sprite_name": "slums_platforms_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_8"
         },
         {
           "is_filled": true,
@@ -1036,23 +1036,23 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_10"
+          "sprite_name": "slums_platforms_18"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_9"
+          "sprite_name": "slums_platforms_1"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_10"
+          "sprite_name": "slums_platforms_5"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_8"
+          "sprite_name": "slums_platforms_1"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_10"
+          "sprite_name": "slums_platforms_19"
         },
         {
           "is_filled": true,
@@ -1192,15 +1192,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_9"
+          "sprite_name": "slums_platforms_16"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_10"
+          "sprite_name": "slums_platforms_17"
         },
         {
           "is_filled": true,
@@ -1212,11 +1208,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_9"
+          "sprite_name": "slums_platforms_8"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_16"
+          "sprite_name": "slums_platforms_17"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_10"
         },
         {
           "is_filled": true,
@@ -1228,23 +1228,23 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_18"
+          "sprite_name": "slums_platforms_20"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_platforms_40"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_platforms_40"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_platforms_40"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_5"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_4"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_1"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_19"
+          "sprite_name": "slums_platforms_14"
         },
         {
           "is_filled": true,
@@ -1388,27 +1388,27 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "slums_platforms_5"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_4"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_3"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "slums_platforms_1"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_5"
+          "sprite_name": "slums_platforms_2"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_5"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_4"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_4"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_4"
+          "sprite_name": "slums_platforms_2"
         },
         {
           "is_filled": true,
@@ -12365,36 +12365,6 @@
       "secondary_y": 0
     },
     {
-      "name": "objects_Mine_21",
-      "prefab_name": "Mine",
-      "x": 624,
-      "y": 240,
-      "z": -2,
-      "parameters": null,
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
-      "name": "objects_Mine_22",
-      "prefab_name": "Mine",
-      "x": 592,
-      "y": 240,
-      "z": -2,
-      "parameters": null,
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
-      "name": "objects_Mine_23",
-      "prefab_name": "Mine",
-      "x": 560,
-      "y": 240,
-      "z": -2,
-      "parameters": null,
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
       "name": "objects_Enemy_LV1_24",
       "prefab_name": "Enemy_LV1",
       "x": 710,
@@ -12523,9 +12493,39 @@
       ],
       "secondary_x": 0,
       "secondary_y": 0
+    },
+    {
+      "name": "objects_Mine_38",
+      "prefab_name": "Mine",
+      "x": 560,
+      "y": 208,
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Mine_39",
+      "prefab_name": "Mine",
+      "x": 592,
+      "y": 208,
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Mine_40",
+      "prefab_name": "Mine",
+      "x": 624,
+      "y": 208,
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
-  "next_object_id": 38,
+  "next_object_id": 51,
   "next_prop_id": 3,
   "next_prop_bg_id": 0,
   "next_light_id": 12,

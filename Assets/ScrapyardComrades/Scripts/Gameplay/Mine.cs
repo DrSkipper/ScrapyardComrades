@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class Mine : VoBehavior, IPausable
 {
     public LayerMask DamagableLayers;
+    public LayerMask BlockingLayers;
     public SCAttack.HitData HitData;
     public Damagable Damagable;
     public PooledObject FlashEffect;
@@ -101,12 +102,18 @@ public class Mine : VoBehavior, IPausable
                 Damagable damagable = collided.GetComponent<Damagable>();
                 if (damagable != null)
                 {
-                    Actor2D actor = damagable.GetComponent<Actor2D>();
-                    float vx = actor == null ? 0.0f : actor.Velocity.x;
-                    
-                    damagable.Damage(this.HitData, (Vector2)this.transform.position, (Vector2)this.transform.position, vx > 0.0f ? SCCharacterController.Facing.Left : SCCharacterController.Facing.Right);
+                    IntegerVector pos = this.integerPosition;
+                    Vector2 diff = damagable.integerPosition - pos;
 
-                    explode();
+                    // Make sure we don't hurt though walls
+                    if (!CollisionManager.RaycastFirst(pos, diff.normalized, diff.magnitude, this.BlockingLayers).Collided)
+                    {
+                        Actor2D actor = damagable.GetComponent<Actor2D>();
+                        float vx = actor == null ? 0.0f : actor.Velocity.x;
+
+                        damagable.Damage(this.HitData, (Vector2)this.transform.position, (Vector2)this.transform.position, vx > 0.0f ? SCCharacterController.Facing.Left : SCCharacterController.Facing.Right);
+                        explode();
+                    }
                 }
             }
         }
