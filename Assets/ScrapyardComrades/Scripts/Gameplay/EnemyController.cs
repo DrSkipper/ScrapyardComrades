@@ -8,6 +8,7 @@ public class EnemyController : SCCharacterController
     public LayerMask TargetLayers;
     public LayerMask SecondaryTargetLayers;
     public string SecondaryTargetTag = "Heart";
+    public int ReducedMaxHealth = 0;
 
     [HideInInspector]
     public bool ReduceHealth = false;
@@ -32,7 +33,7 @@ public class EnemyController : SCCharacterController
     public override void OnSpawn()
     {
         base.OnSpawn();
-        this.Damagable.Health = this.ReduceHealth ? (this.Damagable.MaxHealth * 2 / 3) : this.Damagable.MaxHealth;
+        this.Damagable.Health = this.ReduceHealth ? this.ReducedMaxHealth : this.Damagable.MaxHealth;
 
         if (_ai == null)
         {
