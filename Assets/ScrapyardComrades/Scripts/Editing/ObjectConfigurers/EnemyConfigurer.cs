@@ -8,6 +8,7 @@ public class EnemyConfigurer : ObjectConfigurer
     private const string TARGET_TYPE = "target";
     private const string TARGETS_PLAYER = "player";
     private const string TARGETS_ALL = "all";
+    private const string HEALTH_REDUCTION = "hp_reduce";
 
     [System.Serializable]
     public struct Variant
@@ -54,6 +55,10 @@ public class EnemyConfigurer : ObjectConfigurer
                 new ObjectParamType(TARGET_TYPE, new string[] {
                     TARGETS_PLAYER,
                     TARGETS_ALL
+                }),
+                new ObjectParamType(HEALTH_REDUCTION, new string[] {
+                    SwitchConfigurer.FALSE,
+                    SwitchConfigurer.TRUE
                 })
             };
         }
@@ -71,6 +76,9 @@ public class EnemyConfigurer : ObjectConfigurer
                 break;
             case TARGET_TYPE:
                 configureTargetType(option);
+                break;
+            case HEALTH_REDUCTION:
+                configureHealthReduction(option);
                 break;
         }
     }
@@ -132,5 +140,10 @@ public class EnemyConfigurer : ObjectConfigurer
                 this.AttackController.DamagableLayers = this.AllDamagableMask;
                 break;
         }
+    }
+
+    private void configureHealthReduction(string option)
+    {
+        this.CharacterController.ReduceHealth = (option == SwitchConfigurer.TRUE);
     }
 }

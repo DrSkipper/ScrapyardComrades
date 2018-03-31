@@ -9,6 +9,9 @@ public class EnemyController : SCCharacterController
     public LayerMask SecondaryTargetLayers;
     public string SecondaryTargetTag = "Heart";
 
+    [HideInInspector]
+    public bool ReduceHealth = false;
+
     [System.Serializable]
     public enum AIType
     {
@@ -29,7 +32,7 @@ public class EnemyController : SCCharacterController
     public override void OnSpawn()
     {
         base.OnSpawn();
-        this.Damagable.Health = this.Damagable.MaxHealth;
+        this.Damagable.Health = this.ReduceHealth ? (this.Damagable.MaxHealth * 2 / 3) : this.Damagable.MaxHealth;
 
         if (_ai == null)
         {
@@ -180,6 +183,7 @@ public class EnemyController : SCCharacterController
         base.OnReturnToPool();
         if (_targetsInRange != null)
             _targetsInRange.Clear();
+        this.ReduceHealth = false;
     }
 
     /**

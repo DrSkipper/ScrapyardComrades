@@ -12481,7 +12481,7 @@
       "secondary_y": 0
     },
     {
-      "name": "objects_Enemy_LV1_10",
+      "name": "objects_Enemy_LV1_11",
       "prefab_name": "Enemy_LV1",
       "x": 968,
       "y": 356,
@@ -12494,13 +12494,17 @@
         {
           "Name": "target",
           "CurrentOption": "all"
+        },
+        {
+          "Name": "hp_reduce",
+          "CurrentOption": "true"
         }
       ],
       "secondary_x": 0,
       "secondary_y": 0
     }
   ],
-  "next_object_id": 11,
+  "next_object_id": 12,
   "next_prop_id": 7,
   "next_prop_bg_id": 5,
   "next_light_id": 15,
