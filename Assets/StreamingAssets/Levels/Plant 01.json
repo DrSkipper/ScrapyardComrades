@@ -12340,7 +12340,9 @@
       "x": 464,
       "y": 968,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Turret_19",
@@ -12353,7 +12355,9 @@
           "Name": "attach",
           "CurrentOption": "l"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_25",
@@ -12390,7 +12394,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_26",
@@ -12427,7 +12433,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_28",
@@ -12464,7 +12472,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_29",
@@ -12501,7 +12511,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_34",
@@ -12538,7 +12550,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_35",
@@ -12575,7 +12589,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_36",
@@ -12612,7 +12628,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_37",
@@ -12649,7 +12667,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Turret_42",
@@ -12662,7 +12682,9 @@
           "Name": "attach",
           "CurrentOption": "u"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Turret_43",
@@ -12675,7 +12697,9 @@
           "Name": "attach",
           "CurrentOption": "u"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_FloorFan_50",
@@ -12703,8 +12727,14 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "purp"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_FloorFan_51",
@@ -12732,8 +12762,14 @@
         {
           "Name": "ignore_events",
           "CurrentOption": "false"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Boulder_60",
@@ -12741,7 +12777,9 @@
       "x": 1050,
       "y": 68,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Switch_63",
@@ -12765,8 +12803,14 @@
         {
           "Name": "default_state",
           "CurrentOption": "OFF"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "purp"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Switch_64",
@@ -12790,8 +12834,14 @@
         {
           "Name": "default_state",
           "CurrentOption": "OFF"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_EnemyPlant_65",
@@ -12808,10 +12858,72 @@
           "Name": "target",
           "CurrentOption": "player"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Generator_66",
+      "prefab_name": "Generator",
+      "x": 1048,
+      "y": 12,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Generator_67",
+      "prefab_name": "Generator",
+      "x": 1296,
+      "y": 182,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "blue"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Generator_68",
+      "prefab_name": "Generator",
+      "x": 1264,
+      "y": 16,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "purp"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Generator_69",
+      "prefab_name": "Generator",
+      "x": 812,
+      "y": 12,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "color",
+          "CurrentOption": "purp"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
-  "next_object_id": 66,
+  "next_object_id": 70,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 18,
