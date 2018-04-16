@@ -1355,12 +1355,12 @@
           "sprite_name": "slums_platforms_40"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_24"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_27"
         },
         {
           "is_filled": false,
@@ -1548,11 +1548,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_25"
+          "sprite_name": "slums_platforms_9"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_27"
+          "sprite_name": "slums_platforms_13"
         },
         {
           "is_filled": false,

@@ -792,11 +792,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_18"
+          "sprite_name": "slums_platforms_17"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_6"
+          "sprite_name": "slums_platforms_13"
         },
         {
           "is_filled": false,
@@ -1048,11 +1048,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_13"
+          "sprite_name": "slums_platforms_18"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_6"
         },
         {
           "is_filled": false,
@@ -4644,7 +4644,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_7"
+          "sprite_name": "slums_tileset_25"
         },
         {
           "is_filled": true,
@@ -4900,7 +4900,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_14"
+          "sprite_name": "slums_tileset_25"
         },
         {
           "is_filled": true,
@@ -5136,7 +5136,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_20"
+          "sprite_name": "slums_tileset_24"
         },
         {
           "is_filled": false,
@@ -5156,7 +5156,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_7"
+          "sprite_name": "slums_tileset_25"
         },
         {
           "is_filled": true,
@@ -5392,7 +5392,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_13"
+          "sprite_name": "slums_tileset_24"
         },
         {
           "is_filled": false,
@@ -5648,7 +5648,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_13"
+          "sprite_name": "slums_tileset_24"
         },
         {
           "is_filled": false,
@@ -5811,12 +5811,12 @@
           "sprite_name": "slums_platforms_40"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_21"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_14"
+          "sprite_name": "slums_platforms_12"
         },
         {
           "is_filled": true,
@@ -6067,12 +6067,12 @@
           "sprite_name": "slums_platforms_40"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_7"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_7"
+          "sprite_name": "slums_platforms_15"
         },
         {
           "is_filled": true,
@@ -6323,12 +6323,12 @@
           "sprite_name": "slums_platforms_40"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_14"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_7"
+          "sprite_name": "slums_platforms_10"
         },
         {
           "is_filled": true,
@@ -6579,12 +6579,12 @@
           "sprite_name": "slums_platforms_40"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_7"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_14"
+          "sprite_name": "slums_platforms_15"
         },
         {
           "is_filled": true,
@@ -6835,12 +6835,12 @@
           "sprite_name": "slums_platforms_40"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_7"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_14"
+          "sprite_name": "slums_platforms_9"
         },
         {
           "is_filled": true,
@@ -7091,12 +7091,12 @@
           "sprite_name": "slums_platforms_40"
         },
         {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "is_filled": true,
+          "sprite_name": "slums_platforms_14"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_7"
+          "sprite_name": "slums_platforms_9"
         },
         {
           "is_filled": true,
@@ -7316,19 +7316,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_17"
+          "sprite_name": "slums_platforms_18"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_9"
+          "sprite_name": "slums_platforms_4"
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_20"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "slums_platforms_40"
+          "sprite_name": "slums_platforms_6"
         },
         {
           "is_filled": false,
@@ -7352,7 +7348,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_7"
+          "sprite_name": "slums_platforms_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "slums_platforms_19"
         },
         {
           "is_filled": true,
@@ -7572,14 +7572,6 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_16"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_9"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "slums_platforms_13"
         },
         {
@@ -7607,8 +7599,16 @@
           "sprite_name": "slums_platforms_40"
         },
         {
+          "is_filled": false,
+          "sprite_name": "slums_platforms_40"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "slums_platforms_40"
+        },
+        {
           "is_filled": true,
-          "sprite_name": "slums_platforms_14"
+          "sprite_name": "slums_platforms_7"
         },
         {
           "is_filled": true,
@@ -7828,15 +7828,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_15"
+          "sprite_name": "slums_platforms_20"
         },
         {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_8"
+          "is_filled": false,
+          "sprite_name": "slums_platforms_40"
         },
         {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_13"
+          "is_filled": false,
+          "sprite_name": "slums_platforms_40"
         },
         {
           "is_filled": false,
@@ -8084,15 +8084,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "slums_platforms_15"
+          "sprite_name": "slums_platforms_13"
         },
         {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_16"
+          "is_filled": false,
+          "sprite_name": "slums_platforms_40"
         },
         {
-          "is_filled": true,
-          "sprite_name": "slums_platforms_20"
+          "is_filled": false,
+          "sprite_name": "slums_platforms_40"
         },
         {
           "is_filled": false,
@@ -16449,140 +16449,10 @@
   ],
   "props": [
     {
-      "name": "props_OneWayPlatform_7",
-      "prefab_name": "OneWayPlatform",
-      "x": 1264,
-      "y": 928,
-      "z": 2,
-      "parameters": [
-        {
-          "Name": "type",
-          "CurrentOption": "B"
-        }
-      ],
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
-      "name": "props_OneWayPlatform_8",
-      "prefab_name": "OneWayPlatform",
-      "x": 1200,
-      "y": 928,
-      "z": 2,
-      "parameters": [
-        {
-          "Name": "type",
-          "CurrentOption": "B"
-        }
-      ],
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
-      "name": "props_OneWayPlatform_9",
-      "prefab_name": "OneWayPlatform",
-      "x": 1232,
-      "y": 928,
-      "z": 2,
-      "parameters": [
-        {
-          "Name": "type",
-          "CurrentOption": "C"
-        }
-      ],
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
-      "name": "props_OneWayPlatform_10",
-      "prefab_name": "OneWayPlatform",
-      "x": 1296,
-      "y": 928,
-      "z": 2,
-      "parameters": [
-        {
-          "Name": "type",
-          "CurrentOption": "C"
-        }
-      ],
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
-      "name": "props_OneWayPlatform_17",
-      "prefab_name": "OneWayPlatform",
-      "x": 1360,
-      "y": 800,
-      "z": 2,
-      "parameters": [
-        {
-          "Name": "type",
-          "CurrentOption": "C"
-        }
-      ],
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
-      "name": "props_OneWayPlatform_18",
-      "prefab_name": "OneWayPlatform",
-      "x": 1328,
-      "y": 800,
-      "z": 2,
-      "parameters": [
-        {
-          "Name": "type",
-          "CurrentOption": "B"
-        }
-      ],
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
-      "name": "props_OneWayPlatform_19",
-      "prefab_name": "OneWayPlatform",
-      "x": 1264,
-      "y": 800,
-      "z": 2,
-      "parameters": [
-        {
-          "Name": "type",
-          "CurrentOption": "B"
-        }
-      ],
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
-      "name": "props_OneWayPlatform_20",
-      "prefab_name": "OneWayPlatform",
-      "x": 1296,
-      "y": 800,
-      "z": 2,
-      "parameters": [
-        {
-          "Name": "type",
-          "CurrentOption": "C"
-        }
-      ],
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
       "name": "props_slums_car2_21",
       "prefab_name": "slums_car2",
       "x": 732,
       "y": 52,
-      "z": 2,
-      "parameters": null,
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
-      "name": "props_SlumsLamp_22",
-      "prefab_name": "SlumsLamp",
-      "x": 1340,
-      "y": 624,
       "z": 2,
       "parameters": null,
       "secondary_x": 0,
@@ -16677,6 +16547,106 @@
       "parameters": null,
       "secondary_x": 0,
       "secondary_y": 0
+    },
+    {
+      "name": "props_SlumsLamp_35",
+      "prefab_name": "SlumsLamp",
+      "x": 1312,
+      "y": 624,
+      "z": 2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "props_OneWayPlatform_36",
+      "prefab_name": "OneWayPlatform",
+      "x": 1200,
+      "y": 912,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "B"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "props_OneWayPlatform_37",
+      "prefab_name": "OneWayPlatform",
+      "x": 1232,
+      "y": 912,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "C"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "props_OneWayPlatform_39",
+      "prefab_name": "OneWayPlatform",
+      "x": 1264,
+      "y": 912,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "B"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "props_OneWayPlatform_40",
+      "prefab_name": "OneWayPlatform",
+      "x": 1296,
+      "y": 912,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "C"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "props_OneWayPlatform_41",
+      "prefab_name": "OneWayPlatform",
+      "x": 1328,
+      "y": 912,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "A"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "props_OneWayPlatform_45",
+      "prefab_name": "OneWayPlatform",
+      "x": 1200,
+      "y": 736,
+      "z": 2,
+      "parameters": [
+        {
+          "Name": "type",
+          "CurrentOption": "D"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "props_background": [
@@ -16743,7 +16713,7 @@
     }
   ],
   "next_object_id": 15,
-  "next_prop_id": 34,
+  "next_prop_id": 46,
   "next_prop_bg_id": 3,
   "next_light_id": 13,
   "lights": [
