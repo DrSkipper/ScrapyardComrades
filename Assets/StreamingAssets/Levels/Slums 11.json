@@ -12358,7 +12358,9 @@
       "x": 1456,
       "y": 560,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_slums_car2_5",
@@ -12366,7 +12368,9 @@
       "x": 1488,
       "y": 468,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_slums_plant_6",
@@ -12374,7 +12378,9 @@
       "x": 112,
       "y": 220,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "props_background": [
@@ -12384,7 +12390,9 @@
       "x": 1096,
       "y": 192,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slum_house6_1",
@@ -12392,7 +12400,9 @@
       "x": 532,
       "y": 192,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slum_house9_3",
@@ -12400,7 +12410,9 @@
       "x": 1396,
       "y": 372,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_pole_5",
@@ -12408,7 +12420,9 @@
       "x": 788,
       "y": 756,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slum_house4_6",
@@ -12416,7 +12430,9 @@
       "x": 728,
       "y": 352,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "objects": [
@@ -12426,7 +12442,9 @@
       "x": 40,
       "y": 524,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_6",
@@ -12434,7 +12452,9 @@
       "x": 368,
       "y": 208,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_7",
@@ -12442,7 +12462,9 @@
       "x": 436,
       "y": 112,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_8",
@@ -12450,7 +12472,9 @@
       "x": 1200,
       "y": 240,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Mine_9",
@@ -12458,7 +12482,9 @@
       "x": 1104,
       "y": 112,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_EnemyGuard_11",
@@ -12466,7 +12492,9 @@
       "x": 836,
       "y": 158,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "next_object_id": 12,
