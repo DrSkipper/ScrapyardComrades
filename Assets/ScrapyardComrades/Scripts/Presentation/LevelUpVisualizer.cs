@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
-public class LevelUpVisualizer : VoBehavior, IPausable
+public class LevelUpVisualizer : MonoBehaviour, IPausable
 {
+    public Image Image;
     public Sprite[] Levels;
     public int Duration = 150;
     public int InitialInterval = 20;
     public int FinalInterval = 3;
     public int FinalDelay = 20;
+    public int SizeMult = 8;
 
     void Awake()
     {
@@ -22,9 +25,9 @@ public class LevelUpVisualizer : VoBehavior, IPausable
 
             if (_counter >= this.Duration)
             {
-                if (this.spriteRenderer.sprite != _next)
+                if (this.Image.sprite != _next)
                 {
-                    this.spriteRenderer.sprite = _next;
+                    setSprite(_next);
                     _interval = 0;
                     _nextInterval = this.FinalDelay;
                 }
@@ -32,7 +35,7 @@ public class LevelUpVisualizer : VoBehavior, IPausable
                 if (_interval > this.FinalDelay)
                 {
                     _running = false;
-                    this.spriteRenderer.enabled = false;
+                    this.Image.enabled = false;
                 }
             }
 
@@ -40,7 +43,7 @@ public class LevelUpVisualizer : VoBehavior, IPausable
             {
                 _interval = 0;
                 _nextInterval = Mathf.RoundToInt(Mathf.Lerp(this.InitialInterval, this.FinalInterval, (float)_counter / this.Duration));
-                this.spriteRenderer.sprite = this.spriteRenderer.sprite == _prev ? _next : _prev;
+                setSprite(this.Image.sprite == _prev ? _next : _prev);
             }
         }
     }
@@ -59,11 +62,19 @@ public class LevelUpVisualizer : VoBehavior, IPausable
     {
         _prev = this.Levels[Mathf.Clamp(SaveData.PlayerStats.Level, 0, this.Levels.Length - 1)];
         _next = this.Levels[Mathf.Clamp(SaveData.PlayerStats.Level + 1, 0, this.Levels.Length - 1)];
-        this.spriteRenderer.sprite = _prev;
-        this.spriteRenderer.enabled = true;
+        setSprite(_prev);
+        this.Image.enabled = true;
         _counter = 0;
         _interval = 0;
         _nextInterval = this.InitialInterval;
         _running = true;
+    }
+
+    private void setSprite(Sprite s)
+    {
+        this.Image.sprite = s;
+        RectTransform imageTransform = this.Image.transform as RectTransform;
+        imageTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, s.rect.width * this.SizeMult);
+        imageTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, s.rect.height * this.SizeMult);
     }
 }
