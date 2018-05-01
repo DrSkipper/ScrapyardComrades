@@ -20,6 +20,7 @@ public class CharacterVisualizer : VoBehavior
     public Transform JumpEffectLocation;
     public PooledObject JumpEffectPrefab;
     public SCSpriteAnimation JumpEffect;
+    public LevelUpVisualizer LevelUpAnim;
     public float DodgeAlpha = 0.8f;
     public float JumpEffectAlpha = 0.8f;
 
@@ -35,6 +36,7 @@ public class CharacterVisualizer : VoBehavior
     private const string DEATHSTUN_STATE = "deathstun";
     private const string DEATH_STATE = "death";
     private const string ATTACK_STATE = "attack";
+    private const string LAYDOWN_STATE = "lay";
     private const string STANDUP_STATE = "stand";
     private const string BLOCKED_STATE = "block";
 
@@ -55,6 +57,8 @@ public class CharacterVisualizer : VoBehavior
         _stateMachine.AddState(DEATHSTUN_STATE, this.updateGeneric, this.enterDeathStun);
         _stateMachine.AddState(DEATH_STATE, this.updateDying, this.enterDeath);
         _stateMachine.AddState(ATTACK_STATE, this.updateAttack, this.enterAttack, this.exitAttack);
+
+        _stateMachine.AddState(LAYDOWN_STATE, this.updateLaydown, this.enterLaydown);
         _stateMachine.AddState(STANDUP_STATE, this.updateStandup, this.enterStandup);
         _stateMachine.AddState(BLOCKED_STATE, this.updateGeneric, this.enterBlocked);
         _stateMachine.BeginWithInitialState(IDLE_STATE);
@@ -64,7 +68,17 @@ public class CharacterVisualizer : VoBehavior
 
     void OnSpawn()
     {
-        _stateMachine.CurrentState = _characterController.StandupOnSpawn ? STANDUP_STATE : IDLE_STATE;
+        if (_characterController.StandupOnSpawn)
+        {
+            if (this.LevelUpAnim != null)
+                _stateMachine.CurrentState = LAYDOWN_STATE;
+            else
+                _stateMachine.CurrentState = STANDUP_STATE;
+        }
+        else
+        {
+            _stateMachine.CurrentState = IDLE_STATE;
+        }
     }
 
     void OnReturnToPool()
@@ -158,6 +172,11 @@ public class CharacterVisualizer : VoBehavior
         return ATTACK_STATE;
     }
 
+    private string updateLaydown()
+    {
+        return this.LevelUpAnim.Running ? LAYDOWN_STATE : STANDUP_STATE;
+    }
+
     private string updateStandup()
     {
         return _characterController.HitStunned ? STANDUP_STATE : IDLE_STATE;
@@ -245,6 +264,12 @@ public class CharacterVisualizer : VoBehavior
     private void enterStandup()
     {
         _spriteAnimator.PlayAnimation(this.StandupAnimation);
+    }
+
+    private void enterLaydown()
+    {
+        _spriteAnimator.Stop();
+        this.LevelUpAnim.Run();
     }
 
     private void enterBlocked()

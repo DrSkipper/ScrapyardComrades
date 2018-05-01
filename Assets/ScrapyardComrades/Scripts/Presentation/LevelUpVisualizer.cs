@@ -1,19 +1,31 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class LevelUpVisualizer : MonoBehaviour, IPausable
 {
-    public Image Image;
-    public Sprite[] Levels;
+    public SpriteRenderer Image;
+    public Sprite PrevSprite;
+    public Sprite NextSprite;
     public int Duration = 150;
     public int InitialInterval = 20;
     public int FinalInterval = 3;
+    public int NextInterval = 3;
     public int FinalDelay = 20;
-    public int SizeMult = 8;
+    public Easing.Flow EasingFlow;
+    public Easing.Function EasingFunction;
+    //public int SizeMult = 8;
+    public bool Running { get { return _running; } }
 
-    void Awake()
+    public void Run()
     {
-        GlobalEvents.Notifier.Listen(PlayerHealthController.MUTATE_EVENT, this, onMutate);
+        //_prev = this.Levels[Mathf.Clamp(SaveData.PlayerStats.Level, 0, this.Levels.Length - 1)];
+        //_next = this.Levels[Mathf.Clamp(SaveData.PlayerStats.Level + 1, 0, this.Levels.Length - 1)];
+        setSprite(this.PrevSprite);
+        //this.Image.enabled = true;
+        _counter = 0;
+        _interval = 0;
+        _nextInterval = this.InitialInterval;
+        _running = true;
+        _easing = Easing.GetFunction(this.EasingFunction, this.EasingFlow);
     }
 
     void FixedUpdate()
@@ -25,9 +37,9 @@ public class LevelUpVisualizer : MonoBehaviour, IPausable
 
             if (_counter >= this.Duration)
             {
-                if (this.Image.sprite != _next)
+                if (this.Image.sprite != this.NextSprite)
                 {
-                    setSprite(_next);
+                    setSprite(this.NextSprite);
                     _interval = 0;
                     _nextInterval = this.FinalDelay;
                 }
@@ -35,46 +47,48 @@ public class LevelUpVisualizer : MonoBehaviour, IPausable
                 if (_interval > this.FinalDelay)
                 {
                     _running = false;
-                    this.Image.enabled = false;
+                    //this.Image.enabled = false;
                 }
             }
 
             else if (_interval >= _nextInterval)
             {
                 _interval = 0;
-                _nextInterval = Mathf.RoundToInt(Mathf.Lerp(this.InitialInterval, this.FinalInterval, (float)_counter / this.Duration));
-                setSprite(this.Image.sprite == _prev ? _next : _prev);
+                if (this.Image.sprite == this.PrevSprite)
+                {
+                    setSprite(this.NextSprite);
+                    _nextInterval = this.NextInterval;
+                }
+                else
+                {
+                    setSprite(this.PrevSprite);
+                    _nextInterval = Mathf.RoundToInt(_easing(_counter, this.InitialInterval, this.FinalInterval - this.InitialInterval, this.Duration));
+                }
             }
         }
+    }
+
+    void OnReturnToPool()
+    {
+        _running = false;
     }
 
     /**
      * Private
      */
-    private Sprite _prev;
-    private Sprite _next;
+    //private Sprite _prev;
+    //private Sprite _next;
     private bool _running;
     private int _counter;
     private int _interval;
     private int _nextInterval;
-
-    private void onMutate(LocalEventNotifier.Event e)
-    {
-        _prev = this.Levels[Mathf.Clamp(SaveData.PlayerStats.Level, 0, this.Levels.Length - 1)];
-        _next = this.Levels[Mathf.Clamp(SaveData.PlayerStats.Level + 1, 0, this.Levels.Length - 1)];
-        setSprite(_prev);
-        this.Image.enabled = true;
-        _counter = 0;
-        _interval = 0;
-        _nextInterval = this.InitialInterval;
-        _running = true;
-    }
+    private Easing.EasingDelegate _easing;
 
     private void setSprite(Sprite s)
     {
         this.Image.sprite = s;
-        RectTransform imageTransform = this.Image.transform as RectTransform;
+        /*RectTransform imageTransform = this.Image.transform as RectTransform;
         imageTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, s.rect.width * this.SizeMult);
-        imageTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, s.rect.height * this.SizeMult);
+        imageTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, s.rect.height * this.SizeMult);*/
     }
 }
