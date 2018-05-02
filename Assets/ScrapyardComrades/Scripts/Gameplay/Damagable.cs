@@ -17,6 +17,7 @@ public class Damagable : VoBehavior, IPausable
     public bool IsRaging { get { return !_rageTimer.Completed; } }
     public bool CardinalKnockbackOnly = false;
     public bool FreezeSelf = true;
+    public int Level = 1;
     public delegate void OnDeathDelegate();
     public OnDeathDelegate OnDeathCallback;
 
@@ -84,7 +85,10 @@ public class Damagable : VoBehavior, IPausable
             return false;
 
         // Damage
-        this.Health = Mathf.Max(0, this.Health - hitData.Damage);
+        int damage = hitData.Damage;
+        if (hitData.Level >= this.Level + LEVEL_DIFF_FOR_ADV)
+            damage += damage * Mathf.CeilToInt(LEVEL_ADV * (hitData.Level - LEVEL_DIFF_FOR_ADV - this.Level + 1));
+        this.Health = Mathf.Max(0, this.Health - damage);
         
         // Handle knockback
         if (this.Actor != null)
@@ -199,6 +203,8 @@ public class Damagable : VoBehavior, IPausable
     private const float DEATH_GRAV_MULT = 0.9f;
     private const float DEATH_AIRFRICT_MULT = 0.9f;
     private const float DEATH_KNOCKBACK_ADD = 5.0f;
+    private const int LEVEL_DIFF_FOR_ADV = 2;
+    private const float LEVEL_ADV = 0.15f;
 
     private void heal(int amount)
     {
