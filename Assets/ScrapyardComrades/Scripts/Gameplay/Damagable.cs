@@ -18,6 +18,10 @@ public class Damagable : VoBehavior, IPausable
     public bool CardinalKnockbackOnly = false;
     public bool FreezeSelf = true;
     public int Level = 1;
+    public bool InvincibleToLowerLevels = false;
+    public bool Stationary = false;
+    public PooledObject BlockEffectPrefab;
+    public SCSpriteAnimation BlockEffect;
     public delegate void OnDeathDelegate();
     public OnDeathDelegate OnDeathCallback;
 
@@ -84,6 +88,14 @@ public class Damagable : VoBehavior, IPausable
         if (this.Invincible)
             return false;
 
+        if (this.InvincibleToLowerLevels && hitData.Level < this.Level)
+        {
+            this.Block(FREEZE_FRAMES, hitData);
+            Debug.Log("ok");
+            AttackController.CreateHitEffect(this.BlockEffectPrefab, this.BlockEffect, hitPoint, FREEZE_FRAMES, (SCCharacterController.Facing)Mathf.RoundToInt(Mathf.Sign(this.transform.position.x - origin.X)));
+            return false;
+        }
+
         // Damage
         int damage = hitData.Damage;
         if (hitData.Level >= this.Level + LEVEL_DIFF_FOR_ADV)
@@ -91,7 +103,7 @@ public class Damagable : VoBehavior, IPausable
         this.Health = Mathf.Max(0, this.Health - damage);
         
         // Handle knockback
-        if (this.Actor != null)
+        if (!this.Stationary && this.Actor != null)
             this.Actor.Velocity = hitData.GetKnockback(origin, this.transform.position, hitPoint, attackerFacing, this.CardinalKnockbackOnly);
 
         // Handle invincibility and freeze frames
@@ -160,6 +172,8 @@ public class Damagable : VoBehavior, IPausable
 
     public void SetInvincible(int numFrames)
     {
+        if (numFrames > 0)
+            this.Invincible = true;
         if (numFrames > _invincibilityTimer.FramesRemaining)
             _invincibilityTimer.reset(numFrames);
         _invincibilityTimer.start();
@@ -225,7 +239,7 @@ public class Damagable : VoBehavior, IPausable
         _hitStunEvent.GravityMultiplier *= DEATH_GRAV_MULT;
         _hitStunEvent.GravityMultiplier *= DEATH_AIRFRICT_MULT;
 
-        if (this.Actor != null)
+        if (!this.Stationary && this.Actor != null)
             this.Actor.Velocity = this.Actor.Velocity.normalized * (this.Actor.Velocity.magnitude + DEATH_KNOCKBACK_ADD);
 
         if (this.OnDeathCallback != null)

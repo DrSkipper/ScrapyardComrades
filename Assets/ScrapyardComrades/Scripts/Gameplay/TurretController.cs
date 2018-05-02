@@ -21,6 +21,7 @@ public class TurretController : VoBehavior, IPausable
     public int ShotDelay = 3;
     public int ShotStartDistance = 24;
     public float MissileRotationOffset = -90.0f;
+    public IntegerCollider Hurtbox;
 
     [System.Serializable]
     public enum AttachDir
@@ -36,10 +37,13 @@ public class TurretController : VoBehavior, IPausable
         _inRange = new List<GameObject>(1);
         _cooldownTimer = new Timer(this.Cooldown, false, true);
         _shotDelayTimer = new Timer(this.ShotDelay, false, false, shoot);
+        _hurtboxOffset = this.Hurtbox.Offset;
+        this.GetComponent<Damagable>().OnDeathCallback += onDeath;
     }
 
     void OnSpawn()
     {
+        this.Hurtbox.AddToCollisionPool();
         _cooldownTimer.complete();
         this.EffectAnimator.gameObject.SetActive(false);
 
@@ -49,18 +53,22 @@ public class TurretController : VoBehavior, IPausable
             case AttachDir.Down:
                 _normal = Vector2.up;
                 this.transform.rotation = Quaternion.Euler(0, 0, 0);
+                this.Hurtbox.Offset = _hurtboxOffset;
                 break;
             case AttachDir.Up:
                 _normal = Vector2.down;
                 this.transform.rotation = Quaternion.Euler(0, 0, 180);
+                this.Hurtbox.Offset = new IntegerVector(-_hurtboxOffset.X, -_hurtboxOffset.Y);
                 break;
             case AttachDir.Left:
                 _normal = Vector2.right;
                 this.transform.rotation = Quaternion.Euler(0, 0, -90);
+                this.Hurtbox.Offset = new IntegerVector(_hurtboxOffset.Y, -_hurtboxOffset.X);
                 break;
             case AttachDir.Right:
                 _normal = Vector2.left;
                 this.transform.rotation = Quaternion.Euler(0, 0, 90);
+                this.Hurtbox.Offset = new IntegerVector(-_hurtboxOffset.Y, _hurtboxOffset.X);
                 break;
         }
     }
@@ -146,6 +154,7 @@ public class TurretController : VoBehavior, IPausable
 
     void OnReturnToPool()
     {
+        this.Hurtbox.RemoveFromCollisionPool();
         _cooldownTimer.reset(this.Cooldown);
         _shotDelayTimer.reset();
         _shotDelayTimer.Paused = true;
@@ -166,6 +175,7 @@ public class TurretController : VoBehavior, IPausable
     private bool _turning;
     private bool _turnTo;
     private int _currentPos;
+    private IntegerVector _hurtboxOffset;
     
     private const float COVERAGE_PER_POS = 22.5f;
     private const float COVERAGE_PER_POS_HALF = 11.25f;
@@ -283,5 +293,11 @@ public class TurretController : VoBehavior, IPausable
 
         if (!fire)
             this.Animator.Stop();
+    }
+
+    private void onDeath()
+    {
+        //todo: death animation/explosion effect
+        this.GetComponent<WorldEntity>().TriggerConsumption(true);
     }
 }

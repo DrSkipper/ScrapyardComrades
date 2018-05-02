@@ -12340,7 +12340,9 @@
       "x": 132,
       "y": 420,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Turret_43",
@@ -12353,7 +12355,9 @@
           "Name": "attach",
           "CurrentOption": "d"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_49",
@@ -12390,7 +12394,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_50",
@@ -12427,7 +12433,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_51",
@@ -12464,7 +12472,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_52",
@@ -12501,7 +12511,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_53",
@@ -12538,7 +12550,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_64",
@@ -12575,7 +12589,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_65",
@@ -12612,7 +12628,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_66",
@@ -12649,7 +12667,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_67",
@@ -12686,7 +12706,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_68",
@@ -12723,7 +12745,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_69",
@@ -12760,7 +12784,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_70",
@@ -12797,7 +12823,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_71",
@@ -12834,7 +12862,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_72",
@@ -12871,7 +12901,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_73",
@@ -12908,7 +12940,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_74",
@@ -12945,7 +12979,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_75",
@@ -12982,7 +13018,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_76",
@@ -13019,7 +13057,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_77",
@@ -13056,7 +13096,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_78",
@@ -13093,7 +13135,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_79",
@@ -13130,7 +13174,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_80",
@@ -13167,7 +13213,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_81",
@@ -13204,7 +13252,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_82",
@@ -13241,7 +13291,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_83",
@@ -13278,7 +13330,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_84",
@@ -13315,7 +13369,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Turret_86",
@@ -13328,7 +13384,9 @@
           "Name": "attach",
           "CurrentOption": "u"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Turret_89",
@@ -13341,7 +13399,9 @@
           "Name": "attach",
           "CurrentOption": "d"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_90",
@@ -13378,7 +13438,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_91",
@@ -13415,7 +13477,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_92",
@@ -13452,7 +13516,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_93",
@@ -13489,7 +13555,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_94",
@@ -13526,7 +13594,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Turret_95",
@@ -13534,7 +13604,9 @@
       "x": 1086,
       "y": 192,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_96",
@@ -13571,7 +13643,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_97",
@@ -13608,7 +13682,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_98",
@@ -13645,7 +13721,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_99",
@@ -13682,7 +13760,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_100",
@@ -13719,7 +13799,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_101",
@@ -13756,7 +13838,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_102",
@@ -13793,7 +13877,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_103",
@@ -13830,7 +13916,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_104",
@@ -13867,7 +13955,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_105",
@@ -13904,7 +13994,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_115",
@@ -13941,7 +14033,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_116",
@@ -13978,7 +14072,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_117",
@@ -14015,7 +14111,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_118",
@@ -14052,7 +14150,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_119",
@@ -14089,7 +14189,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_120",
@@ -14126,7 +14228,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_121",
@@ -14163,7 +14267,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_122",
@@ -14200,7 +14306,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_123",
@@ -14237,7 +14345,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_124",
@@ -14274,7 +14384,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_125",
@@ -14311,7 +14423,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_ConveyorBelt_127",
@@ -14348,7 +14462,9 @@
           "Name": "switch_mode",
           "CurrentOption": "enable_disable"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "next_object_id": 128,
