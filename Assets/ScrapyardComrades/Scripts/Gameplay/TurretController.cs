@@ -22,6 +22,7 @@ public class TurretController : VoBehavior, IPausable
     public int ShotStartDistance = 24;
     public float MissileRotationOffset = -90.0f;
     public IntegerCollider Hurtbox;
+    public PooledObject DeathAnimObject;
 
     [System.Serializable]
     public enum AttachDir
@@ -297,7 +298,9 @@ public class TurretController : VoBehavior, IPausable
 
     private void onDeath()
     {
-        //todo: death animation/explosion effect
+        PooledObject explosion = this.DeathAnimObject.Retain();
+        explosion.transform.SetPosition2D(this.transform.position);
+        explosion.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
         this.GetComponent<WorldEntity>().TriggerConsumption(true);
     }
 }

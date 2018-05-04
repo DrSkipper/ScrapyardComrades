@@ -91,7 +91,6 @@ public class Damagable : VoBehavior, IPausable
         if (this.InvincibleToLowerLevels && hitData.Level < this.Level)
         {
             this.Block(FREEZE_FRAMES, hitData);
-            Debug.Log("ok");
             AttackController.CreateHitEffect(this.BlockEffectPrefab, this.BlockEffect, hitPoint, FREEZE_FRAMES, (SCCharacterController.Facing)Mathf.RoundToInt(Mathf.Sign(this.transform.position.x - origin.X)));
             return false;
         }
