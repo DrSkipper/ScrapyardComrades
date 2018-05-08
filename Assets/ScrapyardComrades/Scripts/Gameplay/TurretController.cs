@@ -23,6 +23,7 @@ public class TurretController : VoBehavior, IPausable
     public float MissileRotationOffset = -90.0f;
     public IntegerCollider Hurtbox;
     public PooledObject DeathAnimObject;
+    public string InitialState = DIRECT_AIM;
 
     [System.Serializable]
     public enum AttachDir
@@ -40,6 +41,10 @@ public class TurretController : VoBehavior, IPausable
         _shotDelayTimer = new Timer(this.ShotDelay, false, false, shoot);
         _hurtboxOffset = this.Hurtbox.Offset;
         this.GetComponent<Damagable>().OnDeathCallback += onDeath;
+        _stateMachine = new FSMStateMachine();
+        _stateMachine.AddState(DIRECT_AIM, updateDirectAim);
+        _stateMachine.AddState(SEARCHING, updateSearching);
+        _stateMachine.AddState(TARGETTING, updateTargetting);
     }
 
     void OnSpawn()
@@ -72,61 +77,15 @@ public class TurretController : VoBehavior, IPausable
                 this.Hurtbox.Offset = new IntegerVector(-_hurtboxOffset.Y, _hurtboxOffset.X);
                 break;
         }
+
+        _stateMachine.BeginWithInitialState(this.InitialState);
     }
 
     void FixedUpdate()
     {
         _cooldownTimer.update();
         _shotDelayTimer.update();
-
-        if (!_isFiring && !_shotDelayTimer.IsRunning)
-        {
-            this.DetectionRange.Collide(_inRange, 0, 0, this.DetectionMask);
-            bool found = false;
-            if (_inRange.Count > 0)
-            {
-                float dist = float.MaxValue;
-                Transform target = null;
-                Vector2 targetDir = Vector2.zero;
-
-                for (int i = 0; i < _inRange.Count; ++i)
-                {
-                    Transform other = _inRange[i].transform;
-                    float d = this.LaunchOrigin.Distance2D(other);
-                    if (d < dist)
-                    {
-                        Vector2 dir = this.LaunchOrigin.DirectionTo2D(other);
-                        CollisionManager.RaycastResult result = CollisionManager.RaycastFirst((Vector2)this.LaunchOrigin.transform.position, dir, this.LaunchOrigin.Distance2D(other), this.BlockMask);
-
-                        if (!result.Collided || result.Collisions[0].CollidedObject == other.gameObject)
-                        {
-                            found = true;
-                            d = dist;
-                            target = other;
-                            targetDir = dir;
-                        }
-                    }
-                }
-
-                _inRange.Clear();
-
-                if (found)
-                {
-                    aimAtTarget(target, targetDir);
-                    attemptFire(target, targetDir);
-                }
-            }
-
-            if (!found)
-            {
-                _cooldownTimer.reset(this.Cooldown / 2);
-                _cooldownTimer.start();
-            }
-        }
-        else if (!this.Animator.IsPlaying || _cooldownTimer.Completed)
-        {
-            _isFiring = false;
-        }
+        _stateMachine.Update();
 
         if (_turning)
         {
@@ -177,6 +136,7 @@ public class TurretController : VoBehavior, IPausable
     private bool _turnTo;
     private int _currentPos;
     private IntegerVector _hurtboxOffset;
+    private FSMStateMachine _stateMachine;
     
     private const float COVERAGE_PER_POS = 22.5f;
     private const float COVERAGE_PER_POS_HALF = 11.25f;
@@ -184,6 +144,74 @@ public class TurretController : VoBehavior, IPausable
     private const float COVERAGE_HALF = 101.25f;
     private const float MIN_AMT_FOR_TURN = 5.0f;
     private const float EFFECT_X_MULT = 1.6f;
+    private const string DIRECT_AIM = "direct";
+    private const string SEARCHING = "search";
+    private const string TARGETTING = "target";
+
+    private string updateDirectAim()
+    {
+        if (!_isFiring && !_shotDelayTimer.IsRunning)
+        {
+            this.DetectionRange.Collide(_inRange, 0, 0, this.DetectionMask);
+            bool found = false;
+            if (_inRange.Count > 0)
+            {
+                float dist = float.MaxValue;
+                Transform target = null;
+                Vector2 targetDir = Vector2.zero;
+
+                for (int i = 0; i < _inRange.Count; ++i)
+                {
+                    Transform other = _inRange[i].transform;
+                    float d = this.LaunchOrigin.Distance2D(other);
+                    if (d < dist)
+                    {
+                        Vector2 dir = this.LaunchOrigin.DirectionTo2D(other);
+                        CollisionManager.RaycastResult result = CollisionManager.RaycastFirst((Vector2)this.LaunchOrigin.transform.position, dir, this.LaunchOrigin.Distance2D(other), this.BlockMask);
+
+                        if (!result.Collided || result.Collisions[0].CollidedObject == other.gameObject)
+                        {
+                            found = true;
+                            d = dist;
+                            target = other;
+                            targetDir = dir;
+                        }
+                    }
+                }
+
+                _inRange.Clear();
+
+                if (found)
+                {
+                    aimAtTarget(target, targetDir);
+                    attemptFire(target, targetDir);
+                }
+            }
+
+            if (!found)
+            {
+                _cooldownTimer.reset(this.Cooldown / 2);
+                _cooldownTimer.start();
+            }
+        }
+        else if (!this.Animator.IsPlaying || _cooldownTimer.Completed)
+        {
+            _isFiring = false;
+        }
+
+        return DIRECT_AIM;
+    }
+
+    private string updateSearching()
+    {
+        return SEARCHING;
+    }
+
+    private string updateTargetting()
+    {
+        return TARGETTING;
+    }
+
 
     private void aimAtTarget(Transform target, Vector2 targetDir)
     {
