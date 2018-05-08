@@ -24,6 +24,10 @@ public class TurretController : VoBehavior, IPausable
     public IntegerCollider Hurtbox;
     public PooledObject DeathAnimObject;
     public string InitialState = DIRECT_AIM;
+    public IntegerCollider[] SearchColliders;
+    public IntegerCollider[] ExitRangeColliders;
+    public float SearchSpeed = 10.0f;
+    public float MaxAngle = 85.0f;
 
     [System.Serializable]
     public enum AttachDir
@@ -45,6 +49,7 @@ public class TurretController : VoBehavior, IPausable
         _stateMachine.AddState(DIRECT_AIM, updateDirectAim);
         _stateMachine.AddState(SEARCHING, updateSearching);
         _stateMachine.AddState(TARGETTING, updateTargetting);
+        this.localNotifier.Listen(FreezeFrameEvent.NAME, this, freezeFrame);
     }
 
     void OnSpawn()
@@ -79,10 +84,23 @@ public class TurretController : VoBehavior, IPausable
         }
 
         _stateMachine.BeginWithInitialState(this.InitialState);
+
+        if (_freezeFrameTimer == null)
+            _freezeFrameTimer = new Timer(1);
+        _freezeFrameTimer.complete();
     }
 
     void FixedUpdate()
     {
+        if (!_freezeFrameTimer.Completed)
+        {
+            _freezeFrameTimer.update();
+            if (!_freezeFrameTimer.Completed)
+                return;
+            else
+                this.localNotifier.SendEvent(new FreezeFrameEndedEvent());
+        }
+
         _cooldownTimer.update();
         _shotDelayTimer.update();
         _stateMachine.Update();
@@ -137,6 +155,9 @@ public class TurretController : VoBehavior, IPausable
     private int _currentPos;
     private IntegerVector _hurtboxOffset;
     private FSMStateMachine _stateMachine;
+    private float _lastAngle;
+    private int _searchDir;
+    private Timer _freezeFrameTimer;
     
     private const float COVERAGE_PER_POS = 22.5f;
     private const float COVERAGE_PER_POS_HALF = 11.25f;
@@ -183,7 +204,7 @@ public class TurretController : VoBehavior, IPausable
 
                 if (found)
                 {
-                    aimAtTarget(target, targetDir);
+                    aimAtTarget(targetDir);
                     attemptFire(target, targetDir);
                 }
             }
@@ -202,6 +223,13 @@ public class TurretController : VoBehavior, IPausable
         return DIRECT_AIM;
     }
 
+    private void enterSearching()
+    {
+        float absTargetAngle = Mathf.Min(Vector2.Angle(_normal, _lastAimDir), this.MaxAngle);
+        _lastAngle = absTargetAngle * getSign(((Vector2)this.LaunchOrigin.position) + _lastAimDir);
+        aimAtAngle();
+    }
+
     private string updateSearching()
     {
         return SEARCHING;
@@ -212,12 +240,11 @@ public class TurretController : VoBehavior, IPausable
         return TARGETTING;
     }
 
-
-    private void aimAtTarget(Transform target, Vector2 targetDir)
+    private void aimAtTarget(Vector2 targetDir)
     {
         _lastAimDir = targetDir;
         float absTargetAngle = Vector2.Angle(_normal, targetDir);
-        float targetAngle = absTargetAngle * getSign(target.transform.position);
+        float targetAngle = absTargetAngle * getSign(((Vector2)this.LaunchOrigin.position) + _lastAimDir * 16);
         if (absTargetAngle > COVERAGE_HALF)
         {
             _firableDirection = false;
@@ -242,6 +269,11 @@ public class TurretController : VoBehavior, IPausable
 
         if (!_turning)
             playAnimForCurrentPos(false);
+    }
+
+    private void aimAtAngle()
+    {
+        aimAtTarget(_normal.VectorAtAngle(_lastAngle));
     }
 
     private void attemptFire(Transform target, Vector2 targetDir)
@@ -330,5 +362,10 @@ public class TurretController : VoBehavior, IPausable
         explosion.transform.SetPosition2D(this.transform.position);
         explosion.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
         this.GetComponent<WorldEntity>().TriggerConsumption(true);
+    }
+    
+    private void freezeFrame(LocalEventNotifier.Event e)
+    {
+        _freezeFrameTimer.reset((e as FreezeFrameEvent).NumFrames);
     }
 }
