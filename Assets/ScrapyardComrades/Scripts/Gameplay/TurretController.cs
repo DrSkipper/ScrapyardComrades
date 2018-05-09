@@ -47,9 +47,22 @@ public class TurretController : VoBehavior, IPausable
         this.GetComponent<Damagable>().OnDeathCallback += onDeath;
         _stateMachine = new FSMStateMachine();
         _stateMachine.AddState(DIRECT_AIM, updateDirectAim);
-        _stateMachine.AddState(SEARCHING, updateSearching);
-        _stateMachine.AddState(TARGETTING, updateTargetting);
+        _stateMachine.AddState(SEARCHING, updateSearching, enterSearching);
+        _stateMachine.AddState(TARGETTING, updateTargetting, enterTargetting);
         this.localNotifier.Listen(FreezeFrameEvent.NAME, this, freezeFrame);
+
+        _searchColliderDists = new float[this.SearchColliders.Length];
+        _exitColliderDists = new float[this.ExitRangeColliders.Length];
+
+        for (int i = 0; i < this.SearchColliders.Length; ++i)
+        {
+            _searchColliderDists[i] = this.LaunchOrigin.Distance2D(this.SearchColliders[i].transform);
+        }
+
+        for (int i = 0; i < this.ExitRangeColliders.Length; ++i)
+        {
+            _exitColliderDists[i] = this.LaunchOrigin.Distance2D(this.ExitRangeColliders[i].transform);
+        }
     }
 
     void OnSpawn()
@@ -158,6 +171,9 @@ public class TurretController : VoBehavior, IPausable
     private float _lastAngle;
     private int _searchDir;
     private Timer _freezeFrameTimer;
+    private float[] _searchColliderDists;
+    private float[] _exitColliderDists;
+    private Transform _prevTarget;
     
     private const float COVERAGE_PER_POS = 22.5f;
     private const float COVERAGE_PER_POS_HALF = 11.25f;
@@ -225,6 +241,10 @@ public class TurretController : VoBehavior, IPausable
 
     private void enterSearching()
     {
+        _isFiring = false;
+        _shotDelayTimer.reset();
+        _shotDelayTimer.Paused = true;
+        _prevTarget = null;
         float absTargetAngle = Mathf.Min(Vector2.Angle(_normal, _lastAimDir), this.MaxAngle);
         _lastAngle = absTargetAngle * getSign(((Vector2)this.LaunchOrigin.position) + _lastAimDir);
         aimAtAngle();
@@ -232,11 +252,76 @@ public class TurretController : VoBehavior, IPausable
 
     private string updateSearching()
     {
-        return SEARCHING;
+        _lastAngle += this.SearchSpeed * _searchDir;
+        if (Mathf.Abs(_lastAngle) > this.MaxAngle)
+        {
+            _lastAngle = Mathf.Sign(_lastAngle) * this.MaxAngle;
+            _searchDir = -_searchDir;
+        }
+
+        aimAtAngle();
+        alignSearchColliders();
+
+        for (int i = 0; i < this.SearchColliders.Length; ++i)
+        {
+            this.SearchColliders[i].Collide(_inRange, 0, 0, this.DetectionMask);
+        }
+        
+        float dist = float.MaxValue;
+        Vector2 targetDir = Vector2.zero;
+        for (int i = 0; i < _inRange.Count; ++i)
+        {
+            Transform other = _inRange[i].transform;
+            float d = this.LaunchOrigin.Distance2D(other);
+            if (d < dist)
+            {
+                Vector2 dir = this.LaunchOrigin.DirectionTo2D(other);
+                CollisionManager.RaycastResult result = CollisionManager.RaycastFirst((Vector2)this.LaunchOrigin.transform.position, dir, this.LaunchOrigin.Distance2D(other), this.BlockMask);
+
+                if (!result.Collided || result.Collisions[0].CollidedObject == other.gameObject)
+                {
+                    _prevTarget = other;
+                    break;
+                }
+            }
+        }
+
+        _inRange.Clear();
+        return _prevTarget != null ? TARGETTING : SEARCHING;
+    }
+
+    private void enterTargetting()
+    {
+        _cooldownTimer.reset(this.Cooldown / 2);
+        _cooldownTimer.start();
     }
 
     private string updateTargetting()
     {
+        if (_prevTarget == null)
+            return SEARCHING;
+
+        bool found = false;
+        for (int i = 0; i < this.ExitRangeColliders.Length; ++i)
+        {
+            if (this.ExitRangeColliders[i].CollideCheck(_prevTarget.gameObject))
+            {
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+            return SEARCHING;
+
+        if (!_isFiring && !_shotDelayTimer.IsRunning)
+        {
+            Vector2 target = this.LaunchOrigin.DirectionTo2D(_prevTarget);
+            aimAtTarget(target);
+            attemptFire(_prevTarget, target);
+            alignExitColliders();
+        }
+
         return TARGETTING;
     }
 
@@ -274,6 +359,22 @@ public class TurretController : VoBehavior, IPausable
     private void aimAtAngle()
     {
         aimAtTarget(_normal.VectorAtAngle(_lastAngle));
+    }
+
+    private void alignSearchColliders()
+    {
+        for (int i = 0; i < this.SearchColliders.Length; ++i)
+        {
+            this.SearchColliders[i].transform.SetPosition2D(((Vector2)this.LaunchOrigin.transform.position) + _lastAimDir * _searchColliderDists[i]);
+        }
+    }
+
+    private void alignExitColliders()
+    {
+        for (int i = 0; i < this.ExitRangeColliders.Length; ++i)
+        {
+            this.ExitRangeColliders[i].transform.SetPosition2D(((Vector2)this.LaunchOrigin.transform.position) + _lastAimDir * _exitColliderDists[i]);
+        }
     }
 
     private void attemptFire(Transform target, Vector2 targetDir)
