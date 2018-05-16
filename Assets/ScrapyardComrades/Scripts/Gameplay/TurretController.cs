@@ -70,6 +70,8 @@ public class TurretController : VoBehavior, IPausable
         this.Hurtbox.AddToCollisionPool();
         _cooldownTimer.complete();
         this.EffectAnimator.gameObject.SetActive(false);
+        _lastAngle = 0;
+        _searchDir = Random.Range(0, 2) == 0 ? -1 : 1;
 
         switch (this.AttachedAt)
         {
@@ -292,6 +294,13 @@ public class TurretController : VoBehavior, IPausable
 
     private void enterTargetting()
     {
+        if (_prevTarget != null)
+        {
+            Vector2 target = this.LaunchOrigin.DirectionTo2D(_prevTarget);
+            aimAtTarget(target);
+            alignExitColliders();
+        }
+
         _cooldownTimer.reset(this.Cooldown / 2);
         _cooldownTimer.start();
     }
@@ -320,6 +329,10 @@ public class TurretController : VoBehavior, IPausable
             aimAtTarget(target);
             attemptFire(_prevTarget, target);
             alignExitColliders();
+        }
+        else if (!this.Animator.IsPlaying || _cooldownTimer.Completed)
+        {
+            _isFiring = false;
         }
 
         return TARGETTING;
@@ -365,7 +378,7 @@ public class TurretController : VoBehavior, IPausable
     {
         for (int i = 0; i < this.SearchColliders.Length; ++i)
         {
-            this.SearchColliders[i].transform.SetPosition2D(((Vector2)this.LaunchOrigin.transform.position) + _lastAimDir * _searchColliderDists[i]);
+            this.SearchColliders[i].transform.SetPosition2D((IntegerVector)(((Vector2)this.LaunchOrigin.transform.position) + _lastAimDir * _searchColliderDists[i]));
         }
     }
 
@@ -373,7 +386,7 @@ public class TurretController : VoBehavior, IPausable
     {
         for (int i = 0; i < this.ExitRangeColliders.Length; ++i)
         {
-            this.ExitRangeColliders[i].transform.SetPosition2D(((Vector2)this.LaunchOrigin.transform.position) + _lastAimDir * _exitColliderDists[i]);
+            this.ExitRangeColliders[i].transform.SetPosition2D((IntegerVector)(((Vector2)this.LaunchOrigin.transform.position) + _lastAimDir * _exitColliderDists[i]));
         }
     }
 
@@ -406,6 +419,7 @@ public class TurretController : VoBehavior, IPausable
         missile.transform.SetPosition2D(pos);
         missile.transform.LookAt2D(_shotTarget, this.MissileRotationOffset);
         missile.GetComponent<ThrownActor>().Throw(_shotDir);
+        missile.GetComponent<ExplodeOnCollision>().SetOriginObject(this.gameObject);
         missile.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
 
         this.EffectAnimator.gameObject.SetActive(true);
