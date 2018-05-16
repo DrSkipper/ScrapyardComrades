@@ -310,13 +310,19 @@ public class TurretController : VoBehavior, IPausable
         if (_prevTarget == null)
             return SEARCHING;
 
+        Vector2 target = this.LaunchOrigin.DirectionTo2D(_prevTarget);
         bool found = false;
+
         for (int i = 0; i < this.ExitRangeColliders.Length; ++i)
         {
             if (this.ExitRangeColliders[i].CollideCheck(_prevTarget.gameObject))
             {
-                found = true;
-                break;
+                CollisionManager.RaycastResult result = CollisionManager.RaycastFirst((Vector2)this.LaunchOrigin.transform.position, target, this.LaunchOrigin.Distance2D(_prevTarget), this.BlockMask);
+                if (!result.Collided || result.Collisions[0].CollidedObject == _prevTarget.gameObject)
+                {
+                    found = true;
+                    break;
+                }
             }
         }
 
@@ -325,7 +331,6 @@ public class TurretController : VoBehavior, IPausable
 
         if (!_isFiring && !_shotDelayTimer.IsRunning)
         {
-            Vector2 target = this.LaunchOrigin.DirectionTo2D(_prevTarget);
             aimAtTarget(target);
             attemptFire(_prevTarget, target);
             alignExitColliders();
