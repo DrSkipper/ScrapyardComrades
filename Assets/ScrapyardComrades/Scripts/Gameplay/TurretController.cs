@@ -28,6 +28,9 @@ public class TurretController : VoBehavior, IPausable
     public IntegerCollider[] ExitRangeColliders;
     public float SearchSpeed = 10.0f;
     public float MaxAngle = 85.0f;
+    public Transform LightTransform;
+    public Light SearchLight;
+    public Light TargetLight;
 
     [System.Serializable]
     public enum AttachDir
@@ -72,6 +75,7 @@ public class TurretController : VoBehavior, IPausable
         this.EffectAnimator.gameObject.SetActive(false);
         _lastAngle = 0;
         _searchDir = Random.Range(0, 2) == 0 ? -1 : 1;
+        enableLight(true);
 
         switch (this.AttachedAt)
         {
@@ -243,6 +247,7 @@ public class TurretController : VoBehavior, IPausable
 
     private void enterSearching()
     {
+        enableLight(true);
         _isFiring = false;
         _shotDelayTimer.reset();
         _shotDelayTimer.Paused = true;
@@ -294,6 +299,7 @@ public class TurretController : VoBehavior, IPausable
 
     private void enterTargetting()
     {
+        enableLight(false);
         if (_prevTarget != null)
         {
             Vector2 target = this.LaunchOrigin.DirectionTo2D(_prevTarget);
@@ -347,7 +353,14 @@ public class TurretController : VoBehavior, IPausable
     {
         _lastAimDir = targetDir;
         float absTargetAngle = Vector2.Angle(_normal, targetDir);
-        float targetAngle = absTargetAngle * getSign(((Vector2)this.LaunchOrigin.position) + _lastAimDir * 16);
+        Vector2 targ = ((Vector2)this.LaunchOrigin.position) + _lastAimDir * 16;
+        int sign = getSign(targ);
+        float targetAngle = absTargetAngle * sign;
+
+        if (this.LightTransform != null)
+            this.LightTransform.localEulerAngles = new Vector3(0, 0, absTargetAngle * -sign);
+            //this.LightTransform.LookAt(new Vector3(targ.x, targ.y, this.LightTransform.position.z));
+
         if (absTargetAngle > COVERAGE_HALF)
         {
             _firableDirection = false;
@@ -487,5 +500,13 @@ public class TurretController : VoBehavior, IPausable
     private void freezeFrame(LocalEventNotifier.Event e)
     {
         _freezeFrameTimer.reset((e as FreezeFrameEvent).NumFrames);
+    }
+
+    private void enableLight(bool search)
+    {
+        if (this.SearchLight != null)
+            this.SearchLight.enabled = search;
+        if (this.TargetLight != null)
+            this.TargetLight.enabled = !search;
     }
 }
