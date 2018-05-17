@@ -31,13 +31,6 @@ public class TurretController : VoBehavior, IPausable
     public Transform LightTransform;
     public Light SearchLight;
     public Light TargetLight;
-    public ObjectStyle Style; 
-
-    public enum ObjectStyle
-    {
-        Turret,
-        EffectCone
-    }
 
     [System.Serializable]
     public enum AttachDir
