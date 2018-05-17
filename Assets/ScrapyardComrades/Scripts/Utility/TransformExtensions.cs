@@ -96,4 +96,11 @@ public static class TransformExtensions
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         self.rotation = Quaternion.Euler(0.0f, 0.0f, rot_z - 90.0f + rotOffset);
     }
+
+    public static void SetRotZ(this Transform self, float angle)
+    {
+        Vector3 euler = self.eulerAngles;
+        euler.z = angle;
+        self.eulerAngles = euler;
+    }
 }

@@ -12340,7 +12340,9 @@
       "x": 1392,
       "y": 144,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_DoorVertical_38",
@@ -12369,7 +12371,9 @@
           "Name": "ignore_events",
           "CurrentOption": "false"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_DoorVertical_39",
@@ -12398,7 +12402,9 @@
           "Name": "ignore_events",
           "CurrentOption": "false"
         }
-      ]
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Switch_40",
@@ -12406,7 +12412,9 @@
       "x": 1438,
       "y": 294,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Switch_41",
@@ -12414,7 +12422,9 @@
       "x": 1372,
       "y": 294,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Switch_42",
@@ -12422,7 +12432,9 @@
       "x": 1408,
       "y": 806,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_DoorHorizontal_44",
@@ -12430,7 +12442,9 @@
       "x": 926,
       "y": 326,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_DoorHorizontal_45",
@@ -12438,7 +12452,9 @@
       "x": 706,
       "y": 326,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_DoorHorizontal_46",
@@ -12446,7 +12462,9 @@
       "x": 644,
       "y": 522,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Switch_47",
@@ -12454,7 +12472,9 @@
       "x": 368,
       "y": 422,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "objects_Switch_48",
@@ -12462,10 +12482,32 @@
       "x": 442,
       "y": 422,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_InvisiLight_49",
+      "prefab_name": "InvisiLight",
+      "x": 378,
+      "y": 206,
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_HeroLV1_50",
+      "prefab_name": "HeroLV1",
+      "x": 54,
+      "y": 676,
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
-  "next_object_id": 49,
+  "next_object_id": 51,
   "next_prop_id": 4,
   "next_prop_bg_id": 0,
   "next_light_id": 28,
