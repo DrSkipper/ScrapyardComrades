@@ -357,10 +357,6 @@ public class TurretController : VoBehavior, IPausable
         int sign = getSign(targ);
         float targetAngle = absTargetAngle * sign;
 
-        if (this.LightTransform != null)
-            this.LightTransform.localEulerAngles = new Vector3(0, 0, absTargetAngle * -sign);
-            //this.LightTransform.LookAt(new Vector3(targ.x, targ.y, this.LightTransform.position.z));
-
         if (absTargetAngle > COVERAGE_HALF)
         {
             _firableDirection = false;
@@ -371,7 +367,15 @@ public class TurretController : VoBehavior, IPausable
             _firableDirection = true;
             _currentPos = Mathf.RoundToInt(absTargetAngle / COVERAGE_PER_POS);
         }
-        
+
+        if (this.LightTransform != null)
+        {
+            //float roundedAngle = Mathf.RoundToInt(absTargetAngle / COVERAGE_PER_POS) * COVERAGE_PER_POS;
+            //this.LightTransform.localEulerAngles = new Vector3(0, 0, _currentPos * COVERAGE_PER_POS * -sign);
+            this.LightTransform.localEulerAngles = new Vector3(0, 0, absTargetAngle * -sign);
+            //this.LightTransform.LookAt(new Vector3(targ.x, targ.y, this.LightTransform.position.z));
+        }
+
         if (!_turning && _firableDirection && absTargetAngle >= MIN_AMT_FOR_TURN)
         {
             bool flip = Mathf.Sign(targetAngle) > 0 ? true : false;
