@@ -1,0 +1,42 @@
+
+Current sound locations to know:
+
+To set up Music:
+1) Put the Music file in Assets/ScrapyardComrades/Sound/Music
+2) Search for MusicManager in the Project window and click on it
+3) Expand the "Music Entries" array on the Music Controller component in the inspector window
+4) Change the music entry listed for the scene you wish it to play in (i.e. MainMenu vs Gameplay, there's currently no way to play different music in different in-game zones)
+
+To set up SFX:
+============
+STEP 1
+============
+1) Put the SFX file in Assets/ScrapyardComrades/Sound/SFX
+2) Go to appropriate scene (MainMenu or Gameplay) for the sfx
+3) Click on SoundManager in the Scene Hierarchy
+4) Increase length of the "Sound Entries" array (in the inspector window) by 1
+5) Expand the "Sound Entries" array and scroll down to the last element and add the SFX
+
+============
+STEP 2
+============
+
+FOR ANIMATION SFX: (attack anims, jump anims, slide anims, door open anims, etc)
+1) In the Project window, find the Assets/ScrapyardComrades/CustomObjects/Animations folder (it should be located near the top if external package folders are collapsed). Expand the folder
+2) Expand the sub folder for the entity whose animations you want to edit
+3) Click on the specific animation file for the animation you want to edit
+4) Set the "Sfx" and "Sfx frame" fields in the inspector window
+
+FOR HIT IMPACT SFX:
+1) In the Project window, find the Assets/ScrapyardComrades/CustomObjects/Attacks folder (it should be located near the top if external package folders are collapsed, but after Animations). Expand the folder
+2) Expand the sub folder for the entity whose animations you want to edit
+3) Click on the specific attack data file for the attack you want to edit
+4) Find the "Hit Parameters" field in the inspector window and expand it
+5) Look for the "Hit Sfx" sub field, and enter the name of the SFX file you want to use
+
+FOR SOME OTHER MISCELLANEOUS SFX:
+- Some other SFX fields can sometimes be found directly on the Prefabs for the objects that use them.
+1) In the Project window, find the Assets/ScrapyardComrades/Prefabs folder (probably somewhere in the middle of the project window scroll wheel). Expand that folder
+2) Look for the prefab of the object you think might have a property for the SFX you want to change. Gameplay objects are kept in the Gameplay/Objects subfolder.
+3) Click on the Prefab for the object you're looking for
+4) In the inspector window scroll through the scripts on the object and look for SFX fields that are likely to correspond to the sound you're trying to change.
