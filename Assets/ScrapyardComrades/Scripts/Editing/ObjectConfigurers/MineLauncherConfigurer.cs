@@ -12,7 +12,8 @@ public class MineLauncherConfigurer : ObjectConfigurer
     private const string LAUNCH_INTERVAL = "interval";
     private const string SMALL = "30";
     private const string MEDIUM = "50";
-    private const string LONG = "70";
+    private const string LONG = "100";
+    private const string VERY_LONG = "150";
 
 
     public MineLauncher MineScript;
@@ -46,6 +47,7 @@ public class MineLauncherConfigurer : ObjectConfigurer
                 new ObjectParamType(LAUNCH_INTERVAL, new string[] {
                     MEDIUM,
                     LONG,
+                    VERY_LONG,
                     SMALL
                 })
             };
