@@ -32,12 +32,12 @@ public class MineLauncher : MonoBehaviour, IPausable
                 break;
             case TurretController.AttachDir.Up:
                 this.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                this.transform.rotation = Quaternion.Euler(0, 0, 90);
+                this.transform.rotation = Quaternion.Euler(0, 0, -90);
                 _launchVelocity = new Vector2(0.0f, -this.LaunchSpeed);
                 break;
             case TurretController.AttachDir.Down:
                 this.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-                this.transform.rotation = Quaternion.Euler(0, 0, 90);
+                this.transform.rotation = Quaternion.Euler(0, 0, -90);
                 _launchVelocity = new Vector2(0.0f, this.LaunchSpeed);
                 break;
         }
