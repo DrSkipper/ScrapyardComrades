@@ -10,7 +10,7 @@ public class TilesetEditorManager : MonoBehaviour
 {
     public MeshRenderer MeshRenderer;
     public MeshFilter MeshFilter;
-    public RectTransform Cursor;
+    public RectTransform[] Cursors;
     public TilesetData TilesetToEdit;
     public float PixelsToUnits;
     public TilesetData CurrentEditingTileset { get; set; }
@@ -56,6 +56,11 @@ public class TilesetEditorManager : MonoBehaviour
         this.TilesetToEdit.ApplySpriteDataDictionary(_spriteData);
         this.MeshRenderer.sharedMaterial.mainTexture = _texture;
 
+        if (_additionalSelectedSprites == null)
+            _additionalSelectedSprites = new List<Sprite>();
+        else
+            _additionalSelectedSprites.Clear();
+
 #else
         Debug.Log("TilesetEditorManager should not be used at runtime!");
 #endif
@@ -66,6 +71,13 @@ public class TilesetEditorManager : MonoBehaviour
         if (_spriteData == null)
             this.Reload();
 
+        _additionalSelectedSprites.Clear();
+        this.Cursors[0].gameObject.SetActive(true);
+        for (int i = 1; i < this.Cursors.Length; ++i)
+        {
+            this.Cursors[i].gameObject.SetActive(false);
+        }
+
         for (int i = 0; i < _sprites.Length; ++i)
         {
             Sprite sprite = _sprites[i];
@@ -73,10 +85,29 @@ public class TilesetEditorManager : MonoBehaviour
             {
                 this.SelectedSprite = sprite;
                 this.SelectedSpriteData = _spriteData[sprite.name];
-                Vector3 meshSize = this.MeshFilter.sharedMesh.bounds.size;
-                this.Cursor.SetPosition2D((sprite.rect.center.x / _texture.width - 0.5f) * meshSize.x, (sprite.rect.center.y / _texture.height - 0.5f) * meshSize.z);
-                this.Cursor.sizeDelta = new Vector2(sprite.rect.size.x / _texture.width * meshSize.x, sprite.rect.size.y / _texture.height * meshSize.z);
+                positionCursorOnSprite(0, sprite);
                 break;
+            }
+        }
+    }
+
+    public void SelectAdditionalSpriteAtPixel(IntegerVector pixel)
+    {
+        if (_spriteData == null)
+            this.Reload();
+
+        if (_additionalSelectedSprites.Count + 1 < this.Cursors.Length)
+        {
+            for (int i = 0; i < _sprites.Length; ++i)
+            {
+                Sprite sprite = _sprites[i];
+                if (sprite.GetIntegerBounds().Contains(pixel) && this.SelectedSprite != sprite && !_additionalSelectedSprites.Contains(sprite))
+                {
+                    _additionalSelectedSprites.Add(sprite);
+                    this.Cursors[_additionalSelectedSprites.Count].gameObject.SetActive(true);
+                    positionCursorOnSprite(_additionalSelectedSprites.Count, sprite);
+                    break;
+                }
             }
         }
     }
@@ -90,6 +121,15 @@ public class TilesetEditorManager : MonoBehaviour
             spriteData.AllowAutotile = autoTile;
             _spriteData[this.SelectedSprite.name] = spriteData;
             this.SelectedSpriteData = spriteData;
+
+            for (int i = 0; i < _additionalSelectedSprites.Count; ++i)
+            {
+                spriteData = _spriteData[_additionalSelectedSprites[i].name];
+                spriteData.Type = tileType;
+                spriteData.AllowAutotile = autoTile;
+                _spriteData[_additionalSelectedSprites[i].name] = spriteData;
+            }
+
             this.TilesetToEdit.ApplySpriteDataDictionary(_spriteData);
             return true;
         }
@@ -113,5 +153,13 @@ public class TilesetEditorManager : MonoBehaviour
     private Texture2D _texture;
     private Sprite[] _sprites;
     private Dictionary<string, TilesetData.SpriteData> _spriteData;
+    private List<Sprite> _additionalSelectedSprites;
     //private SpriteRenderer _cursorSpriteRenderer;
+
+    private void positionCursorOnSprite(int cursorIndex, Sprite sprite)
+    {
+        Vector3 meshSize = this.MeshFilter.sharedMesh.bounds.size;
+        this.Cursors[cursorIndex].SetPosition2D((sprite.rect.center.x / _texture.width - 0.5f) * meshSize.x, (sprite.rect.center.y / _texture.height - 0.5f) * meshSize.z);
+        this.Cursors[cursorIndex].sizeDelta = new Vector2(sprite.rect.size.x / _texture.width * meshSize.x, sprite.rect.size.y / _texture.height * meshSize.z);
+    }
 }

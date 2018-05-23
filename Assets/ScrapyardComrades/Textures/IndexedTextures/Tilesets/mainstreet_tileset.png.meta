@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8813e943648efe44ca866f997a5aa504
-timeCreated: 1516247442
+timeCreated: 1527025866
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -398,6 +398,220 @@ TextureImporter:
     21300782: mainstreet_tileset_391
     21300784: mainstreet_tileset_392
     21300786: mainstreet_tileset_393
+    21300788: mainstreet_tileset_394
+    21300790: mainstreet_tileset_395
+    21300792: mainstreet_tileset_396
+    21300794: mainstreet_tileset_397
+    21300796: mainstreet_tileset_398
+    21300798: mainstreet_tileset_399
+    21300800: mainstreet_tileset_400
+    21300802: mainstreet_tileset_401
+    21300804: mainstreet_tileset_402
+    21300806: mainstreet_tileset_403
+    21300808: mainstreet_tileset_404
+    21300810: mainstreet_tileset_405
+    21300812: mainstreet_tileset_406
+    21300814: mainstreet_tileset_407
+    21300816: mainstreet_tileset_408
+    21300818: mainstreet_tileset_409
+    21300820: mainstreet_tileset_410
+    21300822: mainstreet_tileset_411
+    21300824: mainstreet_tileset_412
+    21300826: mainstreet_tileset_413
+    21300828: mainstreet_tileset_414
+    21300830: mainstreet_tileset_415
+    21300832: mainstreet_tileset_416
+    21300834: mainstreet_tileset_417
+    21300836: mainstreet_tileset_418
+    21300838: mainstreet_tileset_419
+    21300840: mainstreet_tileset_420
+    21300842: mainstreet_tileset_421
+    21300844: mainstreet_tileset_422
+    21300846: mainstreet_tileset_423
+    21300848: mainstreet_tileset_424
+    21300850: mainstreet_tileset_425
+    21300852: mainstreet_tileset_426
+    21300854: mainstreet_tileset_427
+    21300856: mainstreet_tileset_428
+    21300858: mainstreet_tileset_429
+    21300860: mainstreet_tileset_430
+    21300862: mainstreet_tileset_431
+    21300864: mainstreet_tileset_432
+    21300866: mainstreet_tileset_433
+    21300868: mainstreet_tileset_434
+    21300870: mainstreet_tileset_435
+    21300872: mainstreet_tileset_436
+    21300874: mainstreet_tileset_437
+    21300876: mainstreet_tileset_438
+    21300878: mainstreet_tileset_439
+    21300880: mainstreet_tileset_440
+    21300882: mainstreet_tileset_441
+    21300884: mainstreet_tileset_442
+    21300886: mainstreet_tileset_443
+    21300888: mainstreet_tileset_444
+    21300890: mainstreet_tileset_445
+    21300892: mainstreet_tileset_446
+    21300894: mainstreet_tileset_447
+    21300896: mainstreet_tileset_448
+    21300898: mainstreet_tileset_449
+    21300900: mainstreet_tileset_450
+    21300902: mainstreet_tileset_451
+    21300904: mainstreet_tileset_452
+    21300906: mainstreet_tileset_453
+    21300908: mainstreet_tileset_454
+    21300910: mainstreet_tileset_455
+    21300912: mainstreet_tileset_456
+    21300914: mainstreet_tileset_457
+    21300916: mainstreet_tileset_458
+    21300918: mainstreet_tileset_459
+    21300920: mainstreet_tileset_460
+    21300922: mainstreet_tileset_461
+    21300924: mainstreet_tileset_462
+    21300926: mainstreet_tileset_463
+    21300928: mainstreet_tileset_464
+    21300930: mainstreet_tileset_465
+    21300932: mainstreet_tileset_466
+    21300934: mainstreet_tileset_467
+    21300936: mainstreet_tileset_468
+    21300938: mainstreet_tileset_469
+    21300940: mainstreet_tileset_470
+    21300942: mainstreet_tileset_471
+    21300944: mainstreet_tileset_472
+    21300946: mainstreet_tileset_473
+    21300948: mainstreet_tileset_474
+    21300950: mainstreet_tileset_475
+    21300952: mainstreet_tileset_476
+    21300954: mainstreet_tileset_477
+    21300956: mainstreet_tileset_478
+    21300958: mainstreet_tileset_479
+    21300960: mainstreet_tileset_480
+    21300962: mainstreet_tileset_481
+    21300964: mainstreet_tileset_482
+    21300966: mainstreet_tileset_483
+    21300968: mainstreet_tileset_484
+    21300970: mainstreet_tileset_485
+    21300972: mainstreet_tileset_486
+    21300974: mainstreet_tileset_487
+    21300976: mainstreet_tileset_488
+    21300978: mainstreet_tileset_489
+    21300980: mainstreet_tileset_490
+    21300982: mainstreet_tileset_491
+    21300984: mainstreet_tileset_492
+    21300986: mainstreet_tileset_493
+    21300988: mainstreet_tileset_494
+    21300990: mainstreet_tileset_495
+    21300992: mainstreet_tileset_496
+    21300994: mainstreet_tileset_497
+    21300996: mainstreet_tileset_498
+    21300998: mainstreet_tileset_499
+    21301000: mainstreet_tileset_500
+    21301002: mainstreet_tileset_501
+    21301004: mainstreet_tileset_502
+    21301006: mainstreet_tileset_503
+    21301008: mainstreet_tileset_504
+    21301010: mainstreet_tileset_505
+    21301012: mainstreet_tileset_506
+    21301014: mainstreet_tileset_507
+    21301016: mainstreet_tileset_508
+    21301018: mainstreet_tileset_509
+    21301020: mainstreet_tileset_510
+    21301022: mainstreet_tileset_511
+    21301024: mainstreet_tileset_512
+    21301026: mainstreet_tileset_513
+    21301028: mainstreet_tileset_514
+    21301030: mainstreet_tileset_515
+    21301032: mainstreet_tileset_516
+    21301034: mainstreet_tileset_517
+    21301036: mainstreet_tileset_518
+    21301038: mainstreet_tileset_519
+    21301040: mainstreet_tileset_520
+    21301042: mainstreet_tileset_521
+    21301044: mainstreet_tileset_522
+    21301046: mainstreet_tileset_523
+    21301048: mainstreet_tileset_524
+    21301050: mainstreet_tileset_525
+    21301052: mainstreet_tileset_526
+    21301054: mainstreet_tileset_527
+    21301056: mainstreet_tileset_528
+    21301058: mainstreet_tileset_529
+    21301060: mainstreet_tileset_530
+    21301062: mainstreet_tileset_531
+    21301064: mainstreet_tileset_532
+    21301066: mainstreet_tileset_533
+    21301068: mainstreet_tileset_534
+    21301070: mainstreet_tileset_535
+    21301072: mainstreet_tileset_536
+    21301074: mainstreet_tileset_537
+    21301076: mainstreet_tileset_538
+    21301078: mainstreet_tileset_539
+    21301080: mainstreet_tileset_540
+    21301082: mainstreet_tileset_541
+    21301084: mainstreet_tileset_542
+    21301086: mainstreet_tileset_543
+    21301088: mainstreet_tileset_544
+    21301090: mainstreet_tileset_545
+    21301092: mainstreet_tileset_546
+    21301094: mainstreet_tileset_547
+    21301096: mainstreet_tileset_548
+    21301098: mainstreet_tileset_549
+    21301100: mainstreet_tileset_550
+    21301102: mainstreet_tileset_551
+    21301104: mainstreet_tileset_552
+    21301106: mainstreet_tileset_553
+    21301108: mainstreet_tileset_554
+    21301110: mainstreet_tileset_555
+    21301112: mainstreet_tileset_556
+    21301114: mainstreet_tileset_557
+    21301116: mainstreet_tileset_558
+    21301118: mainstreet_tileset_559
+    21301120: mainstreet_tileset_560
+    21301122: mainstreet_tileset_561
+    21301124: mainstreet_tileset_562
+    21301126: mainstreet_tileset_563
+    21301128: mainstreet_tileset_564
+    21301130: mainstreet_tileset_565
+    21301132: mainstreet_tileset_566
+    21301134: mainstreet_tileset_567
+    21301136: mainstreet_tileset_568
+    21301138: mainstreet_tileset_569
+    21301140: mainstreet_tileset_570
+    21301142: mainstreet_tileset_571
+    21301144: mainstreet_tileset_572
+    21301146: mainstreet_tileset_573
+    21301148: mainstreet_tileset_574
+    21301150: mainstreet_tileset_575
+    21301152: mainstreet_tileset_576
+    21301154: mainstreet_tileset_577
+    21301156: mainstreet_tileset_578
+    21301158: mainstreet_tileset_579
+    21301160: mainstreet_tileset_580
+    21301162: mainstreet_tileset_581
+    21301164: mainstreet_tileset_582
+    21301166: mainstreet_tileset_583
+    21301168: mainstreet_tileset_584
+    21301170: mainstreet_tileset_585
+    21301172: mainstreet_tileset_586
+    21301174: mainstreet_tileset_587
+    21301176: mainstreet_tileset_588
+    21301178: mainstreet_tileset_589
+    21301180: mainstreet_tileset_590
+    21301182: mainstreet_tileset_591
+    21301184: mainstreet_tileset_592
+    21301186: mainstreet_tileset_593
+    21301188: mainstreet_tileset_594
+    21301190: mainstreet_tileset_595
+    21301192: mainstreet_tileset_596
+    21301194: mainstreet_tileset_597
+    21301196: mainstreet_tileset_598
+    21301198: mainstreet_tileset_599
+    21301200: mainstreet_tileset_600
+    21301202: mainstreet_tileset_601
+    21301204: mainstreet_tileset_602
+    21301206: mainstreet_tileset_603
+    21301208: mainstreet_tileset_604
+    21301210: mainstreet_tileset_605
+    21301212: mainstreet_tileset_606
+    21301214: mainstreet_tileset_607
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -484,7 +698,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 384
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -497,7 +711,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 384
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -510,7 +724,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 384
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -523,7 +737,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 384
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -536,7 +750,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 384
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -549,7 +763,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 384
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -562,7 +776,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 240
-        y: 384
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -575,7 +789,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 384
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -588,7 +802,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 272
-        y: 384
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -601,7 +815,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 288
-        y: 384
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -614,7 +828,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 304
-        y: 384
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -627,7 +841,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 384
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -640,7 +854,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 336
-        y: 384
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -652,8 +866,8 @@ TextureImporter:
       name: mainstreet_tileset_13
       rect:
         serializedVersion: 2
-        x: 0
-        y: 368
+        x: 352
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -665,8 +879,8 @@ TextureImporter:
       name: mainstreet_tileset_14
       rect:
         serializedVersion: 2
-        x: 16
-        y: 368
+        x: 368
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -678,8 +892,8 @@ TextureImporter:
       name: mainstreet_tileset_15
       rect:
         serializedVersion: 2
-        x: 32
-        y: 368
+        x: 384
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -691,8 +905,8 @@ TextureImporter:
       name: mainstreet_tileset_16
       rect:
         serializedVersion: 2
-        x: 48
-        y: 368
+        x: 400
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -704,8 +918,8 @@ TextureImporter:
       name: mainstreet_tileset_17
       rect:
         serializedVersion: 2
-        x: 128
-        y: 368
+        x: 416
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -717,8 +931,8 @@ TextureImporter:
       name: mainstreet_tileset_18
       rect:
         serializedVersion: 2
-        x: 144
-        y: 368
+        x: 432
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -730,8 +944,8 @@ TextureImporter:
       name: mainstreet_tileset_19
       rect:
         serializedVersion: 2
-        x: 208
-        y: 368
+        x: 448
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -743,8 +957,8 @@ TextureImporter:
       name: mainstreet_tileset_20
       rect:
         serializedVersion: 2
-        x: 224
-        y: 368
+        x: 464
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -756,8 +970,8 @@ TextureImporter:
       name: mainstreet_tileset_21
       rect:
         serializedVersion: 2
-        x: 240
-        y: 368
+        x: 480
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -769,8 +983,8 @@ TextureImporter:
       name: mainstreet_tileset_22
       rect:
         serializedVersion: 2
-        x: 256
-        y: 368
+        x: 496
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -782,8 +996,8 @@ TextureImporter:
       name: mainstreet_tileset_23
       rect:
         serializedVersion: 2
-        x: 272
-        y: 368
+        x: 512
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -795,8 +1009,8 @@ TextureImporter:
       name: mainstreet_tileset_24
       rect:
         serializedVersion: 2
-        x: 288
-        y: 368
+        x: 0
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -808,8 +1022,8 @@ TextureImporter:
       name: mainstreet_tileset_25
       rect:
         serializedVersion: 2
-        x: 304
-        y: 368
+        x: 16
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -821,8 +1035,8 @@ TextureImporter:
       name: mainstreet_tileset_26
       rect:
         serializedVersion: 2
-        x: 320
-        y: 368
+        x: 32
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -834,8 +1048,8 @@ TextureImporter:
       name: mainstreet_tileset_27
       rect:
         serializedVersion: 2
-        x: 336
-        y: 368
+        x: 48
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -847,8 +1061,8 @@ TextureImporter:
       name: mainstreet_tileset_28
       rect:
         serializedVersion: 2
-        x: 0
-        y: 352
+        x: 128
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -860,8 +1074,8 @@ TextureImporter:
       name: mainstreet_tileset_29
       rect:
         serializedVersion: 2
-        x: 16
-        y: 352
+        x: 144
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -873,8 +1087,8 @@ TextureImporter:
       name: mainstreet_tileset_30
       rect:
         serializedVersion: 2
-        x: 32
-        y: 352
+        x: 208
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -886,8 +1100,8 @@ TextureImporter:
       name: mainstreet_tileset_31
       rect:
         serializedVersion: 2
-        x: 48
-        y: 352
+        x: 224
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -899,8 +1113,8 @@ TextureImporter:
       name: mainstreet_tileset_32
       rect:
         serializedVersion: 2
-        x: 64
-        y: 352
+        x: 240
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -912,8 +1126,8 @@ TextureImporter:
       name: mainstreet_tileset_33
       rect:
         serializedVersion: 2
-        x: 80
-        y: 352
+        x: 256
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -925,8 +1139,8 @@ TextureImporter:
       name: mainstreet_tileset_34
       rect:
         serializedVersion: 2
-        x: 96
-        y: 352
+        x: 272
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -938,8 +1152,8 @@ TextureImporter:
       name: mainstreet_tileset_35
       rect:
         serializedVersion: 2
-        x: 112
-        y: 352
+        x: 288
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -951,8 +1165,8 @@ TextureImporter:
       name: mainstreet_tileset_36
       rect:
         serializedVersion: 2
-        x: 128
-        y: 352
+        x: 304
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -964,8 +1178,8 @@ TextureImporter:
       name: mainstreet_tileset_37
       rect:
         serializedVersion: 2
-        x: 144
-        y: 352
+        x: 320
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -977,8 +1191,8 @@ TextureImporter:
       name: mainstreet_tileset_38
       rect:
         serializedVersion: 2
-        x: 192
-        y: 352
+        x: 336
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -990,8 +1204,8 @@ TextureImporter:
       name: mainstreet_tileset_39
       rect:
         serializedVersion: 2
-        x: 208
-        y: 352
+        x: 352
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -1003,8 +1217,8 @@ TextureImporter:
       name: mainstreet_tileset_40
       rect:
         serializedVersion: 2
-        x: 224
-        y: 352
+        x: 368
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -1016,8 +1230,8 @@ TextureImporter:
       name: mainstreet_tileset_41
       rect:
         serializedVersion: 2
-        x: 240
-        y: 352
+        x: 384
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -1029,8 +1243,8 @@ TextureImporter:
       name: mainstreet_tileset_42
       rect:
         serializedVersion: 2
-        x: 256
-        y: 352
+        x: 400
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -1042,8 +1256,8 @@ TextureImporter:
       name: mainstreet_tileset_43
       rect:
         serializedVersion: 2
-        x: 272
-        y: 352
+        x: 416
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -1055,8 +1269,8 @@ TextureImporter:
       name: mainstreet_tileset_44
       rect:
         serializedVersion: 2
-        x: 288
-        y: 352
+        x: 432
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -1068,8 +1282,8 @@ TextureImporter:
       name: mainstreet_tileset_45
       rect:
         serializedVersion: 2
-        x: 304
-        y: 352
+        x: 448
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -1081,8 +1295,8 @@ TextureImporter:
       name: mainstreet_tileset_46
       rect:
         serializedVersion: 2
-        x: 320
-        y: 352
+        x: 464
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -1094,8 +1308,8 @@ TextureImporter:
       name: mainstreet_tileset_47
       rect:
         serializedVersion: 2
-        x: 336
-        y: 352
+        x: 480
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -1107,8 +1321,8 @@ TextureImporter:
       name: mainstreet_tileset_48
       rect:
         serializedVersion: 2
-        x: 0
-        y: 336
+        x: 496
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -1120,8 +1334,8 @@ TextureImporter:
       name: mainstreet_tileset_49
       rect:
         serializedVersion: 2
-        x: 16
-        y: 336
+        x: 512
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -1133,8 +1347,8 @@ TextureImporter:
       name: mainstreet_tileset_50
       rect:
         serializedVersion: 2
-        x: 32
-        y: 336
+        x: 528
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -1146,8 +1360,8 @@ TextureImporter:
       name: mainstreet_tileset_51
       rect:
         serializedVersion: 2
-        x: 48
-        y: 336
+        x: 544
+        y: 592
         width: 16
         height: 16
       alignment: 0
@@ -1159,8 +1373,8 @@ TextureImporter:
       name: mainstreet_tileset_52
       rect:
         serializedVersion: 2
-        x: 64
-        y: 336
+        x: 0
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1172,8 +1386,8 @@ TextureImporter:
       name: mainstreet_tileset_53
       rect:
         serializedVersion: 2
-        x: 80
-        y: 336
+        x: 16
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1185,8 +1399,8 @@ TextureImporter:
       name: mainstreet_tileset_54
       rect:
         serializedVersion: 2
-        x: 96
-        y: 336
+        x: 32
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1198,8 +1412,8 @@ TextureImporter:
       name: mainstreet_tileset_55
       rect:
         serializedVersion: 2
-        x: 112
-        y: 336
+        x: 48
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1211,8 +1425,8 @@ TextureImporter:
       name: mainstreet_tileset_56
       rect:
         serializedVersion: 2
-        x: 128
-        y: 336
+        x: 64
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1224,8 +1438,8 @@ TextureImporter:
       name: mainstreet_tileset_57
       rect:
         serializedVersion: 2
-        x: 144
-        y: 336
+        x: 80
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1237,8 +1451,8 @@ TextureImporter:
       name: mainstreet_tileset_58
       rect:
         serializedVersion: 2
-        x: 224
-        y: 336
+        x: 96
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1250,8 +1464,8 @@ TextureImporter:
       name: mainstreet_tileset_59
       rect:
         serializedVersion: 2
-        x: 240
-        y: 336
+        x: 112
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1263,8 +1477,8 @@ TextureImporter:
       name: mainstreet_tileset_60
       rect:
         serializedVersion: 2
-        x: 256
-        y: 336
+        x: 128
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1276,8 +1490,8 @@ TextureImporter:
       name: mainstreet_tileset_61
       rect:
         serializedVersion: 2
-        x: 272
-        y: 336
+        x: 144
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1289,8 +1503,8 @@ TextureImporter:
       name: mainstreet_tileset_62
       rect:
         serializedVersion: 2
-        x: 288
-        y: 336
+        x: 192
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1302,8 +1516,8 @@ TextureImporter:
       name: mainstreet_tileset_63
       rect:
         serializedVersion: 2
-        x: 304
-        y: 336
+        x: 208
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1315,8 +1529,8 @@ TextureImporter:
       name: mainstreet_tileset_64
       rect:
         serializedVersion: 2
-        x: 320
-        y: 336
+        x: 224
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1328,8 +1542,8 @@ TextureImporter:
       name: mainstreet_tileset_65
       rect:
         serializedVersion: 2
-        x: 336
-        y: 336
+        x: 240
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1341,8 +1555,8 @@ TextureImporter:
       name: mainstreet_tileset_66
       rect:
         serializedVersion: 2
-        x: 16
-        y: 320
+        x: 256
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1354,8 +1568,8 @@ TextureImporter:
       name: mainstreet_tileset_67
       rect:
         serializedVersion: 2
-        x: 32
-        y: 320
+        x: 272
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1367,8 +1581,8 @@ TextureImporter:
       name: mainstreet_tileset_68
       rect:
         serializedVersion: 2
-        x: 64
-        y: 320
+        x: 288
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1380,8 +1594,8 @@ TextureImporter:
       name: mainstreet_tileset_69
       rect:
         serializedVersion: 2
-        x: 80
-        y: 320
+        x: 304
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1393,8 +1607,8 @@ TextureImporter:
       name: mainstreet_tileset_70
       rect:
         serializedVersion: 2
-        x: 96
-        y: 320
+        x: 320
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1406,8 +1620,8 @@ TextureImporter:
       name: mainstreet_tileset_71
       rect:
         serializedVersion: 2
-        x: 112
-        y: 320
+        x: 336
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1419,8 +1633,8 @@ TextureImporter:
       name: mainstreet_tileset_72
       rect:
         serializedVersion: 2
-        x: 208
-        y: 320
+        x: 352
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1432,8 +1646,8 @@ TextureImporter:
       name: mainstreet_tileset_73
       rect:
         serializedVersion: 2
-        x: 240
-        y: 320
+        x: 368
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1445,8 +1659,8 @@ TextureImporter:
       name: mainstreet_tileset_74
       rect:
         serializedVersion: 2
-        x: 256
-        y: 320
+        x: 384
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1458,8 +1672,8 @@ TextureImporter:
       name: mainstreet_tileset_75
       rect:
         serializedVersion: 2
-        x: 272
-        y: 320
+        x: 400
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1471,8 +1685,8 @@ TextureImporter:
       name: mainstreet_tileset_76
       rect:
         serializedVersion: 2
-        x: 288
-        y: 320
+        x: 416
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1484,8 +1698,8 @@ TextureImporter:
       name: mainstreet_tileset_77
       rect:
         serializedVersion: 2
-        x: 304
-        y: 320
+        x: 432
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1497,8 +1711,8 @@ TextureImporter:
       name: mainstreet_tileset_78
       rect:
         serializedVersion: 2
-        x: 320
-        y: 320
+        x: 448
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1510,8 +1724,8 @@ TextureImporter:
       name: mainstreet_tileset_79
       rect:
         serializedVersion: 2
-        x: 336
-        y: 320
+        x: 464
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1523,8 +1737,8 @@ TextureImporter:
       name: mainstreet_tileset_80
       rect:
         serializedVersion: 2
-        x: 0
-        y: 304
+        x: 480
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1536,8 +1750,8 @@ TextureImporter:
       name: mainstreet_tileset_81
       rect:
         serializedVersion: 2
-        x: 48
-        y: 304
+        x: 496
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1549,8 +1763,8 @@ TextureImporter:
       name: mainstreet_tileset_82
       rect:
         serializedVersion: 2
-        x: 64
-        y: 304
+        x: 512
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1562,8 +1776,8 @@ TextureImporter:
       name: mainstreet_tileset_83
       rect:
         serializedVersion: 2
-        x: 80
-        y: 304
+        x: 528
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1575,8 +1789,8 @@ TextureImporter:
       name: mainstreet_tileset_84
       rect:
         serializedVersion: 2
-        x: 96
-        y: 304
+        x: 544
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1588,8 +1802,8 @@ TextureImporter:
       name: mainstreet_tileset_85
       rect:
         serializedVersion: 2
-        x: 112
-        y: 304
+        x: 560
+        y: 576
         width: 16
         height: 16
       alignment: 0
@@ -1601,8 +1815,8 @@ TextureImporter:
       name: mainstreet_tileset_86
       rect:
         serializedVersion: 2
-        x: 128
-        y: 304
+        x: 0
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1614,8 +1828,8 @@ TextureImporter:
       name: mainstreet_tileset_87
       rect:
         serializedVersion: 2
-        x: 144
-        y: 304
+        x: 16
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1627,8 +1841,8 @@ TextureImporter:
       name: mainstreet_tileset_88
       rect:
         serializedVersion: 2
-        x: 160
-        y: 304
+        x: 32
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1640,8 +1854,8 @@ TextureImporter:
       name: mainstreet_tileset_89
       rect:
         serializedVersion: 2
-        x: 176
-        y: 304
+        x: 48
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1653,8 +1867,8 @@ TextureImporter:
       name: mainstreet_tileset_90
       rect:
         serializedVersion: 2
-        x: 192
-        y: 304
+        x: 64
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1666,8 +1880,8 @@ TextureImporter:
       name: mainstreet_tileset_91
       rect:
         serializedVersion: 2
-        x: 208
-        y: 304
+        x: 80
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1679,8 +1893,8 @@ TextureImporter:
       name: mainstreet_tileset_92
       rect:
         serializedVersion: 2
-        x: 224
-        y: 304
+        x: 96
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1692,8 +1906,8 @@ TextureImporter:
       name: mainstreet_tileset_93
       rect:
         serializedVersion: 2
-        x: 240
-        y: 304
+        x: 112
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1705,8 +1919,8 @@ TextureImporter:
       name: mainstreet_tileset_94
       rect:
         serializedVersion: 2
-        x: 256
-        y: 304
+        x: 128
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1718,8 +1932,8 @@ TextureImporter:
       name: mainstreet_tileset_95
       rect:
         serializedVersion: 2
-        x: 272
-        y: 304
+        x: 144
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1731,8 +1945,8 @@ TextureImporter:
       name: mainstreet_tileset_96
       rect:
         serializedVersion: 2
-        x: 288
-        y: 304
+        x: 224
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1744,8 +1958,8 @@ TextureImporter:
       name: mainstreet_tileset_97
       rect:
         serializedVersion: 2
-        x: 304
-        y: 304
+        x: 240
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1757,8 +1971,8 @@ TextureImporter:
       name: mainstreet_tileset_98
       rect:
         serializedVersion: 2
-        x: 320
-        y: 304
+        x: 256
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1770,8 +1984,8 @@ TextureImporter:
       name: mainstreet_tileset_99
       rect:
         serializedVersion: 2
-        x: 336
-        y: 304
+        x: 272
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1783,8 +1997,8 @@ TextureImporter:
       name: mainstreet_tileset_100
       rect:
         serializedVersion: 2
-        x: 0
-        y: 288
+        x: 288
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1796,8 +2010,8 @@ TextureImporter:
       name: mainstreet_tileset_101
       rect:
         serializedVersion: 2
-        x: 16
-        y: 288
+        x: 304
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1809,8 +2023,8 @@ TextureImporter:
       name: mainstreet_tileset_102
       rect:
         serializedVersion: 2
-        x: 32
-        y: 288
+        x: 320
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1822,8 +2036,8 @@ TextureImporter:
       name: mainstreet_tileset_103
       rect:
         serializedVersion: 2
-        x: 48
-        y: 288
+        x: 336
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1835,8 +2049,8 @@ TextureImporter:
       name: mainstreet_tileset_104
       rect:
         serializedVersion: 2
-        x: 64
-        y: 288
+        x: 352
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1848,8 +2062,8 @@ TextureImporter:
       name: mainstreet_tileset_105
       rect:
         serializedVersion: 2
-        x: 80
-        y: 288
+        x: 368
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1861,8 +2075,8 @@ TextureImporter:
       name: mainstreet_tileset_106
       rect:
         serializedVersion: 2
-        x: 112
-        y: 288
+        x: 384
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1874,8 +2088,8 @@ TextureImporter:
       name: mainstreet_tileset_107
       rect:
         serializedVersion: 2
-        x: 128
-        y: 288
+        x: 400
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1887,8 +2101,8 @@ TextureImporter:
       name: mainstreet_tileset_108
       rect:
         serializedVersion: 2
-        x: 192
-        y: 288
+        x: 416
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1900,8 +2114,8 @@ TextureImporter:
       name: mainstreet_tileset_109
       rect:
         serializedVersion: 2
-        x: 208
-        y: 288
+        x: 432
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1913,8 +2127,8 @@ TextureImporter:
       name: mainstreet_tileset_110
       rect:
         serializedVersion: 2
-        x: 224
-        y: 288
+        x: 448
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1926,8 +2140,8 @@ TextureImporter:
       name: mainstreet_tileset_111
       rect:
         serializedVersion: 2
-        x: 240
-        y: 288
+        x: 464
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1939,8 +2153,8 @@ TextureImporter:
       name: mainstreet_tileset_112
       rect:
         serializedVersion: 2
-        x: 256
-        y: 288
+        x: 480
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1952,8 +2166,8 @@ TextureImporter:
       name: mainstreet_tileset_113
       rect:
         serializedVersion: 2
-        x: 272
-        y: 288
+        x: 496
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1965,8 +2179,8 @@ TextureImporter:
       name: mainstreet_tileset_114
       rect:
         serializedVersion: 2
-        x: 288
-        y: 288
+        x: 512
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1978,8 +2192,8 @@ TextureImporter:
       name: mainstreet_tileset_115
       rect:
         serializedVersion: 2
-        x: 304
-        y: 288
+        x: 528
+        y: 560
         width: 16
         height: 16
       alignment: 0
@@ -1991,8 +2205,8 @@ TextureImporter:
       name: mainstreet_tileset_116
       rect:
         serializedVersion: 2
-        x: 320
-        y: 288
+        x: 16
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2004,8 +2218,8 @@ TextureImporter:
       name: mainstreet_tileset_117
       rect:
         serializedVersion: 2
-        x: 336
-        y: 288
+        x: 32
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2017,8 +2231,8 @@ TextureImporter:
       name: mainstreet_tileset_118
       rect:
         serializedVersion: 2
-        x: 0
-        y: 272
+        x: 64
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2030,8 +2244,8 @@ TextureImporter:
       name: mainstreet_tileset_119
       rect:
         serializedVersion: 2
-        x: 16
-        y: 272
+        x: 80
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2043,8 +2257,8 @@ TextureImporter:
       name: mainstreet_tileset_120
       rect:
         serializedVersion: 2
-        x: 32
-        y: 272
+        x: 96
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2056,8 +2270,8 @@ TextureImporter:
       name: mainstreet_tileset_121
       rect:
         serializedVersion: 2
-        x: 48
-        y: 272
+        x: 112
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2069,8 +2283,8 @@ TextureImporter:
       name: mainstreet_tileset_122
       rect:
         serializedVersion: 2
-        x: 64
-        y: 272
+        x: 208
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2082,8 +2296,8 @@ TextureImporter:
       name: mainstreet_tileset_123
       rect:
         serializedVersion: 2
-        x: 80
-        y: 272
+        x: 240
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2095,8 +2309,8 @@ TextureImporter:
       name: mainstreet_tileset_124
       rect:
         serializedVersion: 2
-        x: 96
-        y: 272
+        x: 256
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2108,8 +2322,8 @@ TextureImporter:
       name: mainstreet_tileset_125
       rect:
         serializedVersion: 2
-        x: 112
-        y: 272
+        x: 272
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2121,8 +2335,8 @@ TextureImporter:
       name: mainstreet_tileset_126
       rect:
         serializedVersion: 2
-        x: 192
-        y: 272
+        x: 288
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2134,8 +2348,8 @@ TextureImporter:
       name: mainstreet_tileset_127
       rect:
         serializedVersion: 2
-        x: 208
-        y: 272
+        x: 304
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2147,8 +2361,8 @@ TextureImporter:
       name: mainstreet_tileset_128
       rect:
         serializedVersion: 2
-        x: 224
-        y: 272
+        x: 320
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2160,8 +2374,8 @@ TextureImporter:
       name: mainstreet_tileset_129
       rect:
         serializedVersion: 2
-        x: 240
-        y: 272
+        x: 336
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2173,8 +2387,8 @@ TextureImporter:
       name: mainstreet_tileset_130
       rect:
         serializedVersion: 2
-        x: 256
-        y: 272
+        x: 352
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2186,8 +2400,8 @@ TextureImporter:
       name: mainstreet_tileset_131
       rect:
         serializedVersion: 2
-        x: 272
-        y: 272
+        x: 368
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2199,8 +2413,8 @@ TextureImporter:
       name: mainstreet_tileset_132
       rect:
         serializedVersion: 2
-        x: 288
-        y: 272
+        x: 384
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2212,8 +2426,8 @@ TextureImporter:
       name: mainstreet_tileset_133
       rect:
         serializedVersion: 2
-        x: 304
-        y: 272
+        x: 400
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2225,8 +2439,8 @@ TextureImporter:
       name: mainstreet_tileset_134
       rect:
         serializedVersion: 2
-        x: 320
-        y: 272
+        x: 416
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2238,8 +2452,8 @@ TextureImporter:
       name: mainstreet_tileset_135
       rect:
         serializedVersion: 2
-        x: 336
-        y: 272
+        x: 432
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2251,8 +2465,8 @@ TextureImporter:
       name: mainstreet_tileset_136
       rect:
         serializedVersion: 2
-        x: 352
-        y: 272
+        x: 448
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2264,8 +2478,8 @@ TextureImporter:
       name: mainstreet_tileset_137
       rect:
         serializedVersion: 2
-        x: 368
-        y: 272
+        x: 464
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2277,8 +2491,8 @@ TextureImporter:
       name: mainstreet_tileset_138
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
+        x: 480
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2290,8 +2504,8 @@ TextureImporter:
       name: mainstreet_tileset_139
       rect:
         serializedVersion: 2
-        x: 16
-        y: 256
+        x: 496
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2303,8 +2517,8 @@ TextureImporter:
       name: mainstreet_tileset_140
       rect:
         serializedVersion: 2
-        x: 32
-        y: 256
+        x: 512
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2316,8 +2530,8 @@ TextureImporter:
       name: mainstreet_tileset_141
       rect:
         serializedVersion: 2
-        x: 48
-        y: 256
+        x: 544
+        y: 544
         width: 16
         height: 16
       alignment: 0
@@ -2329,8 +2543,8 @@ TextureImporter:
       name: mainstreet_tileset_142
       rect:
         serializedVersion: 2
-        x: 64
-        y: 256
+        x: 0
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2342,8 +2556,8 @@ TextureImporter:
       name: mainstreet_tileset_143
       rect:
         serializedVersion: 2
-        x: 80
-        y: 256
+        x: 48
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2355,8 +2569,8 @@ TextureImporter:
       name: mainstreet_tileset_144
       rect:
         serializedVersion: 2
-        x: 96
-        y: 256
+        x: 64
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2368,8 +2582,8 @@ TextureImporter:
       name: mainstreet_tileset_145
       rect:
         serializedVersion: 2
-        x: 112
-        y: 256
+        x: 80
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2381,8 +2595,8 @@ TextureImporter:
       name: mainstreet_tileset_146
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
+        x: 96
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2394,8 +2608,8 @@ TextureImporter:
       name: mainstreet_tileset_147
       rect:
         serializedVersion: 2
-        x: 144
-        y: 256
+        x: 112
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2407,8 +2621,8 @@ TextureImporter:
       name: mainstreet_tileset_148
       rect:
         serializedVersion: 2
-        x: 192
-        y: 256
+        x: 128
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2420,8 +2634,8 @@ TextureImporter:
       name: mainstreet_tileset_149
       rect:
         serializedVersion: 2
-        x: 208
-        y: 256
+        x: 144
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2433,8 +2647,8 @@ TextureImporter:
       name: mainstreet_tileset_150
       rect:
         serializedVersion: 2
-        x: 224
-        y: 256
+        x: 160
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2446,8 +2660,8 @@ TextureImporter:
       name: mainstreet_tileset_151
       rect:
         serializedVersion: 2
-        x: 240
-        y: 256
+        x: 176
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2459,8 +2673,8 @@ TextureImporter:
       name: mainstreet_tileset_152
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
+        x: 192
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2472,8 +2686,8 @@ TextureImporter:
       name: mainstreet_tileset_153
       rect:
         serializedVersion: 2
-        x: 272
-        y: 256
+        x: 208
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2485,8 +2699,8 @@ TextureImporter:
       name: mainstreet_tileset_154
       rect:
         serializedVersion: 2
-        x: 288
-        y: 256
+        x: 224
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2498,8 +2712,8 @@ TextureImporter:
       name: mainstreet_tileset_155
       rect:
         serializedVersion: 2
-        x: 304
-        y: 256
+        x: 240
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2511,8 +2725,8 @@ TextureImporter:
       name: mainstreet_tileset_156
       rect:
         serializedVersion: 2
-        x: 320
-        y: 256
+        x: 256
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2524,8 +2738,8 @@ TextureImporter:
       name: mainstreet_tileset_157
       rect:
         serializedVersion: 2
-        x: 336
-        y: 256
+        x: 272
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2537,8 +2751,8 @@ TextureImporter:
       name: mainstreet_tileset_158
       rect:
         serializedVersion: 2
-        x: 352
-        y: 256
+        x: 288
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2550,8 +2764,8 @@ TextureImporter:
       name: mainstreet_tileset_159
       rect:
         serializedVersion: 2
-        x: 368
-        y: 256
+        x: 304
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2563,8 +2777,8 @@ TextureImporter:
       name: mainstreet_tileset_160
       rect:
         serializedVersion: 2
-        x: 0
-        y: 240
+        x: 320
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2576,8 +2790,8 @@ TextureImporter:
       name: mainstreet_tileset_161
       rect:
         serializedVersion: 2
-        x: 16
-        y: 240
+        x: 336
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2589,8 +2803,8 @@ TextureImporter:
       name: mainstreet_tileset_162
       rect:
         serializedVersion: 2
-        x: 32
-        y: 240
+        x: 352
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2602,8 +2816,8 @@ TextureImporter:
       name: mainstreet_tileset_163
       rect:
         serializedVersion: 2
-        x: 48
-        y: 240
+        x: 368
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2615,8 +2829,8 @@ TextureImporter:
       name: mainstreet_tileset_164
       rect:
         serializedVersion: 2
-        x: 64
-        y: 240
+        x: 384
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2628,8 +2842,8 @@ TextureImporter:
       name: mainstreet_tileset_165
       rect:
         serializedVersion: 2
-        x: 80
-        y: 240
+        x: 400
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2641,8 +2855,8 @@ TextureImporter:
       name: mainstreet_tileset_166
       rect:
         serializedVersion: 2
-        x: 96
-        y: 240
+        x: 416
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2654,8 +2868,8 @@ TextureImporter:
       name: mainstreet_tileset_167
       rect:
         serializedVersion: 2
-        x: 208
-        y: 240
+        x: 432
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2667,8 +2881,8 @@ TextureImporter:
       name: mainstreet_tileset_168
       rect:
         serializedVersion: 2
-        x: 224
-        y: 240
+        x: 448
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2680,8 +2894,8 @@ TextureImporter:
       name: mainstreet_tileset_169
       rect:
         serializedVersion: 2
-        x: 240
-        y: 240
+        x: 464
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2693,8 +2907,8 @@ TextureImporter:
       name: mainstreet_tileset_170
       rect:
         serializedVersion: 2
-        x: 256
-        y: 240
+        x: 480
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2706,8 +2920,8 @@ TextureImporter:
       name: mainstreet_tileset_171
       rect:
         serializedVersion: 2
-        x: 272
-        y: 240
+        x: 496
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2719,8 +2933,8 @@ TextureImporter:
       name: mainstreet_tileset_172
       rect:
         serializedVersion: 2
-        x: 288
-        y: 240
+        x: 512
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2732,8 +2946,8 @@ TextureImporter:
       name: mainstreet_tileset_173
       rect:
         serializedVersion: 2
-        x: 304
-        y: 240
+        x: 528
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2745,8 +2959,8 @@ TextureImporter:
       name: mainstreet_tileset_174
       rect:
         serializedVersion: 2
-        x: 320
-        y: 240
+        x: 544
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2758,8 +2972,8 @@ TextureImporter:
       name: mainstreet_tileset_175
       rect:
         serializedVersion: 2
-        x: 336
-        y: 240
+        x: 560
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2771,8 +2985,8 @@ TextureImporter:
       name: mainstreet_tileset_176
       rect:
         serializedVersion: 2
-        x: 352
-        y: 240
+        x: 576
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2784,8 +2998,8 @@ TextureImporter:
       name: mainstreet_tileset_177
       rect:
         serializedVersion: 2
-        x: 368
-        y: 240
+        x: 592
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2797,8 +3011,8 @@ TextureImporter:
       name: mainstreet_tileset_178
       rect:
         serializedVersion: 2
-        x: 0
-        y: 224
+        x: 608
+        y: 528
         width: 16
         height: 16
       alignment: 0
@@ -2810,8 +3024,8 @@ TextureImporter:
       name: mainstreet_tileset_179
       rect:
         serializedVersion: 2
-        x: 16
-        y: 224
+        x: 0
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -2823,8 +3037,8 @@ TextureImporter:
       name: mainstreet_tileset_180
       rect:
         serializedVersion: 2
-        x: 32
-        y: 224
+        x: 16
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -2836,8 +3050,8 @@ TextureImporter:
       name: mainstreet_tileset_181
       rect:
         serializedVersion: 2
-        x: 48
-        y: 224
+        x: 32
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -2849,8 +3063,8 @@ TextureImporter:
       name: mainstreet_tileset_182
       rect:
         serializedVersion: 2
-        x: 64
-        y: 224
+        x: 48
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -2862,8 +3076,8 @@ TextureImporter:
       name: mainstreet_tileset_183
       rect:
         serializedVersion: 2
-        x: 80
-        y: 224
+        x: 64
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -2875,8 +3089,8 @@ TextureImporter:
       name: mainstreet_tileset_184
       rect:
         serializedVersion: 2
-        x: 96
-        y: 224
+        x: 80
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -2888,8 +3102,8 @@ TextureImporter:
       name: mainstreet_tileset_185
       rect:
         serializedVersion: 2
-        x: 128
-        y: 224
+        x: 112
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -2901,8 +3115,8 @@ TextureImporter:
       name: mainstreet_tileset_186
       rect:
         serializedVersion: 2
-        x: 144
-        y: 224
+        x: 128
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -2914,8 +3128,8 @@ TextureImporter:
       name: mainstreet_tileset_187
       rect:
         serializedVersion: 2
-        x: 256
-        y: 224
+        x: 192
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -2927,8 +3141,8 @@ TextureImporter:
       name: mainstreet_tileset_188
       rect:
         serializedVersion: 2
-        x: 272
-        y: 224
+        x: 208
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -2940,8 +3154,8 @@ TextureImporter:
       name: mainstreet_tileset_189
       rect:
         serializedVersion: 2
-        x: 288
-        y: 224
+        x: 224
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -2953,8 +3167,8 @@ TextureImporter:
       name: mainstreet_tileset_190
       rect:
         serializedVersion: 2
-        x: 352
-        y: 224
+        x: 240
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -2966,8 +3180,8 @@ TextureImporter:
       name: mainstreet_tileset_191
       rect:
         serializedVersion: 2
-        x: 368
-        y: 224
+        x: 256
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -2979,8 +3193,8 @@ TextureImporter:
       name: mainstreet_tileset_192
       rect:
         serializedVersion: 2
-        x: 0
-        y: 208
+        x: 272
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -2992,8 +3206,8 @@ TextureImporter:
       name: mainstreet_tileset_193
       rect:
         serializedVersion: 2
-        x: 16
-        y: 208
+        x: 288
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3005,8 +3219,8 @@ TextureImporter:
       name: mainstreet_tileset_194
       rect:
         serializedVersion: 2
-        x: 32
-        y: 208
+        x: 304
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3018,8 +3232,8 @@ TextureImporter:
       name: mainstreet_tileset_195
       rect:
         serializedVersion: 2
-        x: 48
-        y: 208
+        x: 320
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3031,8 +3245,8 @@ TextureImporter:
       name: mainstreet_tileset_196
       rect:
         serializedVersion: 2
-        x: 64
-        y: 208
+        x: 336
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3044,8 +3258,8 @@ TextureImporter:
       name: mainstreet_tileset_197
       rect:
         serializedVersion: 2
-        x: 80
-        y: 208
+        x: 352
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3057,8 +3271,8 @@ TextureImporter:
       name: mainstreet_tileset_198
       rect:
         serializedVersion: 2
-        x: 96
-        y: 208
+        x: 368
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3070,8 +3284,8 @@ TextureImporter:
       name: mainstreet_tileset_199
       rect:
         serializedVersion: 2
-        x: 128
-        y: 208
+        x: 384
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3083,8 +3297,8 @@ TextureImporter:
       name: mainstreet_tileset_200
       rect:
         serializedVersion: 2
-        x: 144
-        y: 208
+        x: 400
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3096,8 +3310,8 @@ TextureImporter:
       name: mainstreet_tileset_201
       rect:
         serializedVersion: 2
-        x: 192
-        y: 208
+        x: 416
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3109,8 +3323,8 @@ TextureImporter:
       name: mainstreet_tileset_202
       rect:
         serializedVersion: 2
-        x: 208
-        y: 208
+        x: 432
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3122,8 +3336,8 @@ TextureImporter:
       name: mainstreet_tileset_203
       rect:
         serializedVersion: 2
-        x: 224
-        y: 208
+        x: 448
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3135,8 +3349,8 @@ TextureImporter:
       name: mainstreet_tileset_204
       rect:
         serializedVersion: 2
-        x: 256
-        y: 208
+        x: 464
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3148,8 +3362,8 @@ TextureImporter:
       name: mainstreet_tileset_205
       rect:
         serializedVersion: 2
-        x: 272
-        y: 208
+        x: 480
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3161,8 +3375,8 @@ TextureImporter:
       name: mainstreet_tileset_206
       rect:
         serializedVersion: 2
-        x: 288
-        y: 208
+        x: 496
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3174,8 +3388,8 @@ TextureImporter:
       name: mainstreet_tileset_207
       rect:
         serializedVersion: 2
-        x: 352
-        y: 208
+        x: 512
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3187,8 +3401,8 @@ TextureImporter:
       name: mainstreet_tileset_208
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
+        x: 528
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3200,8 +3414,8 @@ TextureImporter:
       name: mainstreet_tileset_209
       rect:
         serializedVersion: 2
-        x: 16
-        y: 192
+        x: 544
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3213,8 +3427,8 @@ TextureImporter:
       name: mainstreet_tileset_210
       rect:
         serializedVersion: 2
-        x: 32
-        y: 192
+        x: 560
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -3226,8 +3440,8 @@ TextureImporter:
       name: mainstreet_tileset_211
       rect:
         serializedVersion: 2
-        x: 48
-        y: 192
+        x: 0
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3239,8 +3453,8 @@ TextureImporter:
       name: mainstreet_tileset_212
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
+        x: 16
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3252,8 +3466,8 @@ TextureImporter:
       name: mainstreet_tileset_213
       rect:
         serializedVersion: 2
-        x: 80
-        y: 192
+        x: 32
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3265,8 +3479,8 @@ TextureImporter:
       name: mainstreet_tileset_214
       rect:
         serializedVersion: 2
-        x: 96
-        y: 192
+        x: 48
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3278,8 +3492,8 @@ TextureImporter:
       name: mainstreet_tileset_215
       rect:
         serializedVersion: 2
-        x: 192
-        y: 192
+        x: 64
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3291,8 +3505,8 @@ TextureImporter:
       name: mainstreet_tileset_216
       rect:
         serializedVersion: 2
-        x: 208
-        y: 192
+        x: 80
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3304,8 +3518,8 @@ TextureImporter:
       name: mainstreet_tileset_217
       rect:
         serializedVersion: 2
-        x: 224
-        y: 192
+        x: 96
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3317,8 +3531,8 @@ TextureImporter:
       name: mainstreet_tileset_218
       rect:
         serializedVersion: 2
-        x: 256
-        y: 192
+        x: 112
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3330,8 +3544,8 @@ TextureImporter:
       name: mainstreet_tileset_219
       rect:
         serializedVersion: 2
-        x: 272
-        y: 192
+        x: 192
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3343,8 +3557,8 @@ TextureImporter:
       name: mainstreet_tileset_220
       rect:
         serializedVersion: 2
-        x: 288
-        y: 192
+        x: 208
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3356,8 +3570,8 @@ TextureImporter:
       name: mainstreet_tileset_221
       rect:
         serializedVersion: 2
-        x: 336
-        y: 192
+        x: 224
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3369,8 +3583,8 @@ TextureImporter:
       name: mainstreet_tileset_222
       rect:
         serializedVersion: 2
-        x: 192
-        y: 176
+        x: 240
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3382,8 +3596,8 @@ TextureImporter:
       name: mainstreet_tileset_223
       rect:
         serializedVersion: 2
-        x: 208
-        y: 176
+        x: 256
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3395,8 +3609,8 @@ TextureImporter:
       name: mainstreet_tileset_224
       rect:
         serializedVersion: 2
-        x: 224
-        y: 176
+        x: 272
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3408,8 +3622,8 @@ TextureImporter:
       name: mainstreet_tileset_225
       rect:
         serializedVersion: 2
-        x: 272
-        y: 176
+        x: 288
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3422,7 +3636,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 304
-        y: 176
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3435,7 +3649,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 176
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3448,7 +3662,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 336
-        y: 176
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3460,8 +3674,8 @@ TextureImporter:
       name: mainstreet_tileset_229
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160
+        x: 352
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3473,8 +3687,8 @@ TextureImporter:
       name: mainstreet_tileset_230
       rect:
         serializedVersion: 2
-        x: 16
-        y: 160
+        x: 368
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3486,8 +3700,8 @@ TextureImporter:
       name: mainstreet_tileset_231
       rect:
         serializedVersion: 2
-        x: 32
-        y: 160
+        x: 384
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3499,8 +3713,8 @@ TextureImporter:
       name: mainstreet_tileset_232
       rect:
         serializedVersion: 2
-        x: 48
-        y: 160
+        x: 400
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3512,8 +3726,8 @@ TextureImporter:
       name: mainstreet_tileset_233
       rect:
         serializedVersion: 2
-        x: 64
-        y: 160
+        x: 416
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3525,8 +3739,8 @@ TextureImporter:
       name: mainstreet_tileset_234
       rect:
         serializedVersion: 2
-        x: 96
-        y: 160
+        x: 432
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3538,8 +3752,8 @@ TextureImporter:
       name: mainstreet_tileset_235
       rect:
         serializedVersion: 2
-        x: 192
-        y: 160
+        x: 448
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3551,8 +3765,8 @@ TextureImporter:
       name: mainstreet_tileset_236
       rect:
         serializedVersion: 2
-        x: 208
-        y: 160
+        x: 464
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3564,8 +3778,8 @@ TextureImporter:
       name: mainstreet_tileset_237
       rect:
         serializedVersion: 2
-        x: 224
-        y: 160
+        x: 480
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3577,8 +3791,8 @@ TextureImporter:
       name: mainstreet_tileset_238
       rect:
         serializedVersion: 2
-        x: 240
-        y: 160
+        x: 496
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3590,8 +3804,8 @@ TextureImporter:
       name: mainstreet_tileset_239
       rect:
         serializedVersion: 2
-        x: 304
-        y: 160
+        x: 512
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3603,8 +3817,8 @@ TextureImporter:
       name: mainstreet_tileset_240
       rect:
         serializedVersion: 2
-        x: 320
-        y: 160
+        x: 528
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3616,8 +3830,8 @@ TextureImporter:
       name: mainstreet_tileset_241
       rect:
         serializedVersion: 2
-        x: 336
-        y: 160
+        x: 544
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3629,8 +3843,8 @@ TextureImporter:
       name: mainstreet_tileset_242
       rect:
         serializedVersion: 2
-        x: 96
-        y: 144
+        x: 560
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -3642,8 +3856,8 @@ TextureImporter:
       name: mainstreet_tileset_243
       rect:
         serializedVersion: 2
-        x: 192
-        y: 144
+        x: 0
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3655,8 +3869,8 @@ TextureImporter:
       name: mainstreet_tileset_244
       rect:
         serializedVersion: 2
-        x: 208
-        y: 144
+        x: 16
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3668,8 +3882,8 @@ TextureImporter:
       name: mainstreet_tileset_245
       rect:
         serializedVersion: 2
-        x: 224
-        y: 144
+        x: 32
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3681,8 +3895,8 @@ TextureImporter:
       name: mainstreet_tileset_246
       rect:
         serializedVersion: 2
-        x: 240
-        y: 144
+        x: 48
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3694,8 +3908,8 @@ TextureImporter:
       name: mainstreet_tileset_247
       rect:
         serializedVersion: 2
-        x: 304
-        y: 144
+        x: 64
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3707,8 +3921,8 @@ TextureImporter:
       name: mainstreet_tileset_248
       rect:
         serializedVersion: 2
-        x: 320
-        y: 144
+        x: 80
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3720,8 +3934,8 @@ TextureImporter:
       name: mainstreet_tileset_249
       rect:
         serializedVersion: 2
-        x: 336
-        y: 144
+        x: 96
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3733,8 +3947,8 @@ TextureImporter:
       name: mainstreet_tileset_250
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 112
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3746,8 +3960,8 @@ TextureImporter:
       name: mainstreet_tileset_251
       rect:
         serializedVersion: 2
-        x: 32
-        y: 128
+        x: 128
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3759,8 +3973,8 @@ TextureImporter:
       name: mainstreet_tileset_252
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
+        x: 144
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3772,8 +3986,8 @@ TextureImporter:
       name: mainstreet_tileset_253
       rect:
         serializedVersion: 2
-        x: 96
-        y: 128
+        x: 192
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3785,8 +3999,8 @@ TextureImporter:
       name: mainstreet_tileset_254
       rect:
         serializedVersion: 2
-        x: 112
-        y: 128
+        x: 208
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3798,8 +4012,8 @@ TextureImporter:
       name: mainstreet_tileset_255
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 224
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3811,8 +4025,8 @@ TextureImporter:
       name: mainstreet_tileset_256
       rect:
         serializedVersion: 2
-        x: 144
-        y: 128
+        x: 240
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3824,8 +4038,8 @@ TextureImporter:
       name: mainstreet_tileset_257
       rect:
         serializedVersion: 2
-        x: 192
-        y: 128
+        x: 256
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3837,8 +4051,8 @@ TextureImporter:
       name: mainstreet_tileset_258
       rect:
         serializedVersion: 2
-        x: 208
-        y: 128
+        x: 272
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3850,8 +4064,8 @@ TextureImporter:
       name: mainstreet_tileset_259
       rect:
         serializedVersion: 2
-        x: 224
-        y: 128
+        x: 288
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3863,8 +4077,8 @@ TextureImporter:
       name: mainstreet_tileset_260
       rect:
         serializedVersion: 2
-        x: 240
-        y: 128
+        x: 304
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3876,8 +4090,8 @@ TextureImporter:
       name: mainstreet_tileset_261
       rect:
         serializedVersion: 2
-        x: 304
-        y: 128
+        x: 320
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3889,8 +4103,8 @@ TextureImporter:
       name: mainstreet_tileset_262
       rect:
         serializedVersion: 2
-        x: 320
-        y: 128
+        x: 336
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3902,8 +4116,8 @@ TextureImporter:
       name: mainstreet_tileset_263
       rect:
         serializedVersion: 2
-        x: 336
-        y: 128
+        x: 352
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3915,8 +4129,8 @@ TextureImporter:
       name: mainstreet_tileset_264
       rect:
         serializedVersion: 2
-        x: 352
-        y: 128
+        x: 368
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3928,8 +4142,8 @@ TextureImporter:
       name: mainstreet_tileset_265
       rect:
         serializedVersion: 2
-        x: 368
-        y: 128
+        x: 384
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3941,8 +4155,8 @@ TextureImporter:
       name: mainstreet_tileset_266
       rect:
         serializedVersion: 2
-        x: 96
-        y: 112
+        x: 400
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3954,8 +4168,8 @@ TextureImporter:
       name: mainstreet_tileset_267
       rect:
         serializedVersion: 2
-        x: 112
-        y: 112
+        x: 416
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3967,8 +4181,8 @@ TextureImporter:
       name: mainstreet_tileset_268
       rect:
         serializedVersion: 2
-        x: 128
-        y: 112
+        x: 432
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3980,8 +4194,8 @@ TextureImporter:
       name: mainstreet_tileset_269
       rect:
         serializedVersion: 2
-        x: 144
-        y: 112
+        x: 448
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -3993,8 +4207,8 @@ TextureImporter:
       name: mainstreet_tileset_270
       rect:
         serializedVersion: 2
-        x: 160
-        y: 112
+        x: 464
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -4006,8 +4220,8 @@ TextureImporter:
       name: mainstreet_tileset_271
       rect:
         serializedVersion: 2
-        x: 192
-        y: 112
+        x: 480
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -4019,8 +4233,8 @@ TextureImporter:
       name: mainstreet_tileset_272
       rect:
         serializedVersion: 2
-        x: 208
-        y: 112
+        x: 496
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -4032,8 +4246,8 @@ TextureImporter:
       name: mainstreet_tileset_273
       rect:
         serializedVersion: 2
-        x: 224
-        y: 112
+        x: 512
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -4045,8 +4259,8 @@ TextureImporter:
       name: mainstreet_tileset_274
       rect:
         serializedVersion: 2
-        x: 240
-        y: 112
+        x: 528
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -4058,8 +4272,8 @@ TextureImporter:
       name: mainstreet_tileset_275
       rect:
         serializedVersion: 2
-        x: 288
-        y: 112
+        x: 544
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -4071,8 +4285,8 @@ TextureImporter:
       name: mainstreet_tileset_276
       rect:
         serializedVersion: 2
-        x: 304
-        y: 112
+        x: 560
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -4084,8 +4298,8 @@ TextureImporter:
       name: mainstreet_tileset_277
       rect:
         serializedVersion: 2
-        x: 320
-        y: 112
+        x: 0
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4097,8 +4311,8 @@ TextureImporter:
       name: mainstreet_tileset_278
       rect:
         serializedVersion: 2
-        x: 336
-        y: 112
+        x: 16
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4110,8 +4324,8 @@ TextureImporter:
       name: mainstreet_tileset_279
       rect:
         serializedVersion: 2
-        x: 352
-        y: 112
+        x: 32
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4123,8 +4337,8 @@ TextureImporter:
       name: mainstreet_tileset_280
       rect:
         serializedVersion: 2
-        x: 368
-        y: 112
+        x: 48
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4136,8 +4350,8 @@ TextureImporter:
       name: mainstreet_tileset_281
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
+        x: 64
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4149,8 +4363,8 @@ TextureImporter:
       name: mainstreet_tileset_282
       rect:
         serializedVersion: 2
-        x: 16
-        y: 96
+        x: 80
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4162,8 +4376,8 @@ TextureImporter:
       name: mainstreet_tileset_283
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
+        x: 96
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4175,8 +4389,8 @@ TextureImporter:
       name: mainstreet_tileset_284
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
+        x: 208
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4188,8 +4402,8 @@ TextureImporter:
       name: mainstreet_tileset_285
       rect:
         serializedVersion: 2
-        x: 112
-        y: 96
+        x: 224
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4201,8 +4415,8 @@ TextureImporter:
       name: mainstreet_tileset_286
       rect:
         serializedVersion: 2
-        x: 128
-        y: 96
+        x: 240
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4214,8 +4428,8 @@ TextureImporter:
       name: mainstreet_tileset_287
       rect:
         serializedVersion: 2
-        x: 144
-        y: 96
+        x: 256
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4227,8 +4441,8 @@ TextureImporter:
       name: mainstreet_tileset_288
       rect:
         serializedVersion: 2
-        x: 160
-        y: 96
+        x: 272
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4240,8 +4454,8 @@ TextureImporter:
       name: mainstreet_tileset_289
       rect:
         serializedVersion: 2
-        x: 192
-        y: 96
+        x: 288
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4253,8 +4467,8 @@ TextureImporter:
       name: mainstreet_tileset_290
       rect:
         serializedVersion: 2
-        x: 208
-        y: 96
+        x: 304
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4266,8 +4480,8 @@ TextureImporter:
       name: mainstreet_tileset_291
       rect:
         serializedVersion: 2
-        x: 224
-        y: 96
+        x: 320
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4279,8 +4493,8 @@ TextureImporter:
       name: mainstreet_tileset_292
       rect:
         serializedVersion: 2
-        x: 240
-        y: 96
+        x: 336
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4292,8 +4506,8 @@ TextureImporter:
       name: mainstreet_tileset_293
       rect:
         serializedVersion: 2
-        x: 304
-        y: 96
+        x: 352
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4305,8 +4519,8 @@ TextureImporter:
       name: mainstreet_tileset_294
       rect:
         serializedVersion: 2
-        x: 320
-        y: 96
+        x: 368
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4318,8 +4532,8 @@ TextureImporter:
       name: mainstreet_tileset_295
       rect:
         serializedVersion: 2
-        x: 336
-        y: 96
+        x: 384
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4331,8 +4545,8 @@ TextureImporter:
       name: mainstreet_tileset_296
       rect:
         serializedVersion: 2
-        x: 352
-        y: 96
+        x: 400
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4344,8 +4558,8 @@ TextureImporter:
       name: mainstreet_tileset_297
       rect:
         serializedVersion: 2
-        x: 368
-        y: 96
+        x: 416
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4357,8 +4571,8 @@ TextureImporter:
       name: mainstreet_tileset_298
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
+        x: 432
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4370,8 +4584,8 @@ TextureImporter:
       name: mainstreet_tileset_299
       rect:
         serializedVersion: 2
-        x: 16
-        y: 80
+        x: 448
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4383,8 +4597,8 @@ TextureImporter:
       name: mainstreet_tileset_300
       rect:
         serializedVersion: 2
-        x: 32
-        y: 80
+        x: 464
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4396,8 +4610,8 @@ TextureImporter:
       name: mainstreet_tileset_301
       rect:
         serializedVersion: 2
-        x: 48
-        y: 80
+        x: 480
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4409,8 +4623,8 @@ TextureImporter:
       name: mainstreet_tileset_302
       rect:
         serializedVersion: 2
-        x: 64
-        y: 80
+        x: 496
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4422,8 +4636,8 @@ TextureImporter:
       name: mainstreet_tileset_303
       rect:
         serializedVersion: 2
-        x: 80
-        y: 80
+        x: 512
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4435,8 +4649,8 @@ TextureImporter:
       name: mainstreet_tileset_304
       rect:
         serializedVersion: 2
-        x: 96
-        y: 80
+        x: 528
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4448,8 +4662,8 @@ TextureImporter:
       name: mainstreet_tileset_305
       rect:
         serializedVersion: 2
-        x: 112
-        y: 80
+        x: 544
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -4461,8 +4675,8 @@ TextureImporter:
       name: mainstreet_tileset_306
       rect:
         serializedVersion: 2
-        x: 128
-        y: 80
+        x: 0
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4474,8 +4688,8 @@ TextureImporter:
       name: mainstreet_tileset_307
       rect:
         serializedVersion: 2
-        x: 144
-        y: 80
+        x: 16
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4487,8 +4701,8 @@ TextureImporter:
       name: mainstreet_tileset_308
       rect:
         serializedVersion: 2
-        x: 192
-        y: 80
+        x: 32
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4500,8 +4714,8 @@ TextureImporter:
       name: mainstreet_tileset_309
       rect:
         serializedVersion: 2
-        x: 208
-        y: 80
+        x: 48
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4513,8 +4727,8 @@ TextureImporter:
       name: mainstreet_tileset_310
       rect:
         serializedVersion: 2
-        x: 224
-        y: 80
+        x: 64
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4526,8 +4740,8 @@ TextureImporter:
       name: mainstreet_tileset_311
       rect:
         serializedVersion: 2
-        x: 240
-        y: 80
+        x: 80
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4539,8 +4753,8 @@ TextureImporter:
       name: mainstreet_tileset_312
       rect:
         serializedVersion: 2
-        x: 288
-        y: 80
+        x: 96
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4552,8 +4766,8 @@ TextureImporter:
       name: mainstreet_tileset_313
       rect:
         serializedVersion: 2
-        x: 304
-        y: 80
+        x: 128
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4565,8 +4779,8 @@ TextureImporter:
       name: mainstreet_tileset_314
       rect:
         serializedVersion: 2
-        x: 320
-        y: 80
+        x: 144
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4578,8 +4792,8 @@ TextureImporter:
       name: mainstreet_tileset_315
       rect:
         serializedVersion: 2
-        x: 336
-        y: 80
+        x: 256
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4591,8 +4805,8 @@ TextureImporter:
       name: mainstreet_tileset_316
       rect:
         serializedVersion: 2
-        x: 352
-        y: 80
+        x: 272
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4604,8 +4818,8 @@ TextureImporter:
       name: mainstreet_tileset_317
       rect:
         serializedVersion: 2
-        x: 368
-        y: 80
+        x: 288
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4617,8 +4831,8 @@ TextureImporter:
       name: mainstreet_tileset_318
       rect:
         serializedVersion: 2
-        x: 48
-        y: 64
+        x: 352
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4630,8 +4844,8 @@ TextureImporter:
       name: mainstreet_tileset_319
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
+        x: 368
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4643,8 +4857,8 @@ TextureImporter:
       name: mainstreet_tileset_320
       rect:
         serializedVersion: 2
-        x: 80
-        y: 64
+        x: 384
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4656,8 +4870,8 @@ TextureImporter:
       name: mainstreet_tileset_321
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
+        x: 400
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4669,8 +4883,8 @@ TextureImporter:
       name: mainstreet_tileset_322
       rect:
         serializedVersion: 2
-        x: 112
-        y: 64
+        x: 464
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4682,8 +4896,8 @@ TextureImporter:
       name: mainstreet_tileset_323
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
+        x: 480
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4695,8 +4909,8 @@ TextureImporter:
       name: mainstreet_tileset_324
       rect:
         serializedVersion: 2
-        x: 144
-        y: 64
+        x: 496
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -4708,8 +4922,8 @@ TextureImporter:
       name: mainstreet_tileset_325
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
+        x: 0
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4721,8 +4935,8 @@ TextureImporter:
       name: mainstreet_tileset_326
       rect:
         serializedVersion: 2
-        x: 208
-        y: 64
+        x: 16
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4734,8 +4948,8 @@ TextureImporter:
       name: mainstreet_tileset_327
       rect:
         serializedVersion: 2
-        x: 224
-        y: 64
+        x: 32
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4747,8 +4961,8 @@ TextureImporter:
       name: mainstreet_tileset_328
       rect:
         serializedVersion: 2
-        x: 240
-        y: 64
+        x: 48
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4760,8 +4974,8 @@ TextureImporter:
       name: mainstreet_tileset_329
       rect:
         serializedVersion: 2
-        x: 256
-        y: 64
+        x: 64
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4773,8 +4987,8 @@ TextureImporter:
       name: mainstreet_tileset_330
       rect:
         serializedVersion: 2
-        x: 272
-        y: 64
+        x: 80
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4786,8 +5000,8 @@ TextureImporter:
       name: mainstreet_tileset_331
       rect:
         serializedVersion: 2
-        x: 288
-        y: 64
+        x: 96
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4799,8 +5013,8 @@ TextureImporter:
       name: mainstreet_tileset_332
       rect:
         serializedVersion: 2
-        x: 304
-        y: 64
+        x: 128
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4812,8 +5026,8 @@ TextureImporter:
       name: mainstreet_tileset_333
       rect:
         serializedVersion: 2
-        x: 320
-        y: 64
+        x: 144
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4825,8 +5039,8 @@ TextureImporter:
       name: mainstreet_tileset_334
       rect:
         serializedVersion: 2
-        x: 336
-        y: 64
+        x: 256
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4838,8 +5052,8 @@ TextureImporter:
       name: mainstreet_tileset_335
       rect:
         serializedVersion: 2
-        x: 352
-        y: 64
+        x: 272
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4851,8 +5065,8 @@ TextureImporter:
       name: mainstreet_tileset_336
       rect:
         serializedVersion: 2
-        x: 32
-        y: 48
+        x: 288
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4864,8 +5078,8 @@ TextureImporter:
       name: mainstreet_tileset_337
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
+        x: 352
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4877,8 +5091,8 @@ TextureImporter:
       name: mainstreet_tileset_338
       rect:
         serializedVersion: 2
-        x: 64
-        y: 48
+        x: 400
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4890,8 +5104,8 @@ TextureImporter:
       name: mainstreet_tileset_339
       rect:
         serializedVersion: 2
-        x: 80
-        y: 48
+        x: 464
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4903,8 +5117,8 @@ TextureImporter:
       name: mainstreet_tileset_340
       rect:
         serializedVersion: 2
-        x: 96
-        y: 48
+        x: 480
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4916,8 +5130,8 @@ TextureImporter:
       name: mainstreet_tileset_341
       rect:
         serializedVersion: 2
-        x: 144
-        y: 48
+        x: 496
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -4929,8 +5143,8 @@ TextureImporter:
       name: mainstreet_tileset_342
       rect:
         serializedVersion: 2
-        x: 192
-        y: 48
+        x: 0
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -4942,8 +5156,8 @@ TextureImporter:
       name: mainstreet_tileset_343
       rect:
         serializedVersion: 2
-        x: 208
-        y: 48
+        x: 16
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -4955,8 +5169,8 @@ TextureImporter:
       name: mainstreet_tileset_344
       rect:
         serializedVersion: 2
-        x: 224
-        y: 48
+        x: 32
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -4968,8 +5182,8 @@ TextureImporter:
       name: mainstreet_tileset_345
       rect:
         serializedVersion: 2
-        x: 240
-        y: 48
+        x: 48
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -4981,8 +5195,8 @@ TextureImporter:
       name: mainstreet_tileset_346
       rect:
         serializedVersion: 2
-        x: 256
-        y: 48
+        x: 64
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -4994,8 +5208,8 @@ TextureImporter:
       name: mainstreet_tileset_347
       rect:
         serializedVersion: 2
-        x: 272
-        y: 48
+        x: 80
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -5007,8 +5221,8 @@ TextureImporter:
       name: mainstreet_tileset_348
       rect:
         serializedVersion: 2
-        x: 288
-        y: 48
+        x: 96
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -5020,8 +5234,8 @@ TextureImporter:
       name: mainstreet_tileset_349
       rect:
         serializedVersion: 2
-        x: 304
-        y: 48
+        x: 144
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -5033,8 +5247,8 @@ TextureImporter:
       name: mainstreet_tileset_350
       rect:
         serializedVersion: 2
-        x: 320
-        y: 48
+        x: 160
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -5046,8 +5260,8 @@ TextureImporter:
       name: mainstreet_tileset_351
       rect:
         serializedVersion: 2
-        x: 336
-        y: 48
+        x: 176
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -5059,8 +5273,8 @@ TextureImporter:
       name: mainstreet_tileset_352
       rect:
         serializedVersion: 2
-        x: 352
-        y: 48
+        x: 192
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -5072,8 +5286,8 @@ TextureImporter:
       name: mainstreet_tileset_353
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 208
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -5085,8 +5299,8 @@ TextureImporter:
       name: mainstreet_tileset_354
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
+        x: 224
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -5098,8 +5312,8 @@ TextureImporter:
       name: mainstreet_tileset_355
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 256
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -5111,8 +5325,8 @@ TextureImporter:
       name: mainstreet_tileset_356
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
+        x: 272
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -5124,8 +5338,8 @@ TextureImporter:
       name: mainstreet_tileset_357
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 288
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -5137,8 +5351,8 @@ TextureImporter:
       name: mainstreet_tileset_358
       rect:
         serializedVersion: 2
-        x: 80
-        y: 32
+        x: 336
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -5150,8 +5364,8 @@ TextureImporter:
       name: mainstreet_tileset_359
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
+        x: 464
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -5163,8 +5377,8 @@ TextureImporter:
       name: mainstreet_tileset_360
       rect:
         serializedVersion: 2
-        x: 112
-        y: 32
+        x: 480
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -5176,8 +5390,8 @@ TextureImporter:
       name: mainstreet_tileset_361
       rect:
         serializedVersion: 2
-        x: 128
-        y: 32
+        x: 496
+        y: 416
         width: 16
         height: 16
       alignment: 0
@@ -5190,7 +5404,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 32
+        y: 400
         width: 16
         height: 16
       alignment: 0
@@ -5203,7 +5417,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 32
+        y: 400
         width: 16
         height: 16
       alignment: 0
@@ -5216,7 +5430,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 176
-        y: 32
+        y: 400
         width: 16
         height: 16
       alignment: 0
@@ -5229,7 +5443,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 32
+        y: 400
         width: 16
         height: 16
       alignment: 0
@@ -5242,7 +5456,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 208
-        y: 32
+        y: 400
         width: 16
         height: 16
       alignment: 0
@@ -5255,7 +5469,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 224
-        y: 32
+        y: 400
         width: 16
         height: 16
       alignment: 0
@@ -5267,8 +5481,8 @@ TextureImporter:
       name: mainstreet_tileset_368
       rect:
         serializedVersion: 2
-        x: 240
-        y: 32
+        x: 272
+        y: 400
         width: 16
         height: 16
       alignment: 0
@@ -5280,8 +5494,8 @@ TextureImporter:
       name: mainstreet_tileset_369
       rect:
         serializedVersion: 2
-        x: 272
-        y: 32
+        x: 304
+        y: 400
         width: 16
         height: 16
       alignment: 0
@@ -5293,8 +5507,8 @@ TextureImporter:
       name: mainstreet_tileset_370
       rect:
         serializedVersion: 2
-        x: 288
-        y: 32
+        x: 320
+        y: 400
         width: 16
         height: 16
       alignment: 0
@@ -5306,8 +5520,8 @@ TextureImporter:
       name: mainstreet_tileset_371
       rect:
         serializedVersion: 2
-        x: 304
-        y: 32
+        x: 336
+        y: 400
         width: 16
         height: 16
       alignment: 0
@@ -5319,8 +5533,8 @@ TextureImporter:
       name: mainstreet_tileset_372
       rect:
         serializedVersion: 2
-        x: 320
-        y: 32
+        x: 416
+        y: 400
         width: 16
         height: 16
       alignment: 0
@@ -5332,8 +5546,8 @@ TextureImporter:
       name: mainstreet_tileset_373
       rect:
         serializedVersion: 2
-        x: 336
-        y: 32
+        x: 432
+        y: 400
         width: 16
         height: 16
       alignment: 0
@@ -5345,8 +5559,8 @@ TextureImporter:
       name: mainstreet_tileset_374
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
+        x: 448
+        y: 400
         width: 16
         height: 16
       alignment: 0
@@ -5358,8 +5572,8 @@ TextureImporter:
       name: mainstreet_tileset_375
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 480
+        y: 400
         width: 16
         height: 16
       alignment: 0
@@ -5371,8 +5585,8 @@ TextureImporter:
       name: mainstreet_tileset_376
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
+        x: 0
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5384,8 +5598,8 @@ TextureImporter:
       name: mainstreet_tileset_377
       rect:
         serializedVersion: 2
-        x: 48
-        y: 16
+        x: 16
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5397,8 +5611,8 @@ TextureImporter:
       name: mainstreet_tileset_378
       rect:
         serializedVersion: 2
-        x: 64
-        y: 16
+        x: 32
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5410,8 +5624,8 @@ TextureImporter:
       name: mainstreet_tileset_379
       rect:
         serializedVersion: 2
-        x: 80
-        y: 16
+        x: 48
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5423,8 +5637,8 @@ TextureImporter:
       name: mainstreet_tileset_380
       rect:
         serializedVersion: 2
-        x: 96
-        y: 16
+        x: 64
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5436,8 +5650,8 @@ TextureImporter:
       name: mainstreet_tileset_381
       rect:
         serializedVersion: 2
-        x: 112
-        y: 16
+        x: 96
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5449,8 +5663,8 @@ TextureImporter:
       name: mainstreet_tileset_382
       rect:
         serializedVersion: 2
-        x: 128
-        y: 16
+        x: 144
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5462,8 +5676,8 @@ TextureImporter:
       name: mainstreet_tileset_383
       rect:
         serializedVersion: 2
-        x: 144
-        y: 16
+        x: 160
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5475,8 +5689,8 @@ TextureImporter:
       name: mainstreet_tileset_384
       rect:
         serializedVersion: 2
-        x: 160
-        y: 16
+        x: 176
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5488,8 +5702,8 @@ TextureImporter:
       name: mainstreet_tileset_385
       rect:
         serializedVersion: 2
-        x: 176
-        y: 16
+        x: 192
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5501,8 +5715,8 @@ TextureImporter:
       name: mainstreet_tileset_386
       rect:
         serializedVersion: 2
-        x: 192
-        y: 16
+        x: 208
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5514,8 +5728,8 @@ TextureImporter:
       name: mainstreet_tileset_387
       rect:
         serializedVersion: 2
-        x: 208
-        y: 16
+        x: 224
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5527,8 +5741,8 @@ TextureImporter:
       name: mainstreet_tileset_388
       rect:
         serializedVersion: 2
-        x: 224
-        y: 16
+        x: 304
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5540,8 +5754,8 @@ TextureImporter:
       name: mainstreet_tileset_389
       rect:
         serializedVersion: 2
-        x: 240
-        y: 16
+        x: 320
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5553,8 +5767,8 @@ TextureImporter:
       name: mainstreet_tileset_390
       rect:
         serializedVersion: 2
-        x: 304
-        y: 16
+        x: 336
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5566,8 +5780,8 @@ TextureImporter:
       name: mainstreet_tileset_391
       rect:
         serializedVersion: 2
-        x: 320
-        y: 16
+        x: 416
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5579,8 +5793,8 @@ TextureImporter:
       name: mainstreet_tileset_392
       rect:
         serializedVersion: 2
-        x: 336
-        y: 16
+        x: 432
+        y: 384
         width: 16
         height: 16
       alignment: 0
@@ -5592,8 +5806,2790 @@ TextureImporter:
       name: mainstreet_tileset_393
       rect:
         serializedVersion: 2
+        x: 448
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_394
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_395
+      rect:
+        serializedVersion: 2
         x: 128
-        y: 176
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_396
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_397
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_398
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_399
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_400
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_401
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_402
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_403
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_404
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_405
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_406
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_407
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_408
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 368
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_409
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_410
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_411
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_412
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_413
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_414
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_415
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_416
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_417
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_418
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_419
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_420
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_421
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_422
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_423
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_424
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_425
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_426
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_427
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_428
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_429
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_430
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_431
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_432
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_433
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_434
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_435
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_436
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_437
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_438
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_439
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_440
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_441
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_442
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_443
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_444
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_445
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_446
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_447
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_448
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_449
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_450
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_451
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_452
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_453
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_454
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_455
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_456
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_457
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_458
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_459
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_460
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_461
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_462
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_463
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_464
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_465
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_466
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_467
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_468
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_469
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_470
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_471
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_472
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_473
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_474
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_475
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_476
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_477
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_478
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_479
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_480
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_481
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_482
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_483
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_484
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_485
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_486
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_487
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_488
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_489
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_490
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_491
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_492
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_493
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_494
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_495
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_496
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_497
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_498
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_499
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_500
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_501
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_502
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_503
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_504
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_505
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_506
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_507
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_508
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_509
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_510
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_511
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_512
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_513
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_514
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_515
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_516
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_517
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_518
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_519
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_520
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_521
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_522
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_523
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_524
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_525
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_526
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_527
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_528
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_529
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_530
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_531
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_532
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_533
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_534
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_535
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_536
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_537
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_538
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_539
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_540
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_541
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_542
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_543
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_544
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_545
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_546
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_547
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_548
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_549
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_550
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_551
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_552
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_553
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_554
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_555
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_556
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_557
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_558
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_559
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_560
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_561
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_562
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_563
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_564
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_565
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_566
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_567
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_568
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_569
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_570
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_571
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_572
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_573
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_574
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_575
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_576
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_577
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_578
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_579
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_580
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_581
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_582
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_583
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_584
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_585
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_586
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_587
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_588
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_589
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_590
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_591
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_592
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_593
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_594
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_595
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_596
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_597
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_598
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_599
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_600
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_601
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_602
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_603
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_604
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_605
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_606
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_607
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 400
         width: 16
         height: 16
       alignment: 0

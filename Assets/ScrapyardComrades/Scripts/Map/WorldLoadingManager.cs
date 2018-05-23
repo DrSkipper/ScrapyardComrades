@@ -292,6 +292,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         newMapLoader.WorldLoadingManager = this;
         newMapLoader.ObjectPlacer.EntityTracker = this.EntityTracker;
         _activeMapLoaders.Add(newMapLoader);
+        loader.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD);
         return newMapLoader;
     }
 

@@ -40,8 +40,9 @@ public class TilesetEditorManagerEditor : Editor
         {
             HandleUtility.AddDefaultControl(GUIUtility.GetControlID(FocusType.Passive));
         }
-        else if (current.type == EventType.mouseDown && current.button == 0)
+        else if ((current.type == EventType.mouseDown || current.type == EventType.mouseDrag) && current.button == 0)
         {
+            bool additional = current.type == EventType.mouseDrag;
             current.Use();
             TilesetEditorManager behavior = this.target as TilesetEditorManager;
             Ray ray = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
@@ -55,7 +56,11 @@ public class TilesetEditorManagerEditor : Editor
                 Vector2 texCoord = hit.textureCoord;
                 texCoord.x *= texture.width;
                 texCoord.y *= texture.height;
-                behavior.SelectSpriteAtPixel(texCoord);
+
+                if (!additional)
+                    behavior.SelectSpriteAtPixel(texCoord);
+                else
+                    behavior.SelectAdditionalSpriteAtPixel(texCoord);
             }
         }
     }
