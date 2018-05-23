@@ -9,6 +9,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public const int DEFAULT_TILE_SIZE = 16;
     public const string PLATFORMS_LAYER = "platforms";
     public const string BACKGROUND_LAYER = "background";
+    public const string BG_PARALLAX_LAYER = "bg_parallax";
     public const string OBJECTS_LAYER = "objects";
     public const string PROPS_LAYER = "props";
     public const string PROPS_BACK_LAYER = "props_back";
@@ -16,6 +17,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public const string LIGHTING_LAYER = "lights";
     public const string PARALLAX_BACK_SORT_LAYER = "parallax_back";
     public const string PARALLAX_FRONT_SORT_LAYER = "parallax_front";
+    public const string MAINSTREET_PREFIX = "MainSt"; // Mainstreet only area with bg_parallax layer for now
     public const int PLATFORMS_LAYER_DEPTH = 0;
 
     public CameraController CameraController;
@@ -124,6 +126,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
         // Setup Tile Layers
         this.Layers.Add(PLATFORMS_LAYER, new MapEditorTilesLayer(platformsLayerData, PLATFORMS_LAYER_DEPTH, _tilesets, this.PlatformsRenderer));
         this.Layers.Add(BACKGROUND_LAYER, new MapEditorTilesLayer(backgroundLayerData, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT * 2, _tilesets, this.BackgroundRenderer));
+        //this.LayerListPanel.Add()
 
         this.PlatformsRenderer.GetComponent<MeshRenderer>().sortingLayerName = PLATFORMS_LAYER;
         this.BackgroundRenderer.GetComponent<MeshRenderer>().sortingLayerName = BACKGROUND_LAYER;

@@ -11,6 +11,7 @@ public class MapLoader : MonoBehaviour
     public string MapName = "GameplayTest";
     public TileRenderer PlatformsRenderer;
     public TileRenderer BGRenderer;
+    public TileRenderer BGParallaxRenderer;
     public MapGeometryCreator GeometryCreator;
     public ObjectPlacer ObjectPlacer;
     public WorldLoadingManager WorldLoadingManager;
