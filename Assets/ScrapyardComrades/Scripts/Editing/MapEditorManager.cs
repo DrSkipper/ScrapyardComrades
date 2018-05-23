@@ -23,6 +23,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public CameraController CameraController;
     public TileRenderer PlatformsRenderer;
     public TileRenderer BackgroundRenderer;
+    public TileRenderer BgParallaxRenderer;
     public MapEditorGrid Grid;
     public MapEditorCursor Cursor;
     public Transform ObjectCursor;
@@ -99,6 +100,15 @@ public class MapEditorManager : MonoBehaviour, IPausable
             backgroundLayerData.tileset_name = DEFAULT_BACKGROUND_TILESET;
         }
 
+        NewMapInfo.MapLayer bgParallaxLayerData = _mapInfo.GetMapLayer(BG_PARALLAX_LAYER);
+        bool useBgParallax = bgParallaxLayerData != null || this.MapName.Contains(MAINSTREET_PREFIX);
+        if (useBgParallax && bgParallaxLayerData == null)
+        {
+            _mapInfo.AddTileLayer(BG_PARALLAX_LAYER);
+            bgParallaxLayerData = _mapInfo.GetMapLayer(BG_PARALLAX_LAYER);
+            bgParallaxLayerData.tileset_name = DEFAULT_BACKGROUND_TILESET;
+        }
+
         // Setup Grid
         this.Grid.InitializeGridForSize(_mapInfo.width, _mapInfo.height);
         _objectPrecisionIncrement = 2; // Mathf.Clamp(Mathf.RoundToInt(this.Grid.GridSpaceSize / OBJECT_PRECISION_PER_TILE), 1, this.Grid.GridSpaceSize);
@@ -126,10 +136,17 @@ public class MapEditorManager : MonoBehaviour, IPausable
         // Setup Tile Layers
         this.Layers.Add(PLATFORMS_LAYER, new MapEditorTilesLayer(platformsLayerData, PLATFORMS_LAYER_DEPTH, _tilesets, this.PlatformsRenderer));
         this.Layers.Add(BACKGROUND_LAYER, new MapEditorTilesLayer(backgroundLayerData, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT * 2, _tilesets, this.BackgroundRenderer));
-        //this.LayerListPanel.Add()
+        if (useBgParallax)
+        {
+            this.Layers.Add(BG_PARALLAX_LAYER, new MapEditorTilesLayer(bgParallaxLayerData, PLATFORMS_LAYER_DEPTH + LAYER_DEPTH_INCREMENT * 4, _tilesets, this.BgParallaxRenderer));
+        }
 
         this.PlatformsRenderer.GetComponent<MeshRenderer>().sortingLayerName = PLATFORMS_LAYER;
         this.BackgroundRenderer.GetComponent<MeshRenderer>().sortingLayerName = BACKGROUND_LAYER;
+        if (useBgParallax)
+        {
+            this.BgParallaxRenderer.GetComponent<MeshRenderer>().sortingLayerName = BG_PARALLAX_LAYER;
+        }
 
         // Setup Parallax Layers
         this.ParallaxParent.SetPosition2D(_mapInfo.width * this.Grid.GridSpaceSize / 2, _mapInfo.height * this.Grid.GridSpaceSize / 2);
@@ -789,6 +806,14 @@ public class MapEditorManager : MonoBehaviour, IPausable
         this.BackgroundRenderer.CreateMapWithGrid(backgroundLayer.Data);
         this.BackgroundRenderer.transform.SetZ(backgroundLayer.Depth);
 
+        if (this.Layers.ContainsKey(BG_PARALLAX_LAYER))
+        {
+            MapEditorTilesLayer bgParallaxLayer = this.Layers[BG_PARALLAX_LAYER] as MapEditorTilesLayer;
+            this.BgParallaxRenderer.SetAtlas(_tilesets[bgParallaxLayer.Tileset.name].AtlasName);
+            this.BgParallaxRenderer.CreateMapWithGrid(bgParallaxLayer.Data);
+            this.BgParallaxRenderer.transform.SetZ(bgParallaxLayer.Depth);
+        }
+
         MapEditorObjectsLayer objectsLayer = this.Layers[OBJECTS_LAYER] as MapEditorObjectsLayer;
         loadObjects(objectsLayer);
 
@@ -846,7 +871,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
 
     private void addParallaxLayer(bool foreground)
     {
-        int depth = foreground ? PLATFORMS_LAYER_DEPTH - (3 + _foregroundParallaxCount) * LAYER_DEPTH_INCREMENT : PLATFORMS_LAYER_DEPTH + (4 + _backgroundParallaxCount) * LAYER_DEPTH_INCREMENT;
+        int depth = foreground ? PLATFORMS_LAYER_DEPTH - (3 + _foregroundParallaxCount) * LAYER_DEPTH_INCREMENT : PLATFORMS_LAYER_DEPTH + (5 + _backgroundParallaxCount) * LAYER_DEPTH_INCREMENT;
         _mapInfo.AddParallaxLayer(depth);
         string name = PARALLAX_PREFIX + depth;
         MapEditorParallaxLayer layer = new MapEditorParallaxLayer(_mapInfo.GetParallaxLayer(depth), name);
@@ -910,8 +935,8 @@ public class MapEditorManager : MonoBehaviour, IPausable
     private const int LAYER_DEPTH_INCREMENT = 2;
     //private const int OBJECT_PRECISION_PER_TILE = 16;
     private const string PARALLAX_PREFIX = "parallax_";
-    private const string DEFAULT_PLATFORMS_TILESET = "GenericPlatforms";
-    private const string DEFAULT_BACKGROUND_TILESET = "GenericBackground";
+    private const string DEFAULT_PLATFORMS_TILESET = "SlumsPlatforms";
+    private const string DEFAULT_BACKGROUND_TILESET = "SlumsBackground";
     private const int DEFAULT_FOREGROUND_PARALLAX_LAYERS = 1;
     private const int DEFAULT_BACKGROUND_PARALLAX_LAYERS = 1;
 }

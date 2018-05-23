@@ -338,7 +338,7 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         return quadVisual;
     }
 
-    private void levelCreated(string levelName, string platforms, string background)
+    private void levelCreated(string levelName, string platforms, string background, string bgParallax)
     {
         unpause();
         levelName = findUsableName(levelName);
@@ -349,6 +349,13 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
         NewMapInfo.MapLayer backgroundLayer = newMapInfo.GetMapLayer(MapEditorManager.BACKGROUND_LAYER);
         platformsLayer.tileset_name = platforms;
         backgroundLayer.tileset_name = background;
+
+        if (!StringExtensions.IsEmpty(bgParallax))
+        {
+            newMapInfo.AddTileLayer(MapEditorManager.BG_PARALLAX_LAYER);
+            NewMapInfo.MapLayer bgParallaxLayer = newMapInfo.GetMapLayer(MapEditorManager.BG_PARALLAX_LAYER);
+            bgParallaxLayer.tileset_name = bgParallax;
+        }
 
         File.WriteAllText(Application.streamingAssetsPath + MapLoader.LEVELS_PATH + levelName + StringExtensions.JSON_SUFFIX, JsonConvert.SerializeObject(newMapInfo, Formatting.Indented));
         _worldInfo.AddLevelQuad(levelName, this.Cursor.GridPos.X, this.Cursor.GridPos.Y, 1, 1);
