@@ -395,8 +395,19 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         NewMapInfo mapInfo = _quadData[quad.Name];
         string platformsTilesetName = mapInfo.GetMapLayer(MapEditorManager.PLATFORMS_LAYER).tileset_name;
         string backgroundTilesetName = mapInfo.GetMapLayer(MapEditorManager.BACKGROUND_LAYER).tileset_name;
+        NewMapInfo.MapLayer bgParallaxLayer = mapInfo.GetMapLayer(MapEditorManager.BG_PARALLAX_LAYER);
+
         TilesetData platformsTileset = _tilesets[platformsTilesetName];
         TilesetData backgroundTileset = _tilesets[backgroundTilesetName];
-        loader.LoadMap(platformsTileset, backgroundTileset, platformsTileset.AtlasName, backgroundTileset.AtlasName, _objectPrefabs, _propPrefabs, this.LightPrefab);
+        TilesetData bgParallaxTileset = null;
+        string bgParallaxAtlas = null;
+
+        if (bgParallaxLayer != null)
+        {
+            bgParallaxTileset = _tilesets[bgParallaxLayer.tileset_name];
+            bgParallaxAtlas = bgParallaxTileset.AtlasName;
+        }
+
+        loader.LoadMap(platformsTileset, backgroundTileset, bgParallaxTileset, platformsTileset.AtlasName, backgroundTileset.AtlasName, bgParallaxAtlas, _objectPrefabs, _propPrefabs, this.LightPrefab);
     }
 }

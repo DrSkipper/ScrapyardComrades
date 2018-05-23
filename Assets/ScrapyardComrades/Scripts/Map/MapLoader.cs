@@ -22,9 +22,10 @@ public class MapLoader : MonoBehaviour
     {
         this.PlatformsRenderer.GetComponent<MeshRenderer>().sortingLayerName = MapEditorManager.PLATFORMS_LAYER;
         this.BGRenderer.GetComponent<MeshRenderer>().sortingLayerName = MapEditorManager.BACKGROUND_LAYER;
+        this.BGParallaxRenderer.GetComponent<MeshRenderer>().sortingLayerName = MapEditorManager.BG_PARALLAX_LAYER;
     }
 
-    public void LoadMap(TilesetData platformsTileset, TilesetData bgTileset, string platformsAtlas, string bgAtlas, Dictionary<string, PooledObject> objectPrefabs, Dictionary<string, PooledObject> propPrefabs, PooledObject lightPrefab)
+    public void LoadMap(TilesetData platformsTileset, TilesetData bgTileset, TilesetData bgParallaxTileset, string platformsAtlas, string bgAtlas, string bgParallaxAtlas, Dictionary<string, PooledObject> objectPrefabs, Dictionary<string, PooledObject> propPrefabs, PooledObject lightPrefab)
     {
         this.ClearMap();
         _cleared = false;
@@ -44,6 +45,18 @@ public class MapLoader : MonoBehaviour
             this.BGRenderer.SetAtlas(bgAtlas);
             this.BGRenderer.CreateMapWithGrid(bgLayer.GetDataGrid());
         }
+
+        NewMapInfo.MapLayer bgParallaxLayer = mapInfo.GetMapLayer(MapEditorManager.BG_PARALLAX_LAYER);
+        if (bgParallaxLayer != null)
+        {
+            this.BGParallaxRenderer.SetAtlas(bgParallaxAtlas);
+            this.BGParallaxRenderer.CreateMapWithGrid(bgParallaxLayer.GetDataGrid());
+        }
+        else
+        {
+            this.BGParallaxRenderer.Clear();
+        }
+
         this.GeometryCreator.CreateGeometryForGrid(platformsGrid, platformsTileset.GetSpriteDataDictionary(), false);
         
         this.ObjectPlacer.PlaceObjects(mapInfo.objects, objectPrefabs, this.MapName, true, MapEditorManager.OBJECTS_LAYER);
@@ -62,6 +75,7 @@ public class MapLoader : MonoBehaviour
             {
                 this.PlatformsRenderer.Clear();
                 this.BGRenderer.Clear();
+                this.BGParallaxRenderer.Clear();
             }
             this.GeometryCreator.Clear(editor);
             this.ObjectPlacer.WipeSpawns();

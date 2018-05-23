@@ -18500,6 +18500,51 @@
   "next_object_id": 1,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
-  "next_light_id": 0,
-  "lights": []
+  "next_light_id": 2,
+  "lights": [
+    {
+      "name": "lights_OverlayLight_0",
+      "x": 498,
+      "y": 416,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 380,
+      "distance": 70,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 1.0,
+      "g": 0.962069035,
+      "b": 0.75,
+      "affects_foreground": false,
+      "affects_parallax": [
+        true,
+        false,
+        false
+      ],
+      "parallax_ratio": 0.25
+    },
+    {
+      "name": "lights_OverlayLight_1",
+      "x": 334,
+      "y": 288,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 380,
+      "distance": 70,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.5955882,
+      "g": 0.765720069,
+      "b": 1.0,
+      "affects_foreground": true,
+      "affects_parallax": [
+        false,
+        false,
+        false
+      ],
+      "parallax_ratio": 7.450581E-09
+    }
+  ]
 }
