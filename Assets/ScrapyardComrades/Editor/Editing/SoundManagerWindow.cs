@@ -35,13 +35,23 @@ public class SoundManagerWindow : EditorWindow
         {
             createFoldoutStyle();
         }
-        
+
+        EditorGUILayout.Separator();
+        _filterText = EditorGUILayout.TextField("Filter:", _filterText);
+        string filter = _filterText;
+        if (!StringExtensions.IsEmpty(filter))
+            filter = filter.ToLower();
+
         _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, false, true);
         bool changed = false;
         
         foreach (SoundData.Key key in _soundKeys)
         {
-            _foldouts[(int)key] = EditorGUILayout.Foldout(_foldouts[(int)key], System.Enum.GetName(typeof(SoundData.Key), key), true, _foldoutStyle);
+            string name = System.Enum.GetName(typeof(SoundData.Key), key);
+            if (!StringExtensions.IsEmpty(filter) && !name.ToLower().Contains(filter))
+                continue;
+
+            _foldouts[(int)key] = EditorGUILayout.Foldout(_foldouts[(int)key], name, true, _foldoutStyle);
 
             if (_foldouts[(int)key])
             {
@@ -69,6 +79,7 @@ public class SoundManagerWindow : EditorWindow
     private Vector2 _scrollPos = Vector2.zero;
     private List<bool> _foldouts;
     private GUIStyle _foldoutStyle;
+    private string _filterText;
 
     private void createFoldoutStyle()
     {
