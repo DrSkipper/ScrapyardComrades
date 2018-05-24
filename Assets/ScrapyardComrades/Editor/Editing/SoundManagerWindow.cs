@@ -15,7 +15,7 @@ public class SoundManagerWindow : EditorWindow
     [MenuItem("Window/Sound Manager")]
     public static void ShowWindow()
     {
-        EditorWindow.GetWindow(typeof(SoundManagerWindow));
+        EditorWindow.GetWindow(typeof(SoundManagerWindow), false, "Sound Manager");
     }
 
     void Awake()
