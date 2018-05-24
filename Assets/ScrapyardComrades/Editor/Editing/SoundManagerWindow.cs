@@ -26,7 +26,7 @@ public class SoundManagerWindow : EditorWindow
 
     void OnGUI()
     {
-        if (this.Data == null || _soundKeys == null || this.Data.ClipsByEnumIndex == null || this.Data.ClipsByEnumIndex.Count <= (int)SoundData.Key.TOTAL || this.Data.VolumeByEnumIndex == null || this.Data.VolumeByEnumIndex.Count <= (int)SoundData.Key.TOTAL || this.Data.PitchByEnumIndex == null || this.Data.PitchByEnumIndex.Count <= (int)SoundData.Key.TOTAL || _foldouts == null || _foldouts.Count <= (int)SoundData.Key.TOTAL)
+        if (this.Data == null || _soundKeys == null || this.Data.ClipsByEnumIndex == null || this.Data.ClipsByEnumIndex.Count <= (int)SoundData.Key.TOTAL || this.Data.VolumeByEnumIndex == null || this.Data.VolumeByEnumIndex.Count <= (int)SoundData.Key.TOTAL || this.Data.PitchByEnumIndex == null || this.Data.PitchByEnumIndex.Count <= (int)SoundData.Key.TOTAL || this.Data.CooldownsByEnumIndex == null || this.Data.CooldownsByEnumIndex.Count <= (int)SoundData.Key.TOTAL || _foldouts == null || _foldouts.Count <= (int)SoundData.Key.TOTAL)
         {
             reload();
         }
@@ -50,6 +50,7 @@ public class SoundManagerWindow : EditorWindow
                 this.Data.ClipsByEnumIndex[(int)key] = (AudioClip)EditorGUILayout.ObjectField("Audio Clip", this.Data.ClipsByEnumIndex[(int)key], typeof(AudioClip), false);
                 this.Data.VolumeByEnumIndex[(int)key] = EditorGUILayout.Slider("Volume", this.Data.VolumeByEnumIndex[(int)key], 0.0f, 1.0f);
                 this.Data.PitchByEnumIndex[(int)key] = EditorGUILayout.Slider("Pitch", this.Data.PitchByEnumIndex[(int)key], -3.0f, 3.0f);
+                this.Data.CooldownsByEnumIndex[(int)key] = EditorGUILayout.IntSlider("Cooldown", this.Data.CooldownsByEnumIndex[(int)key], 0, 20);
                 --EditorGUI.indentLevel;
                 changed |= EditorGUI.EndChangeCheck();
             }
@@ -98,6 +99,7 @@ public class SoundManagerWindow : EditorWindow
         popuplateClips();
         populateVolumes();
         populatePitches();
+        populateCooldowns();
         populateFoldouts();
     }
 
@@ -243,5 +245,40 @@ public class SoundManagerWindow : EditorWindow
         }
 
         _foldouts = foldouts;
+    }
+    private void populateCooldowns()
+    {
+        int maxIndex = (int)SoundData.Key.TOTAL;
+
+        if (this.Data.CooldownsByEnumIndex != null)
+        {
+            // Too big
+            if (this.Data.CooldownsByEnumIndex.Count > maxIndex + 1)
+            {
+                this.Data.CooldownsByEnumIndex.RemoveRange(maxIndex, this.Data.CooldownsByEnumIndex.Count - maxIndex);
+                return;
+            }
+
+            // Perfect already
+            else if (this.Data.CooldownsByEnumIndex.Count == maxIndex + 1)
+            {
+                return;
+            }
+        }
+
+        List<int> cooldowns = new List<int>((int)SoundData.Key.TOTAL + 1);
+
+        // Too small
+        if (this.Data.CooldownsByEnumIndex != null && this.Data.CooldownsByEnumIndex.Count > 0)
+        {
+            cooldowns.AddRange(this.Data.CooldownsByEnumIndex);
+        }
+
+        for (int i = cooldowns.Count; i <= maxIndex; ++i)
+        {
+            cooldowns.Add(2);
+        }
+
+        this.Data.CooldownsByEnumIndex = cooldowns;
     }
 }

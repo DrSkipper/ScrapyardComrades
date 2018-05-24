@@ -7,6 +7,7 @@ public class SoundData : ScriptableObject
     public List<AudioClip> ClipsByEnumIndex;
     public List<float> VolumeByEnumIndex;
     public List<float> PitchByEnumIndex;
+    public List<int> CooldownsByEnumIndex;
 
     public enum Key
     {

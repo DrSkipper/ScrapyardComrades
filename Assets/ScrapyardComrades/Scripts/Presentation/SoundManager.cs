@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class SoundManager : MonoBehaviour
 {
     public AudioSource[] AudioSources;
+    public SoundData SoundData;
     public SoundEntry[] SoundEntries;
 
     [System.Serializable]
@@ -28,9 +29,19 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public static void Play(SoundData.Key key)
+    {
+        _instance.PlaySoundKey(key);
+    }
+
     public static void Play(string clipName)
     {
         _instance.PlayClip(clipName);
+    }
+
+    public void PlaySoundKey(SoundData.Key key)
+    {
+
     }
 
     public void PlayClip(string clipName)
