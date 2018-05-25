@@ -42,6 +42,8 @@ public class SoundManagerWindow : EditorWindow
         if (!StringExtensions.IsEmpty(filter))
             filter = filter.ToLower();
 
+        _unSetFilter = EditorGUILayout.Toggle("Only Show Missing Clips", _unSetFilter);
+
         _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, false, true);
         bool changed = false;
         
@@ -49,6 +51,9 @@ public class SoundManagerWindow : EditorWindow
         {
             string name = System.Enum.GetName(typeof(SoundData.Key), key);
             if (!StringExtensions.IsEmpty(filter) && !name.ToLower().Contains(filter))
+                continue;
+
+            if (_unSetFilter && this.Data.ClipsByEnumIndex[(int)key] != null)
                 continue;
 
             _foldouts[(int)key] = EditorGUILayout.Foldout(_foldouts[(int)key], name, true, _foldoutStyle);
@@ -80,21 +85,12 @@ public class SoundManagerWindow : EditorWindow
     private List<bool> _foldouts;
     private GUIStyle _foldoutStyle;
     private string _filterText;
+    private bool _unSetFilter;
 
     private void createFoldoutStyle()
     {
         _foldoutStyle = new GUIStyle(EditorStyles.foldout);
         _foldoutStyle.fontStyle = FontStyle.Bold;
-        //_foldoutStyle.fontSize = 14;
-        /*Color myStyleColor = Color.red;
-        _foldoutStyle.normal.textColor = myStyleColor;
-        _foldoutStyle.onNormal.textColor = myStyleColor;
-        _foldoutStyle.hover.textColor = myStyleColor;
-        _foldoutStyle.onHover.textColor = myStyleColor;
-        _foldoutStyle.focused.textColor = myStyleColor;
-        _foldoutStyle.onFocused.textColor = myStyleColor;
-        _foldoutStyle.active.textColor = myStyleColor;
-        _foldoutStyle.onActive.textColor = myStyleColor;*/
     }
 
     private void reload()
