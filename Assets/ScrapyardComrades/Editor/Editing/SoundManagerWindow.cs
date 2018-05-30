@@ -21,7 +21,7 @@ public class SoundManagerWindow : EditorWindow
     void Awake()
     {
         reload();
-        createFoldoutStyle();
+        //createFoldoutStyle();
     }
 
     void OnGUI()
