@@ -502,8 +502,8 @@
     },
     {
       "name": "Slums 28",
-      "x": 4,
-      "y": 3,
+      "x": 26,
+      "y": 8,
       "width": 3,
       "height": 2
     },
@@ -518,6 +518,13 @@
       "name": "MainSt 02",
       "x": 50,
       "y": 14,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Slums 29",
+      "x": 3,
+      "y": 4,
       "width": 3,
       "height": 2
     }
