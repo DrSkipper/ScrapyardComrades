@@ -33,7 +33,7 @@ public class SoundManager : MonoBehaviour
 
     public static void Play(SoundData.Key key)
     {
-        if (key != SoundData.Key.NONE)
+        if (_instance != null && key != SoundData.Key.NONE)
             _instance.PlaySoundKey(key);
     }
 
