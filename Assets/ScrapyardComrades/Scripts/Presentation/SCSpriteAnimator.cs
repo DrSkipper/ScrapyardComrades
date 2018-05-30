@@ -131,8 +131,25 @@ public class SCSpriteAnimator : VoBehavior, IPausable
     private void updateVisual()
     {
         this.spriteRenderer.sprite = _currentAnimation.Frames[_frame];
-        if (_currentAnimation.SfxKey != SoundData.Key.NONE && Application.isPlaying && (_frame == _currentAnimation.SfxFrame || (_currentAnimation.SfxFrame2 > _currentAnimation.SfxFrame && _frame == _currentAnimation.SfxFrame2)))
-            SoundManager.Play(_currentAnimation.SfxKey);
+
+        if (_currentAnimation.SfxKey != SoundData.Key.NONE && Application.isPlaying)
+        {
+            if (_frame == _currentAnimation.SfxFrame)
+            {
+                SoundManager.Play(_currentAnimation.SfxKey);
+            }
+            else if (_frame == _currentAnimation.SfxFrame2)
+            {
+                if (_currentAnimation.SfxKey2 != SoundData.Key.NONE)
+                {
+                    SoundManager.Play(_currentAnimation.SfxKey2);
+                }
+                else if (_currentAnimation.SfxFrame2 > _currentAnimation.SfxFrame)
+                {
+                    SoundManager.Play(_currentAnimation.SfxKey);
+                }
+            }
+        }
     }
 
     private void guaranteeCurrentAnimation()

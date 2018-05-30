@@ -78,7 +78,7 @@ public class EnumSearchPropertyDrawer : PropertyDrawer
         }
 
         List<EnumStringValuePair> ret = new List<EnumStringValuePair>();
-        Regex regex = new Regex(filter.ToLower().Trim('(', ')'));
+        Regex regex = new Regex(filter.ToLower().Trim('(', ')', '\\'));
         for (int i = 0; i < allList.Count; ++i)
         {
             if (regex.IsMatch(allList[i].strValue.ToLower()))
