@@ -42,6 +42,7 @@ public class SoundManagerWindow : EditorWindow
         if (!StringExtensions.IsEmpty(filter))
             filter = filter.ToLower();
 
+        _filterClip = (AudioClip)EditorGUILayout.ObjectField("Filter by clip:", _filterClip, typeof(AudioClip), false);
         _unSetFilter = EditorGUILayout.Toggle("Only Show Missing Clips", _unSetFilter);
 
         _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, false, true);
@@ -55,6 +56,9 @@ public class SoundManagerWindow : EditorWindow
                 continue;
 
             if (_unSetFilter && this.Data.ClipsByEnumIndex[(int)key] != null)
+                continue;
+
+            if (_filterClip != null && this.Data.ClipsByEnumIndex[(int)key] != _filterClip)
                 continue;
 
             _foldouts[(int)key] = EditorGUILayout.Foldout(_foldouts[(int)key], name, true, _foldoutStyle);
@@ -87,6 +91,7 @@ public class SoundManagerWindow : EditorWindow
     private GUIStyle _foldoutStyle;
     private string _filterText;
     private bool _unSetFilter;
+    private AudioClip _filterClip;
 
     private void createFoldoutStyle()
     {
