@@ -22,7 +22,7 @@ public class SoundManager : MonoBehaviour
         //_cooldowns = new Dictionary<string, int>(this.AudioSources.Length);
         //_cooldownRemovals = new List<string>();
         _cooldowns = new Dictionary<SoundData.Key, int>(this.AudioSources.Length);
-        _cooldownRemovals = new List<SoundData.Key>();
+        _cooldownKeys = new List<SoundData.Key>(this.AudioSources.Length);
 
         /*for (int i = 0; i < this.SoundEntries.Length; ++i)
         {
@@ -60,6 +60,7 @@ public class SoundManager : MonoBehaviour
                 source.pitch = pitch;
                 source.Play();
                 _cooldowns.Add(key, cooldown);
+                _cooldownKeys.Add(key);
             }
         }
     }
@@ -85,18 +86,15 @@ public class SoundManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        foreach (SoundData.Key key in _cooldowns.Keys)
+        for (int i = _cooldownKeys.Count - 1; i >= 0; --i)
         {
+            SoundData.Key key = _cooldownKeys[i];
             --_cooldowns[key];
             if (_cooldowns[key] <= 0)
-                _cooldownRemovals.Add(key);
-        }
-
-        while (_cooldownRemovals.Count > 0)
-        {
-            int i = _cooldownRemovals.Count - 1;
-            _cooldowns.Remove(_cooldownRemovals[i]);
-            _cooldownRemovals.RemoveAt(i);
+            {
+                _cooldowns.Remove(key);
+                _cooldownKeys.RemoveAt(i);
+            }
         }
     }
 
@@ -108,7 +106,7 @@ public class SoundManager : MonoBehaviour
     //private Dictionary<string, int> _cooldowns;
     private Dictionary<SoundData.Key, int> _cooldowns;
     //private List<string> _cooldownRemovals;
-    private List<SoundData.Key> _cooldownRemovals;
+    private List<SoundData.Key> _cooldownKeys;
 
     private AudioSource findAvailableAudioSource()
     {
