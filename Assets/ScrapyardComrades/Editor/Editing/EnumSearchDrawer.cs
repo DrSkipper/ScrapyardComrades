@@ -44,7 +44,7 @@ public class EnumSearchPropertyDrawer : PropertyDrawer
         int selectedIndex = 0;
         for (int i = 0; i < enumList.Count; ++i)
         {
-            if (enumList[i].intValue == property.enumValueIndex)
+            if (enumList[i].intValue == property.intValue)
             {
                 selectedIndex = i;
                 break;
@@ -53,7 +53,7 @@ public class EnumSearchPropertyDrawer : PropertyDrawer
         selectedIndex = EditorGUI.Popup(new Rect(position.x + 170, position.y, 200, 20), selectedIndex, enumStrList.ToArray());
         if (!StringExtensions.IsEmpty(filters[y]) && enumList.Count > selectedIndex && selectedIndex >= 0)
         {
-            property.enumValueIndex = enumList[selectedIndex].intValue;
+            property.intValue = enumList[selectedIndex].intValue;
         }
         EditorGUI.EndProperty();
     }
