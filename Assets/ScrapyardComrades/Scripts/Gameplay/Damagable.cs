@@ -143,8 +143,7 @@ public class Damagable : VoBehavior, IPausable
         _hitStunEvent.HitPos = hitPoint;
 
         // SFX
-        if (!hitData.HitSfx.IsEmpty())
-            SoundManager.Play(hitData.HitSfx);
+        SoundManager.Play(hitData.HitSfxKey);
 
         if (this.Dead)
             die();

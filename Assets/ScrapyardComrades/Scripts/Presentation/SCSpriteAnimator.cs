@@ -131,8 +131,8 @@ public class SCSpriteAnimator : VoBehavior, IPausable
     private void updateVisual()
     {
         this.spriteRenderer.sprite = _currentAnimation.Frames[_frame];
-        if (_currentAnimation.Sfx != null && Application.isPlaying && (_frame == _currentAnimation.SfxFrame || (_currentAnimation.SfxFrame2 > _currentAnimation.SfxFrame && _frame == _currentAnimation.SfxFrame2)))
-            SoundManager.Play(_currentAnimation.Sfx.name);
+        if (_currentAnimation.SfxKey != SoundData.Key.NONE && Application.isPlaying && (_frame == _currentAnimation.SfxFrame || (_currentAnimation.SfxFrame2 > _currentAnimation.SfxFrame && _frame == _currentAnimation.SfxFrame2)))
+            SoundManager.Play(_currentAnimation.SfxKey);
     }
 
     private void guaranteeCurrentAnimation()

@@ -11,10 +11,17 @@ public class SoundData : ScriptableObject
 
     public enum Key
     {
+        NONE = 0,
+
+        /**
+         * Level 0 Hero
+         */
+        HeroLV0_Shuffle = 1,
+
         /**
          * Level 1 Hero
          */
-        HeroLV1_Slide = 0,
+        HeroLV1_Slide = 5,
         HeroLV1_SlideRecovery,
         HeroLV1_Jump1,
         HeroLV1_Jump2,
@@ -39,7 +46,7 @@ public class SoundData : ScriptableObject
         /**
          * Level 2 Hero
          */
-        HeroLV2_Slide = 30,
+        HeroLV2_Slide = 32,
         HeroLV2_SlideRecovery,
         HeroLV2_Jump1,
         HeroLV2_Jump2,

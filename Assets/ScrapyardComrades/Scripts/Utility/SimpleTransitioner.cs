@@ -9,6 +9,7 @@ public class SimpleTransitioner : MonoBehaviour, IPausable
     public int Delay = 0;
     public string EventNameToSend = "";
     public AudioClip ClipToPlay;
+    public SoundData.Key SfxKey;
     public bool EventOnly = false;
     public bool LongPress = false;
 
@@ -29,9 +30,8 @@ public class SimpleTransitioner : MonoBehaviour, IPausable
                 GlobalEvents.Notifier.SendEvent(new LocalEventNotifier.Event(this.EventNameToSend));
             _delayTimer.start();
             _began = true;
-
-            if (this.ClipToPlay != null)
-                SoundManager.Play(this.ClipToPlay.name);
+            
+            SoundManager.Play(this.SfxKey);
         }
     }
 

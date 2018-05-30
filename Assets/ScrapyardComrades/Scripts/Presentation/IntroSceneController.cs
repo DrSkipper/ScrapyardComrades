@@ -10,7 +10,9 @@ public class IntroSceneController : MonoBehaviour
     public int OutroDuration = 200;
     public Transform SpotlightTransform;
     public AudioClip AmbulanceClip;
+    public SoundData.Key AmbulanceSfxKey;
     public AudioClip CarCrashClip;
+    public SoundData.Key CarCrashSfxKey;
     public string GameplayScene;
     public Material ScreenOverlayMat;
     public Material SirenOverlayMat;
@@ -68,7 +70,7 @@ public class IntroSceneController : MonoBehaviour
         introEvent.Name = INTRO;
         GlobalEvents.Notifier.SendEvent(introEvent);
 
-        SoundManager.Play(this.AmbulanceClip.name);
+        SoundManager.Play(this.AmbulanceSfxKey);
 
         _sceneTimer.Callback = outro;
         _sceneTimer.reset(this.SceneDuration);
@@ -89,7 +91,7 @@ public class IntroSceneController : MonoBehaviour
 
     private void carCrash()
     {
-        SoundManager.Play(this.CarCrashClip.name);
+        SoundManager.Play(this.CarCrashSfxKey);
     }
 
     private void endScene()

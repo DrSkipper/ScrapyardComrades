@@ -7,6 +7,7 @@ public class SCSpriteAnimation : ScriptableObject
     public bool LoopsByDefault = true;
     public int LoopFrame = 0;
     public AudioClip Sfx;
+    public SoundData.Key SfxKey;
     public int SfxFrame;
     public int SfxFrame2;
 }

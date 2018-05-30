@@ -47,8 +47,9 @@ public class SoundManagerWindow : EditorWindow
         _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, false, true);
         bool changed = false;
         
-        foreach (SoundData.Key key in _soundKeys)
+        for (int i = 1; i < _soundKeys.Length - 1; ++i)
         {
+            SoundData.Key key = (SoundData.Key)_soundKeys.GetValue(i);
             string name = System.Enum.GetName(typeof(SoundData.Key), key);
             if (!StringExtensions.IsEmpty(filter) && !name.ToLower().Contains(filter))
                 continue;

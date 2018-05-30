@@ -11,6 +11,7 @@ public class Mine : VoBehavior, IPausable
     public PooledObject ExplosionEffect;
     public Transform ExplosionLocation;
     public AudioClip ExplosionSound;
+    public SoundData.Key ExplosionSfxKey;
     public bool TriggerOnCollision = true;
     public TurretController.AttachDir AttachedAt = TurretController.AttachDir.Down;
     public DestructionStyle DestructionType = DestructionStyle.Destroy;
@@ -152,9 +153,8 @@ public class Mine : VoBehavior, IPausable
         PooledObject explosion = this.ExplosionEffect.Retain();
         explosion.transform.position = this.ExplosionLocation.position;
         explosion.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
-
-        if (this.ExplosionSound != null)
-            SoundManager.Play(this.ExplosionSound.name);
+        
+        SoundManager.Play(this.ExplosionSfxKey);
         
         switch (this.DestructionType)
         {
