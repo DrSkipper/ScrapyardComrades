@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8813e943648efe44ca866f997a5aa504
-timeCreated: 1527728249
+timeCreated: 1527791590
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -626,6 +626,8 @@ TextureImporter:
     21301238: mainstreet_tileset_619
     21301240: mainstreet_tileset_620
     21301242: mainstreet_tileset_621
+    21301244: mainstreet_tileset_622
+    21301246: mainstreet_tileset_623
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -8786,6 +8788,32 @@ TextureImporter:
         serializedVersion: 2
         x: 256
         y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_622
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainstreet_tileset_623
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 400
         width: 16
         height: 16
       alignment: 0

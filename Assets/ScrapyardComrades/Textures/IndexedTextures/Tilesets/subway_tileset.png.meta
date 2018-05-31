@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e4a3ef1d9ad62b14abbd80d1904ad0e2
-timeCreated: 1527729528
+timeCreated: 1527791913
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -136,6 +136,7 @@ TextureImporter:
     21300258: subway_tileset_129
     21300260: subway_tileset_130
     21300262: subway_tileset_131
+    21300264: subway_tileset_132
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -1926,6 +1927,19 @@ TextureImporter:
         serializedVersion: 2
         x: 112
         y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: subway_tileset_132
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 32
         width: 16
         height: 16
       alignment: 0
