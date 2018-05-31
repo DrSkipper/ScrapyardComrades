@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using System.Reflection;
 
 /**
  * SoundManagerWindow:
@@ -11,6 +12,7 @@ public class SoundManagerWindow : EditorWindow
     public const string SOUND_DATA_PATH = "SoundData.json";
 
     public SoundData Data;
+    public AudioSource AudioSourcePrefab;
 
     [MenuItem("Window/Sound Manager")]
     public static void ShowWindow()
@@ -73,6 +75,12 @@ public class SoundManagerWindow : EditorWindow
                 this.Data.CooldownsByEnumIndex[(int)key] = EditorGUILayout.IntSlider("Cooldown", this.Data.CooldownsByEnumIndex[(int)key], 0, 20);
                 --EditorGUI.indentLevel;
                 changed |= EditorGUI.EndChangeCheck();
+
+                if (GUILayout.Button("Test"))
+                {
+                    if (this.Data.ClipsByEnumIndex[(int)key] != null)
+                        PlayClip(this.Data.ClipsByEnumIndex[(int)key], this.Data.PitchByEnumIndex[(int)key]);
+                }
             }
         }
 
@@ -81,6 +89,38 @@ public class SoundManagerWindow : EditorWindow
 
         EditorGUILayout.EndScrollView();
     }
+
+    public void PlayClip(AudioClip clip, float pitch)
+    {
+        if (_source == null)
+        {
+            _source = Instantiate<AudioSource>(this.AudioSourcePrefab);
+            _source.gameObject.hideFlags = HideFlags.DontSaveInEditor;
+        }
+        _source.Stop();
+        _source.clip = clip;
+        _source.pitch = pitch;
+        _source.Play();
+
+        /*Assembly unityEditorAssembly = typeof(AudioImporter).Assembly;
+        System.Type audioUtilClass = unityEditorAssembly.GetType("UnityEditor.AudioUtil");
+        MethodInfo method = audioUtilClass.GetMethod(
+            "PlayClip",
+            BindingFlags.Static | BindingFlags.Public,
+            null,
+            new System.Type[] {
+                typeof(AudioClip)
+            },
+            null
+        );
+        method.Invoke(
+            null,
+            new object[] {
+                clip
+            }
+        );*/
+    }
+
 
     /**
      * Private
@@ -92,6 +132,7 @@ public class SoundManagerWindow : EditorWindow
     private string _filterText;
     private bool _unSetFilter;
     private AudioClip _filterClip;
+    private AudioSource _source;
 
     private void createFoldoutStyle()
     {
