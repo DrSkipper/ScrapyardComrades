@@ -9,9 +9,12 @@ public class MineLauncher : MonoBehaviour, IPausable
     public TurretController.AttachDir MineAttachDir = TurretController.AttachDir.Down;
     public Transform SpawnLocation;
     public bool IsLaunching;
+    public bool AttachToSurfaces = true;
+    public LayerMask SurfaceLayers;
 
     void OnSpawn()
     {
+        _hasAttached = !this.AttachToSurfaces;
         if (_spawnTimer == null)
             _spawnTimer = new Timer(this.LaunchInterval, true, true, onLaunch);
         else
@@ -50,6 +53,8 @@ public class MineLauncher : MonoBehaviour, IPausable
 
     void FixedUpdate()
     {
+        if (!_hasAttached)
+            attachToSurface();
         _spawnTimer.update();
     }
 
@@ -58,6 +63,7 @@ public class MineLauncher : MonoBehaviour, IPausable
      */
     private Timer _spawnTimer;
     private Vector2 _launchVelocity;
+    private bool _hasAttached;
 
     private void onLaunch()
     {
@@ -66,5 +72,36 @@ public class MineLauncher : MonoBehaviour, IPausable
         mine.GetComponent<Actor2D>().Velocity = _launchVelocity;
         mine.transform.position = this.SpawnLocation.position;
         mine.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
+    }
+
+    private void attachToSurface()
+    {
+        _hasAttached = true;
+        int offsetX = 0;
+        int offsetY = 0;
+
+        switch (this.AttachedAt)
+        {
+            default:
+            case TurretController.AttachDir.Down:
+                offsetY = -4;
+                break;
+            case TurretController.AttachDir.Left:
+                offsetX = -4;
+                break;
+            case TurretController.AttachDir.Up:
+                offsetY = 4;
+                break;
+            case TurretController.AttachDir.Right:
+                offsetX = 4;
+                break;
+        }
+
+        GameObject surface = CollisionManager.Instance.CollidePointFirst(new IntegerVector(Mathf.RoundToInt(this.transform.position.x) + offsetX, Mathf.RoundToInt(this.transform.position.y) + offsetY), this.SurfaceLayers);
+        if (surface != null)
+        {
+            this.transform.SetParent(surface.transform);
+            this.transform.SetLocalZ(-1);
+        }
     }
 }

@@ -35,6 +35,7 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
         _collisions = new List<GameObject>();
         int size = PatrollingPlatformConfigurer.MAX_SIZE + 2;
         _fakeTiles = new NewMapInfo.MapTile[size, size];
+        this.Renderer.renderer.sortingLayerName = MapEditorManager.PLATFORMS_LAYER;
 
         for (int x = 0; x < size; ++x)
         {

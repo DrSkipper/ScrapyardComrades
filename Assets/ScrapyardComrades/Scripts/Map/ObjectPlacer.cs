@@ -197,6 +197,7 @@ public class ObjectPlacer : VoBehavior
             }
         }
 
+        //spawnLocation.z += spawn.transform.position.z;
         spawn.transform.position = spawnLocation;
 
         ObjectConfigurer configurer = spawn.GetComponent<ObjectConfigurer>();

@@ -12353,8 +12353,77 @@
   ],
   "props": [],
   "props_background": [],
-  "objects": [],
-  "next_object_id": 2,
+  "objects": [
+    {
+      "name": "objects_MineLauncher_3",
+      "prefab_name": "MineLauncher",
+      "x": 480,
+      "y": 224,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "is_launching",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "attach",
+          "CurrentOption": "u"
+        },
+        {
+          "Name": "mine_dir",
+          "CurrentOption": "d"
+        },
+        {
+          "Name": "launch_speed",
+          "CurrentOption": "2"
+        },
+        {
+          "Name": "interval",
+          "CurrentOption": "50"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_HeroLV1_4",
+      "prefab_name": "HeroLV1",
+      "x": 224,
+      "y": 132,
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_PatrollingPlatform_5",
+      "prefab_name": "PatrollingPlatform",
+      "x": 512,
+      "y": 256,
+      "z": -4,
+      "parameters": [
+        {
+          "Name": "width",
+          "CurrentOption": "6"
+        },
+        {
+          "Name": "height",
+          "CurrentOption": "2"
+        },
+        {
+          "Name": "tileset",
+          "CurrentOption": "SlumsPlatforms"
+        },
+        {
+          "Name": "speed",
+          "CurrentOption": "1"
+        }
+      ],
+      "secondary_x": 800,
+      "secondary_y": 256
+    }
+  ],
+  "next_object_id": 6,
   "next_prop_id": 3,
   "next_prop_bg_id": 0,
   "next_light_id": 7,
