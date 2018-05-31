@@ -16,6 +16,19 @@ public class MapEditorTilesPanel : MonoBehaviour
         _layer = layer as MapEditorTilesLayer;
         _sprites = Texture2DExtensions.GetSprites(TilesetData.TILESETS_PATH, _layer.Tileset.AtlasName);
 
+        // If spritesheet has tiles offset by non-tile-size, find the offset for our grid
+        foreach (Sprite sprite in _sprites.Values)
+        {
+            int x = Mathf.RoundToInt(sprite.rect.x);
+            int y = Mathf.RoundToInt(sprite.rect.y);
+            int xMod = x % this.Grid.GridSpaceSize;
+            int yMod = y % this.Grid.GridSpaceSize;
+
+            _gridOffset.X = x == 0 || xMod == 0 ? 0 : this.Grid.GridSpaceSize - xMod;
+            _gridOffset.Y = y == 0 || yMod == 0 ? 0 : this.Grid.GridSpaceSize - yMod;
+            break;
+        }
+
         if (_tileSpriteObjects != null)
         {
             for (int i = 0; i < _tileSpriteObjects.Count; ++i)
@@ -37,11 +50,11 @@ public class MapEditorTilesPanel : MonoBehaviour
             PooledObject tileSpriteObject = this.TileSpritePrefab.Retain();
             tileSpriteObject.GetComponent<Image>().sprite = sprite;
             tileSpriteObject.transform.SetParent(this.AtlasBackdrop, false);
-            ((RectTransform)tileSpriteObject.transform).anchoredPosition = new Vector2(sprite.rect.x, sprite.rect.y);
-            if (sprite.rect.x + this.Grid.GridSpaceSize > max.X)
-                max.X = Mathf.RoundToInt(sprite.rect.x) + this.Grid.GridSpaceSize;
-            if (sprite.rect.y + this.Grid.GridSpaceSize > max.Y)
-                max.Y = Mathf.RoundToInt(sprite.rect.y) + this.Grid.GridSpaceSize;
+            ((RectTransform)tileSpriteObject.transform).anchoredPosition = new Vector2(sprite.rect.x + _gridOffset.X, sprite.rect.y + _gridOffset.Y);
+            if (sprite.rect.x + _gridOffset.X + this.Grid.GridSpaceSize > max.X)
+                max.X = Mathf.RoundToInt(sprite.rect.x) + _gridOffset.X + this.Grid.GridSpaceSize;
+            if (sprite.rect.y + _gridOffset.Y + this.Grid.GridSpaceSize > max.Y)
+                max.Y = Mathf.RoundToInt(sprite.rect.y) + _gridOffset.Y + this.Grid.GridSpaceSize;
             tileSpriteObject.transform.localScale = new Vector3(1, 1, 1);
             tileSpriteObject.transform.SetLocalZ(0);
             tileSpriteObject.transform.SetAsFirstSibling();
@@ -51,7 +64,7 @@ public class MapEditorTilesPanel : MonoBehaviour
         this.Grid.InitializeGridForSize(max.X / this.Grid.GridSpaceSize, max.Y / this.Grid.GridSpaceSize);
         this.AtlasBackdrop.sizeDelta = new Vector2(max.X, max.Y);
 
-        _gridPos = _sprites.ContainsKey(_layer.CurrentSpriteName) ? (IntegerVector)_sprites[_layer.CurrentSpriteName].rect.min / this.Grid.GridSpaceSize: IntegerVector.Zero;
+        _gridPos = _sprites.ContainsKey(_layer.CurrentSpriteName) ? ((IntegerVector)_sprites[_layer.CurrentSpriteName].rect.min + _gridOffset) / this.Grid.GridSpaceSize: IntegerVector.Zero;
         updateVisual();
     }
 
@@ -95,6 +108,7 @@ public class MapEditorTilesPanel : MonoBehaviour
     private Dictionary<string, Sprite> _sprites;
     private List<PooledObject> _tileSpriteObjects;
     private IntegerVector _gridPos;
+    private IntegerVector _gridOffset = IntegerVector.Zero;
 
     private void updateSelection()
     {
@@ -115,7 +129,7 @@ public class MapEditorTilesPanel : MonoBehaviour
     {
         foreach (Sprite sprite in _sprites.Values)
         {
-            if (Mathf.RoundToInt(sprite.rect.x) == _gridPos.X * this.Grid.GridSpaceSize && Mathf.RoundToInt(sprite.rect.y) == _gridPos.Y * this.Grid.GridSpaceSize)
+            if (Mathf.RoundToInt(sprite.rect.x) + _gridOffset.X == _gridPos.X * this.Grid.GridSpaceSize && Mathf.RoundToInt(sprite.rect.y) + _gridOffset.Y == _gridPos.Y * this.Grid.GridSpaceSize)
                 return sprite;
         }
         return null;

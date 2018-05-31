@@ -17,7 +17,8 @@ public class MapEditorManager : MonoBehaviour, IPausable
     public const string LIGHTING_LAYER = "lights";
     public const string PARALLAX_BACK_SORT_LAYER = "parallax_back";
     public const string PARALLAX_FRONT_SORT_LAYER = "parallax_front";
-    public const string MAINSTREET_PREFIX = "MainSt"; // Mainstreet only area with bg_parallax layer for now
+    public const string MAINSTREET_PREFIX = "MainSt"; // Mainstreet and estates only areas with bg_parallax layer for now
+    public const string ESTATES_PREFIX = "Estate";
     public const int PLATFORMS_LAYER_DEPTH = 0;
 
     public CameraController CameraController;
@@ -101,7 +102,7 @@ public class MapEditorManager : MonoBehaviour, IPausable
         }
 
         NewMapInfo.MapLayer bgParallaxLayerData = _mapInfo.GetMapLayer(BG_PARALLAX_LAYER);
-        bool useBgParallax = bgParallaxLayerData != null || this.MapName.Contains(MAINSTREET_PREFIX);
+        bool useBgParallax = bgParallaxLayerData != null || this.MapName.Contains(MAINSTREET_PREFIX) || this.MapName.Contains(ESTATES_PREFIX);
         if (useBgParallax && bgParallaxLayerData == null)
         {
             _mapInfo.AddTileLayer(BG_PARALLAX_LAYER);
