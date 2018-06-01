@@ -69,7 +69,7 @@ public class SoundManagerWindow : EditorWindow
             if (!StringExtensions.IsEmpty(filter) && !name.ToLower().Contains(filter))
                 continue;
 
-            if (_unSetFilter && this.Data.EntriesByEnumIndex[keyIndex] != null && !this.Data.EntriesByEnumIndex[keyIndex].HasClip(null))
+            if (_unSetFilter && this.Data.EntriesByEnumIndex[keyIndex] != null && this.Data.EntriesByEnumIndex[keyIndex].Count > 0 && !this.Data.EntriesByEnumIndex[keyIndex].HasClip(null))
                 continue;
 
             if (_filterClip != null && (this.Data.EntriesByEnumIndex[keyIndex] == null || !this.Data.EntriesByEnumIndex[keyIndex].HasClip(_filterClip)))
