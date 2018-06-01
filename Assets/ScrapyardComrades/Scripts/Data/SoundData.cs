@@ -4,10 +4,62 @@ using System.Collections.Generic;
 [System.Serializable]
 public class SoundData : ScriptableObject
 {
-    public List<AudioClip> ClipsByEnumIndex;
-    public List<float> VolumeByEnumIndex;
-    public List<float> PitchByEnumIndex;
+    public List<EntryList> EntriesByEnumIndex;
     public List<int> CooldownsByEnumIndex;
+
+    [System.Serializable]
+    public class EntryList
+    {
+        public List<Entry> Entries;
+        public int Count { get { return this.Entries.Count; } }
+
+        public EntryList()
+        {
+            this.Entries = new List<Entry>();
+        }
+
+        public void Add(Entry entry)
+        {
+            this.Entries.Add(entry);
+        }
+
+        public void RemoveAt(int index)
+        {
+            this.Entries.RemoveAt(index);
+        }
+
+        public void AddRange(List<Entry> entries)
+        {
+            this.Entries.AddRange(entries);
+        }
+
+        public void RemoveEmpties()
+        {
+            for (int j = this.Entries.Count - 1; j >= 0; --j)
+            {
+                if (this.Entries[j].Clip == null)
+                    this.Entries.RemoveAt(j);
+            }
+        }
+
+        public bool HasClip(AudioClip clip)
+        {
+            for (int i = 0; i < this.Entries.Count; ++i)
+            {
+                if (this.Entries[i].Clip == clip)
+                    return true;
+            }
+            return false;
+        }
+    }
+
+    [System.Serializable]
+    public struct Entry
+    {
+        public AudioClip Clip;
+        public float Volume;
+        public float Pitch;
+    }
 
     public enum Key
     {
