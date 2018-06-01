@@ -28,7 +28,7 @@ public class SoundManagerWindow : EditorWindow
 
     void OnGUI()
     {
-        if (this.Data == null || _soundKeys == null || this.Data.EntriesByEnumIndex == null || this.Data.EntriesByEnumIndex.Count <= (int)SoundData.Key.TOTAL || this.Data.ClipsByEnumIndex == null || this.Data.ClipsByEnumIndex.Count <= (int)SoundData.Key.TOTAL || this.Data.VolumeByEnumIndex == null || this.Data.VolumeByEnumIndex.Count <= (int)SoundData.Key.TOTAL || this.Data.PitchByEnumIndex == null || this.Data.PitchByEnumIndex.Count <= (int)SoundData.Key.TOTAL || this.Data.CooldownsByEnumIndex == null || this.Data.CooldownsByEnumIndex.Count <= (int)SoundData.Key.TOTAL || _foldouts == null || _foldouts.Count <= (int)SoundData.Key.TOTAL)
+        if (this.Data == null || _soundKeys == null || this.Data.EntriesByEnumIndex == null || this.Data.EntriesByEnumIndex.Count <= (int)SoundData.Key.TOTAL || this.Data.CooldownsByEnumIndex == null || this.Data.CooldownsByEnumIndex.Count <= (int)SoundData.Key.TOTAL || _foldouts == null || _foldouts.Count <= (int)SoundData.Key.TOTAL)
         {
             reload();
         }
@@ -63,65 +63,48 @@ public class SoundManagerWindow : EditorWindow
         for (int i = 1; i < _soundKeys.Length - 1; ++i)
         {
             SoundData.Key key = (SoundData.Key)_soundKeys.GetValue(i);
+            int keyIndex = (int)key;
             string name = System.Enum.GetName(typeof(SoundData.Key), key);
-            
+
             if (!StringExtensions.IsEmpty(filter) && !name.ToLower().Contains(filter))
                 continue;
 
-            if (_unSetFilter && this.Data.ClipsByEnumIndex[(int)key] != null)
+            if (_unSetFilter && this.Data.EntriesByEnumIndex[keyIndex] != null && !this.Data.EntriesByEnumIndex[keyIndex].HasClip(null))
                 continue;
 
-            if (_filterClip != null && this.Data.ClipsByEnumIndex[(int)key] != _filterClip)
+            if (_filterClip != null && (this.Data.EntriesByEnumIndex[keyIndex] == null || !this.Data.EntriesByEnumIndex[keyIndex].HasClip(_filterClip)))
                 continue;
+            
+            _foldouts[keyIndex] = EditorGUILayout.Foldout(_foldouts[keyIndex], name, true, _foldoutStyle);
 
-            _foldouts[(int)key] = EditorGUILayout.Foldout(_foldouts[(int)key], name, true, _foldoutStyle);
-
-            if (_foldouts[(int)key])
+            if (_foldouts[keyIndex])
             {
                 EditorGUI.BeginChangeCheck();
                 ++EditorGUI.indentLevel;
-                this.Data.ClipsByEnumIndex[(int)key] = (AudioClip)EditorGUILayout.ObjectField("Audio Clip", this.Data.ClipsByEnumIndex[(int)key], typeof(AudioClip), false);
-                this.Data.VolumeByEnumIndex[(int)key] = EditorGUILayout.Slider("Volume", this.Data.VolumeByEnumIndex[(int)key], 0.0f, 1.0f);
-                this.Data.PitchByEnumIndex[(int)key] = EditorGUILayout.Slider("Pitch", this.Data.PitchByEnumIndex[(int)key], -3.0f, 3.0f);
 
-                //this.Data.EntriesByEnumIndex[(int)key] = (List<SoundData.Entry>)EditorGUILayout.ObjectField(label: "Entries", obj: this.Data.EntriesByEnumIndex[(int)key], objType: typeof(List<SoundData.Entry>), allowSceneObjects: false);
-
-                if (this.Data.EntriesByEnumIndex[(int)key] != null)
+                if (this.Data.EntriesByEnumIndex[keyIndex] != null)
                 {
-                    for (int j = 0; j < this.Data.EntriesByEnumIndex[(int)key].Count;)
+                    for (int j = 0; j < this.Data.EntriesByEnumIndex[keyIndex].Count;)
                     {
-                        SoundData.Entry entry = this.Data.EntriesByEnumIndex[(int)key].Entries[j];
+                        SoundData.Entry entry = this.Data.EntriesByEnumIndex[keyIndex].Entries[j];
                         GUILayout.BeginHorizontal();
-                        //GUILayout.FlexibleSpace();
-                        //GUILayout.Space(30.0f);
-                        //bool remove = GUILayout.Button("-");
-                        //GUILayout.FlexibleSpace();
-                        //GUILayout.Space(1.0f);
                         EditorGUILayout.LabelField("Entry " + j, GUILayout.Width(70.0f));
                         GUILayout.Space(1.0f);
                         bool remove = GUILayout.Button("-");
                         GUILayout.FlexibleSpace();
                         GUILayout.EndHorizontal();
                         ++EditorGUI.indentLevel;
-
-                        //GUI.Button(new Rect(0, 0, 20, 20), "-");
-                        //GUI.Label(new Rect())
-
-                        /*GUILayout.BeginHorizontal();
-                        GUILayout.FlexibleSpace();
-                        bool remove = GUILayout.Button("-");
-                        GUILayout.FlexibleSpace();
-                        GUILayout.EndHorizontal();*/
+                        
                         if (remove)
                         {
-                            this.Data.EntriesByEnumIndex[(int)key].RemoveAt(j);
+                            this.Data.EntriesByEnumIndex[keyIndex].RemoveAt(j);
                         }
                         else
                         {
                             entry.Clip = (AudioClip)EditorGUILayout.ObjectField("Audio Clip", entry.Clip, typeof(AudioClip), false);
                             entry.Volume = EditorGUILayout.Slider("Volume", entry.Volume, 0.0f, 1.0f);
                             entry.Pitch = EditorGUILayout.Slider("Pitch", entry.Pitch, -3.0f, 3.0f);
-                            this.Data.EntriesByEnumIndex[(int)key].Entries[j] = entry;
+                            this.Data.EntriesByEnumIndex[keyIndex].Entries[j] = entry;
                             ++j;
                         }
 
@@ -130,7 +113,6 @@ public class SoundManagerWindow : EditorWindow
                 }
 
                 GUILayout.BeginHorizontal();
-                //GUILayout.FlexibleSpace();
                 GUILayout.Space(35.0f);
                 if (GUILayout.Button("Add Entry"))
                 {
@@ -138,22 +120,22 @@ public class SoundManagerWindow : EditorWindow
                     entry.Clip = null;
                     entry.Volume = 1.0f;
                     entry.Pitch = 1.0f;
-                    if (this.Data.EntriesByEnumIndex[(int)key] == null)
-                        this.Data.EntriesByEnumIndex[(int)key] = new SoundData.EntryList();
-                    this.Data.EntriesByEnumIndex[(int)key].Add(entry);
+                    if (this.Data.EntriesByEnumIndex[keyIndex] == null)
+                        this.Data.EntriesByEnumIndex[keyIndex] = new SoundData.EntryList();
+                    this.Data.EntriesByEnumIndex[keyIndex].Add(entry);
                 }
                 GUILayout.FlexibleSpace();
                 GUILayout.EndHorizontal();
 
-                this.Data.CooldownsByEnumIndex[(int)key] = EditorGUILayout.IntSlider("Cooldown", this.Data.CooldownsByEnumIndex[(int)key], 0, 20);
+                this.Data.CooldownsByEnumIndex[keyIndex] = EditorGUILayout.IntSlider("Cooldown", this.Data.CooldownsByEnumIndex[keyIndex], 0, 20);
                 changed |= EditorGUI.EndChangeCheck();
 
                 GUILayout.BeginHorizontal();
                 GUILayout.FlexibleSpace();
                 if (GUILayout.Button("Test", GUILayout.Width(200.0f)))
                 {
-                    if (this.Data.EntriesByEnumIndex[(int)key] != null)
-                        PlaySfx(this.Data.EntriesByEnumIndex[(int)key]);
+                    if (this.Data.EntriesByEnumIndex[keyIndex] != null)
+                        PlaySfx(this.Data.EntriesByEnumIndex[keyIndex]);
                 }
                 GUILayout.FlexibleSpace();
                 GUILayout.EndHorizontal();
@@ -197,8 +179,7 @@ public class SoundManagerWindow : EditorWindow
             source.Play();
         }
     }
-
-
+    
     /**
      * Private
      */
@@ -227,120 +208,9 @@ public class SoundManagerWindow : EditorWindow
         }
 
         _soundKeys = System.Enum.GetValues(typeof(SoundData.Key));
-        popuplateClips();
-        populateVolumes();
-        populatePitches();
         populateEntries();
         populateCooldowns();
         populateFoldouts();
-    }
-
-    private void popuplateClips()
-    {
-        int maxIndex = (int)SoundData.Key.TOTAL;
-
-        if (this.Data.ClipsByEnumIndex != null)
-        {
-            // Too big
-            if (this.Data.ClipsByEnumIndex.Count > maxIndex + 1)
-            {
-                this.Data.ClipsByEnumIndex.RemoveRange(maxIndex, this.Data.ClipsByEnumIndex.Count - maxIndex);
-                return;
-            }
-
-            // Perfect already
-            else if (this.Data.ClipsByEnumIndex.Count == maxIndex + 1)
-            {
-                return;
-            }
-        }
-
-        List<AudioClip> clips = new List<AudioClip>((int)SoundData.Key.TOTAL + 1);
-
-        // Too small
-        if (this.Data.ClipsByEnumIndex != null && this.Data.ClipsByEnumIndex.Count > 0)
-        {
-            clips.AddRange(this.Data.ClipsByEnumIndex);
-        }
-
-        for (int i = clips.Count; i <= maxIndex; ++i)
-        {
-            clips.Add(null);
-        }
-
-        this.Data.ClipsByEnumIndex = clips;
-    }
-
-    private void populateVolumes()
-    {
-        int maxIndex = (int)SoundData.Key.TOTAL;
-
-        if (this.Data.VolumeByEnumIndex != null)
-        {
-            // Too big
-            if (this.Data.VolumeByEnumIndex.Count > maxIndex + 1)
-            {
-                this.Data.VolumeByEnumIndex.RemoveRange(maxIndex, this.Data.VolumeByEnumIndex.Count - maxIndex);
-                return;
-            }
-
-            // Perfect already
-            else if (this.Data.VolumeByEnumIndex.Count == maxIndex + 1)
-            {
-                return;
-            }
-        }
-
-        List<float> volumes = new List<float>((int)SoundData.Key.TOTAL + 1);
-
-        // Too small
-        if (this.Data.VolumeByEnumIndex != null && this.Data.VolumeByEnumIndex.Count > 0)
-        {
-            volumes.AddRange(this.Data.VolumeByEnumIndex);
-        }
-
-        for (int i = volumes.Count; i <= maxIndex; ++i)
-        {
-            volumes.Add(1.0f);
-        }
-
-        this.Data.VolumeByEnumIndex = volumes;
-    }
-
-    private void populatePitches()
-    {
-        int maxIndex = (int)SoundData.Key.TOTAL;
-
-        if (this.Data.PitchByEnumIndex != null)
-        {
-            // Too big
-            if (this.Data.PitchByEnumIndex.Count > maxIndex + 1)
-            {
-                this.Data.PitchByEnumIndex.RemoveRange(maxIndex, this.Data.PitchByEnumIndex.Count - maxIndex);
-                return;
-            }
-
-            // Perfect already
-            else if (this.Data.PitchByEnumIndex.Count == maxIndex + 1)
-            {
-                return;
-            }
-        }
-
-        List<float> pitches = new List<float>((int)SoundData.Key.TOTAL + 1);
-
-        // Too small
-        if (this.Data.PitchByEnumIndex != null && this.Data.PitchByEnumIndex.Count > 0)
-        {
-            pitches.AddRange(this.Data.PitchByEnumIndex);
-        }
-
-        for (int i = pitches.Count; i <= maxIndex; ++i)
-        {
-            pitches.Add(1.0f);
-        }
-
-        this.Data.PitchByEnumIndex = pitches;
     }
 
     private void populateEntries()
@@ -359,20 +229,6 @@ public class SoundManagerWindow : EditorWindow
             // Perfect already
             else if (this.Data.EntriesByEnumIndex.Count == maxIndex + 1)
             {
-                // Temp code to eliminate empties
-                /*for (int i = 0; i < this.Data.EntriesByEnumIndex.Count; ++i)
-                {
-                    List<SoundData.Entry> entryList = this.Data.EntriesByEnumIndex[i];
-                    if (entryList != null)
-                    {
-                        for (int j = entryList.Count - 1; j >= 0; --j)
-                        {
-                            if (entryList[j].Clip == null)
-                                entryList.RemoveAt(j);
-                        }
-                    }
-                }*/
-
                 return;
             }
         }
@@ -387,17 +243,7 @@ public class SoundManagerWindow : EditorWindow
 
         for (int i = entries.Count; i <= maxIndex; ++i)
         {
-            SoundData.EntryList entryList = new SoundData.EntryList();
-            // Temp code to add from previous system
-            if (this.Data.ClipsByEnumIndex != null && this.Data.ClipsByEnumIndex.Count > i && this.Data.ClipsByEnumIndex[i] != null)
-            {
-                SoundData.Entry entry = new SoundData.Entry();
-                entry.Clip = this.Data.ClipsByEnumIndex[i];
-                entry.Volume = this.Data.VolumeByEnumIndex[i];
-                entry.Pitch = this.Data.PitchByEnumIndex[i];
-                entryList.Add(entry);
-            }
-            entries.Add(entryList);
+            entries.Add(new SoundData.EntryList());
         }
 
         this.Data.EntriesByEnumIndex = entries;

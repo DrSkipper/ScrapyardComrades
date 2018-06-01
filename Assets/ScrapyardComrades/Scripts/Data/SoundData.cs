@@ -4,10 +4,6 @@ using System.Collections.Generic;
 [System.Serializable]
 public class SoundData : ScriptableObject
 {
-    public List<AudioClip> ClipsByEnumIndex;
-    public List<float> VolumeByEnumIndex;
-    public List<float> PitchByEnumIndex;
-
     public List<EntryList> EntriesByEnumIndex;
     public List<int> CooldownsByEnumIndex;
 
@@ -44,6 +40,16 @@ public class SoundData : ScriptableObject
                 if (this.Entries[j].Clip == null)
                     this.Entries.RemoveAt(j);
             }
+        }
+
+        public bool HasClip(AudioClip clip)
+        {
+            for (int i = 0; i < this.Entries.Count; ++i)
+            {
+                if (this.Entries[i].Clip == clip)
+                    return true;
+            }
+            return false;
         }
     }
 
