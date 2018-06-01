@@ -7,7 +7,17 @@ public class SoundData : ScriptableObject
     public List<AudioClip> ClipsByEnumIndex;
     public List<float> VolumeByEnumIndex;
     public List<float> PitchByEnumIndex;
+
+    public List<List<Entry>> EntriesByEnumIndex;
     public List<int> CooldownsByEnumIndex;
+
+    [System.Serializable]
+    public struct Entry
+    {
+        public AudioClip Clip;
+        public float Volume;
+        public float Pitch;
+    }
 
     public enum Key
     {
