@@ -47,6 +47,16 @@ public class SoundManagerWindow : EditorWindow
         _filterClip = (AudioClip)EditorGUILayout.ObjectField("Filter by clip:", _filterClip, typeof(AudioClip), false);
         _unSetFilter = EditorGUILayout.Toggle("Only Show Missing Clips", _unSetFilter);
 
+        if (GUILayout.Button("Remove Empty Entries"))
+        {
+            for (int i = 0; i < this.Data.EntriesByEnumIndex.Count; ++i)
+            {
+                SoundData.EntryList entryList = this.Data.EntriesByEnumIndex[i];
+                if (entryList != null)
+                    entryList.RemoveEmpties();
+            }
+        }
+
         _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, false, true);
         bool changed = false;
         
@@ -54,9 +64,7 @@ public class SoundManagerWindow : EditorWindow
         {
             SoundData.Key key = (SoundData.Key)_soundKeys.GetValue(i);
             string name = System.Enum.GetName(typeof(SoundData.Key), key);
-
-
-
+            
             if (!StringExtensions.IsEmpty(filter) && !name.ToLower().Contains(filter))
                 continue;
 
@@ -82,7 +90,7 @@ public class SoundManagerWindow : EditorWindow
                 {
                     for (int j = 0; j < this.Data.EntriesByEnumIndex[(int)key].Count;)
                     {
-                        SoundData.Entry entry = this.Data.EntriesByEnumIndex[(int)key][j];
+                        SoundData.Entry entry = this.Data.EntriesByEnumIndex[(int)key].Entries[j];
                         GUILayout.BeginHorizontal();
                         //GUILayout.FlexibleSpace();
                         //GUILayout.Space(30.0f);
@@ -113,7 +121,7 @@ public class SoundManagerWindow : EditorWindow
                             entry.Clip = (AudioClip)EditorGUILayout.ObjectField("Audio Clip", entry.Clip, typeof(AudioClip), false);
                             entry.Volume = EditorGUILayout.Slider("Volume", entry.Volume, 0.0f, 1.0f);
                             entry.Pitch = EditorGUILayout.Slider("Pitch", entry.Pitch, -3.0f, 3.0f);
-                            this.Data.EntriesByEnumIndex[(int)key][j] = entry;
+                            this.Data.EntriesByEnumIndex[(int)key].Entries[j] = entry;
                             ++j;
                         }
 
@@ -130,6 +138,8 @@ public class SoundManagerWindow : EditorWindow
                     entry.Clip = null;
                     entry.Volume = 1.0f;
                     entry.Pitch = 1.0f;
+                    if (this.Data.EntriesByEnumIndex[(int)key] == null)
+                        this.Data.EntriesByEnumIndex[(int)key] = new SoundData.EntryList();
                     this.Data.EntriesByEnumIndex[(int)key].Add(entry);
                 }
                 GUILayout.FlexibleSpace();
@@ -142,8 +152,8 @@ public class SoundManagerWindow : EditorWindow
                 GUILayout.FlexibleSpace();
                 if (GUILayout.Button("Test", GUILayout.Width(200.0f)))
                 {
-                    if (this.Data.ClipsByEnumIndex[(int)key] != null)
-                        PlayClip(this.Data.ClipsByEnumIndex[(int)key], this.Data.PitchByEnumIndex[(int)key]);
+                    if (this.Data.EntriesByEnumIndex[(int)key] != null)
+                        PlaySfx(this.Data.EntriesByEnumIndex[(int)key]);
                 }
                 GUILayout.FlexibleSpace();
                 GUILayout.EndHorizontal();
@@ -158,35 +168,34 @@ public class SoundManagerWindow : EditorWindow
         EditorGUILayout.EndScrollView();
     }
 
-    public void PlayClip(AudioClip clip, float pitch)
+    public void PlaySfx(SoundData.EntryList entries)
     {
-        if (_source == null)
-        {
-            _source = Instantiate<AudioSource>(this.AudioSourcePrefab);
-            _source.gameObject.hideFlags = HideFlags.DontSaveInEditor;
-        }
-        _source.Stop();
-        _source.clip = clip;
-        _source.pitch = pitch;
-        _source.Play();
+        if (_sources == null)
+            _sources = new List<AudioSource>();
 
-        /*Assembly unityEditorAssembly = typeof(AudioImporter).Assembly;
-        System.Type audioUtilClass = unityEditorAssembly.GetType("UnityEditor.AudioUtil");
-        MethodInfo method = audioUtilClass.GetMethod(
-            "PlayClip",
-            BindingFlags.Static | BindingFlags.Public,
-            null,
-            new System.Type[] {
-                typeof(AudioClip)
-            },
-            null
-        );
-        method.Invoke(
-            null,
-            new object[] {
-                clip
-            }
-        );*/
+        for (int i = _sources.Count - 1; i >= 0; --i)
+        {
+            if (_sources[i] == null)
+                _sources.RemoveAt(i);
+            else
+                _sources[i].Stop();
+        }
+
+        while (_sources.Count < entries.Count)
+        {
+            AudioSource source = Instantiate<AudioSource>(this.AudioSourcePrefab);
+            source.gameObject.hideFlags = HideFlags.DontSaveInEditor;
+            _sources.Add(source);
+        }
+
+        for (int i = 0; i < entries.Count; ++i)
+        {
+            AudioSource source = _sources[i];
+            source.clip = entries.Entries[i].Clip;
+            source.volume = entries.Entries[i].Volume;
+            source.pitch = entries.Entries[i].Pitch;
+            source.Play();
+        }
     }
 
 
@@ -200,7 +209,7 @@ public class SoundManagerWindow : EditorWindow
     private string _filterText;
     private bool _unSetFilter;
     private AudioClip _filterClip;
-    private AudioSource _source;
+    private List<AudioSource> _sources;
 
     private void createFoldoutStyle()
     {
@@ -350,11 +359,25 @@ public class SoundManagerWindow : EditorWindow
             // Perfect already
             else if (this.Data.EntriesByEnumIndex.Count == maxIndex + 1)
             {
+                // Temp code to eliminate empties
+                /*for (int i = 0; i < this.Data.EntriesByEnumIndex.Count; ++i)
+                {
+                    List<SoundData.Entry> entryList = this.Data.EntriesByEnumIndex[i];
+                    if (entryList != null)
+                    {
+                        for (int j = entryList.Count - 1; j >= 0; --j)
+                        {
+                            if (entryList[j].Clip == null)
+                                entryList.RemoveAt(j);
+                        }
+                    }
+                }*/
+
                 return;
             }
         }
 
-        List<List<SoundData.Entry>> entries = new List<List<SoundData.Entry>>((int)SoundData.Key.TOTAL + 1);
+        List<SoundData.EntryList> entries = new List<SoundData.EntryList>((int)SoundData.Key.TOTAL + 1);
 
         // Too small
         if (this.Data.EntriesByEnumIndex != null && this.Data.EntriesByEnumIndex.Count > 0)
@@ -364,8 +387,9 @@ public class SoundManagerWindow : EditorWindow
 
         for (int i = entries.Count; i <= maxIndex; ++i)
         {
-            List<SoundData.Entry> entryList = new List<SoundData.Entry>();
-            if (this.Data.ClipsByEnumIndex != null && this.Data.ClipsByEnumIndex.Count > i)
+            SoundData.EntryList entryList = new SoundData.EntryList();
+            // Temp code to add from previous system
+            if (this.Data.ClipsByEnumIndex != null && this.Data.ClipsByEnumIndex.Count > i && this.Data.ClipsByEnumIndex[i] != null)
             {
                 SoundData.Entry entry = new SoundData.Entry();
                 entry.Clip = this.Data.ClipsByEnumIndex[i];
@@ -414,6 +438,7 @@ public class SoundManagerWindow : EditorWindow
 
         _foldouts = foldouts;
     }
+
     private void populateCooldowns()
     {
         int maxIndex = (int)SoundData.Key.TOTAL;

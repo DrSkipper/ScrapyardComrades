@@ -46,7 +46,7 @@ public class SoundManager : MonoBehaviour
     {
         if (!_cooldowns.ContainsKey(key))
         {
-            AudioSource source = findAvailableAudioSource();
+            /*AudioSource source = findAvailableAudioSource();
             if (source != null)
             {
                 int i = (int)key;
@@ -61,6 +61,34 @@ public class SoundManager : MonoBehaviour
                 source.Play();
                 _cooldowns.Add(key, cooldown);
                 _cooldownKeys.Add(key);
+            }*/
+
+            int keyIndex = (int)key;
+            SoundData.EntryList entries = this.SoundData.EntriesByEnumIndex[keyIndex];
+            if (entries != null)
+            {
+                bool found = false;
+                for (int i = 0; i < entries.Count; ++i)
+                {
+                    SoundData.Entry entry = entries.Entries[i];
+                    if (entry.Clip != null)
+                    {
+                        AudioSource source = findAvailableAudioSource();
+                        if (source != null)
+                        {
+                            found = true;
+                            source.clip = entry.Clip;
+                            source.volume = entry.Volume;
+                            source.pitch = entry.Pitch;
+                            source.Play();
+                        }
+                    }
+                }
+                if (found)
+                {
+                    _cooldowns.Add(key, this.SoundData.CooldownsByEnumIndex[keyIndex]);
+                    _cooldownKeys.Add(key);
+                }
             }
         }
     }

@@ -8,8 +8,44 @@ public class SoundData : ScriptableObject
     public List<float> VolumeByEnumIndex;
     public List<float> PitchByEnumIndex;
 
-    public List<List<Entry>> EntriesByEnumIndex;
+    public List<EntryList> EntriesByEnumIndex;
     public List<int> CooldownsByEnumIndex;
+
+    [System.Serializable]
+    public class EntryList
+    {
+        public List<Entry> Entries;
+        public int Count { get { return this.Entries.Count; } }
+
+        public EntryList()
+        {
+            this.Entries = new List<Entry>();
+        }
+
+        public void Add(Entry entry)
+        {
+            this.Entries.Add(entry);
+        }
+
+        public void RemoveAt(int index)
+        {
+            this.Entries.RemoveAt(index);
+        }
+
+        public void AddRange(List<Entry> entries)
+        {
+            this.Entries.AddRange(entries);
+        }
+
+        public void RemoveEmpties()
+        {
+            for (int j = this.Entries.Count - 1; j >= 0; --j)
+            {
+                if (this.Entries[j].Clip == null)
+                    this.Entries.RemoveAt(j);
+            }
+        }
+    }
 
     [System.Serializable]
     public struct Entry
