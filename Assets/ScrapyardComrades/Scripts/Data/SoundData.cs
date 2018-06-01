@@ -42,6 +42,10 @@ public class SoundData : ScriptableObject
         HeroLV1_Aerial,
         HeroLV1_AerialImpact,
         HeroLV1_Death,
+        HeroLV1_JabImpact2,
+        HeroLV1_JabImpact3,
+        HeroLV1_DashJump,
+        HeroLV1_LandHard,
 
         /**
          * Level 2 Hero
@@ -69,6 +73,9 @@ public class SoundData : ScriptableObject
         HeroLV2_Aerial,
         HeroLV2_AerialImpact,
         HeroLV2_Death,
+        HeroLV2_JabImpact2,
+        HeroLV2_DashJump,
+        HeroLV2_LandHard,
 
         /**
          * Level 3 Hero
@@ -96,6 +103,9 @@ public class SoundData : ScriptableObject
         HeroLV3_Aerial,
         HeroLV3_AerialImpact,
         HeroLV3_Death,
+        HeroLV3_JabImpact2,
+        HeroLV3_DashJump,
+        HeroLV3_LandHard,
 
         /**
          * Hero Level 4
@@ -120,6 +130,8 @@ public class SoundData : ScriptableObject
         HeroLV4_GroundPoundShockwave,
         HeroLV4_GroundPoundImpact,
         HeroLV4_Death,
+        HeroLV4_PunchImpact2,
+        HeroLV4_LandHard,
 
         /**
          * Hero Level 5
@@ -129,10 +141,12 @@ public class SoundData : ScriptableObject
         HeroLV5_Jump,
         HeroLV5_Falling,
         HeroLV5_Land,
+        HeroLV5_LandHard,
         HeroLV5_TouchWall,
         HeroLV5_Punch1,
         HeroLV5_Punch2,
-        HeroLV5_PunchImpact,
+        HeroLV5_PunchImpact1,
+        HeroLV5_PunchImpact2,
         HeroLV5_Sweep,
         HeroLV5_SweepImpact,
         HeroLV5_GroundPoundSwing,
