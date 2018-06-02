@@ -81,7 +81,8 @@
               <li><a href="Controllers.html">Controllers</a></li>
               <li><a href="ControllerMaps.html">Controller Maps</a></li>
               <li><a href="MapCategories.html">Map Categories</a></li>
-              <li><a href="ControllerMaps.html"></a><a href="Layouts.html">Layouts</a></li>
+              <li><a href="Layouts.html">Layouts</a></li>
+              <li><a href="ControllerTemplates.html">Controller Templates</a></li>
               <li><a href="CustomControllers.html">Custom Controllers</a></li>
             </ul>
             <strong>Extras:</strong>
@@ -271,7 +272,6 @@
 <ul>
   <li>Map Category -&gt; User Assignable</li>
 </ul>
-<p>Note that not all &quot;User Assignable&quot; checkboxes in the Rewired Input Manager are equal. The &quot;User Assignable&quot; checkbox also appears in Action Categories and Actions themselves, but only the Map Category &quot;User Assignable&quot; checkbox is used in determining protected controls.</p>
 <p>&nbsp;</p>
 <hr />
     <h2><a name="theming" id="theming"></a>Theming</h2>
@@ -597,12 +597,16 @@ Even if your game doesn't use analog input, your players may still use physical 
     <p>&nbsp;</p>
     <hr />
     <p><strong>Element Assignment Options</strong></p>
-    <p><img src="files/images/controlmapper_inspector_element-assignment-options.png" width="676" height="74" /></p>
+    <p><img src="files/images/controlmapper_inspector_element-assignment-options.png" /></p>
     <p>Various options for the element assignment.</p>
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
       <tr>
         <td width="22%" valign="top">Allow Element Assignment Conflicts</td>
         <td width="78%" valign="top">If enabled, when an element assignment conflict is found, an option will be displayed that allows the user to make the conflicting assignment anyway.</td>
+      </tr>
+      <tr>
+        <td valign="top">Allow Element Assignment Swap</td>
+        <td valign="top">If enabled, when an element assignment conflict is found, an option will be displayed that allows the user to swap conflicting assignments. This only applies to the first conflicting assignment found. This option will not be displayed if Allow Element Assignment Conflicts is enabled.</td>
       </tr>
     </table>
     <p>&nbsp;</p>
@@ -737,6 +741,36 @@ Even if your game doesn't use analog input, your players may still use physical 
     </table>
     <p>&nbsp;</p>
 <hr />
+    <p><strong>Events</strong></p>
+    <p><img src="files/images/controlmapper_inspector_events.png" alt="" /></p>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="22%" valign="top"><p>On Screen Opened</p></td>
+        <td width="78%" valign="top"><p>Event sent when the UI is opened.</p></td>
+      </tr>
+      <tr>
+        <td valign="top">On Screen Closed</td>
+        <td valign="top">Event sent when the UI is closed.</td>
+      </tr>
+      <tr>
+        <td valign="top">On Popup Window Opened</td>
+        <td valign="top">Event sent when a popup window is opened.</td>
+      </tr>
+      <tr>
+        <td valign="top">On Popup Window Closed</td>
+        <td valign="top">Event sent when a popup window is closed.</td>
+      </tr>
+      <tr>
+        <td valign="top">On Input Polling Started</td>
+        <td valign="top">Event sent when polling for input has started.</td>
+      </tr>
+      <tr>
+        <td valign="top">On Input Polling Ended</td>
+        <td valign="top">Event sent when polling for input has ended.</td>
+      </tr>
+    </table>
+    <p>&nbsp;</p>
+    <hr />
     <p><strong>Advanced Settings</strong></p>
     <p><img src="files/images/controlmapper_inspector_advanced-settings.png" alt="" width="687" height="68" /></p>
     <p>These are internal settings like references to GameObject and Prefabs. You should not have to change these.</p>

@@ -185,15 +185,6 @@ namespace Rewired {
 #endif
         }
 
-        protected override string GetFocusedEditorWindowTitle() {
-#if UNITY_EDITOR
-            UnityEditor.EditorWindow window = UnityEditor.EditorWindow.focusedWindow;
-            return window != null ? window.title : string.Empty;
-#else
-            return string.Empty;
-#endif
-        }
-
         protected override IExternalTools GetExternalTools() {
             return new ExternalTools();
         }

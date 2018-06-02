@@ -36,13 +36,13 @@ public class TilesetEditorManagerEditor : Editor
     {
         Event current = Event.current;
 
-        if (current.type == EventType.layout)
+        if (current.type == EventType.Layout)
         {
             HandleUtility.AddDefaultControl(GUIUtility.GetControlID(FocusType.Passive));
         }
-        else if ((current.type == EventType.mouseDown || current.type == EventType.mouseDrag) && current.button == 0)
+        else if ((current.type == EventType.MouseDown || current.type == EventType.MouseDrag) && current.button == 0)
         {
-            bool additional = current.type == EventType.mouseDrag;
+            bool additional = current.type == EventType.MouseDrag;
             current.Use();
             TilesetEditorManager behavior = this.target as TilesetEditorManager;
             Ray ray = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);

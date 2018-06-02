@@ -19,7 +19,7 @@ public class EditorPlayMode
 
     static EditorPlayMode()
     {
-        EditorApplication.playmodeStateChanged = OnUnityPlayModeChanged;
+        EditorApplication.playModeStateChanged += OnUnityPlayModeChanged;
         if (EditorApplication.isPaused)
             _currentState = PlayModeState.Paused;
     }
@@ -42,8 +42,9 @@ public class EditorPlayMode
         if (PlayModeChanged != null)
             PlayModeChanged(currentState, changedState);
     }
-
-    private static void OnUnityPlayModeChanged()
+    
+    //TODO: can probably use new stateChange param to simplify all this crap
+    private static void OnUnityPlayModeChanged(PlayModeStateChange stateChange)
     {
         var changedState = _currentState;
 

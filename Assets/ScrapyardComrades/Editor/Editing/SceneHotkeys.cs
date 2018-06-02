@@ -4,28 +4,28 @@ using UnityEditor.SceneManagement;
 
 public static class SceneHotkeys
 {
-    [MenuItem("Scenes/Load Main Menu %1")]
+    [MenuItem("Scenes/Load Main Menu &1")]
     public static void LoadMainMenu() { openScene(MAIN_MENU); }
 
-    [MenuItem("Scenes/Load World Editor %2")]
+    [MenuItem("Scenes/Load World Editor &2")]
     public static void LoadWorldEditor() { openScene(WORLD_EDITOR); }
 
-    [MenuItem("Scenes/Load Level Editor %3")]
+    [MenuItem("Scenes/Load Level Editor &3")]
     public static void LoadLevelEditor() { openScene(LEVEL_EDITOR); }
 
-    [MenuItem("Scenes/Load Gameplay %4")]
+    [MenuItem("Scenes/Load Gameplay &4")]
     public static void LoadGameplay() { openScene(GAMEPLAY); }
 
-    [MenuItem("Scenes/Load Intro %5")]
+    [MenuItem("Scenes/Load Intro &5")]
     public static void LoadIntro() { openScene(INTRO_SCENE); }
 
-    [MenuItem("Scenes/Load Character Editor %6")]
+    [MenuItem("Scenes/Load Character Editor &6")]
     public static void LoadCharacterEditor() { openScene(CHARACTER_EDITOR); }
 
-    [MenuItem("Scenes/Load TilesetEditor %7")]
+    [MenuItem("Scenes/Load TilesetEditor &7")]
     public static void LoadTilesetEditor() { openScene(TILESET_EDITOR); }
 
-    [MenuItem("Scenes/Load End Demo Screen %8")]
+    [MenuItem("Scenes/Load End Demo Screen &8")]
     public static void LoadEndDemoScreen() { openScene(END_DEMO); }
 
     [MenuItem("Custom Objects/Wipe Player Prefs")]

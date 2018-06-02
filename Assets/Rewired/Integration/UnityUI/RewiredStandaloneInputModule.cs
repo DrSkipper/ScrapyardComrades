@@ -2,6 +2,62 @@
 // Based on Unity StandaloneInputModule.cs, version 5.3
 // https://bitbucket.org/Unity-Technologies/ui/src/b5f9aae6ff7c2c63a521a1cb8b3e3da6939b191b/UnityEngine.UI/EventSystem/InputModules?at=5.3
 
+#if UNITY_2020 || UNITY_2021 || UNITY_2022 || UNITY_2023 || UNITY_2024 || UNITY_2025
+#define UNITY_2020_PLUS
+#endif
+
+#if UNITY_2019 || UNITY_2020_PLUS
+#define UNITY_2019_PLUS
+#endif
+
+#if UNITY_2018 || UNITY_2019_PLUS
+#define UNITY_2018_PLUS
+#endif
+
+#if UNITY_2017 || UNITY_2018_PLUS
+#define UNITY_2017_PLUS
+#endif
+
+#if UNITY_5 || UNITY_2017_PLUS
+#define UNITY_5_PLUS
+#endif
+
+#if UNITY_5_1 || UNITY_5_2 || UNITY_5_3_OR_NEWER || UNITY_2017_PLUS
+#define UNITY_5_1_PLUS
+#endif
+
+#if UNITY_5_2 || UNITY_5_3_OR_NEWER || UNITY_2017_PLUS
+#define UNITY_5_2_PLUS
+#endif
+
+#if UNITY_5_3_OR_NEWER || UNITY_2017_PLUS
+#define UNITY_5_3_PLUS
+#endif
+
+#if UNITY_5_4_OR_NEWER || UNITY_2017_PLUS
+#define UNITY_5_4_PLUS
+#endif
+
+#if UNITY_5_5_OR_NEWER || UNITY_2017_PLUS
+#define UNITY_5_5_PLUS
+#endif
+
+#if UNITY_5_6_OR_NEWER || UNITY_2017_PLUS
+#define UNITY_5_6_PLUS
+#endif
+
+#if UNITY_5_7_OR_NEWER || UNITY_2017_PLUS
+#define UNITY_5_7_PLUS
+#endif
+
+#if UNITY_5_8_OR_NEWER || UNITY_2017_PLUS
+#define UNITY_5_8_PLUS
+#endif
+
+#if UNITY_5_9_OR_NEWER || UNITY_2017_PLUS
+#define UNITY_5_9_PLUS
+#endif
+
 #pragma warning disable 0219
 #pragma warning disable 0618
 #pragma warning disable 0649
@@ -146,6 +202,7 @@ namespace Rewired.Integration.UnityUI {
 
         private Vector2 m_LastMousePosition;
         private Vector2 m_MousePosition;
+        private bool m_HasFocus = true;
 
         [SerializeField]
         private string m_HorizontalAxis = DEFAULT_ACTION_MOVE_HORIZONTAL;
@@ -301,7 +358,9 @@ namespace Rewired.Integration.UnityUI {
             CheckEditorRecompile();
             if(recompiling) return;
             if(!ReInput.isReady) return;
-            
+
+            if(!m_HasFocus && ShouldIgnoreEventsOnNoFocus()) return;
+
             if(isMouseSupported) {
                 m_LastMousePosition = m_MousePosition;
                 m_MousePosition = UnityEngine.Input.mousePosition;
@@ -356,6 +415,8 @@ namespace Rewired.Integration.UnityUI {
         }
 
         public override void ActivateModule() {
+            if(!m_HasFocus && ShouldIgnoreEventsOnNoFocus()) return;
+
             base.ActivateModule();
 
             if(isMouseSupported) {
@@ -378,7 +439,8 @@ namespace Rewired.Integration.UnityUI {
 
         public override void Process() {
             if(!ReInput.isReady) return;
-            
+            if(!m_HasFocus && ShouldIgnoreEventsOnNoFocus()) return;
+
             bool usedEvent = SendUpdateEventToSelectedObject();
 
             if(eventSystem.sendNavigationEvents) {
@@ -800,6 +862,22 @@ namespace Rewired.Integration.UnityUI {
                     HandlePointerExitAndEnter(pointerEvent, currentOverGo);
                 }
             }
+        }
+
+        protected virtual void OnApplicationFocus(bool hasFocus) {
+            m_HasFocus = hasFocus;
+        }
+
+        private bool ShouldIgnoreEventsOnNoFocus() {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX || UNITY_STANDALONE_LINUX || UNITY_WSA || UNITY_WINRT
+#if UNITY_EDITOR && UNITY_5_PLUS
+            if(UnityEditor.EditorApplication.isRemoteConnected) return false;
+#endif
+            if(!ReInput.isReady) return true;
+#else
+            if(!ReInput.isReady) return false;
+#endif
+            return ReInput.configuration.ignoreInputWhenAppNotInFocus;
         }
 
         #region Rewired Methods

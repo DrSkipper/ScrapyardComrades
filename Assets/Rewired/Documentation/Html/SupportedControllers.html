@@ -83,7 +83,8 @@
               <li><a href="Controllers.html">Controllers</a></li>
               <li><a href="ControllerMaps.html">Controller Maps</a></li>
               <li><a href="MapCategories.html">Map Categories</a></li>
-              <li><a href="ControllerMaps.html"></a><a href="Layouts.html">Layouts</a></li>
+              <li><a href="Layouts.html">Layouts</a></li>
+              <li><a href="ControllerTemplates.html">Controller Templates</a></li>
               <li><a href="CustomControllers.html">Custom Controllers</a></li>
             </ul>
             <strong>Extras:</strong>
@@ -143,8 +144,8 @@
 			<!-- InstanceBeginEditable name="MainBody" -->
 			<p>Rewired supports most USB and Bluetooth controllers available, many with extended support. <span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications">1</a>]</span></p>
 			<h3>Controllers with Extended Support</h3>
-			<p>Controllers with hardware definitions are recognized on each platform and are fully mappable by element name, have standardized axis directions, and may be compatible with a <a href="ControllerMaps.html#controller-templates">controller template</a> for easy mapping. For all other controllers that do not appear in the following tables, <a href="#controllers-without-definitions">please see this important note</a>.</p>
-			<p><strong>Rewired currently includes extended support for the following game controllers as of version 1.1.5.0:</strong></p>
+			<p>Controllers with hardware definitions are recognized on each platform and are fully mappable by element name, have standardized axis directions, and may be compatible with a <a href="ControllerTemplates.html">Controller Template</a> for easy mapping. For all other controllers that do not appear in the following tables, <a href="#controllers-without-definitions">please see this important note</a>.</p>
+			<p><strong>Rewired currently includes extended support for the following game controllers as of version 1.1.13.0:</strong></p>
 			<table width="100%" border="0" class="supported-controllers-table">
               <tr>
                 <td valign="top">&nbsp;</td>
@@ -170,7 +171,7 @@
                 <td align="center" valign="top"><strong>Webplayer (Windows / OSX Fallback) <span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications">2</a>]</span></strong></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Microsoft XBox 360 Controller (Wired)<br />
                 <span class="note">                (Includes many generics/clones)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span><br/>
@@ -193,7 +194,7 @@
                 OSX: <span class="yes">Yes</span> <span class="note">(<a href="https://github.com/360Controller/360Controller/releases" target="_blank">Driver Required</a>)</span></p></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Microsoft XBox 360 Controller (Wireless)<br />
                 <span class="note">(Includes many generics/clones)</span></td>
                 <td align="center" valign="top"><p><span class="yes">Yes</span><br/>
@@ -220,7 +221,7 @@
                 OSX: <span class="yes">Yes</span> <span class="note">(<a href="https://github.com/360Controller/360Controller/releases" target="_blank">Driver Required)</a></span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Microsoft XBox One Controller</td>
                 <td align="center" valign="top"><span class="yes">Yes</span><br/>
                 <span class="note">(Vibration supported)</span></td>
@@ -242,7 +243,7 @@
                 OSX: <span class="no">No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Microsoft XBox One S Controller</td>
                 <td align="center" valign="top"><span class="yes">Yes</span><br/>
                   <span class="note">(Vibration supported)</span></td>
@@ -265,7 +266,7 @@
                   OSX:<span  class="yes"> Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Sony DualShock 2 <span class="note">(Insten Adapter)</span> <span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications">7</a>]</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -283,7 +284,7 @@
                 <span class="yes">Yes</span></p></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Sony DualShock 2 <span class="note">(My-Power CO., LTD Adapter)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -299,14 +300,14 @@
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Sony DualShock 2 <span class="note">(TigerGame PS/PS2 Adapter)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
-                <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
+                <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="no">No</span></td>
                 <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
                 <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
-                <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
+                <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
                 <td align="center" valign="top"><span class="no">No</span></td>
                 <td align="center" valign="top"><span class="partial">Android Fallback</span></td>
@@ -315,7 +316,7 @@
                 OSX: <span class="note">Not Mapped Yet</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Sony DualShock 3 <span class="note">(Wired)</span></td>
                 <td align="center" valign="top"><span class="note">XBox 360 Emulation Required<br />
                 (<a href="http://forums.pcsx2.net/Thread-XInput-Wrapper-for-DS3-and-Play-com-USB-Dual-DS2-Controller" target="_blank">Driver</a>)</span></td>
@@ -334,7 +335,7 @@
                 OSX: <span class="yes">Yes</span></p></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Sony DualShock 3 <span class="note">(Bluetooth)</span></td>
                 <td align="center" valign="top"><span class="no">No</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -352,7 +353,7 @@
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">PS3 Controller <span class="note">(Gasia Wireless USB Adapter. Includes Trust GXT 39)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -369,7 +370,7 @@
 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top"><p>PS3 Controller<br />
                 <span class="note">(Mayf</span><span class="note">lash Wireless USB </span><span class="note">Adapter)</span></p></td>
                 <td align="center" valign="top"><span class="yes">Yes <strong><span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications">14</a>]</span></strong></span></td>
@@ -388,7 +389,7 @@ OSX: <span class="yes">Yes</span></td>
                 <td align="center" valign="top">Windows: <span  class="yes">Yes <strong><span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications">14</a>]</span></strong></span>OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Sony DualShock 4 <span class="note">(Wired)</span></td>
                 <td align="center" valign="top"><p><span class="yes">Yes</span><br/>
                   <span class="note">(<a href="HowTos.html#dualshock-4-special-features">All features supported</a>)</span></p></td>
@@ -406,7 +407,7 @@ OSX: <span class="yes">Yes</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Sony DualShock 4 <span class="note">(Bluetooth)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span><br/>
                 <span class="note">(<a href="HowTos.html#dualshock-4-special-features">All features supported</a>)</span></td>
@@ -417,7 +418,7 @@ OSX: <span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
-                <td align="center" valign="top"><span class="no">No</span></td>
+                <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="no">No</span></td>
                 <td align="center" valign="top"><p>Windows: <span class="no">No</span> <strong><span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications">8</a>]</span></strong><br />
@@ -426,7 +427,7 @@ OSX: <span class="yes">Yes</span></td>
                 <span class="note">(D-Pad not working</span>)</p></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Sony DualShock 4 <span class="note">(USB Wireless Adaptor)</span></td>
                 <td align="center" valign="top"><p><span class="yes">Yes</span><br/>
                   <span class="note">(<a href="HowTos.html#dualshock-4-special-features">All features supported</a>)</span></p></td>
@@ -444,7 +445,7 @@ OSX: <span class="yes">Yes</span></td>
                   OSX:<span class="no"> No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Logitech F310 <span class="note">(X mode)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span><br />
@@ -461,7 +462,7 @@ OSX: <span class="yes">Yes</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Logitech F310 <span class="note">(D mode)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -477,7 +478,7 @@ OSX: <span class="yes">Yes</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Logitech F710 <span class="note">(X mode)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="maybe">Maybe</span><br />
@@ -494,7 +495,7 @@ OSX: <span class="yes">Yes</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top"><p>Logitech F710 <span class="note">(D mode)</span></p></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -510,7 +511,7 @@ OSX: <span class="yes">Yes</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Logitech Dual Action</td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -526,7 +527,7 @@ OSX: <span class="yes">Yes</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Logitech RumblePad 2 USB</td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -542,7 +543,7 @@ OSX: <span class="yes">Yes</span></td>
                   OSX:<span class="yes"> Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Steam Controller <span class="note">(Includes Steam Streaming, Steam Link)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span><br />
                   <span class="note">(XInput Required)</span></td>
@@ -559,7 +560,7 @@ OSX: <span class="yes">Yes</span></td>
 OSX:<span class="yes"> Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Saitek P880</td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -576,7 +577,7 @@ OSX:<span class="yes"> Yes</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Saitek P990</td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -593,7 +594,7 @@ OSX:<span class="yes"> Yes</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Game Elements GGE909 Recoil</td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -610,7 +611,7 @@ OSX:<span class="yes"> Yes</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Nyko AirFlo EX</td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -627,7 +628,7 @@ OSX:<span class="yes"> Yes</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Radio Shack PC Gaming Controller</td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -644,7 +645,7 @@ OSX:<span class="yes"> Yes</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top"><p>GameSir G3</p></td>
                 <td align="center" valign="top"><span class="yes">Yes</span><br />
                 <span class="note">(wired only)</span></td>
@@ -664,7 +665,7 @@ OSX:<span class="yes"> Yes</span></td>
 OSX: <span class="no">No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top"><p>GameSir G3s</p></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -682,7 +683,7 @@ OSX: <span class="yes">Yes<br />
 <span class="note">(X mode only)</span></span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top"><p>GameSir G3v</p></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -700,7 +701,7 @@ OSX: <span class="yes">Yes<br />
 <span class="note">(X mode only)</span></span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top"><p>GameSir G3w</p></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><p><span class="yes">Yes</span><br />
@@ -723,7 +724,7 @@ OSX: <span class="yes">Yes<br />
                   <span class="note">(X mode)</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top"><p>GameSir G4</p></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -741,7 +742,7 @@ OSX: <span class="yes">Yes<br />
                   </span><span class="note">(X mode only)</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top"><p>GameSir G4s</p></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -759,7 +760,7 @@ OSX: <span class="yes">Yes<br />
 <span class="note">(X mode only)</span></span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Zhidong N<br />                  <span class="note">(XInput mode)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span><br />
@@ -776,7 +777,7 @@ OSX: <span class="yes">Yes<br />
 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Zhidong N<br />                  <span class="note">(Direct Input mode)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="no">No</span></td>
@@ -792,7 +793,7 @@ OSX: <span class="yes">Yes</span></td>
 OSX:</td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Zhidong N <span class="note">(Android mode)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="no">No</span></td>
@@ -808,7 +809,7 @@ OSX:</td>
 OSX: <span class="no">No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top"><p>Zhidong V+ <span class="note">(XInput mode)</span></p></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="no">No</span></td>
@@ -824,7 +825,7 @@ OSX: <span class="no">No</span></td>
                   OSX:<span class="no"> No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top"><p>Zhidong V+ <span class="note">(Direct Input mode)</span></p></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -840,7 +841,7 @@ OSX: <span class="no">No</span></td>
                   OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top"><p>Elecom Gamepad <span class="note">(JC-U3312S)</span></p></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -856,7 +857,7 @@ OSX: <span class="no">No</span></td>
                   OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Nintendo 64 Controller <span class="note">(Mayflash N64 Controller Adapter for PC USB, 2-port)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -872,7 +873,7 @@ OSX: <span class="no">No</span></td>
                   OSX:</td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">GameCube Controller <span class="note">(Mayflash 2-port USB adapter, Mayflash 2-port adapter for WiiU &amp; PC, Mayflash 4-port adapter for WiiU &amp; PC)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -889,7 +890,7 @@ OSX: <span class="no">No</span></td>
                 OSX:<span class="yes"> Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">WiiU Pro Controller<br />
                 <span class="note">(Mayflash Wireless USB adapter)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes <strong><span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications">14</a>]</span></strong></span></td>
@@ -911,7 +912,7 @@ OSX: <span class="no">No</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Atari Jaguar Controller<br />
                   <span class="note">(<a href="http://www.raphnet-tech.com/products/jaguar2usb_adapter/index.php" target="_blank">Jaguar2USB adapter</a>)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -928,7 +929,7 @@ OSX: <span class="no">No</span></td>
                 OSX: <span class="partial">Not yet mapped</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top"><p>Horipad Ultimate HIP-047U <span class="note">(iOS/OSX MFi)</span></p></td>
                 <td align="center" valign="top"><span class="yes">Yes</span><br />
                 <span class="yes"><span class="note">(w/ pressure-sensitive buttons</span><span class="note">)</span></span></td>
@@ -948,7 +949,7 @@ OSX: <span class="no">No</span></td>
 OSX:<span class="no"> No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">SteelSeries Stratus XL<br />
                   <span class="note">(iOS/OSX MFi version)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span><br />
@@ -969,7 +970,7 @@ OSX:<span class="no"> No</span></td>
                   OSX:<span class="no"> No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">SteelSeries Nimbus <span class="note">(iOS/OSX MFi)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span><br />
                 <span class="yes"><span class="note">(w/ pressure-sensitive buttons</span><span class="note">)</span></span></td>
@@ -989,7 +990,7 @@ OSX:<span class="no"> No</span></td>
                   OSX:<span class="no"> No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Mad Catz C.T.R.L.R</td>
                 <td align="center" valign="top"><span class="yes">Yes<br />
                 </span><span class="note">(PC Mode)</span></td>
@@ -1013,7 +1014,7 @@ OSX:<span class="no"> No</span></td>
                 OSX: <span class="no">No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Mad Catz Micro C.T.R.L.R</td>
                 <td align="center" valign="top"><span class="yes">Yes<br />
                 </span><span class="note">(PC Mode)</span></td>
@@ -1037,7 +1038,7 @@ OSX:<span class="no"> No</span></td>
                 OSX: <span class="no">No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Red Samurai Wireless Android Gamepad <span class="note">(G mode)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1053,7 +1054,7 @@ OSX:<span class="no"> No</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">SteelSeries FREE</td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1069,7 +1070,7 @@ OSX:<span class="no"> No</span></td>
                 </span></strong>OSX: <span class="yes">Yes</span></p></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top"><p>SteelSeries Stratus XL<br />
                   <span class="note">(Windows/Android version)</span></p></td>
                 <td align="center" valign="top"><p class="yes">Yes</p></td>
@@ -1085,7 +1086,7 @@ OSX:<span class="no"> No</span></td>
                 <td align="center" valign="top"><p>Windows:<span class="yes"> Yes</span> <strong><span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications-19">19</a>]</span></strong></p></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">idroid:con Snakebyte <span class="note">(Mode 1)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1102,7 +1103,7 @@ OSX:<span class="no"> No</span></td>
                   OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">idroid:con Snakebyte <span class="note">(Mode 2)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1118,7 +1119,7 @@ OSX:<span class="no"> No</span></td>
                   OSX: <span class="no">No</span> <strong><span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications">10</a>]</span></strong></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">&iacute;pega Wireless GAMEPAD Controller (PG-9017s)</td>
                 <td align="center" valign="top"><span class="yes">Yes</span><br />
                 <span class="note">(Gamepad Mode)</span></td>
@@ -1140,7 +1141,7 @@ OSX:<span class="no"> No</span></td>
                 OSX:<span class="no"> No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">&iacute;pega BLUETOOTH Classic GamePad (PG-9021)</td>
                 <td align="center" valign="top"><span class="yes">Yes</span><br />
                 <span class="note">(Gamepad Mode)</span></td>
@@ -1161,7 +1162,7 @@ OSX:<span class="no"> No</span></td>
                 OSX: <span class="no">No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">&iacute;pega Multi-Media Bluetooth Controller (PG-9025)</td>
                 <td align="center" valign="top"><span class="yes">Yes</span><br />
                 <span class="note">(Gamepad Mode)</span></td>
@@ -1183,7 +1184,7 @@ OSX:<span class="no"> No</span></td>
                 OSX: <span class="no">No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top"><p>Nyko Playpad</p></td>
                 <td align="center" valign="top"><span class="yes">Yes<br />
                   <span class="note">(Gamepad Mode)</span></span></td>
@@ -1200,7 +1201,7 @@ OSX:<span class="no"> No</span></td>
                   OSX:<span class="no"> No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Nyko Playpad Pro</td>
                 <td align="center" valign="top"><p class="yes">Yes<br />
                   <span class="note">(Gamepad Mode)</span></p></td>
@@ -1217,7 +1218,7 @@ OSX:<span class="no"> No</span></td>
                   OSX:<span class="no"> No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Samsung EI-GP20 Smartphone Game Pad</td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1233,7 +1234,7 @@ OSX:<span class="no"> No</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Moga Hero Power</td>
                 <td align="center" valign="top"><span class="yes">Yes<br />
                 <span class="note">(Mode B only)</span></span></td>
@@ -1258,7 +1259,7 @@ OSX:<span class="no"> No</span></td>
                 <span class="note">(Mode B only, L2, R2 not working</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Moga Pro Power</td>
                 <td align="center" valign="top"><span class="yes">Yes<br />
                 <span class="note">(Mode B only)</span></span></td>
@@ -1283,7 +1284,7 @@ OSX:<span class="no"> No</span></td>
                 <span class="note">(Mode B only, L2, R2 not working)</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Thrustmaster Score-A</td>
                 <td align="center" valign="top"><span class="yes">Yes<br />
                 <span class="note">(PC mode only)</span></span></td>
@@ -1306,7 +1307,7 @@ OSX:<span class="no"> No</span></td>
 OSX: <span class="no">No<strong><span style="vertical-align: super; font-size: 65%;"> [<a href="#clarifications">12</a>]</span></strong></span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Thrustmaster Dual Analog 3</td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="partial"> Not yet mapped</span></td>
@@ -1322,7 +1323,7 @@ OSX: <span class="no">No<strong><span style="vertical-align: super; font-size: 6
 OSX: <span class="partial">Not yet mapped</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">XiaoMi Wireless Game Controller</td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1338,7 +1339,7 @@ OSX: <span class="partial">Not yet mapped</span></td>
 OSX:<span class="no"> No<strong><span style="vertical-align: super; font-size: 65%;"> [<a href="#clarifications">12</a>]</span></strong></span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Satechi Bluetooth Wireless Universal Gamepad (ST-UBGC)</td>
                 <td align="center" valign="top"><span class="yes">Yes<br />
                 </span><span class="note">(Android Mode)</span></td>
@@ -1361,7 +1362,7 @@ OSX:<span class="no"> No<strong><span style="vertical-align: super; font-size: 6
 OSX: <span class="no">No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">8Bitdo NES30  / FC30 <span class="note">(Wired. Requires firmware 2.69+)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1378,7 +1379,7 @@ OSX: <span class="no">No</span></td>
                   OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">8Bitdo NES30 / FC30 <span class="note">(Bluetooth, Mode 1. Requires firmware 2.69+)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1394,7 +1395,7 @@ OSX: <span class="no">No</span></td>
                   OSX:<span class="yes"> Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">8Bitdo NES30 / FC30 <span class="note">(Bluetooth, Joy Mode)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1410,7 +1411,7 @@ OSX: <span class="no">No</span></td>
                   OSX: <span class="no">No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">8Bitdo SNES30  / SFC30 <span class="note">(Wired. Requires firmware 2.69+)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1427,7 +1428,7 @@ OSX: <span class="no">No</span></td>
                   OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">8Bitdo SNES30 / SFC30 <span class="note">(Bluetooth, Mode 1. Requires firmware 2.69+)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1443,7 +1444,7 @@ OSX: <span class="no">No</span></td>
                   OSX:<span class="yes"> Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">8Bitdo SNES30 / SFC30 <span class="note">(Bluetooth, Joy Mode)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1459,7 +1460,7 @@ OSX: <span class="no">No</span></td>
                   OSX: <span class="no">No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">8Bitdo NES30 Pro / FC30 Pro<br />
                 <span class="note">(Wired. Requires firmware 1.68+)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1476,7 +1477,7 @@ OSX: <span class="no">No</span></td>
 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">8Bitdo NES30 Pro / FC30 Pro<br />
                 <span class="note">(Bluetooth, Mode 1)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1493,7 +1494,127 @@ OSX: <span class="yes">Yes</span></td>
 OSX: <span class="no">No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
+                <td valign="top"><p>8Bitdo SN30 Pro / SF30 Pro<br />
+                  <span class="note">(Wired, Firmware 1.25)</span><br />
+                </p></td>
+                <td align="center" valign="top"><p>Modes:<br />
+                  Win: <span class="yes">Yes</span><br />
+                  Mac: <span class="yes">Yes</span><br />
+                  Android:  <span class="yes">Yes</span><br />
+                  Switch:  <span class="no">No</span></p></td>
+                <td align="center" valign="top">Modes:<br />
+                  Win: <span class="yes">Yes</span><br />
+                  Mac: <span class="yes">Yes</span><br />
+Android:  <span class="yes">Yes</span><br />
+Switch:  <span class="no">No</span></td>
+                <td align="center" valign="top">Modes:<br />
+                  Win: <span class="yes">Yes</span><br />
+                  Mac: <span class="no">No</span><br />
+Android: <span class="no">No</span><br />
+Switch: <span class="no">No</span></td>
+                <td align="center" valign="top">Modes:<br />
+                  Win: <span class="yes">Yes</span><br />
+                  Mac: <span class="yes">Yes</span><br />
+Android:  <span class="yes">Yes</span><br />
+Switch: <span class="no">No</span></td>
+                <td align="center" valign="top">Modes:<br />
+Win: <span class="yes">Yes</span><br />
+Mac: <span class="yes">Yes</span><br />
+Android: <span class="yes">Yes</span><br />
+Switch: <span class="no">No</span></td>
+                <td align="center" valign="top">Modes:<br />
+Win: <span class="yes">Yes</span><br />
+Mac: <span class="yes">Yes</span><br />
+Android: <span class="yes">Yes</span><br />
+Switch: <span class="no">No</span></td>
+                <td align="center" valign="top">Modes:<br />
+Win: <span class="yes">Yes</span><br />
+Mac: <span class="yes">Yes</span><br />
+Android: <span class="yes">Yes</span><br />
+Switch: <span class="no">No</span></td>
+                <td align="center" valign="top">Modes:<br />
+Win: <span class="yes">Yes</span><br />
+Mac: <span class="yes">Yes</span><br />
+Android: <span class="yes">Yes</span><br />
+Switch: <span class="no">No</span></td>
+                <td align="center" valign="top"><span class="partial">Android Fallback</span></td>
+                <td align="center" valign="top"><span class="no">No</span></td>
+                <td align="center" valign="top"><p>Windows:<br />
+                  Modes:<br />
+                  Win: <span class="yes">Yes</span><br />
+                  Mac: <span class="yes">Yes</span><br />
+                  Android:  <span class="yes">Yes</span><br />
+                  Switch:  <span class="no">No</span></p>
+                <p>OSX:<br />
+Modes:<br />
+                  Win: <span class="yes">Yes</span><br />
+                  Mac: <span class="yes">Yes</span><br />
+                  Android: <span class="yes">Yes</span><br />
+                Switch: <span class="no">No</span></p></td>
+              </tr>
+              <tr>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
+                <td valign="top">8Bitdo SN30 Pro / SF30 Pro<br />
+                <span class="note">(Bluetooth, Firmware 1.25)</span> <br /></td>
+                <td align="center" valign="top"><p>Modes:<br />
+                  Win: <span class="yes">Yes</span><br />
+                  Mac: <span class="yes">Yes</span> <strong><span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications-23">23</a>]</span></strong><br />
+Android:  <span class="yes">Yes</span> <br />
+Switch: <span class="yes">Yes</span></p>
+                <p class="yes">&nbsp;</p></td>
+                <td align="center" valign="top"><p>Modes:<br />
+                  Win: <span class="yes">Yes</span><br />
+                  Mac: <span class="yes">Yes</span><br />
+Android: <span class="yes">Yes</span><br />
+Switch:<span class="yes"> Yes</span></p></td>
+                <td align="center" valign="top">Modes:<br />
+                  Win: <span class="yes">Yes</span><br />
+                  Mac: <span class="no">No</span><br />
+Android: <span class="no">No</span><br />
+Switch: <span class="no">No</span></td>
+                <td align="center" valign="top">Modes:<br />
+Win: <span class="yes">Yes</span><br />
+Mac: <span class="yes">Yes</span><br />
+Android: <span class="yes">Yes</span> <br />
+Switch: <span class="yes">Yes</span></td>
+                <td align="center" valign="top">Modes:<br />
+Win: <span class="yes">Yes</span><br />
+Mac: <span class="yes">Yes</span><br />
+Android: <span class="yes">Yes</span> <br />
+Switch: <span class="yes">Yes</span></td>
+                <td align="center" valign="top">Modes:<br />
+Win: <span class="yes">Yes</span><br />
+Mac: <span class="yes">Yes</span><br />
+Android: <span class="yes">Yes</span> <br />
+Switch: <span class="yes">Yes</span></td>
+                <td align="center" valign="top">Modes:<br />
+Win: <span class="maybe">Maybe</span><br />
+Mac: <span class="yes">Yes</span><br />
+Android: <span class="yes">Yes</span> <br />
+Switch: <span class="no">No</span></td>
+                <td align="center" valign="top">Modes:<br />
+Win:<span class="no"> No</span><strong><span style="vertical-align: super; font-size: 65%;"> [<a href="#clarifications">10</a>]</span></strong><span class="no"></span><br />
+Mac: <span class="yes">Yes</span><br />
+Android: <span class="yes">Yes</span><br />
+Switch: <span class="yes">Yes</span></td>
+                <td align="center" valign="top"><span class="partial">Android Fallback</span></td>
+                <td align="center" valign="top"><span class="no">No</span></td>
+                <td align="center" valign="top"><p>Windows: <br />
+                  Modes:<br />
+                  Win: <span class="yes">Yes</span><br />
+                  Mac:<span class="no"> No</span> <strong><span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications">8</a>]</span></strong><br />
+                  Android: <span class="no">No</span><strong><span style="vertical-align: super; font-size: 65%;"> [<a href="#clarifications">12</a>]</span></strong><span class="no"></span><br />
+                  Switch:<span class="no"> No</span><strong><span style="vertical-align: super; font-size: 65%;"> [<a href="#clarifications">12</a>]</span></strong><span class="no"></span></p>
+                  <p>OSX:<br />
+                    Modes:<br /> 
+                    Win:<span class="yes"> Yes</span><br />
+                    Mac: <span class="yes">Yes</span><br />
+                    Android:<span class="no"> No</span><strong><span style="vertical-align: super; font-size: 65%;"> [<a href="#clarifications">10</a>]</span></strong><span class="no"></span><br />
+                Switch: <span class="no">No</span></p></td>
+              </tr>
+              <tr>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">8Bitdo Zero <span class="note">(Bluetooth)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span><br />
                   <span class="note">(Windows Mode)</span></td>
@@ -1516,7 +1637,7 @@ OSX: <span class="no">No</span></td>
 OSX: <span class="no">No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">8Bitdo RB8-64 Bluetooth Controller <span class="note">(Bluetooth, Mode 1 - Joystick)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1532,7 +1653,7 @@ OSX: <span class="no">No</span></td>
                 OSX:<span class="yes"> Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">8Bitdo RB8-64 Bluetooth Controller <span class="note">(Wired, Mode 5 - USB Joystick)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1548,7 +1669,7 @@ OSX: <span class="no">No</span></td>
                   OSX:<span class="yes"> Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Buffalo BGCFC801 <span class="note">(NES/Famicom Gamepad w/ Turbo)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1565,7 +1686,7 @@ OSX: <span class="no">No</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Buffalo BSGP801 <span class="note">(SNES Gamepad w/ Turbo)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1581,7 +1702,7 @@ OSX: <span class="no">No</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Ouya Gamepad</td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1597,7 +1718,7 @@ OSX: <span class="no">No</span></td>
                 OSX: <span class="yes">Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">GameStick Controller</td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1613,7 +1734,7 @@ OSX: <span class="no">No</span></td>
                 OSX:<span class="no"> No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Amazon Fire Game Controller</td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1629,7 +1750,7 @@ OSX: <span class="no">No</span></td>
                 OSX:<span class="no"> No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Google Nexus Player Gamepad</td>
                 <td align="center" valign="top"><span class="no">No</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1647,7 +1768,7 @@ OSX: <span class="no">No</span></td>
   <span class="note">(L/R triggers not working)</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Razer Serval</td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1667,7 +1788,7 @@ OSX: <span class="no">No</span></td>
                 <span class="note">(L/R triggers not working)</span></p></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Nvidia Shield Controller (2015 Model) <span class="note">(Wired)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1684,7 +1805,7 @@ OSX: <span class="no">No</span></td>
                 OSX: <span class="no">No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Nvidia Shield Controller  (2015 Model) <span class="note">(Wireless)</span></td>
                 <td align="center" valign="top"><span class="no">No</span></td>
                 <td align="center" valign="top"><span class="no">No</span></td>
@@ -1700,7 +1821,7 @@ OSX: <span class="no">No</span></td>
                 OSX: <span class="no">No</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Nvidia Shield Controller (2017 Model)</td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -1716,24 +1837,24 @@ OSX: <span class="no">No</span></td>
                   OSX:</td>
               </tr>
               <tr>
-                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td>Nvidia Shield Portable<span class="note"> (Console)</span></td>
                 <td colspan="11">Android: <span class="yes">Yes</span><span class="yes"> <strong><span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications">6</a>]</span></strong></span></td>
               </tr>
               <tr>
-                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td>Sony Playstation Vita</td>
                 <td colspan="11"><p>PSM Target: <span class="yes">Yes<br />
                 </span>PS Vita Target:<span class="yes"> Yes</span></p></td>
               </tr>
               <tr>
-                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td>Apple iOS Mfi Controllers <span class="note">(All Mfi gamepads)</span></td>
                 <td colspan="11"><p>iOS: <span class="yes">Yes</span><br />
                   tvOS: <span class="yes">Yes</span> <br />
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Nintendo Switch Joy-Con (Left)</td>
                 <td align="center" valign="top"><span class="yes">Yes <strong><span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications-20">20</a>]</span></strong></span></td>
                 <td align="center" valign="top"><span class="yes">Yes <strong><span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications-20">20</a>]</span></strong></span></td>
@@ -1750,7 +1871,7 @@ OSX: <span class="no">No</span></td>
                   OSX:<span class="yes"> Yes</span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Nintendo Switch Joy-Con (Right)</td>
                 <td align="center" valign="top"><span class="yes">Yes</span> <strong><span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications-20">20</a>]</span></strong></td>
                 <td align="center" valign="top"><span class="yes">Yes <strong><span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications-20">20</a>]</span></strong></span></td>
@@ -1767,7 +1888,7 @@ OSX: <span class="no">No</span></td>
                   OSX:<span class="yes"> Yes <strong><span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications-20">20</a>]</span></strong></span></td>
               </tr>
               <tr>
-                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td valign="top">Nintendo Switch Pro Controller <span class="note">(wireless only)</span></td>
                 <td align="center" valign="top"><span class="yes">Yes <strong><span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications-21">21</a>]</span></strong></span></td>
                 <td align="center" valign="top"><span class="yes">Yes <strong><span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications-21">21</a>]</span></strong></span></td>
@@ -2654,8 +2775,46 @@ OSX: <span class="partial">Partial</span><strong><span style="vertical-align: su
                 <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
                 <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
                 <td align="center" valign="top"><span class="no">No</span></td>
-                <td align="center" valign="top">Windows:<span class="note">Not Mapped Yet</span><br />
-                  OSX:<span class="note">Not Mapped Yet</span></td>
+                <td align="center" valign="top">Windows:<span class="note"> Not Mapped Yet</span><br />
+                  OSX:<span class="note"> Not Mapped Yet</span></td>
+              </tr>
+              <tr>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-racing-wheel" title="Compatible with the Racing Wheel Template"></a></td>
+                <td valign="top">Logitech Driving Force GT Racing Wheel<br /></td>
+                <td align="center" valign="top"><span class="yes">Yes</span></td>
+                <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
+                <td align="center" valign="top"><span class="no">No</span></td>
+                <td align="center" valign="top"><span class="maybe">Maybe</span><br />
+                  <span class="note">(untested)</span></td>
+                <td align="center" valign="top"><span class="maybe">Maybe</span><br />
+                  <span class="note">(untested)</span></td>
+                <td align="center" valign="top"><span class="maybe">Maybe</span><br />
+                <span class="note">(untested)</span></td>
+                <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
+                <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
+                <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
+                <td align="center" valign="top"><span class="no">No</span></td>
+                <td align="center" valign="top">Windows<span class="note">: Not Mapped Yet</span><br />
+                  OSX:<span class="note"> Not Mapped Yet</span></td>
+              </tr>
+              <tr>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-racing-wheel" title="Compatible with the Racing Wheel Template"></a></td>
+                <td valign="top">Logitech MOMO Racing Wheel<br /></td>
+                <td align="center" valign="top"><span class="yes">Yes</span></td>
+                <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
+                <td align="center" valign="top"><span class="no">No</span></td>
+                <td align="center" valign="top"><span class="maybe">Maybe</span><br />
+                <span class="note">(untested)</span></td>
+                <td align="center" valign="top"><span class="maybe">Maybe</span><br />
+                <span class="note">(untested)</span></td>
+                <td align="center" valign="top"><span class="maybe">Maybe</span><br />
+                <span class="note">(untested)</span></td>
+                <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
+                <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
+                <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
+                <td align="center" valign="top"><span class="no">No</span></td>
+                <td align="center" valign="top">Windows<span class="note">: Not Mapped Yet</span><br />
+                OSX:<span class="note"> Not Mapped Yet</span></td>
               </tr>
               <tr>
                 <td valign="top"><a href="#template-legend" class="template-icon template-icon-racing-wheel" title="Compatible with the Racing Wheel Template"></a></td>
@@ -2767,6 +2926,24 @@ OSX: <span class="yes">Yes<br />
               </tr>
               <tr>
                 <td valign="top"><a href="#template-legend" class="template-icon template-icon-racing-wheel" title="Compatible with the Racing Wheel Template"></a></td>
+                <td valign="top">Thrustmaster Ferrari 458 <span class="note">(Xbox 360 model)</span></td>
+                <td align="center" valign="top"><span class="yes">Yes</span></td>
+                <td align="center" valign="top"><span class="yes">Yes</span></td>
+                <td align="center" valign="top"><span class="yes">Yes</span></td>
+                <td align="center" valign="top"><span class="maybe">Maybe</span><br />
+                <span class="note">(untested)</span></td>
+                <td align="center" valign="top"><span class="maybe">Maybe</span><br />
+                <span class="note">(untested)</span></td>
+                <td align="center" valign="top"><span class="yes">Yes</span></td>
+                <td align="center" valign="top"><span class="no">No</span><strong><span style="vertical-align: super; font-size: 65%;"> [<a href="#clarifications">12</a>]</span></strong></td>
+                <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
+                <td align="center" valign="top"><span class="partial">Android Fallback</span></td>
+                <td align="center" valign="top"><span class="no">No</span></td>
+                <td align="center" valign="top">Windows: <span class="yes">Yes</span><br />
+                  OSX:<span class="no"> No</span><strong><span style="vertical-align: super; font-size: 65%;"> [<a href="#clarifications">12</a>]</span></strong></td>
+              </tr>
+              <tr>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-racing-wheel" title="Compatible with the Racing Wheel Template"></a></td>
                 <td valign="top">Thrustmaster TH8A Add-on Shifter<span class="note"></span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -2810,6 +2987,26 @@ OSX: <span class="yes">Yes</span></td>
                 <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
                 <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
                 <td align="center" valign="top"><span class="partial">Android Fallback</span></td>
+                <td align="center" valign="top"><span class="no">No</span></td>
+                <td align="center" valign="top">Windows:<span class="note"> Not Mapped Yet</span><br />
+                  OSX:<span class="note"> Not Mapped Yet</span></td>
+              </tr>
+              <tr>
+                <td valign="top"><a href="#template-legend" class="template-icon template-icon-racing-wheel" title="Compatible with the Racing Wheel Template"></a></td>
+                <td valign="top">Thrustmaster FreeStyler Bike</td>
+                <td align="center" valign="top"><span class="yes">Yes</span></td>
+                <td align="center" valign="top"><span class="maybe">Maybe</span><br />
+                <span class="note">(untested)</span></td>
+                <td align="center" valign="top"><span class="no">No</span></td>
+                <td align="center" valign="top"><span class="maybe">Maybe</span><br />
+                <span class="note">(untested)</span></td>
+                <td align="center" valign="top"><span class="maybe">Maybe</span><br />
+                <span class="note">(untested)</span></td>
+                <td align="center" valign="top"><span class="maybe">Maybe</span><br />
+                <span class="note">(untested)</span></td>
+                <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
+                <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
+                <td align="center" valign="top"><span class="note">Not Mapped Yet</span></td>
                 <td align="center" valign="top"><span class="no">No</span></td>
                 <td align="center" valign="top">Windows:<span class="note"> Not Mapped Yet</span><br />
                   OSX:<span class="note"> Not Mapped Yet</span></td>
@@ -3057,7 +3254,7 @@ OSX: <span class="no">No</span></td>
 OSX: <span class="no">No</span></td>
             </tr>
             <tr>
-              <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+              <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
               <td valign="top">Oculus Remote<br />
               <span class="note">(<a href="#oculus-remote">see important special support information</a>)</span></td>
               <td align="center" valign="top"><span class="no">No</span></td>
@@ -3097,7 +3294,7 @@ OSX: <span class="no">No</span></td>
               <td align="center" valign="top"><strong>Webplayer (Windows / OSX Fallback) <span style="vertical-align: super; font-size: 65%;">[<a href="#clarifications">2</a>]</span></strong></td>
               </tr>
             <tr>
-              <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+              <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
               <td valign="top">Oculus Touch Controller<br />
                 <span class="note">(<a href="#oculus-touch">see important special support information</a>)</span></td>
               <td align="center" valign="top"><span class="no">No</span></td>
@@ -3114,7 +3311,7 @@ OSX: <span class="no">No</span></td>
 OSX: <span class="no">No</span></td>
             </tr>
             <tr>
-              <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+              <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
               <td valign="top">OpenVR Controller (HTC Vive, Oculus Touch)<br />
               <span class="note">(<a href="#openvr-controller">see important special support information</a>)</span></td>
               <td align="center" valign="top"><span class="no">No</span></td>
@@ -3173,7 +3370,7 @@ OSX: <span class="no">No</span></td>
             <p>The information in the following table shows which controllers have been mapped for the different browsers running on different operating systems. The operating system and browser versions shown are the versions that have been tested. For gamepads that do not use the Standard Gamepad mapping mode, because at any time the browser manufacturer may decide to create a Standard Gamepad mapping for a controller causing the mapping layout to change, extended support cannot be guaranteed for any browser versions but the ones shown.</p>
             <table width="100%" border="0" class="supported-controllers-table">
               <tr>
-                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td><span class="controller-type">WebGL Gamepad Mappings</span></td>
                 <td><p>Windows 10 (1703)</p></td>
                 <td>OSX 10.12.5 Sierra</td>
@@ -3181,7 +3378,7 @@ OSX: <span class="no">No</span></td>
                 <td>Ubuntu 17.04</td>
               </tr>
               <tr>
-                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td>Standard Gamepad<br />
                   <span class="note">(This is  a standardized browser-defined layout for gamepads supported and mapped by the browser developer. Which controllers are supported by the Standard Gamepad varies across browsers. More gamepads are mapped to the Standard Gamepad layout and added in browser updates.)</span></td>
                 <td valign="top"><p><span class="yes">Yes</span> - Google Chrome 59.0.3071.115<br />
@@ -3196,8 +3393,8 @@ OSX: <span class="no">No</span></td>
                 <span class="yes">Yes</span> - Opera 46.0.2597.39</td>
               </tr>
               <tr>
-                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
-                <td>Microsoft XBox 360 Controller (Wired)<br />
+                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
+                <td>Microsoft XBox 360 Controller <span class="note">(Wired)</span><br />
                   <span class="note"> (Includes many generics/clones)</span></td>
                 <td valign="top"><p><span class="yes">Yes</span> - Google Chrome 59.0.3071.115<br />
                 <span class="yes">Yes</span> - Opera 46.0.2597.39<br />
@@ -3216,8 +3413,8 @@ OSX: <span class="no">No</span></td>
                 <span class="yes">Yes</span> - Firefox 54.0.1</td>
               </tr>
               <tr>
-                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
-                <td>Microsoft XBox 360 Controller (Wireless)<br />
+                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
+                <td>Microsoft XBox 360 Controller <span class="note">(Wireless)</span><br />
                   <span class="note">(Includes many generics/clones)</span></td>
                 <td valign="top"><span class="yes">Yes</span> - Google Chrome 59.0.3071.115<br />
                   <span class="yes">Yes</span> - Opera 46.0.2597.39<br />
@@ -3236,7 +3433,7 @@ OSX: <span class="no">No</span></td>
                 <span class="yes">Yes</span> - Firefox 54.0.1</td>
               </tr>
               <tr>
-                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td>Microsoft XBox One Controller</td>
                 <td valign="top"><span class="yes">Yes</span> - Google Chrome 59.0.3071.115<br />
                   <span class="yes">Yes</span> - Opera 46.0.2597.39<br />
@@ -3255,7 +3452,7 @@ OSX: <span class="no">No</span></td>
                 <span class="yes">Yes</span> - Firefox 54.0.1</td>
               </tr>
               <tr>
-                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td>Microsoft XBox One S Controller <span class="note">(Wired)</span></td>
                 <td valign="top"><span class="yes">Yes</span> - Google Chrome 59.0.3071.115<br />
                   <span class="yes">Yes</span> - Opera 46.0.2597.39<br />
@@ -3274,7 +3471,7 @@ OSX: <span class="no">No</span></td>
                 <span class="yes">Yes</span> - Firefox 54.0.1</td>
               </tr>
               <tr>
-                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td>Microsoft XBox One S Controller <span class="note">(Bluetooth)</span></td>
                 <td valign="top"><span class="yes">Yes</span> - Google Chrome 59.0.3071.115<br />
                   <span class="yes">Yes</span> - Opera 46.0.2597.39<br />
@@ -3290,7 +3487,40 @@ OSX: <span class="no">No</span></td>
                 </span><span class="note">(No OS support)</span></td>
               </tr>
               <tr>
-                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
+                <td>Sony DualShock 3 <span class="note">(wired)</span></td>
+                <td align="center" valign="middle"><span class="note">XBox 360 Emulation Required<br />
+(<a href="http://forums.pcsx2.net/Thread-XInput-Wrapper-for-DS3-and-Play-com-USB-Dual-DS2-Controller" target="_blank">Driver</a>)</span></td>
+                <td valign="top"><span class="maybe">Issues</span> - Google Chrome 59.0.3071.115<br />
+                  <span class="maybe">Issues</span> - Opera 46.0.2597.39<br />
+                  <span class="yes">Yes</span> - Firefox 54.0.1<br />
+                <span class="yes">Yes</span> - Safari 10.1.1</td>
+                <td valign="top"><span class="yes">Yes</span> - Google Chrome 59.0.3071.115<br />
+                  <span class="yes">Yes</span> - Opera 46.0.2597.39<br />
+                  <span class="yes">Yes</span> - Firefox 54.0.1</td>
+                <td valign="top"><span class="yes">Yes</span> - Google Chrome 59.0.3071.115<br />
+                  <span class="yes">Yes</span> - Opera 46.0.2597.39<br />
+                <span class="yes">Yes</span> - Firefox 54.0.1</td>
+              </tr>
+              <tr>
+                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
+                <td>Sony DualShock 3 <span class="note">(wireless)</span></td>
+                <td align="center" valign="middle"><span class="note">XBox 360 Emulation Required<br />
+                  (<a href="http://forums.pcsx2.net/Thread-XInput-Wrapper-for-DS3-and-Play-com-USB-Dual-DS2-Controller" target="_blank">Driver</a>)</span></td>
+                <td valign="top"><span class="maybe">Issues</span> - Google Chrome 59.0.3071.115<br />
+                  <span class="maybe">Issues</span> - Opera 46.0.2597.39<br />
+                  <span class="yes">Yes</span> - Firefox 54.0.1<br />
+                  <span class="yes">Yes</span> - Safari 10.1.1</td>
+                <td valign="top"><p>Sixad required</p>
+                  <p><span class="no">Broken</span> - Google Chrome 59.0.3071.115<br />
+                  <span class="no">Broken</span> - Opera 46.0.2597.39<br />
+                <span class="yes">Yes</span> - Firefox 54.0.1</p></td>
+                <td valign="top"><span class="yes">Yes</span> - Google Chrome 59.0.3071.115<br />
+                  <span class="yes">Yes</span> - Opera 46.0.2597.39<br />
+                  <span class="yes">Yes</span> - Firefox 54.0.1</td>
+              </tr>
+              <tr>
+                <td><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
                 <td>Sony DualShock 4</td>
                 <td valign="top"><span class="yes">Yes</span> - Google Chrome 59.0.3071.115<br />
                   <span class="yes">Yes</span> - Opera 46.0.2597.39<br />
@@ -3320,70 +3550,70 @@ OSX: <span class="no">No</span></td>
     <td align="center" valign="top"><strong>Linux</strong></td>
     </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">8bitdo NES30 (wired)<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">8Bitdo NES30 Pro (wired)</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">8Bitdo NES30 Pro (wireless)</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">8Bitdo SFC30</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top"><p>8Bitdo SFC30 (joystick mode)</p></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">8Bitdo Zero</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Acme<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Afterglow PS3 Controller<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Afterglow Wired Controller for Xbox One</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Amazon Fire Gamepad<br /></td>
     <td align="center" valign="top"><span class="partial">Partial</span><br />
       <span class="note">(Some center buttons, L2, R2 not working)</span></td>
@@ -3392,413 +3622,413 @@ OSX: <span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Battalife Joystick</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">DragonRise Inc. Generic USB Joystick <br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Dual Trigger 3-in-1</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top"> EA Sports PS3 Controller<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">EXEQ RF USB Gamepad 8206</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Game Elements Recoil</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">GameCube (HuiJia USB box)</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">GameCube Controller (WiseGroup adapter)<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">GamePad Pro USB<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Gamestop BB-070 X360 Controller<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">GameStop Gamepad<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Gasia Wireless PS3 Adapter (includes Trust GXT39)<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Generic XBox Controller<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Giotek SC-1</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Gravis GamePad Pro USB <br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">GreenAsia Inc. USB Joystick<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">G-Shark GS-GP702<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Hatsune Miku Sho Controller</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">HitBox (PS3/PC) Analog Mode</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">HJC Game GAMEPAD</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">HORI CO.,LTD. FIGHTING STICK 3<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">HORI CO.,LTD. REAL ARCADE Pro.V3<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">HORI Gem Pad 3<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Hori Pad EX Turbo 2<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">HORIPAD</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">HORIPAD FPS PLUS 4</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">iBuffalo Classic Famicom</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">iBuffalo Classic SNES</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">iBuffalo USB 2-axis 8-button Gamepad</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">InterAct GoPad I-73000 (Fighting Game Layout)</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">JC-U3613M - DirectInput Mode</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Jess Technology USB Game Controller<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Logic3 Controller</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Logitech Cordless RumblePad 2<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Logitech Dual Action<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Logitech F310 Gamepad (DInput)<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Logitech F310 Gamepad (XInput)</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Logitech F510 Gamepad (DInput)<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Logitech F510 Gamepad (XInput)<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Logitech F710 Gamepad (DInput)</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Logitech F710 Gamepad (XInput)<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Logitech RumblePad 2 USB<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Logitech WingMan Cordless RumblePad<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Logitech Wireless Gamepad (DInput)<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Mad Catz C.T.R.L.R<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Mad Catz Fightpad SFxT</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Mad Catz Micro C.T.R.L.R<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Mad Catz Wired Xbox 360 Controller</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Mad Catz Xbox 360 Controller</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Mayflash GameCube Controller Adapter</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Mayflash GameCube Controller Adapter for PC USB</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Mayflash Wii Classic Controller</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Mayflash Wireless PS3 Controller to USB Adapter (DInput Mode)<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Mayflash Wireless PS3 Controller to USB Adapter (XInput Mode)<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Mayflash Wireless WiiU Pro Controller Adapter (DInput Mode)<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Mayflash Wireless WiiU Pro Controller Adapter (XInput Mode)<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">MC Cthulhu</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Microntek USB Joystick</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Microsoft XBox 360 Controller<br />
       <span class="note"> (Includes many generics/clones)</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -3807,7 +4037,7 @@ OSX: <span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Moga Hero Power<br /></td>
     <td align="center" valign="top"><span class="partial">Partial</span><br />
       <span class="note">(L2/R2 not working)</span></td>
@@ -3817,14 +4047,14 @@ OSX: <span class="no">No</span></td>
       <span class="note">(Back not working)</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Moga Pro<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Moga Pro Power<br /></td>
     <td align="center" valign="top"><span class="partial">Partial</span><br />
       <span class="note">(L2/R2 not working)</span></td>
@@ -3834,133 +4064,133 @@ OSX: <span class="no">No</span></td>
       <span class="note">(Back not working)</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Multilaser JS071 USB<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">NEXT Classic USB Game Controller</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Nintendo Wii U Pro Controller<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Nintendo Wiimote</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Nyko AirFlo Ex</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">OUYA Controller<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">PC Game Controller</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Piranha xtreme<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Piranha xtreme<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">PowerA Pro Ex<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">PS1 USB</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">PS2 Controller (Insten adapter)</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">PS2 Controller (SmartJoy adapter)<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">PS2 USB Adapter<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">PS3 Controller (adapter)<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">RadioShack Gamepad<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Razer Onza Classic Edition<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top"> Razer Onza Tournament<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Razer Serval</td>
     <td align="center" valign="top"><span class="partial">Partial</span><br />
       <span class="note">(L2/R2 not working)</span></td>
@@ -3969,126 +4199,126 @@ OSX: <span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Retrolink Classic Controller</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">RetroLink Saturn Classic Controller<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">RetroUSB.com RetroPad<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">RetroUSB.com RetroPad<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">RetroUSB.com Super RetroPort<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Rock Candy Gamepad for PS3</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Rock Candy Wired Controller for Xbox One</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top"> Saitek Cyborg V.1 Game Pad<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Saitek P2500<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Saitek P2900 Wireless Pad</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Saitek P480 Rumble Pad</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Saitek P880</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Saitek P990</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Saitek PLC Saitek P3200 Rumble Pad</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Samsung EI-GP20<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Sega Saturn</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Sega Saturn USB Gamepad</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top"> Sony Dual Shock 3<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
@@ -4096,35 +4326,35 @@ OSX: <span class="no">No</span></td>
       <span class="note">(<a href="https://help.ubuntu.com/community/Sixaxis" target="_blank">QTSixA Driver</a>)</span></span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Sony Dual Shock 4<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Speedlink TORID Wireless Gamepad</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">SpeedLink XEOX Pro Analog Gamepad</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">SteelSeries Free<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">SteelSeries Stratus XL (iOS/OSX version)</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="partial">Partial</span><br />
@@ -4132,7 +4362,7 @@ OSX: <span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">SteelSeries Stratus XL (Windows/Android version)<br /></td>
     <td align="center" valign="top"><span class="partial">Partial</span><br />
       <span class="note">(Back, Circle, L2, R2 not working)</span></td>
@@ -4141,126 +4371,126 @@ OSX: <span class="no">No</span></td>
       <span class="note">(Back, Circle, L2, R2 not working)</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Super Joy Box 5 Pro<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">SVEN X-PAD<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Thrustmaster 2 in 1 DT<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Thrustmaster Dual Analog 3.2<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Thrustmaster Dual Analog 4</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Thrustmaster Dual Trigger 3-in-1<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Thrustmaster Firestorm Dual Power<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Thrustmaster Run N Drive  Wireless<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Thrustmaster Run N Drive Wireless PS3<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Tomee SNES USB Controller</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Toodles 2008 Chimp PC/PS3</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Trust GTX 28<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">USB Vibration Joystick (BM)</td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Valve Streaming Gamepad<br /></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">VR-BOX</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Wii Remote</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">Wii U Pro Controller</td>
     <td align="center" valign="top"><span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><span class="no">No</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">XBox One Controller<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><p><span class="yes">Yes</span><br />
@@ -4268,7 +4498,7 @@ OSX: <span class="no">No</span></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
   </tr>
   <tr>
-    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></a></td>
+    <td valign="top"><a href="#template-legend" class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></a></td>
     <td valign="top">XBox One S Controller<br /></td>
     <td align="center" valign="top"><span class="yes">Yes</span></td>
     <td align="center" valign="top"><p><span class="yes">Yes</span></p></td>
@@ -4349,8 +4579,8 @@ OSX: <span class="no">No</span></td>
 <p>Controllers listed in the above tables that display any of the following icons are compatible with that <a href="ControllerMaps.html#controller-templates">controller template</a>.</p>
 <table class="supported-controllers-table">
 <tr>
-<td><div class="template-icon template-icon-gamepad" title="Compatible with the Dual Analog Gamepad Template"></div></td>
-<td>Compatible with the Dual Analog Gamepad Template</td>
+<td><div class="template-icon template-icon-gamepad" title="Compatible with the Gamepad Template"></div></td>
+<td>Compatible with the Gamepad Template</td>
 </tr>
 <tr>
   <td><div class="template-icon template-icon-racing-wheel" title="Compatible with the Racing Wheel Template"></div></td>
@@ -4387,7 +4617,7 @@ OSX: <span class="no">No</span></td>
 <p style="font-size: 60%">12 The controller's returned identifying information is too generic to be safe to create a map for because other controllers could also match that device's identifying information. Therefore, the controller was intentionally left unmapped, but could be manually mapped manually by the user in-game.</p>
 <p style="font-size: 60%">13 These remotes may not work on versions of Unity 5.02 or greater.  <a href="KnownIssues.html#android-remotes">Please see this known issue for more information</a>.</p>
 <p style="font-size: 60%">14 Adapter registers multiple controllers regardless of whether controllers are plugged in. This can interfere with controller assignment because there is no way to determine which controllers are attached and which are just placeholders.</p>
-<p style="font-size: 60%">15 Linux native support has been tested under Ubuntu 12.04 amd64, Ubuntu 14.04 x86/amd64, Ubuntu 15.04 amd64, and Mint 17.2 amd64.</p>
+<p style="font-size: 60%">15 Linux native support has been tested under Ubuntu 12.04 amd64, Ubuntu 14.04 x86/amd64, Ubuntu 15.04 amd64, Ubuntu 17.04 amd64, Mint 17.2 amd64, and SteamOS. Compatibility with other distros is not guranteed or implied.</p>
 <p style="font-size: 60%">16 Unity 4.x Android returns a blank string for the name of this joystick. Unity also uses blank strings for any joystick that was previously attached and then removed. There is no way to identify that this controller is connected on Unity 4.x Android, therefore it is not supported. Unity 5+ works correctly, however.</p>
 <p style="font-size: 60%">17 Has definition, but device cannot be opened by HID system in Windows UWP for unknown reason. YMMV.</p>
 <p style="font-size: 60%">18 Sony Dual Shock 4 special features are not supported on OSX via Bluetooth connection. There is no possible way to support these features of the DS4 via Bluetooth 
@@ -4398,6 +4628,7 @@ OSX: <span class="no">No</span></td>
 <p style="font-size: 60%"><a name="clarifications-20" id="clarifications-20"></a>20 Joy-Con sticks on non-Switch platforms return digital hat values. Analog stick values, gyro, vibration, and other special features not available. Controller layout is based on the horizontal orientation.</p>
 <p style="font-size: 60%"><a name="clarifications-21" id="clarifications-21"></a>21  Gyro, vibration, and other special features not available.</p>
 <p style="font-size: 60%"><a name="clarifications-22" id="clarifications-22"></a>22 On OSX, using X mode with a wired connection on Gamesir G3, G3s, G3v, and G3w can cause the entire OS input system to crash requiring a system reboot to fix. It may be related to the XInput driver version in use. YMMV.</p>
+<p style="font-size: 60%"><a name="clarifications-23" id="clarifications-23"></a>23 This device in OSX mode emulates and appears to the system as a Sony DualShock 4 controller. However, if Enhanced Device Support is enabled, the controller will become unusable because the controller does not correctly emulate the Sony input/output report format, therefore Rewired's low-level Enhanced Device Support mode cannot properly communicate with the device. There is no way to determine that the connected device is an 8Bitdo gamepad and not a true Sony DualShock 4, so when Enhanced Device Support is enabled, the device cannot function in OSX mode.</p>
 <div class="bottom-pager clearfix">
   <a class="back-button" href="Documentation.html" title="Documentation"><span class="button-img"></span>Documentation</a>
 </div>

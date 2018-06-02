@@ -98,6 +98,8 @@ namespace Rewired.UI.ControlMapper {
                     selectable.interactable = state;
                     colorBlock.fadeDuration = prevFadeDuration;
                     selectable.colors = colorBlock;
+                } else {
+                    selectable.interactable = state;
                 }
             } else {
                 selectable.interactable = state;

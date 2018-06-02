@@ -118,6 +118,9 @@ namespace Rewired.UI.ControlMapper {
         [SerializeField]
         [Tooltip("If enabled, when an element assignment conflict is found, an option will be displayed that allows the user to make the conflicting assignment anyway.")]
         private bool _allowElementAssignmentConflicts = false;
+        [SerializeField]
+        [Tooltip("If enabled, when an element assignment conflict is found, an option will be displayed that allows the user to swap conflicting assignments. This only applies to the first conflicting assignment found. This option will not be displayed if allowElementAssignmentConflicts is true.")]
+        private bool _allowElementAssignmentSwap = false;
 
         [SerializeField]
         [Tooltip("The width in relative pixels of the Action label column.")]
@@ -241,8 +244,208 @@ namespace Rewired.UI.ControlMapper {
 
         #region Events
 
-        public event System.Action ScreenClosedEvent;
-        public event System.Action ScreenOpenedEvent;
+        // .NET events
+
+        private System.Action _ScreenClosedEvent;
+        private System.Action _ScreenOpenedEvent;
+        private System.Action _PopupWindowOpenedEvent;
+        private System.Action _PopupWindowClosedEvent;
+        private System.Action _InputPollingStartedEvent;
+        private System.Action _InputPollingEndedEvent;
+
+        /// <summary>
+        /// Event sent when the UI is closed.
+        /// This is a .NET event. If you are using Unity Events,
+        /// use the onScreenClosed event.
+        /// </summary>
+        public event System.Action ScreenClosedEvent {
+            add {
+                _ScreenClosedEvent += value;
+            }
+            remove {
+                _ScreenClosedEvent -= value;
+            }
+        }
+
+        /// <summary>
+        /// Event sent when the UI is opened.
+        /// This is a .NET event. If you are using Unity Events,
+        /// use the onScreenOpened event.
+        /// </summary>
+        public event System.Action ScreenOpenedEvent {
+            add {
+                _ScreenOpenedEvent += value;
+            }
+            remove {
+                _ScreenOpenedEvent -= value;
+            }
+        }
+
+        /// <summary>
+        /// Event sent when a popup window is closed.
+        /// This is a .NET event. If you are using Unity Events,
+        /// use the onPopupWindowClosed event.
+        /// </summary>
+        public event System.Action PopupWindowClosedEvent {
+            add {
+                _PopupWindowClosedEvent += value;
+            }
+            remove {
+                _PopupWindowClosedEvent -= value;
+            }
+        }
+
+        /// <summary>
+        /// Event sent when a popup window is opened.
+        /// This is a .NET event. If you are using Unity Events,
+        /// use the onPopupWindowOpened event.
+        /// </summary>
+        public event System.Action PopupWindowOpenedEvent {
+            add {
+                _PopupWindowOpenedEvent += value;
+            }
+            remove {
+                _PopupWindowOpenedEvent -= value;
+            }
+        }
+
+        /// <summary>
+        /// Event sent when polling for input has started.
+        /// This is a .NET event. If you are using Unity Events,
+        /// use the onInputPollingStarted event.
+        /// </summary>
+        public event System.Action InputPollingStartedEvent {
+            add {
+                _InputPollingStartedEvent += value;
+            }
+            remove {
+                _InputPollingStartedEvent -= value;
+            }
+        }
+
+        /// <summary>
+        /// Event sent when polling for input has ended.
+        /// This is a .NET event. If you are using Unity Events,
+        /// use the onInputPollingStopped event.
+        /// </summary>
+        public event System.Action InputPollingEndedEvent {
+            add {
+                _InputPollingEndedEvent += value;
+            }
+            remove {
+                _InputPollingEndedEvent -= value;
+            }
+        }
+
+        // Unity events
+
+        [SerializeField]
+        [Tooltip("Event sent when the UI is closed.")]
+        private UnityEvent _onScreenClosed;
+
+        [SerializeField]
+        [Tooltip("Event sent when the UI is opened.")]
+        private UnityEvent _onScreenOpened;
+
+        [SerializeField]
+        [Tooltip("Event sent when a popup window is closed.")]
+        private UnityEvent _onPopupWindowClosed;
+
+        [SerializeField]
+        [Tooltip("Event sent when a popup window is opened.")]
+        private UnityEvent _onPopupWindowOpened;
+
+        [SerializeField]
+        [Tooltip("Event sent when polling for input has started.")]
+        private UnityEvent _onInputPollingStarted;
+
+        [SerializeField]
+        [Tooltip("Event sent when polling for input has ended.")]
+        private UnityEvent _onInputPollingEnded;
+
+        /// <summary>
+        /// Unity event sent when the UI is closed.
+        /// This is a Unity event. For the .NET event,
+        /// use ScreenClosedEvent.
+        /// </summary>
+        public event UnityAction onScreenClosed {
+            add {
+                _onScreenClosed.AddListener(value); 
+            }
+            remove {
+                _onScreenClosed.RemoveListener(value);
+            }
+        }
+
+        /// <summary>
+        /// Unity event sent when the UI is opened.
+        /// This is a Unity event. For the .NET event,
+        /// use ScreenOpenedEvent.
+        /// </summary>
+        public event UnityAction onScreenOpened {
+            add {
+                _onScreenOpened.AddListener(value);
+            }
+            remove {
+                _onScreenOpened.RemoveListener(value);
+            }
+        }
+
+        /// <summary>
+        /// Unity event sent when a popup window is closed.
+        /// This is a Unity event. For the .NET event,
+        /// use PopupWindowClosedEvent.
+        /// </summary>
+        public event UnityAction onPopupWindowClosed {
+            add {
+                _onPopupWindowClosed.AddListener(value);
+            }
+            remove {
+                _onPopupWindowClosed.RemoveListener(value);
+            }
+        }
+
+        /// <summary>
+        /// Unity event sent when a popup window is opened.
+        /// This is a Unity event. For the .NET event,
+        /// use PopupWindowOpenedEvent.
+        /// </summary>
+        public event UnityAction onPopupWindowOpened {
+            add {
+                _onPopupWindowOpened.AddListener(value);
+            }
+            remove {
+                _onPopupWindowOpened.RemoveListener(value);
+            }
+        }
+
+        /// <summary>
+        /// Unity event sent when polling for input has started.
+        /// This is a Unity event. For the .NET event,
+        /// use InputPollingStartedEvent.
+        /// </summary>
+        public event UnityAction onInputPollingStarted {
+            add {
+                _onInputPollingStarted.AddListener(value);
+            }
+            remove {
+                _onInputPollingStarted.RemoveListener(value);
+            }
+        }
+
+        /// <summary>
+        /// Unity event sent when polling for input has ended.
+        /// This is a Unity event. For the .NET event,
+        /// use InputPollingEndedEvent.
+        /// </summary>
+        public event UnityAction onInputPollingEnded {
+            add {
+                _onInputPollingEnded.AddListener(value);
+            }
+            remove {
+                _onInputPollingEnded.RemoveListener(value);
+            }
+        }
 
         #endregion
 
@@ -266,6 +469,7 @@ namespace Rewired.UI.ControlMapper {
         private GameObject lastUISelection;
         private int currentJoystickId = -1;
         private float blockInputOnFocusEndTime;
+        private bool isPollingForInput;
 
         private InputMapping pendingInputMapping;
         private AxisCalibrator pendingAxisCalibration;
@@ -303,6 +507,7 @@ namespace Rewired.UI.ControlMapper {
         public bool showFullAxisInputFields { get { return _showFullAxisInputFields; } set { _showFullAxisInputFields = value; InspectorPropertyChanged(true); } }
         public bool showSplitAxisInputFields { get { return _showSplitAxisInputFields; } set { _showSplitAxisInputFields = value; InspectorPropertyChanged(true); } }
         public bool allowElementAssignmentConflicts { get { return _allowElementAssignmentConflicts; } set { _allowElementAssignmentConflicts = value; InspectorPropertyChanged(); } }
+        public bool allowElementAssignmentSwap { get { return _allowElementAssignmentSwap; } set { _allowElementAssignmentSwap = value; InspectorPropertyChanged(); } }
         public int actionLabelWidth { get { return _actionLabelWidth; } set { _actionLabelWidth = value; InspectorPropertyChanged(true); } }
         public int keyboardColMaxWidth { get { return _keyboardColMaxWidth; } set { _keyboardColMaxWidth = value; InspectorPropertyChanged(true); } }
         public int mouseColMaxWidth { get { return _mouseColMaxWidth; } set { _mouseColMaxWidth = value; InspectorPropertyChanged(true); } }
@@ -421,7 +626,7 @@ namespace Rewired.UI.ControlMapper {
 
         #endregion
 
-        #region Unity Events
+        #region MonoBehaviour Events
 
         void Awake() {
             if(_dontDestroyOnLoad) {
@@ -821,7 +1026,7 @@ namespace Rewired.UI.ControlMapper {
             CloseWindow(windowId);
         }
 
-        private void OnElementAssignmentConflictReplaceConfirmed(int windowId, InputMapping mapping, ElementAssignment assignment, bool skipOtherPlayers) {
+        private void OnElementAssignmentConflictReplaceConfirmed(int windowId, InputMapping mapping, ElementAssignment assignment, bool skipOtherPlayers, bool allowSwap) {
             if(currentPlayer == null || mapping == null) return;
             ElementAssignmentConflictCheck conflictCheck;
             if(!CreateConflictCheck(mapping, assignment, out conflictCheck)) {
@@ -830,16 +1035,85 @@ namespace Rewired.UI.ControlMapper {
                 return;
             }
 
+            ElementAssignmentConflictInfo firstConflict = new ElementAssignmentConflictInfo();
+            ActionElementMap firstConflictAEM = null;
+            ActionElementMap mappingAEMCopy = null;
+            bool swap = false;
+
+            // Check for conflicts for swapping
+            if(allowSwap && mapping.aem != null) { // cannot swap if this is not a replacement mapping
+                // Find the first conflict
+                if(GetFirstElementAssignmentConflict(conflictCheck, out firstConflict, skipOtherPlayers)) {
+                    swap = true;
+                    firstConflictAEM = firstConflict.elementMap; // store this because it will be deleted below
+                    mappingAEMCopy = new ActionElementMap(mapping.aem); // create a copy of the mapping because the original will be modified before we can use it
+                }
+            }
+
             // Remove conflicting mappings
-            if(skipOtherPlayers) { // skip other players, only remove from system and self
-                ReInput.players.SystemPlayer.controllers.conflictChecking.RemoveElementAssignmentConflicts(conflictCheck);
-                currentPlayer.controllers.conflictChecking.RemoveElementAssignmentConflicts(conflictCheck);
-            } else { // remove from all players
-                ReInput.controllers.conflictChecking.RemoveElementAssignmentConflicts(conflictCheck);
+            IList<Player> allPlayers = ReInput.players.AllPlayers;
+            for(int i = 0; i < allPlayers.Count; i++) {
+                Player player = allPlayers[i];
+                if(skipOtherPlayers && player != currentPlayer && player != ReInput.players.SystemPlayer) continue; // skip other players, only remove from system and self
+                player.controllers.conflictChecking.RemoveElementAssignmentConflicts(conflictCheck);
             }
 
             // Create the new mapping or replace existing
             mapping.map.ReplaceOrCreateElementMap(assignment);
+
+            // Handle assignment swapping
+            if(allowSwap && swap) {
+
+                int actionId = firstConflictAEM.actionId;
+                AxisRange axisRange = firstConflictAEM.axisRange;
+                Pole axisContribution = firstConflictAEM.axisContribution;
+                bool invert = firstConflictAEM.invert;
+
+                if(mappingAEMCopy.elementType == ControllerElementType.Button) {
+                    if(firstConflictAEM.elementType == ControllerElementType.Axis) { // cross-mapping element types
+                        // Make sure Button is bound to the positive side of the Action instead of the full range
+                        if(axisRange == AxisRange.Full) {
+                            invert = false;
+                            axisContribution = Pole.Positive;
+                        }
+                    }
+                } else if(mappingAEMCopy.elementType == ControllerElementType.Axis) {
+                    if(firstConflictAEM.elementType == ControllerElementType.Button) {
+                        // Make sure Axis is split and only one side of it is bound to the Action
+                        if(axisRange == AxisRange.Full) {
+                            axisRange = AxisRange.Positive; // just bind the positive side of the Axis
+                        }
+                    }
+                }
+
+                // Prevent swap from creating a mapping that the user cannot see because the input fields
+                // are already full. This can happen with a swap between a full-axis mapping and a button mapping.
+                int usedFieldCount = 0;
+
+                // Count how many mappings already exist in the same mapping range
+                foreach(var aem in firstConflict.controllerMap.ElementMapsWithAction(actionId)) {
+                    if(aem.axisRange == axisRange) usedFieldCount++;
+                }
+
+                if(usedFieldCount < GetControllerInputFieldCount(mapping.controllerType)) { // there are unused fields, create it
+
+                    // Create the new swap assignment
+                    firstConflict.controllerMap.ReplaceOrCreateElementMap(
+                        ElementAssignment.CompleteAssignment(
+                            mapping.controllerType,
+                            mappingAEMCopy.elementType,
+                            mappingAEMCopy.elementIdentifierId,
+                            axisRange,
+                            mappingAEMCopy.keyCode,
+                            mappingAEMCopy.modifierKeyFlags,
+                            actionId,
+                            axisContribution,
+                            invert
+                        )
+                    );
+                } // otherwise, the swap mapping will be dropped
+            }
+
             CloseWindow(windowId);
         }
 
@@ -877,8 +1151,11 @@ namespace Rewired.UI.ControlMapper {
             Window window = windowManager.GetWindow(windowId);
             if(windowId < 0) return;
 
+            InputPollingStarted();
+
             // Check the close window timer
             if(window.timer.finished) { // timer expired
+                InputPollingStopped();
                 CloseWindow(windowId); // close the window
                 return;
             }
@@ -886,6 +1163,9 @@ namespace Rewired.UI.ControlMapper {
             // Poll for controller element down
             ControllerPollingInfo info = ReInput.controllers.polling.PollAllControllersOfTypeForFirstElementDown(ControllerType.Joystick);
             if(info.success) {
+
+                InputPollingStopped();
+
                 // Check if another Player has this controller already
                 if(ReInput.controllers.IsControllerAssigned(ControllerType.Joystick, info.controllerId) &&
                     !currentPlayer.controllers.ContainsController(ControllerType.Joystick, info.controllerId)) { // another player has the controller
@@ -909,6 +1189,8 @@ namespace Rewired.UI.ControlMapper {
             if(windowId < 0) return;
 
             if(pendingInputMapping == null) return;
+
+            InputPollingStarted();
 
             // Check the close window timer
             if(window.timer.finished) { // timer expired
@@ -946,8 +1228,11 @@ namespace Rewired.UI.ControlMapper {
 
             if(pendingInputMapping == null) return;
 
+            InputPollingStarted();
+
             // Check the close window timer
             if(window.timer.finished) { // timer expired
+                InputPollingStopped();
                 CloseWindow(windowId); // close the window
                 return;
             }
@@ -967,8 +1252,10 @@ namespace Rewired.UI.ControlMapper {
 
             if(!HasElementAssignmentConflicts(currentPlayer, pendingInputMapping, assignment, false)) {
                 pendingInputMapping.map.ReplaceOrCreateElementMap(assignment);
+                InputPollingStopped();
                 CloseWindow(windowId);
             } else {
+                InputPollingStopped();
                 ShowElementAssignmentConflictWindow(assignment, false);
             }
         }
@@ -981,8 +1268,11 @@ namespace Rewired.UI.ControlMapper {
 
             if(pendingInputMapping == null) return;
 
+            InputPollingStarted();
+
             // Check the close window timer
             if(window.timer.finished) { // timer expired
+                InputPollingStopped();
                 CloseWindow(windowId); // close the window
                 return;
             }
@@ -1011,8 +1301,10 @@ namespace Rewired.UI.ControlMapper {
 
             if(!HasElementAssignmentConflicts(currentPlayer, pendingInputMapping, assignment, false)) {
                 pendingInputMapping.map.ReplaceOrCreateElementMap(assignment);
+                InputPollingStopped();
                 CloseWindow(windowId);
             } else {
+                InputPollingStopped();
                 ShowElementAssignmentConflictWindow(assignment, false);
             }
         }
@@ -1025,8 +1317,11 @@ namespace Rewired.UI.ControlMapper {
 
             if(pendingInputMapping == null) return;
 
+            InputPollingStarted();
+
             // Check the close window timer
             if(window.timer.finished) { // timer expired
+                InputPollingStopped();
                 CloseWindow(windowId); // close the window
                 return;
             }
@@ -1058,8 +1353,10 @@ namespace Rewired.UI.ControlMapper {
 
             if(!HasElementAssignmentConflicts(currentPlayer, pendingInputMapping, assignment, true)) {
                 pendingInputMapping.map.ReplaceOrCreateElementMap(assignment);
+                InputPollingStopped();
                 CloseWindow(windowId);
             } else {
+                InputPollingStopped();
                 ShowElementAssignmentConflictWindow(assignment, true);
             }
         }
@@ -1071,6 +1368,8 @@ namespace Rewired.UI.ControlMapper {
             if(windowId < 0) return;
 
             if(pendingAxisCalibration == null || !pendingAxisCalibration.isValid) return;
+
+            InputPollingStarted();
 
             // Check the close window timer
             if(window.timer.finished) { // timer expired
@@ -1119,6 +1418,7 @@ namespace Rewired.UI.ControlMapper {
 
             Success:
             EndAxisCalibration(); // commit the calibration
+            InputPollingStopped();
             CloseWindow(windowId); // close this window
         }
 
@@ -1303,10 +1603,14 @@ namespace Rewired.UI.ControlMapper {
             if(blocked) {
                 window.CreateButton(prefabs.fitButton, UI.UIPivot.BottomCenter, UI.UIAnchor.BottomCenter, Vector2.zero, _language.okay, cancelCallback, cancelCallback, true);
             } else {
-                window.CreateButton(prefabs.fitButton, UI.UIPivot.BottomLeft, UI.UIAnchor.BottomLeft, Vector2.zero, _language.replace, () => { OnElementAssignmentConflictReplaceConfirmed(window.id, pendingInputMapping, assignment, skipOtherPlayers); }, cancelCallback, true);
+                window.CreateButton(prefabs.fitButton, UI.UIPivot.BottomLeft, UI.UIAnchor.BottomLeft, Vector2.zero, _language.replace, () => { OnElementAssignmentConflictReplaceConfirmed(window.id, pendingInputMapping, assignment, skipOtherPlayers, false); }, cancelCallback, true);
 
                 if(_allowElementAssignmentConflicts) {
                     window.CreateButton(prefabs.fitButton, UI.UIPivot.BottomCenter, UI.UIAnchor.BottomCenter, Vector2.zero, _language.add, () => { OnElementAssignmentAddConfirmed(window.id, pendingInputMapping, assignment); }, cancelCallback, false);
+                } else {
+                    if(_allowElementAssignmentSwap && pendingInputMapping.aem != null) {
+                        window.CreateButton(prefabs.fitButton, UI.UIPivot.BottomCenter, UI.UIAnchor.BottomCenter, Vector2.zero, _language.swap, () => { OnElementAssignmentConflictReplaceConfirmed(window.id, pendingInputMapping, assignment, skipOtherPlayers, true); }, cancelCallback, false);
+                    }
                 }
 
                 window.CreateButton(prefabs.fitButton, UI.UIPivot.BottomRight, UI.UIAnchor.BottomRight, Vector2.zero, _language.cancel, cancelCallback, cancelCallback, false);
@@ -1923,7 +2227,7 @@ namespace Rewired.UI.ControlMapper {
                         inputGrid.PopulateField(currentMapCategoryId, actionSet.actionId, actionSet.axisRange, controllerType, controllerId, count, aem.id, aem.elementIdentifierName, aem.invert);
 
                     } else if(actionSet.axisRange == AxisRange.Positive) {
-                        if(aem.axisRange == AxisRange.Full) continue;
+                        if(aem.axisRange == AxisRange.Full && ReInput.mapping.GetAction(actionSet.actionId).type != InputActionType.Button) continue;
                         if(aem.axisContribution == Pole.Negative) continue;
 
                         inputGrid.PopulateField(currentMapCategoryId, actionSet.actionId, actionSet.axisRange, controllerType, controllerId, count, aem.id, aem.elementIdentifierName, false);
@@ -2380,16 +2684,21 @@ namespace Rewired.UI.ControlMapper {
             if(!windowManager.isWindowOpen) return;
             windowManager.CancelAll();
             ChildWindowClosed();
+            InputPollingStopped();
         }
 
         private void ChildWindowOpened() {
             if(!windowManager.isWindowOpen) return; // do nothing if a window is not open
             SetIsFocused(false);
+            if(_PopupWindowOpenedEvent != null) _PopupWindowOpenedEvent();
+            if(_onPopupWindowOpened != null) _onPopupWindowOpened.Invoke();
         }
 
         private void ChildWindowClosed() {
             if(windowManager.isWindowOpen) return; // do nothing if a window is still open
             SetIsFocused(true);
+            if(_PopupWindowClosedEvent != null) _PopupWindowClosedEvent();
+            if(_onPopupWindowClosed != null) _onPopupWindowClosed.Invoke();
         }
 
         #endregion
@@ -2542,6 +2851,38 @@ namespace Rewired.UI.ControlMapper {
             }
         }
 
+        private bool GetFirstElementAssignmentConflict(ElementAssignmentConflictCheck conflictCheck, out ElementAssignmentConflictInfo conflict, bool skipOtherPlayers) {
+
+            // Find the first conflict in all applicable Players always checking self first
+            if(GetFirstElementAssignmentConflict(currentPlayer, conflictCheck, out conflict)) return true;
+
+            // Check other applicable Players
+
+            // Check System
+            if(GetFirstElementAssignmentConflict(ReInput.players.SystemPlayer, conflictCheck, out conflict)) return true;
+
+            // Check others
+            if(!skipOtherPlayers) {
+                IList<Player> players = ReInput.players.Players;
+                for(int i = 0; i < players.Count; i++) {
+                    Player player = players[i];
+                    if(player == currentPlayer) continue; // already handled current above
+                    if(GetFirstElementAssignmentConflict(player, conflictCheck, out conflict)) return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool GetFirstElementAssignmentConflict(Player player, ElementAssignmentConflictCheck conflictCheck, out ElementAssignmentConflictInfo conflict) {
+            foreach(ElementAssignmentConflictInfo c in player.controllers.conflictChecking.ElementAssignmentConflicts(conflictCheck)) {
+                conflict = c;
+                return true;
+            };
+            conflict = new ElementAssignmentConflictInfo();
+            return false;
+        }
+
         #endregion
 
         #region Controller Calibration
@@ -2649,7 +2990,8 @@ namespace Rewired.UI.ControlMapper {
             SelectDefaultMapCategory(false);
             SetDefaultUISelection();
             Redraw(true, false);
-            if(ScreenOpenedEvent != null) ScreenOpenedEvent();
+            if(_ScreenOpenedEvent != null) _ScreenOpenedEvent();
+            if(_onScreenOpened != null) _onScreenOpened.Invoke();
         }
 
         public void Close(bool save) {
@@ -2661,7 +3003,8 @@ namespace Rewired.UI.ControlMapper {
             Clear();
             canvas.SetActive(false);
             SetUISelection(null); // deselect
-            if(ScreenClosedEvent != null) ScreenClosedEvent();
+            if(_ScreenClosedEvent != null) _ScreenClosedEvent();
+            if(_onScreenClosed != null) _onScreenClosed.Invoke();
         }
 
         #endregion
@@ -2673,6 +3016,7 @@ namespace Rewired.UI.ControlMapper {
             lastUISelection = null;
             pendingInputMapping = null;
             pendingAxisCalibration = null;
+            InputPollingStopped();
         }
 
         private void ClearCompletely() {
@@ -2738,6 +3082,8 @@ namespace Rewired.UI.ControlMapper {
 
             inputFieldActivatedDelegate = null;
             inputFieldInvertToggleStateChangedDelegate = null;
+
+            isPollingForInput = false;
         }
 
         public void Reset() {
@@ -2958,6 +3304,33 @@ namespace Rewired.UI.ControlMapper {
             return true;
         }
 
+        private void InputPollingStarted() {
+            bool prev = isPollingForInput;
+            isPollingForInput = true;
+            if(!prev) {
+                if(_InputPollingStartedEvent != null) _InputPollingStartedEvent();
+                if(_onInputPollingStarted != null) _onInputPollingStarted.Invoke();
+            }
+        }
+
+        private void InputPollingStopped() {
+            bool prev = isPollingForInput;
+            isPollingForInput = false;
+            if(prev) {
+                if(_InputPollingEndedEvent != null) _InputPollingEndedEvent();
+                if(_onInputPollingEnded != null) _onInputPollingEnded.Invoke();
+            }
+        }
+
+        private int GetControllerInputFieldCount(ControllerType controllerType) {
+            switch(controllerType) {
+                case ControllerType.Keyboard: return _keyboardInputFieldCount;
+                case ControllerType.Mouse: return _mouseInputFieldCount;
+                case ControllerType.Joystick: return _controllerInputFieldCount;
+                default: throw new System.NotImplementedException();
+            }
+        }
+
         #endregion
 
         #region Editor Recompile
@@ -3000,6 +3373,5 @@ namespace Rewired.UI.ControlMapper {
         }
 
         #endregion
-
     }
 }

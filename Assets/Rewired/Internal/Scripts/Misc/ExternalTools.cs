@@ -1,44 +1,56 @@
-﻿#if UNITY_6 || UNITY_7 || UNITY_8 || UNITY_9 || UNITY_10 || UNITY_2017 || UNITY_2018 || UNITY_2019 || UNITY_2020
-#define UNITY_6_PLUS
+﻿#if UNITY_2020 || UNITY_2021 || UNITY_2022 || UNITY_2023 || UNITY_2024 || UNITY_2025
+#define UNITY_2020_PLUS
 #endif
 
-#if UNITY_5 || UNITY_6_PLUS
+#if UNITY_2019 || UNITY_2020_PLUS
+#define UNITY_2019_PLUS
+#endif
+
+#if UNITY_2018 || UNITY_2019_PLUS
+#define UNITY_2018_PLUS
+#endif
+
+#if UNITY_2017 || UNITY_2018_PLUS
+#define UNITY_2017_PLUS
+#endif
+
+#if UNITY_5 || UNITY_2017_PLUS
 #define UNITY_5_PLUS
 #endif
 
-#if UNITY_5_1 || UNITY_5_2 || UNITY_5_3_OR_NEWER || UNITY_6_PLUS
+#if UNITY_5_1 || UNITY_5_2 || UNITY_5_3_OR_NEWER || UNITY_2017_PLUS
 #define UNITY_5_1_PLUS
 #endif
 
-#if UNITY_5_2 || UNITY_5_3_OR_NEWER || UNITY_6_PLUS
+#if UNITY_5_2 || UNITY_5_3_OR_NEWER || UNITY_2017_PLUS
 #define UNITY_5_2_PLUS
 #endif
 
-#if UNITY_5_3_OR_NEWER || UNITY_6_PLUS
+#if UNITY_5_3_OR_NEWER || UNITY_2017_PLUS
 #define UNITY_5_3_PLUS
 #endif
 
-#if UNITY_5_4_OR_NEWER || UNITY_6_PLUS
+#if UNITY_5_4_OR_NEWER || UNITY_2017_PLUS
 #define UNITY_5_4_PLUS
 #endif
 
-#if UNITY_5_5_OR_NEWER || UNITY_6_PLUS
+#if UNITY_5_5_OR_NEWER || UNITY_2017_PLUS
 #define UNITY_5_5_PLUS
 #endif
 
-#if UNITY_5_6_OR_NEWER || UNITY_6_PLUS
+#if UNITY_5_6_OR_NEWER || UNITY_2017_PLUS
 #define UNITY_5_6_PLUS
 #endif
 
-#if UNITY_5_7_OR_NEWER || UNITY_6_PLUS
+#if UNITY_5_7_OR_NEWER || UNITY_2017_PLUS
 #define UNITY_5_7_PLUS
 #endif
 
-#if UNITY_5_8_OR_NEWER || UNITY_6_PLUS
+#if UNITY_5_8_OR_NEWER || UNITY_2017_PLUS
 #define UNITY_5_8_PLUS
 #endif
 
-#if UNITY_5_9_OR_NEWER || UNITY_6_PLUS
+#if UNITY_5_9_OR_NEWER || UNITY_2017_PLUS
 #define UNITY_5_9_PLUS
 #endif
 
@@ -68,6 +80,15 @@ namespace Rewired.Utils {
             return Rewired.Utils.Platforms.WebGL.Main.GetPlatformInitializer();
 #else
             return null;
+#endif
+        }
+        
+        public string GetFocusedEditorWindowTitle() {
+#if UNITY_EDITOR
+            UnityEditor.EditorWindow window = UnityEditor.EditorWindow.focusedWindow;
+            return window != null ? window.title : string.Empty;
+#else
+            return string.Empty;
 #endif
         }
 
@@ -191,15 +212,27 @@ namespace Rewired.Utils {
 #if UNITY_PS4
 
         public Vector3 PS4Input_GetLastAcceleration(int id) {
+#if UNITY_2018_PLUS
+            return UnityEngine.PS4.PS4Input.PadGetLastAcceleration(id);
+#else
             return UnityEngine.PS4.PS4Input.GetLastAcceleration(id);
+#endif
         }
 
         public Vector3 PS4Input_GetLastGyro(int id) {
+#if UNITY_2018_PLUS
+            return UnityEngine.PS4.PS4Input.PadGetLastGyro(id);
+#else
             return UnityEngine.PS4.PS4Input.GetLastGyro(id);
+#endif
         }
 
         public Vector4 PS4Input_GetLastOrientation(int id) {
+#if UNITY_2018_PLUS
+            return UnityEngine.PS4.PS4Input.PadGetLastOrientation(id);
+#else
             return UnityEngine.PS4.PS4Input.GetLastOrientation(id);
+#endif
         }
 
         public void PS4Input_GetLastTouchData(int id, out int touchNum, out int touch0x, out int touch0y, out int touch0id, out int touch1x, out int touch1y, out int touch1id) {
@@ -245,7 +278,11 @@ namespace Rewired.Utils {
         }
 
         public object PS4Input_PadGetUsersDetails(int slot) {
+#if UNITY_2018_PLUS
+            UnityEngine.PS4.PS4Input.LoggedInUser user = UnityEngine.PS4.PS4Input.GetUsersDetails(slot);
+#else
             UnityEngine.PS4.PS4Input.LoggedInUser user = UnityEngine.PS4.PS4Input.PadGetUsersDetails(slot);
+#endif
             return new Rewired.Platforms.PS4.LoggedInUser() {
                 status = user.status,
                 primaryUser = user.primaryUser,
@@ -344,8 +381,8 @@ namespace Rewired.Utils {
 
 #if UNITY_ANDROID && !UNITY_EDITOR
 
-        const int SDK_VERSION_HONEYCOMB = 9;
-        const int SDK_VERSION_KITKAT = 19;
+        const int API_LEVEL_HONEYCOMB = 9;
+        const int API_LEVEL_KITKAT = 19;
 
         public void GetDeviceVIDPIDs(out List<int> vids, out List<int> pids) {
 
@@ -353,12 +390,7 @@ namespace Rewired.Utils {
             pids = new List<int>();
 
             try {
-                // Get the Android SDK version
-                int androidSDKVersion = SDK_VERSION_HONEYCOMB;
-                using(var version = new AndroidJavaClass("android.os.Build$VERSION")) {
-                    androidSDKVersion = version.GetStatic<int>("SDK_INT");
-                }
-                if(androidSDKVersion < SDK_VERSION_KITKAT) return;
+                if(GetAndroidAPILevel() < API_LEVEL_KITKAT) return;
 
                 AndroidJavaClass android_view_InputDevice = new AndroidJavaClass("android.view.InputDevice");
 
@@ -383,10 +415,27 @@ namespace Rewired.Utils {
             } catch {
             }
         }
+
+        public int GetAndroidAPILevel() {
+            try {
+                // Get the Android SDK version
+                int apiLevel = API_LEVEL_HONEYCOMB;
+                using(var version = new AndroidJavaClass("android.os.Build$VERSION")) {
+                    apiLevel = version.GetStatic<int>("SDK_INT");
+                }
+                return apiLevel;
+            } catch {
+                return -1;
+            }
+        }
 #else
         public void GetDeviceVIDPIDs(out List<int> vids, out List<int> pids) {
             vids = new List<int>();
             pids = new List<int>();
+        }
+
+        public int GetAndroidAPILevel() {
+            return -1;
         }
 #endif
         #region Unity UI
@@ -412,6 +461,54 @@ namespace Rewired.Utils {
         public bool UnityUI_Graphic_GetRaycastTarget(object graphic) { return true; }
         public void UnityUI_Graphic_SetRaycastTarget(object graphic, bool value) { }
 #endif
+
+        #endregion
+        
+        #region Touch
+        
+        public bool UnityInput_IsTouchPressureSupported {
+          get {
+#if UNITY_5_3_PLUS
+              return UnityEngine.Input.touchPressureSupported;
+#else
+              return false;
+#endif
+          }
+        }
+        
+        public float UnityInput_GetTouchPressure(ref UnityEngine.Touch touch) {
+#if UNITY_5_3_PLUS
+            return touch.pressure;
+#else
+            return touch.phase != UnityEngine.TouchPhase.Ended &&
+                touch.phase != UnityEngine.TouchPhase.Canceled
+                ? 1.0f : 0.0f;
+#endif
+        }
+        
+        public float UnityInput_GetTouchMaximumPossiblePressure(ref UnityEngine.Touch touch) {
+#if UNITY_5_3_PLUS
+            return touch.maximumPossiblePressure;
+#else
+            return 1.0f;
+#endif
+        }
+
+        #endregion
+
+        #region Controller Templates
+
+        public IControllerTemplate CreateControllerTemplate(System.Guid typeGuid, object payload) {
+            return Rewired.Internal.ControllerTemplateFactory.Create(typeGuid, payload);
+        }
+
+        public System.Type[] GetControllerTemplateTypes() {
+            return Rewired.Internal.ControllerTemplateFactory.templateTypes;
+        }
+
+        public System.Type[] GetControllerTemplateInterfaceTypes() {
+            return Rewired.Internal.ControllerTemplateFactory.templateInterfaceTypes;
+        }
 
         #endregion
     }

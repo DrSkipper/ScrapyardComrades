@@ -81,7 +81,8 @@
               <li><a href="Controllers.html">Controllers</a></li>
               <li><a href="ControllerMaps.html">Controller Maps</a></li>
               <li><a href="MapCategories.html">Map Categories</a></li>
-              <li><a href="ControllerMaps.html"></a><a href="Layouts.html">Layouts</a></li>
+              <li><a href="Layouts.html">Layouts</a></li>
+              <li><a href="ControllerTemplates.html">Controller Templates</a></li>
               <li><a href="CustomControllers.html">Custom Controllers</a></li>
             </ul>
             <strong>Extras:</strong>
@@ -267,34 +268,140 @@
 	    <li>OSX 10.5 or later is required for the OSX Unity editor and OSX Standalone builds.</li>
 	    </ul>
     <h4><a name="tested-platforms" id="tested-platforms"></a>Tested Platforms:</h4>
-    <p>Rewired has been tested on the following platforms. Others may work but have not been tested.</p>
-    <ul>
-      <li>Windows Standalone 32-bit/64-bit*</li>
-      <li>Windows Webplayer</li>
-      <li>Windows 8 Store*</li>
-      <li>Windows 8.1 Universal*</li>
-      <li>Windows 10 Universal 32-bit/64-bit (.NET and IL2CPP)*</li>
-      <li>OSX Standalone 32-bit/64-bit/Universal*</li>
-      <li>OSX Webplayer</li>
-      <li>WebGL*</li>
-      <li>Android</li>
-      <li>iOS</li>
-      <li>Linux*</li>
-      <li>Sony PSM (Sony PlayStation Vita)</li>
-      <li>Sony PlayStation 4* <span style="vertical-align: super; font-size: 65%">[<a href="#clarifications">2</a>]</span></li>
-      <li>Microsoft XBox One* <span style="vertical-align: super; font-size: 65%">[<a href="#clarifications">2</a>]</span></li>
-      <li>Nintendo Switch*</li>
-      <li>Ouya*</li>
-      <li>Apple TV (tvOS)</li>
-      <li>Amazon Fire TV</li>
-      <li>Google Nexus Player</li>
-      <li>Razer Forge TV</li>
-      <li>GameStick</li>
-    </ul>
-    <p style="font-size: 85%">* Platform features Extended Native Support</p>
-    <a name="clarifications" id="clarifications"></a>
-    <p style="font-size: 65%"><span style="vertical-align: super">1</span> Controller must be compatible with underlying system. On Windows the controller must be compatible with Raw Input, Direct Input, or XInput. On OSX, it must be compatible with I/O Kit. Support for exotic controller types not guaranteed.</p>
+    <p>Rewired has been tested on the following platforms. Others may work but have not been tested. The following table shows which platforms / scripting backends include native input libraries for enhanced reliability and feature support. All non-native platforms will run on top of Unity's input system and still provide most features.</p>
+    <p>For platforms using native libraries, the devices supported natively are listed below. If a device type is not listed such as &quot;mouse&quot;, it is supported through the use of Unity's input system at the base but will still work as expected.</p>
+    <table width="100%" border="1">
+      <tr>
+        <td><strong>Platform</strong></td>
+        <td><strong>.NET/Mono Scripting Backend</strong></td>
+        <td><p><strong>IL2CPP Scripting Backend</strong></p></td>
+      </tr>
+      <tr>
+        <td>Windows Standalone 32-bit/64-bit</td>
+        <td align="center"><span class="native">Native</span><br />
+          <span class="note">(keyboard, mouse, controllers)</span></td>
+        <td align="center"><span class="unity-input">Unity <span style="vertical-align: super; font-size: 65%">[<a href="#clarifications">4</a>]</span></span></td>
+      </tr>
+      <tr>
+        <td>Windows 8 Store</td>
+        <td align="center"><span class="native">Native<br />
+          <span class="note">(controllers)</span>        </span></td>
+        <td align="center">--</td>
+      </tr>
+      <tr>
+        <td>Windows 8.1 Universal</td>
+        <td align="center"><span class="native">Native<br />
+          <span class="note">(controllers)</span>        </span></td>
+        <td align="center">--</td>
+      </tr>
+      <tr>
+        <td>Windows 10 Universal 32-bit/64-bit</td>
+        <td align="center"><span class="native">Native<br />
+          <span class="note">(controllers)</span>        </span></td>
+        <td align="center"><span class="native">Native<br />
+          <span class="note">(controllers)</span>        </span></td>
+      </tr>
+      <tr>
+        <td>Windows Webplayer</td>
+        <td align="center"><p><span class="unity-input">Unity</span></p></td>
+        <td align="center">--</td>
+      </tr>
+      <tr>
+        <td>OSX Standalone 32-bit/64-bit/Universal</td>
+        <td align="center"><span class="native">Native<br />
+          <span class="note">(controllers)</span>        </span></td>
+        <td align="center"><span class="unity-input">Unity <span style="vertical-align: super; font-size: 65%">[<a href="#clarifications">4</a>]</span></span></td>
+      </tr>
+      <tr>
+        <td>OSX Webplayer</td>
+        <td align="center"><span class="unity-input">Unity</span></td>
+        <td align="center">--</td>
+      </tr>
+      <tr>
+        <td>Linux <span style="vertical-align: super; font-size: 65%">[<a href="#clarifications">3</a>]</span></td>
+        <td align="center"><span class="native">Native<br />
+          <span class="note">(controllers)</span>        </span></td>
+        <td align="center"><span class="unity-input">Unity <span style="vertical-align: super; font-size: 65%">[<a href="#clarifications">4</a>]</span></span></td>
+      </tr>
+      <tr>
+        <td>WebGL</td>
+        <td align="center">--</td>
+        <td align="center"><span class="native">Native<br />
+          <span class="note">(controllers)</span>        </span></td>
+      </tr>
+      <tr>
+        <td>Android</td>
+        <td align="center"><span class="unity-input">Unity</span></td>
+        <td align="center"><span class="unity-input">Unity</span></td>
+      </tr>
+      <tr>
+        <td>iOS</td>
+        <td align="center"><span class="unity-input">Unity</span></td>
+        <td align="center"><span class="unity-input">Unity</span></td>
+      </tr>
+      <tr>
+        <td>Sony PSM (Sony PlayStation Vita)</td>
+        <td align="center"><span class="unity-input">Unity</span></td>
+        <td align="center">--</td>
+      </tr>
+      <tr>
+        <td>Sony PlayStation 4</td>
+        <td align="center"><span class="semi-native">Semi Native</span> <span style="vertical-align: super; font-size: 65%">[<a href="#clarifications">2</a>]</span><br />
+          <span class="note">(controllers)</span></td>
+        <td align="center"><span class="semi-native">Semi Native</span> <span style="vertical-align: super; font-size: 65%">[<a href="#clarifications">2</a>]</span><br /><span class="note">(controllers)</span></td>
+      </tr>
+      <tr>
+        <td>Microsoft XBox One</td>
+        <td align="center"><span class="semi-native">Semi Native</span> <span style="vertical-align: super; font-size: 65%">[<a href="#clarifications">2</a>]</span><br />
+          <span class="note">(controllers)</span></td>
+        <td align="center"><span class="semi-native">Semi Native</span> <span style="vertical-align: super; font-size: 65%">[<a href="#clarifications">2</a>]</span><br />
+          <span class="note">(controllers)</span></td>
+      </tr>
+      <tr>
+        <td>Nintendo Switch</td>
+        <td align="center">--</td>
+        <td align="center"><span class="native">Native<br />
+          <span class="note">(keyboard, controllers)</span><br />
+        </span></td>
+      </tr>
+      <tr>
+        <td>Ouya</td>
+        <td align="center"><span class="native">Native<br />
+            <span class="note">(controllers)</span></span></td>
+        <td align="center"><span class="native">Native<br />
+          <span class="note">(controllers)</span>        </span></td>
+      </tr>
+      <tr>
+        <td>Apple TV (tvOS)</td>
+        <td align="center"><span class="unity-input">Unity</span></td>
+        <td align="center"><span class="unity-input">Unity</span></td>
+      </tr>
+      <tr>
+        <td>Amazon Fire TV</td>
+        <td align="center"><span class="unity-input">Unity</span></td>
+        <td align="center"><span class="unity-input">Unity</span></td>
+      </tr>
+      <tr>
+        <td>Google Nexus Player</td>
+        <td align="center"><span class="unity-input">Unity</span></td>
+        <td align="center"><span class="unity-input">Unity</span></td>
+      </tr>
+      <tr>
+        <td>Razer Forge TV</td>
+        <td align="center"><span class="unity-input">Unity</span></td>
+        <td align="center"><span class="unity-input">Unity</span></td>
+      </tr>
+      <tr>
+        <td>GameStick</td>
+        <td align="center"><span class="unity-input">Unity</span></td>
+        <td align="center"><span class="unity-input">Unity</span></td>
+      </tr>
+    </table>
+    <p><a name="clarifications" id="clarifications"></a>    </p>
+    <p style="font-size: 65%"><span style="vertical-align: super">1</span> Controller must be compatible with underlying system. On Windows the controller must be compatible with Raw Input, Direct Input, or XInput. On OSX, it must be compatible with I/O Kit. On Linux, it must be compatible with UDev. Support for exotic controller types not guaranteed.</p>
     <p style="font-size: 65%"><span class="superscript">2</span> These platforms make use of Unity's special platform-specific input classes which allow for much greater control over input than with just UnityEngine.Input and are functionally equivalent to native input libraries.</p>
+    <p style="font-size: 65%">3 Linux native support has been tested under Ubuntu 12.04 amd64, Ubuntu 14.04 x86/amd64, Ubuntu 15.04 amd64, Ubuntu 17.04 amd64, Mint 17.2 amd64, and SteamOS. Compatibility with other distros is not guranteed or implied.</p>
+    <p style="font-size: 65%">4 <a href="KnownIssues.html#windows-standalone-il2cpp">Please see this for more information about the IL2CPP scripting backend on desktop Standalone builds</a>.</p>
     <p>&nbsp;</p>
 <div class="bottom-pager clearfix">
 	    <a class="back-button" href="Documentation.html" title="Documentation"><span class="button-img"></span>Documentation</a>

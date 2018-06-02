@@ -47,6 +47,7 @@ namespace Rewired.UI.ControlMapper {
         private const string c_showSplitAxisInputFields = "_showSplitAxisInputFields";
 
         private const string c_allowElementAssignmentConflicts = "_allowElementAssignmentConflicts";
+        private const string c_allowElementAssignmentSwap = "_allowElementAssignmentSwap";
 
         private const string c_actionLabelWidth = "_actionLabelWidth";
         private const string c_keyboardColMaxWidth = "_keyboardColMaxWidth";
@@ -95,6 +96,13 @@ namespace Rewired.UI.ControlMapper {
         private const string c_showControllerNameLabel = "_showControllerNameLabel";
         private const string c_showAssignedControllers = "_showAssignedControllers";
 
+        private const string c_onScreenClosed = "_onScreenClosed";
+        private const string c_onScreenOpened = "_onScreenOpened";
+        private const string c_onPopupWindowClosed = "_onPopupWindowClosed";
+        private const string c_onPopupWindowOpened = "_onPopupWindowOpened";
+        private const string c_onInputPollingStarted = "_onInputPollingStarted";
+        private const string c_onInputPollingEnded = "_onInputPollingEnded";
+
         #endregion
 
         #region Working Vars
@@ -115,7 +123,7 @@ namespace Rewired.UI.ControlMapper {
 
         #endregion
 
-        #region Unity Events
+        #region MonoBehaviour Events
 
         protected virtual void OnEnable() {
             properties = new Dictionary<string, SerializedProperty>();
@@ -148,6 +156,7 @@ namespace Rewired.UI.ControlMapper {
             AddProperty(c_showSplitAxisInputFields);
 
             AddProperty(c_allowElementAssignmentConflicts);
+            AddProperty(c_allowElementAssignmentSwap);
 
             AddProperty(c_actionLabelWidth);
             AddProperty(c_keyboardColMaxWidth);
@@ -195,6 +204,13 @@ namespace Rewired.UI.ControlMapper {
 
             AddProperty(c_showControllerNameLabel);
             AddProperty(c_showAssignedControllers);
+
+            AddProperty(c_onScreenClosed);
+            AddProperty(c_onScreenOpened);
+            AddProperty(c_onPopupWindowClosed);
+            AddProperty(c_onPopupWindowOpened);
+            AddProperty(c_onInputPollingStarted);
+            AddProperty(c_onInputPollingEnded);
         }
 
         public override void OnInspectorGUI() {
@@ -367,6 +383,7 @@ namespace Rewired.UI.ControlMapper {
                 EditorGUILayout.LabelField(new GUIContent("Element Assignment Options:", "Various options for the element assignment."), style_sectionLabel);
                 EditorGUILayout.Space();
                 EditorGUILayout.PropertyField(properties[c_allowElementAssignmentConflicts]);
+                EditorGUILayout.PropertyField(properties[c_allowElementAssignmentSwap]);
             }
 
             // Timer options
@@ -425,6 +442,18 @@ namespace Rewired.UI.ControlMapper {
                 EditorGUILayout.LabelField(new GUIContent("Language Options:", "Language options."), style_sectionLabel);
                 EditorGUILayout.Space();
                 EditorGUILayout.PropertyField(properties[c_language]);
+            }
+
+            // Unity Events
+            using(new EditorGUILayoutSection(true, style_sectionBkg)) {
+                EditorGUILayout.LabelField(new GUIContent("Events:", "Events."), style_sectionLabel);
+                EditorGUILayout.Space();
+                EditorGUILayout.PropertyField(properties[c_onScreenOpened]);
+                EditorGUILayout.PropertyField(properties[c_onScreenClosed]);
+                EditorGUILayout.PropertyField(properties[c_onPopupWindowOpened]);
+                EditorGUILayout.PropertyField(properties[c_onPopupWindowClosed]);
+                EditorGUILayout.PropertyField(properties[c_onInputPollingStarted]);
+                EditorGUILayout.PropertyField(properties[c_onInputPollingEnded]);
             }
 
             // Advanced settings

@@ -81,7 +81,8 @@
               <li><a href="Controllers.html">Controllers</a></li>
               <li><a href="ControllerMaps.html">Controller Maps</a></li>
               <li><a href="MapCategories.html">Map Categories</a></li>
-              <li><a href="ControllerMaps.html"></a><a href="Layouts.html">Layouts</a></li>
+              <li><a href="Layouts.html">Layouts</a></li>
+              <li><a href="ControllerTemplates.html">Controller Templates</a></li>
               <li><a href="CustomControllers.html">Custom Controllers</a></li>
             </ul>
             <strong>Extras:</strong>
@@ -157,6 +158,8 @@
       <li><a href="#consume-input">How do you consume/use an input?</a></li>
       <li><a href="#default-dead-zone">My joystick's dead zone is too large/small. How do I change it?</a></li>
       <li><a href="#gesture-bindings">How can I bind an Action to a button short-press  and another Action to a long-press?</a></li>
+      <li><a href="#nintendo-wiiu-adapter-driver">Can the Nintendo WiiU 4-player adapter be used without requiring users to install a driver?</a></li>
+      <li><a href="#set-mouse-cursor-position">Can Rewired set the mouse cursor position?</a></li>
       <li><a href="#source-code">Can I get the Rewired source code?</a></li>
       <li><a href="#seat-license">What does &quot;this extension requires one licence per seat&quot; mean?</a></li>
       <li><a href="#discounts">Do you offer educational or bulk license discounts?</a></li>
@@ -182,8 +185,9 @@
 <hr />
 <h3><a name="addding-controller-definitions" id="does-rewired-support-x-controller3"></a>Can you/I add support for this controller?</h3>
 <p>It depends. Not all controllers are candidates for Rewired's automatic controller recognition system. The controller would have to be evaulated for inclusion.</p>
-<p>Rewired's controller recognition system relies on information returned by the controller in order to be able to recognize it and load a hardware definition. Many times, the identifying information provided by the device is inadequate or too generic to be relied upon for recognition, for example those that show up as &quot;Generic USB Joystick&quot;, &quot;USB Gamepad&quot;, etc. This is true of a huge number of generic PC gamepads. The manufacturers of these gamepads create dozens and dozens of different products under a large variety of brands, some even with different button layouts, yet all of these devices provide exactly the same identifying USB/HID information (both product name and VID/PID). This makes it impossible to auto-recognize these controllers. If you were to add a controller definition for just one of these controllers, all others that don't match the button layout exactly would report incorrect element names and default mappings in the best case, and would be essentially unusable in the worst case. For these controllers, the only solution is to not provide a controller definition so that they will be treated as <a href="ControllerMaps.html#unknown-controllers">Unknown Controller</a> which the user can map manually using <a href="ControlMapper.html">Control Mapper</a> or your own custom control remapping system.</p>
-<p>See <a href="HowTos.html#new-controller-definitions">How To's - Creating new controller definitions</a> for more information.</p>
+<p>Rewired's controller recognition system relies on information returned by the controller in order to be able to recognize it and load a hardware definition. Many times, the identifying information provided by the device is inadequate or too generic to be relied upon for recognition, for example those that show up as &quot;Generic USB Joystick&quot;, &quot;USB Gamepad&quot;, etc. This is true of a huge number of generic PC gamepads. The manufacturers of these gamepads create dozens and dozens of different products under a large variety of brands, some even with different button layouts, yet all of these devices provide exactly the same identifying USB/HID information (both product name and VID/PID). This makes it impossible to auto-recognize these controllers. If you were to add a controller definition for just one of these controllers, all others that don't match the button layout exactly would report incorrect element names and default mappings in the best case, and would be essentially unusable in the worst case. For these controllers, the only solution is to not provide a controller definition so that they will be treated as <a href="ControllerMaps.html#unknown-controllers">Unknown Controller</a> which the user can map manually using <a href="ControlMapper.html">Control Mapper</a> or <a href="HowTos.html#controller-mapping-screen">your own custom control remapping system</a>.</p>
+<p>The solution to allowing users to use these kinds of controllers and others without definitions is to give your players a way to remap their controls. It is a must that you have a system to let your player   remap their controllers so they can use any controller they want. It is a core   feature of Rewired to allow users to be able to use any controller regardless of   whether or not it is recognized, including the ability to save and load their   configurations. The controller recognition system is only really there as a   convenience so that the most common controllers work without manual   configuration out of the box, but it is not a substitute for being able to map   controllers.</p>
+<p>See <a href="HowTos.html#new-controller-definitions">How To's - Creating new controller definitions</a> for more information on adding your own controller definitions.</p>
 <p>&nbsp;</p>
 <hr />
 <h3><a name="supported-platforms" id="does-rewired-support-x-controller4"></a>What platforms does Rewired support?</h3>
@@ -294,9 +298,9 @@
   <tr>
     <td valign="top">Sony DualShock 4</td>
     <td align="center" valign="top">Raw Input<br />
-      <span class="note">(Enhanced Device Support required)</span></td>
+      <span class="note">(<a href="RewiredEditor.html#settings-windows-enhanced-device-support">Enhanced Device Support</a> required)</span></td>
     <td align="center" valign="top">Native<br />
-      <span class="note">(Enhanced Device Support required, wired only)</span></td>
+      <span class="note">(<a href="RewiredEditor.html#settings-osx-enhanced-device-support">Enhanced Device Support</a> required, wired only)</span></td>
     <td align="center" valign="top">&mdash;</td>
     <td align="center" valign="top">&mdash;</td>
     <td align="center" valign="top">&mdash;</td>
@@ -382,6 +386,14 @@
   A gesture recognition and binding system would likely have to be an entirely separate layer on top of Rewired's current system. Gesture recognition and Action binding are  not currently  planned features.</p>
 <p>&nbsp;</p>
 <hr />
+<h3><a name="nintendo-wiiu-adapter-driver" id="nintendo-wiiu-adapter-driver"></a>Can the Nintendo WiiU 4-player adapter be used without requiring users to install a driver?</h3>
+<p>It is not possible. The Nintendo WiiU adapter is not a standard HID device and   cannot use the default Windows HID driver. This is an issue with the device   because it was not designed for use on Windows / PCs. It cannot be used by any   program without a 3rd party driver installed that can make it appear as a   standard HID device. There is no way around this.</p>
+<p>&nbsp;</p>
+<hr />
+<h3><a name="set-mouse-cursor-position" id="set-mouse-cursor-position"></a>Can Rewired set the mouse cursor position?</h3>
+<p>No. Rewired does not allow you to set the OS mouse cursor position on any platform.</p>
+<p>&nbsp;</p>
+<hr />
 <h3><a name="source-code" id="default-dead-zone4"></a>Can I get the Rewired source code?</h3>
 <p>There is no  source code licensing option at this time. If having the source code is critical to your project, you should not purchase Rewired.</p>
 <p>&nbsp;</p>
@@ -389,6 +401,7 @@
 <h3><a name="seat-license" id="seat-license"></a>What does &quot;this extension requires one licence per seat&quot; mean?</h3>
 <p>The EULA terms are defined by the <a href="https://unity3d.com/legal/as_terms">Unity Asset Store EULA</a>. See Appendix I for information on assets purchased through the Unity Asset Store. Specifically Appendix I, section 2.4 outlines terms for all editor extension assets.</p>
 <p>Rewired is only sold on the Unity Asset Store and the license is bound by these terms as created and defined by Unity. I do not have legal authority to interpret these terms in any other way except as written and defined by the <a href="https://unity3d.com/legal/as_terms">Unity Asset Store EULA</a>. I cannot provide further clarification of or exceptions to these terms.</p>
+<p>Please <a href="https://support.unity3d.com/hc/en-us/requests/new" target="_blank">contact Unity</a> for clarification of or questions about the EULA terms.</p>
 <p>&nbsp;</p>
 <hr />
 <h3><a name="discounts" id="discounts"></a>Do you offer educational or bulk license discounts?</h3>
