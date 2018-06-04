@@ -203,6 +203,7 @@ public static class OptionsValues
             {
                 log += "" + i + ": " + _fullscreenResolutions[i] + "\n";
             }
+            Debug.Log(log);
         }
     }
 
