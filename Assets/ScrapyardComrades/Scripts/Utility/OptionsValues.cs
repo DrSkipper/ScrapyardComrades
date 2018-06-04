@@ -120,8 +120,6 @@ public static class OptionsValues
         h = PlayerPrefs.GetInt(RESOLUTION_HEIGHT_KEY, h);
         int i = 0;
 
-        Debug.Log("changeResolutions: dir =  " + dir + "old res= " + w + "x" + h);
-
         for (; i < _fullscreenResolutions.Length; ++i)
         {
             if (_fullscreenResolutions[i].width == w && _fullscreenResolutions[i].height == h)
@@ -140,8 +138,6 @@ public static class OptionsValues
         PlayerPrefs.SetInt(RESOLUTION_WIDTH_KEY, w);
         PlayerPrefs.SetInt(RESOLUTION_HEIGHT_KEY, h);
         Screen.SetResolution(w, h, fullscreen, OptionsValues.REFRESH_RATE);
-
-        Debug.Log("changeResolutions: new res: " + w + "x" + h);
     }
 
     private static void changeVsync()
