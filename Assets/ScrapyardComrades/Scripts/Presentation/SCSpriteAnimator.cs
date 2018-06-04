@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class SCSpriteAnimator : VoBehavior, IPausable
 {
+    public Image UiImage;
     public SCSpriteAnimation DefaultAnimation;
     public SCSpriteAnimation CurrentAnimation { get { guaranteeCurrentAnimation(); return _currentAnimation; } }
     public int Elapsed { get { return _elapsed; } }
@@ -11,6 +13,11 @@ public class SCSpriteAnimator : VoBehavior, IPausable
 
     void Awake()
     {
+        if (this.UiImage != null)
+            _rendererUpdate = updateImage;
+        else
+            _rendererUpdate = updateSpriteRenderer;
+
         if (this.DefaultAnimation != null)
             this.PlayAnimation(this.DefaultAnimation);
         this.localNotifier.Listen(FreezeFrameEvent.NAME, this, freezeFrame);
@@ -127,10 +134,12 @@ public class SCSpriteAnimator : VoBehavior, IPausable
     private int _frame;
     private int _elapsed;
     private bool _frozen = false;
+    private RendererUpdate _rendererUpdate;
+    private delegate void RendererUpdate();
 
     private void updateVisual()
     {
-        this.spriteRenderer.sprite = _currentAnimation.Frames[_frame];
+        _rendererUpdate();
 
         if (_currentAnimation.SfxKey != SoundData.Key.NONE && Application.isPlaying)
         {
@@ -150,6 +159,16 @@ public class SCSpriteAnimator : VoBehavior, IPausable
                 }
             }
         }
+    }
+
+    private void updateSpriteRenderer()
+    {
+        this.spriteRenderer.sprite = _currentAnimation.Frames[_frame];
+    }
+
+    private void updateImage()
+    {
+        this.UiImage.sprite = _currentAnimation.Frames[_frame];
     }
 
     private void guaranteeCurrentAnimation()
