@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class SCSpriteAnimator : VoBehavior, IPausable
 {
     public Image UiImage;
@@ -173,7 +172,7 @@ public class SCSpriteAnimator : VoBehavior, IPausable
 
     private void guaranteeCurrentAnimation()
     {
-        if (_currentAnimation == null && this.DefaultAnimation != null)
+        if (_currentAnimation == null && this.DefaultAnimation != null && _rendererUpdate != null)
             this.PlayAnimation(this.DefaultAnimation);
     }
 

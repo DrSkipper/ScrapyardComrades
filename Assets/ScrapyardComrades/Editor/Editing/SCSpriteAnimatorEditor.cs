@@ -12,7 +12,10 @@ public class SCSpriteAnimatorEditor : Editor
         if (behavior.DefaultAnimation != _editingAnimation)
         {
             _editingAnimation = behavior.DefaultAnimation;
-            behavior.spriteRenderer.sprite = _editingAnimation != null && _editingAnimation.Frames.Length > 0 ? _editingAnimation.Frames[0] : null;
+            if (behavior.spriteRenderer != null)
+                behavior.spriteRenderer.sprite = _editingAnimation != null && _editingAnimation.Frames.Length > 0 ? _editingAnimation.Frames[0] : null;
+            else if (behavior.UiImage != null)
+                behavior.UiImage.sprite = _editingAnimation != null && _editingAnimation.Frames.Length > 0 ? _editingAnimation.Frames[0] : null;
         }
 
     }

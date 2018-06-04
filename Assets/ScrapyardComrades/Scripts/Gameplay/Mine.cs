@@ -35,7 +35,7 @@ public class Mine : VoBehavior, IPausable
         _defaultColliderSize = _ourCollider.Size;
         this.localNotifier.Listen(HitStunEvent.NAME, this, onHit);
         _cooldownTimer = new Timer(this.CooldownDuration, false, true, onCooldownComplete);
-        _cooldownTimer.complete();
+        //_cooldownTimer.complete();
     }
 
     void OnSpawn()
