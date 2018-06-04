@@ -21,13 +21,13 @@ public class OptionsInitializer : MonoBehaviour
             int w = PlayerPrefs.GetInt(OptionsValues.RESOLUTION_WIDTH_KEY);
             int h = PlayerPrefs.GetInt(OptionsValues.RESOLUTION_HEIGHT_KEY);
 
-            Screen.SetResolution(w, h, fullscreen);
+            Screen.SetResolution(w, h, fullscreen, OptionsValues.REFRESH_RATE);
         }
         else
         {
             Resolution[] resolutions = Screen.resolutions;
             Resolution res = fullscreen ? resolutions[resolutions.Length - 1] : resolutions[Mathf.Max(0, resolutions.Length - 2)];
-            Screen.SetResolution(res.width, res.height, fullscreen);
+            Screen.SetResolution(res.width, res.height, fullscreen, OptionsValues.REFRESH_RATE);
             PlayerPrefs.SetInt(OptionsValues.RESOLUTION_WIDTH_KEY, res.width);
             PlayerPrefs.SetInt(OptionsValues.RESOLUTION_HEIGHT_KEY, res.height);
             PlayerPrefs.Save();

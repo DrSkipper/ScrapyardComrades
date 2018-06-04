@@ -10,8 +10,11 @@ public static class OptionsValues
     public const string RESOLUTION_WIDTH_KEY = "RES_W";
     public const string RESOLUTION_HEIGHT_KEY = "RES_H";
 
+    public const int REFRESH_RATE = 60;
+
     private const int DEFAULT_WINDOWED_W = 960;
     private const int DEFAULT_WINDOWED_H = 540;
+
 
     public static void ChangeValue(string key, int dir)
     {
@@ -95,7 +98,7 @@ public static class OptionsValues
             PlayerPrefs.SetInt(RESOLUTION_WIDTH_KEY, DEFAULT_WINDOWED_W);
             PlayerPrefs.SetInt(RESOLUTION_HEIGHT_KEY, DEFAULT_WINDOWED_H);
             PlayerPrefs.SetInt(FULLSCREEN_KEY, 0);
-            Screen.SetResolution(DEFAULT_WINDOWED_W, DEFAULT_WINDOWED_H, false);
+            Screen.SetResolution(DEFAULT_WINDOWED_W, DEFAULT_WINDOWED_H, false, OptionsValues.REFRESH_RATE);
         }
         else
         {
@@ -103,7 +106,7 @@ public static class OptionsValues
             PlayerPrefs.SetInt(RESOLUTION_WIDTH_KEY, resolution.width);
             PlayerPrefs.SetInt(RESOLUTION_HEIGHT_KEY, resolution.height);
             PlayerPrefs.SetInt(FULLSCREEN_KEY, 1);
-            Screen.SetResolution(resolution.width, resolution.height, true);
+            Screen.SetResolution(resolution.width, resolution.height, true, OptionsValues.REFRESH_RATE);
         }
     }
 
@@ -111,11 +114,13 @@ public static class OptionsValues
     {
         guaranteeFullscreenResolutions();
         bool fullscreen = PlayerPrefs.GetInt(FULLSCREEN_KEY, Screen.fullScreen ? 1 : 0) == 1;
-        int w = fullscreen ? Screen.currentResolution.width : Screen.width;
-        int h = fullscreen ? Screen.currentResolution.height : Screen.height;
+        int w = /*fullscreen ? */Screen.currentResolution.width;// : Screen.width;
+        int h = /*fullscreen ? */Screen.currentResolution.height;// : Screen.height;
         w = PlayerPrefs.GetInt(RESOLUTION_WIDTH_KEY, w);
         h = PlayerPrefs.GetInt(RESOLUTION_HEIGHT_KEY, h);
         int i = 0;
+
+        Debug.Log("changeResolutions: dir =  " + dir + "old res= " + w + "x" + h);
 
         for (; i < _fullscreenResolutions.Length; ++i)
         {
@@ -124,7 +129,7 @@ public static class OptionsValues
         }
         
         i += dir;
-        int max = Screen.fullScreen ? _fullscreenResolutions.Length : _fullscreenResolutions.Length - 1;
+        int max = fullscreen ? _fullscreenResolutions.Length : _fullscreenResolutions.Length - 1;
         if (i >= max)
             i = 0;
         else if (i < 0)
@@ -134,12 +139,14 @@ public static class OptionsValues
         h = _fullscreenResolutions[i].height;
         PlayerPrefs.SetInt(RESOLUTION_WIDTH_KEY, w);
         PlayerPrefs.SetInt(RESOLUTION_HEIGHT_KEY, h);
-        Screen.SetResolution(w, h, fullscreen);
+        Screen.SetResolution(w, h, fullscreen, OptionsValues.REFRESH_RATE);
+
+        Debug.Log("changeResolutions: new res: " + w + "x" + h);
     }
 
     private static void changeVsync()
     {
-        int vsync = QualitySettings.vSyncCount == 0 ? 1 : 0; ;
+        int vsync = QualitySettings.vSyncCount == 0 ? 1 : 0;
         PlayerPrefs.SetInt(VSYNC_KEY, vsync);
         QualitySettings.vSyncCount = vsync;
     }
@@ -161,16 +168,47 @@ public static class OptionsValues
                 if (!alreadyHasResolution(w, h, resolutions))
                 {
                     int insertIndex = indexToInsertRes(w, h, resolutions);
-                    Resolution guaranteedRes = new Resolution();
-                    guaranteedRes.width = w;
-                    guaranteedRes.height = h;
-                    guaranteedRes.refreshRate = resolutions[resolutions.Count - 1].refreshRate;
-                    resolutions.Insert(insertIndex, guaranteedRes);
+                    resolutions.Insert(insertIndex, createResolution(w, h, REFRESH_RATE));
                 }
             }
-            
-            _fullscreenResolutions = resolutions.ToArray();
+
+            // Remove duplicate resolutions
+            List<Resolution> uniqueResolutions = new List<Resolution>();
+            for (int i = 0; i < resolutions.Count; ++i)
+            {
+                bool isUnique = true;
+                for (int j = uniqueResolutions.Count - 1; j >= 0; --j)
+                {
+                    if (resolutions[i].width == uniqueResolutions[j].width && resolutions[i].height == uniqueResolutions[j].height)
+                    {
+                        isUnique = false;
+                        break;
+                    }
+                }
+
+                if (isUnique)
+                    uniqueResolutions.Add(createResolution(resolutions[i].width, resolutions[i].height, REFRESH_RATE));
+            }
+
+            _fullscreenResolutions = uniqueResolutions.ToArray();
+
+            // Log resolutions array
+            string log = "_fullscreenResolutions: \n";
+            for (int i = 0; i < _fullscreenResolutions.Length; ++i)
+            {
+                log += "" + i + ": " + _fullscreenResolutions[i] + "\n";
+            }
+            Debug.Log(log);
         }
+    }
+
+    private static Resolution createResolution(int w, int h, int rHz)
+    {
+        Resolution res = new Resolution();
+        res.width = w;
+        res.height = h;
+        res.refreshRate = REFRESH_RATE;
+        return res;
     }
 
     private static bool alreadyHasResolution(int w, int h, List<Resolution> res)
