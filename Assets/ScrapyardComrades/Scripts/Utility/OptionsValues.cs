@@ -68,6 +68,7 @@ public static class OptionsValues
      */
     private static Resolution[] _fullscreenResolutions;
     private static OptionsValueChangedEvent _valueChangeEvent;
+    private static Resolution _defaultFullscreenRes;
     private const string ON = "ON";
     private const string OFF = "OFF";
 
@@ -102,11 +103,10 @@ public static class OptionsValues
         }
         else
         {
-            Resolution resolution = _fullscreenResolutions[_fullscreenResolutions.Length - 1];
-            PlayerPrefs.SetInt(RESOLUTION_WIDTH_KEY, resolution.width);
-            PlayerPrefs.SetInt(RESOLUTION_HEIGHT_KEY, resolution.height);
+            PlayerPrefs.SetInt(RESOLUTION_WIDTH_KEY, _defaultFullscreenRes.width);
+            PlayerPrefs.SetInt(RESOLUTION_HEIGHT_KEY, _defaultFullscreenRes.height);
             PlayerPrefs.SetInt(FULLSCREEN_KEY, 1);
-            Screen.SetResolution(resolution.width, resolution.height, true, OptionsValues.REFRESH_RATE);
+            Screen.SetResolution(_defaultFullscreenRes.width, _defaultFullscreenRes.height, true, OptionsValues.REFRESH_RATE);
         }
     }
 
@@ -159,6 +159,13 @@ public static class OptionsValues
             int[] guaranteedWidths = new int[] { DEFAULT_WINDOWED_W, 1280, 1920 };
             int[] guaranteedHeights = new int[] { DEFAULT_WINDOWED_H, 720, 1080 };
 
+            bool setDefault = false;
+            if (resolutions.Count > 0)
+            {
+                setDefault = true;
+                _defaultFullscreenRes = resolutions[resolutions.Count - 1];
+            }
+
             // Make sure all our guaranteed resolutions are present in the selectable resolutions list
             for (int i = 0; i < guaranteedWidths.Length; ++i)
             {
@@ -191,6 +198,8 @@ public static class OptionsValues
             }
 
             _fullscreenResolutions = uniqueResolutions.ToArray();
+            if (!setDefault)
+                _defaultFullscreenRes = _fullscreenResolutions[_fullscreenResolutions.Length - 1];
 
             // Log resolutions array
             string log = "_fullscreenResolutions: \n";
@@ -198,7 +207,6 @@ public static class OptionsValues
             {
                 log += "" + i + ": " + _fullscreenResolutions[i] + "\n";
             }
-            Debug.Log(log);
         }
     }
 
