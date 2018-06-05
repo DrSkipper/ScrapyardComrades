@@ -16449,16 +16449,6 @@
   ],
   "props": [
     {
-      "name": "props_enemy_sleeveless_laying_1",
-      "prefab_name": "enemy_sleeveless_laying",
-      "x": 1208,
-      "y": 72,
-      "z": 2,
-      "parameters": null,
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
       "name": "props_SlumsLamp_3",
       "prefab_name": "SlumsLamp",
       "x": 280,
@@ -16762,16 +16752,6 @@
   ],
   "objects": [
     {
-      "name": "objects_HeartLV0_1",
-      "prefab_name": "HeartLV0",
-      "x": 1208,
-      "y": 96,
-      "z": -2,
-      "parameters": null,
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
       "name": "objects_Ambulance_3",
       "prefab_name": "Ambulance",
       "x": 380,
@@ -16790,9 +16770,29 @@
       "parameters": null,
       "secondary_x": 0,
       "secondary_y": 0
+    },
+    {
+      "name": "objects_FallenMedic_14",
+      "prefab_name": "FallenMedic",
+      "x": 1202,
+      "y": 84,
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_HeartLV0_15",
+      "prefab_name": "HeartLV0",
+      "x": 1202,
+      "y": 96,
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
-  "next_object_id": 14,
+  "next_object_id": 16,
   "next_prop_id": 28,
   "next_prop_bg_id": 74,
   "next_light_id": 30,
