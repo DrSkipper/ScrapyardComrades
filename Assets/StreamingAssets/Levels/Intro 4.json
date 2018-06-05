@@ -12440,7 +12440,7 @@
   "next_object_id": 11,
   "next_prop_id": 2,
   "next_prop_bg_id": 0,
-  "next_light_id": 8,
+  "next_light_id": 9,
   "lights": [
     {
       "name": "lights_OverlayLight_25",
@@ -12588,6 +12588,24 @@
       "intensity": 2,
       "range": 600,
       "distance": 140,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": [],
+      "parallax_ratio": 0.0
+    },
+    {
+      "name": "lights_OverlayLight_8",
+      "x": 678,
+      "y": 310,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 530,
+      "distance": 90,
       "spot_angle": 0,
       "rot_x": 0.0,
       "rot_y": 0.0,

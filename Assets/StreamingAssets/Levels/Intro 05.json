@@ -12358,7 +12358,9 @@
       "x": 576,
       "y": 92,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_slums_plant_1",
@@ -12366,7 +12368,9 @@
       "x": 464,
       "y": 96,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_SlumsLamp_2",
@@ -12374,7 +12378,9 @@
       "x": 1432,
       "y": 400,
       "z": 2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "props_background": [
@@ -12384,7 +12390,9 @@
       "x": 152,
       "y": 372,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_house1_1",
@@ -12392,7 +12400,9 @@
       "x": 216,
       "y": 368,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_plant_5",
@@ -12400,7 +12410,9 @@
       "x": 1172,
       "y": 60,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_house1_9",
@@ -12408,7 +12420,9 @@
       "x": 256,
       "y": 320,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_house2_10",
@@ -12416,7 +12430,9 @@
       "x": 296,
       "y": 292,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     },
     {
       "name": "props_back_slums_house2_11",
@@ -12424,7 +12440,9 @@
       "x": 112,
       "y": 380,
       "z": 6,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "objects": [
@@ -12434,13 +12452,15 @@
       "x": 76,
       "y": 164,
       "z": -2,
-      "parameters": null
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
   "next_object_id": 1,
   "next_prop_id": 3,
   "next_prop_bg_id": 12,
-  "next_light_id": 15,
+  "next_light_id": 17,
   "lights": [
     {
       "name": "lights_OverlayLight_25",
@@ -12512,42 +12532,6 @@
       "name": "lights_OverlayLight_5",
       "x": 184,
       "y": 264,
-      "light_type": 2,
-      "intensity": 2,
-      "range": 600,
-      "distance": 150,
-      "spot_angle": 0,
-      "rot_x": 0.0,
-      "rot_y": 0.0,
-      "r": 0.908836544,
-      "g": 0.237132356,
-      "b": 0.9485294,
-      "affects_foreground": true,
-      "affects_parallax": [],
-      "parallax_ratio": 0.0
-    },
-    {
-      "name": "lights_OverlayLight_6",
-      "x": 608,
-      "y": 208,
-      "light_type": 2,
-      "intensity": 2,
-      "range": 600,
-      "distance": 150,
-      "spot_angle": 0,
-      "rot_x": 0.0,
-      "rot_y": 0.0,
-      "r": 0.908836544,
-      "g": 0.237132356,
-      "b": 0.9485294,
-      "affects_foreground": true,
-      "affects_parallax": [],
-      "parallax_ratio": 0.0
-    },
-    {
-      "name": "lights_OverlayLight_7",
-      "x": 992,
-      "y": 248,
       "light_type": 2,
       "intensity": 2,
       "range": 600,
@@ -12644,6 +12628,42 @@
         false,
         false
       ],
+      "parallax_ratio": 0.0
+    },
+    {
+      "name": "lights_OverlayLight_15",
+      "x": 498,
+      "y": 148,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 600,
+      "distance": 150,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": [],
+      "parallax_ratio": 0.0
+    },
+    {
+      "name": "lights_OverlayLight_16",
+      "x": 984,
+      "y": 344,
+      "light_type": 2,
+      "intensity": 2,
+      "range": 600,
+      "distance": 150,
+      "spot_angle": 0,
+      "rot_x": 0.0,
+      "rot_y": 0.0,
+      "r": 0.908836544,
+      "g": 0.237132356,
+      "b": 0.9485294,
+      "affects_foreground": true,
+      "affects_parallax": [],
       "parallax_ratio": 0.0
     }
   ]
