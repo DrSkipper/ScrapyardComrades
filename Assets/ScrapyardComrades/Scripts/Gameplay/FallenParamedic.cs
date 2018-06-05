@@ -36,6 +36,6 @@ public class FallenParamedic : VoBehavior, IPausable
 
     private void onMutate(LocalEventNotifier.Event e)
     {
-        this.spriteRenderer.sprite = this.PreInteractSprite;
+        this.spriteRenderer.sprite = this.PostInteractSprite;
     }
 }
