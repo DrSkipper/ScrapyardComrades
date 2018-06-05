@@ -12394,21 +12394,6 @@
   "props_background": [],
   "objects": [
     {
-      "name": "objects_Enemy_LV1_6",
-      "prefab_name": "Enemy_LV1",
-      "x": 1076,
-      "y": 228,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "variant",
-          "CurrentOption": "C"
-        }
-      ],
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
       "name": "objects_Checkpoint_7",
       "prefab_name": "Checkpoint",
       "x": 304,
@@ -12427,9 +12412,32 @@
       "parameters": null,
       "secondary_x": 0,
       "secondary_y": 0
+    },
+    {
+      "name": "objects_Enemy_LV1_10",
+      "prefab_name": "Enemy_LV1",
+      "x": 1076,
+      "y": 228,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "C"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        },
+        {
+          "Name": "hp_reduce",
+          "CurrentOption": "false"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
-  "next_object_id": 9,
+  "next_object_id": 11,
   "next_prop_id": 2,
   "next_prop_bg_id": 0,
   "next_light_id": 8,
