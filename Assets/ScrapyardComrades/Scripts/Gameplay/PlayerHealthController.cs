@@ -14,7 +14,7 @@ public class PlayerHealthController : VoBehavior, IPausable
     public bool IsPlayer = true;
 
     public HealthChangedDelegate HealthChangedCallback;
-    public delegate void HealthChangedDelegate(int currentHealth, int maxHealth, bool animate = true, bool highlight = true);
+    public delegate void HealthChangedDelegate(int currentHealth, int maxHealth, bool wasAttrition, bool animate = true, bool highlight = true);
     public int AttritionTimeLeft { get { return _attritionTimer == null ? this.AttritionInterval : _attritionTimer.FramesRemaining; } }
 
     void Awake()
@@ -52,7 +52,7 @@ public class PlayerHealthController : VoBehavior, IPausable
 
         _prevHealth = this.Damagable.Health;
         _prevMaxHealth = this.Damagable.MaxHealth;
-        notifyHealthChange(false, false);
+        notifyHealthChange(false, false, false);
     }
 
     private void FixedUpdate()
@@ -80,7 +80,7 @@ public class PlayerHealthController : VoBehavior, IPausable
         if (health > 0)
         {
             this.Damagable.Health = health;
-            notifyHealthChange(true, health <= 0);
+            notifyHealthChange(true, true, health <= 0);
 
             if (_healEffect != null && (float)health / this.Damagable.MaxHealth < this.PercentToAnimateAttrtion)
                 _healEffect.BeginEffect();
@@ -97,7 +97,7 @@ public class PlayerHealthController : VoBehavior, IPausable
         if (this.HeroLevel < this.ProgressionData.MaxHeroLevel && this.Damagable.MaxHealth >= this.ProgressionData.LevelData[this.HeroLevel + 1].MaxHealthThreshold)
             levelUp();
         else
-            notifyHealthChange();
+            notifyHealthChange(false);
     }
 
     private void onHitStun(LocalEventNotifier.Event e)
@@ -106,14 +106,14 @@ public class PlayerHealthController : VoBehavior, IPausable
         {
             _prevHealth = this.Damagable.Health;
             _prevMaxHealth = this.Damagable.MaxHealth;
-            notifyHealthChange();
+            notifyHealthChange(this.Damagable.Dead && this.AttritionTimeLeft == 0);
         }
     }
 
-    private void notifyHealthChange(bool animate = true, bool highlight = true)
+    private void notifyHealthChange(bool wasAttrition, bool animate = true, bool highlight = true)
     {
         if (this.HealthChangedCallback != null)
-            this.HealthChangedCallback(this.Damagable.Health, this.Damagable.MaxHealth, animate, highlight);
+            this.HealthChangedCallback(this.Damagable.Health, this.Damagable.MaxHealth, wasAttrition, animate, highlight);
     }
 
     private void levelUp()

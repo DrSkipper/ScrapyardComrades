@@ -103,7 +103,7 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
         }
     }
 
-    private void playerHealthChanged(int currentHealth, int maxHealth, bool animate = true, bool highlight = true)
+    private void playerHealthChanged(int currentHealth, int maxHealth, bool wasAttrition, bool animate = true, bool highlight = true)
     {
         this.Bar.ChangeTargetLength(maxHealth * this.PixelUnitsPerHealthUnit);
         this.Bar.UpdateLength(currentHealth, maxHealth);
