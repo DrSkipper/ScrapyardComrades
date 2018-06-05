@@ -14,6 +14,14 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
     public Easing.Flow ScaleFlow;
     public float TargetScale = 2.0f;
     public int ScaleDuration = 20;
+    public SCSpriteAnimator IconAnimator;
+    public SCSpriteAnimator BloodAnimator1;
+    public SCSpriteAnimator BloodAnimator2;
+    public SCSpriteAnimation IconHurtAnim;
+    public SCSpriteAnimation[] IconIdleAnims;
+    public float IconIdleLerpMinPercent = 2.0f;
+    public float IconIdleLerpMaxPercent = 50.0f;
+    public int HurtAnimDuration = 30;
 
     void Awake()
     {
@@ -29,6 +37,9 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
         _currentDuration = this.MaxStrobeDuration;
         _currentSpeed = (_endHSV - _startHSV) / _currentDuration;
         _scaleDelegate = Easing.GetFunction(this.ScaleFunction, this.ScaleFlow);
+
+        _idleAnimCutoff = (this.IconIdleLerpMaxPercent - this.IconIdleLerpMinPercent) / Mathf.Max(this.IconIdleAnims.Length - 1, 1);
+        _hurtTimer = new Timer(this.HurtAnimDuration, false, false, playCorrectIdleAnim);
     }
 
     void FixedUpdate()
@@ -76,6 +87,7 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
         }
 
         this.CurrentHealthImage.color = Color.HSVToRGB(_currentHSV.x, _currentHSV.y, _currentHSV.z);
+        _hurtTimer.update();
     }
 
     /**
@@ -91,15 +103,18 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
     private int _prevHealth;
     private Easing.EasingDelegate _scaleDelegate;
     private int _scaleT;
+    private float _idleAnimCutoff;
+    private Timer _hurtTimer;
+    private PlayerHealthController _healthController;
 
     private void playerSpawned(LocalEventNotifier.Event e)
     {
-        PlayerHealthController healthController = (e as PlayerSpawnedEvent).PlayerObject.GetComponent<PlayerHealthController>();
-        if (healthController != null)
+        _healthController = (e as PlayerSpawnedEvent).PlayerObject.GetComponent<PlayerHealthController>();
+        if (_healthController != null)
         {
-            _prevHealth = healthController.Damagable.Health;
-            playerHealthChanged(healthController.Damagable.Health, healthController.Damagable.MaxHealth, false);
-            healthController.HealthChangedCallback += playerHealthChanged;
+            _prevHealth = _healthController.Damagable.Health;
+            playerHealthChanged(_healthController.Damagable.Health, _healthController.Damagable.MaxHealth, false);
+            _healthController.HealthChangedCallback += playerHealthChanged;
         }
     }
 
@@ -116,7 +131,19 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
             if (animate)
             {
                 if (currentHealth < _prevHealth)
+                {
                     this.LostHealthChunk.TriggerHealthLostAnimation(currentHealth, _prevHealth, maxHealth, this.Bar.TargetLength);
+                    this.IconAnimator.PlayAnimation(this.IconHurtAnim);
+                    this.BloodAnimator1.gameObject.SetActive(true);
+                    this.BloodAnimator2.gameObject.SetActive(true);
+                    this.BloodAnimator1.Play();
+                    this.BloodAnimator2.Play();
+                    _hurtTimer.resetAndStart();
+                }
+                else
+                {
+                    playCorrectIdleAnim();
+                }
 
                 if (highlight)
                 {
@@ -133,9 +160,40 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
                     }
                 }
             }
+            else
+            {
+                playCorrectIdleAnim();
+            }
+
             _prevHealth = currentHealth;
         }
 
         this.LostHealthChunk.UpdateTransform(currentHealth, maxHealth, this.Bar.TargetLength);
+    }
+
+    private void playCorrectIdleAnim()
+    {
+        this.BloodAnimator1.gameObject.SetActive(false);
+        this.BloodAnimator2.gameObject.SetActive(false);
+
+        if (_healthController != null)
+        {
+            float current = (((float)_healthController.Damagable.Health) / _healthController.Damagable.MaxHealth) * 100.0f;
+            int i = 0;
+            bool found = false;
+            for (float percent = this.IconIdleLerpMaxPercent; percent > this.IconIdleLerpMinPercent; percent -= _idleAnimCutoff)
+            {
+                if (current > percent)
+                {
+                    found = true;
+                    this.IconAnimator.PlayAnimation(this.IconIdleAnims[i]);
+                    break;
+                }
+                ++i;
+            }
+
+            if (!found)
+                this.IconAnimator.PlayAnimation(this.IconIdleAnims[this.IconIdleAnims.Length - 1]);
+        }
     }
 }
