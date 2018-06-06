@@ -55,7 +55,10 @@ public class SpriteAnimationCreator : EditorWindow
             // Create the folder for the asset if it doesn't yet exist
             string parentFolderPath = SCCustomObjectCreator.PATH + SCCustomObjectCreator.ANIMATION_PATH + _path;
             if (!AssetDatabase.IsValidFolder(parentFolderPath + StringExtensions.SLASH + _folder))
+            {
+                AssetDatabase.CreateFolder(parentFolderPath, _folder);
                 AssetDatabase.SaveAssets();
+            }
 
             // Delete any already existing asset at this location
             string fullAssetPath = parentFolderPath + StringExtensions.SLASH + _folder + StringExtensions.SLASH + _texture.name + SCCustomObjectCreator.ASSET_SUFFIX;
