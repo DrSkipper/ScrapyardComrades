@@ -1203,12 +1203,12 @@
           "sprite_name": "estates_tileset_525"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_90"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_78"
         },
         {
           "is_filled": false,
@@ -6639,8 +6639,12 @@
           "sprite_name": "estates_tileset_356"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_135"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "estates_tileset_135"
         },
         {
           "is_filled": false,
@@ -6827,20 +6831,16 @@
           "sprite_name": "estates_tileset_356"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_135"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_158"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_159"
         },
         {
           "is_filled": true,
@@ -7023,16 +7023,16 @@
           "sprite_name": "estates_tileset_356"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_135"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_137"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_138"
         },
         {
           "is_filled": true,
@@ -7159,8 +7159,20 @@
           "sprite_name": "estates_tileset_356"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_136"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "estates_tileset_136"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "estates_tileset_136"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "estates_tileset_136"
         },
         {
           "is_filled": false,
@@ -7183,48 +7195,36 @@
           "sprite_name": "estates_tileset_356"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_135"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_135"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_135"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_135"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_135"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_135"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_137"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_116"
         },
         {
           "is_filled": true,
@@ -7351,8 +7351,24 @@
           "sprite_name": "estates_tileset_356"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_136"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "estates_tileset_128"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "estates_tileset_129"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "estates_tileset_130"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "estates_tileset_115"
         },
         {
           "is_filled": false,
@@ -7371,52 +7387,36 @@
           "sprite_name": "estates_tileset_356"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_109"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_110"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_111"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_112"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_113"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_114"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_115"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_92"
         },
         {
           "is_filled": true,
@@ -7543,8 +7543,20 @@
           "sprite_name": "estates_tileset_356"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_136"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "estates_tileset_106"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "estates_tileset_107"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "estates_tileset_108"
         },
         {
           "is_filled": false,
@@ -7595,20 +7607,8 @@
           "sprite_name": "estates_tileset_356"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_84"
         },
         {
           "is_filled": true,
@@ -7799,8 +7799,8 @@
           "sprite_name": "estates_tileset_356"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_68"
         },
         {
           "is_filled": true,
@@ -13027,16 +13027,16 @@
           "sprite_name": "estates_tileset_59"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_331"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_331"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_571"
         },
         {
           "is_filled": false,
@@ -13219,16 +13219,16 @@
           "sprite_name": "estates_tileset_59"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_331"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_331"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_571"
         },
         {
           "is_filled": false,
@@ -13411,16 +13411,16 @@
           "sprite_name": "estates_tileset_59"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_331"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_331"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_571"
         },
         {
           "is_filled": false,
@@ -13508,59 +13508,59 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_44"
+          "sprite_name": "estates_tileset_583"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_45"
+          "sprite_name": "estates_tileset_588"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_46"
+          "sprite_name": "estates_tileset_589"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_47"
+          "sprite_name": "estates_tileset_594"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_48"
+          "sprite_name": "estates_tileset_595"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_49"
+          "sprite_name": "estates_tileset_600"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_50"
+          "sprite_name": "estates_tileset_601"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_51"
+          "sprite_name": "estates_tileset_606"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_52"
+          "sprite_name": "estates_tileset_607"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_53"
+          "sprite_name": "estates_tileset_612"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_54"
+          "sprite_name": "estates_tileset_613"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_55"
+          "sprite_name": "estates_tileset_617"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_614"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_616"
         },
         {
           "is_filled": false,
@@ -13600,19 +13600,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_59"
+          "sprite_name": "estates_tileset_331"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_331"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_331"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_571"
         },
         {
           "is_filled": false,
@@ -13700,55 +13700,55 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_23"
+          "sprite_name": "estates_tileset_584"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_24"
+          "sprite_name": "estates_tileset_587"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_25"
+          "sprite_name": "estates_tileset_590"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_26"
+          "sprite_name": "estates_tileset_593"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_27"
+          "sprite_name": "estates_tileset_596"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_28"
+          "sprite_name": "estates_tileset_599"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_29"
+          "sprite_name": "estates_tileset_602"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_30"
+          "sprite_name": "estates_tileset_605"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_31"
+          "sprite_name": "estates_tileset_608"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_32"
+          "sprite_name": "estates_tileset_611"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_33"
+          "sprite_name": "estates_tileset_614"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_34"
+          "sprite_name": "estates_tileset_616"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_615"
         },
         {
           "is_filled": false,
@@ -13795,24 +13795,16 @@
           "sprite_name": "estates_tileset_59"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_560"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_568"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_571"
         },
         {
           "is_filled": false,
@@ -13900,43 +13892,51 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_6"
+          "sprite_name": "estates_tileset_585"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_7"
+          "sprite_name": "estates_tileset_586"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_8"
+          "sprite_name": "estates_tileset_591"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_9"
+          "sprite_name": "estates_tileset_592"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_10"
+          "sprite_name": "estates_tileset_597"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_11"
+          "sprite_name": "estates_tileset_598"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_12"
+          "sprite_name": "estates_tileset_603"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_13"
+          "sprite_name": "estates_tileset_604"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_14"
+          "sprite_name": "estates_tileset_609"
         },
         {
           "is_filled": true,
-          "sprite_name": "estates_tileset_15"
+          "sprite_name": "estates_tileset_610"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "estates_tileset_615"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "estates_tileset_356"
         },
         {
           "is_filled": false,
@@ -13987,20 +13987,20 @@
           "sprite_name": "estates_tileset_59"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_559"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_567"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_574"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_576"
         },
         {
           "is_filled": false,
@@ -14179,16 +14179,16 @@
           "sprite_name": "estates_tileset_73"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_333"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_566"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_573"
         },
         {
           "is_filled": false,
@@ -14371,20 +14371,20 @@
           "sprite_name": "estates_tileset_73"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_557"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_565"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_572"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_575"
         },
         {
           "is_filled": false,
@@ -14563,16 +14563,16 @@
           "sprite_name": "estates_tileset_73"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_360"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_564"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_571"
         },
         {
           "is_filled": false,
@@ -14755,16 +14755,16 @@
           "sprite_name": "estates_tileset_38"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_330"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_563"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_570"
         },
         {
           "is_filled": false,
@@ -14947,16 +14947,16 @@
           "sprite_name": "estates_tileset_18"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_329"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_358"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_569"
         },
         {
           "is_filled": false,
@@ -15143,8 +15143,8 @@
           "sprite_name": "estates_tileset_356"
         },
         {
-          "is_filled": false,
-          "sprite_name": "estates_tileset_356"
+          "is_filled": true,
+          "sprite_name": "estates_tileset_561"
         },
         {
           "is_filled": false,

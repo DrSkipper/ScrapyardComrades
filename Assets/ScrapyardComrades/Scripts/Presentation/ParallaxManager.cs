@@ -67,7 +67,10 @@ public class ParallaxManager : VoBehavior, IPausable
 
             for (int i = 0; i < objects.Count; ++i)
             {
-                IntegerVector target = final + objects[i].RelativeOrigin;
+                IntegerVector offset = final;
+                if (objects[i].OnlyX)
+                    offset.Y = 0;
+                IntegerVector target = offset + objects[i].RelativeOrigin;
 
                 if (_inTransition)
                 {
@@ -117,11 +120,13 @@ public class ParallaxManager : VoBehavior, IPausable
     {
         public Transform Transform;
         public IntegerVector RelativeOrigin;
+        public bool OnlyX;
 
         public ObjectEntry(SCParallaxObject parallaxObject)
         {
             this.Transform = parallaxObject.transform;
             this.RelativeOrigin = (Vector2)this.Transform.position;
+            this.OnlyX = parallaxObject.OnlyX;
         }
     }
 

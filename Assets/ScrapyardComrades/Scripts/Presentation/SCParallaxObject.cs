@@ -3,6 +3,7 @@
 public class SCParallaxObject : VoBehavior, IPausable
 {
     public float ParallaxRatio = 0.0f;
+    public bool OnlyX = false;
 
     void OnSpawn()
     {
