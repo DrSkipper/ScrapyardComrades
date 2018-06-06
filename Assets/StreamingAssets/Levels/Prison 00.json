@@ -18495,9 +18495,55 @@
       "parameters": null,
       "secondary_x": 0,
       "secondary_y": 0
+    },
+    {
+      "name": "objects_Enemy_LV1_1",
+      "prefab_name": "Enemy_LV1",
+      "x": 932,
+      "y": 484,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "PrisonD"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        },
+        {
+          "Name": "hp_reduce",
+          "CurrentOption": "false"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_EnemyOffice_2",
+      "prefab_name": "EnemyOffice",
+      "x": 1134,
+      "y": 490,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "variant",
+          "CurrentOption": "PrisonA"
+        },
+        {
+          "Name": "target",
+          "CurrentOption": "player"
+        },
+        {
+          "Name": "hp_reduce",
+          "CurrentOption": "false"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
     }
   ],
-  "next_object_id": 1,
+  "next_object_id": 3,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 6,
