@@ -488,7 +488,7 @@
     },
     {
       "name": "Slums 26",
-      "x": 1,
+      "x": 3,
       "y": 8,
       "width": 3,
       "height": 2
@@ -539,6 +539,13 @@
       "name": "Prison 00",
       "x": 78,
       "y": 8,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "name": "Office 04",
+      "x": 38,
+      "y": 24,
       "width": 3,
       "height": 2
     }
