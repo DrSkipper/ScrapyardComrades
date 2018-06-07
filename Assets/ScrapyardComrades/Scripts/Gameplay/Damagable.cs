@@ -44,7 +44,7 @@ public class Damagable : VoBehavior, IPausable
     void OnSpawn()
     {
         this.Invincible = false;
-        _invincibilityTimer.reset();
+        _invincibilityTimer.reset(1);
         _invincibilityTimer.Paused = true;
 
         if (this.UseRageMode)
