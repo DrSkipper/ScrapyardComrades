@@ -18758,21 +18758,6 @@
       "secondary_y": 0
     },
     {
-      "name": "objects_Mine_18",
-      "prefab_name": "Mine",
-      "x": 816,
-      "y": 1232,
-      "z": -2,
-      "parameters": [
-        {
-          "Name": "attach",
-          "CurrentOption": "l"
-        }
-      ],
-      "secondary_x": 0,
-      "secondary_y": 0
-    },
-    {
       "name": "objects_HeroLV1_19",
       "prefab_name": "HeroLV1",
       "x": 722,
