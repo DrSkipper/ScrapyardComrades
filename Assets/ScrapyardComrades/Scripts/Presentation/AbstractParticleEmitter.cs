@@ -81,3 +81,8 @@ public abstract class AbstractParticleEmitter : MonoBehaviour
     protected int _t;
     protected int _count;
 }
+
+public interface AbstractParticle
+{
+    void Emit(SCSpriteAnimation animation, AbstractParticleEmitter.OnCompleteDelegate onComplete);
+}

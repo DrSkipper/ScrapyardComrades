@@ -3,6 +3,8 @@
 public class ExplodeOnCollision : VoBehavior
 {
     public PooledObject ExplosionPrefab;
+    public PooledObject AdditionalPrefab;
+    public SCAttack.HitData HitData;
 
     void Awake()
     {
@@ -34,8 +36,19 @@ public class ExplodeOnCollision : VoBehavior
         }
 
         PooledObject explosion = this.ExplosionPrefab.Retain();
+        Explosion explosionComponent = explosion.GetComponent<Explosion>();
+        if (explosionComponent != null)
+            explosionComponent.HitData = this.HitData;
         explosion.transform.SetPosition2D(this.transform.position);
         explosion.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
+
+        if (this.AdditionalPrefab != null)
+        {
+            explosion = this.AdditionalPrefab.Retain();
+            explosion.transform.SetPosition2D(this.transform.position);
+            explosion.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
+        }
+
         ObjectPools.Release(this.gameObject);
     }
 }

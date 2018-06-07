@@ -68,6 +68,19 @@ public class Actor2D : VoBehavior, IPausable
 
     public void Move(Vector2 d, List<IntegerCollider> potentialCollisions = null)
     {
+        if (this.integerCollider == null)
+        {
+            // Non collision check movement
+            _positionModifier += d;
+            IntegerVector integerPos = this.integerPosition;
+            int unitX = Mathf.RoundToInt(_positionModifier.x);
+            int unitY = Mathf.RoundToInt(_positionModifier.y);
+            _positionModifier.x -= unitX;
+            _positionModifier.y -= unitY;
+            this.transform.SetPosition2D(integerPos.X + unitX, integerPos.Y + unitY);
+            return;
+        }
+
         float incX = d.x;
         float incY = d.y;
 

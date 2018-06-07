@@ -12385,9 +12385,9 @@
       "secondary_y": 0
     },
     {
-      "name": "objects_PatrollingPlatform_26",
+      "name": "objects_PatrollingPlatform_27",
       "prefab_name": "PatrollingPlatform",
-      "x": 752,
+      "x": 1392,
       "y": 448,
       "z": -2,
       "parameters": [
@@ -12408,11 +12408,11 @@
           "CurrentOption": "1"
         }
       ],
-      "secondary_x": 1392,
+      "secondary_x": 752,
       "secondary_y": 448
     }
   ],
-  "next_object_id": 27,
+  "next_object_id": 28,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 15,

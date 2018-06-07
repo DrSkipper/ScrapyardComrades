@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SimpleParticle : VoBehavior
+public class SimpleParticle : VoBehavior, AbstractParticle
 {
     public SCSpriteAnimator Animator;
 
