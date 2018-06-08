@@ -27,7 +27,7 @@ public class MutantVat : VoBehavior
         {
             default:
                 this.Animator.PlayAnimation(this.IdleAnimation);
-                if (SaveData.GetGlobalState(this.StateKeyForBreak, Switch.OFF) != Switch.OFF)
+                if (SaveData.DataLoaded && SaveData.GetGlobalState(this.StateKeyForBreak, Switch.OFF) != Switch.OFF)
                     _conditionsMet = true;
                 break;
             case VAT_BROKEN:
