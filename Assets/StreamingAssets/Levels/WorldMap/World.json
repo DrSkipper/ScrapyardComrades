@@ -593,10 +593,17 @@
     },
     {
       "name": "Office 08",
-      "x": 50,
+      "x": 51,
       "y": 29,
       "width": 3,
       "height": 2
+    },
+    {
+      "name": "Office 09",
+      "x": 48,
+      "y": 30,
+      "width": 3,
+      "height": 3
     }
   ]
 }
