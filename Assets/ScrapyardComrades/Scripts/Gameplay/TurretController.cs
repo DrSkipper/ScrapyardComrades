@@ -31,6 +31,8 @@ public class TurretController : VoBehavior, IPausable
     public Transform LightTransform;
     public Light SearchLight;
     public Light TargetLight;
+    public bool AttachToSurfaces = true;
+    public LayerMask SurfaceLayers;
 
     [System.Serializable]
     public enum AttachDir
@@ -70,6 +72,7 @@ public class TurretController : VoBehavior, IPausable
 
     void OnSpawn()
     {
+        _hasAttached = !this.AttachToSurfaces;
         this.Hurtbox.AddToCollisionPool();
         _cooldownTimer.complete();
         this.EffectAnimator.gameObject.SetActive(false);
@@ -111,6 +114,9 @@ public class TurretController : VoBehavior, IPausable
 
     void FixedUpdate()
     {
+        if (!_hasAttached)
+            attachToSurface();
+
         if (!_freezeFrameTimer.Completed)
         {
             _freezeFrameTimer.update();
@@ -180,7 +186,8 @@ public class TurretController : VoBehavior, IPausable
     private float[] _searchColliderDists;
     private float[] _exitColliderDists;
     private Transform _prevTarget;
-    
+    private bool _hasAttached;
+
     private const float COVERAGE_PER_POS = 22.5f;
     private const float COVERAGE_PER_POS_HALF = 11.25f;
     private const float COVERAGE_TOTAL = 202.5f;
@@ -512,5 +519,35 @@ public class TurretController : VoBehavior, IPausable
             this.SearchLight.enabled = search;
         if (this.TargetLight != null)
             this.TargetLight.enabled = !search;
+    }
+
+    private void attachToSurface()
+    {
+        _hasAttached = true;
+        int offsetX = 0;
+        int offsetY = 0;
+
+        switch (this.AttachedAt)
+        {
+            default:
+            case TurretController.AttachDir.Down:
+                offsetY = -2;
+                break;
+            case TurretController.AttachDir.Left:
+                offsetX = -2;
+                break;
+            case TurretController.AttachDir.Up:
+                offsetY = 2;
+                break;
+            case TurretController.AttachDir.Right:
+                offsetX = 2;
+                break;
+        }
+
+        GameObject surface = this.integerCollider.CollideFirst(offsetX, offsetY, this.SurfaceLayers);
+        if (surface != null)
+        {
+            this.transform.SetParent(surface.transform);
+        }
     }
 }
