@@ -56,411 +56,151 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_12"
+          "sprite_name": "office_tileset_16"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
+          "sprite_name": "office_tileset_22"
         },
         {
           "is_filled": true,
           "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_26"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_4"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_4"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_4"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_2"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_2"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_3"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_3"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_5"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_4"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_4"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_5"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_3"
         },
         {
           "is_filled": true,
@@ -480,10 +220,6 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_2"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "office_tileset_4"
         },
         {
@@ -496,83 +232,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_3"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_2"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_2"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_1"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "office_tileset_4"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_4"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_3"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_2"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_1"
         },
         {
           "is_filled": true,
           "sprite_name": "office_tileset_5"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_3"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_1"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_5"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_4"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_4"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_2"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_4"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_2"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_4"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_1"
         },
         {
           "is_filled": true,
@@ -580,27 +244,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
+          "sprite_name": "office_tileset_25"
         },
         {
           "is_filled": true,
@@ -631,8 +275,124 @@
           "sprite_name": "office_tileset_159"
         },
         {
+          "is_filled": true,
+          "sprite_name": "office_tileset_34"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_40"
+        },
+        {
           "is_filled": false,
           "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_34"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_40"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_34"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_40"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_34"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_40"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
         },
         {
           "is_filled": false,
@@ -671,8 +431,16 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
         },
         {
           "is_filled": false,
@@ -699,8 +467,12 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_16"
         },
         {
           "is_filled": false,
@@ -727,8 +499,92 @@
           "sprite_name": "office_tileset_159"
         },
         {
+          "is_filled": true,
+          "sprite_name": "office_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_16"
+        },
+        {
           "is_filled": false,
           "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
         },
         {
           "is_filled": false,
@@ -772,27 +628,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
+          "sprite_name": "office_tileset_23"
         },
         {
           "is_filled": true,
@@ -823,116 +659,12 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_0"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_6"
         },
         {
           "is_filled": false,
@@ -960,35 +692,307 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_22"
+          "sprite_name": "office_tileset_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_6"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_6"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_6"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_10"
         },
         {
           "is_filled": true,
           "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_0"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_2"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_6"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_10"
         },
         {
           "is_filled": true,
           "sprite_name": "office_tileset_23"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_16"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
           "is_filled": false,
@@ -1159,30 +1163,6 @@
           "sprite_name": "office_tileset_25"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_16"
-        },
-        {
           "is_filled": false,
           "sprite_name": "office_tileset_159"
         },
@@ -1205,174 +1185,6 @@
         {
           "is_filled": false,
           "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_28"
         },
         {
           "is_filled": false,
@@ -1540,33 +1352,201 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_11"
+          "sprite_name": "office_tileset_23"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_22"
         },
         {
           "is_filled": true,
           "sprite_name": "office_tileset_25"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_16"
-        },
-        {
           "is_filled": false,
           "sprite_name": "office_tileset_159"
         },
@@ -1589,174 +1569,6 @@
         {
           "is_filled": false,
           "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_22"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_28"
         },
         {
           "is_filled": false,
@@ -1924,35 +1736,227 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_28"
         },
         {
           "is_filled": false,
           "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_100"
         },
         {
           "is_filled": false,
@@ -2116,35 +2120,35 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_16"
         },
         {
           "is_filled": false,
           "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_34"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_16"
         },
         {
           "is_filled": false,
@@ -2308,39 +2312,35 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "office_tileset_25"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_25"
+          "sprite_name": "office_tileset_35"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_25"
+          "sprite_name": "office_tileset_37"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_11"
+          "sprite_name": "office_tileset_39"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_24"
+          "sprite_name": "office_tileset_35"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_28"
+          "sprite_name": "office_tileset_39"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_15"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_16"
         },
         {
           "is_filled": false,
@@ -2495,12 +2495,12 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_10"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_11"
+          "sprite_name": "office_tileset_22"
         },
         {
           "is_filled": true,
@@ -2512,7 +2512,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_13"
+          "sprite_name": "office_tileset_23"
         },
         {
           "is_filled": true,
@@ -2524,15 +2524,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_28"
+          "sprite_name": "office_tileset_23"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_16"
         },
         {
           "is_filled": false,
@@ -2687,12 +2687,12 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": true,
-          "sprite_name": "office_tileset_10"
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_23"
+          "sprite_name": "office_tileset_10"
         },
         {
           "is_filled": true,
@@ -2708,23 +2708,23 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "office_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "office_tileset_24"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_11"
+          "sprite_name": "office_tileset_24"
         },
         {
           "is_filled": true,
           "sprite_name": "office_tileset_28"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
         },
         {
           "is_filled": false,
@@ -2880,11 +2880,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_22"
+          "sprite_name": "office_tileset_34"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_25"
+          "sprite_name": "office_tileset_15"
         },
         {
           "is_filled": true,
@@ -2904,19 +2904,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_11"
+          "sprite_name": "office_tileset_12"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_28"
+          "sprite_name": "office_tileset_13"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_16"
         },
         {
           "is_filled": false,
@@ -3072,7 +3072,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_22"
+          "sprite_name": "office_tileset_10"
         },
         {
           "is_filled": true,
@@ -3092,11 +3092,787 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_23"
+          "sprite_name": "office_tileset_24"
         },
         {
           "is_filled": true,
           "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_34"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_15"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_13"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_49"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_1"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_4"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_5"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_1"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_13"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
         },
         {
           "is_filled": true,
@@ -3105,6 +3881,962 @@
         {
           "is_filled": false,
           "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_13"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_16"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_13"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_13"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_16"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_13"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_13"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_34"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_37"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
         },
         {
           "is_filled": false,
@@ -3272,11 +5004,15 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "office_tileset_13"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "office_tileset_12"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_24"
+          "sprite_name": "office_tileset_12"
         },
         {
           "is_filled": true,
@@ -3284,15 +5020,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_23"
+          "sprite_name": "office_tileset_11"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_12"
+          "sprite_name": "office_tileset_25"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_28"
+          "sprite_name": "office_tileset_16"
         },
         {
           "is_filled": false,
@@ -3319,8 +5055,20 @@
           "sprite_name": "office_tileset_159"
         },
         {
+          "is_filled": true,
+          "sprite_name": "office_tileset_100"
+        },
+        {
           "is_filled": false,
           "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_100"
         },
         {
           "is_filled": false,
@@ -3339,8 +5087,20 @@
           "sprite_name": "office_tileset_159"
         },
         {
+          "is_filled": true,
+          "sprite_name": "office_tileset_100"
+        },
+        {
           "is_filled": false,
           "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_100"
         },
         {
           "is_filled": false,
@@ -3359,8 +5119,20 @@
           "sprite_name": "office_tileset_159"
         },
         {
+          "is_filled": true,
+          "sprite_name": "office_tileset_100"
+        },
+        {
           "is_filled": false,
           "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_100"
         },
         {
           "is_filled": false,
@@ -3379,8 +5151,8 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_100"
         },
         {
           "is_filled": false,
@@ -3391,48 +5163,8 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_100"
         },
         {
           "is_filled": false,
@@ -3460,7 +5192,19 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "office_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
         },
         {
           "is_filled": true,
@@ -3468,19 +5212,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_25"
+          "sprite_name": "office_tileset_24"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
+          "sprite_name": "office_tileset_12"
         },
         {
           "is_filled": true,
@@ -3507,8 +5243,124 @@
           "sprite_name": "office_tileset_159"
         },
         {
+          "is_filled": true,
+          "sprite_name": "office_tileset_34"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_16"
+        },
+        {
           "is_filled": false,
           "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_40"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_34"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_40"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_34"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_16"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_40"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_34"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_40"
         },
         {
           "is_filled": false,
@@ -3527,8 +5379,68 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_13"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_14"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_39"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_35"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_39"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_35"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_35"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_15"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
         },
         {
           "is_filled": false,
@@ -3539,8 +5451,28 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_14"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_35"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_39"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_15"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_16"
         },
         {
           "is_filled": false,
@@ -3551,8 +5483,28 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_10"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_14"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_39"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_38"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_15"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
         },
         {
           "is_filled": false,
@@ -3563,8 +5515,28 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_14"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_36"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_38"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_15"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
         },
         {
           "is_filled": false,
@@ -3575,68 +5547,92 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_10"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_14"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_35"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_38"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_37"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_37"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_15"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_23"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_23"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_13"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_13"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_13"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
         },
         {
           "is_filled": false,
@@ -3656,599 +5652,47 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_16"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_22"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_16"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_22"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_16"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_22"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_16"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_23"
         },
         {
           "is_filled": true,
@@ -4263,148 +5707,28 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_22"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_23"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_13"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_16"
         },
         {
           "is_filled": false,
@@ -4420,15 +5744,19 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "office_tileset_23"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_12"
+          "sprite_name": "office_tileset_25"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_12"
+          "sprite_name": "office_tileset_11"
         },
         {
           "is_filled": true,
@@ -4440,367 +5768,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_28"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_10"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "office_tileset_12"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_16"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_22"
+          "sprite_name": "office_tileset_11"
         },
         {
           "is_filled": true,
@@ -4812,11 +5784,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
+          "sprite_name": "office_tileset_11"
         },
         {
           "is_filled": true,
@@ -4824,175 +5792,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_25"
+          "sprite_name": "office_tileset_12"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_28"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "sprite_name": "office_tileset_23"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_22"
+          "sprite_name": "office_tileset_12"
         },
         {
           "is_filled": true,
@@ -5004,15 +5812,11 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_13"
+          "sprite_name": "office_tileset_23"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
+          "sprite_name": "office_tileset_11"
         },
         {
           "is_filled": true,
@@ -5031,148 +5835,28 @@
           "sprite_name": "office_tileset_159"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_22"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
         },
         {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "is_filled": true,
+          "sprite_name": "office_tileset_16"
         },
         {
           "is_filled": false,
@@ -5188,6 +5872,82 @@
         },
         {
           "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_28"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_22"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_24"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_12"
+        },
+        {
+          "is_filled": true,
           "sprite_name": "office_tileset_11"
         },
         {
@@ -5196,7 +5956,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_24"
+          "sprite_name": "office_tileset_25"
         },
         {
           "is_filled": true,
@@ -5212,175 +5972,15 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_28"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
-        },
-        {
-          "is_filled": false,
-          "sprite_name": "office_tileset_159"
+          "sprite_name": "office_tileset_11"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_22"
+          "sprite_name": "office_tileset_23"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_12"
+          "sprite_name": "office_tileset_24"
         },
         {
           "is_filled": true,
@@ -5388,11 +5988,23 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_25"
+          "sprite_name": "office_tileset_24"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_12"
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_11"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_23"
+        },
+        {
+          "is_filled": true,
+          "sprite_name": "office_tileset_25"
         },
         {
           "is_filled": true,
@@ -5408,159 +6020,7 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_37"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_38"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_39"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_39"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_35"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "office_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_38"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_37"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_38"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_38"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_38"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_39"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_38"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_37"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_37"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_39"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_38"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_37"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_38"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_38"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_39"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_38"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_38"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_39"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_38"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_36"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_37"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_35"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_38"
         },
         {
           "is_filled": true,
@@ -5572,466 +6032,6 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_11"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_13"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_24"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_25"
-        },
-        {
-          "is_filled": true,
           "sprite_name": "office_tileset_13"
         },
         {
@@ -6048,19 +6048,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_12"
+          "sprite_name": "office_tileset_28"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
+        },
+        {
+          "is_filled": false,
+          "sprite_name": "office_tileset_159"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_12"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_23"
-        },
-        {
-          "is_filled": true,
-          "sprite_name": "office_tileset_12"
+          "sprite_name": "office_tileset_22"
         },
         {
           "is_filled": true,
@@ -6080,19 +6080,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_13"
+          "sprite_name": "office_tileset_14"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_13"
+          "sprite_name": "office_tileset_37"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_23"
+          "sprite_name": "office_tileset_35"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_24"
+          "sprite_name": "office_tileset_15"
         },
         {
           "is_filled": true,
@@ -6112,19 +6112,19 @@
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_24"
+          "sprite_name": "office_tileset_14"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_13"
+          "sprite_name": "office_tileset_37"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_24"
+          "sprite_name": "office_tileset_36"
         },
         {
           "is_filled": true,
-          "sprite_name": "office_tileset_11"
+          "sprite_name": "office_tileset_15"
         },
         {
           "is_filled": true,
@@ -12335,19 +12335,19 @@
   "props_background": [],
   "objects": [
     {
-      "name": "objects_PatrollingPlatform_38",
+      "name": "objects_PatrollingPlatform_43",
       "prefab_name": "PatrollingPlatform",
-      "x": 720,
-      "y": 336,
+      "x": 736,
+      "y": 176,
       "z": -2,
       "parameters": [
         {
           "Name": "width",
-          "CurrentOption": "3"
+          "CurrentOption": "2"
         },
         {
           "Name": "height",
-          "CurrentOption": "3"
+          "CurrentOption": "5"
         },
         {
           "Name": "tileset",
@@ -12355,17 +12355,226 @@
         },
         {
           "Name": "speed",
-          "CurrentOption": "1"
+          "CurrentOption": "2"
         }
       ],
-      "secondary_x": 720,
-      "secondary_y": 560
+      "secondary_x": 736,
+      "secondary_y": 496
     },
     {
-      "name": "objects_Turret_39",
+      "name": "objects_PatrollingPlatform_44",
+      "prefab_name": "PatrollingPlatform",
+      "x": 736,
+      "y": 496,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "width",
+          "CurrentOption": "2"
+        },
+        {
+          "Name": "height",
+          "CurrentOption": "5"
+        },
+        {
+          "Name": "tileset",
+          "CurrentOption": "OfficePlatforms"
+        },
+        {
+          "Name": "speed",
+          "CurrentOption": "2"
+        }
+      ],
+      "secondary_x": 736,
+      "secondary_y": 816
+    },
+    {
+      "name": "objects_PatrollingPlatform_45",
+      "prefab_name": "PatrollingPlatform",
+      "x": 480,
+      "y": 816,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "width",
+          "CurrentOption": "2"
+        },
+        {
+          "Name": "height",
+          "CurrentOption": "5"
+        },
+        {
+          "Name": "tileset",
+          "CurrentOption": "OfficePlatforms"
+        },
+        {
+          "Name": "speed",
+          "CurrentOption": "2"
+        }
+      ],
+      "secondary_x": 480,
+      "secondary_y": 496
+    },
+    {
+      "name": "objects_PatrollingPlatform_46",
+      "prefab_name": "PatrollingPlatform",
+      "x": 480,
+      "y": 496,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "width",
+          "CurrentOption": "2"
+        },
+        {
+          "Name": "height",
+          "CurrentOption": "5"
+        },
+        {
+          "Name": "tileset",
+          "CurrentOption": "OfficePlatforms"
+        },
+        {
+          "Name": "speed",
+          "CurrentOption": "2"
+        }
+      ],
+      "secondary_x": 480,
+      "secondary_y": 176
+    },
+    {
+      "name": "objects_PatrollingPlatform_47",
+      "prefab_name": "PatrollingPlatform",
+      "x": 992,
+      "y": 816,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "width",
+          "CurrentOption": "2"
+        },
+        {
+          "Name": "height",
+          "CurrentOption": "5"
+        },
+        {
+          "Name": "tileset",
+          "CurrentOption": "OfficePlatforms"
+        },
+        {
+          "Name": "speed",
+          "CurrentOption": "2"
+        }
+      ],
+      "secondary_x": 992,
+      "secondary_y": 496
+    },
+    {
+      "name": "objects_PatrollingPlatform_48",
+      "prefab_name": "PatrollingPlatform",
+      "x": 992,
+      "y": 496,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "width",
+          "CurrentOption": "2"
+        },
+        {
+          "Name": "height",
+          "CurrentOption": "5"
+        },
+        {
+          "Name": "tileset",
+          "CurrentOption": "OfficePlatforms"
+        },
+        {
+          "Name": "speed",
+          "CurrentOption": "2"
+        }
+      ],
+      "secondary_x": 992,
+      "secondary_y": 176
+    },
+    {
+      "name": "objects_HeroLV1_49",
+      "prefab_name": "HeroLV1",
+      "x": 66,
+      "y": 100,
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_HeartLV0_50",
+      "prefab_name": "HeartLV0",
+      "x": 108,
+      "y": 100,
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_PatrollingPlatform_51",
+      "prefab_name": "PatrollingPlatform",
+      "x": 1248,
+      "y": 176,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "width",
+          "CurrentOption": "2"
+        },
+        {
+          "Name": "height",
+          "CurrentOption": "5"
+        },
+        {
+          "Name": "tileset",
+          "CurrentOption": "OfficePlatforms"
+        },
+        {
+          "Name": "speed",
+          "CurrentOption": "2"
+        }
+      ],
+      "secondary_x": 1248,
+      "secondary_y": 496
+    },
+    {
+      "name": "objects_PatrollingPlatform_52",
+      "prefab_name": "PatrollingPlatform",
+      "x": 1248,
+      "y": 496,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "width",
+          "CurrentOption": "2"
+        },
+        {
+          "Name": "height",
+          "CurrentOption": "5"
+        },
+        {
+          "Name": "tileset",
+          "CurrentOption": "OfficePlatforms"
+        },
+        {
+          "Name": "speed",
+          "CurrentOption": "2"
+        }
+      ],
+      "secondary_x": 1248,
+      "secondary_y": 816
+    },
+    {
+      "name": "objects_Turret_53",
       "prefab_name": "Turret",
-      "x": 640,
-      "y": 336,
+      "x": 672,
+      "y": 178,
       "z": -2,
       "parameters": [
         {
@@ -12377,27 +12586,82 @@
       "secondary_y": 0
     },
     {
-      "name": "objects_HeroLV1_40",
-      "prefab_name": "HeroLV1",
-      "x": 192,
-      "y": 132,
+      "name": "objects_Turret_54",
+      "prefab_name": "Turret",
+      "x": 800,
+      "y": 178,
       "z": -2,
-      "parameters": null,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "l"
+        }
+      ],
       "secondary_x": 0,
       "secondary_y": 0
     },
     {
-      "name": "objects_HeartLV0_41",
-      "prefab_name": "HeartLV0",
-      "x": 246,
-      "y": 132,
+      "name": "objects_Turret_55",
+      "prefab_name": "Turret",
+      "x": 1184,
+      "y": 178,
       "z": -2,
-      "parameters": null,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "r"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Turret_56",
+      "prefab_name": "Turret",
+      "x": 928,
+      "y": 498,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "r"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Turret_57",
+      "prefab_name": "Turret",
+      "x": 1056,
+      "y": 498,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "l"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_Turret_58",
+      "prefab_name": "Turret",
+      "x": 544,
+      "y": 498,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "attach",
+          "CurrentOption": "l"
+        }
+      ],
       "secondary_x": 0,
       "secondary_y": 0
     }
   ],
-  "next_object_id": 42,
+  "next_object_id": 59,
   "next_prop_id": 0,
   "next_prop_bg_id": 0,
   "next_light_id": 15,
