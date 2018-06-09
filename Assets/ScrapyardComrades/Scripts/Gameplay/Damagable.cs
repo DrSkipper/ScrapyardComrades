@@ -24,7 +24,7 @@ public class Damagable : VoBehavior, IPausable
     public SCSpriteAnimation BlockEffect;
     public delegate void OnDeathDelegate();
     public OnDeathDelegate OnDeathCallback;
-
+    
     void Awake()
     {
         _invincibilityTimer = new Timer(1, false, false);
