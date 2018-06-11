@@ -308,6 +308,7 @@ public class MutantAttackState : AIState, CustomTransitionState
     {
         _cooldown = 0;
         _canCustomTransition = false;
+        _lastAttackWasCharge = false;
     }
 
     public override AIOutput UpdateState(AIInput input)
@@ -318,9 +319,9 @@ public class MutantAttackState : AIState, CustomTransitionState
         if (!input.ExecutingMove)
             _charging = false;
 
+        float d = Mathf.Abs(input.OurPosition.X - input.TargetPosition.X);
         if (_cooldown <= 0)
         {
-            float d = Mathf.Abs(input.OurPosition.X - input.TargetPosition.X);
             bool attack = false;
 
             if (input.OnGround && !output.Jump && d < _jumpAtRangeFar && d > _jumpAtRangeNear && input.TargetCollider.Bounds.Min.Y > input.OurCollider.Bounds.Min.Y + 2)
@@ -343,7 +344,7 @@ public class MutantAttackState : AIState, CustomTransitionState
                         _charging = true;
                     }
                 }
-                else if (d <= this._executeAirAttackRange)
+                else if (d <= _executeAirAttackRange)
                 {
                     attack = true;
                     output.Attack = true;
@@ -358,11 +359,21 @@ public class MutantAttackState : AIState, CustomTransitionState
             else
                 output.MovementDirection = Mathf.RoundToInt(Mathf.Sign(input.TargetPosition.X - input.OurPosition.X));
         }
-        else if (!input.ExecutingMove)
+        else
         {
-            --_cooldown;
-            _canCustomTransition = _cooldown == 0;
+            if (_lastAttackWasCharge && input.OnGround && d <= _executeAttackRange)
+            {
+                output.Attack = true;
+                _cooldown = _cooldownAmt;
+            }
+            else if (!input.ExecutingMove)
+            {
+                --_cooldown;
+                _canCustomTransition = _cooldown == 0;
+            }
         }
+
+        _lastAttackWasCharge = _charging;
         return output;
     }
 
@@ -380,4 +391,5 @@ public class MutantAttackState : AIState, CustomTransitionState
     private int _cooldownAmt;
     private float _defenseStateChance;
     private bool _canCustomTransition;
+    private bool _lastAttackWasCharge;
 }

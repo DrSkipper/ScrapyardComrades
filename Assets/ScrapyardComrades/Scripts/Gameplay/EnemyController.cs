@@ -114,7 +114,7 @@ public class EnemyController : SCCharacterController
                         executeAirAttackRange: 400,
                         executeAttackRange: 120,
                         attackingPursuitTargetDist: 128,
-                        attackStateCooldown: 6,
+                        attackStateCooldown: 3,
                         defenseDuration: 25,
                         defenseChance: 0.30f,
                         walkToTargetDist: WALK_TO_TARGET_DIST,
