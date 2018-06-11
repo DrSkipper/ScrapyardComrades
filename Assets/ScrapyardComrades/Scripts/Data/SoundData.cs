@@ -217,6 +217,7 @@ public class SoundData : ScriptableObject
         EnemyLV1_Punch2,
         EnemyLV1_PunchImpact,
         EnemyLV1_Death,
+        EnemyLV1_Jump,
 
         /**
          * Enemy Level 2
@@ -269,6 +270,8 @@ public class SoundData : ScriptableObject
         EnemyMutant_GroundPoundImpact,
         EnemyMutant_Death,
         EnemyMutant_Idle,
+        EnemyMutant_Jump,
+        EnemyMutant_Land,
 
         /**
          * Syringe
