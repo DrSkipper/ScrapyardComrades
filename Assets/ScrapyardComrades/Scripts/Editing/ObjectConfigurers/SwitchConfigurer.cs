@@ -24,12 +24,12 @@ public class SwitchConfigurer : ObjectConfigurer
     public const string YELLOW = "yellow";
 
     public Switch SwitchScript;
-    public AreaSwitch SwitchDetectionScript; //TODO: Interface that AreaSwitch implements
     public SpriteRenderer ButtonRenderer;
     public Sprite YellowButtonSprite;
     public Sprite RedButtonSprite;
     public Sprite PurpButtonSprite;
     public Sprite BlueButtonSprite;
+    public Attacher Attacher;
 
     public override ObjectParamType[] ParameterTypes
     {
@@ -66,6 +66,12 @@ public class SwitchConfigurer : ObjectConfigurer
                     DoorConfigurer.RED_DOOR,
                     DoorConfigurer.PURP_DOOR,
                     DoorConfigurer.BLUE_DOOR
+                }),
+                new ObjectParamType(TurretConfigurer.ATTACH_DIR_TYPE, new string[] {
+                    TurretConfigurer.ATTACH_DOWN,
+                    TurretConfigurer.ATTACH_UP,
+                    TurretConfigurer.ATTACH_LEFT,
+                    TurretConfigurer.ATTACH_RIGHT
                 })
             };
         }
@@ -92,6 +98,9 @@ public class SwitchConfigurer : ObjectConfigurer
                 break;
             case COLOR:
                 configureColor(option);
+                break;
+            case TurretConfigurer.ATTACH_DIR_TYPE:
+                configureAttachType(option);
                 break;
         }
     }
@@ -123,17 +132,18 @@ public class SwitchConfigurer : ObjectConfigurer
 
     private void configureOneWay(string option)
     {
+        SwitchBehavior switchDetetctionScript = this.GetComponent<SwitchBehavior>();
         switch (option)
         {
             default:
                 LogInvalidParameter(NAME, ONE_WAY, option);
-                this.SwitchDetectionScript.OneWay = false;
+                switchDetetctionScript.OneWay = false;
                 break;
             case TRUE:
-                this.SwitchDetectionScript.OneWay = true;
+                switchDetetctionScript.OneWay = true;
                 break;
             case FALSE:
-                this.SwitchDetectionScript.OneWay = false;
+                switchDetetctionScript.OneWay = false;
                 break;
         }
     }
@@ -174,6 +184,28 @@ public class SwitchConfigurer : ObjectConfigurer
                 break;
             case DoorConfigurer.BLUE_DOOR:
                 this.ButtonRenderer.sprite = this.BlueButtonSprite;
+                break;
+        }
+    }
+    private void configureAttachType(string option)
+    {
+        switch (option)
+        {
+            default:
+                LogInvalidParameter(NAME, TurretConfigurer.ATTACH_DIR_TYPE, option);
+                this.Attacher.AttachedAt = TurretController.AttachDir.Down;
+                break;
+            case TurretConfigurer.ATTACH_DOWN:
+                this.Attacher.AttachedAt = TurretController.AttachDir.Down;
+                break;
+            case TurretConfigurer.ATTACH_UP:
+                this.Attacher.AttachedAt = TurretController.AttachDir.Up;
+                break;
+            case TurretConfigurer.ATTACH_LEFT:
+                this.Attacher.AttachedAt = TurretController.AttachDir.Left;
+                break;
+            case TurretConfigurer.ATTACH_RIGHT:
+                this.Attacher.AttachedAt = TurretController.AttachDir.Right;
                 break;
         }
     }

@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-public class AreaSwitch : MonoBehaviour, IPausable
+public class AreaSwitch : MonoBehaviour, IPausable, SwitchBehavior
 {
     public IntegerCollider DetectionCollider;
     public Switch SwitchScript;
     public LayerMask DetectionLayers;
-    public bool OneWay = false;
-    public int TwoWayResetDuration = 0;
+    public bool OneWay { get; set; }
+    public int TwoWayResetDuration { get; set; }
 
     void Awake()
     {

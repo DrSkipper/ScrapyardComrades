@@ -124,3 +124,9 @@ public class Switch : MonoBehaviour
         }
     }
 }
+
+public interface SwitchBehavior
+{
+    bool OneWay { get; set; }
+    int TwoWayResetDuration { get; set; }
+}

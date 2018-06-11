@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 
-public class PunchSwitch : VoBehavior, IPausable
+public class PunchSwitch : VoBehavior, IPausable, SwitchBehavior
 {
     public Switch SwitchScript;
-    public bool OneWay = false;
-    public int TwoWayResetDuration = 0;
+    public bool OneWay { get; set; }
+    public int TwoWayResetDuration { get; set; }
 
     void Awake()
     {
         this.localNotifier.Listen(HitStunEvent.NAME, this, onHitStun);
-        this.SwitchScript.StateChangeCallback += onStateChange;
+        //this.SwitchScript.StateChangeCallback += onStateChange;
     }
 
     void OnSpawn()
@@ -17,9 +17,14 @@ public class PunchSwitch : VoBehavior, IPausable
         if (!this.OneWay)
         {
             if (_twoWayTimer == null)
-                _twoWayTimer = new Timer(this.TwoWayResetDuration, false, false);
+            {
+                _twoWayTimer = new Timer(this.TwoWayResetDuration, false, false, onTwoWayComplete);
+            }
             else
+            {
                 _twoWayTimer.reset(this.TwoWayResetDuration);
+                _twoWayTimer.Paused = true;
+            }
             _twoWayTimer.complete();
         }
     }
@@ -33,14 +38,13 @@ public class PunchSwitch : VoBehavior, IPausable
     /**
      * Private
      */
-    private bool _pressed;
     private Timer _twoWayTimer;
 
     private void onHitStun(LocalEventNotifier.Event e)
     {
         //HitStunEvent hse = e as HitStunEvent;
 
-        if (!_pressed)
+        if (this.SwitchScript.CurrentState == Switch.SwitchState.OFF)
         {
             if (canSwitch())
             {
@@ -60,15 +64,24 @@ public class PunchSwitch : VoBehavior, IPausable
         }
     }
 
-    private bool canSwitch()
+    private void onTwoWayComplete()
     {
-        if (!this.OneWay)
-            return _twoWayTimer.Completed;
-
-        return this.SwitchScript.CurrentState == Switch.SwitchState.OFF && _pressed;
+        if (this.SwitchScript.CurrentState == Switch.SwitchState.ON)
+            this.SwitchScript.ToggleSwitch();
     }
 
-    private void onStateChange(Switch.SwitchState state)
+    private bool canSwitch()
+    {
+        if (this.SwitchScript.CurrentState == Switch.SwitchState.ON)
+            return true;
+
+        if (!this.OneWay)
+            return false;
+
+        return true;
+    }
+
+    /*private void onStateChange(Switch.SwitchState state)
     {
         switch (state)
         {
@@ -80,5 +93,5 @@ public class PunchSwitch : VoBehavior, IPausable
                 _pressed = true;
                 break;
         }
-    }
+    }*/
 }
