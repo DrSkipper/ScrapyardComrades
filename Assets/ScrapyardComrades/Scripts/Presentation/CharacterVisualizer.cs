@@ -21,6 +21,7 @@ public class CharacterVisualizer : VoBehavior
     public PooledObject JumpEffectPrefab;
     public SCSpriteAnimation JumpEffect;
     public LevelUpVisualizer LevelUpAnim;
+    public SoundData.Key JumpSoundKey = SoundData.Key.NONE;
     public float DodgeAlpha = 0.8f;
     public float JumpEffectAlpha = 0.8f;
 
@@ -94,6 +95,9 @@ public class CharacterVisualizer : VoBehavior
 
         if (_characterController.DidJump && this.JumpEffectLocation != null)
         {
+            //TODO: Different jump sfx depending on speed of the player
+            SoundManager.Play(this.JumpSoundKey);
+
             PooledObject effect = this.JumpEffectPrefab.Retain();
             effect.transform.SetPosition2D(this.JumpEffectLocation.position);
             effect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(0, this.JumpEffect, (int)_characterController.CurrentFacing, this.JumpEffectAlpha);
