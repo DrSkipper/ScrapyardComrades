@@ -96,7 +96,7 @@ public class CharacterVisualizer : VoBehavior
         if (_characterController.DidJump && this.JumpEffectLocation != null)
         {
             //TODO: Different jump sfx depending on speed of the player
-            SoundManager.Play(this.JumpSoundKey);
+            SoundManager.Play(this.JumpSoundKey, this.transform);
 
             PooledObject effect = this.JumpEffectPrefab.Retain();
             effect.transform.SetPosition2D(this.JumpEffectLocation.position);

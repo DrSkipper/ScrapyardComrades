@@ -153,7 +153,7 @@ public class Mine : VoBehavior, IPausable
         explosion.transform.position = this.ExplosionLocation.position;
         explosion.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
         
-        SoundManager.Play(this.ExplosionSfxKey);
+        SoundManager.Play(this.ExplosionSfxKey, this.transform);
         
         switch (this.DestructionType)
         {
