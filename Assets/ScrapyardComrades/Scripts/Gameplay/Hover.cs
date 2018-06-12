@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Hover : MonoBehaviour
+public class Hover : MonoBehaviour, IPausable
 {
     public int Range = 10;
     public int OneWayDurationFrames = 40;
