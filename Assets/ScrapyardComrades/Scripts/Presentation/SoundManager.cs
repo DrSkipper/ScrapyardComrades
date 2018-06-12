@@ -5,15 +5,10 @@ public class SoundManager : MonoBehaviour
 {
     public AudioSource[] AudioSources;
     public SoundData SoundData;
-    public SoundEntry[] SoundEntries;
 
-    [System.Serializable]
-    public struct SoundEntry
-    {
-        public AudioClip Clip;
-        public float Volume;
-        public int MinFramesBetweenPlays;
-    }
+#if UNITY_EDITOR
+    public List<SoundData.Key> RecentCooldownKeys; // Exposed for debugging
+#endif
 
     void Awake()
     {
@@ -57,6 +52,10 @@ public class SoundManager : MonoBehaviour
                 {
                     _cooldowns.Add(key, this.SoundData.CooldownsByEnumIndex[keyIndex]);
                     _cooldownKeys.Add(key);
+
+#if UNITY_EDITOR
+                    this.RecentCooldownKeys.AddUnique(key);
+#endif
                 }
             }
         }
@@ -74,6 +73,14 @@ public class SoundManager : MonoBehaviour
                 _cooldownKeys.RemoveAt(i);
             }
         }
+
+#if UNITY_EDITOR
+        if (Time.frameCount % 500 == 0)
+        {
+            this.RecentCooldownKeys.Clear();
+            this.RecentCooldownKeys.AddRange(_cooldownKeys);
+        }
+#endif
     }
 
     /**
