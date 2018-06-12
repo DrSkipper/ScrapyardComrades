@@ -348,6 +348,10 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         Vector2 multipliedOffset = _recenterOffset * -this.TileRenderSize;
         for (int i = 0; i < rootObjects.Length; ++i)
         {
+            if (rootObjects[i].name.Contains("Heart"))
+            {
+                Debug.Log("k");
+            }
             if (!this.IgnoreRecenterObjects.Contains(rootObjects[i]))
             {
                 rootObjects[i].transform.position = rootObjects[i].transform.position + new Vector3(multipliedOffset.x, multipliedOffset.y, 0);
@@ -358,7 +362,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         this.EntityTracker.QuadsUnloaded(_targetLoadedQuads, _currentQuad, this.TileRenderSize);
 
         // Send recenter event so lerpers/tweens know to change targets
-        GlobalEvents.Notifier.SendEvent(new WorldRecenterEvent(multipliedOffset));
+        GlobalEvents.Notifier.SendEvent(new WorldRecenterEvent(multipliedOffset), true);
     }
 
     private void updateBoundsCheck()

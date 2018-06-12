@@ -13,6 +13,11 @@ public class HeartSpawner : VoBehavior
         this.localNotifier.Listen(SCCharacterController.LOOT_DROP_EVENT, this, onLootDrop);
     }
 
+    /**
+     * Private
+     */
+    private const string HEART_SUFFIX = "_HEART";
+
     private void onLootDrop(LocalEventNotifier.Event e)
     {
         PooledObject spawn = this.HeartPrefab.Retain();
@@ -20,8 +25,39 @@ public class HeartSpawner : VoBehavior
         consumable.Data = this.HeartValues;
         consumable.Bonus = this.Bonus;
 
-        //TODO: Register the heart's world entity using this object's QuadName, and using this object's EntityName as a prefix for the heart's EntityName? Would require system of remembering positions of objects created during gameplay.
-        consumable.GetComponent<WorldEntity>().enabled = false;
+        //TODO: Would be cool to load hearts when entering rooms they were left in, even when travelling 2 rooms away or loading from save.
+        WorldEntity entity = consumable.GetComponent<WorldEntity>();
+        if (EntityTracker.Instance != null)
+        {
+            WorldEntity ourEntity = this.GetComponent<WorldEntity>();
+            if (ourEntity != null)
+            {
+                string entityName = ourEntity.EntityName + HEART_SUFFIX;
+                string quadName = ourEntity.QuadName;
+                
+                if (EntityTracker.Instance.GetEntity(quadName, entityName, this.HeartPrefab.name).CanLoad)
+                {
+                    entity.EntityName = entityName;
+                    entity.QuadName = quadName;
+
+                    entity.enabled = true;
+                    EntityTracker.Instance.TrackLoadedEntity(entity);
+                }
+                else
+                {
+                    Debug.LogWarning("Heart getting dropped a second time!");
+                    entity.enabled = false;
+                }
+            }
+            else
+            {
+                entity.enabled = false;
+            }
+        }
+        else
+        {
+            entity.enabled = false;
+        }
 
         spawn.transform.position = this.transform.position;
         spawn.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
