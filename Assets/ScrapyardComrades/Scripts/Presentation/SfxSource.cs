@@ -3,7 +3,7 @@
 public class SfxSource : MonoBehaviour
 {
     private const int MAX_VOLUME_DIST = 128;
-    private const int MIN_VOLUME_DIST = 512;
+    private const int MIN_VOLUME_DIST = 850;
     private const int VOLUME_DIST_DIFF = MIN_VOLUME_DIST - MAX_VOLUME_DIST;
 
     public AudioSource AudioSource;
