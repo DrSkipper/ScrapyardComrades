@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class SoundManager : MonoBehaviour
 {
-    public AudioSource[] AudioSources;
+    public SfxSource[] AudioSources;
     public SoundData SoundData;
 
 #if UNITY_EDITOR
-    public List<SoundData.Key> RecentCooldownKeys; // Exposed for debugging
+    public List<SoundData.Key> RecentCooldownKeys = new List<SoundData.Key>(); // Exposed for debugging
 #endif
 
     void Awake()
@@ -17,48 +17,10 @@ public class SoundManager : MonoBehaviour
         _cooldownKeys = new List<SoundData.Key>(this.AudioSources.Length);
     }
 
-    public static void Play(SoundData.Key key)
+    public static void Play(SoundData.Key key, Transform proximityTransform = null)
     {
         if (_instance != null && key != SoundData.Key.NONE)
-            _instance.PlaySoundKey(key);
-    }
-
-    public void PlaySoundKey(SoundData.Key key)
-    {
-        if (!_cooldowns.ContainsKey(key))
-        {
-            int keyIndex = (int)key;
-            SoundData.EntryList entries = this.SoundData.EntriesByEnumIndex[keyIndex];
-            if (entries != null)
-            {
-                bool found = false;
-                for (int i = 0; i < entries.Count; ++i)
-                {
-                    SoundData.Entry entry = entries.Entries[i];
-                    if (entry.Clip != null)
-                    {
-                        AudioSource source = findAvailableAudioSource();
-                        if (source != null)
-                        {
-                            found = true;
-                            source.clip = entry.Clip;
-                            source.volume = entry.Volume;
-                            source.pitch = entry.Pitch;
-                            source.Play();
-                        }
-                    }
-                }
-                if (found)
-                {
-                    _cooldowns.Add(key, this.SoundData.CooldownsByEnumIndex[keyIndex]);
-                    _cooldownKeys.Add(key);
-
-#if UNITY_EDITOR
-                    this.RecentCooldownKeys.AddUnique(key);
-#endif
-                }
-            }
-        }
+            _instance.playSoundKey(key, proximityTransform);
     }
 
     void FixedUpdate()
@@ -90,7 +52,42 @@ public class SoundManager : MonoBehaviour
     private Dictionary<SoundData.Key, int> _cooldowns;
     private List<SoundData.Key> _cooldownKeys;
 
-    private AudioSource findAvailableAudioSource()
+    private void playSoundKey(SoundData.Key key, Transform proximityTransform)
+    {
+        if (!_cooldowns.ContainsKey(key))
+        {
+            int keyIndex = (int)key;
+            SoundData.EntryList entries = this.SoundData.EntriesByEnumIndex[keyIndex];
+            if (entries != null)
+            {
+                bool found = false;
+                for (int i = 0; i < entries.Count; ++i)
+                {
+                    SoundData.Entry entry = entries.Entries[i];
+                    if (entry.Clip != null)
+                    {
+                        SfxSource source = findAvailableAudioSource();
+                        if (source != null)
+                        {
+                            found = true;
+                            source.Play(entry.Clip, entry.Volume, entry.Pitch, entries.UseProximity, proximityTransform);
+                        }
+                    }
+                }
+                if (found)
+                {
+                    _cooldowns.Add(key, this.SoundData.CooldownsByEnumIndex[keyIndex]);
+                    _cooldownKeys.Add(key);
+
+#if UNITY_EDITOR
+                    this.RecentCooldownKeys.AddUnique(key);
+#endif
+                }
+            }
+        }
+    }
+
+    private SfxSource findAvailableAudioSource()
     {
         for (int i = 0; i < this.AudioSources.Length; ++i)
         {

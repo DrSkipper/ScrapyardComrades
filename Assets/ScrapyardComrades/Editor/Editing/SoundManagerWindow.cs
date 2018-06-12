@@ -127,6 +127,11 @@ public class SoundManagerWindow : EditorWindow
                 GUILayout.FlexibleSpace();
                 GUILayout.EndHorizontal();
 
+                if (this.Data.EntriesByEnumIndex[keyIndex] != null)
+                {
+                    this.Data.EntriesByEnumIndex[keyIndex].UseProximity = EditorGUILayout.Toggle("Use Proximity", this.Data.EntriesByEnumIndex[keyIndex].UseProximity);
+                }
+
                 this.Data.CooldownsByEnumIndex[keyIndex] = EditorGUILayout.IntSlider("Cooldown", this.Data.CooldownsByEnumIndex[keyIndex], 0, 100);
                 changed |= EditorGUI.EndChangeCheck();
 

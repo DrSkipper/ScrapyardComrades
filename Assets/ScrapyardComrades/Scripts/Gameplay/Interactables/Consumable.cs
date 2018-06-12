@@ -28,7 +28,7 @@ public class Consumable : VoBehavior, Interactable
             _heartConsumedEvent.Position = this.transform.position;
 
         GlobalEvents.Notifier.SendEvent(_heartConsumedEvent);
-        SoundManager.Play(this.ConsumptionSfxKey);
+        SoundManager.Play(this.ConsumptionSfxKey, this.transform);
         return true;
     }
 
