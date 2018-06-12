@@ -62,7 +62,6 @@ public class SCAttack : ScriptableObject
         public int HitStunDuration;
         public float HitStunGravityMultiplier;
         public float HitStunAirFrictionMultiplier;
-        public string HitSfx;
         public SoundData.Key HitSfxKey;
         public SCSpriteAnimation HitAnimation;
         public int Level;

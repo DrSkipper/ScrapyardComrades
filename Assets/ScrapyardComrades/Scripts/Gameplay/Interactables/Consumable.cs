@@ -4,7 +4,6 @@ public class Consumable : VoBehavior, Interactable
 {
     public SCConsumable Data;
     public int Bonus = 0;
-    public AudioClip ConsumptionSound;
     public SoundData.Key ConsumptionSfxKey;
 
     public bool Interact(InteractionController interactor)

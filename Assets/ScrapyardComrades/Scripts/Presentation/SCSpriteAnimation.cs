@@ -6,7 +6,6 @@ public class SCSpriteAnimation : ScriptableObject
     public int LengthInFrames = 60;
     public bool LoopsByDefault = true;
     public int LoopFrame = 0;
-    public AudioClip Sfx;
     public SoundData.Key SfxKey;
     public SoundData.Key SfxKey2;
     public int SfxFrame;

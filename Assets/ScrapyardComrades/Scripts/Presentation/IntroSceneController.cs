@@ -9,9 +9,7 @@ public class IntroSceneController : MonoBehaviour
     public int CarCrashClipDelay = 30;
     public int OutroDuration = 200;
     public Transform SpotlightTransform;
-    public AudioClip AmbulanceClip;
     public SoundData.Key AmbulanceSfxKey;
-    public AudioClip CarCrashClip;
     public SoundData.Key CarCrashSfxKey;
     public string GameplayScene;
     public Material ScreenOverlayMat;

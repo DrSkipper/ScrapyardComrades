@@ -8,7 +8,6 @@ public class SimpleTransitioner : MonoBehaviour, IPausable
     public string DestinationScene = "WorldEditor";
     public int Delay = 0;
     public string EventNameToSend = "";
-    public AudioClip ClipToPlay;
     public SoundData.Key SfxKey;
     public bool EventOnly = false;
     public bool LongPress = false;

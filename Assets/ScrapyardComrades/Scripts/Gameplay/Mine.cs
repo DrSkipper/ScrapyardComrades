@@ -10,7 +10,6 @@ public class Mine : VoBehavior, IPausable
     public PooledObject FlashEffect;
     public PooledObject ExplosionEffect;
     public Transform ExplosionLocation;
-    public AudioClip ExplosionSound;
     public SoundData.Key ExplosionSfxKey;
     public bool TriggerOnCollision = true;
     public TurretController.AttachDir AttachedAt = TurretController.AttachDir.Down;
