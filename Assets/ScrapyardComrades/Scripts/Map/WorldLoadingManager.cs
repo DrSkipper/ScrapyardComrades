@@ -106,7 +106,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         gatherTargetLoadedQuads();
         loadCurrentQuad();
         _currentLoadedQuads.Add(_currentQuad);
-        loadQuads();
+        loadQuads(false);
         _currentLoadedQuads.AddRange(_targetLoadedQuads);
         updateBoundsCheck();
         this.InitialTimedCallback.AddCallback(this, initialDisable, this.InitialDisableDelay);
@@ -131,7 +131,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
                 gatherTargetLoadedQuads();
                 unloadQuads();
                 recenter();
-                loadQuads();
+                loadQuads(true);
                 _currentLoadedQuads.Clear();
                 _currentLoadedQuads.AddRange(_targetLoadedQuads);
                 _positionOfLastLoading = _tracker.transform.position;
@@ -348,10 +348,6 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         Vector2 multipliedOffset = _recenterOffset * -this.TileRenderSize;
         for (int i = 0; i < rootObjects.Length; ++i)
         {
-            if (rootObjects[i].name.Contains("Heart"))
-            {
-                Debug.Log("k");
-            }
             if (!this.IgnoreRecenterObjects.Contains(rootObjects[i]))
             {
                 rootObjects[i].transform.position = rootObjects[i].transform.position + new Vector3(multipliedOffset.x, multipliedOffset.y, 0);
@@ -370,13 +366,13 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
         this.CurrentQuadBoundsCheck.Size = new IntegerVector(_currentQuad.CenteredBounds.Size.X * this.TileRenderSize, _currentQuad.CenteredBounds.Size.Y * this.TileRenderSize);
     }
 
-    private void loadQuads()
+    private void loadQuads(bool inSequencePause)
     {
         for (int i = 0; i < _targetLoadedQuads.Count; ++i)
         {
             if (!_currentLoadedQuads.Contains(_targetLoadedQuads[i]))
             {
-                loadQuad(_targetLoadedQuads[i]);
+                loadQuad(_targetLoadedQuads[i], inSequencePause);
             }
         }
 
@@ -388,10 +384,10 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
 
     private void loadCurrentQuad()
     {
-        loadQuad(_currentQuad);
+        loadQuad(_currentQuad, false);
     }
 
-    private void loadQuad(MapQuad quad)
+    private void loadQuad(MapQuad quad, bool inSequencePause)
     {
         IntegerVector relativeCenter = quad.GetRelativeBounds(_currentQuad).Center;
         MapLoader loader = aquireMapLoader(new Vector2(relativeCenter.X * this.TileRenderSize, relativeCenter.Y * this.TileRenderSize));
@@ -412,6 +408,6 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
             bgParallaxAtlas = bgParallaxTileset.AtlasName;
         }
 
-        loader.LoadMap(platformsTileset, backgroundTileset, bgParallaxTileset, platformsTileset.AtlasName, backgroundTileset.AtlasName, bgParallaxAtlas, _objectPrefabs, _propPrefabs, this.LightPrefab);
+        loader.LoadMap(platformsTileset, backgroundTileset, bgParallaxTileset, platformsTileset.AtlasName, backgroundTileset.AtlasName, bgParallaxAtlas, _objectPrefabs, _propPrefabs, this.LightPrefab, inSequencePause);
     }
 }
