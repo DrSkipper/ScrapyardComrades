@@ -807,7 +807,7 @@ public class SCCharacterController : Actor2D
     private bool checkAgainstWall(Facing direction, out int layer)
     {
         layer = -1;
-        if (this.DisableWallInteractions)
+        if (this.DisableWallInteractions || this.Ducking)
             return false;
 
         IntegerVector checkPoint = new Vector2(this.transform.position.x + ((int)direction) * (this.Hurtbox.Offset.X + this.Hurtbox.Bounds.Size.X / 2 + 1), this.transform.position.y + 1 + this.Hurtbox.Offset.Y - this.Hurtbox.Bounds.Size.Y / 2 - this.AgainstWallCheckOffset);
@@ -823,7 +823,7 @@ public class SCCharacterController : Actor2D
 
     private bool checkAgainstWallForWallJump(Facing direction)
     {
-        if (this.DisableWallInteractions)
+        if (this.DisableWallInteractions || this.Ducking)
             return false;
 
         if (this.WallJumpCheckOffset == this.AgainstWallCheckOffset)
@@ -838,7 +838,7 @@ public class SCCharacterController : Actor2D
 
     private bool checkTopHalfLedgeGrab(Facing direction, bool prevGrabbingLedge)
     {
-        if (this.DisableWallInteractions)
+        if (this.DisableWallInteractions || this.Ducking)
             return false;
 
         IntegerVector checkPoint = new Vector2(this.transform.position.x + ((int)direction) * (this.Hurtbox.Offset.X + this.Hurtbox.Bounds.Size.X / 2 + 1), this.transform.position.y + this.Hurtbox.Offset.Y + this.Hurtbox.Bounds.Size.Y / 2 - this.LedgeGrabCheckDistance);
@@ -847,7 +847,7 @@ public class SCCharacterController : Actor2D
 
     private bool checkLedgeGrab(Facing direction, bool prevGrabbingLedge)
     {
-        if (this.DisableWallInteractions)
+        if (this.DisableWallInteractions || this.Ducking)
             return false;
 
         if (prevGrabbingLedge)
