@@ -44,11 +44,11 @@ public class SfxSource : MonoBehaviour
 
         float d = PlayerReference.Transform.Distance2D(_proximityTarget);
 
-        if (d <= MIN_VOLUME_DIST)
-            return 1.0f;
-        if (d >= MAX_VOLUME_DIST)
+        if (d <= MAX_VOLUME_DIST)
+            return _maxVolume;
+        if (d >= MIN_VOLUME_DIST)
             return 0.0f;
 
-        return Mathf.Lerp(1.0f, 0.0f, (d - MIN_VOLUME_DIST) / VOLUME_DIST_DIFF);
+        return Mathf.Lerp(_maxVolume, 0.0f, (d - MIN_VOLUME_DIST) / VOLUME_DIST_DIFF);
     }
 }
