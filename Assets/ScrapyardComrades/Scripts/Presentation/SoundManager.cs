@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour
     public SoundData SoundData;
 
 #if UNITY_EDITOR
-    public List<SoundData.Key> RecentCooldownKeys; // Exposed for debugging
+    public List<SoundData.Key> RecentCooldownKeys = new List<SoundData.Key>(); // Exposed for debugging
 #endif
 
     void Awake()
