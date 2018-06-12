@@ -4,7 +4,7 @@ public class SfxSource : MonoBehaviour
 {
     private const int MAX_VOLUME_DIST = 128;
     private const int MIN_VOLUME_DIST = 512;
-    private const int VOLUME_DIST_DIFF = MAX_VOLUME_DIST - MIN_VOLUME_DIST;
+    private const int VOLUME_DIST_DIFF = MIN_VOLUME_DIST - MAX_VOLUME_DIST;
 
     public AudioSource AudioSource;
     public bool isPlaying { get { return this.AudioSource.isPlaying; } }
@@ -49,6 +49,6 @@ public class SfxSource : MonoBehaviour
         if (d >= MIN_VOLUME_DIST)
             return 0.0f;
 
-        return Mathf.Lerp(_maxVolume, 0.0f, (d - MIN_VOLUME_DIST) / VOLUME_DIST_DIFF);
+        return Mathf.Lerp(_maxVolume, 0.0f, (d - MAX_VOLUME_DIST) / VOLUME_DIST_DIFF);
     }
 }
