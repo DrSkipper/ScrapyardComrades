@@ -2,8 +2,8 @@
 
 public class SfxSource : MonoBehaviour
 {
-    private const int MAX_VOLUME_DIST = 128;
-    private const int MIN_VOLUME_DIST = 850;
+    private const int MAX_VOLUME_DIST = 64;
+    private const int MIN_VOLUME_DIST = 750;
     private const int VOLUME_DIST_DIFF = MIN_VOLUME_DIST - MAX_VOLUME_DIST;
     private const float MIN_VOL = 0.01f;
 
@@ -18,7 +18,7 @@ public class SfxSource : MonoBehaviour
 
         this.AudioSource.Stop();
         this.AudioSource.clip = clip;
-        this.AudioSource.volume = volume;
+        this.AudioSource.volume = proximity ? getProximityVolume() : volume;
         this.AudioSource.pitch = pitch;
         this.AudioSource.Play();
     }
@@ -50,6 +50,7 @@ public class SfxSource : MonoBehaviour
         if (d >= MIN_VOLUME_DIST)
             return 0.0f;
 
-        return Mathf.Lerp(_maxVolume, MIN_VOL, (d - MAX_VOLUME_DIST) / (float)VOLUME_DIST_DIFF);
+        return Easing.QuadEaseInOut(d - MAX_VOLUME_DIST, _maxVolume, MIN_VOL - _maxVolume, VOLUME_DIST_DIFF);
+        //return Mathf.Lerp(_maxVolume, MIN_VOL, (d - MAX_VOLUME_DIST) / (float)VOLUME_DIST_DIFF);
     }
 }
