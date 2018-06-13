@@ -206,7 +206,10 @@ public class CharacterVisualizer : VoBehavior
 
     private void enterIdle()
     {
-        _spriteAnimator.PlayAnimation(this.IdleAnimation);
+        if (this.IdleAnimation.LoopFrame == 0)
+            _spriteAnimator.PlayAnimationAtRandomFrame(this.IdleAnimation);
+        else
+            _spriteAnimator.PlayAnimation(this.IdleAnimation);
     }
 
     private void enterRunning()

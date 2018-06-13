@@ -44,6 +44,21 @@ public class SCSpriteAnimator : VoBehavior, IPausable
         updateVisual();
     }
 
+    public void PlayAnimationAtRandomFrame(SCSpriteAnimation animation)
+    {
+        this.PlayAnimationAtRandomFrame(animation, animation.LoopsByDefault);
+    }
+
+    public void PlayAnimationAtRandomFrame(SCSpriteAnimation animation, bool loop)
+    {
+        _currentAnimation = animation;
+        _looping = loop;
+        _elapsed = Random.Range(0, animation.LengthInFrames);
+        _frame = this.GetVisualFrameForDataFrame(_elapsed);
+        _playing = true;
+        updateVisual();
+    }
+
     public void GoToFrame(int frame)
     {
         guaranteeCurrentAnimation();
@@ -96,6 +111,11 @@ public class SCSpriteAnimator : VoBehavior, IPausable
     public int GetDataFrameForVisualFrame(int visualFrame)
     {
         return Mathf.Clamp(Mathf.RoundToInt(this.GetFrameDuration() * (float)Mathf.Clamp(visualFrame, 0, _currentAnimation.Frames.Length - 1)), 0, _currentAnimation.LengthInFrames - 1);
+    }
+
+    public int GetVisualFrameForDataFrame(int dataFrame)
+    {
+        return Mathf.Clamp(Mathf.RoundToInt((dataFrame / (float)_currentAnimation.LengthInFrames) * (_currentAnimation.Frames.Length - 1)), 0, _currentAnimation.Frames.Length - 1);
     }
 
     public void Loop(int frame = 0, float frameDuration = -1)
