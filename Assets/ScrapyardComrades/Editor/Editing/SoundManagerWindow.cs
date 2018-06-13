@@ -130,6 +130,22 @@ public class SoundManagerWindow : EditorWindow
                 if (this.Data.EntriesByEnumIndex[keyIndex] != null)
                 {
                     this.Data.EntriesByEnumIndex[keyIndex].UseProximity = EditorGUILayout.Toggle("Use Proximity", this.Data.EntriesByEnumIndex[keyIndex].UseProximity);
+
+                    if (this.Data.EntriesByEnumIndex[keyIndex].UseProximity)
+                    {
+                        ++EditorGUI.indentLevel;
+                        int proxClose = this.Data.EntriesByEnumIndex[keyIndex].ProximityClose;
+                        int proxFar = this.Data.EntriesByEnumIndex[keyIndex].ProximityFar;
+
+                        if (proxClose == 0)
+                            proxClose = SfxSource.MAX_VOLUME_DIST;
+                        if (proxFar == 0)
+                            proxFar = SfxSource.MIN_VOLUME_DIST;
+
+                        this.Data.EntriesByEnumIndex[keyIndex].ProximityClose = EditorGUILayout.IntSlider("Proximity Range Close", proxClose, 1, SfxSource.MIN_VOLUME_DIST);
+                        this.Data.EntriesByEnumIndex[keyIndex].ProximityFar = EditorGUILayout.IntSlider("Proximity Range Far", proxFar, SfxSource.MAX_VOLUME_DIST, SfxSource.MIN_VOLUME_DIST * 2);
+                        --EditorGUI.indentLevel;
+                    }
                 }
 
                 this.Data.CooldownsByEnumIndex[keyIndex] = EditorGUILayout.IntSlider("Cooldown", this.Data.CooldownsByEnumIndex[keyIndex], 0, 100);

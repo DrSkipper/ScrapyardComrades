@@ -70,7 +70,7 @@ public class SoundManager : MonoBehaviour
                         if (source != null)
                         {
                             found = true;
-                            source.Play(entry.Clip, entry.Volume, entry.Pitch, entries.UseProximity, proximityTransform);
+                            source.Play(entry.Clip, entry.Volume, entry.Pitch, entries.UseProximity, proximityTransform, entries.ProximityClose, entries.ProximityFar);
                         }
                     }
                 }

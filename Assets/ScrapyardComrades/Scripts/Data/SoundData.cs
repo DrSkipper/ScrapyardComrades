@@ -13,6 +13,8 @@ public class SoundData : ScriptableObject
         public List<Entry> Entries;
         public int Count { get { return this.Entries.Count; } }
         public bool UseProximity;
+        public int ProximityClose;
+        public int ProximityFar;
 
         public EntryList()
         {
