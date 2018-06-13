@@ -17,10 +17,10 @@ public class SoundManager : MonoBehaviour
         _cooldownKeys = new List<SoundData.Key>(this.AudioSources.Length);
     }
 
-    public static void Play(SoundData.Key key, Transform proximityTransform = null)
+    public static void Play(SoundData.Key key, Transform proximityTransform = null, float volumeMultiplier = -1, float pitchMultiplier = -1)
     {
         if (_instance != null && key != SoundData.Key.NONE)
-            _instance.playSoundKey(key, proximityTransform);
+            _instance.playSoundKey(key, proximityTransform, volumeMultiplier, pitchMultiplier);
     }
 
     void FixedUpdate()
@@ -52,7 +52,7 @@ public class SoundManager : MonoBehaviour
     private Dictionary<SoundData.Key, int> _cooldowns;
     private List<SoundData.Key> _cooldownKeys;
 
-    private void playSoundKey(SoundData.Key key, Transform proximityTransform)
+    private void playSoundKey(SoundData.Key key, Transform proximityTransform, float volumeMult, float pitchMult)
     {
         if (!_cooldowns.ContainsKey(key))
         {
@@ -70,7 +70,15 @@ public class SoundManager : MonoBehaviour
                         if (source != null)
                         {
                             found = true;
-                            source.Play(entry.Clip, entry.Volume, entry.Pitch, entries.UseProximity, proximityTransform, entries.ProximityClose, entries.ProximityFar);
+                            float volume = entry.Volume;
+                            float pitch = entry.Pitch;
+
+                            if (volumeMult >= 0.0f)
+                                volume = Mathf.Min(1.0f, volume * volumeMult);
+                            if (pitchMult >= 0.0f)
+                                pitch = Mathf.Min(1.0f, pitch * pitchMult);
+
+                            source.Play(entry.Clip, volume, pitch, entries.UseProximity, proximityTransform, entries.ProximityClose, entries.ProximityFar);
                         }
                     }
                 }
