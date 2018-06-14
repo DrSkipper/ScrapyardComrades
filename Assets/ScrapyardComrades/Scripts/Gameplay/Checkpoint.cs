@@ -134,17 +134,8 @@ public class Checkpoint : VoBehavior, IPausable
 
     private void setActive(bool active)
     {
-        if (active)
-        {
-            _bubbleTimer1.resetAndStart();
-            _bubbleTimer2.resetAndStart();
-            _bubbleTimer3.resetAndStart();
-            _bubbleTimer4.resetAndStart();
-        }
-        else
-        {
+        if (!active)
             stopTimers();
-        }
         _active = active;
         _activeCycles = 0;
         this.LightsOff.gameObject.SetActive(!active);
@@ -159,12 +150,23 @@ public class Checkpoint : VoBehavior, IPausable
         _bubbleTimer4.Paused = true;
     }
 
+    private void startTimers()
+    {
+        _bubbleTimer1.resetAndStart();
+        _bubbleTimer2.resetAndStart();
+        _bubbleTimer3.resetAndStart();
+        _bubbleTimer4.resetAndStart();
+    }
+
     private void incrementActivatedCycle()
     {
         if (_activeCycles == 0)
             this.Animator.PlayAnimation(this.FirstActiveAnim);
         else if (_activeCycles == 1)
+        {
             this.Animator.PlayAnimation(this.SecondActiveAnim);
+            startTimers();
+        }
         else
             this.Animator.PlayAnimation(this.ActiveIdleAnim);
 
