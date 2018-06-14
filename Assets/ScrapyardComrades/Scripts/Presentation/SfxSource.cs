@@ -57,9 +57,9 @@ public class SfxSource : MonoBehaviour
 
         int d = Mathf.RoundToInt(PlayerReference.Transform.Distance2D(_proximityTarget));
 
-        if (d <= MAX_VOLUME_DIST)
+        if (d <= _proxClose)
             return _maxVolume;
-        if (d >= MIN_VOLUME_DIST)
+        if (d >= _proxFar)
             return 0.0f;
 
         return Easing.QuadEaseInOut(d - _proxClose, _maxVolume, MIN_VOL - _maxVolume, _proxFar - _proxClose);
