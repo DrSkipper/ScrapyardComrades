@@ -33,6 +33,8 @@ public class TurretController : VoBehavior, IPausable
     public Light TargetLight;
     public bool AttachToSurfaces = true;
     public LayerMask SurfaceLayers;
+    public SoundData.Key LockOnSfxKey;
+    public SoundData.Key UnlockSfxKey;
 
     [System.Serializable]
     public enum AttachDir
@@ -53,7 +55,7 @@ public class TurretController : VoBehavior, IPausable
         _stateMachine = new FSMStateMachine();
         _stateMachine.AddState(DIRECT_AIM, updateDirectAim);
         _stateMachine.AddState(SEARCHING, updateSearching, enterSearching);
-        _stateMachine.AddState(TARGETTING, updateTargetting, enterTargetting);
+        _stateMachine.AddState(TARGETTING, updateTargetting, enterTargetting, exitTargetting);
         this.localNotifier.Listen(FreezeFrameEvent.NAME, this, freezeFrame);
 
         _searchColliderDists = new float[this.SearchColliders.Length];
@@ -306,6 +308,8 @@ public class TurretController : VoBehavior, IPausable
 
     private void enterTargetting()
     {
+        SoundManager.Play(this.LockOnSfxKey, this.transform);
+
         enableLight(false);
         if (_prevTarget != null)
         {
@@ -354,6 +358,11 @@ public class TurretController : VoBehavior, IPausable
         }
 
         return TARGETTING;
+    }
+
+    private void exitTargetting()
+    {
+        SoundManager.Play(this.UnlockSfxKey, this.transform);
     }
 
     private void aimAtTarget(Vector2 targetDir)
