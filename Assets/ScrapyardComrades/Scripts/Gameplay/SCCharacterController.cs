@@ -677,6 +677,8 @@ public class SCCharacterController : Actor2D
 
     private const float HORIZ_BOUNCE_FACTOR = 0.8f;
     private const float VERY_SMALL_VELOCITY = 0.02f;
+    private const int LEVEL_GEO_LAYER = 8;
+    private const int MOVING_PLATFORMS_LAYER = 16;
 
     protected struct ControlParameters
     {
@@ -789,7 +791,18 @@ public class SCCharacterController : Actor2D
     {
         CollisionEvent ce = e as CollisionEvent;
         if (ce.MovementHalted && ce.CollideX)
+        {
             this.DidCollideX = true;
+
+            for (int i = 0; i < ce.Hits.Count; ++i)
+            {
+                if (ce.Hits[i] != null && ce.Hits[i].layer != LEVEL_GEO_LAYER && ce.Hits[i].layer != MOVING_PLATFORMS_LAYER)
+                {
+                    this.DidCollideX = false;
+                    break;
+                }
+            }
+        }
 
         _autoMoveTimer.complete();
 
