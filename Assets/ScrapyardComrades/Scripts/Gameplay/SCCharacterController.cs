@@ -119,6 +119,7 @@ public class SCCharacterController : Actor2D
     public Facing DirectionGrabbingLedge { get; private set; }
     public bool Blocked { get; private set; }
     public bool DidJump { get; private set; }
+    public bool DidLand { get { return _onGround && _groundedFrames == 1; } }
 
     public const float DEATH_VELOCITY_MAX = 0.5f;
     public const string LOOT_DROP_EVENT = "LOOT_DROP";
