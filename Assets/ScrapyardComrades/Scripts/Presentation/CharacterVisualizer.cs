@@ -24,6 +24,7 @@ public class CharacterVisualizer : VoBehavior
     public SoundData.Key JumpSoundKey = SoundData.Key.NONE;
     public SoundData.Key WallJumpSoundKey = SoundData.Key.NONE;
     public SoundData.Key LandSoundKey = SoundData.Key.NONE;
+    public SoundData.Key LandHardSoundKey = SoundData.Key.NONE;
     public SoundData.Key LedgeGrabKey = SoundData.Key.NONE;
     public SoundData.Key TouchWallKey = SoundData.Key.NONE;
     public float DodgeAlpha = 0.8f;
@@ -120,7 +121,10 @@ public class CharacterVisualizer : VoBehavior
         }
         else if (_characterController.DidLand && _stateMachine.CurrentState != STANDUP_STATE && _stateMachine.CurrentState != LAYDOWN_STATE)
         {
-            SoundManager.Play(this.LandSoundKey, this.transform);
+            if (this.LandHardSoundKey != SoundData.Key.NONE && _characterController.WasFallingFast)
+                SoundManager.Play(this.LandHardSoundKey, this.transform);
+            else
+                SoundManager.Play(this.LandSoundKey, this.transform);
         }
         else if (this.TouchWallKey != SoundData.Key.NONE && _characterController.DidCollideX && _stateMachine.CurrentState == RUNNING_STATE)
         {

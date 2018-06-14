@@ -122,6 +122,7 @@ public class SCCharacterController : Actor2D
     public bool DidWallJump { get; private set; }
     public bool DidCollideX { get; private set; }
     public bool DidLand { get { return _onGround && _groundedFrames == 1; } }
+    public bool WasFallingFast { get { return _lastFallingSpeed < -this.MaxFallSpeed - 0.01f; } }
 
     public const float DEATH_VELOCITY_MAX = 0.5f;
     public const string LOOT_DROP_EVENT = "LOOT_DROP";
@@ -156,6 +157,7 @@ public class SCCharacterController : Actor2D
     {
         _hasSpawnedLoot = false;
         _groundedFrames = 0;
+        _lastFallingSpeed = 0.0f;
         this.Blocked = false;
         this.HurtboxState = SCAttack.HurtboxState.Ducking;
         updateHurtboxForState(this.HurtboxState);
@@ -262,6 +264,7 @@ public class SCCharacterController : Actor2D
         }
         else
         {
+            _lastFallingSpeed = _velocity.y;
             _onGround = false;
             _groundedFrames = 0;
         }
@@ -670,6 +673,7 @@ public class SCCharacterController : Actor2D
     private int _wallJumpExpandAmount;
     private int _wallJumpGraceDir;
     private int _groundedFrames;
+    private float _lastFallingSpeed;
 
     private const float HORIZ_BOUNCE_FACTOR = 0.8f;
     private const float VERY_SMALL_VELOCITY = 0.02f;
