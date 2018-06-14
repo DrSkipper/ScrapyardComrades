@@ -23,6 +23,7 @@ public class CharacterVisualizer : VoBehavior
     public LevelUpVisualizer LevelUpAnim;
     public SoundData.Key JumpSoundKey = SoundData.Key.NONE;
     public SoundData.Key LandSoundKey = SoundData.Key.NONE;
+    public SoundData.Key LedgeGrabKey = SoundData.Key.NONE;
     public float DodgeAlpha = 0.8f;
     public float JumpEffectAlpha = 0.8f;
 
@@ -70,6 +71,7 @@ public class CharacterVisualizer : VoBehavior
 
     void OnSpawn()
     {
+        _onLedge = false;
         if (_characterController.StandupOnSpawn)
         {
             if (this.LevelUpAnim != null)
@@ -121,6 +123,7 @@ public class CharacterVisualizer : VoBehavior
     private SCAttack _currentAttack;
     private bool _attackChanged;
     private int _facingModifier = 1;
+    private bool _onLedge;
 
     private string updateGeneric()
     {
@@ -193,6 +196,7 @@ public class CharacterVisualizer : VoBehavior
 
     private void enterAttack()
     {
+        _onLedge = false;
         if (_currentAttack.Category == SCAttack.MoveCategory.Dodge)
         {
             Color c = this.spriteRenderer.color;
@@ -211,6 +215,7 @@ public class CharacterVisualizer : VoBehavior
 
     private void enterIdle()
     {
+        _onLedge = false;
         if (this.IdleAnimation.LoopFrame == 0)
             _spriteAnimator.PlayAnimationAtRandomFrame(this.IdleAnimation);
         else
@@ -219,11 +224,13 @@ public class CharacterVisualizer : VoBehavior
 
     private void enterRunning()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.RunAnimation);
     }
 
     private void enterJumping()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.JumpAnimation);
     }
 
@@ -234,16 +241,27 @@ public class CharacterVisualizer : VoBehavior
 
     private void enterWallSlide()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.WallSlideAnimation);
     }
 
     private void enterLedgeGrab()
     {
+        if (!_onLedge)
+        {
+            SoundManager.Play(this.LedgeGrabKey, this.transform);
+            _onLedge = true;
+        }
         _spriteAnimator.PlayAnimation(this.LedgeGrabAnimation);
     }
 
     private void enterLedgeGrabBack()
     {
+        if (!_onLedge)
+        {
+            SoundManager.Play(this.LedgeGrabKey, this.transform);
+            _onLedge = true;
+        }
         _facingModifier = -1;
         _spriteAnimator.PlayAnimation(this.LedgeGrabBackAnimation != null ? this.LedgeGrabBackAnimation : this.LedgeGrabAnimation);
     }
@@ -255,37 +273,44 @@ public class CharacterVisualizer : VoBehavior
 
     private void enterDucking()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.DuckAnimation);
     }
 
     private void enterHitStun()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.HitStunAnimation);
     }
 
     private void enterDeathStun()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.DeathHitStunAnimation);
     }
 
     private void enterDeath()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.DeathAnimation);
     }
 
     private void enterStandup()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.StandupAnimation);
     }
 
     private void enterLaydown()
     {
+        _onLedge = false;
         _spriteAnimator.Stop();
         this.LevelUpAnim.Run();
     }
 
     private void enterBlocked()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.BlockAnimation);
     }
 }
