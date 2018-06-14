@@ -61,27 +61,24 @@ public class SoundManager : MonoBehaviour
             if (entries != null)
             {
                 bool found = false;
-                for (int i = 0; i < entries.Count; ++i)
+                switch (entries.MultiSfxType)
                 {
-                    SoundData.Entry entry = entries.Entries[i];
-                    if (entry.Clip != null)
-                    {
-                        SfxSource source = findAvailableAudioSource();
-                        if (source != null)
+                    default:
+                    case SoundData.MultiSfxBehavior.PlayAll:
+                        for (int i = 0; i < entries.Count; ++i)
                         {
-                            found = true;
-                            float volume = entry.Volume;
-                            float pitch = entry.Pitch;
-
-                            if (volumeMult >= 0.0f)
-                                volume = Mathf.Min(1.0f, volume * volumeMult);
-                            if (pitchMult >= 0.0f)
-                                pitch = Mathf.Min(1.0f, pitch * pitchMult);
-
-                            source.Play(entry.Clip, volume, pitch, entries.UseProximity, proximityTransform, entries.ProximityClose, entries.ProximityFar);
+                            found |= playEntry(entries.Entries[i], entries, proximityTransform, volumeMult, pitchMult);
                         }
-                    }
+                        break;
+
+                    case SoundData.MultiSfxBehavior.Randomize:
+                        if (entries.Count > 0)
+                        {
+                            found = playEntry(entries.Entries[Random.Range(0, entries.Entries.Count - 1)], entries, proximityTransform, volumeMult, pitchMult);
+                        }
+                        break;
                 }
+
                 if (found)
                 {
                     _cooldowns.Add(key, this.SoundData.CooldownsByEnumIndex[keyIndex]);
@@ -93,6 +90,28 @@ public class SoundManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private bool playEntry(SoundData.Entry entry, SoundData.EntryList entries, Transform proximityTransform, float volumeMult, float pitchMult)
+    {
+        if (entry.Clip != null)
+        {
+            SfxSource source = findAvailableAudioSource();
+            if (source != null)
+            {
+                float volume = entry.Volume;
+                float pitch = entry.Pitch;
+
+                if (volumeMult >= 0.0f)
+                    volume = Mathf.Min(1.0f, volume * volumeMult);
+                if (pitchMult >= 0.0f)
+                    pitch = Mathf.Min(1.0f, pitch * pitchMult);
+
+                source.Play(entry.Clip, volume, pitch, entries.UseProximity, proximityTransform, entries.ProximityClose, entries.ProximityFar);
+                return true;
+            }
+        }
+        return false;
     }
 
     private SfxSource findAvailableAudioSource()

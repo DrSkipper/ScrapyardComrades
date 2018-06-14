@@ -15,6 +15,7 @@ public class SoundData : ScriptableObject
         public bool UseProximity;
         public int ProximityClose;
         public int ProximityFar;
+        public MultiSfxBehavior MultiSfxType;
 
         public EntryList()
         {
@@ -62,6 +63,12 @@ public class SoundData : ScriptableObject
         public AudioClip Clip;
         public float Volume;
         public float Pitch;
+    }
+
+    public enum MultiSfxBehavior
+    {
+        PlayAll,
+        Randomize
     }
 
     public enum Key

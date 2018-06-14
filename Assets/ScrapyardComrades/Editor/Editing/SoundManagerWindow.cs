@@ -129,6 +129,8 @@ public class SoundManagerWindow : EditorWindow
 
                 if (this.Data.EntriesByEnumIndex[keyIndex] != null)
                 {
+                    this.Data.EntriesByEnumIndex[keyIndex].MultiSfxType = (SoundData.MultiSfxBehavior)EditorGUILayout.EnumPopup("Multi-SFX Behavior", this.Data.EntriesByEnumIndex[keyIndex].MultiSfxType);
+
                     this.Data.EntriesByEnumIndex[keyIndex].UseProximity = EditorGUILayout.Toggle("Use Proximity", this.Data.EntriesByEnumIndex[keyIndex].UseProximity);
 
                     if (this.Data.EntriesByEnumIndex[keyIndex].UseProximity)
