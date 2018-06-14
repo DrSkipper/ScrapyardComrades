@@ -120,6 +120,7 @@ public class SCCharacterController : Actor2D
     public bool Blocked { get; private set; }
     public bool DidJump { get; private set; }
     public bool DidWallJump { get; private set; }
+    public bool DidCollideX { get; private set; }
     public bool DidLand { get { return _onGround && _groundedFrames == 1; } }
 
     public const float DEATH_VELOCITY_MAX = 0.5f;
@@ -266,6 +267,7 @@ public class SCCharacterController : Actor2D
         }
         this.DidJump = false;
         this.DidWallJump = false;
+        this.DidCollideX = false;
         this.IsWallSliding = false;
         bool prevGrabbingLedge = this.IsGrabbingLedge && this.TotalVelocity.magnitude < VERY_SMALL_VELOCITY;
         this.IsGrabbingLedge = false;
@@ -781,6 +783,10 @@ public class SCCharacterController : Actor2D
 
     private void onCollide(LocalEventNotifier.Event e)
     {
+        CollisionEvent ce = e as CollisionEvent;
+        if (ce.MovementHalted && ce.CollideX)
+            this.DidCollideX = true;
+
         _autoMoveTimer.complete();
 
         //NOTE: This isn't necessary without vertical moving platforms
