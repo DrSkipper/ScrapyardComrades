@@ -35,6 +35,7 @@ public class TurretController : VoBehavior, IPausable
     public LayerMask SurfaceLayers;
     public SoundData.Key LockOnSfxKey;
     public SoundData.Key UnlockSfxKey;
+    public SoundData.Key MoveSfxKey;
 
     [System.Serializable]
     public enum AttachDir
@@ -485,6 +486,7 @@ public class TurretController : VoBehavior, IPausable
 
     private void playAnimForCurrentPos(bool fire)
     {
+        SCSpriteAnimation prevAnim = this.Animator.CurrentAnimation;
         switch (_currentPos)
         {
             case 0:
@@ -506,7 +508,12 @@ public class TurretController : VoBehavior, IPausable
         }
 
         if (!fire)
+        {
             this.Animator.Stop();
+
+            if (this.Animator.CurrentAnimation != prevAnim)
+                SoundManager.Play(this.MoveSfxKey, this.transform);
+        }
     }
 
     private void onDeath()

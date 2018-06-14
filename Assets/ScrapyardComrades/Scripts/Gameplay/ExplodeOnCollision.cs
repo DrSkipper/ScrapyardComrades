@@ -5,6 +5,7 @@ public class ExplodeOnCollision : VoBehavior
     public PooledObject ExplosionPrefab;
     public PooledObject AdditionalPrefab;
     public SCAttack.HitData HitData;
+    public SoundData.Key ExplosionSfxKey;
 
     void Awake()
     {
@@ -49,6 +50,7 @@ public class ExplodeOnCollision : VoBehavior
             explosion.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
         }
 
+        SoundManager.Play(this.ExplosionSfxKey, explosion.transform);
         ObjectPools.Release(this.gameObject);
     }
 }
