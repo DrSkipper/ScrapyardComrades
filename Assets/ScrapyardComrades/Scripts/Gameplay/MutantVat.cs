@@ -8,6 +8,7 @@ public class MutantVat : VoBehavior
     public SCSpriteAnimation IdleAnimation;
     public SCSpriteAnimation BreakAnimation;
     public SCSpriteAnimation BrokenAnimation;
+    public SoundData.Key BreakSfxKey;
     public string StateKeyForBreak;
 
     public string SpawnEntityKey { get { return _entity.EntityName + StringExtensions.UNDERSCORE + this.SpawnPrefab.name; } }
@@ -95,6 +96,7 @@ public class MutantVat : VoBehavior
     {
         _state = State.Broken;
         this.Animator.PlayAnimation(this.BrokenAnimation);
+        SoundManager.Play(SoundData.Key.Stasis_GlassShatter);
 
         PooledObject spawnObj = this.SpawnPrefab.Retain();
         WorldEntity otherEntity = spawnObj.GetComponent<WorldEntity>();
