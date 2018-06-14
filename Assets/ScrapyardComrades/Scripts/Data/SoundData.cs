@@ -384,6 +384,9 @@ public class SoundData : ScriptableObject
         Misc_Mutation5,
         Misc_EnableCheckpoint,
         Misc_CheckpointBubbling,
+        Misc_CheckpointBubbling2,
+        Misc_CheckpointBubbling3,
+        Misc_CheckpointBubbling4,
 
         /**
          * Event
