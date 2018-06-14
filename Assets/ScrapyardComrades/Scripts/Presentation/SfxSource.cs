@@ -53,7 +53,7 @@ public class SfxSource : MonoBehaviour
     private float getProximityVolume()
     {
         if (_proximityTarget == null || PlayerReference.Transform == null)
-            return 0.0f;
+            return Mathf.Clamp(this.AudioSource.volume, 0.0f, _maxVolume);
 
         int d = Mathf.RoundToInt(PlayerReference.Transform.Distance2D(_proximityTarget));
 
