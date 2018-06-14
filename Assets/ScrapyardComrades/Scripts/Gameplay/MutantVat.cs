@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MutantVat : VoBehavior
+public class MutantVat : VoBehavior, IPausable
 {
     public PooledObject SpawnPrefab;
     public Transform SpawnPosition;
@@ -9,6 +9,8 @@ public class MutantVat : VoBehavior
     public SCSpriteAnimation BreakAnimation;
     public SCSpriteAnimation BrokenAnimation;
     public SoundData.Key BreakSfxKey;
+    public SoundData.Key CrackSfxKey;
+    public int CrackFrame = 0;
     public string StateKeyForBreak;
 
     public string SpawnEntityKey { get { return _entity.EntityName + StringExtensions.UNDERSCORE + this.SpawnPrefab.name; } }
@@ -52,6 +54,8 @@ public class MutantVat : VoBehavior
             case State.Breaking:
                 if (this.Animator.Elapsed >= this.Animator.CurrentAnimation.LengthInFrames)
                     spawn();
+                else if (this.Animator.Elapsed == this.CrackFrame * this.Animator.GetFrameDuration())
+                    SoundManager.Play(this.CrackSfxKey, this.transform);
                 break;
             case State.Broken:
                 break;
