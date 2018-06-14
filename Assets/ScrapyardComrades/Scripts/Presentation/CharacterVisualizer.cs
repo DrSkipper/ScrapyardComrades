@@ -22,6 +22,7 @@ public class CharacterVisualizer : VoBehavior
     public SCSpriteAnimation JumpEffect;
     public LevelUpVisualizer LevelUpAnim;
     public SoundData.Key JumpSoundKey = SoundData.Key.NONE;
+    public SoundData.Key WallJumpSoundKey = SoundData.Key.NONE;
     public SoundData.Key LandSoundKey = SoundData.Key.NONE;
     public SoundData.Key LedgeGrabKey = SoundData.Key.NONE;
     public float DodgeAlpha = 0.8f;
@@ -96,14 +97,25 @@ public class CharacterVisualizer : VoBehavior
         _attackChanged = _currentAttack != null && _currentAttack != attack;
         _currentAttack = attack;
 
-        if (_characterController.DidJump && this.JumpEffectLocation != null)
+        if (_characterController.DidJump)
         {
-            //TODO: Different jump sfx depending on speed of the player
-            SoundManager.Play(this.JumpSoundKey, this.transform);
+            if (_characterController.DidWallJump)
+            {
+                //TODO: Different jump sfx depending on speed of the player
+                SoundManager.Play(this.WallJumpSoundKey, this.transform);
+            }
+            else
+            {
+                //TODO: Different jump sfx depending on speed of the player
+                SoundManager.Play(this.JumpSoundKey, this.transform);
+            }
 
-            PooledObject effect = this.JumpEffectPrefab.Retain();
-            effect.transform.SetPosition2D(this.JumpEffectLocation.position);
-            effect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(0, this.JumpEffect, (int)_characterController.CurrentFacing, this.JumpEffectAlpha);
+            if (this.JumpEffectLocation != null)
+            {
+                PooledObject effect = this.JumpEffectPrefab.Retain();
+                effect.transform.SetPosition2D(this.JumpEffectLocation.position);
+                effect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(0, this.JumpEffect, (int)_characterController.CurrentFacing, this.JumpEffectAlpha);
+            }
         }
         else if (_characterController.DidLand && _stateMachine.CurrentState != STANDUP_STATE && _stateMachine.CurrentState != LAYDOWN_STATE)
         {
