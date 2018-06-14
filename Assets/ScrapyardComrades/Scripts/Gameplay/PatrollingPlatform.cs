@@ -9,6 +9,8 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
     public LayerMask BlockingMask;
     public LayerMask ActorMask;
     public TileRenderer Renderer;
+    public SoundData.Key MovingSfxKey;
+    public int SfxCycleDuration = 50;
     
     [HideInInspector]
     public int Width = 1;
@@ -48,6 +50,7 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
 
     void OnSpawn()
     {
+        _sfxCycle = Random.Range(0, this.SfxCycleDuration);
         createPlatform();
         this.integerCollider.AddToCollisionPool();
         this.transform.SetPosition2D(this.Start.position);
@@ -131,6 +134,13 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
                     }
                     _collisions.Clear();
                 }
+
+                ++_sfxCycle;
+                if (_sfxCycle == this.SfxCycleDuration)
+                {
+                    _sfxCycle = 0;
+                    SoundManager.Play(this.MovingSfxKey, this.transform);
+                }
             }
             else
             {
@@ -150,7 +160,8 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
     private bool _stopped;
     private bool _outward;
     private List<GameObject> _collisions;
-    NewMapInfo.MapTile[,] _fakeTiles;
+    private NewMapInfo.MapTile[,] _fakeTiles;
+    private int _sfxCycle;
 
     private void createPlatform()
     {
