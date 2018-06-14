@@ -219,7 +219,7 @@ public class ObjectPlacer : VoBehavior
         // Begin the object as paused if we're in transition sequence
         if (this.InSequencePause)
         {
-            PauseHandler objPauser = spawn.GetComponent<PauseHandler>();
+            PauseHandler objPauser = spawn.GetComponentInChildren<PauseHandler>();
             if (objPauser != null)
             {
                 objPauser.ForcePause(PauseController.PauseGroup.SequencedPause);
