@@ -8,6 +8,8 @@ public class WindRegion : VoBehavior, IPausable
     public float Acceleration = 3.0f;
     public float Deceleration = 2.0f;
     public bool Activated = true;
+    public SoundData.Key BlowingSfxKey;
+    public int SfxInterval = 30;
 
     void Awake()
     {
@@ -18,6 +20,7 @@ public class WindRegion : VoBehavior, IPausable
 
     void OnSpawn()
     {
+        _sfxCycle = Random.Range(0, this.SfxInterval);
         _currentAffected.Clear();
         _windingDown.Clear();
 
@@ -26,6 +29,9 @@ public class WindRegion : VoBehavior, IPausable
 
     void FixedUpdate()
     {
+        if (_sfxCycle < this.SfxInterval)
+            ++_sfxCycle;
+
         _collisions.Clear();
         if (this.Activated)
             this.integerCollider.Collide(_collisions, 0, 0, this.AffectedMask);
@@ -111,6 +117,12 @@ public class WindRegion : VoBehavior, IPausable
                 _windingDown.RemoveAt(i);
             }
         }
+
+        if (_currentAffected.Count > 0 && _sfxCycle >= this.SfxInterval)
+        {
+            _sfxCycle = 0;
+            SoundManager.Play(this.BlowingSfxKey, this.transform);
+        }
     }
 
     void OnReturnToPool()
@@ -137,6 +149,7 @@ public class WindRegion : VoBehavior, IPausable
     private List<GameObject> _collisions;
     private List<Actor2D> _currentAffected;
     private List<Actor2D> _windingDown;
+    private int _sfxCycle;
     private const string WIND_BOOST = "WIND";
 
     private void onRecenter(LocalEventNotifier.Event e)
