@@ -5,6 +5,7 @@ public class LightFlicker : MonoBehaviour, IPausable
     public Light Light;
     public IntegerVector[] OnDurationRanges;
     public IntegerVector OffDurationRange;
+    public SoundData.Key FlickerSfxKey;
 
     void OnSpawn()
     {
@@ -45,6 +46,7 @@ public class LightFlicker : MonoBehaviour, IPausable
         _on = false;
         this.Light.enabled = false;
         resetTimer(this.OffDurationRange);
+        SoundManager.Play(this.FlickerSfxKey, this.transform);
     }
 
     private void resetTimer(IntegerVector range)
