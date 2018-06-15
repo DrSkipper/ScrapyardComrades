@@ -14,6 +14,7 @@ public class Boulder : VoBehavior, IPausable
     public LayerMask DamagableLayers;
     public SCAttack.HitData HitParameters;
     public PooledObject HitEffect;
+    public SoundData.Key LandSfxKey;
 
     private const int HIT_EFFECT_BORDER = 8;
 
@@ -26,6 +27,7 @@ public class Boulder : VoBehavior, IPausable
 
     void OnSpawn()
     {
+        _grounded = true;
         this.integerCollider.AddToCollisionPool();
 
         if (_restingVelocityModifier == null)
@@ -49,11 +51,21 @@ public class Boulder : VoBehavior, IPausable
         _restingVelocityModifier.Modifier = Vector2.zero;
         if (groundedAgainst != null)
         {
+            if (!_grounded)
+            {
+                SoundManager.Play(this.LandSfxKey, this.transform);
+                _grounded = true;
+            }
+
             int groundedLayerMask = 1 << groundedAgainst.layer;
             if ((groundedLayerMask & this.MovingPlatformMask) == groundedLayerMask)
             {
                 attemptMovingPlatformAlignment(groundedAgainst);
             }
+        }
+        else
+        {
+            _grounded = false;
         }
 
         velocity.x = velocity.x.Approach(0.0f, groundedAgainst != null ? this.Friction : this.AirFriction);
@@ -73,6 +85,7 @@ public class Boulder : VoBehavior, IPausable
     private IntegerRect _damageRange;
     private VelocityModifier _restingVelocityModifier;
     private Vector2 _velocity;
+    private bool _grounded;
 
     private void onCollide(LocalEventNotifier.Event e)
     {
