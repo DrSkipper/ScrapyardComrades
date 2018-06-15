@@ -8,6 +8,9 @@ public class SubwayTrain : VoBehavior, IPausable
     public LayerMask DamagableLayerMask;
     public SCAttack.HitData HitData;
     public TrainFinishedDelegate OnReachedEndCallback;
+    public SoundData.Key AppearSfxKey;
+    public SoundData.Key RunningSfxKey;
+    public int SfxInterval = 10;
 
     public delegate void TrainFinishedDelegate();
 
@@ -15,6 +18,7 @@ public class SubwayTrain : VoBehavior, IPausable
 
     void OnSpawn()
     {
+        _sfxCycle = Random.Range(0, this.SfxInterval);
         if (_freezeFrameTimer == null)
             _freezeFrameTimer = new Timer(Damagable.FREEZE_FRAMES, false, false);
         _freezeFrameTimer.complete();
@@ -26,10 +30,14 @@ public class SubwayTrain : VoBehavior, IPausable
         }
 
         TrainIsRunning = true;
+        SoundManager.Play(this.AppearSfxKey, this.transform);
     }
 
     void FixedUpdate()
     {
+        if (_sfxCycle < this.SfxInterval)
+            ++_sfxCycle;
+
         if (_freezeFrameTimer.Completed)
         {
             this.transform.SetPosition2D(this.transform.position.x + this.Velocity.x, this.transform.position.y + this.Velocity.y);
@@ -65,6 +73,12 @@ public class SubwayTrain : VoBehavior, IPausable
         {
             _freezeFrameTimer.update();
         }
+
+        if (_sfxCycle >= this.SfxInterval)
+        {
+            _sfxCycle = 0;
+            SoundManager.Play(this.RunningSfxKey, this.transform);
+        }
     }
 
     void OnReturnToPool()
@@ -81,6 +95,7 @@ public class SubwayTrain : VoBehavior, IPausable
      * Private
      */
     private Timer _freezeFrameTimer;
+    private int _sfxCycle;
 
     private const int TRAIN_END_POSITION = 2220;
 }
