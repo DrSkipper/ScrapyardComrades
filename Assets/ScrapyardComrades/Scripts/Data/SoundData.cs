@@ -415,6 +415,7 @@ public class SoundData : ScriptableObject
         UI_PressStartChime = 340,
         UI_HighlightMove,
         UI_Select,
+        UI_Cancel,
 
         /**
          * End

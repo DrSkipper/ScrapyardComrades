@@ -15,6 +15,10 @@ public class UIMenuManager : MonoBehaviour
     public string EndSceneEvent = "SCENE_END";
     public Menu.Action CancelAction;
     public MenuOrientation Orientation = MenuOrientation.Vertical;
+    public SoundData.Key MoveSfxKey = SoundData.Key.UI_HighlightMove;
+    public SoundData.Key SelectSfxKey = SoundData.Key.UI_Select;
+    public SoundData.Key CancelSfxKey = SoundData.Key.UI_Cancel;
+
 
     [System.Serializable]
     public enum MenuOrientation
@@ -53,11 +57,13 @@ public class UIMenuManager : MonoBehaviour
             {
                 _currentMenu.HighlightNext();
                 highlight();
+                SoundManager.Play(this.MoveSfxKey);
             }
             else if (prev())
             {
                 _currentMenu.HighlightPrev();
                 highlight();
+                SoundManager.Play(this.MoveSfxKey);
             }
             else if (MenuInput.Confirm)
             {
@@ -66,6 +72,7 @@ public class UIMenuManager : MonoBehaviour
                     handleAction(this.ElementVisuals[_currentHighlight].HandleCustomAction(action));
                 else
                     handleAction(action);
+                SoundManager.Play(this.SelectSfxKey);
             }
             else if (MenuInput.Cancel)
             {
@@ -73,6 +80,7 @@ public class UIMenuManager : MonoBehaviour
                     configureForState(_pastMenuStack.Pop());
                 else
                     handleAction(this.CancelAction);
+                SoundManager.Play(this.CancelSfxKey);
             }
             else if (_currentMenu.CurrentElementAllowsCycling())
             {
