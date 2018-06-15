@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class WindFan : MonoBehaviour
+public class WindFan : MonoBehaviour, IPausable
 {
     public Transform SpriteTransform;
     public WindRegion WindRegionScript;

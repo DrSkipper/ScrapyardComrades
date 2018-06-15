@@ -824,10 +824,15 @@ public class SCCharacterController : Actor2D
         IMovingPlatform movingPlatform = platform.GetComponent<IMovingPlatform>();
         if (movingPlatform != null)
         {
-            _restingVelocityModifier.Modifier = movingPlatform.Velocity;
+            movingPlatformAlignHelper(movingPlatform);
             return true;
         }
         return false;
+    }
+
+    protected virtual void movingPlatformAlignHelper(IMovingPlatform movingPlatform)
+    {
+        _restingVelocityModifier.Modifier = movingPlatform.Velocity;
     }
 
     private bool checkAgainstWall(Facing direction, out int layer)

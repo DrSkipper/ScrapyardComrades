@@ -10,6 +10,8 @@ public class ConveyorBelt : MonoBehaviour
     public SwitchListener SwitchListener;
     public SCCharacterController.Facing DefaultDirection;
     public SwitchBehavior OnSwitchAction;
+    public SoundData.Key PowerOnSfxKey;
+    public SoundData.Key PowerOffSfxKey;
 
     [System.Serializable]
     public enum SwitchBehavior
@@ -33,7 +35,14 @@ public class ConveyorBelt : MonoBehaviour
 
     void OnReturnToPool()
     {
+        _playingSfx = false;
         this.MovingPlatform.StaticVelociy = _v;
+    }
+
+    void FixedUpdate()
+    {
+        if (!_playingSfx)
+            _playingSfx = true;
     }
 
     /**
@@ -41,6 +50,7 @@ public class ConveyorBelt : MonoBehaviour
      */
     private SCCharacterController.Facing _currentFacing;
     private Vector2 _v;
+    private bool _playingSfx;
 
     private void onSwitchStateChange(Switch.SwitchState state)
     {
@@ -49,9 +59,17 @@ public class ConveyorBelt : MonoBehaviour
             default:
             case SwitchBehavior.EnableDisable:
                 if (state == Switch.SwitchState.OFF)
+                {
+                    if (_playingSfx)
+                        SoundManager.Play(this.PowerOffSfxKey, this.transform);
                     stop();
+                }
                 else
+                {
+                    if (_playingSfx)
+                        SoundManager.Play(this.PowerOnSfxKey, this.transform);
                     playCurrent();
+                }
                 break;
             case SwitchBehavior.DirectionToggle:
                 _currentFacing = state == Switch.SwitchState.OFF ? SCCharacterController.Facing.Left : SCCharacterController.Facing.Right;

@@ -150,6 +150,10 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
         }
     }
 
+    public void PlayRidingEffects()
+    {
+    }
+
     /**
      * Private
      */
