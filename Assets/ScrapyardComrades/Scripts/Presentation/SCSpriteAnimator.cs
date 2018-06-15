@@ -19,6 +19,7 @@ public class SCSpriteAnimator : VoBehavior, IPausable
 
         if (this.DefaultAnimation != null)
             this.PlayAnimation(this.DefaultAnimation);
+        this.Stop();
         this.localNotifier.Listen(FreezeFrameEvent.NAME, this, freezeFrame);
         this.localNotifier.Listen(FreezeFrameEndedEvent.NAME, this, freezeFrameEnded);
     }

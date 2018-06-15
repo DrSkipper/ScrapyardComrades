@@ -62,9 +62,9 @@ public class ConveyorBelt : MonoBehaviour
 
     private void stop()
     {
-        this.MovingPlatform.StaticVelociy = Vector2.zero;
         if (!this.Animator.IsPlaying)
             playCurrent();
+        this.MovingPlatform.StaticVelociy = Vector2.zero;
         this.Animator.Stop();
     }
 
