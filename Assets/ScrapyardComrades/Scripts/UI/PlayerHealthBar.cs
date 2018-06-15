@@ -23,6 +23,9 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
     public float IconIdleLerpMaxPercent = 50.0f;
     public int HurtAnimDuration = 30;
 
+    public float MaxPercentForBeeps = 0.4f;
+    public SoundData.Key HealthBeepSfxKey;
+
     void Awake()
     {
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
@@ -48,11 +51,14 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
         _currentHSV.x = _currentHSV.x.Approach(target.x, _currentSpeed.x);
         _currentHSV.y = _currentHSV.y.Approach(target.y, _currentSpeed.y);
         _currentHSV.z = _currentHSV.z.Approach(target.z, _currentSpeed.z);
-
+        
         if (_t >= _currentDuration)
         {
             _strobingIn = !_strobingIn;
             _t = 0;
+            
+            if (_strobingIn && _healthController != null && _prevHealth / (float)_healthController.Damagable.MaxHealth < this.MaxPercentForBeeps)
+                SoundManager.Play(this.HealthBeepSfxKey);
         }
         else
         {
