@@ -17,6 +17,7 @@ public class PunchSwitch : VoBehavior, IPausable, SwitchBehavior
 
     void OnSpawn()
     {
+        this.integerCollider.AddToCollisionPool();
         if (!this.OneWay)
         {
             if (_twoWayTimer == null)
@@ -36,6 +37,11 @@ public class PunchSwitch : VoBehavior, IPausable, SwitchBehavior
     {
         if (!this.OneWay)
             _twoWayTimer.update();
+    }
+
+    void OnReturnToPool()
+    {
+        this.integerCollider.RemoveFromCollisionPool();
     }
 
     /**

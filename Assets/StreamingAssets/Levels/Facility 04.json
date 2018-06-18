@@ -12333,8 +12333,54 @@
   ],
   "props": [],
   "props_background": [],
-  "objects": [],
-  "next_object_id": 6,
+  "objects": [
+    {
+      "name": "objects_PunchSwitch_6",
+      "prefab_name": "PunchSwitch",
+      "x": 132,
+      "y": 256,
+      "z": -2,
+      "parameters": [
+        {
+          "Name": "switch_name",
+          "CurrentOption": "D_switch"
+        },
+        {
+          "Name": "inverse",
+          "CurrentOption": "false"
+        },
+        {
+          "Name": "one_way",
+          "CurrentOption": "true"
+        },
+        {
+          "Name": "default_state",
+          "CurrentOption": "OFF"
+        },
+        {
+          "Name": "color",
+          "CurrentOption": "red"
+        },
+        {
+          "Name": "attach",
+          "CurrentOption": "l"
+        }
+      ],
+      "secondary_x": 0,
+      "secondary_y": 0
+    },
+    {
+      "name": "objects_HeroLV3_7",
+      "prefab_name": "HeroLV3",
+      "x": 480,
+      "y": 254,
+      "z": -2,
+      "parameters": null,
+      "secondary_x": 0,
+      "secondary_y": 0
+    }
+  ],
+  "next_object_id": 8,
   "next_prop_id": 1,
   "next_prop_bg_id": 0,
   "next_light_id": 6,
