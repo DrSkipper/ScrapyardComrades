@@ -151,6 +151,7 @@ public class SCCharacterController : Actor2D
         _potentialWallCollisions = new List<IntegerCollider>();
         _wallJumpExpandAmount = Mathf.Max(Mathf.Max(Mathf.Abs(this.AgainstWallCheckOffset), Mathf.Abs(this.WallJumpCheckOffset)), Mathf.Max(Mathf.Abs(this.LedgeGrabCheckDistance), Mathf.Abs(this.LedgeGrabPeekDistance))) * 2;
         this.Damagable.OnDeathCallback += onDeath;
+        this.Damagable.StartingInvincibilityGetter = getStartingIFrames;
     }
 
     public virtual void OnSpawn()
@@ -1109,5 +1110,10 @@ public class SCCharacterController : Actor2D
     private void onDeath()
     {
         this.WorldEntity.TriggerConsumption(false);
+    }
+
+    private int getStartingIFrames()
+    {
+        return this.StandupOnSpawn ? this.StandupFrames : 0;
     }
 }

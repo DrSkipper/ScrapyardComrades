@@ -24,6 +24,8 @@ public class Damagable : VoBehavior, IPausable
     public SCSpriteAnimation BlockEffect;
     public delegate void OnDeathDelegate();
     public OnDeathDelegate OnDeathCallback;
+    public delegate int StartingInvincibilityDelegate();
+    public StartingInvincibilityDelegate StartingInvincibilityGetter;
     
     void Awake()
     {
@@ -43,9 +45,20 @@ public class Damagable : VoBehavior, IPausable
 
     void OnSpawn()
     {
-        this.Invincible = false;
-        _invincibilityTimer.reset(1);
-        _invincibilityTimer.Paused = true;
+        int invincibilityFrames = 0;
+        if (this.StartingInvincibilityGetter != null)
+            invincibilityFrames = this.StartingInvincibilityGetter();
+
+        if (invincibilityFrames > 0)
+        {
+            this.SetInvincible(invincibilityFrames);
+        }
+        else
+        {
+            this.Invincible = false;
+            _invincibilityTimer.reset(1);
+            _invincibilityTimer.Paused = true;
+        }
 
         if (this.UseRageMode)
         {
