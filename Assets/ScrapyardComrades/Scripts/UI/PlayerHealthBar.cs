@@ -10,6 +10,7 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
     public int MinStrobeDuration;
     public int MaxStrobeDuration;
     public int PixelUnitsPerHealthUnit = 10;
+    public bool UseScaleAnim = false;
     public Easing.Function ScaleFunction;
     public Easing.Flow ScaleFlow;
     public float TargetScale = 2.0f;
@@ -65,7 +66,7 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
             ++_t;
         }
 
-        if (_scaleT >= 0)
+        if (this.UseScaleAnim && _scaleT >= 0)
         {
             float scale = 1;
 
@@ -162,7 +163,7 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
                     playCorrectIdleAnim();
                 }
 
-                if (highlight)
+                if (highlight && this.UseScaleAnim)
                 {
                     if (_scaleT <= 0)
                     {
