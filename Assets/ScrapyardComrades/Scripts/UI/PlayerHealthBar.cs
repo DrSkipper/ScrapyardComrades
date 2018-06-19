@@ -22,9 +22,9 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
     public float IconIdleLerpMinPercent = 2.0f;
     public float IconIdleLerpMaxPercent = 50.0f;
     public int HurtAnimDuration = 30;
-
     public float MaxPercentForBeeps = 0.4f;
     public SoundData.Key HealthBeepSfxKey;
+    public RectTransform NextThresholdIcon;
 
     void Awake()
     {
@@ -121,6 +121,17 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
             _prevHealth = _healthController.Damagable.Health;
             playerHealthChanged(_healthController.Damagable.Health, _healthController.Damagable.MaxHealth, false);
             _healthController.HealthChangedCallback += playerHealthChanged;
+
+            if (_healthController.HeroLevel < _healthController.ProgressionData.MaxHeroLevel)
+            {
+                this.NextThresholdIcon.gameObject.SetActive(true);
+                //this.NextThresholdIcon.SetLocalX(_healthController.ProgressionData.LevelData[_healthController.HeroLevel].MaxHealthThreshold * this.PixelUnitsPerHealthUnit);
+                this.NextThresholdIcon.anchoredPosition = new Vector2(_healthController.ProgressionData.LevelData[_healthController.HeroLevel + 1].MaxHealthThreshold * this.PixelUnitsPerHealthUnit, this.NextThresholdIcon.anchoredPosition.y);
+            }
+            else
+            {
+                this.NextThresholdIcon.gameObject.SetActive(false);
+            }
         }
     }
 
