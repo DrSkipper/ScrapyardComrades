@@ -34,6 +34,7 @@ public class WorldLoadingManager : MonoBehaviour, IPausable, CameraBoundsHandler
     public string CurrentQuadName { get { return _currentQuad.Name; } }
     public int CurrentQuadWidth { get { return _currentQuad.Bounds.Size.X * this.TileRenderSize; } }
     public NewMapInfo CurrentMapInfo { get { return _quadData[this.CurrentQuadName]; } }
+    public string PrevQuadName { get { return _prevQuad == null ? StringExtensions.EMPTY : _prevQuad.Name; } }
 
     public class MapQuad
     {

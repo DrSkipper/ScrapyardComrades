@@ -16,6 +16,7 @@ public class CameraController : VoBehavior, IPausable
     public int ResolutionDoublingThreshold = 270;
 
     public RawImage UpscaleImage;
+    public RegionDataCollection RegionData;
 
     void Awake()
     {
@@ -113,6 +114,13 @@ public class CameraController : VoBehavior, IPausable
         {
             _inTransition = true;
             _transitionTime = 0.0f;
+
+            //TODO: Check if we're in a new region, and if so, use different transition approach
+            if (this.RegionData != null)
+            {
+                //if (_boundsHandler.CurrentQuadName)
+            }
+
             this.CalculateBounds();
         }
     }
