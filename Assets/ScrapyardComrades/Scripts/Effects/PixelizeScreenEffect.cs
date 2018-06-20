@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PixelizeScreenEffect : MonoBehaviour, IPausable
+public class PixelizeScreenEffect : MonoBehaviour//, IPausable
 {
     public float ResolutionMultiplier = 0.5f;
 

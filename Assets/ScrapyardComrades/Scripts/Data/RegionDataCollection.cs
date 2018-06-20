@@ -18,7 +18,9 @@ public class RegionDataCollection : ScriptableObject
     
     public int RegionIndexForRoom(string roomName)
     {
+        roomName = roomName.ToLower();
         RegionData data;
+
         for (int r = 0; r < this.Data.Count; ++r)
         {
             data = this.Data[r];
@@ -35,7 +37,9 @@ public class RegionDataCollection : ScriptableObject
     
     public bool RegionContainsRoom(int regionIndex, string roomName)
     {
+        roomName = roomName.ToLower();
         RegionData data = this.Data[regionIndex];
+
         for (int i = 0; i < data.RoomPrefixes.Length; ++i)
         {
             if (roomName.Contains(data.RoomPrefixes[i]))
