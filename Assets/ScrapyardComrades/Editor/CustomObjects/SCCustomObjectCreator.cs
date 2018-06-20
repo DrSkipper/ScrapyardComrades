@@ -22,6 +22,7 @@ public static class SCCustomObjectCreator
     private const string POWERUP_TIERS_PATH = "PowerupData/Tiers/NewPowerupTiers.asset";
     private const string POWERUP_LEVELS_PATH = "PowerupData/Levels/NewPowerupLevels.asset";
     private const string SOUND_DATA_PATH = "SoundData/NewSoundData.asset";
+    private const string REGION_DATA_PATH = "RegionData/NewRegionData.asset";
 
     [MenuItem("Custom Objects/Create Sprite Animation")]
     public static void CreateSpriteAnimation()
@@ -117,6 +118,12 @@ public static class SCCustomObjectCreator
     public static void CreateSoundData()
     {
         SaveAsset(SoundData.CreateInstance<SoundData>(), PATH + SOUND_DATA_PATH);
+    }
+
+    [MenuItem("Custom Objects/Create Region Data")]
+    public static void CreateRegionData()
+    {
+        SaveAsset(RegionDataCollection.CreateInstance<RegionDataCollection>(), PATH + REGION_DATA_PATH);
     }
 
     public static void SaveAsset(ScriptableObject asset, string path)
