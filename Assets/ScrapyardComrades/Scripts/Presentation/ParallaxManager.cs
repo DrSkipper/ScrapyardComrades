@@ -77,10 +77,7 @@ public class ParallaxManager : VoBehavior, IPausable
                     IntegerVector target = offset + objects[i].RelativeOrigin;
 
                     if (_inTransition)
-                    {
-                        if (this.CameraController.CanBeginParallaxTransition)
-                            target = Vector2.Lerp(objects[i].Transform.position, target, t);
-                    }
+                        target = Vector2.Lerp(objects[i].Transform.position, target, t);
 
                     objects[i].Transform.SetLocalPosition2D(target.X, target.Y);
                 }
