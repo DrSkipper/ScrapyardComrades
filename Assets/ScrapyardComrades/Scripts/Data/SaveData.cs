@@ -13,7 +13,6 @@ public static class SaveData
     public static string LastSaveRoom { get { return _loadedDiskData.LastSaveRoom; } }
     public static bool UnsafeSave { get { return _loadedDiskData.UnsafeSave; } set { _loadedDiskData.UnsafeSave = value; } }
     
-
     public static EntityModel GetTrackedEntity(string quadName, string entityName)
     {
         Dictionary<string, EntityModel> quadEntities;
@@ -116,7 +115,6 @@ public static class SaveData
 
         DiskDataHandler.GuaranteeDirectoryExists(DATA_PATH);
 
-        //TODO: For speedruns gametime shouldn't include time paused
         System.DateTime now = System.DateTime.Now;
         _loadedDiskData.TimestampTicks = now.Ticks;
         _loadedDiskData.GametimeTicks += (now - _lastSaveTime).Ticks;
