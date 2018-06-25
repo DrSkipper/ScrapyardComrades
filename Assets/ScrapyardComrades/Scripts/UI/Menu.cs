@@ -17,7 +17,8 @@ public class Menu : MonoBehaviour
         ChangeValue,
         CloseMenuWithEvent,
         Custom,
-        Reload
+        Reload,
+        CloseMenuAndSceneFade
     }
 
     [System.Serializable]

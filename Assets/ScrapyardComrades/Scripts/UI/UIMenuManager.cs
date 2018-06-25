@@ -189,6 +189,15 @@ public class UIMenuManager : MonoBehaviour
                 _currentMenu.Reload();
                 refreshState();
                 break;
+            case Menu.ActionType.CloseMenuAndSceneFade:
+                this.Hide();
+                _actionTimer = new Timer(this.EventSendDelay, false, true, onDelayedAction);
+                _timerParam = action.Param;
+
+                LocalEventNotifier.Event e1 = new LocalEventNotifier.Event();
+                e1.Name = this.EndSceneEvent;
+                GlobalEvents.Notifier.SendEvent(e1);
+                break;
         }
     }
 
