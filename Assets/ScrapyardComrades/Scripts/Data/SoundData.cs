@@ -417,6 +417,9 @@ public class SoundData : ScriptableObject
         UI_Select,
         UI_Cancel,
 
+        /**
+         * Boss Enemies
+         */
         BossCorporate_Attract = 350,
         BossCorporate_Footstep1,
         BossCorporate_Footstep2,
