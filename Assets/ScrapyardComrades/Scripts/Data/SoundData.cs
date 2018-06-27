@@ -108,6 +108,7 @@ public class SoundData : ScriptableObject
         HeroLV1_JabImpact3,
         HeroLV1_DashJump,
         HeroLV1_LandHard,
+        HeroLV1_DeathLand,
 
         /**
          * Level 2 Hero
@@ -138,6 +139,7 @@ public class SoundData : ScriptableObject
         HeroLV2_JabImpact2,
         HeroLV2_DashJump,
         HeroLV2_LandHard,
+        HeroLV2_DeathLand,
 
         /**
          * Level 3 Hero
@@ -168,6 +170,7 @@ public class SoundData : ScriptableObject
         HeroLV3_JabImpact2,
         HeroLV3_DashJump,
         HeroLV3_LandHard,
+        HeroLV3_DeathLand,
 
         /**
          * Hero Level 4
@@ -194,6 +197,7 @@ public class SoundData : ScriptableObject
         HeroLV4_Death,
         HeroLV4_PunchImpact2,
         HeroLV4_LandHard,
+        HeroLV4_DeathLand,
 
         /**
          * Hero Level 5
@@ -215,6 +219,7 @@ public class SoundData : ScriptableObject
         HeroLV5_GroundPoundShockwave,
         HeroLV5_GroundPoundImpact,
         HeroLV5_Death,
+        HeroLV5_DeathLand,
 
         /**
          * Enemy Level 1
@@ -228,6 +233,7 @@ public class SoundData : ScriptableObject
         EnemyLV1_PunchImpact,
         EnemyLV1_Death,
         EnemyLV1_Jump,
+        EnemyLV1_DeathLand,
 
         /**
          * Enemy Level 2
@@ -244,6 +250,7 @@ public class SoundData : ScriptableObject
         EnemyLV2_JumpKick,
         EnemyLV2_JumpKickImpact,
         EnemyLV2_Throw,
+        EnemyLV2_DeathLand,
 
         /**
          * Enemy Guard
@@ -261,6 +268,7 @@ public class SoundData : ScriptableObject
         EnemyGuard_Footstep1,
         EnemyGuard_Footstep2,
         EnemyGuard_Death,
+        EnemyGuard_DeathLand,
 
         /**
          * Enemy Mutant
@@ -282,6 +290,7 @@ public class SoundData : ScriptableObject
         EnemyMutant_Idle,
         EnemyMutant_Jump,
         EnemyMutant_Land,
+        EnemyMutant_DeathLand,
 
         /**
          * Syringe
@@ -431,6 +440,7 @@ public class SoundData : ScriptableObject
         BossCorporate_Idle,
         BossCorporate_Jump,
         BossCorporate_Teleport,
+        BossCorporate_DeathLand,
 
         BossMilitary_Attract = 365,
         BossMilitary_Footstep1,
@@ -446,6 +456,7 @@ public class SoundData : ScriptableObject
         BossMilitary_Idle,
         BossMilitary_Jump,
         BossMilitary_Teleport,
+        BossMilitary_DeathLand,
 
         BossGuerilla_Attract = 380,
         BossGuerilla_Footstep1,
@@ -460,6 +471,7 @@ public class SoundData : ScriptableObject
         BossGuerilla_Death,
         BossGuerilla_Idle,
         BossGuerilla_Jump,
+        BossGuerilla_DeathLand,
 
         BossHacker_Attract = 395,
         BossHacker_Footstep1,
@@ -474,6 +486,7 @@ public class SoundData : ScriptableObject
         BossHacker_Death,
         BossHacker_Idle,
         BossHacker_Jump,
+        BossHacker_DeathLand,
 
         /**
          * End
