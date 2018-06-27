@@ -529,11 +529,12 @@ public class SCCharacterController : Actor2D
             {
                 // Check for combo window or buffer first
                 bool comboing = false;
-                if (interruptingMove == null && (_comboBufferInput != SCMoveSet.MoveInput.None || !_comboTimer.Completed))
+                if (interruptingMove == null && (_comboBufferInput != SCMoveSet.MoveInput.None || !_comboTimer.Completed) && _comboSource != null)
                 {
                     _currentAttack = this.MoveSet.GetComboMove(input, _comboSource, _comboBufferInput);
                     comboing = _currentAttack != null;
                 }
+
                 if (!comboing)
                     _currentAttack = interruptingMove != null ? interruptingMove : this.MoveSet.GetAttackForInput(input, this);
 
