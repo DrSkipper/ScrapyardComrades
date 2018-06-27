@@ -39,6 +39,7 @@ public class LightFlicker : MonoBehaviour, IPausable
         _on = true;
         this.Light.enabled = true;
         resetTimer(this.OnDurationRanges[Random.Range(0, this.OnDurationRanges.Length)]);
+        SoundManager.Play(this.FlickerSfxKey, this.transform);
     }
 
     private void turnOff()
@@ -46,7 +47,6 @@ public class LightFlicker : MonoBehaviour, IPausable
         _on = false;
         this.Light.enabled = false;
         resetTimer(this.OffDurationRange);
-        SoundManager.Play(this.FlickerSfxKey, this.transform);
     }
 
     private void resetTimer(IntegerVector range)
