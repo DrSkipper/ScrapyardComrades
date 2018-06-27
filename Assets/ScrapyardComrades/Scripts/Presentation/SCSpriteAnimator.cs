@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+[ExecuteInEditMode]
 public class SCSpriteAnimator : VoBehavior, IPausable
 {
     public Image UiImage;

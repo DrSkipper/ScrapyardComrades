@@ -105,6 +105,11 @@ public class SCAttack : ScriptableObject
                         ((constant + charDiff) / 2.0f).Normalized16() :
                         ((constant + charDiff) / 2.0f).NormalizedCardinal())
                         * this.KnockbackPower;
+                case KnockbackType.ReverseCharacterDiff:
+                    return (!cardinalOnly ?
+                        (attackerPos - defenderPos).Normalized16() :
+                        (attackerPos - defenderPos).NormalizedCardinal())
+                        * this.KnockbackPower;
             }
         }
     }
@@ -117,7 +122,8 @@ public class SCAttack : ScriptableObject
         CharacterDiff,
         AttackerToHitPoint,
         HitPointToDefender,
-        AvgConstantAndDiff
+        AvgConstantAndDiff,
+        ReverseCharacterDiff
     }
 
     [System.Serializable]
