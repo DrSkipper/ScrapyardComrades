@@ -15,6 +15,9 @@ public class ObjectPlacer : VoBehavior
     public bool FlipVertical = true;
     public SpriteAnimationCollection Animations;
 
+    [HideInInspector]
+    public bool InSequencePause;
+
     public void PlaceObjects(List<NewMapInfo.MapObject> mapObjects, Dictionary<string, PooledObject> prefabs, string quadName, bool trackEntities, string sortingLayerName)
     {
         for (int i = 0; i < mapObjects.Count; ++i)
@@ -56,7 +59,7 @@ public class ObjectPlacer : VoBehavior
                 }
             }
         }
-
+        
         this.TimedCallbacks.AddCallback(this, spawnAll, this.SpawnDelay);
     }
 
@@ -212,6 +215,16 @@ public class ObjectPlacer : VoBehavior
             SORTING_IN_LAYER = MAX_SORTING_ORDER;
         
         spawn.BroadcastMessage(ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
+
+        // Begin the object as paused if we're in transition sequence
+        if (this.InSequencePause)
+        {
+            PauseHandler objPauser = spawn.GetComponentInChildren<PauseHandler>();
+            if (objPauser != null)
+            {
+                objPauser.ForcePause(PauseController.PauseGroup.SequencedPause);
+            }
+        }
     }
 
     private const string SLASH = "/";

@@ -13,6 +13,9 @@ public class SoundData : ScriptableObject
         public List<Entry> Entries;
         public int Count { get { return this.Entries.Count; } }
         public bool UseProximity;
+        public int ProximityClose;
+        public int ProximityFar;
+        public MultiSfxBehavior MultiSfxType;
 
         public EntryList()
         {
@@ -60,6 +63,12 @@ public class SoundData : ScriptableObject
         public AudioClip Clip;
         public float Volume;
         public float Pitch;
+    }
+
+    public enum MultiSfxBehavior
+    {
+        PlayAll,
+        Randomize
     }
 
     public enum Key
@@ -375,6 +384,9 @@ public class SoundData : ScriptableObject
         Misc_Mutation5,
         Misc_EnableCheckpoint,
         Misc_CheckpointBubbling,
+        Misc_CheckpointBubbling2,
+        Misc_CheckpointBubbling3,
+        Misc_CheckpointBubbling4,
 
         /**
          * Event
@@ -394,7 +406,7 @@ public class SoundData : ScriptableObject
         Enviro_BirdFlying,
         Enviro_StreetLightFlicker,
         Enviro_TrashFire,
-        Enviro_NeonFlicker,
+        Enviro_NeonFlicker, //TODO: link
         Enviro_PaperBlowing,
 
         /**
@@ -403,6 +415,65 @@ public class SoundData : ScriptableObject
         UI_PressStartChime = 340,
         UI_HighlightMove,
         UI_Select,
+        UI_Cancel,
+
+        /**
+         * Boss Enemies
+         */
+        BossCorporate_Attract = 350,
+        BossCorporate_Footstep1,
+        BossCorporate_Footstep2,
+        BossCorporate_Punch,
+        BossCorporate_PunchImpact,
+        BossCorporate_Aerial,
+        BossCorporate_AerialImpact,
+        BossCorporate_Death,
+        BossCorporate_Idle,
+        BossCorporate_Jump,
+        BossCorporate_Teleport,
+
+        BossMilitary_Attract = 365,
+        BossMilitary_Footstep1,
+        BossMilitary_Footstep2,
+        BossMilitary_AerialAOE,
+        BossMilitary_AerialAOEImpact,
+        BossMilitary_AerialDive,
+        BossMilitary_AerialDiveLand,
+        BossMilitary_AerialDiveImpact,
+        BossMilitary_Pushback,
+        BossMilitary_PushbackImpact,
+        BossMilitary_Death,
+        BossMilitary_Idle,
+        BossMilitary_Jump,
+        BossMilitary_Teleport,
+
+        BossGuerilla_Attract = 380,
+        BossGuerilla_Footstep1,
+        BossGuerilla_Footstep2,
+        BossGuerilla_Punch1,
+        BossGuerilla_Punch2,
+        BossGuerilla_PunchImpact,
+        BossGuerilla_Uppercut,
+        BossGuerilla_UppercutImpact,
+        BossGuerilla_Aerial,
+        BossGuerilla_AerialImpact,
+        BossGuerilla_Death,
+        BossGuerilla_Idle,
+        BossGuerilla_Jump,
+
+        BossHacker_Attract = 395,
+        BossHacker_Footstep1,
+        BossHacker_Footstep2,
+        BossHacker_WhipSide1,
+        BossHacker_WhipSide2,
+        BossHacker_WhipSideImpact,
+        BossHacker_WhipUp,
+        BossHacker_WhipUpImpact,
+        BossHacker_Aerial,
+        BossHacker_AerialImpact,
+        BossHacker_Death,
+        BossHacker_Idle,
+        BossHacker_Jump,
 
         /**
          * End

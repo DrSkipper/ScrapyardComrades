@@ -116,6 +116,8 @@ public class ObjectPools : MonoBehaviour
             if (pool.Count > 0)
             {
                 PooledObject instance = pool.Pop();
+                instance.transform.SetParent(null);
+                instance.transform.SetPosition2D(Vector2.zero);
                 instance.gameObject.SetActive(true);
                 return instance;
             }
@@ -161,6 +163,7 @@ public class ObjectPools : MonoBehaviour
         {
             obj.transform.SetParent(null);
             obj.gameObject.SetActive(false);
+            obj.transform.SetParent(this.transform, true);
             pool.Add(obj);
             return true;
         }

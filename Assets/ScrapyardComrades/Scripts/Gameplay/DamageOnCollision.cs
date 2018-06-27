@@ -8,6 +8,7 @@ public class DamageOnCollision : VoBehavior
     public bool AlwaysDestroyOnCollide = false;
     public PooledObject HitEffectPrefab;
     public SCSpriteAnimation DestructionAnimation;
+    public SoundData.Key DestructionSoundKey;
 
     void Awake()
     {
@@ -62,12 +63,17 @@ public class DamageOnCollision : VoBehavior
 
         if (this.AlwaysDestroyOnCollide)
         {
+            Transform soundTransform = this.transform;
+
             if (this.DestructionAnimation != null)
             {
                 PooledObject effect = this.HitEffectPrefab.Retain();
                 effect.transform.SetPosition2D(this.transform.position);
                 effect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(hitTarget ? Damagable.FREEZE_FRAMES : 0, this.DestructionAnimation, 1);
+                soundTransform = effect.transform;
             }
+
+            SoundManager.Play(this.DestructionSoundKey, this.transform);
             ObjectPools.Release(this.gameObject);
         }
     }

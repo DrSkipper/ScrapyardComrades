@@ -23,6 +23,9 @@ public class WorldMapEditorManager : MonoBehaviour, CameraBoundsHandler
     public string TestSceneName = "MapLoadingTest";
     public float LevelLoadTime = 1.0f;
 
+    public string CurrentQuadName { get { return StringExtensions.EMPTY; } }
+    public string PrevQuadName { get { return StringExtensions.EMPTY; } }
+
     public IntegerRectCollider GetBounds()
     {
         return this.WorldBounds;

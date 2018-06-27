@@ -2,19 +2,29 @@
 
 public class SfxSource : MonoBehaviour
 {
-    private const int MAX_VOLUME_DIST = 128;
-    private const int MIN_VOLUME_DIST = 850;
-    private const int VOLUME_DIST_DIFF = MIN_VOLUME_DIST - MAX_VOLUME_DIST;
+    public const int MAX_VOLUME_DIST = 64;
+    public const int MIN_VOLUME_DIST = 750;
     private const float MIN_VOL = 0.01f;
 
     public AudioSource AudioSource;
     public bool isPlaying { get { return this.AudioSource.isPlaying; } }
 
-    public void Play(AudioClip clip, float volume, float pitch, bool proximity, Transform proximityTarget)
+    public void Play(AudioClip clip, float volume, float pitch, bool proximity, Transform proximityTarget, int proxClose, int proxFar)
     {
         _usingProximity = proximity;
-        _proximityTarget = proximity ? proximityTarget : null;
         _maxVolume = volume;
+
+        if (proximity)
+        {
+            _proximityTarget = proximityTarget;
+            _proxClose = proxClose;
+            _proxFar = proxFar;
+            volume = getProximityVolume();
+        }
+        else
+        {
+            _proximityTarget = null;
+        }
 
         this.AudioSource.Stop();
         this.AudioSource.clip = clip;
@@ -35,21 +45,23 @@ public class SfxSource : MonoBehaviour
      * Private
      */
     private bool _usingProximity;
+    private int _proxClose;
+    private int _proxFar;
     private Transform _proximityTarget;
     private float _maxVolume;
 
     private float getProximityVolume()
     {
         if (_proximityTarget == null || PlayerReference.Transform == null)
-            return 0.0f;
+            return Mathf.Clamp(this.AudioSource.volume, 0.0f, _maxVolume);
 
         int d = Mathf.RoundToInt(PlayerReference.Transform.Distance2D(_proximityTarget));
 
-        if (d <= MAX_VOLUME_DIST)
+        if (d <= _proxClose)
             return _maxVolume;
-        if (d >= MIN_VOLUME_DIST)
+        if (d >= _proxFar)
             return 0.0f;
 
-        return Mathf.Lerp(_maxVolume, MIN_VOL, (d - MAX_VOLUME_DIST) / (float)VOLUME_DIST_DIFF);
+        return Easing.QuadEaseInOut(d - _proxClose, _maxVolume, MIN_VOL - _maxVolume, _proxFar - _proxClose);
     }
 }

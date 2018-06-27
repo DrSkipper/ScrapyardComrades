@@ -16,6 +16,25 @@ public class CameraController : VoBehavior, IPausable
     public int ResolutionDoublingThreshold = 270;
 
     public RawImage UpscaleImage;
+    public RegionDataCollection RegionData;
+    public PixelizedFade FadeEffect;
+    public float FadeTransitionGapDuration = 0.5f;
+    public Easing.Function FadeTransitionFunction;
+    public Easing.Flow FadeTransitionFlow;
+
+    public bool CanBeginParallaxTransition { get { return _transitionType == TransitionType.Lerp ? true : _transitionTime >= _fadeEffectDuration; } }
+    public float TotalTransitionDuration { get { return _transitionType == TransitionType.Lerp ? this.TransitionDuration : _fadeEffectDuration + this.FadeTransitionGapDuration; } }
+    public TransitionType CurrentTransitionType { get {
+            if (!_hasCalculatedTransitionType)
+                _transitionType = calculateTransitionType();
+            return _transitionType;
+        } }
+
+    public enum TransitionType
+    {
+        Lerp,
+        Fade
+    }
 
     void Awake()
     {
@@ -24,11 +43,15 @@ public class CameraController : VoBehavior, IPausable
         recalculateRendering();
 
         _easingDelegate = Easing.GetFunction(this.TransitionEasingFunction, this.TransitionEasingFlow);
+        _fadeDelegate = Easing.GetFunction(this.FadeTransitionFunction, this.FadeTransitionFlow);
         this.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
         
         GlobalEvents.Notifier.Listen(OptionsValueChangedEvent.NAME, this, onOptionChange);
         GlobalEvents.Notifier.Listen(PlayerSpawnedEvent.NAME, this, playerSpawned);
         GlobalEvents.Notifier.Listen(PauseEvent.NAME, this, onPause);
+
+        if (this.FadeEffect != null)
+            _fadeEffectDuration = this.FadeEffect.Duration * Time.fixedDeltaTime;
     }
 
     public void CalculateBounds()
@@ -63,16 +86,15 @@ public class CameraController : VoBehavior, IPausable
                     _transitionDestination = getDestination();
                 }
 
-                _transitionTime = Mathf.Min(_transitionTime + Time.deltaTime, this.TransitionDuration);
-                Vector2 target = _transitionOrigin.EaseTowards(_transitionDestination, _transitionTime, this.TransitionDuration, _easingDelegate);
-                this.transform.position = new Vector3(target.x, target.y, this.transform.position.z);
-
-                if (Vector2.Distance(this.transform.position, _transitionDestination) < TRANSITION_END_BUFFER)
+                switch (_transitionType)
                 {
-                    this.transform.position = new Vector3(_transitionDestination.X, _transitionDestination.Y, this.transform.position.z);
-                    _inTransition = false;
-                    _transitionTime = 0.0f;
-                    PauseController.EndSequence(WorldLoadingManager.ROOM_TRANSITION_SEQUENCE);
+                    default:
+                    case TransitionType.Lerp:
+                        updateLerpTransition();
+                        break;
+                    case TransitionType.Fade:
+                        updateFadeTransition();
+                        break;
                 }
             }
         }
@@ -97,8 +119,66 @@ public class CameraController : VoBehavior, IPausable
     private IntegerVector _transitionDestination;
     private Vector2 _transitionOrigin;
     private Easing.EasingDelegate _easingDelegate;
+    private Easing.EasingDelegate _fadeDelegate;
+    private TransitionType _transitionType;
+    private bool _hasCalculatedTransitionType;
+    private float _fadeEffectDuration;
+
     private const int PIXELS_TO_UNITS = 2;
     private const float TRANSITION_END_BUFFER = 0.04f;
+    private const float FADE_TRANSITION_BUFFER = 0.07f;
+    private const float FADE_TRANSITION_MIN = 0.0001f;
+
+    private void updateLerpTransition()
+    {
+        _transitionTime = Mathf.Min(_transitionTime + Time.deltaTime, this.TransitionDuration);
+        lerp(_transitionTime, this.TransitionDuration, _easingDelegate);
+
+        if (Vector2.Distance(this.transform.position, _transitionDestination) < TRANSITION_END_BUFFER)
+        {
+            this.transform.position = new Vector3(_transitionDestination.X, _transitionDestination.Y, this.transform.position.z);
+            endTransition();
+        }
+    }
+
+    private void updateFadeTransition()
+    {
+        _transitionTime += Time.deltaTime;
+
+        if (this.FadeEffect.Completed)
+        {
+            if (_transitionTime >= _fadeEffectDuration + this.FadeTransitionGapDuration)
+            {
+                if (_transitionTime < _fadeEffectDuration * 1.5f + this.FadeTransitionGapDuration)
+                {
+                    this.transform.position = new Vector3(_transitionDestination.X, _transitionDestination.Y, this.transform.position.z);
+                    this.FadeEffect.Reverse();
+                }
+                else
+                {
+                    endTransition();
+                }
+            }
+        }
+
+        float t = Mathf.Clamp(_transitionTime - (_fadeEffectDuration - FADE_TRANSITION_BUFFER), 0.0f, this.FadeTransitionGapDuration + FADE_TRANSITION_BUFFER * 2);
+        if (t > FADE_TRANSITION_MIN)
+            lerp(t, this.FadeTransitionGapDuration + FADE_TRANSITION_BUFFER * 2, _fadeDelegate);
+    }
+
+    private void lerp(float t, float d, Easing.EasingDelegate easingDelegate)
+    {
+        Vector2 target = _transitionOrigin.EaseTowards(_transitionDestination, t, d, easingDelegate);
+        this.transform.position = new Vector3(target.x, target.y, this.transform.position.z);
+    }
+
+    private void endTransition()
+    {
+        _hasCalculatedTransitionType = false;
+        _inTransition = false;
+        _transitionTime = 0.0f;
+        PauseController.EndSequence(WorldLoadingManager.ROOM_TRANSITION_SEQUENCE);
+    }
 
     private void playerSpawned(LocalEventNotifier.Event e)
     {
@@ -113,8 +193,28 @@ public class CameraController : VoBehavior, IPausable
         {
             _inTransition = true;
             _transitionTime = 0.0f;
+            _transitionType = this.CurrentTransitionType;
+
+            // Check if we're in a new region, and if so, use different transition approach
+            if (_transitionType == TransitionType.Fade)
+                this.FadeEffect.Reverse();
+
             this.CalculateBounds();
         }
+    }
+
+    private TransitionType calculateTransitionType()
+    {
+        _hasCalculatedTransitionType = true;
+        if (this.RegionData != null && !StringExtensions.IsEmpty(_boundsHandler.PrevQuadName))
+        {
+            int current = this.RegionData.RegionIndexForRoom(_boundsHandler.PrevQuadName);
+            if (!this.RegionData.RegionContainsRoom(current, _boundsHandler.CurrentQuadName))
+            {
+                return TransitionType.Fade;
+            }
+        }
+        return TransitionType.Lerp;
     }
 
     private void onOptionChange(LocalEventNotifier.Event e)

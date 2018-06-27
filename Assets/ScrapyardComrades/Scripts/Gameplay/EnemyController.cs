@@ -51,7 +51,8 @@ public class EnemyController : SCCharacterController
                         defenseDuration: 40,
                         defenseChance: 0.35f,
                         walkToTargetDist: WALK_TO_TARGET_DIST, 
-                        interactDelay: INTERACT_DELAY
+                        interactDelay: INTERACT_DELAY,
+                        attractSoundKey: SoundData.Key.EnemyLV1_Attract
                     );
                     break;
                 case AIType.Guard:
@@ -66,7 +67,8 @@ public class EnemyController : SCCharacterController
                         defenseDuration: 30,
                         defenseChance: 0.35f,
                         walkToTargetDist: WALK_TO_TARGET_DIST,
-                        interactDelay: INTERACT_DELAY
+                        interactDelay: INTERACT_DELAY,
+                        attractSoundKey: SoundData.Key.EnemyGuard_Attract
                     );
                     break;
                 case AIType.Office:
@@ -83,7 +85,8 @@ public class EnemyController : SCCharacterController
                         defenseDuration: 40,
                         defenseChance: 0.35f,
                         walkToTargetDist: WALK_TO_TARGET_DIST, 
-                        interactDelay: INTERACT_DELAY
+                        interactDelay: INTERACT_DELAY,
+                        attractSoundKey: SoundData.Key.EnemyLV2_Attract
                     );
                     break;
                 case AIType.Paramedic:
@@ -100,7 +103,8 @@ public class EnemyController : SCCharacterController
                         defenseDuration: 40,
                         defenseChance: 0.35f,
                         walkToTargetDist: WALK_TO_TARGET_DIST,
-                        interactDelay: INTERACT_DELAY
+                        interactDelay: INTERACT_DELAY,
+                        attractSoundKey: SoundData.Key.EnemyLV2_Attract
                     );
                     break;
                 case AIType.Mutant:
@@ -118,7 +122,8 @@ public class EnemyController : SCCharacterController
                         defenseDuration: 25,
                         defenseChance: 0.30f,
                         walkToTargetDist: WALK_TO_TARGET_DIST,
-                        interactDelay: INTERACT_DELAY
+                        interactDelay: INTERACT_DELAY,
+                        attractSoundKey: SoundData.Key.EnemyMutant_Attract
                     );
                     break;
             }

@@ -25,7 +25,7 @@ public class MapLoader : MonoBehaviour
         this.BGParallaxRenderer.GetComponent<MeshRenderer>().sortingLayerName = MapEditorManager.BG_PARALLAX_LAYER;
     }
 
-    public void LoadMap(TilesetData platformsTileset, TilesetData bgTileset, TilesetData bgParallaxTileset, string platformsAtlas, string bgAtlas, string bgParallaxAtlas, Dictionary<string, PooledObject> objectPrefabs, Dictionary<string, PooledObject> propPrefabs, PooledObject lightPrefab)
+    public void LoadMap(TilesetData platformsTileset, TilesetData bgTileset, TilesetData bgParallaxTileset, string platformsAtlas, string bgAtlas, string bgParallaxAtlas, Dictionary<string, PooledObject> objectPrefabs, Dictionary<string, PooledObject> propPrefabs, PooledObject lightPrefab, bool inSequencePause)
     {
         this.ClearMap();
         _cleared = false;
@@ -58,7 +58,8 @@ public class MapLoader : MonoBehaviour
         }
 
         this.GeometryCreator.CreateGeometryForGrid(platformsGrid, platformsTileset.GetSpriteDataDictionary(), false);
-        
+
+        this.ObjectPlacer.InSequencePause = inSequencePause;
         this.ObjectPlacer.PlaceObjects(mapInfo.objects, objectPrefabs, this.MapName, true, MapEditorManager.OBJECTS_LAYER);
         this.ObjectPlacer.PlaceObjects(mapInfo.props, propPrefabs, this.MapName, false, MapEditorManager.PROPS_LAYER);
         if (mapInfo.props_background != null && mapInfo.props_background.Count > 0)

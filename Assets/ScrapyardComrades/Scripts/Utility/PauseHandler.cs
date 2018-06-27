@@ -45,6 +45,14 @@ public class PauseHandler : VoBehavior
     }
 
     /**
+     * NOTE: Use carefully!
+     */
+    public void ForcePause(PauseController.PauseGroup pauseGroup)
+    {
+        pauseHelper(pauseGroup);
+    }
+
+    /**
      * Private
      */
     private List<Pausable> _pausables;
@@ -87,7 +95,11 @@ public class PauseHandler : VoBehavior
     
     private void pause(LocalEventNotifier.Event e)
     {
-        PauseController.PauseGroup group = (e as PauseEvent).PauseGroup;
+        pauseHelper((e as PauseEvent).PauseGroup);
+    }
+
+    private void pauseHelper(PauseController.PauseGroup group)
+    {
         if (isAffected(group) && (_currentPausedLayers & (uint)group) != (uint)group)
         {
             bool prevPaused = _currentPausedLayers != 0;

@@ -119,6 +119,10 @@ public class SCCharacterController : Actor2D
     public Facing DirectionGrabbingLedge { get; private set; }
     public bool Blocked { get; private set; }
     public bool DidJump { get; private set; }
+    public bool DidWallJump { get; private set; }
+    public bool DidCollideX { get; private set; }
+    public bool DidLand { get { return _onGround && _groundedFrames == 1; } }
+    public bool WasFallingFast { get { return _lastFallingSpeed < -this.MaxFallSpeed - 0.01f; } }
 
     public const float DEATH_VELOCITY_MAX = 0.5f;
     public const string LOOT_DROP_EVENT = "LOOT_DROP";
@@ -147,12 +151,14 @@ public class SCCharacterController : Actor2D
         _potentialWallCollisions = new List<IntegerCollider>();
         _wallJumpExpandAmount = Mathf.Max(Mathf.Max(Mathf.Abs(this.AgainstWallCheckOffset), Mathf.Abs(this.WallJumpCheckOffset)), Mathf.Max(Mathf.Abs(this.LedgeGrabCheckDistance), Mathf.Abs(this.LedgeGrabPeekDistance))) * 2;
         this.Damagable.OnDeathCallback += onDeath;
+        this.Damagable.StartingInvincibilityGetter = getStartingIFrames;
     }
 
     public virtual void OnSpawn()
     {
         _hasSpawnedLoot = false;
         _groundedFrames = 0;
+        _lastFallingSpeed = 0.0f;
         this.Blocked = false;
         this.HurtboxState = SCAttack.HurtboxState.Ducking;
         updateHurtboxForState(this.HurtboxState);
@@ -259,10 +265,13 @@ public class SCCharacterController : Actor2D
         }
         else
         {
+            _lastFallingSpeed = _velocity.y;
             _onGround = false;
             _groundedFrames = 0;
         }
         this.DidJump = false;
+        this.DidWallJump = false;
+        this.DidCollideX = false;
         this.IsWallSliding = false;
         bool prevGrabbingLedge = this.IsGrabbingLedge && this.TotalVelocity.magnitude < VERY_SMALL_VELOCITY;
         this.IsGrabbingLedge = false;
@@ -665,9 +674,12 @@ public class SCCharacterController : Actor2D
     private int _wallJumpExpandAmount;
     private int _wallJumpGraceDir;
     private int _groundedFrames;
+    private float _lastFallingSpeed;
 
     private const float HORIZ_BOUNCE_FACTOR = 0.8f;
     private const float VERY_SMALL_VELOCITY = 0.02f;
+    private const int LEVEL_GEO_LAYER = 8;
+    private const int MOVING_PLATFORMS_LAYER = 16;
 
     protected struct ControlParameters
     {
@@ -778,6 +790,21 @@ public class SCCharacterController : Actor2D
 
     private void onCollide(LocalEventNotifier.Event e)
     {
+        CollisionEvent ce = e as CollisionEvent;
+        if (ce.MovementHalted && ce.CollideX)
+        {
+            this.DidCollideX = true;
+
+            for (int i = 0; i < ce.Hits.Count; ++i)
+            {
+                if (ce.Hits[i] != null && ce.Hits[i].layer != LEVEL_GEO_LAYER && ce.Hits[i].layer != MOVING_PLATFORMS_LAYER)
+                {
+                    this.DidCollideX = false;
+                    break;
+                }
+            }
+        }
+
         _autoMoveTimer.complete();
 
         //NOTE: This isn't necessary without vertical moving platforms
@@ -798,10 +825,15 @@ public class SCCharacterController : Actor2D
         IMovingPlatform movingPlatform = platform.GetComponent<IMovingPlatform>();
         if (movingPlatform != null)
         {
-            _restingVelocityModifier.Modifier = movingPlatform.Velocity;
+            movingPlatformAlignHelper(movingPlatform);
             return true;
         }
         return false;
+    }
+
+    protected virtual void movingPlatformAlignHelper(IMovingPlatform movingPlatform)
+    {
+        _restingVelocityModifier.Modifier = movingPlatform.Velocity;
     }
 
     private bool checkAgainstWall(Facing direction, out int layer)
@@ -950,6 +982,7 @@ public class SCCharacterController : Actor2D
     private void wallJump(Facing direction)
     {
         this.DidJump = true;
+        this.DidWallJump = true;
         if (this.JumpOriginTransform != null)
             this.JumpOriginTransform.SetLocalPosition2D(this.WallJumpOrigin.localPosition);
 
@@ -1077,5 +1110,10 @@ public class SCCharacterController : Actor2D
     private void onDeath()
     {
         this.WorldEntity.TriggerConsumption(false);
+    }
+
+    private int getStartingIFrames()
+    {
+        return this.StandupOnSpawn ? this.StandupFrames : 0;
     }
 }

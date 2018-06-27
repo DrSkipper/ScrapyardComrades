@@ -4,6 +4,7 @@ public class HeartSpawner : VoBehavior
 {
     public PooledObject HeartPrefab;
     public SCConsumable HeartValues;
+    public SoundData.Key SpawnSfxKey;
 
     // Bonus: Additional mutate points our heart gets when dropped, gained by consuming others' hearts. Note that this isn't recorded in SaveData so isn't persistent through saves, but as it's only relevant for enemies eating each others' hearts that should be fine
     public int Bonus { get; set; }
@@ -59,6 +60,7 @@ public class HeartSpawner : VoBehavior
             entity.enabled = false;
         }
 
+        SoundManager.Play(this.SpawnSfxKey, spawn.transform);
         spawn.transform.position = this.transform.position;
         spawn.BroadcastMessage(ObjectPlacer.ON_SPAWN_METHOD, SendMessageOptions.DontRequireReceiver);
     }

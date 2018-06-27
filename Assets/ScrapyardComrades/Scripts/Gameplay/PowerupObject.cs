@@ -9,6 +9,7 @@ public class PowerupObject : VoBehavior, IPausable
     public LayerMask ConsumerMask;
     public int VerticalSpeed = 1;
     public float Gravity = 1.0f;
+    public SoundData.Key ThrowSfxKey;
 
     public bool ThrowSpawnAnimation = true;
     public string ThrowOnStateKey = "TRIGGER";
@@ -118,6 +119,7 @@ public class PowerupObject : VoBehavior, IPausable
 
     private void throwCoin()
     {
+        SoundManager.Play(this.ThrowSfxKey, this.transform);
         _throwing = true;
         this.Actor.enabled = true;
         VelocityModifier vMod = this.Actor.GetVelocityModifier(THROW_VMOD);

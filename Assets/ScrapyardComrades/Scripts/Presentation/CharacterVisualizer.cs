@@ -22,6 +22,11 @@ public class CharacterVisualizer : VoBehavior
     public SCSpriteAnimation JumpEffect;
     public LevelUpVisualizer LevelUpAnim;
     public SoundData.Key JumpSoundKey = SoundData.Key.NONE;
+    public SoundData.Key WallJumpSoundKey = SoundData.Key.NONE;
+    public SoundData.Key LandSoundKey = SoundData.Key.NONE;
+    public SoundData.Key LandHardSoundKey = SoundData.Key.NONE;
+    public SoundData.Key LedgeGrabKey = SoundData.Key.NONE;
+    public SoundData.Key TouchWallKey = SoundData.Key.NONE;
     public float DodgeAlpha = 0.8f;
     public float JumpEffectAlpha = 0.8f;
 
@@ -69,6 +74,7 @@ public class CharacterVisualizer : VoBehavior
 
     void OnSpawn()
     {
+        _onLedge = false;
         if (_characterController.StandupOnSpawn)
         {
             if (this.LevelUpAnim != null)
@@ -93,14 +99,36 @@ public class CharacterVisualizer : VoBehavior
         _attackChanged = _currentAttack != null && _currentAttack != attack;
         _currentAttack = attack;
 
-        if (_characterController.DidJump && this.JumpEffectLocation != null)
+        if (_characterController.DidJump)
         {
-            //TODO: Different jump sfx depending on speed of the player
-            SoundManager.Play(this.JumpSoundKey, this.transform);
+            if (_characterController.DidWallJump)
+            {
+                //TODO: Different jump sfx depending on speed of the player
+                SoundManager.Play(this.WallJumpSoundKey, this.transform);
+            }
+            else
+            {
+                //TODO: Different jump sfx depending on speed of the player
+                SoundManager.Play(this.JumpSoundKey, this.transform);
+            }
 
-            PooledObject effect = this.JumpEffectPrefab.Retain();
-            effect.transform.SetPosition2D(this.JumpEffectLocation.position);
-            effect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(0, this.JumpEffect, (int)_characterController.CurrentFacing, this.JumpEffectAlpha);
+            if (this.JumpEffectLocation != null)
+            {
+                PooledObject effect = this.JumpEffectPrefab.Retain();
+                effect.transform.SetPosition2D(this.JumpEffectLocation.position);
+                effect.GetComponent<HitEffectHandler>().InitializeWithFreezeFrames(0, this.JumpEffect, (int)_characterController.CurrentFacing, this.JumpEffectAlpha);
+            }
+        }
+        else if (_characterController.DidLand && _stateMachine.CurrentState != STANDUP_STATE && _stateMachine.CurrentState != LAYDOWN_STATE)
+        {
+            if (this.LandHardSoundKey != SoundData.Key.NONE && _characterController.WasFallingFast)
+                SoundManager.Play(this.LandHardSoundKey, this.transform);
+            else
+                SoundManager.Play(this.LandSoundKey, this.transform);
+        }
+        else if (this.TouchWallKey != SoundData.Key.NONE && _characterController.DidCollideX && _stateMachine.CurrentState == RUNNING_STATE)
+        {
+            SoundManager.Play(this.TouchWallKey, this.transform);
         }
 
         _stateMachine.Update();
@@ -116,6 +144,7 @@ public class CharacterVisualizer : VoBehavior
     private SCAttack _currentAttack;
     private bool _attackChanged;
     private int _facingModifier = 1;
+    private bool _onLedge;
 
     private string updateGeneric()
     {
@@ -188,6 +217,7 @@ public class CharacterVisualizer : VoBehavior
 
     private void enterAttack()
     {
+        _onLedge = false;
         if (_currentAttack.Category == SCAttack.MoveCategory.Dodge)
         {
             Color c = this.spriteRenderer.color;
@@ -206,16 +236,22 @@ public class CharacterVisualizer : VoBehavior
 
     private void enterIdle()
     {
-        _spriteAnimator.PlayAnimation(this.IdleAnimation);
+        _onLedge = false;
+        if (this.IdleAnimation.LoopFrame == 0)
+            _spriteAnimator.PlayAnimationAtRandomFrame(this.IdleAnimation);
+        else
+            _spriteAnimator.PlayAnimation(this.IdleAnimation);
     }
 
     private void enterRunning()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.RunAnimation);
     }
 
     private void enterJumping()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.JumpAnimation);
     }
 
@@ -226,16 +262,27 @@ public class CharacterVisualizer : VoBehavior
 
     private void enterWallSlide()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.WallSlideAnimation);
     }
 
     private void enterLedgeGrab()
     {
+        if (!_onLedge)
+        {
+            SoundManager.Play(this.LedgeGrabKey, this.transform);
+            _onLedge = true;
+        }
         _spriteAnimator.PlayAnimation(this.LedgeGrabAnimation);
     }
 
     private void enterLedgeGrabBack()
     {
+        if (!_onLedge)
+        {
+            SoundManager.Play(this.LedgeGrabKey, this.transform);
+            _onLedge = true;
+        }
         _facingModifier = -1;
         _spriteAnimator.PlayAnimation(this.LedgeGrabBackAnimation != null ? this.LedgeGrabBackAnimation : this.LedgeGrabAnimation);
     }
@@ -247,37 +294,44 @@ public class CharacterVisualizer : VoBehavior
 
     private void enterDucking()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.DuckAnimation);
     }
 
     private void enterHitStun()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.HitStunAnimation);
     }
 
     private void enterDeathStun()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.DeathHitStunAnimation);
     }
 
     private void enterDeath()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.DeathAnimation);
     }
 
     private void enterStandup()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.StandupAnimation);
     }
 
     private void enterLaydown()
     {
+        _onLedge = false;
         _spriteAnimator.Stop();
         this.LevelUpAnim.Run();
     }
 
     private void enterBlocked()
     {
+        _onLedge = false;
         _spriteAnimator.PlayAnimation(this.BlockAnimation);
     }
 }

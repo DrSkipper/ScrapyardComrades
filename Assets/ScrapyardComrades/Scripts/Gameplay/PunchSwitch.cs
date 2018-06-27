@@ -6,6 +6,9 @@ public class PunchSwitch : VoBehavior, IPausable, SwitchBehavior
     public bool OneWay { get; set; }
     public int TwoWayResetDuration { get; set; }
 
+    public SoundData.Key SwitchOnKey = SoundData.Key.NONE;
+    public SoundData.Key SwitchOffKey = SoundData.Key.NONE;
+
     void Awake()
     {
         this.localNotifier.Listen(HitStunEvent.NAME, this, onHitStun);
@@ -14,6 +17,7 @@ public class PunchSwitch : VoBehavior, IPausable, SwitchBehavior
 
     void OnSpawn()
     {
+        this.integerCollider.AddToCollisionPool();
         if (!this.OneWay)
         {
             if (_twoWayTimer == null)
@@ -35,6 +39,11 @@ public class PunchSwitch : VoBehavior, IPausable, SwitchBehavior
             _twoWayTimer.update();
     }
 
+    void OnReturnToPool()
+    {
+        this.integerCollider.RemoveFromCollisionPool();
+    }
+
     /**
      * Private
      */
@@ -48,6 +57,7 @@ public class PunchSwitch : VoBehavior, IPausable, SwitchBehavior
         {
             if (canSwitch())
             {
+                SoundManager.Play(this.SwitchOnKey, this.transform);
                 this.SwitchScript.ToggleSwitch();
 
                 if (!this.OneWay)
@@ -60,7 +70,10 @@ public class PunchSwitch : VoBehavior, IPausable, SwitchBehavior
         else
         {
             if (canSwitch())
+            {
+                SoundManager.Play(this.SwitchOffKey, this.transform);
                 this.SwitchScript.ToggleSwitch();
+            }
         }
     }
 

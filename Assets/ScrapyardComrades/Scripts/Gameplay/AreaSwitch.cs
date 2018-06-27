@@ -8,6 +8,9 @@ public class AreaSwitch : MonoBehaviour, IPausable, SwitchBehavior
     public bool OneWay { get; set; }
     public int TwoWayResetDuration { get; set; }
 
+    public SoundData.Key SwitchOnKey = SoundData.Key.NONE;
+    public SoundData.Key SwitchOffKey = SoundData.Key.NONE;
+
     void Awake()
     {
         this.SwitchScript.StateChangeCallback += onStateChange;
@@ -39,6 +42,7 @@ public class AreaSwitch : MonoBehaviour, IPausable, SwitchBehavior
                 _beingPressed = true;
                 if (canSwitch())
                 {
+                    SoundManager.Play(this.SwitchOnKey, this.transform);
                     this.SwitchScript.ToggleSwitch();
 
                     if (!this.OneWay)
@@ -55,7 +59,10 @@ public class AreaSwitch : MonoBehaviour, IPausable, SwitchBehavior
             {
                 _beingPressed = false;
                 if (canSwitch())
+                {
+                    SoundManager.Play(this.SwitchOffKey, this.transform);
                     this.SwitchScript.ToggleSwitch();
+                }
             }
         }
     }

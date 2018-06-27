@@ -17,10 +17,10 @@ public class SoundManager : MonoBehaviour
         _cooldownKeys = new List<SoundData.Key>(this.AudioSources.Length);
     }
 
-    public static void Play(SoundData.Key key, Transform proximityTransform = null)
+    public static void Play(SoundData.Key key, Transform proximityTransform = null, float volumeMultiplier = -1, float pitchMultiplier = -1)
     {
         if (_instance != null && key != SoundData.Key.NONE)
-            _instance.playSoundKey(key, proximityTransform);
+            _instance.playSoundKey(key, proximityTransform, volumeMultiplier, pitchMultiplier);
     }
 
     void FixedUpdate()
@@ -52,7 +52,7 @@ public class SoundManager : MonoBehaviour
     private Dictionary<SoundData.Key, int> _cooldowns;
     private List<SoundData.Key> _cooldownKeys;
 
-    private void playSoundKey(SoundData.Key key, Transform proximityTransform)
+    private void playSoundKey(SoundData.Key key, Transform proximityTransform, float volumeMult, float pitchMult)
     {
         if (!_cooldowns.ContainsKey(key))
         {
@@ -61,19 +61,24 @@ public class SoundManager : MonoBehaviour
             if (entries != null)
             {
                 bool found = false;
-                for (int i = 0; i < entries.Count; ++i)
+                switch (entries.MultiSfxType)
                 {
-                    SoundData.Entry entry = entries.Entries[i];
-                    if (entry.Clip != null)
-                    {
-                        SfxSource source = findAvailableAudioSource();
-                        if (source != null)
+                    default:
+                    case SoundData.MultiSfxBehavior.PlayAll:
+                        for (int i = 0; i < entries.Count; ++i)
                         {
-                            found = true;
-                            source.Play(entry.Clip, entry.Volume, entry.Pitch, entries.UseProximity, proximityTransform);
+                            found |= playEntry(entries.Entries[i], entries, proximityTransform, volumeMult, pitchMult);
                         }
-                    }
+                        break;
+
+                    case SoundData.MultiSfxBehavior.Randomize:
+                        if (entries.Count > 0)
+                        {
+                            found = playEntry(entries.Entries[Random.Range(0, entries.Entries.Count - 1)], entries, proximityTransform, volumeMult, pitchMult);
+                        }
+                        break;
                 }
+
                 if (found)
                 {
                     _cooldowns.Add(key, this.SoundData.CooldownsByEnumIndex[keyIndex]);
@@ -85,6 +90,28 @@ public class SoundManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private bool playEntry(SoundData.Entry entry, SoundData.EntryList entries, Transform proximityTransform, float volumeMult, float pitchMult)
+    {
+        if (entry.Clip != null)
+        {
+            SfxSource source = findAvailableAudioSource();
+            if (source != null)
+            {
+                float volume = entry.Volume;
+                float pitch = entry.Pitch;
+
+                if (volumeMult >= 0.0f)
+                    volume = Mathf.Min(1.0f, volume * volumeMult);
+                if (pitchMult >= 0.0f)
+                    pitch = Mathf.Min(1.0f, pitch * pitchMult);
+
+                source.Play(entry.Clip, volume, pitch, entries.UseProximity, proximityTransform, entries.ProximityClose, entries.ProximityFar);
+                return true;
+            }
+        }
+        return false;
     }
 
     private SfxSource findAvailableAudioSource()

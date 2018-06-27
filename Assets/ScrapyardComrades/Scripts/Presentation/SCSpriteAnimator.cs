@@ -19,6 +19,7 @@ public class SCSpriteAnimator : VoBehavior, IPausable
 
         if (this.DefaultAnimation != null)
             this.PlayAnimation(this.DefaultAnimation);
+        this.Stop();
         this.localNotifier.Listen(FreezeFrameEvent.NAME, this, freezeFrame);
         this.localNotifier.Listen(FreezeFrameEndedEvent.NAME, this, freezeFrameEnded);
     }
@@ -40,6 +41,21 @@ public class SCSpriteAnimator : VoBehavior, IPausable
         _looping = loop;
         _frame = 0;
         _elapsed = 0;
+        _playing = true;
+        updateVisual();
+    }
+
+    public void PlayAnimationAtRandomFrame(SCSpriteAnimation animation)
+    {
+        this.PlayAnimationAtRandomFrame(animation, animation.LoopsByDefault);
+    }
+
+    public void PlayAnimationAtRandomFrame(SCSpriteAnimation animation, bool loop)
+    {
+        _currentAnimation = animation;
+        _looping = loop;
+        _elapsed = Random.Range(0, animation.LengthInFrames);
+        _frame = this.GetVisualFrameForDataFrame(_elapsed);
         _playing = true;
         updateVisual();
     }
@@ -96,6 +112,11 @@ public class SCSpriteAnimator : VoBehavior, IPausable
     public int GetDataFrameForVisualFrame(int visualFrame)
     {
         return Mathf.Clamp(Mathf.RoundToInt(this.GetFrameDuration() * (float)Mathf.Clamp(visualFrame, 0, _currentAnimation.Frames.Length - 1)), 0, _currentAnimation.LengthInFrames - 1);
+    }
+
+    public int GetVisualFrameForDataFrame(int dataFrame)
+    {
+        return Mathf.Clamp(Mathf.RoundToInt((dataFrame / (float)_currentAnimation.LengthInFrames) * (_currentAnimation.Frames.Length - 1)), 0, _currentAnimation.Frames.Length - 1);
     }
 
     public void Loop(int frame = 0, float frameDuration = -1)

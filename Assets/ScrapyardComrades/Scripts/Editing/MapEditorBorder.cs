@@ -7,6 +7,8 @@ public class MapEditorBorder : MonoBehaviour, CameraBoundsHandler
     public IntegerRectCollider CurrentQuadBoundsCheck;
     public CameraController CameraController;
     public bool UseFullSize = true;
+    public string CurrentQuadName { get { return StringExtensions.EMPTY; } }
+    public string PrevQuadName { get { return StringExtensions.EMPTY; } }
 
     public IntegerRectCollider GetBounds() { return this.CurrentQuadBoundsCheck; }
 

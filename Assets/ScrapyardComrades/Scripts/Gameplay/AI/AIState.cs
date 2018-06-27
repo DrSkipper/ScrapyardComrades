@@ -46,12 +46,27 @@ public class AIState
 
 public class IdleState : AIState
 {
+    public IdleState(SoundData.Key exitSoundKey)
+    {
+        _exitSoundKey = exitSoundKey;
+    }
+
     public override AIOutput UpdateState(AIInput input)
     {
         AIOutput output = new AIOutput();
         output.Interact = true;
         return output;
     }
+
+    public override void ExitState()
+    {
+        SoundManager.Play(_exitSoundKey);
+    }
+
+    /**
+     * Private
+     */
+    private SoundData.Key _exitSoundKey;
 }
 
 public class WalkTowardState : AIState

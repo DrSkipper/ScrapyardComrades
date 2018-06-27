@@ -114,6 +114,12 @@ public class PlayerController : SCCharacterController, PowerupConsumer
         }
     }
 
+    protected override void movingPlatformAlignHelper(IMovingPlatform movingPlatform)
+    {
+        base.movingPlatformAlignHelper(movingPlatform);
+        movingPlatform.PlayRidingEffects();
+    }
+
     private void updatePowerupState(PowerupTiers tiers)
     {
         bool inNextTier = false;

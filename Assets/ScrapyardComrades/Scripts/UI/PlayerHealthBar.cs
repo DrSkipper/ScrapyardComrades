@@ -10,6 +10,7 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
     public int MinStrobeDuration;
     public int MaxStrobeDuration;
     public int PixelUnitsPerHealthUnit = 10;
+    public bool UseScaleAnim = false;
     public Easing.Function ScaleFunction;
     public Easing.Flow ScaleFlow;
     public float TargetScale = 2.0f;
@@ -22,6 +23,9 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
     public float IconIdleLerpMinPercent = 2.0f;
     public float IconIdleLerpMaxPercent = 50.0f;
     public int HurtAnimDuration = 30;
+    public float MaxPercentForBeeps = 0.4f;
+    public SoundData.Key HealthBeepSfxKey;
+    public RectTransform NextThresholdIcon;
 
     void Awake()
     {
@@ -48,18 +52,21 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
         _currentHSV.x = _currentHSV.x.Approach(target.x, _currentSpeed.x);
         _currentHSV.y = _currentHSV.y.Approach(target.y, _currentSpeed.y);
         _currentHSV.z = _currentHSV.z.Approach(target.z, _currentSpeed.z);
-
+        
         if (_t >= _currentDuration)
         {
             _strobingIn = !_strobingIn;
             _t = 0;
+            
+            if (_strobingIn && _healthController != null && _prevHealth / (float)_healthController.Damagable.MaxHealth < this.MaxPercentForBeeps)
+                SoundManager.Play(this.HealthBeepSfxKey);
         }
         else
         {
             ++_t;
         }
 
-        if (_scaleT >= 0)
+        if (this.UseScaleAnim && _scaleT >= 0)
         {
             float scale = 1;
 
@@ -115,6 +122,17 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
             _prevHealth = _healthController.Damagable.Health;
             playerHealthChanged(_healthController.Damagable.Health, _healthController.Damagable.MaxHealth, false);
             _healthController.HealthChangedCallback += playerHealthChanged;
+
+            if (_healthController.HeroLevel < _healthController.ProgressionData.MaxHeroLevel)
+            {
+                this.NextThresholdIcon.gameObject.SetActive(true);
+                //this.NextThresholdIcon.SetLocalX(_healthController.ProgressionData.LevelData[_healthController.HeroLevel].MaxHealthThreshold * this.PixelUnitsPerHealthUnit);
+                this.NextThresholdIcon.anchoredPosition = new Vector2(_healthController.ProgressionData.LevelData[_healthController.HeroLevel + 1].MaxHealthThreshold * this.PixelUnitsPerHealthUnit, this.NextThresholdIcon.anchoredPosition.y);
+            }
+            else
+            {
+                this.NextThresholdIcon.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -145,7 +163,7 @@ public class PlayerHealthBar : MonoBehaviour, IPausable
                     playCorrectIdleAnim();
                 }
 
-                if (highlight)
+                if (highlight && this.UseScaleAnim)
                 {
                     if (_scaleT <= 0)
                     {

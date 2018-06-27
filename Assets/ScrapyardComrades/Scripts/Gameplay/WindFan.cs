@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class WindFan : MonoBehaviour
+public class WindFan : MonoBehaviour, IPausable
 {
     public Transform SpriteTransform;
     public WindRegion WindRegionScript;
@@ -11,6 +11,8 @@ public class WindFan : MonoBehaviour
     public SCSpriteAnimator Animator;
     public SCSpriteAnimation StoppedAnimation;
     public SCSpriteAnimation RunningAnimation;
+    public SoundData.Key PowerOnSfxKey;
+    public SoundData.Key PowerOffSfxKey;
 
     public TurretController.AttachDir AttachedAt = TurretController.AttachDir.Down;
 
@@ -82,6 +84,17 @@ public class WindFan : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        if (!_playingSfx)
+            _playingSfx = true;
+    }
+
+    void OnReturnToPool()
+    {
+        _playingSfx = false;
+    }
+
     /**
      * Private
      */
@@ -92,6 +105,7 @@ public class WindFan : MonoBehaviour
     private IntegerVector _defaultParticleVelocity;
     private Vector2 _defaultTargetVelocity;
     private int _spriteOffset;
+    private bool _playingSfx;
 
     private void onSwitchStateChange(Switch.SwitchState state)
     {
@@ -99,11 +113,15 @@ public class WindFan : MonoBehaviour
         {
             default:
             case Switch.SwitchState.OFF:
+                if (_playingSfx)
+                    SoundManager.Play(this.PowerOffSfxKey, this.transform);
                 this.WindRegionScript.Activated = false;
                 this.Particles.Paused = true;
                 this.Animator.PlayAnimation(this.StoppedAnimation);
                 break;
             case Switch.SwitchState.ON:
+                if (_playingSfx)
+                    SoundManager.Play(this.PowerOnSfxKey, this.transform);
                 this.WindRegionScript.Activated = true;
                 this.Particles.Paused = false;
                 this.Animator.PlayAnimation(this.RunningAnimation);
