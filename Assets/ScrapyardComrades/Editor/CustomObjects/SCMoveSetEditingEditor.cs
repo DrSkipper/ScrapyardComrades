@@ -111,10 +111,13 @@ public class SCMoveSetEditingEditor : Editor
 
             options.Clear();
             values.Clear();
-            for (int i = 0; i < behavior.AttackAnimator.CurrentAnimation.Frames.Length; ++i)
+            if (behavior.AttackAnimator.CurrentAnimation != null)
             {
-                options.Add("" + i);
-                values.Add(i);
+                for (int i = 0; i < behavior.AttackAnimator.CurrentAnimation.Frames.Length; ++i)
+                {
+                    options.Add("" + i);
+                    values.Add(i);
+                }
             }
 
             behavior.Frame = EditorGUILayout.IntPopup("Visual Frame", Mathf.Clamp(behavior.Frame, 0, behavior.AttackAnimator.CurrentAnimation.Frames.Length - 1), options.ToArray(), values.ToArray());
