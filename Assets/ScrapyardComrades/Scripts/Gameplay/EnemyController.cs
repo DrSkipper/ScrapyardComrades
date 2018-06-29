@@ -20,7 +20,11 @@ public class EnemyController : SCCharacterController
         Guard,
         Office,
         Paramedic,
-        Mutant
+        Mutant,
+        Corporate,
+        Military,
+        Guerilla,
+        Hacker
     }
 
     [System.Serializable]
@@ -126,6 +130,76 @@ public class EnemyController : SCCharacterController
                         attractSoundKey: SoundData.Key.EnemyMutant_Attract
                     );
                     break;
+                case AIType.Corporate:
+                    _attackStateRange = BOSS_ATTACK_RANGE;
+                    _ai = new MidMutantAI(
+                        attackStateRange: BOSS_ATTACK_RANGE,
+                        pursuitRange: 425,
+                        jumpAtRangeFar: 200,
+                        jumpAtRangeNear: 145,
+                        executeAirAttackRange: 180,
+                        executeAttackRange: 115,
+                        attackingPursuitTargetDist: 75,
+                        attackStateCooldown: 3,
+                        defenseDuration: 25,
+                        defenseChance: 0.25f,
+                        walkToTargetDist: WALK_TO_TARGET_DIST,
+                        interactDelay: INTERACT_DELAY,
+                        attractSoundKey: SoundData.Key.BossCorporate_Attract
+                    );
+                    break;
+                case AIType.Military:
+                    _attackStateRange = BOSS_ATTACK_RANGE;
+                    _ai = new MidMutantAI(
+                        attackStateRange: BOSS_ATTACK_RANGE,
+                        pursuitRange: 425,
+                        jumpAtRangeFar: 240,
+                        jumpAtRangeNear: 90,
+                        executeAirAttackRange: 425,
+                        executeAttackRange: 90,
+                        attackingPursuitTargetDist: 90,
+                        attackStateCooldown: 3,
+                        defenseDuration: 25,
+                        defenseChance: 0.25f,
+                        walkToTargetDist: WALK_TO_TARGET_DIST,
+                        interactDelay: INTERACT_DELAY,
+                        attractSoundKey: SoundData.Key.BossMilitary_Attract
+                    );
+                    break;
+                case AIType.Guerilla:
+                    _attackStateRange = BOSS_ATTACK_RANGE;
+                    _ai = new MidMutantAI(
+                        attackStateRange: BOSS_ATTACK_RANGE,
+                        pursuitRange: 425,
+                        jumpAtRangeFar: 200,
+                        jumpAtRangeNear: 145,
+                        executeAirAttackRange: 180,
+                        executeAttackRange: 115,
+                        attackingPursuitTargetDist: 75,
+                        attackStateCooldown: 3,
+                        defenseDuration: 25,
+                        defenseChance: 0.25f,
+                        walkToTargetDist: WALK_TO_TARGET_DIST,
+                        interactDelay: INTERACT_DELAY,
+                        attractSoundKey: SoundData.Key.BossGuerilla_Attract
+                    );
+                    break;
+                case AIType.Hacker:
+                    _attackStateRange = BOSS_ATTACK_RANGE;
+                    _ai = new GuardAI(
+                        attackStateRange: BOSS_ATTACK_RANGE,
+                        pursuitRange: 425,
+                        executeChargeRange: 160,
+                        executeAttackRange: 160,
+                        attackingPursuitTargetDist: 128,
+                        attackStateCooldown: 3,
+                        defenseDuration: 20,
+                        defenseChance: 0.25f,
+                        walkToTargetDist: WALK_TO_TARGET_DIST,
+                        interactDelay: INTERACT_DELAY,
+                        attractSoundKey: SoundData.Key.BossHacker_Attract
+                    );
+                    break;
             }
         }
         else
@@ -205,6 +279,7 @@ public class EnemyController : SCCharacterController
     private const int GUARD_ATTACK_RANGE = 275;
     private const int OFFICE_ATTACK_RANGE = 280;
     private const int MUTANT_ATTACK_RANGE = 290;
+    private const int BOSS_ATTACK_RANGE = 25;
     private const float WALK_TO_TARGET_DIST = 16;
     private const int INTERACT_DELAY = 25;
 
