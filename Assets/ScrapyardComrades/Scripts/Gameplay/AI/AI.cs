@@ -92,7 +92,7 @@ public class GuardAI : AI
     public GuardAI(float attackStateRange, float pursuitRange, float executeChargeRange, float executeAttackRange, float attackingPursuitTargetDist, int attackStateCooldown, int defenseDuration, float defenseChance, float walkToTargetDist, int interactDelay, SoundData.Key attractSoundKey)
     {
         AIState idleState = new IdleState(attractSoundKey);
-        GuardAttackState attackState = new GuardAttackState(executeChargeRange, executeAttackRange, attackingPursuitTargetDist, attackStateCooldown);
+        GuardAttackState attackState = new GuardAttackState(executeChargeRange, executeAttackRange, attackingPursuitTargetDist, attackStateCooldown, -1, defenseChance);
         AIState walkState = new WalkTowardState(walkToTargetDist, interactDelay); // Walk toward targets that are not alive
         SimpleDefenseState defenseState = new SimpleDefenseState(defenseDuration);
 
@@ -128,7 +128,43 @@ public class MidMutantAI : AI
     public MidMutantAI(float attackStateRange, float pursuitRange, float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeAttackRange, float attackingPursuitTargetDist, int attackStateCooldown, int defenseDuration, float defenseChance, float walkToTargetDist, int interactDelay, SoundData.Key attractSoundKey, int executeStrongAttackRange = -1)
     {
         AIState idleState = new IdleState(attractSoundKey);
-        MidMutantAttackState attackState = new MidMutantAttackState(jumpAtRangeFar, jumpAtRangeNear, executeAirAttackRange, executeAttackRange, attackingPursuitTargetDist, attackStateCooldown, executeStrongAttackRange);
+        MidMutantAttackState attackState = new MidMutantAttackState(jumpAtRangeFar, jumpAtRangeNear, executeAirAttackRange, executeAttackRange, attackingPursuitTargetDist, attackStateCooldown, executeStrongAttackRange, defenseChance);
+        AIState walkState = new WalkTowardState(walkToTargetDist, interactDelay); // Walk toward targets that are not alive
+        SimpleDefenseState defenseState = new SimpleDefenseState(defenseDuration);
+
+        idleState.AddTransition(new ANDTransition(new AIStateTransition[] {
+            new TargetAliveTransition(attackState, true),
+            new TargetWithinRangeTransition(attackState, 0, attackStateRange, true)
+        }));
+        idleState.AddTransition(new ANDTransition(new AIStateTransition[] {
+            new TargetAliveTransition(walkState, false),
+            new TargetWithinRangeTransition(walkState, 0, attackStateRange, true)
+        }));
+        attackState.AddTransition(new NoTargetTransition(idleState));
+        attackState.AddTransition(new TargetChangedTransition(idleState));
+        attackState.AddTransition(new TargetWithinRangeTransition(idleState, pursuitRange));
+        attackState.AddTransition(new ANDTransition(new AIStateTransition[] {
+            new TargetAliveTransition(idleState, false),
+            new TargetWithinRangeTransition(idleState, 0, executeAttackRange)
+        }));
+        attackState.AddTransition(new CustomTransition(attackState, defenseState));
+        defenseState.AddTransition(new CustomTransition(defenseState, attackState));
+        walkState.AddTransition(new NoTargetTransition(idleState));
+        walkState.AddTransition(new TargetChangedTransition(idleState));
+        walkState.AddTransition(new TargetAliveTransition(idleState, true));
+        walkState.AddTransition(new TargetWithinRangeTransition(idleState, pursuitRange));
+
+        this.DefaultState = idleState;
+        this.CurrentState = idleState;
+    }
+}
+
+public class BossMilitaryAI : AI
+{
+    public BossMilitaryAI(float attackStateRange, float pursuitRange, float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeAttackRange, float attackingPursuitTargetDist, int attackStateCooldown, int defenseDuration, float defenseChance, float walkToTargetDist, int interactDelay, SoundData.Key attractSoundKey, int executeStrongAttackRange = -1)
+    {
+        AIState idleState = new IdleState(attractSoundKey);
+        BossMilitaryAttackState attackState = new BossMilitaryAttackState(jumpAtRangeFar, jumpAtRangeNear, executeAirAttackRange, executeAttackRange, attackingPursuitTargetDist, attackStateCooldown, executeStrongAttackRange, defenseChance, 100);
         AIState walkState = new WalkTowardState(walkToTargetDist, interactDelay); // Walk toward targets that are not alive
         SimpleDefenseState defenseState = new SimpleDefenseState(defenseDuration);
 

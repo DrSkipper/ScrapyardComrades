@@ -305,6 +305,45 @@ public class MidMutantAttackState : SimpleAttackState
     private float _executeAirAttackRange;
 }
 
+public class BossMilitaryAttackState : SimpleAttackState
+{
+    public BossMilitaryAttackState(float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeAttackRange, float pursuitToDist, int cooldown, int executeStrongAttackRange, float defenseStateChance, float executeDiveRange) : base(executeAttackRange, pursuitToDist, cooldown, executeStrongAttackRange, defenseStateChance)
+    {
+        _jumpAtRangeFar = jumpAtRangeFar;
+        _jumpAtRangeNear = jumpAtRangeNear;
+        _executeAirAttackRange = executeAttackRange;
+        _hasDoneAerialAOE = false;
+    }
+
+    public override AIOutput UpdateState(AIInput input)
+    {
+        AIOutput output = base.UpdateState(input);
+        float d = Mathf.Abs(input.OurPosition.X - input.TargetPosition.X);
+
+        if (input.OnGround)
+        {
+            _hasDoneAerialAOE = false;
+            if (!output.Jump && d < _jumpAtRangeFar && d > _jumpAtRangeNear)
+                output.Jump = true;
+        }
+
+        else if (!output.Attack && !output.AttackStrong)
+        {
+            if (d < _executeAirAttackRange)
+            {
+                output.Attack = true;
+            }
+        }
+
+        return output;
+    }
+
+    private float _jumpAtRangeFar;
+    private float _jumpAtRangeNear;
+    private float _executeAirAttackRange;
+    private bool _hasDoneAerialAOE;
+}
+
 public class MutantAttackState : AIState, CustomTransitionState
 {
     public MutantAttackState(float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeChargeRange, float executeAttackRange, float pursuitToDist, int cooldown, float defenseStateChance = 0.5f)
