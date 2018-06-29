@@ -150,7 +150,7 @@ public class EnemyController : SCCharacterController
                     break;
                 case AIType.Military:
                     _attackStateRange = BOSS_ATTACK_RANGE;
-                    _ai = new MidMutantAI(
+                    _ai = new BossMilitaryAI(
                         attackStateRange: BOSS_ATTACK_RANGE,
                         pursuitRange: 425,
                         jumpAtRangeFar: 240,

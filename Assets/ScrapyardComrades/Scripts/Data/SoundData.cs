@@ -488,6 +488,8 @@ public class SoundData : ScriptableObject
         BossHacker_Jump,
         BossHacker_DeathLand,
 
+        BossMilitary_AerialDiveLoop,
+
         /**
          * End
          */
