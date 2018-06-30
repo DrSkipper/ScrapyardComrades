@@ -117,16 +117,16 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6e13cc061cff2e940816bb1261a91228
+      spriteID: 5a279c296b158ec4b93cc20fbc950782
       vertices: []
       indices: 
       edges: []
@@ -135,18 +135,18 @@ TextureImporter:
       name: hero_lvl5_attack_1
       rect:
         serializedVersion: 2
-        x: 175
+        x: 179
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5cee29af2e703984c9a418e2aee18b53
+      spriteID: ef46e98578f872d4280450fc70917ff0
       vertices: []
       indices: 
       edges: []
@@ -155,18 +155,18 @@ TextureImporter:
       name: hero_lvl5_attack_2
       rect:
         serializedVersion: 2
-        x: 350
+        x: 358
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 126e06d05c75e4c4ba386e226950c422
+      spriteID: a779600e8930adf4fa0372606b106d24
       vertices: []
       indices: 
       edges: []
@@ -175,18 +175,18 @@ TextureImporter:
       name: hero_lvl5_attack_3
       rect:
         serializedVersion: 2
-        x: 525
+        x: 537
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1823bab902f00be4b87d2e49d76637ba
+      spriteID: 3743337ee439a3947b71f8bdc265e979
       vertices: []
       indices: 
       edges: []
@@ -195,18 +195,18 @@ TextureImporter:
       name: hero_lvl5_attack_4
       rect:
         serializedVersion: 2
-        x: 700
+        x: 716
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fb7e0c937d135b74ea0f8976c1d80b30
+      spriteID: 32199a763e84853428d688636ada1f41
       vertices: []
       indices: 
       edges: []
@@ -217,16 +217,16 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 190
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 26fdf6cd43ff185478254e7ffdcc541e
+      spriteID: fad2a611a432db748aa175be44bc48ab
       vertices: []
       indices: 
       edges: []
@@ -235,18 +235,18 @@ TextureImporter:
       name: hero_lvl5_attack_6
       rect:
         serializedVersion: 2
-        x: 175
+        x: 179
         y: 190
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8828549db60da7a48aee3320ba10e750
+      spriteID: 1b029acfa3f27d543819cc64ea0b953c
       vertices: []
       indices: 
       edges: []
@@ -255,18 +255,18 @@ TextureImporter:
       name: hero_lvl5_attack_7
       rect:
         serializedVersion: 2
-        x: 350
+        x: 358
         y: 190
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b95c383862144184eabc173491d2fe5c
+      spriteID: cfeda394c6e43284a9c653c5521c8a5a
       vertices: []
       indices: 
       edges: []

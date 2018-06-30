@@ -1,7 +1,14 @@
 fileFormatVersion: 2
 guid: 3c352a2bfdd31f242ba5a20b0e7f9ac7
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: hero_lvl5_crush_FX_0
+    21300002: hero_lvl5_crush_FX_1
+    21300004: hero_lvl5_crush_FX_2
+    21300006: hero_lvl5_crush_FX_3
+    21300008: hero_lvl5_crush_FX_4
+    21300010: hero_lvl5_crush_FX_5
+    21300012: hero_lvl5_crush_FX_6
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -20,7 +27,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -102,7 +109,147 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: hero_lvl5_crush_FX_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 169
+        width: 175
+        height: 87
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3a54e02a87b0054da2c8458baeb7320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_lvl5_crush_FX_1
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 169
+        width: 175
+        height: 87
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91ec6c37ba1c22f48ba410454128132f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_lvl5_crush_FX_2
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 169
+        width: 175
+        height: 87
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59509b2556056204b9670029326c8c4d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_lvl5_crush_FX_3
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 169
+        width: 175
+        height: 87
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52e84a0881e337646829cef4bd603c8a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_lvl5_crush_FX_4
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 169
+        width: 175
+        height: 87
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb820f8153567f468be69e6ea64af79
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_lvl5_crush_FX_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 82
+        width: 175
+        height: 87
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 080c32f5bb5a8534794f5a79f838b0c1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_lvl5_crush_FX_6
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 82
+        width: 175
+        height: 87
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d56586f19d20b9e43b6490dd407b3d46
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

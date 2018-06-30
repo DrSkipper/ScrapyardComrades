@@ -1,7 +1,11 @@
 fileFormatVersion: 2
 guid: 2379368bc39f9fa4c99c3d0e186e8a15
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: hero_lvl5_attack_FX_0
+    21300002: hero_lvl5_attack_FX_1
+    21300004: hero_lvl5_attack_FX_2
+    21300006: hero_lvl5_attack_FX_3
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -102,7 +106,87 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: hero_lvl5_attack_FX_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 79
+        width: 121
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 379b5caec6d9b9046b3f237fa1f112a7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_lvl5_attack_FX_1
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 79
+        width: 121
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d09016286f348b24d8d1f7382f972d63
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_lvl5_attack_FX_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 30
+        width: 121
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbf80ed3239a24249a449870d3adca87
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_lvl5_attack_FX_3
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 30
+        width: 121
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a78fda1a1b8ddb349bd9522ba4a529a7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

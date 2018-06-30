@@ -118,16 +118,16 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: efc8061e524209d4ca89d18535329bbe
+      spriteID: 510b1714597401743910ce965adf4d4c
       vertices: []
       indices: 
       edges: []
@@ -136,18 +136,18 @@ TextureImporter:
       name: hero_lvl5_jump_crush_1
       rect:
         serializedVersion: 2
-        x: 175
+        x: 179
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 70f99c37cda1937458ff71d5d7f5bd77
+      spriteID: b1f53e8abf5704f49bd72928999943f9
       vertices: []
       indices: 
       edges: []
@@ -156,18 +156,18 @@ TextureImporter:
       name: hero_lvl5_jump_crush_2
       rect:
         serializedVersion: 2
-        x: 350
+        x: 358
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a1f0b107d16de05429f7d4208679b54f
+      spriteID: 2b51be8e1d23ab94b919e65f3fe78a4c
       vertices: []
       indices: 
       edges: []
@@ -176,18 +176,18 @@ TextureImporter:
       name: hero_lvl5_jump_crush_3
       rect:
         serializedVersion: 2
-        x: 525
+        x: 537
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4d0d958cabe98324b858ad7f903d73bc
+      spriteID: 23293239a195bd340a9b420e39afe56e
       vertices: []
       indices: 
       edges: []
@@ -196,18 +196,18 @@ TextureImporter:
       name: hero_lvl5_jump_crush_4
       rect:
         serializedVersion: 2
-        x: 700
+        x: 716
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4b7436bf51dcf604dbe179ff6b53636a
+      spriteID: 82e3af1dc67e2d94d821503a42105bf3
       vertices: []
       indices: 
       edges: []
@@ -218,16 +218,16 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 190
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 69ddb22fd27db84488821fe37ab87e49
+      spriteID: d28bd933eec8d1c489642eb76a99d87c
       vertices: []
       indices: 
       edges: []
@@ -236,18 +236,18 @@ TextureImporter:
       name: hero_lvl5_jump_crush_6
       rect:
         serializedVersion: 2
-        x: 175
+        x: 179
         y: 190
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: aba994ab7604a68489781b6326690d78
+      spriteID: a03ca14b87aaa994c92623ad5f772f3c
       vertices: []
       indices: 
       edges: []
@@ -256,18 +256,18 @@ TextureImporter:
       name: hero_lvl5_jump_crush_7
       rect:
         serializedVersion: 2
-        x: 350
+        x: 358
         y: 190
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f643289243493b74687fb761dcaaee03
+      spriteID: d1bbffb64714364448527853a98aa66d
       vertices: []
       indices: 
       edges: []
@@ -276,18 +276,18 @@ TextureImporter:
       name: hero_lvl5_jump_crush_8
       rect:
         serializedVersion: 2
-        x: 525
+        x: 537
         y: 190
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4c3bbe86b5f99944f829afb2cc59eed7
+      spriteID: 98e6df2ea516fe64c8b64777c3c294dc
       vertices: []
       indices: 
       edges: []

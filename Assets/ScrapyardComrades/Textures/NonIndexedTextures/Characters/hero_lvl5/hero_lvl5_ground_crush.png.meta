@@ -117,16 +117,16 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 56b4160f3af4e764ba4e9ce4ff3b1dee
+      spriteID: b5662071f0a77564bbf222af01e93b17
       vertices: []
       indices: 
       edges: []
@@ -135,18 +135,18 @@ TextureImporter:
       name: hero_lvl5_ground_crush_1
       rect:
         serializedVersion: 2
-        x: 175
+        x: 179
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4581abe9cfb82474b8a136d3201e17ef
+      spriteID: 53d44944715bce44ba95a41f4fbc3fb6
       vertices: []
       indices: 
       edges: []
@@ -155,18 +155,18 @@ TextureImporter:
       name: hero_lvl5_ground_crush_2
       rect:
         serializedVersion: 2
-        x: 350
+        x: 358
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4be5a86a887168743a8ae4b03736d348
+      spriteID: c4f56b729476bac4888e6a92b262044e
       vertices: []
       indices: 
       edges: []
@@ -175,18 +175,18 @@ TextureImporter:
       name: hero_lvl5_ground_crush_3
       rect:
         serializedVersion: 2
-        x: 525
+        x: 537
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b3d86ea8e7cc76e4c968e2b6f0300e5c
+      spriteID: 27ab0738d3eb32d4da4ff77c7926729a
       vertices: []
       indices: 
       edges: []
@@ -195,18 +195,18 @@ TextureImporter:
       name: hero_lvl5_ground_crush_4
       rect:
         serializedVersion: 2
-        x: 700
+        x: 716
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 111f1d7bc73f9ec4a87d8ebd5ec5da7b
+      spriteID: 8f47ca2c812fe584a8c62df16a987b86
       vertices: []
       indices: 
       edges: []
@@ -217,16 +217,16 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 190
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5cb9b116133c180468ff375be91c6293
+      spriteID: 1b1020dbd63c92b47b0cacabe68e6c61
       vertices: []
       indices: 
       edges: []
@@ -235,18 +235,18 @@ TextureImporter:
       name: hero_lvl5_ground_crush_6
       rect:
         serializedVersion: 2
-        x: 175
+        x: 179
         y: 190
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 31e7ee8c53da28b4389e8ed1eed31a2c
+      spriteID: 889fe5edea4569a4f85cc904df45bf0a
       vertices: []
       indices: 
       edges: []
@@ -255,18 +255,18 @@ TextureImporter:
       name: hero_lvl5_ground_crush_7
       rect:
         serializedVersion: 2
-        x: 350
+        x: 358
         y: 190
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ef95e2be695ecb540ae56f5a94a1fd38
+      spriteID: f20d600495307b64aa8538edd633b3e6
       vertices: []
       indices: 
       edges: []

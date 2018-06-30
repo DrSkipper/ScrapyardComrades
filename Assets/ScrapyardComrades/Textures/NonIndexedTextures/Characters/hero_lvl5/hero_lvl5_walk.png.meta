@@ -115,16 +115,16 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7f1887f7c8dc1dc479ae8c64831337cc
+      spriteID: 4b7971200bc260f418c440b119fb48dc
       vertices: []
       indices: 
       edges: []
@@ -133,18 +133,18 @@ TextureImporter:
       name: hero_lvl5_walk_1
       rect:
         serializedVersion: 2
-        x: 175
+        x: 179
         y: 351
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ca9640f782387b144ade23442dec4940
+      spriteID: d36a3ad981bf73943aa890cee47d248a
       vertices: []
       indices: 
       edges: []
@@ -155,16 +155,16 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 190
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c30536b1609068844b56a856733f1487
+      spriteID: f26b69573332c2d468c22bf9d526da34
       vertices: []
       indices: 
       edges: []
@@ -173,18 +173,18 @@ TextureImporter:
       name: hero_lvl5_walk_3
       rect:
         serializedVersion: 2
-        x: 175
+        x: 179
         y: 190
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f81b676d1155b8a469302f17fec746bc
+      spriteID: 09ba0d004bffd184c9484a1f173a10a4
       vertices: []
       indices: 
       edges: []
@@ -195,16 +195,16 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 29
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fbfb1ad1cb986e949956772624ed8171
+      spriteID: c766be48593d26a4394f4a40c11ce849
       vertices: []
       indices: 
       edges: []
@@ -213,18 +213,18 @@ TextureImporter:
       name: hero_lvl5_walk_5
       rect:
         serializedVersion: 2
-        x: 175
+        x: 179
         y: 29
-        width: 175
+        width: 179
         height: 161
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 84703bc1b1c336942aeea03b5a32e6e9
+      spriteID: c2b46712997cb2e45b640942495c3b2a
       vertices: []
       indices: 
       edges: []
