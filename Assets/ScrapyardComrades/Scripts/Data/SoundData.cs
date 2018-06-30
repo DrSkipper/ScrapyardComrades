@@ -441,6 +441,7 @@ public class SoundData : ScriptableObject
         BossCorporate_Jump,
         BossCorporate_Teleport,
         BossCorporate_DeathLand,
+        BossCorporate_Punch2,
 
         BossMilitary_Attract = 365,
         BossMilitary_Footstep1,
