@@ -149,7 +149,7 @@ public class SoundManagerWindow : EditorWindow
                     }
                 }
 
-                this.Data.CooldownsByEnumIndex[keyIndex] = EditorGUILayout.IntSlider("Cooldown", this.Data.CooldownsByEnumIndex[keyIndex], 0, 100);
+                this.Data.CooldownsByEnumIndex[keyIndex] = EditorGUILayout.IntSlider("Cooldown", this.Data.CooldownsByEnumIndex[keyIndex], 0, 1000);
                 changed |= EditorGUI.EndChangeCheck();
 
                 GUILayout.BeginHorizontal();
