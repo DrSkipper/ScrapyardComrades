@@ -335,28 +335,31 @@ public class BossMilitaryAttackState : SimpleAttackState
         {
             _hasDoneAerialAOE = false;
         }*/
-
-        else if (!output.Attack && !output.AttackStrong)
+        else
         {
             output.Jump = true;
-            if (d < _executeAirAttackRange)
+
+            if (!output.Attack && !output.AttackStrong)
             {
-                if (!_hasDoneAerialAOE)
+                if (d < _executeAirAttackRange)
                 {
-                    ++_inAirFrames;
-                    if (_inAirFrames >= _airFramesForAOE)
+                    if (!_hasDoneAerialAOE)
                     {
-                        _hasDoneAerialAOE = true;
-                        output.Attack = true;
+                        ++_inAirFrames;
+                        if (_inAirFrames >= _airFramesForAOE)
+                        {
+                            _hasDoneAerialAOE = true;
+                            output.Attack = true;
+                        }
+                        else if (d < _executeAirStrongAloneRange)
+                        {
+                            output.AttackStrong = true;
+                        }
                     }
-                    else if (d < _executeAirStrongAloneRange)
+                    else if (d < _executeAirStrongRange)
                     {
                         output.AttackStrong = true;
                     }
-                }
-                else if (d < _executeAirStrongRange)
-                {
-                    output.AttackStrong = true;
                 }
             }
         }

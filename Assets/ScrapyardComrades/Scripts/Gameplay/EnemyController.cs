@@ -163,7 +163,7 @@ public class EnemyController : SCCharacterController
                         defenseChance: 0.25f,
                         executeDiveRange: 100,
                         executeDiveAloneRange: 50,
-                        airFramesForAOE: 25,
+                        airFramesForAOE: 30,
                         walkToTargetDist: WALK_TO_TARGET_DIST,
                         interactDelay: INTERACT_DELAY,
                         attractSoundKey: SoundData.Key.BossMilitary_Attract
