@@ -307,11 +307,15 @@ public class MidMutantAttackState : SimpleAttackState
 
 public class BossMilitaryAttackState : SimpleAttackState
 {
-    public BossMilitaryAttackState(float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeAttackRange, float pursuitToDist, int cooldown, int executeStrongAttackRange, float defenseStateChance, float executeDiveRange) : base(executeAttackRange, pursuitToDist, cooldown, executeStrongAttackRange, defenseStateChance)
+    public BossMilitaryAttackState(float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeAttackRange, float pursuitToDist, int cooldown, int executeStrongAttackRange, float defenseStateChance, float executeDiveRange, float executeDiveBeforeAttackRange, int inAirFramesForAttack) : base(executeAttackRange, pursuitToDist, cooldown, executeStrongAttackRange, defenseStateChance)
     {
         _jumpAtRangeFar = jumpAtRangeFar;
         _jumpAtRangeNear = jumpAtRangeNear;
         _executeAirAttackRange = executeAttackRange;
+        _executeAirStrongRange = executeDiveRange;
+        _executeAirStrongAloneRange = executeDiveBeforeAttackRange;
+        _airFramesForAOE = inAirFramesForAttack;
+        _inAirFrames = 0;
         _hasDoneAerialAOE = false;
     }
 
@@ -322,16 +326,38 @@ public class BossMilitaryAttackState : SimpleAttackState
 
         if (input.OnGround)
         {
+            _inAirFrames = 0;
             _hasDoneAerialAOE = false;
             if (!output.Jump && d < _jumpAtRangeFar && d > _jumpAtRangeNear)
                 output.Jump = true;
         }
+        /*else if (input.HitStunned)
+        {
+            _hasDoneAerialAOE = false;
+        }*/
 
         else if (!output.Attack && !output.AttackStrong)
         {
+            output.Jump = true;
             if (d < _executeAirAttackRange)
             {
-                output.Attack = true;
+                if (!_hasDoneAerialAOE)
+                {
+                    ++_inAirFrames;
+                    if (_inAirFrames >= _airFramesForAOE)
+                    {
+                        _hasDoneAerialAOE = true;
+                        output.Attack = true;
+                    }
+                    else if (d < _executeAirStrongAloneRange)
+                    {
+                        output.AttackStrong = true;
+                    }
+                }
+                else if (d < _executeAirStrongRange)
+                {
+                    output.AttackStrong = true;
+                }
             }
         }
 
@@ -341,7 +367,11 @@ public class BossMilitaryAttackState : SimpleAttackState
     private float _jumpAtRangeFar;
     private float _jumpAtRangeNear;
     private float _executeAirAttackRange;
+    private float _executeAirStrongRange;
+    private float _executeAirStrongAloneRange;
+    private int _airFramesForAOE;
     private bool _hasDoneAerialAOE;
+    private int _inAirFrames;
 }
 
 public class MutantAttackState : AIState, CustomTransitionState

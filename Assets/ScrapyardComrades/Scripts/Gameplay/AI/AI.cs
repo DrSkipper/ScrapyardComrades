@@ -161,10 +161,10 @@ public class MidMutantAI : AI
 
 public class BossMilitaryAI : AI
 {
-    public BossMilitaryAI(float attackStateRange, float pursuitRange, float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeAttackRange, float attackingPursuitTargetDist, int attackStateCooldown, int defenseDuration, float defenseChance, float walkToTargetDist, int interactDelay, SoundData.Key attractSoundKey, int executeStrongAttackRange = -1)
+    public BossMilitaryAI(float attackStateRange, float pursuitRange, float jumpAtRangeFar, float jumpAtRangeNear, float executeAirAttackRange, float executeAttackRange, float attackingPursuitTargetDist, int attackStateCooldown, int defenseDuration, float defenseChance, float executeDiveRange, float executeDiveAloneRange, int airFramesForAOE, float walkToTargetDist, int interactDelay, SoundData.Key attractSoundKey)
     {
         AIState idleState = new IdleState(attractSoundKey);
-        BossMilitaryAttackState attackState = new BossMilitaryAttackState(jumpAtRangeFar, jumpAtRangeNear, executeAirAttackRange, executeAttackRange, attackingPursuitTargetDist, attackStateCooldown, executeStrongAttackRange, defenseChance, 100);
+        BossMilitaryAttackState attackState = new BossMilitaryAttackState(jumpAtRangeFar, jumpAtRangeNear, executeAirAttackRange, executeAttackRange, attackingPursuitTargetDist, attackStateCooldown, -1, defenseChance, executeDiveRange, executeDiveAloneRange, airFramesForAOE);
         AIState walkState = new WalkTowardState(walkToTargetDist, interactDelay); // Walk toward targets that are not alive
         SimpleDefenseState defenseState = new SimpleDefenseState(defenseDuration);
 
