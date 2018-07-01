@@ -220,6 +220,9 @@ public class SoundData : ScriptableObject
         HeroLV5_GroundPoundImpact,
         HeroLV5_Death,
         HeroLV5_DeathLand,
+        HeroLV5_GroundPoundRaise,
+        HeroLV5_Footsteps1,
+        HeroLV5_Footsteps2,
 
         /**
          * Enemy Level 1
