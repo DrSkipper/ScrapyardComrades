@@ -38,6 +38,9 @@ public class SCMoveSetEditingEditor : Editor
                 _moveOptions.Add("Extra Ref A");
                 _moveOptions.Add("Extra Ref B");
                 _moveOptions.Add("Extra Ref C");
+                _moveOptions.Add("Extra Ref D");
+                _moveOptions.Add("Extra Ref E");
+                _moveOptions.Add("Extra Ref F");
 
                 /*if (behavior.AttackObject.Combos != null)
                 {
@@ -73,6 +76,12 @@ public class SCMoveSetEditingEditor : Editor
                     behavior.AttackObject = behavior.MoveSet.ExtraRefB;
                 else if (behavior.MoveIndex == 8)
                     behavior.AttackObject = behavior.MoveSet.ExtraRefC;
+                else if (behavior.MoveIndex == 9)
+                    behavior.AttackObject = behavior.MoveSet.ExtraRefD;
+                else if (behavior.MoveIndex == 10)
+                    behavior.AttackObject = behavior.MoveSet.ExtraRefE;
+                else if (behavior.MoveIndex == 11)
+                    behavior.AttackObject = behavior.MoveSet.ExtraRefF;
                 behavior.CurrentIndex = 0;
                 behavior.Frame = 0;
             }

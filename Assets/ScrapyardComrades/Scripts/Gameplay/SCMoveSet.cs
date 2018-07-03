@@ -23,6 +23,9 @@ public class SCMoveSet : ScriptableObject
     public SCAttack ExtraRefA;
     public SCAttack ExtraRefB;
     public SCAttack ExtraRefC;
+    public SCAttack ExtraRefD;
+    public SCAttack ExtraRefE;
+    public SCAttack ExtraRefF;
 
     //TODO: Expand as more attack options, etc are added
     // Also need to update SCMoveSetEditingEditor when more moves are added
