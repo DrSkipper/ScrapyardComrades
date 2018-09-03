@@ -12,10 +12,11 @@ public class MusicController : MonoBehaviour
     public MusicEntry[] MusicEntries;
 
     [System.Serializable]
-    public struct MusicEntry
+    public class MusicEntry
     {
         public string SceneName;
         public AudioClip Clip;
+        public bool IgnoreMusic;
     }
 
     void Awake()
@@ -38,22 +39,22 @@ public class MusicController : MonoBehaviour
     /**
      * Private
      */
-    private Dictionary<string, AudioClip> _musicDict;
+    private Dictionary<string, MusicEntry> _musicDict;
 
     private void beginSceneTransition(LocalEventNotifier.Event e)
     {
         string nextSceneName = (e as BeginSceneTransitionEvent).NextSceneName;
-        if (_musicDict.ContainsKey(nextSceneName) && _musicDict[nextSceneName] != this.AudioSource.clip)
+        if (_musicDict.ContainsKey(nextSceneName) && _musicDict[nextSceneName].Clip != this.AudioSource.clip)
             this.VolumeFader.BeginFade(this.FadeOutDuration, 0.0f);
     }
 
     private void compileMusicDict()
     {
-        _musicDict = new Dictionary<string, AudioClip>(this.MusicEntries.Length);
+        _musicDict = new Dictionary<string, MusicEntry>(this.MusicEntries.Length);
 
         for (int i = 0; i < this.MusicEntries.Length; ++i)
         {
-            _musicDict.Add(this.MusicEntries[i].SceneName, this.MusicEntries[i].Clip);
+            _musicDict.Add(this.MusicEntries[i].SceneName, this.MusicEntries[i]);
         }
     }
 
@@ -69,10 +70,18 @@ public class MusicController : MonoBehaviour
 
             this.AudioSource.volume = 1.0f;
             string sceneName = SceneManager.GetActiveScene().name;
-            if (_musicDict.ContainsKey(sceneName) && this.AudioSource.clip != _musicDict[sceneName])
+            if (_musicDict.ContainsKey(sceneName) && this.AudioSource.clip != _musicDict[sceneName].Clip)
             {
-                this.AudioSource.clip = _musicDict[sceneName];
-                this.AudioSource.Play();
+                if (_musicDict[sceneName].IgnoreMusic)
+                {
+                    this.AudioSource.Stop();
+                    this.AudioSource.clip = null;
+                }
+                else
+                {
+                    this.AudioSource.clip = _musicDict[sceneName].Clip;
+                    this.AudioSource.Play();
+                }
             }
         }
     }
