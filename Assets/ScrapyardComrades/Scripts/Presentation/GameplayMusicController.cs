@@ -139,6 +139,6 @@ public class GameplayMusicController : MonoBehaviour
     private string getRoomPrefix(string roomName)
     {
         int spaceIndex = roomName.IndexOf(StringExtensions.SPACE);
-        return spaceIndex <= 0 ? roomName : roomName.Substring(0, spaceIndex);
+        return (spaceIndex <= 0 ? roomName : roomName.Substring(0, spaceIndex)).ToLower();
     }
 }
