@@ -5,6 +5,7 @@ public class SoundManager : MonoBehaviour
 {
     public SfxSource[] AudioSources;
     public SoundData SoundData;
+    public float GlobalSfxVolumeScale = 1.0f;
 
 #if UNITY_EDITOR
     public List<SoundData.Key> RecentCooldownKeys = new List<SoundData.Key>(); // Exposed for debugging
@@ -67,14 +68,14 @@ public class SoundManager : MonoBehaviour
                     case SoundData.MultiSfxBehavior.PlayAll:
                         for (int i = 0; i < entries.Count; ++i)
                         {
-                            found |= playEntry(entries.Entries[i], entries, proximityTransform, volumeMult, pitchMult);
+                            found |= playEntry(entries.Entries[i], entries, proximityTransform, volumeMult * this.GlobalSfxVolumeScale, pitchMult);
                         }
                         break;
 
                     case SoundData.MultiSfxBehavior.Randomize:
                         if (entries.Count > 0)
                         {
-                            found = playEntry(entries.Entries[Random.Range(0, entries.Entries.Count - 1)], entries, proximityTransform, volumeMult, pitchMult);
+                            found = playEntry(entries.Entries[Random.Range(0, entries.Entries.Count - 1)], entries, proximityTransform, volumeMult * this.GlobalSfxVolumeScale, pitchMult);
                         }
                         break;
                 }
