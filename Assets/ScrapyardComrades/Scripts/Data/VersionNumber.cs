@@ -8,7 +8,7 @@ public static class VersionNumber
     public const string VERSION_TITLE = "Alpha";
     public const int MAJOR_VERSION = 0;
     public const int MINOR_VERSION = 2;
-    public const int PATCH_NUMBER = 4;
+    public const int PATCH_NUMBER = 6;
 
     public static string FullVersionString
     {
