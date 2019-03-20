@@ -89,7 +89,7 @@ public class GameplayMusicController : MonoBehaviour
             //TODO: if it hasn't check if the specific room name has a different music layer set than the previous one
             string nextRoomName = this.LoadingManager.CurrentQuadName;
             string nextPrefix = getRoomPrefix(nextRoomName);
-            if (_prevRoomPrefix != nextPrefix)
+            if (_prevRoomPrefix != nextPrefix && nextRoomName.ToLower() != "slums 12") //TODO: Remove hack
             {
                 if (_defaults.ContainsKey(nextPrefix))
                 {
