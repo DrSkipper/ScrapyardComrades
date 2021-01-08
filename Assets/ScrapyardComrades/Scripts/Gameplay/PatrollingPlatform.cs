@@ -128,10 +128,17 @@ public class PatrollingPlatform : VoBehavior, IMovingPlatform, IPausable
                 // Pull any actors on our platform down with us
                 if ((offsetY < 0 || offsetX != 0) && _collisions.Count > 0)
                 {
+                    Actor2D actor;
                     for (int i = 0; i < _collisions.Count; ++i)
                     {
-                        _collisions[i].GetComponent<Actor2D>().Move(new Vector2(offsetX, offsetY));
+                        if (_collisions[i] != null)
+                        {
+                            actor = _collisions[i].GetComponent<Actor2D>();
+                            if (actor != null)
+                                actor.Move(new Vector2(offsetX, offsetY));
+                        }
                     }
+                    actor = null;
                     _collisions.Clear();
                 }
 
